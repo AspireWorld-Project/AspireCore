@@ -78,9 +78,11 @@ public class ForgeVersion {
 			@SuppressWarnings("unchecked")
 			@Override
 			public void run() {
+				// s5a4ed1sa7 code start
 				UltramineServerConfig usc = new UltramineServerConfig();
 				boolean enable = usc.fixer.baseFixer.checkForgeVersion;
 				if (enable)
+			    // s5a4ed1sa7 code end
 				try {
 					URL url = new URL(
 							"http://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json");

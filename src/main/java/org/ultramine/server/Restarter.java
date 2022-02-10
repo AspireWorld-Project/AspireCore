@@ -3,8 +3,6 @@ package org.ultramine.server;
 import static net.minecraft.util.EnumChatFormatting.DARK_PURPLE;
 
 import java.io.File;
-import java.io.IOException;
-
 import org.ultramine.server.util.BasicTypeFormatter;
 
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -33,7 +31,9 @@ public class Restarter
 	{
 		toRestart = seconds;
 		mgr = MinecraftServer.getServer().getConfigurationManager();
+		// s5a4ed1sa7 code start
 		restart = false;
+		// s5a4ed1sa7 code end
 	}
 	
 	@SubscribeEvent
@@ -75,7 +75,9 @@ public class Restarter
 		mgr.saveAllPlayerData();
 		for(EntityPlayerMP player : GenericIterableFactory.newCastingIterable(mgr.playerEntityList, EntityPlayerMP.class))
 			player.playerNetServerHandler.kickPlayerFromServer("\u00a75"+player.translate("ultramine.restart.kick1")+"\n\u00a7d"+player.translate("ultramine.restart.kick2"));
+		// s5a4ed1sa7 code start
 		restart = true;
+		// s5a4ed1sa7 code end
 		mgr.getServerInstance().initiateShutdown();
 	}
 	
@@ -97,6 +99,7 @@ public class Restarter
 		
 		return false;
 	}
+	// s5a4ed1sa7 code start, zaxar163 be like
 	 public static boolean isWindows(){
 
 	        String os = System.getProperty("os.name").toLowerCase();
@@ -104,6 +107,9 @@ public class Restarter
 	        return (os.indexOf( "win" ) >= 0); 
 
 	    }
+	 // s5a4ed1sa7 code end
+	 
+	 // s5a4ed1sa7 code start, spigot restart be like
 	  @SuppressWarnings("static-access")
 	public static void restart(boolean forbidShutdown) {
 		  if(currentRestarter.restart) {
@@ -156,5 +162,6 @@ public class Restarter
 	        }
 	    }
 	  }
+	// s5a4ed1sa7 code end
 }
 

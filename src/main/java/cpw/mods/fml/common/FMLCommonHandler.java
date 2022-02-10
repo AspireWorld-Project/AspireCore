@@ -435,11 +435,13 @@ public class FMLCommonHandler {
 			latch.countDown();
 			exitLatch = null;
 		}
+		// s5a4ed1sa7 code start
 		if (Restarter.restart) {
 		Restarter.restart(false);
 		} else {
 		Restarter.restart(true);
 		}
+		// s5a4ed1sa7 code end
 	}
 
 	public String getModName() {

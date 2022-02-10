@@ -6,13 +6,16 @@ import java.util.List;
 import java.util.Map;
 
 public class UltramineServerConfig {
+	// s5a4ed1sa7 code start
 	public s5a4ed1sa7 fixer = new s5a4ed1sa7();
+	// s5a4ed1sa7 code end
 	public ListenConf listen = new ListenConf();
 	public SettingsConf settings = new SettingsConf();
 	public ToolsConf tools = new ToolsConf();
 	public Map<String, DatabaseConf> databases = new HashMap<>();
 	public VanillaConf vanilla = new VanillaConf();
-
+	
+	// s5a4ed1sa7 code start
 	public static class s5a4ed1sa7 {
 		public BaseFixer baseFixer = new BaseFixer();
 	}
@@ -21,7 +24,7 @@ public class UltramineServerConfig {
 		 public boolean checkForgeVersion = false;
 		 
 	 }
-	
+	// s5a4ed1sa7 code end
 	public static class ListenConf {
 		public MinecraftConf minecraft = new MinecraftConf();
 		public QueryConf query = new QueryConf();

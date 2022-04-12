@@ -207,8 +207,10 @@ public class DimensionManager {
 
 	public static void initDimension(int dim) {
 		WorldServer overworld = getWorld(0);
-		if (overworld == null)
-			throw new RuntimeException("Cannot Hotload Dim: Overworld is not Loaded!");
+		MinecraftServer mc = FMLCommonHandler.instance().getMinecraftServerInstance();
+		if (overworld == null) {
+			overworld = mc.getMultiWorld().getWorldByID(0);
+		}
 		try {
 			DimensionManager.getProviderType(dim);
 		} catch (Exception e) {

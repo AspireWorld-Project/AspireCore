@@ -180,9 +180,6 @@ public class WorldDescriptor {
 
 	@SideOnly(Side.SERVER)
 	private void loadNow() {
-		if (state.isLoaded())
-			throw new RuntimeException("Dimension [" + dimension + "] is already loaded");
-
 		worldLoader = createLoader();
 		if (worldLoader.hasAsyncLoadPhase()) {
 			worldLoader.doAsyncLoadPhase();

@@ -108,6 +108,30 @@ public class UMHooks {
 		return text;
 	}
 
+	private static final long MS = 1_000_000;
+	private static final long BREAK_THRESHOLD = 100_000;
+	private static final long SLEEP_THRESHOLD = 2 * MS;
+	private static final long CHUNK_GEN_THRESHOLD = 10 * MS;
+
+	/** Called from main thread instead of Thread.sleep(nanos / 1000000) to wait until next tick time */
+	public static void utilizeCPU(long nanos) throws InterruptedException
+	{
+		long till = System.nanoTime() + nanos;
+		long toWait;
+		while((toWait = till - System.nanoTime()) > BREAK_THRESHOLD)
+		{
+			if(toWait <= SLEEP_THRESHOLD || !doOneAction(toWait))
+				Thread.sleep((till - System.nanoTime()) >= MS ? 1 : 0);
+		}
+	}
+
+	private static boolean doOneAction(long toWait)
+	{
+		return  ((SyncServerExecutorImpl) GlobalExecutors.nextTick()).processOneTask() ||
+				toWait > CHUNK_GEN_THRESHOLD && ChunkGenerationQueue.instance().generateOneChunk();
+	}
+
+
 	public static void onChunkPopulated(Chunk chunk) {
 		forceProcessPendingAndFallingBlocks(chunk);
 	}

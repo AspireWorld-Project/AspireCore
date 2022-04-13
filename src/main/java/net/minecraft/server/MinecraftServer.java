@@ -397,6 +397,7 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
 					wait -= catchupTime;
 
 					if (wait > 100000) {
+						utilizeCPU(wait);
 						catchupTime = 0;
 						continue;
 					} else {
@@ -470,6 +471,10 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
 				}
 			}
 		}
+	}
+	protected void utilizeCPU(long nanos) throws InterruptedException
+	{
+		Thread.sleep(nanos / 1000000);
 	}
 
 	private void func_147138_a(ServerStatusResponse p_147138_1_) {

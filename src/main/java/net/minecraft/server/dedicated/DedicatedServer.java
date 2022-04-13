@@ -579,4 +579,11 @@ public class DedicatedServer extends MinecraftServer implements IServer {
 	public BackupManager getBackupManager() {
 		return backupMgr;
 	}
+
+	@Override
+	protected void utilizeCPU(long nanos) throws InterruptedException
+	{
+		UMHooks.utilizeCPU(nanos);
+	}
+
 }

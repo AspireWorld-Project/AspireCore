@@ -74,7 +74,7 @@ public class EventImplProgress {
 		reg(true, org.bukkit.event.block.SignChangeEvent.class);
 		reg(true, org.bukkit.event.enchantment.EnchantItemEvent.class);
 		reg(true, org.bukkit.event.enchantment.PrepareItemEnchantEvent.class);
-		reg(true, org.bukkit.event.entity.CreatureSpawnEvent.class); // TODO impl SpawnReason
+		reg(true, org.bukkit.event.entity.CreatureSpawnEvent.class);
 		reg(true, org.bukkit.event.entity.CreeperPowerEvent.class);
 		reg(true, org.bukkit.event.entity.EntityBreakDoorEvent.class);
 		reg(true, org.bukkit.event.entity.EntityChangeBlockEvent.class);
@@ -96,8 +96,7 @@ public class EventImplProgress {
 		reg(true, org.bukkit.event.entity.EntityTameEvent.class);
 		reg(true, org.bukkit.event.entity.EntityTargetEvent.class);
 		reg(true, org.bukkit.event.entity.EntityTargetLivingEntityEvent.class);
-		reg(true, org.bukkit.event.entity.EntityTeleportEvent.class); // NOTE: this event is only for endermen, and not
-																		// for other entities!
+		reg(true, org.bukkit.event.entity.EntityTeleportEvent.class);
 		reg(true, org.bukkit.event.entity.EntityUnleashEvent.class);
 		reg(true, org.bukkit.event.entity.ExpBottleEvent.class);
 		reg(true, org.bukkit.event.entity.ExplosionPrimeEvent.class);
@@ -138,64 +137,64 @@ public class EventImplProgress {
 		reg(true, org.bukkit.event.player.AsyncPlayerChatEvent.class);
 		reg(true, org.bukkit.event.player.AsyncPlayerPreLoginEvent.class);
 		reg(true, org.bukkit.event.player.PlayerAchievementAwardedEvent.class);
-		reg(true, org.bukkit.event.player.PlayerAnimationEvent.class); // TODO Testing
+		reg(true, org.bukkit.event.player.PlayerAnimationEvent.class);
 		reg(true, org.bukkit.event.player.PlayerBedEnterEvent.class);
 		reg(true, org.bukkit.event.player.PlayerBedLeaveEvent.class);
 		reg(true, org.bukkit.event.player.PlayerBucketEmptyEvent.class);
 		reg(true, org.bukkit.event.player.PlayerBucketFillEvent.class);
 		reg(true, org.bukkit.event.player.PlayerChangedWorldEvent.class);
-		reg(true, org.bukkit.event.player.PlayerChannelEvent.class); // FIXME: implement
-		reg(true, org.bukkit.event.player.PlayerChatEvent.class); // FIXME: implement
-		reg(true, org.bukkit.event.player.PlayerChatTabCompleteEvent.class); // FIXME: implement
+		reg(true, org.bukkit.event.player.PlayerChannelEvent.class);
+		reg(true, org.bukkit.event.player.PlayerChatEvent.class);
+		reg(true, org.bukkit.event.player.PlayerChatTabCompleteEvent.class);
 		reg(true, org.bukkit.event.player.PlayerCommandPreprocessEvent.class);
 		reg(true, org.bukkit.event.player.PlayerDropItemEvent.class);
 		reg(true, org.bukkit.event.player.PlayerEditBookEvent.class);
 		reg(true, org.bukkit.event.player.PlayerEggThrowEvent.class);
 		reg(true, org.bukkit.event.player.PlayerExpChangeEvent.class);
 		reg(true, org.bukkit.event.player.PlayerFishEvent.class);
-		reg(true, org.bukkit.event.player.PlayerGameModeChangeEvent.class); // TODO currently only in CraftPlayer
+		reg(true, org.bukkit.event.player.PlayerGameModeChangeEvent.class);
 		reg(true, org.bukkit.event.player.PlayerInteractEntityEvent.class);
-		reg(true, org.bukkit.event.player.PlayerInteractEvent.class); // TODO currently only click actions
+		reg(true, org.bukkit.event.player.PlayerInteractEvent.class);
 		reg(true, org.bukkit.event.player.PlayerInventoryEvent.class);
 		reg(true, org.bukkit.event.player.PlayerItemBreakEvent.class);
 		reg(true, org.bukkit.event.player.PlayerItemConsumeEvent.class);
 		reg(true, org.bukkit.event.player.PlayerItemHeldEvent.class);
-		reg(true, org.bukkit.event.player.PlayerJoinEvent.class); // TODO support for custom join messages
+		reg(true, org.bukkit.event.player.PlayerJoinEvent.class);
 		reg(true, org.bukkit.event.player.PlayerKickEvent.class);
 		reg(true, org.bukkit.event.player.PlayerLevelChangeEvent.class);
-		reg(true, org.bukkit.event.player.PlayerLoginEvent.class); // TODO add server hostname
+		reg(true, org.bukkit.event.player.PlayerLoginEvent.class);
 		reg(true, org.bukkit.event.player.PlayerMoveEvent.class);
 		reg(true, org.bukkit.event.player.PlayerPickupItemEvent.class);
 		reg(true, org.bukkit.event.player.PlayerPortalEvent.class);
 		reg(true, org.bukkit.event.player.PlayerPreLoginEvent.class);
-		reg(true, org.bukkit.event.player.PlayerQuitEvent.class); // TODO support for custom quit messages
+		reg(true, org.bukkit.event.player.PlayerQuitEvent.class);
 		reg(true, org.bukkit.event.player.PlayerRegisterChannelEvent.class);
 		reg(true, org.bukkit.event.player.PlayerRespawnEvent.class);
 		reg(true, org.bukkit.event.player.PlayerShearEntityEvent.class);
 		reg(true, org.bukkit.event.player.PlayerStatisticIncrementEvent.class);
 		reg(true, org.bukkit.event.player.PlayerTeleportEvent.class);
-		reg(true, org.bukkit.event.player.PlayerToggleFlightEvent.class); // TODO Testing
+		reg(true, org.bukkit.event.player.PlayerToggleFlightEvent.class);
 		reg(true, org.bukkit.event.player.PlayerToggleSneakEvent.class);
-		reg(true, org.bukkit.event.player.PlayerToggleSprintEvent.class); // TODO Testing
+		reg(true, org.bukkit.event.player.PlayerToggleSprintEvent.class);
 		reg(true, org.bukkit.event.player.PlayerUnleashEntityEvent.class);
-		reg(true, org.bukkit.event.player.PlayerUnregisterChannelEvent.class); // FIXME: implement
+		reg(true, org.bukkit.event.player.PlayerUnregisterChannelEvent.class);
 		reg(true, org.bukkit.event.player.PlayerVelocityEvent.class);
-		reg(true, org.bukkit.event.server.MapInitializeEvent.class); // FIXME: implement
+		reg(true, org.bukkit.event.server.MapInitializeEvent.class);
 		reg(true, org.bukkit.event.server.PluginDisableEvent.class);
 		reg(true, org.bukkit.event.server.PluginEnableEvent.class);
 		reg(true, org.bukkit.event.server.PluginEvent.class);
 		reg(true, org.bukkit.event.server.RemoteServerCommandEvent.class);
 		reg(true, org.bukkit.event.server.ServerCommandEvent.class);
-		reg(true, org.bukkit.event.server.ServerListPingEvent.class); // FIXME: implement
+		reg(true, org.bukkit.event.server.ServerListPingEvent.class);
 		reg(true, org.bukkit.event.server.ServiceRegisterEvent.class);
 		reg(true, org.bukkit.event.server.ServiceUnregisterEvent.class);
-		reg(true, org.bukkit.event.vehicle.VehicleBlockCollisionEvent.class); // FIXME: implement
-		reg(true, org.bukkit.event.vehicle.VehicleCollisionEvent.class); // FIXME: implement
+		reg(true, org.bukkit.event.vehicle.VehicleBlockCollisionEvent.class);
+		reg(true, org.bukkit.event.vehicle.VehicleCollisionEvent.class);
 		reg(true, org.bukkit.event.vehicle.VehicleCreateEvent.class);
 		reg(true, org.bukkit.event.vehicle.VehicleDamageEvent.class);
 		reg(true, org.bukkit.event.vehicle.VehicleDestroyEvent.class);
 		reg(true, org.bukkit.event.vehicle.VehicleEnterEvent.class);
-		reg(true, org.bukkit.event.vehicle.VehicleEntityCollisionEvent.class); // FIXME: implement
+		reg(true, org.bukkit.event.vehicle.VehicleEntityCollisionEvent.class);
 		reg(true, org.bukkit.event.vehicle.VehicleExitEvent.class);
 		reg(true, org.bukkit.event.vehicle.VehicleMoveEvent.class);
 		reg(true, org.bukkit.event.vehicle.VehicleUpdateEvent.class);

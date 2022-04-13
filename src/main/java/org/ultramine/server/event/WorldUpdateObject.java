@@ -30,9 +30,8 @@ public class WorldUpdateObject {
 		type = WorldUpdateObjectType.UNKNOWN;
 	}
 
-	WorldUpdateObject setType(WorldUpdateObjectType type) {
+	void setType(WorldUpdateObjectType type) {
 		this.type = type;
-		return this;
 	}
 
 	public WorldUpdateObjectType getType() {

@@ -174,7 +174,6 @@ public class WorldDescriptor {
 	public void weakLoadNow() {
 		if (state == WorldState.HELD || state == WorldState.UNREGISTERED)
 			return;
-
 		loadNow();
 	}
 

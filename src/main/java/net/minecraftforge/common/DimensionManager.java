@@ -207,9 +207,8 @@ public class DimensionManager {
 
 	public static void initDimension(int dim) {
 		WorldServer overworld = getWorld(0);
-		MinecraftServer mc = FMLCommonHandler.instance().getMinecraftServerInstance();
 		if (overworld == null) {
-			overworld = mc.getMultiWorld().getWorldByID(0);
+			overworld = FMLCommonHandler.instance().getMinecraftServerInstance().getMultiWorld().getWorldByID(0);
 		}
 		try {
 			DimensionManager.getProviderType(dim);

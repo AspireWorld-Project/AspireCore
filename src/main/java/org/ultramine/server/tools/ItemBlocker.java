@@ -154,7 +154,7 @@ public class ItemBlocker {
 				: getBlockingSettings(dim, Item.getIdFromItem(stack.getItem()), stack.getItemDamage());
 	}
 
-	private class PerWorldBlocker {
+	private static class PerWorldBlocker {
 		private final ItemStackHashMap<BlockingSettings> itemMap = new ItemStackHashMap<>();
 
 		public PerWorldBlocker(List<BlockingSettings> list) {

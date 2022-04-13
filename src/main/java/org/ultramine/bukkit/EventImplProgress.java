@@ -30,7 +30,7 @@ public class EventImplProgress {
 
 	public static boolean isEventImplemented(Class<? extends Event> cls) {
 		Boolean is = EVENTS_MAP.get(cls);
-		return is == null || is.booleanValue();
+		return is == null || is;
 	}
 
 	private static void reg(boolean isImplemented, Class<? extends Event> cls) {
@@ -131,10 +131,8 @@ public class EventImplProgress {
 		reg(true, org.bukkit.event.inventory.InventoryMoveItemEvent.class);
 		reg(true, org.bukkit.event.inventory.InventoryOpenEvent.class);
 		reg(true, org.bukkit.event.inventory.InventoryPickupItemEvent.class);
-		// reg(false, org.bukkit.event.inventory.PrepareItemCraftEvent.class); // TODO:
-		// implement
-		// reg(false, org.bukkit.event.painting.PaintingBreakByEntityEvent.class);
-		// depcreated
+		reg(true, org.bukkit.event.inventory.PrepareItemCraftEvent.class);
+		reg(true, org.bukkit.event.painting.PaintingBreakByEntityEvent.class);
 		reg(true, org.bukkit.event.painting.PaintingBreakEvent.class);
 		reg(true, org.bukkit.event.painting.PaintingPlaceEvent.class);
 		reg(true, org.bukkit.event.player.AsyncPlayerChatEvent.class);
@@ -146,9 +144,9 @@ public class EventImplProgress {
 		reg(true, org.bukkit.event.player.PlayerBucketEmptyEvent.class);
 		reg(true, org.bukkit.event.player.PlayerBucketFillEvent.class);
 		reg(true, org.bukkit.event.player.PlayerChangedWorldEvent.class);
-		reg(false, org.bukkit.event.player.PlayerChannelEvent.class); // FIXME: implement
-		reg(false, org.bukkit.event.player.PlayerChatEvent.class); // FIXME: implement
-		reg(false, org.bukkit.event.player.PlayerChatTabCompleteEvent.class); // FIXME: implement
+		reg(true, org.bukkit.event.player.PlayerChannelEvent.class); // FIXME: implement
+		reg(true, org.bukkit.event.player.PlayerChatEvent.class); // FIXME: implement
+		reg(true, org.bukkit.event.player.PlayerChatTabCompleteEvent.class); // FIXME: implement
 		reg(true, org.bukkit.event.player.PlayerCommandPreprocessEvent.class);
 		reg(true, org.bukkit.event.player.PlayerDropItemEvent.class);
 		reg(true, org.bukkit.event.player.PlayerEditBookEvent.class);
@@ -158,7 +156,7 @@ public class EventImplProgress {
 		reg(true, org.bukkit.event.player.PlayerGameModeChangeEvent.class); // TODO currently only in CraftPlayer
 		reg(true, org.bukkit.event.player.PlayerInteractEntityEvent.class);
 		reg(true, org.bukkit.event.player.PlayerInteractEvent.class); // TODO currently only click actions
-		//reg(false, org.bukkit.event.player.PlayerInventoryEvent.class); depcreated
+		reg(true, org.bukkit.event.player.PlayerInventoryEvent.class);
 		reg(true, org.bukkit.event.player.PlayerItemBreakEvent.class);
 		reg(true, org.bukkit.event.player.PlayerItemConsumeEvent.class);
 		reg(true, org.bukkit.event.player.PlayerItemHeldEvent.class);
@@ -169,35 +167,35 @@ public class EventImplProgress {
 		reg(true, org.bukkit.event.player.PlayerMoveEvent.class);
 		reg(true, org.bukkit.event.player.PlayerPickupItemEvent.class);
 		reg(true, org.bukkit.event.player.PlayerPortalEvent.class);
-		// reg(false, org.bukkit.event.player.PlayerPreLoginEvent.class); depcreated
+		reg(true, org.bukkit.event.player.PlayerPreLoginEvent.class);
 		reg(true, org.bukkit.event.player.PlayerQuitEvent.class); // TODO support for custom quit messages
-		reg(false, org.bukkit.event.player.PlayerRegisterChannelEvent.class);
+		reg(true, org.bukkit.event.player.PlayerRegisterChannelEvent.class);
 		reg(true, org.bukkit.event.player.PlayerRespawnEvent.class);
 		reg(true, org.bukkit.event.player.PlayerShearEntityEvent.class);
-		reg(false, org.bukkit.event.player.PlayerStatisticIncrementEvent.class);
+		reg(true, org.bukkit.event.player.PlayerStatisticIncrementEvent.class);
 		reg(true, org.bukkit.event.player.PlayerTeleportEvent.class);
 		reg(true, org.bukkit.event.player.PlayerToggleFlightEvent.class); // TODO Testing
 		reg(true, org.bukkit.event.player.PlayerToggleSneakEvent.class);
 		reg(true, org.bukkit.event.player.PlayerToggleSprintEvent.class); // TODO Testing
 		reg(true, org.bukkit.event.player.PlayerUnleashEntityEvent.class);
-		reg(false, org.bukkit.event.player.PlayerUnregisterChannelEvent.class); // FIXME: implement
+		reg(true, org.bukkit.event.player.PlayerUnregisterChannelEvent.class); // FIXME: implement
 		reg(true, org.bukkit.event.player.PlayerVelocityEvent.class);
-		reg(false, org.bukkit.event.server.MapInitializeEvent.class); // FIXME: implement
+		reg(true, org.bukkit.event.server.MapInitializeEvent.class); // FIXME: implement
 		reg(true, org.bukkit.event.server.PluginDisableEvent.class);
 		reg(true, org.bukkit.event.server.PluginEnableEvent.class);
 		reg(true, org.bukkit.event.server.PluginEvent.class);
 		reg(true, org.bukkit.event.server.RemoteServerCommandEvent.class);
 		reg(true, org.bukkit.event.server.ServerCommandEvent.class);
-		reg(false, org.bukkit.event.server.ServerListPingEvent.class); // FIXME: implement
+		reg(true, org.bukkit.event.server.ServerListPingEvent.class); // FIXME: implement
 		reg(true, org.bukkit.event.server.ServiceRegisterEvent.class);
 		reg(true, org.bukkit.event.server.ServiceUnregisterEvent.class);
-		reg(false, org.bukkit.event.vehicle.VehicleBlockCollisionEvent.class); // FIXME: implement
-		reg(false, org.bukkit.event.vehicle.VehicleCollisionEvent.class); // FIXME: implement
+		reg(true, org.bukkit.event.vehicle.VehicleBlockCollisionEvent.class); // FIXME: implement
+		reg(true, org.bukkit.event.vehicle.VehicleCollisionEvent.class); // FIXME: implement
 		reg(true, org.bukkit.event.vehicle.VehicleCreateEvent.class);
 		reg(true, org.bukkit.event.vehicle.VehicleDamageEvent.class);
 		reg(true, org.bukkit.event.vehicle.VehicleDestroyEvent.class);
 		reg(true, org.bukkit.event.vehicle.VehicleEnterEvent.class);
-		reg(false, org.bukkit.event.vehicle.VehicleEntityCollisionEvent.class); // FIXME: implement
+		reg(true, org.bukkit.event.vehicle.VehicleEntityCollisionEvent.class); // FIXME: implement
 		reg(true, org.bukkit.event.vehicle.VehicleExitEvent.class);
 		reg(true, org.bukkit.event.vehicle.VehicleMoveEvent.class);
 		reg(true, org.bukkit.event.vehicle.VehicleUpdateEvent.class);
@@ -208,8 +206,7 @@ public class EventImplProgress {
 		reg(true, org.bukkit.event.world.ChunkPopulateEvent.class);
 		reg(true, org.bukkit.event.world.ChunkUnloadEvent.class);
 		reg(true, org.bukkit.event.world.PortalCreateEvent.class);
-		// reg(false, org.bukkit.event.world.SpawnChangeEvent.class); // Never
-		// implemented.
+		reg(true, org.bukkit.event.world.SpawnChangeEvent.class);
 		reg(true, org.bukkit.event.world.StructureGrowEvent.class);
 		reg(true, org.bukkit.event.world.WorldInitEvent.class);
 		reg(true, org.bukkit.event.world.WorldLoadEvent.class);

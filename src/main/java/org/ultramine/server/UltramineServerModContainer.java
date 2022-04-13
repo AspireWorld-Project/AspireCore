@@ -1,9 +1,11 @@
 package org.ultramine.server;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
+import net.minecraft.util.StringTranslate;
 import org.ultramine.commands.CommandRegistry;
 import org.ultramine.commands.basic.FastWarpCommand;
 import org.ultramine.commands.basic.GenWorldCommand;
@@ -111,6 +113,9 @@ public class UltramineServerModContainer extends DummyModContainer {
 				services.register(Economy.class, new UMEconomy(), 0);
 				services.register(DefaultHoldingsProvider.class, new UMIntegratedHoldingsProvider(), 0);
 			}
+                // In the case of launch from IDE translation table is not loaded automatically
+				InputStream langFile = getClass().getResourceAsStream("/assets/ultramine/lang/ru_RU.lang");
+				if (langFile != null) StringTranslate.inject(langFile);
 
 			OpBasedPermissions vanPerms = new OpBasedPermissions();
 			vanPerms.addDefault("command.vanilla.help");

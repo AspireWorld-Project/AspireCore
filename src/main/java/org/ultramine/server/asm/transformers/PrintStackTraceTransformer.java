@@ -15,13 +15,14 @@ import org.objectweb.asm.tree.MethodNode;
 import org.ultramine.server.asm.UMTBatchTransformer.IUMClassTransformer;
 import org.ultramine.server.asm.UMTBatchTransformer.TransformResult;
 
+import javax.annotation.Nonnull;
+
 /**
  * This transformer redirects method invocations: <br />
  * from {@link Throwable#printStackTrace()} to
  * {@link org.ultramine.server.internal.UMHooks#printStackTrace(Throwable)};
  */
 public class PrintStackTraceTransformer implements IUMClassTransformer {
-	private static final Logger log = LogManager.getLogger();
 
 	private static final String UMHOOKS_TYPE = "org/ultramine/server/internal/UMHooks";
 	private static final Set<String> THROWABLE_TYPES = new HashSet<>();
@@ -36,6 +37,7 @@ public class PrintStackTraceTransformer implements IUMClassTransformer {
 		THROWABLE_TYPES.add("java/io/IOException");
 	}
 
+	@Nonnull
 	@Override
 	public TransformResult transform(String name, String transformedName, ClassReader classReader,
 			ClassNode classNode) {
@@ -47,9 +49,6 @@ public class PrintStackTraceTransformer implements IUMClassTransformer {
 					MethodInsnNode mi = (MethodInsnNode) insnNode;
 					if (THROWABLE_TYPES.contains(mi.owner) && PST_NAME.equals(mi.name) && PST_DESC.equals(mi.desc)
 							&& mi.getOpcode() == Opcodes.INVOKEVIRTUAL) {
-						log.trace(
-								"Method {}.{}{}: Replacing INVOKEVIRTUAL {}.printStackTrace with INVOKESTATIC UMHooks.printStackTrace",
-								name, m.name, m.desc, mi.owner);
 						it.remove();
 						MethodInsnNode replace = new MethodInsnNode(Opcodes.INVOKESTATIC, UMHOOKS_TYPE, PST_NAME,
 								UM_PST_DESC, false);

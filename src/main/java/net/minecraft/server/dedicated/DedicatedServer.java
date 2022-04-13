@@ -518,8 +518,7 @@ public class DedicatedServer extends MinecraftServer implements IServer {
 	private void func_152369_aG() {
 		try {
 			Thread.sleep(5000L);
-		} catch (InterruptedException interruptedexception) {
-			;
+		} catch (InterruptedException ignored) {
 		}
 	}
 
@@ -579,10 +578,5 @@ public class DedicatedServer extends MinecraftServer implements IServer {
 	@Override
 	public BackupManager getBackupManager() {
 		return backupMgr;
-	}
-
-	@Override
-	protected void utilizeCPU(long nanos) throws InterruptedException {
-		UMHooks.utilizeCPU(nanos);
 	}
 }

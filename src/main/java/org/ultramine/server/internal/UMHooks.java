@@ -48,61 +48,6 @@ public class UMHooks {
 	private static final Logger log = LogManager.getLogger();
 	private static final boolean IS_CLIENT = FMLCommonHandler.instance().getSide().isClient();
 
-	public static void printStackTrace(Throwable t) {
-		log.error("Direct Throwable.printStackTrace() call");
-		if (Thread.currentThread().getName().equals("Server thread")) {
-			WorldEventProxy wep = WorldEventProxy.getCurrent();
-			if (wep != null) {
-				int dim = wep.getWorld().provider.dimensionId;
-				WorldUpdateObject obj = wep.getUpdateObject();
-				switch (obj.getType()) {
-				case BLOCK_EVENT:
-					log.error("On block event update [{}]({}, {}, {})", dim, obj.getX(), obj.getY(), obj.getZ());
-					break;
-				case BLOCK_PENDING:
-					log.error("On block pending update [{}]({}, {}, {})", dim, obj.getX(), obj.getY(), obj.getZ());
-					break;
-				case BLOCK_RANDOM:
-					log.error("On block random update [{}]({}, {}, {})", dim, obj.getX(), obj.getY(), obj.getZ());
-					break;
-				case ENTITY:
-					Entity ent = obj.getEntity();
-					log.error("On entity update [{}]({}, {}, {}). Entity: {}, Class: {}", dim, ent.posX, ent.posY,
-							ent.posZ, ent, ent.getClass().getName());
-					break;
-				case ENTITY_WEATHER:
-					Entity went = obj.getEntity();
-					log.error("On weather entity update [{}]({}, {}, {}). Entity: {}, Class: {}", dim, went.posX,
-							went.posY, went.posZ, went, went.getClass().getName());
-					break;
-				case PLAYER:
-					EntityPlayer player = (EntityPlayer) obj.getEntity();
-					log.error("On player packet [{}]({}, {}, {}). Entity: {}", dim, player.posX, player.posY,
-							player.posZ, player);
-					break;
-				case TILEE_ENTITY:
-					TileEntity te = obj.getTileEntity();
-					log.error("On TileEntity update [{}]({}, {}, {}). Class: {}", dim, te.xCoord, te.yCoord, te.zCoord,
-							te.getClass().getName());
-					break;
-				case WEATHER:
-					log.error("On weather action at world [{}]", dim);
-					break;
-				case UNKNOWN:
-					log.error("On unknown action at world [{}]", dim);
-					break;
-				}
-			} else {
-				log.error("On unknown action");
-			}
-		} else {
-			log.error("On unknown action in thread " + Thread.currentThread().getName());
-		}
-
-		log.error("Invoked here", new Throwable("stacktrace"));
-		log.error("Original stacktrace", t);
-	}
-
 	public static GameProfile readObjectOwner(NBTTagCompound nbt) {
 		if (IS_CLIENT)
 			return null;
@@ -161,30 +106,6 @@ public class UMHooks {
 		ChatComponentTranslation text = new ChatComponentTranslation(translated.isEmpty() ? key : translated, newArgs);
 		text.setChatStyle(msg.getChatStyle());
 		return text;
-	}
-
-	private static final long MS = 1_000_000;
-	private static final long BREAK_THRESHOLD = 100_000;
-	private static final long SLEEP_THRESHOLD = 2 * MS;
-	private static final long CHUNK_GEN_THRESHOLD = 10 * MS;
-
-	/**
-	 * Called from main thread instead of Thread.sleep(nanos / 1000000) to wait
-	 * until next tick time
-	 */
-	public static void utilizeCPU(long nanos) throws InterruptedException {
-		long till = System.nanoTime() + nanos;
-		long toWait;
-		while ((toWait = till - System.nanoTime()) > BREAK_THRESHOLD) {
-			if (toWait <= SLEEP_THRESHOLD || !doOneAction(toWait)) {
-				Thread.sleep(till - System.nanoTime() >= MS ? 1 : 0);
-			}
-		}
-	}
-
-	private static boolean doOneAction(long toWait) {
-		return ((SyncServerExecutorImpl) GlobalExecutors.nextTick()).processOneTask()
-				|| toWait > CHUNK_GEN_THRESHOLD && ChunkGenerationQueue.instance().generateOneChunk();
 	}
 
 	public static void onChunkPopulated(Chunk chunk) {
@@ -290,24 +211,21 @@ public class UMHooks {
 			data = new byte[4096];
 			byte[] buf = LOCAL_BUFFER.get();
 
-			for (int i = 0; i < ebsArr.length; ++i) {
-				ExtendedBlockStorage ebs = ebsArr[i];
+			for (ExtendedBlockStorage ebs : ebsArr) {
 				if (ebs != null && !ebs.isEmpty()) {
 					ebs.getSlot().copyLSB(buf, 0);
 					write(buf, 4096);
 				}
 			}
 
-			for (int i = 0; i < ebsArr.length; ++i) {
-				ExtendedBlockStorage ebs = ebsArr[i];
+			for (ExtendedBlockStorage ebs : ebsArr) {
 				if (ebs != null && !ebs.isEmpty()) {
 					ebs.getSlot().copyBlockMetadata(buf, 0);
 					write(buf, 2048);
 				}
 			}
 
-			for (int i = 0; i < ebsArr.length; ++i) {
-				ExtendedBlockStorage ebs = ebsArr[i];
+			for (ExtendedBlockStorage ebs : ebsArr) {
 				if (ebs != null && !ebs.isEmpty()) {
 					ebs.getSlot().copyBlocklight(buf, 0);
 					write(buf, 2048);
@@ -315,8 +233,7 @@ public class UMHooks {
 			}
 
 			if (!chunkSnapshot.isWorldHasNoSky()) {
-				for (int i = 0; i < ebsArr.length; ++i) {
-					ExtendedBlockStorage ebs = ebsArr[i];
+				for (ExtendedBlockStorage ebs : ebsArr) {
 					if (ebs != null && !ebs.isEmpty()) {
 						ebs.getSlot().copySkylight(buf, 0);
 						write(buf, 2048);
@@ -324,8 +241,7 @@ public class UMHooks {
 				}
 			}
 
-			for (int i = 0; i < ebsArr.length; ++i) {
-				ExtendedBlockStorage ebs = ebsArr[i];
+			for (ExtendedBlockStorage ebs : ebsArr) {
 				if (ebs != null && !ebs.isEmpty()) {
 					ebs.getSlot().copyMSB(buf, 0);
 					write(buf, 2048);
@@ -380,22 +296,19 @@ public class UMHooks {
 			}
 			out.endCompoundTag();
 		}
-		GlobalExecutors.writingIO().execute(new Runnable() {
-			@Override
-			public void run() {
-				File tempFile = new File(file.getParentFile(), file.getName() + ".tmp");
-				try {
-					try (OutputStream out = new GZIPOutputStream(new FileOutputStream(tempFile))) {
-						bout.writeTo(out);
-					}
-
-					if (file.exists()) {
-						FileUtils.forceDelete(file);
-					}
-					FileUtils.moveFile(tempFile, file);
-				} catch (Exception e) {
-					log.error("Failed to write file: " + file.getAbsolutePath(), e);
+		GlobalExecutors.writingIO().execute(() -> {
+			File tempFile = new File(file.getParentFile(), file.getName() + ".tmp");
+			try {
+				try (OutputStream out = new GZIPOutputStream(new FileOutputStream(tempFile))) {
+					bout.writeTo(out);
 				}
+
+				if (file.exists()) {
+					FileUtils.forceDelete(file);
+				}
+				FileUtils.moveFile(tempFile, file);
+			} catch (Exception e) {
+				log.error("Failed to write file: " + file.getAbsolutePath(), e);
 			}
 		});
 	}

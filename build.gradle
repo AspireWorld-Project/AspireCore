@@ -105,7 +105,7 @@ dependencies {
 	compileCommon 'org.apache.commons:commons-dbcp2:2.1.1'
 	compileCommon 'net.openhft:koloboke-api-jdk8:0.6.8'
 	compileServer 'jline:jline:2.13'
-
+	runtimeServer group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
 	runtimeCommon 'net.openhft:koloboke-impl-jdk8:0.6.8'
 	runtimeServer 'mysql:mysql-connector-java:5.1.31'
 	

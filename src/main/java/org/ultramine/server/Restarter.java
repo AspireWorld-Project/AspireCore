@@ -125,7 +125,7 @@ public class Restarter
 	                // Give the socket a chance to send the packets
 	                try {
 	                    Thread.sleep(100);
-	                } catch (InterruptedException ex) {
+	                } catch (InterruptedException ignored) {
 	                }
 	                // Close the socket so we can rebind with the new process
 	                net.minecraft.server.MinecraftServer.getServer().func_147137_ag().terminateEndpoints();
@@ -133,20 +133,17 @@ public class Restarter
 	                // Give time for it to kick in
 	                try {
 	                    Thread.sleep(100);
-	                } catch (InterruptedException ex) {
+	                } catch (InterruptedException ignored) {
 	                }
 
 	                // This will be done AFTER the server has completely halted
-	                Thread shutdownHook = new Thread() {
-	                    @Override
-	                    public void run() {
-	                        try {
-	                        Runtime.getRuntime().exec("cmd /c start " + file.getPath());
-	                        } catch (Exception e) {
-	                            e.printStackTrace();
-	                        }
-	                    }
-	                };
+	                Thread shutdownHook = new Thread(() -> {
+						try {
+						Runtime.getRuntime().exec("cmd /c start " + file.getPath());
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					});
 	                shutdownHook.setDaemon(true);
 	                Runtime.getRuntime().addShutdownHook(shutdownHook);
 	            } else {

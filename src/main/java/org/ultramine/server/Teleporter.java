@@ -96,7 +96,7 @@ public class Teleporter {
 		player.getData().core().setLastLocation(lastLocation);
 		if (isServer) {
 			player.getData().core().setNextTeleportationTime(System.currentTimeMillis()
-					+ ConfigurationHandler.getServerConfig().settings.teleportation.cooldown * 1000);
+					+ ConfigurationHandler.getServerConfig().settings.teleportation.cooldown * 1000L);
 			player.getData().core().setTeleporter(null);
 		}
 	}

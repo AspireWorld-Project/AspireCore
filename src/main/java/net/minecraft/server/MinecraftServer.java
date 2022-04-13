@@ -397,7 +397,6 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
 					wait -= catchupTime;
 
 					if (wait > 100000) {
-						utilizeCPU(wait);
 						catchupTime = 0;
 						continue;
 					} else {
@@ -1357,9 +1356,5 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
 		File file = new File(getHomeDirectory(), "backup");
 		file.mkdir();
 		return file;
-	}
-
-	protected void utilizeCPU(long nanos) throws InterruptedException {
-		Thread.sleep(nanos / 1000000);
 	}
 }

@@ -10,15 +10,17 @@ import org.objectweb.asm.tree.MethodNode;
 import org.ultramine.server.asm.UMTBatchTransformer.IUMClassTransformer;
 import org.ultramine.server.asm.UMTBatchTransformer.TransformResult;
 
+import javax.annotation.Nonnull;
+
 /**
  * Removing conflicting
  * {@link net.minecraft.block.BlockLeavesBase#onNeighborBlockChange} methods
  */
 public class BlockLeavesBaseFixer implements IUMClassTransformer {
-	private static final Logger log = LogManager.getLogger();
 	private static final String TARGET_METHOD_NAME = "onNeighborBlockChange";
 	private static final String TARGET_METHOD_NAME_OBF = "func_149695_a";
 
+	@Nonnull
 	@Override
 	public TransformResult transform(String name, String transformedName, ClassReader classReader,
 			ClassNode classNode) {
@@ -36,8 +38,6 @@ public class BlockLeavesBaseFixer implements IUMClassTransformer {
 				MethodNode m = it.next();
 				// ultramine BlockLeavesBase.onNeighborBlockChange signature
 				if (isTargetMethod(m.name) && m.maxStack == 8 && m.maxLocals == 7 && m.instructions.size() == 48) {
-					log.warn(
-							"Method net.minecraft.block.BlockLeavesBase.onNeighborBlockChange() is now overridden by other mod, fastLeafDecay world setting will not work");
 					it.remove();
 					--methodCount;
 					modified = true;
@@ -51,7 +51,6 @@ public class BlockLeavesBaseFixer implements IUMClassTransformer {
 			for (Iterator<MethodNode> it = classNode.methods.iterator(); it.hasNext();) {
 				MethodNode m = it.next();
 				if (isTargetMethod(m.name)) {
-					log.warn("Removed conflicted method net.minecraft.block.BlockLeavesBase.onNeighborBlockChange()");
 					it.remove();
 					modified = true;
 					if (--methodCount == 1) {

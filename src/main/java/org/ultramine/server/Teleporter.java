@@ -87,18 +87,12 @@ public class Teleporter {
 			return;
 		}
 
-		WarpLocation lastLocation = WarpLocation.getFromPlayer(player);
 		if (!player.setWorldPositionAndRotation(dimension, x, y, z, yaw, pitch)) {
 			player.addChatMessage(new ChatComponentTranslation("ultramine.teleporter.fail.dim")
 					.setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
 		}
-
-		player.getData().core().setLastLocation(lastLocation);
-		if (isServer) {
-			player.getData().core().setNextTeleportationTime(System.currentTimeMillis()
-					+ ConfigurationHandler.getServerConfig().settings.teleportation.cooldown * 1000L);
-			player.getData().core().setTeleporter(null);
-		}
+		player.transferToDimension(dimension);
+		player.setPositionAndUpdate(x, y, z);
 	}
 
 	public static void tick() {

@@ -12,6 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bukkit.craftbukkit.entity.CraftPlayer;
 import org.bukkit.craftbukkit.event.CraftEventFactory;
+import org.ultramine.advanced.BetterTeleporter;
 import org.ultramine.core.economy.account.Account;
 import org.ultramine.core.economy.service.Economy;
 import org.ultramine.core.permissions.Permissions;
@@ -1183,7 +1184,7 @@ public class EntityPlayerMP extends EntityPlayer implements ICrafting {
 	 * потом уже переносить в другой мир.
 	 */
 	public void transferToDimension(int dim) {
-		mcServer.getConfigurationManager().transferPlayerToDimension(this, dim, (net.minecraft.world.Teleporter) null);
+		mcServer.getConfigurationManager().transferPlayerToDimension(this, dim, (BetterTeleporter) null);
 		lastExperience = -1;
 		lastHealth = -1.0F;
 		lastFoodLevel = -1;

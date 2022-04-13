@@ -20,8 +20,8 @@ import net.minecraft.util.MathHelper;
 public class Teleporter {
 	private final WorldServer worldServerInstance;
 	private final Random random;
-	private final LongHashMap destinationCoordinateCache = new LongHashMap();
-	private final List destinationCoordinateKeys = new ArrayList();
+	public final LongHashMap destinationCoordinateCache = new LongHashMap();
+	public final List destinationCoordinateKeys = new ArrayList();
 	private static final String __OBFID = "CL_00000153";
 
 	public Teleporter(WorldServer p_i1963_1_) {

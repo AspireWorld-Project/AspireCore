@@ -14,6 +14,7 @@ import org.ultramine.bukkit.handler.InternalEventHandler;
 import org.ultramine.bukkit.handler.PlayerEventHandler;
 import org.ultramine.bukkit.handler.WorldEventHandler;
 import org.ultramine.bukkit.integration.permissions.b2c.SuperPermsReplacer;
+import org.ultramine.bukkit.integration.permissions.b2c.SuperPermsReplacerImpl;
 import org.ultramine.core.service.InjectService;
 import org.ultramine.core.service.ServiceManager;
 import org.ultramine.server.UltraminePlugin;
@@ -82,6 +83,7 @@ public class UMBukkitImplMod extends DummyModContainer {
 	public void serverAboutToStart(FMLServerAboutToStartEvent e) {
 		setupLoggers();
 		bserver = new CraftServer(e.getServer(), e.getServer().getConfigurationManager());
+		services.register(SuperPermsReplacer.class, new SuperPermsReplacerImpl(), 0);
 		services.register(CraftPlayerCache.class, new CraftPlayerCacheImpl(bserver), 0);
 		register(new CoreEventHandler(bserver));
 		MinecraftForge.EVENT_BUS.register(new WorldEventHandler(bserver));

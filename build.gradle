@@ -107,7 +107,7 @@ dependencies {
 	compileServer 'jline:jline:2.13'
 	runtimeServer group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
 	runtimeCommon 'net.openhft:koloboke-impl-jdk8:0.6.8'
-	runtimeServer 'mysql:mysql-connector-java:5.1.31'
+	runtimeServer 'mysql:mysql-connector-java:8.0.28'
 	
 	compileCommon 'commons-lang:commons-lang:2.6'
 	compileServer 'org.avaje:ebean:2.7.7'
@@ -123,7 +123,7 @@ dependencies {
 	}
 	runtimeServer 'org.xerial:sqlite-jdbc:3.18.0'
 
-	runtimeServer 'mysql:mysql-connector-java:6.0.6'
+	runtimeServer 'mysql:mysql-connector-java:8.0.28'
 	compileOnly ('net.milkbowl.vault:VaultAPI:1.6') { transitive = false  }
 }
 

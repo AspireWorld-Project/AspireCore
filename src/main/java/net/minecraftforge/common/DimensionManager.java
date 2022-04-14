@@ -208,7 +208,7 @@ public class DimensionManager {
 	public static void initDimension(int dim) {
 		WorldServer overworld = getWorld(0);
 		if (overworld == null) {
-			overworld = FMLCommonHandler.instance().getMinecraftServerInstance().getMultiWorld().getWorldByID(0);
+			return;
 		}
 		try {
 			DimensionManager.getProviderType(dim);
@@ -216,7 +216,7 @@ public class DimensionManager {
 			System.err.println("Cannot Hotload Dim: " + e.getMessage());
 			return; // If a provider hasn't been registered then we can't hotload the dim
 		}
-		MinecraftServer mcServer = overworld.func_73046_m();
+		MinecraftServer mcServer = FMLCommonHandler.instance().getMinecraftServerInstance();
 		if (!mcServer.isSinglePlayer()) {
 			mcServer.getMultiWorld().initDimension(dim);
 			return;
@@ -239,7 +239,7 @@ public class DimensionManager {
 	}
 
 	public static WorldServer getWorld(int id) {
-		return worlds.get(id);
+		return FMLCommonHandler.instance().getMinecraftServerInstance().getMultiWorld().getWorldByID(id);
 	}
 
 	public static WorldServer[] getWorlds() {
@@ -388,7 +388,7 @@ public class DimensionManager {
 			return null;
 	}
 
-	private static Environment registerBukkitEnvironment(int dim, String providerName) {
+	private static void registerBukkitEnvironment(int dim, String providerName) {
 		@SuppressWarnings("deprecation")
 		Environment env = Environment.getEnvironment(dim);
 		if (env == null) // Cauldron if environment not found, register one
@@ -397,6 +397,5 @@ public class DimensionManager {
 			env = BukkitEnumHelper.addBukkitEnvironment(dim, providerName.toUpperCase());
 			Environment.registerEnvironment(env);
 		}
-		return env;
 	}
 }

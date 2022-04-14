@@ -772,7 +772,7 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
 
 	@Override
 	public void setPlayerWeather(WeatherType type) {// TODO
-		// getHandle().setPlayerWeather(type, true);
+		//getHandle().setPlayerWeather(type, true);
 	}
 
 	@Override

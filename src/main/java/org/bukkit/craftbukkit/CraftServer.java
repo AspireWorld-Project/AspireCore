@@ -19,6 +19,10 @@ import java.util.regex.Pattern;
 
 import javax.imageio.ImageIO;
 
+import com.google.common.base.Function;
+import cpw.mods.fml.common.FMLLog;
+import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.event.world.WorldEvent;
 import org.apache.commons.lang.Validate;
 import org.bukkit.BanList;
 import org.bukkit.Bukkit;
@@ -62,6 +66,8 @@ import org.bukkit.craftbukkit.util.Versioning;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerChatTabCompleteEvent;
+import org.bukkit.event.world.WorldSaveEvent;
+import org.bukkit.event.world.WorldUnloadEvent;
 import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.help.HelpMap;
 import org.bukkit.inventory.FurnaceRecipe;
@@ -178,12 +184,7 @@ public final class CraftServer implements Server {
 		this.console = console;
 		this.playerList = (net.minecraft.server.dedicated.DedicatedPlayerList) playerList;
 		playerView = Collections.unmodifiableList(com.google.common.collect.Lists.transform(playerList.playerEntityList,
-				new com.google.common.base.Function<EntityPlayerMP, CraftPlayer>() {
-					@Override
-					public CraftPlayer apply(EntityPlayerMP player) {
-						return (CraftPlayer) player.getBukkitEntity();
-					}
-				}));
+				(Function<EntityPlayerMP, CraftPlayer>) player -> (CraftPlayer) player.getBukkitEntity()));
 		serverVersion = "1.7.10-R0.1-SNAPSHOT"; // CraftServer.class.getPackage().getImplementationVersion();
 		online.value = ConfigurationHandler.getServerConfig().settings.authorization.onlineMode;
 
@@ -224,7 +225,7 @@ public final class CraftServer implements Server {
 		 * commandsConfiguration.options().copyDefaults(true);
 		 * commandsConfiguration.setDefaults(YamlConfiguration.loadConfiguration(
 		 * getClass().getClassLoader().getResourceAsStream("configurations/commands.yml"
-		 * ))); saveCommandsConfig();
+		 * ));); saveCommandsConfig();
 		 *
 		 * // Migrate aliases from old file and add previously implicit $1- to pass all
 		 * arguments if (legacyAlias != null) { ConfigurationSection aliases =
@@ -1045,33 +1046,30 @@ public final class CraftServer implements Server {
 		if (handle.playerEntities.size() > 0)
 			return false;
 
-		return false;
+		 WorldUnloadEvent e = new WorldUnloadEvent((handle).getWorld());
+		 System.out.println("Хуй");
+		 pluginManager.callEvent(e);
 
-		// WorldUnloadEvent e = new WorldUnloadEvent(((IMixinWorld) handle).getWorld());
-		// pluginManager.callEvent(e);
-		//
-		// if (e.isCancelled()) {
-		// return false;
-		// }
-		//
-		// if (save) {
-		// try {
-		// handle.saveAllChunks(true, null);
-		// handle.flush();
-		// WorldSaveEvent event = new WorldSaveEvent(((IMixinWorld) handle).getWorld());
-		// getPluginManager().callEvent(event);
-		// } catch (net.minecraft.world.MinecraftException ex) {
-		// getLogger().log(Level.SEVERE, null, ex);
-		// FMLLog.log(org.apache.logging.log4j.Level.ERROR, ex, "Failed to save world "
-		// + ((IMixinWorld) handle).getWorld().getName() + " while unloading it.");
-		// }
-		// }
-		// MinecraftForge.EVENT_BUS.post(new WorldEvent.Unload(handle)); // Cauldron -
-		// fire unload event before removing world
-		// worlds.remove(world.getName().toLowerCase());
-		// DimensionManager.setWorld(handle.provider.dimensionId, null); // Cauldron -
-		// remove world from DimensionManager
-		// return true;
+		 if (e.isCancelled()) {
+		 return false;
+		 }
+
+		 if (save) {
+		 try {
+		 handle.saveAllChunks(true, null);
+		 handle.flush();
+		 WorldSaveEvent event = new WorldSaveEvent((handle).getWorld());
+		 getPluginManager().callEvent(event);
+		 } catch (net.minecraft.world.MinecraftException ex) {
+		 getLogger().log(Level.SEVERE, null, ex);
+		 FMLLog.log(org.apache.logging.log4j.Level.ERROR, ex, "Failed to save world "
+		 + (handle).getWorld().getName() + " while unloading it.");
+		 }
+		 }
+		 MinecraftForge.EVENT_BUS.post(new WorldEvent.Unload(handle));
+		 worlds.remove(world.getName().toLowerCase());
+		 DimensionManager.setWorld(handle.provider.dimensionId, null);
+		 return true;
 	}
 
 	public net.minecraft.server.MinecraftServer getServer() {

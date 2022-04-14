@@ -311,7 +311,7 @@ public class CraftHumanEntity extends CraftLivingEntity implements HumanEntity {
 		getHandle().displayGUIWorkbench(location.getBlockX(), location.getBlockY(), location.getBlockZ());
 		if (force) {
 			// TODO
-			// getHandle().openContainer.checkReachable = false;
+			//getHandle().openContainer.checkReachable = false;
 		}
 		return getHandle().openContainer.getBukkitView();
 	}

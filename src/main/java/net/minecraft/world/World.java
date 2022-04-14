@@ -125,7 +125,7 @@ public abstract class World implements IBlockAccess {
 	public int lastLightningBolt;
 	public EnumDifficulty difficultySetting;
 	public Random rand = new Random();
-	public final WorldProvider provider;
+	public WorldProvider provider;
 	protected List worldAccesses = new ArrayList();
 	protected IChunkProvider chunkProvider;
 	protected final ISaveHandler saveHandler;

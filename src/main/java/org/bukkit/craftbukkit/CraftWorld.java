@@ -328,12 +328,11 @@ public class CraftWorld implements World {
 	public boolean loadChunk(int x, int z, boolean generate) {
 		// chunkLoadCount++;
 		// if (generate) {
-		// // Use the default variant of loadChunk when generate == true.
+		 // Use the default variant of loadChunk when generate == true.
 		// return world.theChunkProviderServer.loadChunk(x, z) != null;
 		// }
-		//
-		// world.theChunkProviderServer.chunksToUnload.remove(ChunkHash.chunkToKey(x,
-		// z));
+
+		// world.theChunkProviderServer.chunksToUnload.remove(ChunkHash.chunkToKey(x, z));
 		// net.minecraft.world.chunk.Chunk chunk =
 		// world.theChunkProviderServer.loadedChunkHashMap.get(ChunkHash.chunkToKey(x,
 		// z));
@@ -703,8 +702,7 @@ public class CraftWorld implements World {
 	public void setEnvironment(Environment env) { // TODO
 		if (environment != env) {
 			environment = env;
-			// world.provider =
-			// net.minecraft.world.WorldProvider.getProviderForDimension(environment.getId());
+			 //world.provider = net.minecraft.world.WorldProvider.getProviderForDimension(environment.getId());
 		}
 	}
 
@@ -1381,7 +1379,7 @@ public class CraftWorld implements World {
 
 	@Override
 	public File getWorldFolder() {
-		return ((net.minecraft.world.storage.SaveHandler) world.getSaveHandler()).getWorldDirectory();
+		return world.getSaveHandler().getWorldDirectory();
 	}
 
 	@Override

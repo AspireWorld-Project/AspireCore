@@ -112,9 +112,17 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
 		perm.recalculatePermissions();
 	}
 
-	@Override
 	public boolean isOnline() {
-		return server.getHandle().getPlayerByUsername(getHandle().getGameProfile().getName()) != null;
+		if (this.getHandle() instanceof net.minecraftforge.common.util.FakePlayer) {
+			return true;
+		}
+		for (Object obj : server.getHandle().playerEntityList) {
+			net.minecraft.entity.player.EntityPlayerMP player = (net.minecraft.entity.player.EntityPlayerMP) obj;
+			if (player != null && (this.getHandle() == player || player.getBukkitEntity() == this || this.getHandle().getGameProfile().getId().equals(player.getGameProfile().getId()))) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	@Override

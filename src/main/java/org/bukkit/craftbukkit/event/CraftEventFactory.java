@@ -729,14 +729,11 @@ public class CraftEventFactory {
 	public static EntityDamageEvent handleLivingEntityDamageEvent(final EntityLivingBase entity,
 			final DamageSource damagesource, final float originalDamage) {
 		final boolean human = entity instanceof EntityPlayer;
-		Function<Double, Double> hardHat = new Function<Double, Double>() {
-			@Override
-			public Double apply(Double f) {
-				if ((damagesource == DamageSource.anvil || damagesource == DamageSource.fallingBlock)
-						&& entity.getEquipmentInSlot(4) != null)
-					return -(f - f * 0.75F);
-				return -0.0;
-			}
+		Function<Double, Double> hardHat = f -> {
+			if ((damagesource == DamageSource.anvil || damagesource == DamageSource.fallingBlock)
+					&& entity.getEquipmentInSlot(4) != null)
+				return -(f - f * 0.75F);
+			return -0.0;
 		};
 
 		float damage = originalDamage;
@@ -744,64 +741,45 @@ public class CraftEventFactory {
 		float hardHatModifier = hardHat.apply((double) damage).floatValue();
 		damage += hardHatModifier;
 
-		Function<Double, Double> blocking = new Function<Double, Double>() {
-			@Override
-			public Double apply(Double f) {
-				if (human) {
-					if (!damagesource.isUnblockable() && ((EntityPlayer) entity).isBlocking() && f > 0.0F)
-						return -(f - (1.0F + f) * 0.5F);
-				}
-				return -0.0;
+		Function<Double, Double> blocking = f -> {
+			if (human) {
+				if (!damagesource.isUnblockable() && ((EntityPlayer) entity).isBlocking() && f > 0.0F)
+					return -(f - (1.0F + f) * 0.5F);
 			}
+			return -0.0;
 		};
 		float blockingModifier = blocking.apply((double) damage).floatValue();
 		damage += blockingModifier;
 
-		Function<Double, Double> armor = new Function<Double, Double>() {
-			@Override
-			public Double apply(Double f) {
-				// Cauldron start - apply forge armor hook
-				if (human)
-					return -(f - ArmorPropertiesUM.ApplyArmor(entity, ((EntityPlayer) entity).inventory.armorInventory,
-							damagesource, f.floatValue(), false));
-				// Cauldron end
-				return -(f - entity.applyArmorCalculationsP(damagesource, f.floatValue()));
-			}
+		Function<Double, Double> armor = f -> {
+			// Cauldron start - apply forge armor hook
+			if (human)
+				return -(f - ArmorPropertiesUM.ApplyArmor(entity, ((EntityPlayer) entity).inventory.armorInventory,
+						damagesource, f.floatValue(), false));
+			// Cauldron end
+			return -(f - entity.applyArmorCalculationsP(damagesource, f.floatValue()));
 		};
 		float armorModifier = armor.apply((double) damage).floatValue();
 		damage += armorModifier;
 
-		Function<Double, Double> resistance = new Function<Double, Double>() {
-			@Override
-			public Double apply(Double f) {
-				if (!damagesource.isDamageAbsolute() && entity.isPotionActive(Potion.resistance)
-						&& damagesource != DamageSource.outOfWorld) {
-					int i = (entity.getActivePotionEffect(Potion.resistance).getAmplifier() + 1) * 5;
-					int j = 25 - i;
-					float f1 = f.floatValue() * j;
-					return -(f - f1 / 25.0F);
-				}
-				return -0.0;
+		Function<Double, Double> resistance = f -> {
+			if (!damagesource.isDamageAbsolute() && entity.isPotionActive(Potion.resistance)
+					&& damagesource != DamageSource.outOfWorld) {
+				int i = (entity.getActivePotionEffect(Potion.resistance).getAmplifier() + 1) * 5;
+				int j = 25 - i;
+				float f1 = f.floatValue() * j;
+				return -(f - f1 / 25.0F);
 			}
+			return -0.0;
 		};
 		float resistanceModifier = resistance.apply((double) damage).floatValue();
 		damage += resistanceModifier;
 
-		Function<Double, Double> magic = new Function<Double, Double>() {
-			@Override
-			public Double apply(Double f) {
-				return -(f - entity.applyPotionDamageCalculationsP(damagesource, f.floatValue()));
-			}
-		};
+		Function<Double, Double> magic = f -> -(f - entity.applyPotionDamageCalculationsP(damagesource, f.floatValue()));
 		float magicModifier = magic.apply((double) damage).floatValue();
 		damage += magicModifier;
 
-		Function<Double, Double> absorption = new Function<Double, Double>() {
-			@Override
-			public Double apply(Double f) {
-				return -Math.max(f - Math.max(f - entity.getAbsorptionAmount(), 0.0F), 0.0F);
-			}
-		};
+		Function<Double, Double> absorption = f -> -Math.max(f - Math.max(f - entity.getAbsorptionAmount(), 0.0F), 0.0F);
 		float absorptionModifier = absorption.apply((double) damage).floatValue();
 
 		return CraftEventFactory.handleLivingEntityDamageEvent(entity, damagesource, originalDamage, hardHatModifier,
@@ -825,9 +803,7 @@ public class CraftEventFactory {
 		final EntityDamageEvent event = handleEntityDamageEvent(entity, source, modifiers, functions);
 		if (event == null)
 			return false;
-		return event.isCancelled() || event.getDamage() == 0 && !(entity instanceof EntityItemFrame); // Cauldron -
-																										// fix frame
-																										// removal
+		return event.isCancelled() || event.getDamage() == 0 && !(entity instanceof EntityItemFrame);
 	}
 
 	public static PlayerLevelChangeEvent callPlayerLevelChangeEvent(Player player, int oldLevel, int newLevel) {

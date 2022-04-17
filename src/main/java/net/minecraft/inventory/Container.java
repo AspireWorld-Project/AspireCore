@@ -733,7 +733,11 @@ public abstract class Container {
 				if (topInventory instanceof IInventoryTransactionProvider) {
 					IInventoryTransactionProvider topInventoryProvider = (IInventoryTransactionProvider) topInventory;
 					if (topInventoryProvider.getViewers().contains(player)) {
-						topInventoryProvider.onClose(player);
+						try {
+							topInventoryProvider.onClose(player);
+						} catch (AbstractMethodError error) {
+
+						}
 					}
 				}
 			} else {
@@ -741,7 +745,11 @@ public abstract class Container {
 					IInventoryTransactionProvider topInventoryProvider = (IInventoryTransactionProvider) source
 							.getTopInventory();
 					if (topInventoryProvider.getViewers().contains(player)) {
-						topInventoryProvider.onClose(player);
+						try {
+							topInventoryProvider.onClose(player);
+						} catch (AbstractMethodError error){
+
+						}
 					}
 				}
 			}
@@ -750,7 +758,11 @@ public abstract class Container {
 				if (bottomInventory instanceof IInventoryTransactionProvider) {
 					IInventoryTransactionProvider bottomInventoryProvider = (IInventoryTransactionProvider) bottomInventory;
 					if (bottomInventoryProvider.getViewers().contains(player)) {
-						bottomInventoryProvider.onClose(player);
+						try {
+							bottomInventoryProvider.onClose(player);
+						} catch (AbstractMethodError error){
+
+						}
 					}
 				}
 			} else {
@@ -758,7 +770,11 @@ public abstract class Container {
 					IInventoryTransactionProvider bottomInventoryProvider = (IInventoryTransactionProvider) source
 							.getBottomInventory();
 					if (bottomInventoryProvider.getViewers().contains(player)) {
-						bottomInventoryProvider.onClose(player);
+						try {
+							bottomInventoryProvider.onClose(player);
+						} catch (AbstractMethodError error) {
+
+						}
 					}
 				}
 			}
@@ -769,7 +785,11 @@ public abstract class Container {
 				if (topInventory instanceof IInventoryTransactionProvider) {
 					IInventoryTransactionProvider topInventoryProvider = (IInventoryTransactionProvider) topInventory;
 					if (!topInventoryProvider.getViewers().contains(player)) {
-						topInventoryProvider.onOpen(player);
+						try {
+							topInventoryProvider.onOpen(player);
+						} catch (AbstractMethodError error){
+
+						}
 					}
 				}
 			} else {
@@ -777,7 +797,11 @@ public abstract class Container {
 					IInventoryTransactionProvider topInventoryProvider = (IInventoryTransactionProvider) destination
 							.getTopInventory();
 					if (!topInventoryProvider.getViewers().contains(player)) {
-						topInventoryProvider.onOpen(player);
+						try {
+							topInventoryProvider.onOpen(player);
+						} catch (AbstractMethodError error) {
+
+						}
 					}
 				}
 			}
@@ -786,7 +810,11 @@ public abstract class Container {
 				if (bottomInventory instanceof IInventoryTransactionProvider) {
 					IInventoryTransactionProvider bottomInventoryProvider = (IInventoryTransactionProvider) bottomInventory;
 					if (!bottomInventoryProvider.getViewers().contains(player)) {
-						bottomInventoryProvider.onOpen(player);
+						try {
+							bottomInventoryProvider.onOpen(player);
+						} catch (AbstractMethodError error) {
+
+						}
 					}
 				}
 			} else {
@@ -794,7 +822,11 @@ public abstract class Container {
 					IInventoryTransactionProvider bottomInventoryProvider = (IInventoryTransactionProvider) destination
 							.getBottomInventory();
 					if (!bottomInventoryProvider.getViewers().contains(player)) {
-						bottomInventoryProvider.onOpen(player);
+						try {
+							bottomInventoryProvider.onOpen(player);
+						} catch (AbstractMethodError error) {
+
+						}
 					}
 				}
 			}

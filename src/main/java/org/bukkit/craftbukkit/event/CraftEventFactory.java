@@ -1136,17 +1136,15 @@ public class CraftEventFactory {
 				IInventoryTransactionProvider bottomInventoryProvider = (IInventoryTransactionProvider) ((CraftInventory) view
 						.getBottomInventory()).getInventory();
 				if (topInventoryProvider.getViewers().isEmpty()) {
-					topInventoryProvider.onOpen((CraftHumanEntity) human.getBukkitEntity());
-					bottomInventoryProvider.onOpen((CraftHumanEntity) human.getBukkitEntity());
+					try {
+						topInventoryProvider.onOpen((CraftHumanEntity) human.getBukkitEntity());
+						bottomInventoryProvider.onOpen((CraftHumanEntity) human.getBukkitEntity());
+					} catch (AbstractMethodError error){
+
+					}
 				}
 			}
-			human.worldObj.getServer().getPluginManager().callEvent(new InventoryCloseEvent(view)); // Cauldron
-																									// -
-																									// allow
-																									// vanilla
-																									// mods
-																									// to
-																									// bypass
+			human.worldObj.getServer().getPluginManager().callEvent(new InventoryCloseEvent(view));
 		}
 		human.openContainer.transferTo(human.inventoryContainer, (CraftHumanEntity) human.getBukkitEntity());
 		human.openContainer.setOpened(false);

@@ -93,6 +93,15 @@ Launcher.iws
 .gradle/
 /build/
 build/
+worlds/
+logs/
+settings/
+crash-reports/
+storage/
+config/
+world
+usernamecache.json
+config/
 eclipse/
 /eclipse/
 !AspireTechnology.jar

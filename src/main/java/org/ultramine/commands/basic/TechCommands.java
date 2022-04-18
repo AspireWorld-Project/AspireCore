@@ -21,6 +21,7 @@ import java.util.concurrent.CompletableFuture;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.ultramine.advanced.Chunker;
 import org.ultramine.commands.Command;
 import org.ultramine.commands.CommandContext;
 import org.ultramine.core.service.InjectService;
@@ -586,4 +587,13 @@ public class TechCommands {
 			}
 		}
 	}
+
+	/* ===========================================S5A4ED1SA7=================================================== */
+	@Command(name = "loadwf", group = "technical", permissions = {"command.technical.loadwf"}, syntax = { "" })
+	public static void loadwf(CommandContext ctx)
+	{
+		Chunker.load();
+		ctx.sendMessage("Успешно!");
+	}
+
 }

@@ -11,6 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Marker;
 import org.apache.logging.log4j.MarkerManager;
+import org.ultramine.server.UltramineServerConfig;
 import org.ultramine.server.event.WorldUpdateObjectType;
 
 import com.google.common.collect.Queues;
@@ -149,18 +150,13 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 			channel.writeAndFlush(p_150732_1_).addListeners(p_150732_2_)
 					.addListener(ChannelFutureListener.FIRE_EXCEPTION_ON_FAILURE);
 		} else {
-			channel.eventLoop().execute(new Runnable() {
-				private static final String __OBFID = "CL_00001241";
-
-				@Override
-				public void run() {
-					if (enumconnectionstate != enumconnectionstate1 && !(p_150732_1_ instanceof FMLProxyPacket)) {
-						NetworkManager.this.setConnectionState(enumconnectionstate);
-					}
-
-					channel.writeAndFlush(p_150732_1_).addListeners(p_150732_2_)
-							.addListener(ChannelFutureListener.FIRE_EXCEPTION_ON_FAILURE);
+			channel.eventLoop().execute(() -> {
+				if (enumconnectionstate != enumconnectionstate1 && !(p_150732_1_ instanceof FMLProxyPacket)) {
+					NetworkManager.this.setConnectionState(enumconnectionstate);
 				}
+
+				channel.writeAndFlush(p_150732_1_).addListeners(p_150732_2_)
+						.addListener(ChannelFutureListener.FIRE_EXCEPTION_ON_FAILURE);
 			});
 		}
 	}
@@ -250,19 +246,18 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	public static NetworkManager provideLanClient(InetAddress p_150726_0_, int p_150726_1_) {
 		final NetworkManager networkmanager = new NetworkManager(true);
 		new Bootstrap().group(eventLoops).handler(new ChannelInitializer() {
-			private static final String __OBFID = "CL_00001242";
 
 			@Override
 			protected void initChannel(Channel p_initChannel_1_) {
 				try {
 					p_initChannel_1_.config().setOption(ChannelOption.IP_TOS, Integer.valueOf(24));
-				} catch (ChannelException channelexception1) {
+				} catch (ChannelException ignored) {
 					;
 				}
 
 				try {
 					p_initChannel_1_.config().setOption(ChannelOption.TCP_NODELAY, Boolean.valueOf(false));
-				} catch (ChannelException channelexception) {
+				} catch (ChannelException ignored) {
 					;
 				}
 
@@ -281,7 +276,6 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	public static NetworkManager provideLocalClient(SocketAddress p_150722_0_) {
 		final NetworkManager networkmanager = new NetworkManager(true);
 		new Bootstrap().group(eventLoops).handler(new ChannelInitializer() {
-			private static final String __OBFID = "CL_00001243";
 
 			@Override
 			protected void initChannel(Channel p_initChannel_1_) {
@@ -327,7 +321,6 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	static class InboundHandlerTuplePacketListener {
 		private final Packet field_150774_a;
 		private final GenericFutureListener[] field_150773_b;
-		private static final String __OBFID = "CL_00001244";
 
 		public InboundHandlerTuplePacketListener(Packet p_i45146_1_, GenericFutureListener... p_i45146_2_) {
 			field_150774_a = p_i45146_1_;

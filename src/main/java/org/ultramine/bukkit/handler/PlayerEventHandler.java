@@ -3,6 +3,8 @@ package org.ultramine.bukkit.handler;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.world.WorldServer;
+import net.minecraftforge.event.world.WorldEvent;
 import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.craftbukkit.entity.CraftPlayer;
 import org.bukkit.craftbukkit.event.CraftEventFactory;
@@ -17,6 +19,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+import org.ultramine.advanced.BetterTeleporter;
 import org.ultramine.bukkit.CraftPlayerCache;
 import org.ultramine.core.service.InjectService;
 import org.ultramine.server.event.PlayerSwingItemEvent;
@@ -427,4 +430,16 @@ public class PlayerEventHandler {
 			return ((IChatComponent) obj).getFormattedText();
 		return obj.toString();
 	}
+
+	/* ==============================================S5A4ED1SA7================================================== */
+	@SubscribeEvent
+	public void onWorldLoad(WorldEvent.Load event) {
+		if(event.world instanceof WorldServer) {
+			if(event.world.provider.dimensionId == 0 || event.world.provider.dimensionId == -1) {
+				((WorldServer) event.world).worldTeleporter = new BetterTeleporter((WorldServer) event.world);
+			}
+		}
+	}
+	// Улучшенный телепорт. Более быстрое перемещение между мирами + телепорт не в сам портал, а в +2 блока от него.
+
 }

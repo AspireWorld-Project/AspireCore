@@ -102,7 +102,7 @@ public class WorldServer extends World {
 	public boolean levelSaving;
 	private boolean allPlayersSleeping;
 	private int updateEntityTick;
-	private Teleporter worldTeleporter;
+	public Teleporter worldTeleporter;
 	private final SpawnerAnimals animalSpawner = new SpawnerAnimals();
 	private WorldServer.ServerBlockEventList[] field_147490_S = new WorldServer.ServerBlockEventList[] {
 			new WorldServer.ServerBlockEventList(null), new WorldServer.ServerBlockEventList(null) };

@@ -432,14 +432,7 @@ public class PlayerEventHandler {
 	}
 
 	/* ==============================================S5A4ED1SA7================================================== */
-	@SubscribeEvent
-	public void onWorldLoad(WorldEvent.Load event) {
-		if(event.world instanceof WorldServer) {
-			if(event.world.provider.dimensionId == 0 || event.world.provider.dimensionId == -1) {
-				((WorldServer) event.world).worldTeleporter = new BetterTeleporter((WorldServer) event.world);
-			}
-		}
-	}
+
 	// Улучшенный телепорт. Более быстрое перемещение между мирами + телепорт не в сам портал, а в +2 блока от него.
 
 }

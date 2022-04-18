@@ -91,8 +91,7 @@ public class Teleporter {
 			player.addChatMessage(new ChatComponentTranslation("ultramine.teleporter.fail.dim")
 					.setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
 		}
-		player.transferToDimension(dimension);
-		player.setPositionAndUpdate(x, y, z);
+        player.setWorldPositionAndRotation(dimension, x, y, z, yaw, pitch);
 	}
 
 	public static void tick() {

@@ -1227,9 +1227,9 @@ public class EntityPlayerMP extends EntityPlayer implements ICrafting {
 		double lastZ = posZ;
 		float lastYaw = rotationYaw;
 		float lastPitch = rotationPitch;
-		setPositionAndRotation(x, y, z, yaw, pitch);
+		transferToDimension(dim);
 		try {
-			transferToDimension(dim);
+			setPositionAndRotation(x, y, z, yaw, pitch);
 		} catch (RuntimeException e) {
 			setPositionAndRotation(lastX, lastY, lastZ, lastYaw, lastPitch);
 			dimension = lastDim;

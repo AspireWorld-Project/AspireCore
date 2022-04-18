@@ -548,6 +548,17 @@ public class ForgeChunkManager {
 	}
 
 	/**
+	 * Set a chunkloading callback for the supplied mod object
+	 *
+	 * @param modId  The mod instance registering the callback
+	 * @param callback The code to call back when forced chunks are loaded
+	 */
+	public static void setForcedChunkLoadingCallbackId(String modId, LoadingCallback callback)
+	{
+		callbacks.put(modId, callback);
+	}
+
+	/**
 	 * Discover the available tickets for the mod in the world
 	 *
 	 * @param mod
@@ -637,6 +648,39 @@ public class ForgeChunkManager {
 				FMLLog.info(
 						"The mod %s has attempted to allocate a chunkloading ticket beyond it's currently allocated maximum : %d",
 						modId, allowedCount);
+				warnedMods.add(modId);
+			}
+			return null;
+		}
+		Ticket ticket = new Ticket(modId, type, world);
+		tickets.get(world).put(modId, ticket);
+
+		return ticket;
+	}
+
+	/**
+	 * Request a chunkloading ticket of the appropriate type for the supplied mod
+	 *
+	 * @param modId The mod requesting a ticket
+	 * @param world The world in which it is requesting the ticket
+	 * @param type The type of ticket
+	 * @return A ticket with which to register chunks for loading, or null if no further tickets are available
+	 */
+	public static Ticket requestTicketId(String modId, World world, Type type)
+	{
+		if (!callbacks.containsKey(modId))
+		{
+			FMLLog.severe("The mod %s has attempted to request a ticket without a listener in place", modId);
+			throw new RuntimeException("Invalid ticket request");
+		}
+
+		int allowedCount = getMaxTicketLengthFor(modId);
+
+		if (tickets.get(world).get(modId).size() >= allowedCount)
+		{
+			if (!warnedMods.contains(modId))
+			{
+				FMLLog.info("The mod %s has attempted to allocate a chunkloading ticket beyond it's currently allocated maximum : %d", modId, allowedCount);
 				warnedMods.add(modId);
 			}
 			return null;

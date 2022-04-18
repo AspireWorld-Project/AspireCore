@@ -102,6 +102,7 @@ config/
 world
 usernamecache.json
 config/
+server_dir/
 eclipse/
 /eclipse/
 !AspireTechnology.jar

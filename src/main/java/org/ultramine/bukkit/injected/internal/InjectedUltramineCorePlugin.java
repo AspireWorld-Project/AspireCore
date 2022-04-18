@@ -70,7 +70,6 @@ public class InjectedUltramineCorePlugin extends JavaPlugin {
 								getServer().getOfflinePlayer(playerAccount.getProfile().getId()), currency);
 					}
 				});
-
 		return true;
 	}
 }

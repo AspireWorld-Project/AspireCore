@@ -7,11 +7,9 @@ import java.util.Map;
 
 import net.minecraft.util.StringTranslate;
 import org.ultramine.commands.CommandRegistry;
-import org.ultramine.commands.basic.FastWarpCommand;
-import org.ultramine.commands.basic.GenWorldCommand;
-import org.ultramine.commands.basic.TechCommands;
-import org.ultramine.commands.basic.VanillaCommands;
+import org.ultramine.commands.basic.*;
 import org.ultramine.commands.syntax.DefaultCompleters;
+import org.ultramine.core.economy.Currency;
 import org.ultramine.core.economy.service.DefaultHoldingsProvider;
 import org.ultramine.core.economy.service.Economy;
 import org.ultramine.core.economy.service.EconomyRegistry;
@@ -68,7 +66,6 @@ public class UltramineServerModContainer extends DummyModContainer {
 	private static Permissions perms;
 	@InjectService
 	private static EconomyRegistry economyRegistry;
-
 	private LoadController controller;
 	private ItemBlocker itemBlocker;
 	private final RecipeCache recipeCache = new RecipeCache();
@@ -134,6 +131,8 @@ public class UltramineServerModContainer extends DummyModContainer {
 			UMEventHandler handler = new UMEventHandler();
 			MinecraftForge.EVENT_BUS.register(handler);
 			FMLCommonHandler.instance().bus().register(handler);
+			Currency currency = economyRegistry.registerCurrency("GSC", "dollar", "dollars", "$", 2, 0).getValue();
+			economyRegistry.registerStartPlayerBalance(currency, ConfigurationHandler.getServerConfig().tools.economy.startBalance);
 		} catch (Throwable t) {
 			controller.errorOccurred(this, t);
 		}
@@ -172,6 +171,9 @@ public class UltramineServerModContainer extends DummyModContainer {
 			e.registerCommands(VanillaCommands.class);
 			e.registerCommands(TechCommands.class);
 			e.registerCommands(GenWorldCommand.class);
+			e.registerCommands(OpenInvCommand.class);
+			e.registerCommands(BasicCommand.class);
+			e.registerCommands(EconomyHoldingsCommand.class);
 
 			if (e.getSide().isServer()) {
 				itemBlocker.load();

@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Map;
 
+import org.apache.commons.lang.Validate;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.core.LogEvent;
 import org.apache.logging.log4j.core.config.plugins.Plugin;
@@ -33,53 +34,56 @@ public class UMConsoleLayout extends AbstractStringLayout {
 	@Override
 	public String toSerializable(LogEvent event) {
 		String msg = event.getMessage().getFormattedMessage();
-		StringBuffer trwn = formatThrowable(event.getThrown());
-		StringBuilder sb = new StringBuilder(
-				10 + 1 + 6 + 4 + 1 + 2 + msg.length() + (trwn == null ? 0 : trwn.length() + 2) + (ANSI ? 100 : 0));
+		if(msg != null) {
+			StringBuffer trwn = formatThrowable(event.getThrown());
+			StringBuilder sb = new StringBuilder(
+					10 + 1 + 6 + 4 + 1 + 2 + msg.length() + (trwn == null ? 0 : trwn.length() + 2) + (ANSI ? 100 : 0));
 
-		sb.append('[');
-		sb.append(dateFormat.format(event.getMillis()));
-		sb.append("] ");
+			sb.append('[');
+			sb.append(dateFormat.format(event.getMillis()));
+			sb.append("] ");
 
-		sb.append('[');
-		Level level = event.getLevel();
-		if (COLORED) {
-			if (level == Level.WARN) {
-				control(sb, 'e');
-			} else if (level == Level.ERROR) {
-				control(sb, 'c');
-			} else if (level == Level.FATAL) {
-				control(sb, '4');
+			sb.append('[');
+			Level level = event.getLevel();
+			if (COLORED) {
+				if (level == Level.WARN) {
+					control(sb, 'e');
+				} else if (level == Level.ERROR) {
+					control(sb, 'c');
+				} else if (level == Level.FATAL) {
+					control(sb, '4');
+				}
 			}
-		}
-		String levelS = event.getLevel().toString();
-		int llen = levelS.length();
-		if (llen > 4) {
-			levelS = levelS.substring(0, 4);
-		}
-		sb.append(levelS);
-		if (llen < 4) {
-			sb.append(' ');
-		}
-		if (COLORED && (level == Level.WARN || level == Level.ERROR || level == Level.FATAL)) {
-			control(sb, 'r');
-		}
-		sb.append("] ");
+			String levelS = event.getLevel().toString();
+			int llen = levelS.length();
+			if (llen > 4) {
+				levelS = levelS.substring(0, 4);
+			}
+			sb.append(levelS);
+			if (llen < 4) {
+				sb.append(' ');
+			}
+			if (COLORED && (level == Level.WARN || level == Level.ERROR || level == Level.FATAL)) {
+				control(sb, 'r');
+			}
+			sb.append("] ");
 
-		if (COLORED) {
-			simplifyControlSequences(sb, msg);
-		} else {
-			stripControlSequences(sb, msg);
-		}
+			if (COLORED) {
+				simplifyControlSequences(sb, msg);
+			} else {
+				stripControlSequences(sb, msg);
+			}
 
-		if (trwn != null) {
+			if (trwn != null) {
+				sb.append(Constants.LINE_SEP);
+				sb.append(trwn);
+			}
+
 			sb.append(Constants.LINE_SEP);
-			sb.append(trwn);
+
+			return sb.toString();
 		}
-
-		sb.append(Constants.LINE_SEP);
-
-		return sb.toString();
+		return "{NULLPOINTER MESSAGE} \n";
 	}
 
 	private static StringBuffer formatThrowable(Throwable t) {

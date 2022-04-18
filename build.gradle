@@ -99,7 +99,6 @@ dependencies {
 	compileClient 'org.lwjgl.lwjgl:lwjgl:2.9.1'
 	compileClient 'org.lwjgl.lwjgl:lwjgl_util:2.9.1'
 	compileClient 'tv.twitch:twitch:5.16'
-
 	compileCommon 'org.yaml:snakeyaml:1.16'
 	compileCommon 'com.lmax:disruptor:3.2.1'
 	compileCommon 'org.apache.commons:commons-dbcp2:2.1.1'
@@ -108,7 +107,6 @@ dependencies {
 	runtimeServer group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
 	runtimeCommon 'net.openhft:koloboke-impl-jdk8:0.6.8'
 	runtimeServer 'mysql:mysql-connector-java:8.0.28'
-	
 	compileCommon 'commons-lang:commons-lang:2.6'
 	compileServer 'org.avaje:ebean:2.7.7'
 	compileServer('net.md-5:SpecialSource:1.7.4') {

@@ -23,9 +23,12 @@ public class UMStripColorsRewritePolicy implements RewritePolicy {
 		} else if (message instanceof SimpleMessage || message instanceof ParameterizedMessage
 				|| message instanceof MessageFormatMessage || message instanceof StringFormattedMessage) {
 			String text = message.getFormattedMessage();
-			StringBuilder sb = new StringBuilder(text.length());
-			UMConsoleLayout.stripControlSequences(sb, text);
-			message = new SimpleMessage(sb.toString());
+			StringBuilder sb = null; // = new StringBuilder(text.length());
+			if(text != null){
+				sb = new StringBuilder(text.length());
+				UMConsoleLayout.stripControlSequences(sb, text);
+				message = new SimpleMessage(sb.toString());
+			}
 		} else
 			return source;
 

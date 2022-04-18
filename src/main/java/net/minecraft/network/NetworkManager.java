@@ -66,7 +66,6 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	private EnumConnectionState connectionState;
 	private IChatComponent terminationReason;
 	private boolean field_152463_r;
-	private static final String __OBFID = "CL_00001240";
 
 	public NetworkManager(boolean p_i45147_1_) {
 		isClientSide = p_i45147_1_;
@@ -101,7 +100,7 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 			chatcomponenttranslation = new ChatComponentTranslation("disconnect.timeout", new Object[0]);
 		} else {
 			chatcomponenttranslation = new ChatComponentTranslation("disconnect.genericReason",
-					new Object[] { "Internal Exception: " + p_exceptionCaught_2_ });
+					"Internal Exception: " + p_exceptionCaught_2_);
 		}
 
 		closeChannel(chatcomponenttranslation);

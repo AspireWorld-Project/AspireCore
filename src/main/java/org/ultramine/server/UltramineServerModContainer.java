@@ -113,9 +113,10 @@ public class UltramineServerModContainer extends DummyModContainer {
 				services.register(Economy.class, new UMEconomy(), 0);
 				services.register(DefaultHoldingsProvider.class, new UMIntegratedHoldingsProvider(), 0);
 			}
-                // In the case of launch from IDE translation table is not loaded automatically
-				InputStream langFile = getClass().getResourceAsStream("/assets/ultramine/lang/ru_RU.lang");
-				if (langFile != null) StringTranslate.inject(langFile);
+
+			// In the case of launch from IDE translation table is not loaded automatically
+			InputStream langFile = getClass().getResourceAsStream("/assets/ultramine/lang/ru_RU.lang");
+			if (langFile != null) StringTranslate.inject(langFile);
 
 			OpBasedPermissions vanPerms = new OpBasedPermissions();
 			vanPerms.addDefault("command.vanilla.help");

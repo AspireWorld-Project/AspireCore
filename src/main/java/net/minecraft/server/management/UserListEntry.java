@@ -22,7 +22,7 @@ public class UserListEntry {
 		field_152642_a = p_i1147_1_;
 	}
 
-	Object func_152640_f() {
+	public Object func_152640_f() {
 		return field_152642_a;
 	}
 

@@ -21,6 +21,7 @@ import javax.imageio.ImageIO;
 
 import com.google.common.base.Function;
 import cpw.mods.fml.common.FMLLog;
+import net.minecraft.server.dedicated.DedicatedServer;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.event.world.WorldEvent;
 import org.apache.commons.lang.Validate;
@@ -95,6 +96,7 @@ import org.ultramine.bukkit.BukkitConfig;
 import org.ultramine.bukkit.UMCommandMap;
 import org.ultramine.bukkit.api.BukkitStateForgeEvent;
 import org.ultramine.server.ConfigurationHandler;
+import org.ultramine.server.UltramineServerConfig;
 import org.ultramine.server.data.player.PlayerData;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.SafeConstructor;
@@ -1256,20 +1258,19 @@ public final class CraftServer implements Server {
 	@Override
 	public String getShutdownMessage() {
 		// return configuration.getString("settings.shutdown-message");
-		return ""; // TODO
+		return "Пиздец!!"; // TODO
 	}
 
 	@Override
 	public int getSpawnRadius() {
-		// return ((net.minecraft.server.dedicated.DedicatedServer)
-		// console).settings.getIntProperty("spawn-protection", 16);
-		return 16;
+		UltramineServerConfig config = new UltramineServerConfig();
+		return config.vanilla.SpawnProtectionRange;
 	}
 
 	@Override
 	public void setSpawnRadius(int value) {
-		// configuration.set("settings.spawn-radius", value);
-		// saveConfig();
+		UltramineServerConfig config = new UltramineServerConfig();
+		config.vanilla.SpawnProtectionRange = value;
 	}
 
 	@Override
@@ -1470,16 +1471,11 @@ public final class CraftServer implements Server {
 
 	@Override
 	public Set<OfflinePlayer> getBannedPlayers() {
-		// Set<OfflinePlayer> result = new HashSet<OfflinePlayer>();
-		//
-		// for (UserListEntry entry : playerList.func_152608_h().getValues()) {
-		// result.add(getOfflinePlayer((GameProfile) entry.func_152640_f())); // Should
-		// be getKey
-		// }
-		//
-		// return result;
-
-		throw new UnsupportedOperationException(); // TODO
+		Set<OfflinePlayer> result = new HashSet<>();
+		for (UserListEntry entry : playerList.func_152608_h().getValues()) {
+			result.add(getOfflinePlayer((GameProfile) entry.func_152640_f())); // Should be getKey
+		}
+		return result;
 	}
 
 	@Override

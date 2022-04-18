@@ -167,5 +167,7 @@ public class UltramineServerConfig {
 
 	public static class VanillaConf {
 		public Map<String, Object> unresolved = new LinkedHashMap<>();
+		public int SpawnProtectionRange = 16;
 	}
+
 }

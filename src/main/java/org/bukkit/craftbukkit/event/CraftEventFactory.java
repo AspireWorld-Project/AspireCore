@@ -129,22 +129,18 @@ public class CraftEventFactory {
 
 	// helper methods
 	private static boolean canBuild(CraftWorld world, Player player, int x, int z) {
-		return true;
-		// net.minecraft.world.WorldServer worldServer = world.getHandle();
-		// int spawnSize = Bukkit.getServer().getSpawnRadius();
-		//
-		// if (world.getHandle().provider.dimensionId != 0) return true;
-		// if (spawnSize <= 0) return true;
-		// if (((CraftServer)
-		// Bukkit.getServer()).getHandle().func_152603_m().func_152690_d()) return true;
-		// if (player.isOp()) return true;
-		//
-		// net.minecraft.util.ChunkCoordinates chunkcoordinates =
-		// worldServer.getSpawnPoint();
-		//
-		// int distanceFromSpawn = Math.max(Math.abs(x - chunkcoordinates.posX),
-		// Math.abs(z - chunkcoordinates.posZ));
-		// return distanceFromSpawn > spawnSize;
+		net.minecraft.world.WorldServer worldServer = world.getHandle();
+		int spawnSize = Bukkit.getServer().getSpawnRadius();
+
+		if (world.getHandle().provider.dimensionId != 0) return true;
+		if (spawnSize <= 0) return true;
+		if (((CraftServer) Bukkit.getServer()).getHandle().func_152603_m().func_152690_d()) return true;
+		if (player.isOp()) return true;
+
+		net.minecraft.util.ChunkCoordinates chunkcoordinates = worldServer.getSpawnPoint();
+
+		int distanceFromSpawn = Math.max(Math.abs(x - chunkcoordinates.posX), Math.abs(z - chunkcoordinates.posZ));
+		return distanceFromSpawn > spawnSize;
 	}
 
 	public static <T extends Event> T callEvent(T event) {

@@ -195,57 +195,50 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
 
 	@Override
 	public String getPlayerListName() {
-		// return getHandle().listName;
-		return getDisplayName();
+		return getHandle().listName;
 	}
 
 	@Override
-	public void setPlayerListName(String name) {// TODO
-		// String oldName = getHandle().listName;
-		//
-		// if (name == null) {
-		// name = getName();
-		// }
-		//
-		// if (oldName.equals(name)) {
-		// return;
-		// }
-		//
-		// if (name.length() > 16) {
-		// throw new IllegalArgumentException("Player list names can only be a maximum
-		// of 16 characters long");
-		// }
-		//
-		// // Collisions will make for invisible people
-		// for (int i = 0; i < server.getHandle().playerEntityList.size(); ++i) {
-		// if (((net.minecraft.entity.player.EntityPlayerMP)
-		// server.getHandle().playerEntityList.get(i)).listName.equals(name)) {
-		// throw new IllegalArgumentException(name + " is already assigned as a player
-		// list name for someone");
-		// }
-		// }
-		//
-		// getHandle().listName = name;
-		//
-		// // Change the name on the client side
-		// net.minecraft.network.play.server.S38PacketPlayerListItem oldpacket = new
-		// net.minecraft.network.play.server.S38PacketPlayerListItem(oldName, false,
-		// 9999);
-		// net.minecraft.network.play.server.S38PacketPlayerListItem packet = new
-		// net.minecraft.network.play.server.S38PacketPlayerListItem(name, true,
-		// getHandle().ping);
-		// for (int i = 0; i < server.getHandle().playerEntityList.size(); ++i) {
-		// net.minecraft.entity.player.EntityPlayerMP entityplayer =
-		// (net.minecraft.entity.player.EntityPlayerMP)
-		// server.getHandle().playerEntityList.get(i);
-		// if (entityplayer.playerNetServerHandler == null) continue;
-		//
-		// if (((CraftPlayer) ((IMixinEntity)
-		// entityplayer).getBukkitEntity()).canSee(this)) {
-		// entityplayer.playerNetServerHandler.sendPacket(oldpacket);
-		// entityplayer.playerNetServerHandler.sendPacket(packet);
-		// }
-		// }
+	public void setPlayerListName(String name) {
+		String oldName = getHandle().listName;
+
+		if (name == null) {
+			name = getName();
+		}
+
+		if (oldName.equals(name)) {
+			return;
+		}
+
+		if (name.length() > 16) {
+			throw new IllegalArgumentException("Player list names can only be a maximum of 16 characters long");
+		}
+
+		// Collisions will make for invisible people
+		for (int i = 0; i < server.getHandle().playerEntityList.size(); ++i) {
+			if (((net.minecraft.entity.player.EntityPlayerMP) server.getHandle().playerEntityList.get(i)).listName.equals(name)) {
+				throw new IllegalArgumentException(name + " is already assigned as a player list name for someone");
+			}
+		}
+
+		getHandle().listName = name;
+
+		// Change the name on the client side
+		net.minecraft.network.play.server.S38PacketPlayerListItem oldpacket = new net.minecraft.network.play.server.S38PacketPlayerListItem(oldName, false, 9999);
+		net.minecraft.network.play.server.S38PacketPlayerListItem packet = new net.minecraft.network.play.server.S38PacketPlayerListItem(name, true, getHandle().ping);
+		for (int i = 0; i < server.getHandle().playerEntityList.size(); ++i) {
+			net.minecraft.entity.player.EntityPlayerMP entityplayer = (net.minecraft.entity.player.EntityPlayerMP) server.getHandle().playerEntityList.get(i);
+			if (entityplayer.playerNetServerHandler == null) continue;
+
+			if (entityplayer.getBukkitEntity().canSee(this)) {
+				entityplayer.playerNetServerHandler.sendPacket(oldpacket);
+				entityplayer.playerNetServerHandler.sendPacket(packet);
+			}
+		}
+	}
+
+	public boolean canSee(Player player) {
+		return !hiddenPlayers.contains(player.getUniqueId());
 	}
 
 	@Override
@@ -1000,11 +993,6 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
 
 	public void removeDisconnectingPlayer(Player player) {
 		hiddenPlayers.remove(player.getUniqueId());
-	}
-
-	@Override
-	public boolean canSee(Player player) {
-		return !hiddenPlayers.contains(player.getUniqueId());
 	}
 
 	@Override

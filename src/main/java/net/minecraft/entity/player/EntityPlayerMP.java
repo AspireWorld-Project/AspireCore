@@ -10,6 +10,7 @@ import java.util.List;
 import org.apache.commons.io.Charsets;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.bukkit.craftbukkit.entity.CraftEntity;
 import org.bukkit.craftbukkit.entity.CraftPlayer;
 import org.bukkit.craftbukkit.event.CraftEventFactory;
 import org.ultramine.advanced.BetterTeleporter;
@@ -1262,5 +1263,10 @@ public class EntityPlayerMP extends EntityPlayer implements ICrafting {
 
 	public boolean isHidden() {
 		return getData() != null && getData().core().isHidden();
+	}
+
+	@Override
+	public CraftPlayer getBukkitEntity() {
+		return (CraftPlayer) super.getBukkitEntity();
 	}
 }

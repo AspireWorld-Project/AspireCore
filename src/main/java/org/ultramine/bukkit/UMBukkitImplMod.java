@@ -41,7 +41,7 @@ public class UMBukkitImplMod extends DummyModContainer {
 	private static ServiceManager services;
 	@InjectService
 	private static BukkitRegistry bukkitRegistry;
-	private CraftServer bserver;
+	private static CraftServer bserver;
 	public LoadController controller = null;
 	private static UMBukkitImplMod instance = null;
 
@@ -128,5 +128,9 @@ public class UMBukkitImplMod extends DummyModContainer {
 	@Override
 	public List<String> getOwnedPackages() {
 		return ImmutableList.of("org.ultramine.bukkit", "org.bukkit", "org.spigotmc", "net.minecraftforge.cauldron");
+	}
+
+	public static CraftServer getServer(){
+		return bserver;
 	}
 }

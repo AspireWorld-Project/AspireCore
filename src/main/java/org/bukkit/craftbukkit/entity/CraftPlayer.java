@@ -270,18 +270,16 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
 	}
 
 	@Override
-	public void setCompassTarget(Location loc) {
-		if (getHandle().playerNetServerHandler == null)
-			return;
-
-		// Do not directly assign here, from the packethandler we'll assign it.
-		getHandle().playerNetServerHandler.sendPacket(new net.minecraft.network.play.server.S05PacketSpawnPosition(
-				loc.getBlockX(), loc.getBlockY(), loc.getBlockZ()));
+	public Location getCompassTarget() {
+		return getHandle().compassTarget;
 	}
 
 	@Override
-	public Location getCompassTarget() {
-		return getHandle().getCompassTarget();
+	public void setCompassTarget(Location loc) {
+		if (getHandle().playerNetServerHandler == null) return;
+
+		// Do not directly assign here, from the packethandler we'll assign it.
+		getHandle().playerNetServerHandler.sendPacket(new net.minecraft.network.play.server.S05PacketSpawnPosition(loc.getBlockX(), loc.getBlockY(), loc.getBlockZ()));
 	}
 
 	@Override

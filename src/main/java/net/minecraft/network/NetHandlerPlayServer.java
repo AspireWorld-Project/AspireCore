@@ -9,6 +9,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
@@ -16,10 +18,14 @@ import org.apache.logging.log4j.Logger;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.CraftServer;
+import org.bukkit.craftbukkit.command.CraftConsoleCommandSender;
 import org.bukkit.craftbukkit.entity.CraftPlayer;
 import org.bukkit.craftbukkit.event.CraftEventFactory;
 import org.bukkit.craftbukkit.inventory.CraftInventoryView;
 import org.bukkit.craftbukkit.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.util.CraftChatMessage;
+import org.bukkit.craftbukkit.util.LazyPlayerSet;
+import org.bukkit.craftbukkit.util.Waitable;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.SignChangeEvent;
@@ -33,6 +39,8 @@ import org.bukkit.event.player.*;
 import org.bukkit.inventory.CraftingInventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.InventoryView;
+import org.ultramine.advanced.CauldronUtils;
+import org.ultramine.bukkit.UMBukkitImplMod;
 import org.ultramine.bukkit.util.GenericFutureCloseChannel;
 import org.ultramine.core.permissions.MinecraftPermissions;
 import org.ultramine.core.permissions.Permissions;
@@ -136,9 +144,10 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 	private long field_147379_i;
 	private static Random field_147376_j = new Random();
 	private long field_147377_k;
-	private int chatSpamThresholdCount;
 	private int field_147375_m;
 	private IntHashMap field_147372_n = new IntHashMap();
+	private volatile int chatSpamThresholdCount; // Cauldron - set to volatile to fix multithreaded issues
+	private static final AtomicIntegerFieldUpdater chatSpamField = AtomicIntegerFieldUpdater.newUpdater(NetHandlerPlayServer.class, CauldronUtils.deobfuscatedEnvironment() ? "chatSpamThresholdCount" : "fiel" + "d_147374_l"); // CraftBukkit - multithreaded field
 	private double lastPosX;
 	private double lastPosY;
 	private double lastPosZ;
@@ -146,7 +155,6 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 	private static final String __OBFID = "CL_00001452";
 	@InjectService
 	private static Permissions perms;
-
 	private float lastPitch = Float.MAX_VALUE;
 	private float lastYaw = Float.MAX_VALUE;
 	private boolean justTeleported = false;
@@ -164,12 +172,13 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 		p_i1530_2_.setNetHandler(this);
 		playerEntity = p_i1530_3_;
 		p_i1530_3_.playerNetServerHandler = this;
+		this.server = p_i1530_1_ == null ? null : UMBukkitImplMod.getServer();
 	}
 
 	public CraftPlayer getPlayerB() {
 		return playerEntity == null ? null : (CraftPlayer) playerEntity.getBukkitEntity();
 	}
-
+	private final org.bukkit.craftbukkit.CraftServer server;
 	// CraftBukkit start - Add "isDisconnected" method
 	public final boolean isDisconnected() {
 		return !netManager.channel().config().isAutoRead();
@@ -223,10 +232,7 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 		}
 
 		serverController.theProfiler.endSection();
-
-		if (chatSpamThresholdCount > 0) {
-			--chatSpamThresholdCount;
-		}
+		for (int spam; (spam = this.chatSpamThresholdCount) > 0 && !chatSpamField.compareAndSet(this, spam, spam - 1);) ;
 
 		if (field_147375_m > 0) {
 			--field_147375_m;
@@ -834,45 +840,160 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 		}
 	}
 
-	@Override
-	public void processChatMessage(C01PacketChatMessage p_147354_1_) {
-		if (playerEntity.func_147096_v() == EntityPlayer.EnumChatVisibility.HIDDEN) {
-			ChatComponentTranslation chatcomponenttranslation = new ChatComponentTranslation("chat.cannotSend",
-					new Object[0]);
+	public void processChatMessage(C01PacketChatMessage p_147354_1_)
+	{
+		if (this.playerEntity.isDead || this.playerEntity.func_147096_v() == EntityPlayer.EnumChatVisibility.HIDDEN) // CraftBukkit - dead men tell no tales
+		{
+			ChatComponentTranslation chatcomponenttranslation = new ChatComponentTranslation("chat.cannotSend", new Object[0]);
 			chatcomponenttranslation.getChatStyle().setColor(EnumChatFormatting.RED);
-			sendPacket(new S02PacketChat(chatcomponenttranslation));
-		} else {
-			playerEntity.func_143004_u();
+			this.sendPacket(new S02PacketChat(chatcomponenttranslation));
+		}
+		else
+		{
+			this.playerEntity.func_143004_u();
 			String s = p_147354_1_.func_149439_c();
 			s = StringUtils.normalizeSpace(s);
 
-			for (int i = 0; i < s.length(); ++i) {
-				if (!ChatAllowedCharacters.isAllowedCharacter(s.charAt(i))) {
-					kickPlayerFromServer("Illegal characters in chat");
+			for (int i = 0; i < s.length(); ++i)
+			{
+				if (!ChatAllowedCharacters.isAllowedCharacter(s.charAt(i)))
+				{
+					// CraftBukkit start - threadsafety
+					if (p_147354_1_.hasPriority())
+					{
+						Waitable waitable = new Waitable() {
+							@Override
+							protected Object evaluate()
+							{
+								NetHandlerPlayServer.this.kickPlayerFromServer("Illegal characters in chat");
+								return null;
+							}
+						};
+						this.serverController.processQueue.add(waitable);
+
+						try
+						{
+							waitable.get();
+						}
+						catch (InterruptedException e)
+						{
+							Thread.currentThread().interrupt();
+						}
+						catch (ExecutionException e)
+						{
+							throw new RuntimeException(e);
+						}
+					}
+					else
+					{
+						this.kickPlayerFromServer("Illegal characters in chat");
+					}
+					// CraftBukkit end
 					return;
 				}
 			}
 
-			if (s.startsWith("/") || s.length() > 1 && s.charAt(0) == '.' && s.charAt(1) != '.' && s.charAt(1) != '/') {
-				handleSlashCommand(s.startsWith("/") ? s : s.substring(1));
-			} else {
-				ChatComponentTranslation chatcomponenttranslation1 = new ChatComponentTranslation("chat.type.text",
-						new Object[] { playerEntity.func_145748_c_(), ForgeHooks.newChatWithLinks(s) }); // Fixes
-																											// chat
-																											// links
-				chatcomponenttranslation1 = ForgeHooks.onServerChatEvent(this, s, chatcomponenttranslation1);
-				if (chatcomponenttranslation1 == null)
-					return;
-				serverController.getConfigurationManager().sendChatMsgImpl(chatcomponenttranslation1, false);
+			// CraftBukkit start
+			if (!p_147354_1_.hasPriority())
+			{
+				try
+				{
+					this.server.playerCommandState = true;
+					this.handleSlashCommand(s);
+				}
+				finally
+				{
+					this.server.playerCommandState = false;
+				}
+			}
+			else if (s.isEmpty())
+			{
+				logger.warn(this.playerEntity.getCommandSenderName() + " tried to send an empty message");
+			}
+			else if (getPlayerB().isConversing())
+			{
+				getPlayerB().acceptConversationInput(s);
+			}
+			else if (this.playerEntity.func_147096_v() == EntityPlayer.EnumChatVisibility.SYSTEM) // Re-add "Command Only" flag check
+			{
+				ChatComponentTranslation chatcomponenttranslation = new ChatComponentTranslation("chat.cannotSend", new Object[0]);
+				chatcomponenttranslation.getChatStyle().setColor(EnumChatFormatting.RED);
+				this.sendPacket(new S02PacketChat(chatcomponenttranslation));
+			}
+			else if (true)
+			{
+				String[] bits = s.split(" ");
+
+				HashSet<String> possibilities = new HashSet<String>(); // No duplicates allowed
+				for (String str: bits)
+				{
+					if (str.length() <= 17 && str.length() >= 4)
+					{
+						if(str.charAt(0) != '@')
+							continue;
+						possibilities.add(str.substring(1));
+
+					}
+				}
+
+				for (Object o : MinecraftServer.getServer().getConfigurationManager().playerEntityList)
+				{
+					if (! (o instanceof EntityPlayerMP))
+					{
+						continue;
+					}
+					EntityPlayerMP ep = (EntityPlayerMP)o;
+					if (possibilities.contains(ep.getCommandSenderName()))
+					{
+						ep.worldObj.playSoundAtEntity(ep, "random.orb", 4.0F, 4.0F);
+					}
+
+				}
+
+				this.chat(s, true);
+				// CraftBukkit end - the below is for reference. :)
 			}
 
-			chatSpamThresholdCount += 20;
+			// CraftBukkit start - replaced with thread safe throttle
+			// this.chatSpamThresholdCount += 20;
+			if (chatSpamField.addAndGet(this, 20) > 200 && !this.serverController.getConfigurationManager().func_152596_g(this.playerEntity.getGameProfile()))
+			{
+				if (p_147354_1_.hasPriority())
+				{
+					Waitable waitable = new Waitable() {
+						@Override
+						protected Object evaluate()
+						{
+							NetHandlerPlayServer.this.kickPlayerFromServer("disconnect.spam");
+							return null;
+						}
+					};
+					this.serverController.processQueue.add(waitable);
 
-			if (chatSpamThresholdCount > 200 && !perms.has(playerEntity, MinecraftPermissions.ALLOW_SPAM)) {
-				kickPlayerFromServer("disconnect.spam");
+					try
+					{
+						waitable.get();
+					}
+					catch (InterruptedException e)
+					{
+						Thread.currentThread().interrupt();
+					}
+					catch (ExecutionException e)
+					{
+						throw new RuntimeException(e);
+					}
+				}
+				else
+				{
+					this.kickPlayerFromServer("disconnect.spam");
+				}
+
+				// CraftBukkit end
 			}
 		}
 	}
+
+
 
 	private void handleSlashCommand(String p_147361_1_) {
 		serverController.getCommandManager().executeCommand(playerEntity, p_147361_1_);
@@ -1336,6 +1457,135 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 			}
 		}
 	}
+
+	// CraftBukkit start
+	public void chat(String s, boolean async)
+	{
+		if (s.isEmpty() || this.playerEntity.func_147096_v() == EntityPlayer.EnumChatVisibility.HIDDEN)
+		{
+			return;
+		}
+
+		if (!async && s.startsWith("/"))
+		{
+			this.handleSlashCommand(s);
+		}
+		else if (this.playerEntity.func_147096_v() == EntityPlayer.EnumChatVisibility.SYSTEM)
+		{
+			// Do nothing, this is coming from a plugin
+		}
+		else
+		{
+			// Cauldron start - handle Forge event
+			ChatComponentTranslation chatcomponenttranslation1 = new ChatComponentTranslation("chat.type.text", new Object[] {
+					this.playerEntity.func_145748_c_(), s });
+			chatcomponenttranslation1 = ForgeHooks.onServerChatEvent(this, s, chatcomponenttranslation1);
+
+			if (chatcomponenttranslation1 != null
+					&& chatcomponenttranslation1.getFormatArgs()[chatcomponenttranslation1.getFormatArgs().length - 1] instanceof String)
+			{
+				// use event message from Forge
+				s = (String) chatcomponenttranslation1.getFormatArgs()[chatcomponenttranslation1.getFormatArgs().length - 1];
+			}
+			// Cauldron end
+			Player player = this.getPlayerB();
+			AsyncPlayerChatEvent event = new AsyncPlayerChatEvent(async, player, s, new LazyPlayerSet()); // Cauldron - pass changed message if any from Forge
+			event.setCancelled(chatcomponenttranslation1 == null); // Cauldron - pre-cancel event if forge event was cancelled
+			this.server.getPluginManager().callEvent(event);
+			if (PlayerChatEvent.getHandlerList().getRegisteredListeners().length != 0)
+			{
+				System.out.println("AAAA");
+				// Evil plugins still listening to deprecated event
+				final PlayerChatEvent queueEvent = new PlayerChatEvent(player, event.getMessage(), event.getFormat(), event.getRecipients());
+				queueEvent.setCancelled(event.isCancelled());
+				Waitable waitable = new Waitable() {
+					@Override
+					protected Object evaluate()
+					{
+						org.bukkit.Bukkit.getPluginManager().callEvent(queueEvent);
+
+						if (queueEvent.isCancelled())
+						{
+							return null;
+						}
+                        System.out.println("AAAA");
+						String message = String.format(queueEvent.getFormat(), queueEvent.getPlayer().getDisplayName(), queueEvent.getMessage());
+						NetHandlerPlayServer.this.serverController.console.sendMessage(message);
+						if (((LazyPlayerSet) queueEvent.getRecipients()).isLazy())
+						{
+							for (Object recipient : serverController.getConfigurationManager().playerEntityList)
+							{
+								((EntityPlayerMP) recipient).sendMessage(CraftChatMessage.fromString(message));
+							}
+						}
+						else
+						{
+							for (Player player : queueEvent.getRecipients())
+							{
+								player.sendMessage(message);
+							}
+						}
+
+						return null;
+					}
+				};
+
+				if (async)
+				{
+					serverController.processQueue.add(waitable);
+				}
+				else
+				{
+					System.out.println("serverController.processQueue");
+					waitable.run();
+				}
+
+				try
+				{
+					System.out.println("serverController.processQueue");
+					waitable.get();
+				}
+				catch (InterruptedException e)
+				{
+					Thread.currentThread().interrupt(); // This is proper habit for java. If we aren't handling it, pass it on!
+				}
+				catch (ExecutionException e)
+				{
+					throw new RuntimeException("Exception processing chat event", e.getCause());
+				}
+			}
+			else
+			{
+				if (event.isCancelled())
+				{
+					return;
+				}
+				s = String.format(event.getFormat(), event.getPlayer().getDisplayName(), event.getMessage());
+				if(serverController.console == null){
+					serverController.console = new CraftConsoleCommandSender();
+				}
+				serverController.console.sendMessage(s);
+				if (((LazyPlayerSet) event.getRecipients()).isLazy())
+				{
+					for (Object recipient : serverController.getConfigurationManager().playerEntityList)
+					{
+						for (IChatComponent component : CraftChatMessage.fromString(s))
+						{
+							((EntityPlayerMP) recipient).sendMessage(CraftChatMessage.fromString(s));
+						}
+					}
+				}
+				else
+				{
+					for (Player recipient : event.getRecipients())
+					{
+						recipient.sendMessage(s);
+					}
+				}
+			}
+		}
+	}
+	// CraftBukkit end
 
 	@Override
 	public void processEnchantItem(C11PacketEnchantItem p_147338_1_) {

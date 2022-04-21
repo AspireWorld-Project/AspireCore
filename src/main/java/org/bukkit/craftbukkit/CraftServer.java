@@ -45,6 +45,7 @@ import org.bukkit.command.SimpleCommandMap;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.conversations.Conversable;
 import org.bukkit.craftbukkit.command.ColouredConsoleSender;
+import org.bukkit.craftbukkit.command.CraftSimpleCommandMap;
 import org.bukkit.craftbukkit.entity.CraftPlayer;
 import org.bukkit.craftbukkit.help.SimpleHelpMap;
 import org.bukkit.craftbukkit.inventory.CraftFurnaceRecipe;
@@ -130,8 +131,7 @@ public final class CraftServer implements Server {
 	private final Logger logger = Logger.getLogger("Minecraft");
 	private final ServicesManager servicesManager = new SimpleServicesManager();
 	private final CraftScheduler scheduler = new CraftScheduler();
-	// private final CraftSimpleCommandMap craftCommandMap = new
-	// CraftSimpleCommandMap(this); // Cauldron
+	private final CraftSimpleCommandMap craftCommandMap = new CraftSimpleCommandMap(this); // Cauldron
 	private final SimpleCommandMap commandMap = new UMCommandMap(this);
 	private final SimpleHelpMap helpMap = new SimpleHelpMap(this);
 	private final StandardMessenger messenger = new StandardMessenger();
@@ -664,17 +664,31 @@ public final class CraftServer implements Server {
 
 	// NOTE: Should only be called from DedicatedServer.ah()
 	public boolean dispatchServerCommand(CommandSender sender, net.minecraft.command.ServerCommand serverCommand) {
-		if (tryConversation(sender, serverCommand.command))
-			return true;
+		if (sender instanceof Conversable) {
+			Conversable conversable = (Conversable) sender;
+
+			if (conversable.isConversing()) {
+				conversable.acceptConversationInput(serverCommand.command);
+				return true;
+			}
+		}
 		try {
-			playerCommandState = true;
-			return dispatchCommand(sender, serverCommand.command);
+			this.playerCommandState = true;
+			// Cauldron start - handle bukkit/vanilla console commands
+			int space = serverCommand.command.indexOf(" ");
+			// if bukkit command exists then execute it over vanilla
+			if (this.getCommandMap().getCommand(serverCommand.command.substring(0, space != -1 ? space : serverCommand.command.length())) != null) {
+				return this.dispatchCommand(sender, serverCommand.command);
+			} else { // process vanilla console command
+				craftCommandMap.setVanillaConsoleSender(serverCommand.sender);
+				return this.dispatchVanillaCommand(sender, serverCommand.command);
+			}
+			// Cauldron end
 		} catch (Exception ex) {
-			getLogger().log(Level.WARNING,
-					"Unexpected exception while parsing console command \"" + serverCommand.command + '"', ex);
+			getLogger().log(Level.WARNING, "Unexpected exception while parsing console command \"" + serverCommand.command + '"', ex);
 			return false;
 		} finally {
-			playerCommandState = false;
+			this.playerCommandState = false;
 		}
 	}
 

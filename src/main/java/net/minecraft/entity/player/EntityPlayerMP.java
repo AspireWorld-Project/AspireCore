@@ -954,7 +954,7 @@ public class EntityPlayerMP extends EntityPlayer implements ICrafting {
 
 	@Override
 	public void addChatComponentMessage(IChatComponent p_146105_1_) {
-		playerNetServerHandler.sendPacket(new S02PacketChat(UMHooks.onChatSend(this, p_146105_1_)));
+		playerNetServerHandler.sendPacket(new S02PacketChat(p_146105_1_));
 	}
 
 	@Override
@@ -1121,6 +1121,17 @@ public class EntityPlayerMP extends EntityPlayer implements ICrafting {
 	 * ===================================== ULTRAMINE START
 	 * =====================================
 	 */
+
+
+	// CraftBukkit start - Support multi-line messages
+	public void sendMessage(IChatComponent[] ichatcomponent)
+	{
+		for (IChatComponent component : ichatcomponent)
+		{
+			addChatComponentMessage(component);
+		}
+	}
+	// CraftBukkit end
 
 	private int renderDistance;
 	private final ChunkSendManager chunkMgr = new ChunkSendManager(this);

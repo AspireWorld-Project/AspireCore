@@ -20,9 +20,18 @@ import java.util.concurrent.Callable;
 
 import javax.imageio.ImageIO;
 
+import net.minecraft.command.*;
+import net.minecraft.network.NetHandlerPlayServer;
 import org.apache.commons.lang3.Validate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.bukkit.Bukkit;
+import org.bukkit.craftbukkit.CraftServer;
+import org.bukkit.craftbukkit.command.ColouredConsoleSender;
+import org.bukkit.craftbukkit.command.CraftConsoleCommandSender;
+import org.bukkit.craftbukkit.util.Waitable;
+import org.bukkit.event.server.RemoteServerCommandEvent;
+import org.ultramine.bukkit.UMBukkitImplMod;
 import org.ultramine.scheduler.Scheduler;
 import org.ultramine.server.BackupManager;
 import org.ultramine.server.ConfigurationHandler;
@@ -46,10 +55,6 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufOutputStream;
 import io.netty.buffer.Unpooled;
 import io.netty.handler.codec.base64.Base64;
-import net.minecraft.command.CommandBase;
-import net.minecraft.command.ICommandManager;
-import net.minecraft.command.ICommandSender;
-import net.minecraft.command.ServerCommandManager;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -121,6 +126,7 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
 	private int buildLimit;
 	private int field_143008_E = 0;
 	public final long[] tickTimeArray = new long[100];
+	public java.util.Queue<Runnable> processQueue = new java.util.concurrent.ConcurrentLinkedQueue<>();
 	// public long[][] timeOfLastDimensionTick;
 	public Hashtable<Integer, long[]> worldTickTimes = new Hashtable<>();
 	private KeyPair serverKeyPair;
@@ -141,8 +147,10 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
 	private final MinecraftSessionService field_147143_S;
 	private long field_147142_T = 0L;
 	private final GameProfileRepository field_152365_W;
+	private CraftServer server;
+	public org.bukkit.command.ConsoleCommandSender console;
+	public org.bukkit.command.RemoteConsoleCommandSender remoteConsole;
 	protected PlayerProfileCache field_152366_X;
-	private static final String __OBFID = "CL_00001462";
 
 	public MinecraftServer(File p_i45281_1_, Proxy p_i45281_2_) {
 		mcServer = this;
@@ -164,7 +172,6 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
 			setUserMessage("menu.convertingLevel");
 			getActiveAnvilConverter().convertMapFormat(p_71237_1_, new IProgressUpdate() {
 				private long field_96245_b = System.currentTimeMillis();
-				private static final String __OBFID = "CL_00001417";
 
 				@Override
 				public void displayProgressMessage(String p_73720_1_) {
@@ -583,6 +590,11 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
 
 		theProfiler.startSection("levels");
 		int i;
+		//this.server.getScheduler().mainThreadHeartbeat(this.tickCounter);
+		while (!processQueue.isEmpty())
+		{
+			processQueue.remove().run();
+		}
 
 		Integer[] ids = DimensionManager.getIDs(tickCounter % 200 == 0);
 		for (int x = 0; x < ids.length; x++) {
@@ -1262,10 +1274,42 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
 	}
 
 	@SideOnly(Side.SERVER)
-	public String handleRConCommand(String p_71252_1_) {
-		RConConsoleSource.instance.resetLog();
-		commandManager.executeCommand(RConConsoleSource.instance, p_71252_1_);
-		return RConConsoleSource.instance.getLogContents();
+	public String handleRConCommand(final String par1Str)
+	{
+		Waitable<String> waitable = new Waitable<String>()
+		{
+			@Override
+			protected String evaluate()
+			{
+				RConConsoleSource.instance.resetLog();
+				// Event changes start
+				RemoteServerCommandEvent event = new RemoteServerCommandEvent(MinecraftServer.this.remoteConsole, par1Str);
+				Bukkit.getPluginManager().callEvent(event);
+				// Event changes end
+				ServerCommand servercommand = new ServerCommand(event.getCommand(), RConConsoleSource.instance);
+				server = UMBukkitImplMod.getServer();
+				server.dispatchServerCommand(MinecraftServer.this.remoteConsole, servercommand); // CraftBukkit
+				// this.n.a(RemoteControlCommandListener.instance, s);
+				return RConConsoleSource.instance.getLogContents();
+			}
+		};
+		processQueue.add(waitable);
+
+		try
+		{
+			return waitable.get();
+		}
+		catch (java.util.concurrent.ExecutionException e)
+		{
+			throw new RuntimeException("Exception processing rcon command " + par1Str, e.getCause());
+		}
+		catch (InterruptedException e)
+		{
+			Thread.currentThread().interrupt(); // Maintain interrupted state
+			throw new RuntimeException("Interrupted processing rcon command " + par1Str, e);
+		}
+
+		// CraftBukkit end
 	}
 
 	@SideOnly(Side.SERVER)

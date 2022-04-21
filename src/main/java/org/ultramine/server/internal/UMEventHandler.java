@@ -71,22 +71,7 @@ public class UMEventHandler {
 		}
 	}
 
-	@SubscribeEvent
-	public void onServerChat(ServerChatEvent e) {
-		if (e.player.playerNetServerHandler == null || e.player.getData() == null)
-			return;
-		String prefix = perms.getMeta(e.player, "prefix").replace('&', '\u00A7');
-		String postfix = perms.getMeta(e.player, "postfix").replace('&', '\u00A7');
 
-		ChatComponentStyle username = (ChatComponentStyle) e.player.func_145748_c_();
-		IChatComponent msg = ForgeHooks.newChatWithLinks(e.message);
-
-		username.getChatStyle().setColor(BasicTypeParser.parseColor(perms.getMeta(e.player, "color")));
-		EnumChatFormatting color = BasicTypeParser.parseColor(perms.getMeta(e.player, "textcolor"));
-		msg.getChatStyle().setColor(color != null ? color : EnumChatFormatting.WHITE);
-
-		e.component = new ChatComponentTranslation("%s%s%s\u00A77: %s", prefix, username, postfix, msg);
-	}
 
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public void onServerCommand(CommandEvent e) {

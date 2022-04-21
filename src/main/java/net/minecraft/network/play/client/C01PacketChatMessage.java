@@ -9,7 +9,6 @@ import net.minecraft.network.play.INetHandlerPlayServer;
 
 public class C01PacketChatMessage extends Packet {
 	private String field_149440_a;
-	private static final String __OBFID = "CL_00001347";
 
 	public C01PacketChatMessage() {
 	}
@@ -49,4 +48,11 @@ public class C01PacketChatMessage extends Packet {
 	public void processPacket(INetHandler p_148833_1_) {
 		this.processPacket((INetHandlerPlayServer) p_148833_1_);
 	}
+
+	// CraftBukkit start - make chat async
+	public boolean hasPriority()
+	{
+		return !this.field_149440_a.startsWith("/");
+	}
+	// CraftBukkit end
 }

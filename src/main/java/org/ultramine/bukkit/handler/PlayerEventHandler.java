@@ -84,25 +84,13 @@ public class PlayerEventHandler {
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent e) // TODO support for custom join messages
 	{
-		server.getPluginManager().callEvent(new PlayerJoinEvent((Player) e.player.getBukkitEntity(),
-				"\u00A7e" + e.player.getCommandSenderName() + " joined the game."));
+
 	}
 
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent e) // TODO support for custom quit messages
 	{
-		EntityPlayerMP player = (EntityPlayerMP) e.player;
-		PlayerQuitEvent playerQuitEvent = null;
-		if (player.playerNetServerHandler != null) {
-			// CraftBukkit start - Quitting must be before we do final save of data, in case
-			// plugins need to modify it
-			CraftEventFactory.handleInventoryCloseEvent(player);
-			Player bp = server.getPlayer(player);
-			playerQuitEvent = new PlayerQuitEvent(bp, "\u00A7e" + player.getCommandSenderName() + " left the game.");
-			server.getPluginManager().callEvent(playerQuitEvent);
-			((CraftPlayer) bp).disconnect(playerQuitEvent.getQuitMessage());
-			// CraftBukkit end
-		}
+
 	}
 
 	@SubscribeEvent(priority = EventPriority.HIGHEST)

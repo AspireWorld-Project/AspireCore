@@ -1,15 +1,14 @@
 package org.ultramine.server.internal;
 
-import java.util.TreeSet;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
-
-import org.ultramine.server.util.CachedEntry;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.openhft.koloboke.collect.map.ShortObjMap;
 import net.openhft.koloboke.collect.map.hash.HashShortObjMaps;
+import org.ultramine.server.util.CachedEntry;
+
+import java.util.TreeSet;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 /**
  * Java 8 features like lambdas must not be used in net.minecraft classes, so

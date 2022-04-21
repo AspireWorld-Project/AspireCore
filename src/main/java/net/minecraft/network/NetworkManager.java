@@ -3,9 +3,11 @@ package net.minecraft.network;
 import java.net.InetAddress;
 import java.net.SocketAddress;
 import java.util.Queue;
+import java.util.UUID;
 
 import javax.crypto.SecretKey;
 
+import com.mojang.authlib.properties.Property;
 import org.apache.commons.lang3.Validate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -65,6 +67,10 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	private INetHandler netHandler;
 	private EnumConnectionState connectionState;
 	private IChatComponent terminationReason;
+	// Spigot start
+	public Property[] spoofedProfile;
+	public UUID spoofedUUID;
+	// Spigot end
 	private boolean field_152463_r;
 
 	public NetworkManager(boolean p_i45147_1_) {
@@ -237,6 +243,13 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 			terminationReason = p_150718_1_;
 		}
 	}
+
+	// Spigot Start
+	public SocketAddress getRawAddress()
+	{
+		return this.channel.remoteAddress();
+	}
+	// Spigot End
 
 	public boolean isLocalChannel() {
 		return channel instanceof LocalChannel || channel instanceof LocalServerChannel;

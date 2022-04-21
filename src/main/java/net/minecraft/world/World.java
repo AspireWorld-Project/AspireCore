@@ -129,7 +129,7 @@ public abstract class World implements IBlockAccess {
 	protected List worldAccesses = new ArrayList();
 	protected IChunkProvider chunkProvider;
 	protected final ISaveHandler saveHandler;
-	protected WorldInfo worldInfo;
+	public WorldInfo worldInfo;
 	public boolean findingSpawnPoint;
 	public MapStorage mapStorage;
 	public VillageCollection villageCollectionObj;

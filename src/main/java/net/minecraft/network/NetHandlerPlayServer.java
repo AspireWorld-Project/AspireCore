@@ -12,6 +12,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 
+import io.netty.util.concurrent.Future;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -152,7 +153,7 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 	private double lastPosY;
 	private double lastPosZ;
 	private boolean hasMoved = true;
-	private static final String __OBFID = "CL_00001452";
+	private boolean processedDisconnect; // CraftBukkit - added
 	@InjectService
 	private static Permissions perms;
 	private float lastPitch = Float.MAX_VALUE;
@@ -253,20 +254,26 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 		return netManager;
 	}
 
-	public void kickPlayerFromServer(String p_147360_1_) {
-		String leaveMessage = EnumChatFormatting.YELLOW + playerEntity.getCommandSenderName() + " left the game.";
-		PlayerKickEvent event = new PlayerKickEvent(getPlayerB(), p_147360_1_, leaveMessage);
-		if (serverController.isServerRunning()) {
-			Bukkit.getPluginManager().callEvent(event);
+	public void kickPlayerFromServer(String p_147360_1_)
+	{
+		String leaveMessage = EnumChatFormatting.YELLOW + this.playerEntity.getCommandSenderName() + " left the game.";
+		PlayerKickEvent event = new PlayerKickEvent(this.server.getPlayer(this.playerEntity), p_147360_1_, leaveMessage);
+		if (this.server.getServer().isServerRunning())
+		{
+			this.server.getPluginManager().callEvent(event);
 		}
 		if (event.isCancelled())
+		{
 			return;
-		// TODO: Make PlayerKickEvent#getLeaveMessage() useful.
-		final ChatComponentText chatcomponenttext = new ChatComponentText(event.getReason());
-		netManager.scheduleOutboundPacket(new S40PacketDisconnect(chatcomponenttext),
-				new GenericFutureCloseChannel(netManager, chatcomponenttext));
-		netManager.disableAutoRead();
+		}
+		p_147360_1_ = event.getReason();
+		final ChatComponentText chatcomponenttext = new ChatComponentText(p_147360_1_);
+		this.netManager.scheduleOutboundPacket(new S40PacketDisconnect(chatcomponenttext),
+				p_operationComplete_1_ -> NetHandlerPlayServer.this.netManager.closeChannel(chatcomponenttext));
+		this.onDisconnect(chatcomponenttext);
+		this.netManager.disableAutoRead();
 	}
+
 
 	@Override
 	public void processInput(C0CPacketInput p_147358_1_) {
@@ -764,25 +771,29 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 		}
 	}
 
-	@Override
-	public void onDisconnect(IChatComponent p_147231_1_) {
-		logger.info("\u00a73[Disconnect]\u00a7r User '\u00a73" + playerEntity.getCommandSenderName()
-				+ "'\u00a7r lost connection: " + p_147231_1_.getFormattedText());
-		serverController.func_147132_au();
-		ChatComponentTranslation chatcomponenttranslation = new ChatComponentTranslation("multiplayer.player.left",
-				new Object[] { playerEntity.func_145748_c_() });
-		chatcomponenttranslation.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-		if (!playerEntity.isHidden() && !playerEntity.hasPermission(MinecraftPermissions.HIDE_JOIN_MESSAGE)) {
-			serverController.getConfigurationManager()
-					.sendPacketToAllPlayers(new S02PacketChat(chatcomponenttranslation, true));
+	public void onDisconnect(IChatComponent p_147231_1_)
+	{
+		if (this.processedDisconnect)
+		{
+			return;
 		}
-		playerEntity.mountEntityAndWakeUp();
-		serverController.getConfigurationManager().playerLoggedOut(playerEntity);
+		else
+		{
+			this.processedDisconnect = true;
+		}
+		logger.info(this.playerEntity.getCommandSenderName() + " lost connection: " + p_147231_1_.getUnformattedText()); // CraftBukkit - Don't toString the component
+		this.serverController.func_147132_au();
+		this.playerEntity.mountEntityAndWakeUp();
+		String quitMessage = this.serverController.getConfigurationManager().disconnect(this.playerEntity);
 
-		if (serverController.isSinglePlayer()
-				&& playerEntity.getCommandSenderName().equals(serverController.getServerOwner())) {
+		if ((quitMessage != null) && (quitMessage.length() > 0))
+		{
+			this.serverController.getConfigurationManager().sendMessage(CraftChatMessage.fromString(quitMessage));
+		}
+		if (this.serverController.isSinglePlayer() && this.playerEntity.getCommandSenderName().equals(this.serverController.getServerOwner()))
+		{
 			logger.info("Stopping singleplayer server as player logged out");
-			serverController.initiateShutdown();
+			this.serverController.initiateShutdown();
 		}
 	}
 

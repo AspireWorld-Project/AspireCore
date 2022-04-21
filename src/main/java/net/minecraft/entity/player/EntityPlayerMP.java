@@ -167,7 +167,7 @@ public class EntityPlayerMP extends EntityPlayer implements ICrafting {
 		mcServer = p_i45285_1_;
 		stepHeight = 0.0F;
 		yOffset = 0.0F;
-
+		this.listName = this.getCommandSenderName();
 		renderDistance = p_i45285_1_.getConfigurationManager().getViewDistance();
 	}
 

@@ -9,9 +9,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.crypto.SecretKey;
 
+import com.mojang.authlib.properties.Property;
 import org.apache.commons.lang3.Validate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.ultramine.advanced.ThreadPlayerLookupUUID;
 import org.ultramine.bukkit.util.AnonymousLoginEventFireThread;
 import org.ultramine.server.util.GlobalExecutors;
 
@@ -42,9 +44,9 @@ public class NetHandlerLoginServer implements INetHandlerLoginServer {
 	private final byte[] field_147330_e = new byte[4];
 	private final MinecraftServer field_147327_f;
 	public final NetworkManager field_147333_a;
-	private NetHandlerLoginServer.LoginState field_147328_g;
+	private static NetHandlerLoginServer.LoginState field_147328_g;
 	private int field_147336_h;
-	private GameProfile field_147337_i;
+	private static GameProfile field_147337_i;
 	private String field_147334_j;
 	private SecretKey field_147335_k;
 	private static final String __OBFID = "CL_00001458";
@@ -80,22 +82,18 @@ public class NetHandlerLoginServer implements INetHandlerLoginServer {
 		}
 	}
 
-	public void func_147326_c() {
-		if (!field_147337_i.isComplete()) {
-			field_147337_i = func_152506_a(field_147337_i);
+	public void func_147326_c()
+	{
+		EntityPlayerMP s = this.field_147327_f.getConfigurationManager().attemptLogin(this, this.field_147337_i, "");
+
+		if (s == null)
+		{
 		}
-
-		EntityPlayerMP player = field_147327_f.getConfigurationManager().createPlayerForUser(field_147337_i);
-		Object s = field_147327_f.getConfigurationManager().attemptLogin(this, field_147337_i, "", player); // TODO add
-																											// server
-																											// hostname
-
-		if (s == null) {
-			// this.func_147322_a(s);
-		} else {
-			field_147328_g = NetHandlerLoginServer.LoginState.ACCEPTED;
-			field_147333_a.scheduleOutboundPacket(new S02PacketLoginSuccess(field_147337_i));
-			FMLNetworkHandler.fmlServerHandshake(field_147327_f.getConfigurationManager(), field_147333_a, player);
+		else
+		{
+			this.field_147328_g = NetHandlerLoginServer.LoginState.ACCEPTED;
+			this.field_147333_a.scheduleOutboundPacket(new S02PacketLoginSuccess(this.field_147337_i), new GenericFutureListener[0]);
+			FMLNetworkHandler.fmlServerHandshake(this.field_147327_f.getConfigurationManager(), this.field_147333_a, this.field_147327_f.getConfigurationManager().processLogin(this.field_147337_i, s)); // CraftBukkit - add player reference
 		}
 	}
 
@@ -120,23 +118,45 @@ public class NetHandlerLoginServer implements INetHandlerLoginServer {
 				"Unexpected protocol " + p_147232_2_, new Object[0]);
 	}
 
-	@Override
-	public void processLoginStart(C00PacketLoginStart packetLogin) {
-		Validate.validState(field_147328_g == NetHandlerLoginServer.LoginState.HELLO, "Unexpected hello packet");
-		field_147337_i = packetLogin.func_149304_c();
-		if (!field_147327_f.isServerInOnlineMode() && field_147337_i.getId() == null) {
-			field_147337_i = new GameProfile(
-					UUID.nameUUIDFromBytes(("OfflinePlayer:" + field_147337_i.getName()).getBytes(Charsets.UTF_8)),
-					field_147337_i.getName());
+	public void processLoginStart(C00PacketLoginStart p_147316_1_)
+	{
+		Validate.validState(this.field_147328_g == LoginState.HELLO, "Unexpected hello packet", new Object[0]);
+		this.field_147337_i = p_147316_1_.func_149304_c();
+
+		if (this.field_147327_f.isServerInOnlineMode() && !this.field_147333_a.isLocalChannel())
+		{
+			this.field_147328_g = LoginState.KEY;
+			this.field_147333_a.scheduleOutboundPacket(new S01PacketEncryptionRequest(this.field_147334_j, this.field_147327_f.getKeyPair().getPublic(), this.field_147330_e), new GenericFutureListener[0]);
 		}
-		if (field_147327_f.isServerInOnlineMode() && !field_147333_a.isLocalChannel()) {
-			field_147328_g = NetHandlerLoginServer.LoginState.KEY;
-			field_147333_a.scheduleOutboundPacket(new S01PacketEncryptionRequest(field_147334_j,
-					field_147327_f.getKeyPair().getPublic(), field_147330_e));
-		} else {
-			new AnonymousLoginEventFireThread(this).start();
+		else
+		{
+			(new ThreadPlayerLookupUUID(this, "User Authenticator #" + field_147331_b.incrementAndGet())).start(); // Spigot
 		}
 	}
+
+	// Spigot start
+	public void initUUID()
+	{
+		UUID uuid;
+		if ( field_147333_a.spoofedUUID != null )
+		{
+			uuid = field_147333_a.spoofedUUID;
+		} else
+		{
+			uuid = UUID.nameUUIDFromBytes( ( "OfflinePlayer:" + this.field_147337_i.getName() ).getBytes( Charsets.UTF_8 ) );
+		}
+
+		this.field_147337_i = new GameProfile( uuid, this.field_147337_i.getName() );
+
+		if (field_147333_a.spoofedProfile != null)
+		{
+			for ( Property property : field_147333_a.spoofedProfile )
+			{
+				this.field_147337_i.getProperties().put( property.getName(), property );
+			}
+		}
+	}
+	// Spigot end
 
 	@Override
 	public void processEncryptionResponse(C01PacketEncryptionResponse p_147315_1_) {
@@ -195,7 +215,7 @@ public class NetHandlerLoginServer implements INetHandlerLoginServer {
 		}
 	}
 
-	protected GameProfile func_152506_a(GameProfile p_152506_1_) {
+	public GameProfile func_152506_a(GameProfile p_152506_1_) {
 		UUID uuid = UUID.nameUUIDFromBytes(("OfflinePlayer:" + p_152506_1_.getName()).getBytes(Charsets.UTF_8));
 		return new GameProfile(uuid, p_152506_1_.getName());
 	}
@@ -203,14 +223,40 @@ public class NetHandlerLoginServer implements INetHandlerLoginServer {
 	public enum LoginState {
 		HELLO, KEY, AUTHENTICATING, READY_TO_ACCEPT, ACCEPTED;
 
-		private static final String __OBFID = "CL_00001463";
 	}
 
-	public GameProfile getGameProfile() {
+	// Cauldron start - access methods for ThreadPlayerLookupUUID
+	public static String getLoginServerId(NetHandlerLoginServer loginServer) {
+		return loginServer.field_147334_j;
+	}
+
+	public static MinecraftServer getMinecraftServer(NetHandlerLoginServer loginServer) {
+		return loginServer.field_147327_f;
+	}
+
+	public static SecretKey getSecretKey(NetHandlerLoginServer loginServer) {
+		return loginServer.field_147335_k;
+	}
+
+	public static GameProfile processPlayerLoginGameProfile(NetHandlerLoginServer loginServer, GameProfile gameprofile) {
+		return loginServer.field_147337_i = gameprofile;
+	}
+
+	public static GameProfile getGameProfile(NetHandlerLoginServer loginServer) {
+		return loginServer.field_147337_i;
+	}
+
+
+	public static void setLoginState(NetHandlerLoginServer loginServer, LoginState state)
+	{
+		loginServer.field_147328_g = state;
+	}
+
+	public static GameProfile getGameProfile() {
 		return field_147337_i;
 	}
 
-	public org.apache.logging.log4j.Logger getLogger() {
+	public static org.apache.logging.log4j.Logger getLogger() {
 		return logger;
 	}
 
@@ -218,7 +264,7 @@ public class NetHandlerLoginServer implements INetHandlerLoginServer {
 		return field_147333_a;
 	}
 
-	public void setLoginState(NetHandlerLoginServer.LoginState state) {
+	public static void setLoginState(NetHandlerLoginServer.LoginState state) {
 		field_147328_g = state;
 	}
 }

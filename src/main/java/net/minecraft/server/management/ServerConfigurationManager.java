@@ -13,18 +13,25 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.UUID;
 
+import cpw.mods.fml.common.network.FMLEmbeddedChannel;
+import cpw.mods.fml.common.network.FMLOutboundHandler;
+import net.minecraft.potion.Potion;
+import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.chunkio.ChunkIOExecutor;
+import net.minecraftforge.common.network.ForgeMessage;
+import net.minecraftforge.common.network.ForgeNetworkHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.TravelAgent;
+import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.craftbukkit.CraftWorld;
 import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerLoginEvent;
-import org.bukkit.event.player.PlayerPortalEvent;
-import org.bukkit.event.player.PlayerTeleportEvent;
+import org.bukkit.event.player.*;
 import org.bukkit.util.Vector;
 import org.ultramine.bukkit.CraftPlayerCache;
+import org.ultramine.bukkit.UMBukkitImplMod;
 import org.ultramine.core.permissions.MinecraftPermissions;
 import org.ultramine.core.service.InjectService;
 import org.ultramine.server.ConfigurationHandler;
@@ -128,14 +135,13 @@ public abstract class ServerConfigurationManager {
 		bannedIPs.func_152686_a(false);
 		maxPlayers = 8;
 	}
-
 	public void initializeConnectionToPlayer(NetworkManager p_72355_1_, EntityPlayerMP p_72355_2_,
-			NetHandlerPlayServer nethandlerplayserver) {
+											 NetHandlerPlayServer nethandlerplayserver) {
 		serverDataLoader.initializeConnectionToPlayer(p_72355_1_, p_72355_2_, nethandlerplayserver);
 	}
 
 	public void initializeConnectionToPlayer_body(NetworkManager p_72355_1_, EntityPlayerMP p_72355_2_,
-			NetHandlerPlayServer nethandlerplayserver, NBTTagCompound nbttagcompound) {
+												  NetHandlerPlayServer nethandlerplayserver, NBTTagCompound nbttagcompound) {
 		GameProfile gameprofile = p_72355_2_.getGameProfile();
 		PlayerProfileCache playerprofilecache = mcServer.func_152358_ax();
 		GameProfile gameprofile1 = playerprofilecache.func_152652_a(gameprofile.getId());
@@ -230,6 +236,7 @@ public abstract class ServerConfigurationManager {
 		}
 	}
 
+
 	protected void func_96456_a(ServerScoreboard p_96456_1_, EntityPlayerMP p_96456_2_) {
 		HashSet hashset = new HashSet();
 		Iterator iterator = p_96456_1_.getTeams().iterator();
@@ -314,38 +321,47 @@ public abstract class ServerConfigurationManager {
 		}
 	}
 
-	public void playerLoggedIn(final EntityPlayerMP par1EntityPlayerMP) {
-		if (!par1EntityPlayerMP.isHidden()) {
-			sendPacketToAllPlayers(new S38PacketPlayerListItem(par1EntityPlayerMP.getTabListName(), true, 1000));
-		} else {
-			for (Object o : playerEntityList) {
-				EntityPlayerMP p = (EntityPlayerMP) o;
-				if (p.hasPermission(MinecraftPermissions.SEE_INVISIBLE_PLAYERS)) {
-					p.playerNetServerHandler
-							.sendPacket(new S38PacketPlayerListItem(par1EntityPlayerMP.getTabListName(), true, 1000));
-				}
+	public void playerLoggedIn(EntityPlayerMP p_72377_1_)
+	{
+		UMBukkitImplMod.getServer().detectListNameConflict(p_72377_1_);
+		this.playerEntityList.add(p_72377_1_);
+		WorldServer worldserver = this.mcServer.worldServerForDimension(p_72377_1_.dimension);
+		PlayerJoinEvent playerJoinEvent = new PlayerJoinEvent(UMBukkitImplMod.getServer().getPlayer(p_72377_1_), "\u00A7e" + p_72377_1_.getCommandSenderName()
+				+ " joined the game.");
+		UMBukkitImplMod.getServer().getPluginManager().callEvent(playerJoinEvent);
+		String joinMessage = playerJoinEvent.getJoinMessage();
+		if ((joinMessage != null) && (joinMessage.length() > 0))
+		{
+			for (IChatComponent line : org.bukkit.craftbukkit.util.CraftChatMessage.fromString(joinMessage))
+			{
+				this.mcServer.getConfigurationManager().sendPacketToAllPlayers(new S02PacketChat(line));
 			}
 		}
-		playerEntityList.add(par1EntityPlayerMP);
-		usernameToPlayerMap.put(par1EntityPlayerMP.getGameProfile().getName().toLowerCase(), par1EntityPlayerMP);
-		final WorldServer worldserver = mcServer.worldServerForDimension(par1EntityPlayerMP.dimension);
-
-		MathHelper.floor_double(par1EntityPlayerMP.posX);
-		MathHelper.floor_double(par1EntityPlayerMP.posZ);
-		worldserver.spawnEntityInWorld(par1EntityPlayerMP);
-		func_72375_a(par1EntityPlayerMP, (WorldServer) null);
-
-		boolean seeInvisible = par1EntityPlayerMP.hasPermission(MinecraftPermissions.SEE_INVISIBLE_PLAYERS);
-		for (int i = 0; i < playerEntityList.size(); ++i) {
-			EntityPlayerMP entityplayermp1 = (EntityPlayerMP) playerEntityList.get(i);
-			if (!entityplayermp1.isHidden() || seeInvisible) {
-				par1EntityPlayerMP.playerNetServerHandler.sendPacket(
-						new S38PacketPlayerListItem(entityplayermp1.getTabListName(), true, entityplayermp1.ping));
+		UMBukkitImplMod.getServer().onPlayerJoin(playerJoinEvent.getPlayer());
+		ChunkIOExecutor.adjustPoolSize(this.getCurrentPlayerCount());
+		if (p_72377_1_.worldObj == worldserver && !worldserver.playerEntities.contains(p_72377_1_))
+		{
+			worldserver.spawnEntityInWorld(p_72377_1_);
+			this.func_72375_a(p_72377_1_, null);
+		}
+		S38PacketPlayerListItem packet = new S38PacketPlayerListItem(p_72377_1_.listName, true, 1000);
+		for (int i = 0; i < this.playerEntityList.size(); ++i)
+		{
+			EntityPlayerMP entityplayermp1 = (EntityPlayerMP)this.playerEntityList.get(i);
+			if (entityplayermp1.getBukkitEntity().canSee(p_72377_1_.getBukkitEntity()))
+			{
+				entityplayermp1.playerNetServerHandler.sendPacket(packet);
 			}
 		}
+		for (int i = 0; i < this.playerEntityList.size(); ++i)
+		{
+			EntityPlayerMP entityplayermp1 = (EntityPlayerMP) this.playerEntityList.get(i);
 
-		if (par1EntityPlayerMP.isHidden()) {
-			CommandBase.func_152374_a(par1EntityPlayerMP, null, 1, "ultramine.notify.loggedhidden");
+			if (!p_72377_1_.getBukkitEntity().canSee(entityplayermp1.getBukkitEntity()))
+			{
+				continue;
+			}
+			p_72377_1_.playerNetServerHandler.sendPacket(new S38PacketPlayerListItem(entityplayermp1.listName, true, entityplayermp1.ping));
 		}
 	}
 
@@ -354,22 +370,7 @@ public abstract class ServerConfigurationManager {
 	}
 
 	public void playerLoggedOut(EntityPlayerMP p_72367_1_) {
-		FMLCommonHandler.instance().firePlayerLoggedOut(p_72367_1_);
-		p_72367_1_.triggerAchievement(StatList.leaveGameStat);
-		writePlayerData(p_72367_1_);
-		WorldServer worldserver = p_72367_1_.getServerForPlayer();
-
-		if (p_72367_1_.ridingEntity != null) {
-			worldserver.removePlayerEntityDangerously(p_72367_1_.ridingEntity);
-			logger.debug("removing player mount");
-		}
-
-		worldserver.removeEntity(p_72367_1_);
-		worldserver.getPlayerManager().removePlayer(p_72367_1_);
-		playerEntityList.remove(p_72367_1_);
-		usernameToPlayerMap.remove(p_72367_1_.getGameProfile().getName().toLowerCase());
-		field_148547_k.remove(p_72367_1_.getUniqueID());
-		sendPacketToAllPlayers(new S38PacketPlayerListItem(p_72367_1_.getTabListName(), false, 9999));
+         disconnect(p_72367_1_);
 	}
 
 	public String allowUserToConnect(SocketAddress p_148542_1_, GameProfile p_148542_2_) {
@@ -399,38 +400,43 @@ public abstract class ServerConfigurationManager {
 			return playerEntityList.size() >= maxPlayers ? "The server is full!" : null;
 	}
 
-	public EntityPlayerMP createPlayerForUser(GameProfile p_148545_1_) {
+	public EntityPlayerMP createPlayerForUser(GameProfile p_148545_1_)
+	{
 		UUID uuid = EntityPlayer.func_146094_a(p_148545_1_);
 		ArrayList arraylist = Lists.newArrayList();
 		EntityPlayerMP entityplayermp;
 
-		for (int i = 0; i < playerEntityList.size(); ++i) {
-			entityplayermp = (EntityPlayerMP) playerEntityList.get(i);
+		for (int i = 0; i < this.playerEntityList.size(); ++i)
+		{
+			entityplayermp = (EntityPlayerMP)this.playerEntityList.get(i);
 
-			if (entityplayermp.getUniqueID().equals(uuid)) {
+			if (entityplayermp.getUniqueID().equals(uuid))
+			{
 				arraylist.add(entityplayermp);
 			}
 		}
 
 		Iterator iterator = arraylist.iterator();
 
-		while (iterator.hasNext()) {
-			entityplayermp = (EntityPlayerMP) iterator.next();
+		while (iterator.hasNext())
+		{
+			entityplayermp = (EntityPlayerMP)iterator.next();
 			entityplayermp.playerNetServerHandler.kickPlayerFromServer("You logged in from another location");
 		}
 
 		Object object;
 
-		if (mcServer.isDemo()) {
-			object = new DemoWorldManager(mcServer.worldServerForDimension(0));
-		} else {
-			object = new ItemInWorldManager(mcServer.worldServerForDimension(0));
+		if (this.mcServer.isDemo())
+		{
+			object = new DemoWorldManager(this.mcServer.worldServerForDimension(0));
+		}
+		else
+		{
+			object = new ItemInWorldManager(this.mcServer.worldServerForDimension(0));
 		}
 
-		return new EntityPlayerMP(mcServer, mcServer.worldServerForDimension(0), p_148545_1_,
-				(ItemInWorldManager) object);
+		return new EntityPlayerMP(this.mcServer, this.mcServer.worldServerForDimension(0), p_148545_1_, (ItemInWorldManager)object);
 	}
-
 	public EntityPlayerMP respawnPlayer(EntityPlayerMP p_72368_1_, int p_72368_2_, boolean p_72368_3_) {
 		int oldDim = p_72368_1_.dimension;
 		WorldServer oldWorld = mcServer.getMultiWorld().getWorldByID(oldDim);
@@ -1077,52 +1083,65 @@ public abstract class ServerConfigurationManager {
 		return usernameToPlayerMap.get(username.toLowerCase());
 	}
 
-	public EntityPlayerMP attemptLogin(NetHandlerLoginServer loginlistener, GameProfile gameprofile, String hostname,
-			EntityPlayerMP entity) {
+	// CraftBukkit start - Whole method, SocketAddress to LoginListener, added hostname to signature, return EntityPlayer
+	public EntityPlayerMP attemptLogin(NetHandlerLoginServer loginlistener, GameProfile gameprofile, String hostname)
+	{
 		// Instead of kicking then returning, we need to store the kick reason
 		// in the event, check with plugins to see if it's ok, and THEN kick
 		// depending on the outcome.
 		SocketAddress socketaddress = loginlistener.field_147333_a.getSocketAddress();
-		cPlayerCache.updateReferences(entity);
-		Player player = (Player) entity.getBukkitEntity();
-		PlayerLoginEvent event = new PlayerLoginEvent(player, hostname,
-				((java.net.InetSocketAddress) socketaddress).getAddress(),
-				((java.net.InetSocketAddress) loginlistener.field_147333_a.channel().remoteAddress()).getAddress()); // Spigot
+		EntityPlayerMP entity = new EntityPlayerMP(this.mcServer, this.mcServer.worldServerForDimension(0), gameprofile, new ItemInWorldManager(
+				this.mcServer.worldServerForDimension(0)));
+		Player player = entity.getBukkitEntity();
+		PlayerLoginEvent event = new PlayerLoginEvent(player, hostname, ((java.net.InetSocketAddress) socketaddress).getAddress(),
+				((java.net.InetSocketAddress) loginlistener.field_147333_a.getRawAddress()).getAddress()); // Spigot
 		String s;
+		UserListEntry entry;
 
-		if (bannedPlayers.func_152702_a(gameprofile) && !bannedPlayers.func_152683_b(gameprofile).hasBanExpiredPub()) {
-			UserListBansEntry banentry = (UserListBansEntry) bannedPlayers.func_152683_b(gameprofile);
+		if (this.bannedPlayers.func_152702_a(gameprofile) && !this.bannedPlayers.func_152683_b(gameprofile).hasBanExpired())
+		{
+			UserListBansEntry banentry = (UserListBansEntry) this.bannedPlayers.func_152683_b(gameprofile);
 			s = "You are banned from this server!\nReason: " + banentry.getBanReason();
 
-			if (banentry.getBanEndDate() != null) {
+			if (banentry.getBanEndDate() != null)
+			{
 				s = s + "\nYour ban will be removed on " + dateFormat.format(banentry.getBanEndDate());
 			}
 
 			// return s;
 			event.disallow(PlayerLoginEvent.Result.KICK_BANNED, s);
-		} else if (!func_152607_e(gameprofile)) {
+		}
+		else if (!this.func_152607_e(gameprofile))
+		{
 			// return "You are not white-listed on this server!";
-			event.disallow(PlayerLoginEvent.Result.KICK_WHITELIST, "You are not white-listed on this server!");
-		} else if (bannedIPs.func_152708_a(socketaddress)
-				&& !bannedPlayers.func_152683_b(gameprofile).hasBanExpiredPub()) {
-			IPBanEntry ipbanentry = bannedIPs.func_152709_b(socketaddress);
+			event.disallow(PlayerLoginEvent.Result.KICK_WHITELIST, "org.spigotmc.SpigotConfig.whitelistMessage"); // Spigot
+		}
+		//else if (this.bannedIPs.func_152708_a(socketaddress) && !this.bannedPlayers.func_152683_b(gameprofile).hasBanExpired())
+		else if (this.bannedIPs.func_152708_a(socketaddress) && ((entry = this.bannedPlayers.func_152683_b(gameprofile)) == null || !entry.hasBanExpired()))
+		{
+			IPBanEntry ipbanentry = this.bannedIPs.func_152709_b(socketaddress);
 			s = "Your IP address is banned from this server!\nReason: " + ipbanentry.getBanReason();
 
-			if (ipbanentry.getBanEndDate() != null) {
+			if (ipbanentry.getBanEndDate() != null)
+			{
 				s = s + "\nYour ban will be removed on " + dateFormat.format(ipbanentry.getBanEndDate());
 			}
 			// return s;
 			event.disallow(PlayerLoginEvent.Result.KICK_BANNED, s);
-		} else {
+		}
+		else
+		{
 			// return this.players.size() >= this.maxPlayers ? "The server is full!" : null;
-			if (playerEntityList.size() >= maxPlayers) {
-				event.disallow(PlayerLoginEvent.Result.KICK_FULL, "The server is full!");
+			if (this.playerEntityList.size() >= this.maxPlayers)
+			{
+				event.disallow(PlayerLoginEvent.Result.KICK_FULL, "org.spigotmc.SpigotConfig.serverFullMessage"); // Spigot
 			}
 		}
 
-		Bukkit.getServer().getPluginManager().callEvent(event);
+		UMBukkitImplMod.getServer().getPluginManager().callEvent(event);
 
-		if (event.getResult() != PlayerLoginEvent.Result.ALLOWED) {
+		if (event.getResult() != PlayerLoginEvent.Result.ALLOWED)
+		{
 			loginlistener.func_147322_a(event.getKickMessage());
 			return null;
 		}
@@ -1130,6 +1149,80 @@ public abstract class ServerConfigurationManager {
 		return entity;
 	}
 	// CraftBukkit end
+
+	// CraftBukkit start - Support multi-line messages
+	public void sendMessage(IChatComponent[] ichatbasecomponent)
+	{
+		for (IChatComponent component : ichatbasecomponent)
+		{
+			sendChatMsgImpl(component, true);
+		}
+	}
+	// CraftBukkit end
+
+
+	public String disconnect(EntityPlayerMP p_72367_1_) // CraftBukkit - return string
+	{
+		p_72367_1_.triggerAchievement(StatList.leaveGameStat);
+		// Cauldron start - don't show quit messages for players that haven't actually connected
+		PlayerQuitEvent playerQuitEvent = null;
+		if (p_72367_1_.playerNetServerHandler != null)
+		{
+			// CraftBukkit start - Quitting must be before we do final save of data, in case plugins need to modify it
+			try {
+				org.bukkit.craftbukkit.event.CraftEventFactory.handleInventoryCloseEvent(p_72367_1_);
+			} catch (Exception ignored){
+
+			}
+			playerQuitEvent = new PlayerQuitEvent(UMBukkitImplMod.getServer().getPlayer(p_72367_1_), "\u00A7e" + p_72367_1_.getCommandSenderName() + " left the game.");
+			UMBukkitImplMod.getServer().getPluginManager().callEvent(playerQuitEvent);
+			p_72367_1_.getBukkitEntity().disconnect(playerQuitEvent.getQuitMessage());
+			// CraftBukkit end
+		}
+		// Cauldron end
+		FMLCommonHandler.instance().firePlayerLoggedOut(p_72367_1_);
+		this.writePlayerData(p_72367_1_);
+		WorldServer worldserver = p_72367_1_.getServerForPlayer();
+
+		if (p_72367_1_.ridingEntity != null && !(p_72367_1_.ridingEntity instanceof EntityPlayerMP)) // CraftBukkit - Don't remove players
+		{
+			worldserver.removePlayerEntityDangerously(p_72367_1_.ridingEntity);
+			logger.debug("removing player mount");
+		}
+
+		worldserver.removeEntity(p_72367_1_);
+		worldserver.getPlayerManager().removePlayer(p_72367_1_);
+		this.playerEntityList.remove(p_72367_1_);
+		this.field_148547_k.remove(p_72367_1_.getCommandSenderName());
+		ChunkIOExecutor.adjustPoolSize(this.getCurrentPlayerCount()); // CraftBukkit
+		// CraftBukkit start - .name -> .listName, replace sendAll with loop
+		// this.sendAll(new PacketPlayOutPlayerInfo(entityplayermp.getName(), false, 9999));
+		S38PacketPlayerListItem packet = new S38PacketPlayerListItem(p_72367_1_.listName, false, 9999);
+
+		for (int i = 0; i < this.playerEntityList.size(); ++i)
+		{
+			EntityPlayerMP entityplayermp1 = (EntityPlayerMP) this.playerEntityList.get(i);
+
+			if (entityplayermp1.getBukkitEntity().canSee(p_72367_1_.getBukkitEntity()))
+			{
+				entityplayermp1.playerNetServerHandler.sendPacket(packet);
+			}
+		}
+
+		// This removes the scoreboard (and player reference) for the specific player in the manager
+		UMBukkitImplMod.getServer().getScoreboardManager().removePlayer(p_72367_1_.getBukkitEntity());
+		// Cauldron start
+		if (playerQuitEvent != null)
+		{
+			return playerQuitEvent.getQuitMessage();
+		}
+		else
+		{
+			return null;
+		}
+		// Cauldron end
+		// CraftBukkit end
+	}
 
 	public void sendScoreboard(ServerScoreboard sb, EntityPlayerMP player) {
 		func_96456_a(sb, player);
@@ -1214,6 +1307,31 @@ public abstract class ServerConfigurationManager {
 			worldserver.theProfiler.endSection();
 		}
 		entity.setWorld(worldserver1);
+	}
+
+	public EntityPlayerMP processLogin(GameProfile gameprofile, EntityPlayerMP player) // CraftBukkit - added EntityPlayer
+	{
+		ArrayList arraylist = new ArrayList();
+		EntityPlayerMP entityplayermp;
+
+		for (int i = 0; i < this.playerEntityList.size(); ++i)
+		{
+			entityplayermp = (EntityPlayerMP) this.playerEntityList.get(i);
+
+			if (entityplayermp.getCommandSenderName().equalsIgnoreCase(gameprofile.getName()))
+			{
+				arraylist.add(entityplayermp);
+			}
+		}
+		Iterator iterator = arraylist.iterator();
+
+		while (iterator.hasNext())
+		{
+			entityplayermp = (EntityPlayerMP) iterator.next();
+			entityplayermp.playerNetServerHandler.kickPlayerFromServer("You logged in from another location");
+		}
+
+		return player;
 	}
 
 	// @Overwrite

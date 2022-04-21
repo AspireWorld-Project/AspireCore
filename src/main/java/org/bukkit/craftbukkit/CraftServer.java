@@ -192,89 +192,10 @@ public final class CraftServer implements Server {
 
 		Bukkit.setServer(this);
 		new CauldronPluginInterface().install(); // Cauldron
-
-		// Register all the Enchantments and PotionTypes now so we can stop new
-		// registration immediately after
 		net.minecraft.enchantment.Enchantment.sharpness.getClass();
-		// org.bukkit.enchantments.Enchantment.stopAcceptingRegistrations(); // Cauldron
-		// - allow registrations
-
 		Potion.setPotionBrewer(new CraftPotionBrewer());
 		net.minecraft.potion.Potion.blindness.getClass();
-		// PotionEffectType.stopAcceptingRegistrations(); // Cauldron - allow
-		// registrations
-		// Ugly hack :(
-
-		// if (!MinecraftServer.useConsole) { // Cauldron
-		// getLogger().info("Console input is disabled due to --noconsole command
-		// argument");
-		// }
-
-		/*
-		 * Cauldron start - moved to MinecraftServer so FML/Forge can access during
-		 * server startup configuration =
-		 * YamlConfiguration.loadConfiguration(getConfigFile());
-		 * configuration.options().copyDefaults(true);
-		 * configuration.setDefaults(YamlConfiguration.loadConfiguration(getClass().
-		 * getClassLoader().getResourceAsStream("configurations/bukkit.yml")));
-		 * ConfigurationSection legacyAlias = null; if
-		 * (!configuration.isString("aliases")) { legacyAlias =
-		 * configuration.getConfigurationSection("aliases");
-		 * configuration.set("aliases", "now-in-commands.yml"); } saveConfig(); if
-		 * (getCommandsConfigFile().isFile()) { legacyAlias = null; }
-		 * commandsConfiguration =
-		 * YamlConfiguration.loadConfiguration(getCommandsConfigFile());
-		 * commandsConfiguration.options().copyDefaults(true);
-		 * commandsConfiguration.setDefaults(YamlConfiguration.loadConfiguration(
-		 * getClass().getClassLoader().getResourceAsStream("configurations/commands.yml"
-		 * ));); saveCommandsConfig();
-		 *
-		 * // Migrate aliases from old file and add previously implicit $1- to pass all
-		 * arguments if (legacyAlias != null) { ConfigurationSection aliases =
-		 * commandsConfiguration.createSection("aliases"); for (String key :
-		 * legacyAlias.getKeys(false)) { ArrayList<String> commands = new
-		 * ArrayList<String>();
-		 *
-		 * if (legacyAlias.isList(key)) { for (String command :
-		 * legacyAlias.getStringList(key)) { commands.add(command + " $1-"); } } else {
-		 * commands.add(legacyAlias.getString(key) + " $1-"); }
-		 *
-		 * aliases.set(key, commands); } }
-		 *
-		 * saveCommandsConfig(); // Cauldron end
-		 */
-
-		// overrideAllCommandBlockCommands =
-		// commandsConfiguration.getStringList("command-block-overrides").contains("*");
-		// ((SimplePluginManager)
-		// pluginManager).useTimings(configuration.getBoolean("settings.plugin-profiling"));
-		// monsterSpawn = configuration.getInt("spawn-limits.monsters");
-		// animalSpawn = configuration.getInt("spawn-limits.animals");
-		// waterAnimalSpawn = configuration.getInt("spawn-limits.water-animals");
-		// ambientSpawn = configuration.getInt("spawn-limits.ambient");
-		// console.autosavePeriod = configuration.getInt("ticks-per.autosave");
-		// console.invalidateWorldSaver();
-		// warningState =
-		// WarningState.value(configuration.getString("settings.deprecated-verbose"));
-		// chunkGCEnabled = configuration.getBoolean("chunk-gc.enabled"); // Cauldron
-		// chunkGCPeriod = configuration.getInt("chunk-gc.period-in-ticks");
-		// chunkGCLoadThresh = configuration.getInt("chunk-gc.load-threshold");
 		loadIcon();
-
-		// updater = new AutoUpdater(new
-		// BukkitDLUpdaterService(configuration.getString("auto-updater.host")),
-		// getLogger(), configuration.getString("auto-updater.preferred-channel"));
-		// updater.setEnabled(false); // Spigot
-		// updater.setSuggestChannels(configuration.getBoolean("auto-updater.suggest-channels"));
-		// updater.getOnBroken().addAll(configuration.getStringList("auto-updater.on-broken"));
-		// updater.getOnUpdate().addAll(configuration.getStringList("auto-updater.on-update"));
-		// updater.check(serverVersion);
-
-		// Spigot Start - Moved to old location of new DedicatedPlayerList in
-		// DedicatedServer
-		// loadPlugins();
-		// enablePlugins(PluginLoadOrder.STARTUP);
-		// Spigot End
 	}
 
 	public boolean getCommandBlockOverride(String command) {

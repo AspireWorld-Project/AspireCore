@@ -1494,7 +1494,6 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 			this.server.getPluginManager().callEvent(event);
 			if (PlayerChatEvent.getHandlerList().getRegisteredListeners().length != 0)
 			{
-				System.out.println("AAAA");
 				// Evil plugins still listening to deprecated event
 				final PlayerChatEvent queueEvent = new PlayerChatEvent(player, event.getMessage(), event.getFormat(), event.getRecipients());
 				queueEvent.setCancelled(event.isCancelled());

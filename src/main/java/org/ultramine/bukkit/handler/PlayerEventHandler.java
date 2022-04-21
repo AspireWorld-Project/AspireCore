@@ -112,7 +112,6 @@ public class PlayerEventHandler {
 		server.getPluginManager().callEvent(event);
 	}
 	
-
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public void onPlayerDeath(org.ultramine.server.event.PlayerDeathEvent e) {
 		EntityPlayerMP player = (EntityPlayerMP) e.entityPlayer;

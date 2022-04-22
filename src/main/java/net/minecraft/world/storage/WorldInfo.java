@@ -489,4 +489,19 @@ public class WorldInfo {
 	public NBTBase getAdditionalProperty(String additionalProperty) {
 		return additionalProperties != null ? additionalProperties.get(additionalProperty) : null;
 	}
+
+	// Cauldron start
+	/**
+	 * Sets the Dimension.
+	 */
+	public void setDimension(int dim)
+	{
+		this.dimension = dim;
+	}
+
+	public int getDimension()
+	{
+		return this.dimension;
+	}
+	// Cauldron end
 }

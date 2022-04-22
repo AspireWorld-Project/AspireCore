@@ -11,8 +11,13 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentMap;
 
+import net.minecraft.server.dedicated.DedicatedServer;
+import net.minecraft.world.chunk.storage.AnvilSaveHandler;
 import org.apache.logging.log4j.Level;
 import org.bukkit.World.Environment;
+import org.bukkit.WorldCreator;
+import org.bukkit.generator.ChunkGenerator;
+import org.ultramine.bukkit.UMBukkitImplMod;
 import org.ultramine.bukkit.util.BukkitEnumHelper;
 
 import com.google.common.collect.HashMultiset;
@@ -48,6 +53,7 @@ public class DimensionManager {
 	private static ConcurrentMap<World, World> weakWorldMap = new MapMaker().weakKeys().weakValues()
 			.<World, World>makeMap();
 	private static Multiset<Integer> leakedWorlds = HashMultiset.create();
+	private static ArrayList<Integer> bukkitDims = new ArrayList<>(); // used to keep track of Bukkit dimensions
 
 	public static boolean registerProviderType(int id, Class<? extends WorldProvider> provider, boolean keepLoaded) {
 		if (providers.containsKey(id))
@@ -238,8 +244,92 @@ public class DimensionManager {
 		mcServer.func_147139_a(mcServer.func_147135_j());
 	}
 
+	// Cauldron start - new method for handling creation of Bukkit dimensions. Currently supports MultiVerse
+	public static WorldServer initDimension(WorldCreator creator, WorldSettings worldSettings) {
+		WorldServer overworld = getWorld(0);
+		if (overworld == null) {
+			throw new RuntimeException("Cannot Hotload Dim: Overworld is not Loaded!");
+		}
+
+		MinecraftServer mcServer = overworld.func_73046_m();
+
+		String worldType;
+		String name;
+
+		int providerId = 0;
+		if (creator.environment() != null)
+			providerId = creator.environment().getId();
+		try {
+			providerId = getProviderType(providerId);
+		}
+		catch (IllegalArgumentException e)
+		{
+			// do nothing
+		}
+
+		Environment env = creator.environment();
+		worldType = env.name().toLowerCase();
+		name = creator.name();
+		int dim = 0;
+		// Use saved dimension from level.dat if it exists. This guarantees that after a world is created, the same dimension will be used. Fixes issues with MultiVerse
+		AnvilSaveHandler saveHandler = new AnvilSaveHandler(UMBukkitImplMod.getServer().getWorldContainer(), name, true);
+		if (saveHandler.loadWorldInfo() != null)
+		{
+			int savedDim = saveHandler.loadWorldInfo().getDimension();
+			if (savedDim != 0 && savedDim != -1 && savedDim != 1)
+			{
+				dim = savedDim;
+			}
+		}
+		if (dim == 0)
+		{
+			dim = getNextFreeDimId();
+		}
+
+		if (!isDimensionRegistered(dim)) // handle reloads properly
+		{
+			registerDimension(dim, providerId);
+			addBukkitDimension(dim);
+		}
+		ChunkGenerator gen = creator.generator();
+		if (mcServer instanceof DedicatedServer) {
+			worldSettings.func_82750_a(((DedicatedServer) mcServer).getStringProperty("generator-settings", ""));
+		}
+
+		WorldServer world = new WorldServerMulti(mcServer, saveHandler, name, dim, worldSettings, overworld, mcServer.theProfiler, env, gen);
+
+		if (gen != null)
+		{
+			world.getWorld().getPopulators().addAll(gen.getDefaultPopulators(world.getWorld()));
+		}
+		world.provider.dimensionId = dim; // Fix for TerrainControl injecting their own WorldProvider
+		mcServer.getConfigurationManager().setPlayerManager(mcServer.getMultiWorld().getLoadedWorlds().toArray(new WorldServer[mcServer.getMultiWorld().getLoadedWorlds().size()]));
+
+		world.addWorldAccess(new WorldManager(mcServer, world));
+		MinecraftForge.EVENT_BUS.post(new WorldEvent.Load(world));
+		if (!mcServer.isSinglePlayer())
+		{
+			world.getWorldInfo().setGameType(mcServer.getGameType());
+		}
+		mcServer.func_147139_a(mcServer.func_147135_j());
+
+		return world;
+	}
+	// Cauldron end
+
+	public static void addBukkitDimension(int dim)
+	{
+		if (!bukkitDims.contains(dim))
+			bukkitDims.add(dim);
+	}
+
+
 	public static WorldServer getWorld(int id) {
-		return FMLCommonHandler.instance().getMinecraftServerInstance().getMultiWorld().getWorldByID(id);
+		MinecraftServer mcServer = FMLCommonHandler.instance().getMinecraftServerInstance();
+		if(mcServer.getMultiWorld().getWorldByID(id) != null) {
+			return mcServer.getMultiWorld().getWorldByID(id);
+		}
+		return worlds.get(id);
 	}
 
 	public static WorldServer[] getWorlds() {

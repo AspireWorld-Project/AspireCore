@@ -3,13 +3,7 @@ package net.minecraft.world;
 import static net.minecraftforge.common.ChestGenHooks.BONUS_CHEST;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.apache.logging.log4j.LogManager;
@@ -23,6 +17,7 @@ import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.weather.LightningStrikeEvent;
 import org.bukkit.event.weather.ThunderChangeEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
+import org.bukkit.generator.ChunkGenerator;
 import org.ultramine.server.WorldBorder;
 import org.ultramine.server.WorldsConfig.WorldConfig;
 import org.ultramine.server.WorldsConfig.WorldConfig.Settings.WorldTime;
@@ -163,7 +158,50 @@ public class WorldServer extends World {
 		worldTeleporter = new CraftTravelAgent(this);
 	}
 
-	@Override
+	// Add env and gen to constructor
+	public WorldServer(MinecraftServer p_i45284_1_, ISaveHandler p_i45284_2_, String p_i45284_3_, int p_i45284_4_, WorldSettings p_i45284_5_,
+					   Profiler p_i45284_6_, org.bukkit.World.Environment env, org.bukkit.generator.ChunkGenerator gen)
+	{
+		super(p_i45284_2_, p_i45284_3_, p_i45284_5_, WorldProvider.getProviderForDimension(p_i45284_4_), p_i45284_6_, gen, env);
+		// CraftBukkit end
+		this.mcServer = p_i45284_1_;
+		this.theEntityTracker = new EntityTracker(this);
+		thePlayerManager = new PlayerManager(this);
+
+		if (this.entityIdMap == null)
+		{
+			this.entityIdMap = new IntHashMap();
+		}
+
+		if (this.pendingTickListEntriesHashSet == null)
+		{
+			this.pendingTickListEntriesHashSet = Collections.synchronizedSet(new LinkedHashSet());
+		}
+
+		if (this.pendingTickListEntriesTreeSet == null)
+		{
+			this.pendingTickListEntriesTreeSet = (new TreeSet());
+		}
+
+		this.worldTeleporter = new org.bukkit.craftbukkit.CraftTravelAgent(this); // CraftBukkit
+		this.worldScoreboard = new ServerScoreboard(p_i45284_1_);
+		ScoreboardSaveData scoreboardsavedata = (ScoreboardSaveData) this.mapStorage.loadData(ScoreboardSaveData.class, "scoreboard");
+
+		if (scoreboardsavedata == null)
+		{
+			scoreboardsavedata = new ScoreboardSaveData();
+			this.mapStorage.setData("scoreboard", scoreboardsavedata);
+		}
+
+		if (!(this instanceof WorldServerMulti)) //Forge: We fix the global mapStorage, which causes us to share scoreboards early. So don't associate the save data with the temporary scoreboard
+		{
+			scoreboardsavedata.func_96499_a(this.worldScoreboard);
+		}
+		((ServerScoreboard)this.worldScoreboard).func_96547_a(scoreboardsavedata);
+		DimensionManager.setWorld(p_i45284_4_, this);
+	}
+
+    @Override
 	public void tick() {
 		super.tick();
 

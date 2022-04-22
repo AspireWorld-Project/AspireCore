@@ -156,7 +156,7 @@ public abstract class World implements IBlockAccess {
 	private CraftWorld craftWorld;
 	public boolean captureTreeGeneration = false;
 
-	@Override
+    @Override
 	public BiomeGenBase getBiomeGenForCoords(final int p_72807_1_, final int p_72807_2_) {
 		return provider.getBiomeGenForCoords(p_72807_1_, p_72807_2_);
 	}
@@ -203,6 +203,138 @@ public abstract class World implements IBlockAccess {
 		perWorldStorage = new MapStorage((ISaveHandler) null);
 		chunkProfiler = ChunkProfiler.instance().getForWorld(provider.dimensionId);
 	}
+
+	// Changed signature - added gen and env
+	public World(ISaveHandler p_i45369_1_, String p_i45369_2_, WorldSettings p_i45369_3_, WorldProvider p_i45369_4_, Profiler p_i45369_5_, ChunkGenerator gen,
+				 org.bukkit.World.Environment env)
+	{
+		this.worldInfo = p_i45369_1_.loadWorldInfo(); // Spigot
+		this.generator = gen;
+		this.craftWorld = new CraftWorld((WorldServer) this, gen, env);
+		this.ambientTickCountdown = this.rand.nextInt(12000);
+		this.spawnHostileMobs = true;
+		this.spawnPeacefulMobs = true;
+		this.collidingBoundingBoxes = new ArrayList();
+		this.lightUpdateBlockList = new int[32768];
+		this.saveHandler = p_i45369_1_;
+		this.theProfiler = p_i45369_5_;
+		// Cauldron start
+		// Provides a solution for different worlds getting different copies of the same data, potentially rewriting the data or causing race conditions/stale data
+		// Buildcraft has suffered from the issue this fixes.  If you load the same data from two different worlds they can get two different copies of the same object, thus the last saved gets final say.
+		if (DimensionManager.getWorld(0) != null) // if overworld has loaded, use its mapstorage
+		{
+			this.mapStorage = DimensionManager.getWorld(0).mapStorage;
+		}
+		else
+		// if we are loading overworld, create a new mapstorage
+		{
+			this.mapStorage = new MapStorage(p_i45369_1_);
+		}
+		// Cauldron end
+		// this.worldInfo = p_i45369_1_.loadWorldInfo(); // Spigot - Moved up
+
+		if (p_i45369_4_ != null)
+		{
+			this.provider = p_i45369_4_;
+		}
+		else if (this.worldInfo != null && this.worldInfo.getDimension() != 0) // Cauldron
+		{
+			this.provider = WorldProvider.getProviderForDimension(this.worldInfo.getDimension()); // Cauldron
+		}
+		else
+		{
+			this.provider = WorldProvider.getProviderForDimension(0);
+		}
+
+		if (this.worldInfo == null)
+		{
+			this.worldInfo = new WorldInfo(p_i45369_3_, p_i45369_2_);
+			this.worldInfo.setDimension(this.provider.dimensionId); // Cauldron - Save dimension to level.dat
+		}
+		else
+		{
+			this.worldInfo.setWorldName(p_i45369_2_);
+			// Cauldron start - Use saved dimension from level.dat. Fixes issues with MultiVerse
+			if (this.worldInfo.getDimension() != 0)
+				this.provider.dimensionId = this.worldInfo.getDimension();
+			else
+			{
+				this.worldInfo.setDimension(this.provider.dimensionId);
+			}
+			// Cauldron end
+		}
+
+		// Cauldron start - Guarantee provider dimension is not reset. This is required for mods that rely on the provider ID to match the client dimension. Without this, IC2 will send the wrong ID to clients.
+		int providerId = this.provider.dimensionId;
+		this.provider.registerWorld(this);
+		this.provider.dimensionId = providerId;
+		// Cauldron end
+		// Cauldron start - workaround to fix TC with overworld
+		if (this.worldInfo.getDimension() == 0)
+		{
+			generator = this.getServer().getGenerator(p_i45369_2_);
+			if (generator != null)
+			{
+				getWorld().setGenerator(generator);
+				getWorld().getPopulators().addAll(generator.getDefaultPopulators(getWorld()));
+			}
+		}
+		// Cauldron end
+		this.chunkProvider = this.createChunkProvider();
+
+		if (this instanceof WorldServer)
+		{
+			this.perWorldStorage = new MapStorage(new WorldSpecificSaveHandler((WorldServer) this, p_i45369_1_));
+		}
+		else
+		{
+			this.perWorldStorage = new MapStorage((ISaveHandler) null);
+		}
+
+		if (!this.worldInfo.isInitialized())
+		{
+			try
+			{
+				this.initialize(p_i45369_3_);
+			}
+			catch (Throwable throwable1)
+			{
+				CrashReport crashreport = CrashReport.makeCrashReport(throwable1, "Exception initializing level");
+
+				try
+				{
+					this.addWorldInfoToCrashReport(crashreport);
+				}
+				catch (Throwable throwable)
+				{
+					;
+				}
+
+				throw new ReportedException(crashreport);
+			}
+
+			this.worldInfo.setServerInitialized(true);
+		}
+
+		VillageCollection villagecollection = (VillageCollection) this.perWorldStorage.loadData(VillageCollection.class, "villages");
+
+		if (villagecollection == null)
+		{
+			this.villageCollectionObj = new VillageCollection(this);
+			this.perWorldStorage.setData("villages", this.villageCollectionObj);
+		}
+		else
+		{
+			this.villageCollectionObj = villagecollection;
+			this.villageCollectionObj.func_82566_a(this);
+		}
+
+		this.calculateInitialSkylight();
+		this.calculateInitialWeather();
+		this.getServer().addWorld(this.craftWorld); // CraftBukkit
+		chunkProfiler = ChunkProfiler.instance().getForWorld(provider.dimensionId);
+	}
+
 
 	// Broken up so that the WorldClient gets the chance to set the mapstorage
 	// object before the dimension initializes

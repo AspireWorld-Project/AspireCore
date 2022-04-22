@@ -328,7 +328,7 @@ public abstract class ServerConfigurationManager {
 		WorldServer worldserver = this.mcServer.worldServerForDimension(p_72377_1_.dimension);
 		PlayerJoinEvent playerJoinEvent = new PlayerJoinEvent(UMBukkitImplMod.getServer().getPlayer(p_72377_1_), "\u00A7e" + p_72377_1_.getCommandSenderName()
 				+ " joined the game.");
-		UMBukkitImplMod.getServer().getPluginManager().callEvent(playerJoinEvent);
+		Bukkit.getPluginManager().callEvent(playerJoinEvent);
 		String joinMessage = playerJoinEvent.getJoinMessage();
 		if ((joinMessage != null) && (joinMessage.length() > 0))
 		{
@@ -1175,7 +1175,7 @@ public abstract class ServerConfigurationManager {
 
 			}
 			playerQuitEvent = new PlayerQuitEvent(UMBukkitImplMod.getServer().getPlayer(p_72367_1_), "\u00A7e" + p_72367_1_.getCommandSenderName() + " left the game.");
-			UMBukkitImplMod.getServer().getPluginManager().callEvent(playerQuitEvent);
+			Bukkit.getServer().getPluginManager().callEvent(playerQuitEvent);
 			p_72367_1_.getBukkitEntity().disconnect(playerQuitEvent.getQuitMessage());
 			// CraftBukkit end
 		}

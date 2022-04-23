@@ -62,11 +62,13 @@ public abstract class ServerConfigurationManager {
 	private static final Logger logger = LogManager.getLogger();
 	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
 	private final MinecraftServer mcServer;
+	@SuppressWarnings("rawtypes")
 	public final List playerEntityList = new ArrayList();
 	private final UserListBans bannedPlayers;
 	private final BanList bannedIPs;
 	private final UserListOps ops;
 	private final UserListWhitelist whiteListedPlayers;
+	@SuppressWarnings("rawtypes")
 	private final Map field_148547_k;
 	private IPlayerFileData playerNBTManagerObj;
 	private boolean whiteListEnforced;
@@ -75,8 +77,6 @@ public abstract class ServerConfigurationManager {
 	private WorldSettings.GameType gameType;
 	private boolean commandsAllowedForAll;
 	private int playerPingIndex;
-	private static final String __OBFID = "CL_00001423";
-
 	public ServerConfigurationManager(MinecraftServer p_i1500_1_) {
 		field_152613_a = p_i1500_1_.getVanillaFile("banned-players.json");
 		field_152614_b = p_i1500_1_.getVanillaFile("banned-ips.json");
@@ -98,6 +98,7 @@ public abstract class ServerConfigurationManager {
 		serverDataLoader.initializeConnectionToPlayer(p_72355_1_, p_72355_2_, nethandlerplayserver);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void initializeConnectionToPlayer_body(NetworkManager p_72355_1_, EntityPlayerMP p_72355_2_,
 												  NetHandlerPlayServer nethandlerplayserver, NBTTagCompound nbttagcompound) {
 		GameProfile gameprofile = p_72355_2_.getGameProfile();
@@ -195,6 +196,7 @@ public abstract class ServerConfigurationManager {
 	}
 
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	protected void func_96456_a(ServerScoreboard p_96456_1_, EntityPlayerMP p_96456_2_) {
 		HashSet hashset = new HashSet();
 		Iterator iterator = p_96456_1_.getTeams().iterator();
@@ -279,6 +281,7 @@ public abstract class ServerConfigurationManager {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public void playerLoggedIn(EntityPlayerMP p_72377_1_)
 	{
 		UMBukkitImplMod.getServer().detectListNameConflict(p_72377_1_);
@@ -358,6 +361,7 @@ public abstract class ServerConfigurationManager {
 			return playerEntityList.size() >= maxPlayers ? "The server is full!" : null;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public EntityPlayerMP createPlayerForUser(GameProfile p_148545_1_)
 	{
 		UUID uuid = EntityPlayer.func_146094_a(p_148545_1_);
@@ -395,6 +399,7 @@ public abstract class ServerConfigurationManager {
 
 		return new EntityPlayerMP(this.mcServer, this.mcServer.worldServerForDimension(0), p_148545_1_, (ItemInWorldManager)object);
 	}
+	@SuppressWarnings("unchecked")
 	public EntityPlayerMP respawnPlayer(EntityPlayerMP p_72368_1_, int p_72368_2_, boolean p_72368_3_) {
 		int oldDim = p_72368_1_.dimension;
 		WorldServer oldWorld = mcServer.getMultiWorld().getWorldByID(oldDim);
@@ -688,6 +693,7 @@ public abstract class ServerConfigurationManager {
 		return usernameToPlayerMap.get(p_152612_1_.toLowerCase());
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List findPlayers(ChunkCoordinates p_82449_1_, int p_82449_2_, int p_82449_3_, int p_82449_4_, int p_82449_5_,
 			int p_82449_6_, int p_82449_7_, Map p_82449_8_, String p_82449_9_, String p_82449_10_, World p_82449_11_) {
 		if (playerEntityList.isEmpty())
@@ -758,6 +764,7 @@ public abstract class ServerConfigurationManager {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	private boolean func_96457_a(EntityPlayer p_96457_1_, Map p_96457_2_) {
 		if (p_96457_2_ != null && p_96457_2_.size() != 0) {
 			Iterator iterator = p_96457_2_.entrySet().iterator();
@@ -889,6 +896,7 @@ public abstract class ServerConfigurationManager {
 		whiteListEnforced = p_72371_1_;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List getPlayerList(String p_72382_1_) {
 		ArrayList arraylist = new ArrayList();
 		Iterator iterator = playerEntityList.iterator();
@@ -985,6 +993,7 @@ public abstract class ServerConfigurationManager {
 		return statisticsfile;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void addStatFile(GameProfile profile, StatisticsFile statisticsfile) {
 		field_148547_k.put(profile.getId(), statisticsfile);
 	}
@@ -1267,6 +1276,7 @@ public abstract class ServerConfigurationManager {
 		entity.setWorld(worldserver1);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public EntityPlayerMP processLogin(GameProfile gameprofile, EntityPlayerMP player) // CraftBukkit - added EntityPlayer
 	{
 		ArrayList arraylist = new ArrayList();

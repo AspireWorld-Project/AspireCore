@@ -16,8 +16,6 @@ public class BlockWood extends Block {
 			"big_oak" };
 	@SideOnly(Side.CLIENT)
 	private IIcon[] field_150095_b;
-	private static final String __OBFID = "CL_00000335";
-
 	public BlockWood() {
 		super(Material.wood);
 		setCreativeTab(CreativeTabs.tabBlock);
@@ -38,6 +36,7 @@ public class BlockWood extends Block {
 		return p_149692_1_;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {

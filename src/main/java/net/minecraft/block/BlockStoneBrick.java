@@ -16,8 +16,6 @@ public class BlockStoneBrick extends Block {
 	public static final String[] field_150141_b = new String[] { null, "mossy", "cracked", "carved" };
 	@SideOnly(Side.CLIENT)
 	private IIcon[] field_150143_M;
-	private static final String __OBFID = "CL_00000318";
-
 	public BlockStoneBrick() {
 		super(Material.rock);
 		setCreativeTab(CreativeTabs.tabBlock);
@@ -38,6 +36,7 @@ public class BlockStoneBrick extends Block {
 		return p_149692_1_;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {

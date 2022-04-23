@@ -1,7 +1,6 @@
 package net.minecraft.server.network;
 
 import cpw.mods.fml.common.FMLCommonHandler;
-import io.netty.util.concurrent.GenericFutureListener;
 import net.minecraft.network.EnumConnectionState;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.handshake.INetHandlerHandshakeServer;
@@ -14,8 +13,6 @@ import net.minecraft.util.IChatComponent;
 public class NetHandlerHandshakeTCP implements INetHandlerHandshakeServer {
 	private final MinecraftServer field_147387_a;
 	private final NetworkManager field_147386_b;
-	private static final String __OBFID = "CL_00001456";
-
 	public NetHandlerHandshakeTCP(MinecraftServer p_i45295_1_, NetworkManager p_i45295_2_) {
 		field_147387_a = p_i45295_1_;
 		field_147386_b = p_i45295_2_;
@@ -78,8 +75,6 @@ public class NetHandlerHandshakeTCP implements INetHandlerHandshakeServer {
 
 	static final class SwitchEnumConnectionState {
 		static final int[] field_151291_a = new int[EnumConnectionState.values().length];
-		private static final String __OBFID = "CL_00001457";
-
 		static {
 			try {
 				field_151291_a[EnumConnectionState.LOGIN.ordinal()] = 1;

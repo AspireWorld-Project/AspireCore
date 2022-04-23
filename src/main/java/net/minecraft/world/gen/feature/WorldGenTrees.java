@@ -14,8 +14,6 @@ public class WorldGenTrees extends WorldGenAbstractTree {
 	private final boolean vinesGrow;
 	private final int metaWood;
 	private final int metaLeaves;
-	private static final String __OBFID = "CL_00000438";
-
 	public WorldGenTrees(boolean p_i2027_1_) {
 		this(p_i2027_1_, 4, 0, 0, false);
 	}

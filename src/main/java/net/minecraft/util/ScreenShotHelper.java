@@ -26,8 +26,6 @@ public class ScreenShotHelper {
 	private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss");
 	private static IntBuffer pixelBuffer;
 	private static int[] pixelValues;
-	private static final String __OBFID = "CL_00000656";
-
 	public static IChatComponent saveScreenshot(File p_148260_0_, int p_148260_1_, int p_148260_2_,
 			Framebuffer p_148260_3_) {
 		return saveScreenshot(p_148260_0_, null, p_148260_1_, p_148260_2_, p_148260_3_);

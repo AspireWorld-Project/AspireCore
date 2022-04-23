@@ -15,8 +15,6 @@ public class MusicTicker implements IUpdatePlayerListBox {
 	private final Minecraft field_147677_b;
 	private ISound field_147678_c;
 	private int field_147676_d = 100;
-	private static final String __OBFID = "CL_00001138";
-
 	public MusicTicker(Minecraft p_i45112_1_) {
 		field_147677_b = p_i45112_1_;
 	}
@@ -56,8 +54,6 @@ public class MusicTicker implements IUpdatePlayerListBox {
 		private final ResourceLocation field_148645_h;
 		private final int field_148646_i;
 		private final int field_148643_j;
-
-		private static final String __OBFID = "CL_00001139";
 
 		MusicType(ResourceLocation p_i45111_3_, int p_i45111_4_, int p_i45111_5_) {
 			field_148645_h = p_i45111_3_;

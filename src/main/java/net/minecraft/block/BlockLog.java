@@ -16,8 +16,6 @@ public abstract class BlockLog extends BlockRotatedPillar {
 	protected IIcon[] field_150167_a;
 	@SideOnly(Side.CLIENT)
 	protected IIcon[] field_150166_b;
-	private static final String __OBFID = "CL_00000266";
-
 	public BlockLog() {
 		super(Material.wood);
 		setCreativeTab(CreativeTabs.tabBlock);

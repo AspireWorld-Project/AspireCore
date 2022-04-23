@@ -4,7 +4,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
 import net.minecraft.block.BlockHopper;
 import net.minecraft.command.IEntitySelector;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -31,8 +30,6 @@ public class TileEntityHopper extends TileEntity implements IHopper {
 	private ItemStack[] field_145900_a = new ItemStack[5];
 	private String field_145902_i;
 	private int field_145901_j = -1;
-	private static final String __OBFID = "CL_00000359";
-
 	@Override
 	public void readFromNBT(NBTTagCompound p_145839_1_) {
 		super.readFromNBT(p_145839_1_);
@@ -512,6 +509,7 @@ public class TileEntityHopper extends TileEntity implements IHopper {
 				p_145884_0_.getZPos());
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static EntityItem func_145897_a(World p_145897_0_, double p_145897_1_, double p_145897_3_,
 			double p_145897_5_) {
 		List list = p_145897_0_
@@ -522,6 +520,7 @@ public class TileEntityHopper extends TileEntity implements IHopper {
 		return list.size() > 0 ? (EntityItem) list.get(0) : null;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static IInventory func_145893_b(World p_145893_0_, double p_145893_1_, double p_145893_3_,
 			double p_145893_5_) {
 		IInventory iinventory = null;

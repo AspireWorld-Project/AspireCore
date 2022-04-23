@@ -87,12 +87,19 @@ public abstract class World implements IBlockAccess {
 	public final MapStorage perWorldStorage;
 
 	public boolean scheduledUpdatesAreImmediate;
+	@SuppressWarnings("rawtypes")
 	public List loadedEntityList = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	protected List unloadedEntityList = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	public List loadedTileEntityList = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	private final List addedTileEntityList = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	private final Set field_147483_b = new HashSet();
+	@SuppressWarnings("rawtypes")
 	public List playerEntities = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	public List weatherEffects = new ArrayList();
 	private final long cloudColour = 16777215L;
 	public int skylightSubtracted;
@@ -106,6 +113,7 @@ public abstract class World implements IBlockAccess {
 	public EnumDifficulty difficultySetting;
 	public Random rand = new Random();
 	public WorldProvider provider;
+	@SuppressWarnings("rawtypes")
 	protected List worldAccesses = new ArrayList();
 	protected IChunkProvider chunkProvider;
 	protected final ISaveHandler saveHandler;
@@ -124,10 +132,10 @@ public abstract class World implements IBlockAccess {
 	private int ambientTickCountdown;
 	protected boolean spawnHostileMobs;
 	protected boolean spawnPeacefulMobs;
+	@SuppressWarnings("rawtypes")
 	private final ArrayList collidingBoundingBoxes;
 	private boolean field_147481_N;
 	int[] lightUpdateBlockList;
-	private static final String __OBFID = "CL_00000140";
 	public boolean restoringBlockSnapshots = false;
 	public boolean captureBlockSnapshots = false;
 	public ArrayList<net.minecraftforge.common.util.BlockSnapshot> capturedBlockSnapshots = new ArrayList<>();
@@ -141,6 +149,7 @@ public abstract class World implements IBlockAccess {
 		return provider.getBiomeGenForCoords(p_72807_1_, p_72807_2_);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public BiomeGenBase getBiomeGenForCoordsBody(final int p_72807_1_, final int p_72807_2_) {
 		if (blockExists(p_72807_1_, 0, p_72807_2_)) {
 			Chunk chunk = getChunkFromBlockCoords(p_72807_1_, p_72807_2_);
@@ -151,8 +160,6 @@ public abstract class World implements IBlockAccess {
 				CrashReport crashreport = CrashReport.makeCrashReport(throwable, "Getting biome");
 				CrashReportCategory crashreportcategory = crashreport.makeCategory("Coordinates of biome request");
 				crashreportcategory.addCrashSectionCallable("Location", new Callable() {
-					private static final String __OBFID = "CL_00000141";
-
 					@Override
 					public String call() {
 						return CrashReportCategory.getLocationInfo(p_72807_1_, 0, p_72807_2_);
@@ -168,6 +175,7 @@ public abstract class World implements IBlockAccess {
 		return provider.worldChunkMgr;
 	}
 
+	@SuppressWarnings({ "rawtypes" })
 	@SideOnly(Side.CLIENT)
 	public World(ISaveHandler p_i45368_1_, String p_i45368_2_, WorldProvider p_i45368_3_, WorldSettings p_i45368_4_,
 			Profiler p_i45368_5_) {
@@ -185,6 +193,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	// Changed signature - added gen and env
+	@SuppressWarnings("rawtypes")
 	public World(ISaveHandler p_i45369_1_, String p_i45369_2_, WorldSettings p_i45369_3_, WorldProvider p_i45369_4_, Profiler p_i45369_5_, ChunkGenerator gen,
 				 org.bukkit.World.Environment env)
 	{
@@ -339,6 +348,7 @@ public abstract class World implements IBlockAccess {
 		calculateInitialWeather();
 	}
 
+	@SuppressWarnings("rawtypes")
 	public World(ISaveHandler p_i45369_1_, String p_i45369_2_, WorldSettings p_i45369_3_, WorldProvider p_i45369_4_,
 			Profiler p_i45369_5_) {
 		ambientTickCountdown = rand.nextInt(12000);
@@ -1290,11 +1300,13 @@ public abstract class World implements IBlockAccess {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public boolean addWeatherEffect(Entity p_72942_1_) {
 		weatherEffects.add(p_72942_1_);
 		return true;
 	}
 
+	@SuppressWarnings("unchecked")
 	public boolean spawnEntityInWorld(final Entity p_72838_1_) {
 		// do not drop any items while restoring blocksnapshots. Prevents dupes
 		if (!isRemote && (p_72838_1_ == null
@@ -1390,10 +1402,12 @@ public abstract class World implements IBlockAccess {
 		onEntityRemoved(p_72973_1_);
 	}
 
+	@SuppressWarnings("unchecked")
 	public void addWorldAccess(IWorldAccess p_72954_1_) {
 		worldAccesses.add(p_72954_1_);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List getCollidingBoundingBoxes(Entity p_72945_1_, AxisAlignedBB p_72945_2_) {
 		collidingBoundingBoxes.clear();
 		int i = MathHelper.floor_double(p_72945_2_.minX);
@@ -1442,6 +1456,7 @@ public abstract class World implements IBlockAccess {
 		return collidingBoundingBoxes;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List func_147461_a(AxisAlignedBB p_147461_1_) {
 		collidingBoundingBoxes.clear();
 		int i = MathHelper.floor_double(p_147461_1_.minX);
@@ -1735,6 +1750,7 @@ public abstract class World implements IBlockAccess {
 	// breaking by mods
 	private boolean removeEntityThisTick;
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void updateEntities() {
 		theProfiler.startSection("entities");
 		theProfiler.startSection("global");
@@ -1979,6 +1995,7 @@ public abstract class World implements IBlockAccess {
 		theProfiler.endSection();
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void func_147448_a(Collection p_147448_1_) {
 		List dest = field_147481_N ? addedTileEntityList : loadedTileEntityList;
 		for (TileEntity entity : (Collection<TileEntity>) p_147448_1_) {
@@ -2095,6 +2112,7 @@ public abstract class World implements IBlockAccess {
 		return this.checkNoEntityCollision(p_72855_1_, null);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public boolean checkNoEntityCollision(AxisAlignedBB p_72917_1_, Entity p_72917_2_) {
 		List list = this.getEntitiesWithinAABBExcludingEntity(null, p_72917_1_);
 
@@ -2433,6 +2451,7 @@ public abstract class World implements IBlockAccess {
 			return null;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void setTileEntity(int p_147455_1_, int p_147455_2_, int p_147455_3_, TileEntity p_147455_4_) {
 		if (p_147455_4_ == null || p_147455_4_.isInvalid())
 			return;
@@ -2476,6 +2495,7 @@ public abstract class World implements IBlockAccess {
 		func_147453_f(p_147475_1_, p_147475_2_, p_147475_3_, getBlock(p_147475_1_, p_147475_2_, p_147475_3_));
 	}
 
+	@SuppressWarnings("unchecked")
 	public void func_147457_a(TileEntity p_147457_1_) {
 		field_147483_b.add(p_147457_1_);
 	}
@@ -2965,14 +2985,17 @@ public abstract class World implements IBlockAccess {
 		return false;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List getPendingBlockUpdates(Chunk p_72920_1_, boolean p_72920_2_) {
 		return null;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List getEntitiesWithinAABBExcludingEntity(Entity p_72839_1_, AxisAlignedBB p_72839_2_) {
 		return this.getEntitiesWithinAABBExcludingEntity(p_72839_1_, p_72839_2_, null);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List getEntitiesWithinAABBExcludingEntity(Entity p_94576_1_, AxisAlignedBB p_94576_2_,
 			IEntitySelector p_94576_3_) {
 		ArrayList arraylist = new ArrayList();
@@ -2993,10 +3016,12 @@ public abstract class World implements IBlockAccess {
 		return arraylist;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List getEntitiesWithinAABB(Class p_72872_1_, AxisAlignedBB p_72872_2_) {
 		return selectEntitiesWithinAABB(p_72872_1_, p_72872_2_, null);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List selectEntitiesWithinAABB(Class p_82733_1_, AxisAlignedBB p_82733_2_, IEntitySelector p_82733_3_) {
 		int i = MathHelper.floor_double((p_82733_2_.minX - MAX_ENTITY_RADIUS) / 16.0D);
 		int j = MathHelper.floor_double((p_82733_2_.maxX + MAX_ENTITY_RADIUS) / 16.0D);
@@ -3016,6 +3041,7 @@ public abstract class World implements IBlockAccess {
 		return arraylist;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Entity findNearestEntityWithinAABB(Class p_72857_1_, AxisAlignedBB p_72857_2_, Entity p_72857_3_) {
 		List list = getEntitiesWithinAABB(p_72857_1_, p_72857_2_);
 		Entity entity1 = null;
@@ -3039,6 +3065,7 @@ public abstract class World implements IBlockAccess {
 
 	public abstract Entity getEntityByID(int p_73045_1_);
 
+	@SuppressWarnings("rawtypes")
 	@SideOnly(Side.CLIENT)
 	public List getLoadedEntityList() {
 		return loadedEntityList;
@@ -3050,6 +3077,7 @@ public abstract class World implements IBlockAccess {
 		}
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public int countEntities(Class p_72907_1_) {
 		int i = 0;
 
@@ -3065,6 +3093,7 @@ public abstract class World implements IBlockAccess {
 		return i;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void addLoadedEntities(List p_72868_1_) {
 		for (int i = 0; i < p_72868_1_.size(); ++i) {
 			Entity entity = (Entity) p_72868_1_.get(i);
@@ -3075,6 +3104,7 @@ public abstract class World implements IBlockAccess {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void unloadEntities(List p_72828_1_) {
 		unloadedEntityList.addAll(p_72828_1_);
 	}
@@ -3332,6 +3362,7 @@ public abstract class World implements IBlockAccess {
 		provider.setSpawnPoint(p_72950_1_, p_72950_2_, p_72950_3_);
 	}
 
+	@SuppressWarnings("unchecked")
 	@SideOnly(Side.CLIENT)
 	public void joinEntityInSurroundings(Entity p_72897_1_) {
 		int i = MathHelper.floor_double(p_72897_1_.posX / 16.0D);
@@ -3436,6 +3467,7 @@ public abstract class World implements IBlockAccess {
 		mapStorage.setData(p_72823_1_, p_72823_2_);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public WorldSavedData loadItemData(Class p_72943_1_, String p_72943_2_) {
 		return mapStorage.loadData(p_72943_1_, p_72943_2_);
 	}
@@ -3504,20 +3536,17 @@ public abstract class World implements IBlockAccess {
 		return provider.getHorizon();
 	}
 
+	@SuppressWarnings("rawtypes")
 	public CrashReportCategory addWorldInfoToCrashReport(CrashReport p_72914_1_) {
 		CrashReportCategory crashreportcategory = p_72914_1_.makeCategoryDepth("Affected level", 1);
 		crashreportcategory.addCrashSection("Level name", worldInfo == null ? "????" : worldInfo.getWorldName());
 		crashreportcategory.addCrashSectionCallable("All players", new Callable() {
-			private static final String __OBFID = "CL_00000143";
-
 			@Override
 			public String call() {
 				return playerEntities.size() + " total; " + playerEntities;
 			}
 		});
 		crashreportcategory.addCrashSectionCallable("Chunk stats", new Callable() {
-			private static final String __OBFID = "CL_00000144";
-
 			@Override
 			public String call() {
 				return chunkProvider.makeString();
@@ -3602,6 +3631,7 @@ public abstract class World implements IBlockAccess {
 		return MathHelper.clamp_float(f, 0.0F, flag ? 1.5F : 1.0F);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void func_147450_X() {
 		Iterator iterator = worldAccesses.iterator();
 
@@ -3621,6 +3651,7 @@ public abstract class World implements IBlockAccess {
 	 * @param entity
 	 *            The TileEntity to be added.
 	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void addTileEntity(TileEntity entity) {
 		List dest = field_147481_N ? addedTileEntityList : loadedTileEntityList;
 		if (entity.canUpdate()) {
@@ -3791,6 +3822,7 @@ public abstract class World implements IBlockAccess {
 		field_147483_b.clear();
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void processEntityUnload() {
 		if (unloadedEntityList.isEmpty())
 			return;

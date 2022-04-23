@@ -27,13 +27,9 @@ import java.util.Map.Entry;
 @SideOnly(Side.CLIENT)
 public class Main {
 	private static final java.lang.reflect.Type field_152370_a = new ParameterizedType() {
-		private static final String __OBFID = "CL_00000828";
-
 		@Override
 		public java.lang.reflect.Type[] getActualTypeArguments() {
 			return new java.lang.reflect.Type[] { String.class, new ParameterizedType() {
-				private static final String __OBFID = "CL_00001836";
-
 				@Override
 				public java.lang.reflect.Type[] getActualTypeArguments() {
 					return new java.lang.reflect.Type[] { String.class };
@@ -61,8 +57,7 @@ public class Main {
 			return null;
 		}
 	};
-	private static final String __OBFID = "CL_00001461";
-
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void main(String[] p_main_0_) {
 		System.setProperty("java.net.preferIPv4Stack", "true");
 		OptionParser optionparser = new OptionParser();
@@ -119,8 +114,6 @@ public class Main {
 
 		if (!proxy.equals(Proxy.NO_PROXY) && func_110121_a(s1) && func_110121_a(s2)) {
 			Authenticator.setDefault(new Authenticator() {
-				private static final String __OBFID = "CL_00000829";
-
 				@Override
 				protected PasswordAuthentication getPasswordAuthentication() {
 					return new PasswordAuthentication(s1, s2.toCharArray());
@@ -167,8 +160,6 @@ public class Main {
 		}
 
 		Runtime.getRuntime().addShutdownHook(new Thread("Client Shutdown Thread") {
-			private static final String __OBFID = "CL_00001835";
-
 			@Override
 			public void run() {
 				Minecraft.stopIntegratedServer();

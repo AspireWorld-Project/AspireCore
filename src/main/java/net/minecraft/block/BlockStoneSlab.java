@@ -18,8 +18,6 @@ public class BlockStoneSlab extends BlockSlab {
 			"smoothStoneBrick", "netherBrick", "quartz" };
 	@SideOnly(Side.CLIENT)
 	private IIcon field_150007_M;
-	private static final String __OBFID = "CL_00000320";
-
 	public BlockStoneSlab(boolean p_i45431_1_) {
 		super(p_i45431_1_, Material.rock);
 		setCreativeTab(CreativeTabs.tabBlock);
@@ -71,6 +69,7 @@ public class BlockStoneSlab extends BlockSlab {
 		return super.getUnlocalizedName() + "." + field_150006_b[p_150002_1_];
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {

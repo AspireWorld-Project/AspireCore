@@ -11,8 +11,6 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.bukkit.block.BlockState;
 import org.bukkit.event.block.BlockFadeEvent;
 import org.bukkit.event.block.BlockSpreadEvent;
@@ -20,15 +18,12 @@ import org.bukkit.event.block.BlockSpreadEvent;
 import java.util.Random;
 
 public class BlockGrass extends Block implements IGrowable {
-	private static final Logger logger = LogManager.getLogger();
 	@SideOnly(Side.CLIENT)
 	private IIcon field_149991_b;
 	@SideOnly(Side.CLIENT)
 	private IIcon field_149993_M;
 	@SideOnly(Side.CLIENT)
 	private IIcon field_149994_N;
-	private static final String __OBFID = "CL_00000251";
-
 	protected BlockGrass() {
 		super(Material.grass);
 		setTickRandomly(true);

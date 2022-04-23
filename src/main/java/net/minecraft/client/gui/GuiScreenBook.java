@@ -44,8 +44,6 @@ public class GuiScreenBook extends GuiScreen {
 	private GuiButton buttonSign;
 	private GuiButton buttonFinalize;
 	private GuiButton buttonCancel;
-	private static final String __OBFID = "CL_00000744";
-
 	public GuiScreenBook(EntityPlayer p_i1080_1_, ItemStack p_i1080_2_, boolean p_i1080_3_) {
 		editingPlayer = p_i1080_1_;
 		bookObj = p_i1080_2_;
@@ -78,6 +76,7 @@ public class GuiScreenBook extends GuiScreen {
 		++updateCount;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		buttonList.clear();
@@ -359,8 +358,6 @@ public class GuiScreenBook extends GuiScreen {
 	@SideOnly(Side.CLIENT)
 	static class NextPageButton extends GuiButton {
 		private final boolean field_146151_o;
-		private static final String __OBFID = "CL_00000745";
-
 		public NextPageButton(int p_i1079_1_, int p_i1079_2_, int p_i1079_3_, boolean p_i1079_4_) {
 			super(p_i1079_1_, p_i1079_2_, p_i1079_3_, 23, 13, "");
 			field_146151_o = p_i1079_4_;

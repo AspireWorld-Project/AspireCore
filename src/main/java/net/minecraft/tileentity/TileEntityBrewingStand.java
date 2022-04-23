@@ -27,8 +27,6 @@ public class TileEntityBrewingStand extends TileEntity implements ISidedInventor
 	private int filledSlots;
 	private Item ingredientID;
 	private String field_145942_n;
-	private static final String __OBFID = "CL_00000345";
-
 	@Override
 	public String getInventoryName() {
 		return hasCustomInventoryName() ? field_145942_n : "container.brewing";
@@ -82,6 +80,7 @@ public class TileEntityBrewingStand extends TileEntity implements ISidedInventor
 		return brewTime;
 	}
 
+	@SuppressWarnings("rawtypes")
 	private boolean canBrew() {
 		if (brewingItemStacks[3] != null && brewingItemStacks[3].stackSize > 0) {
 			ItemStack itemstack = brewingItemStacks[3];
@@ -117,6 +116,7 @@ public class TileEntityBrewingStand extends TileEntity implements ISidedInventor
 			return false;
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void brewPotions() {
 		if (net.minecraftforge.event.ForgeEventFactory.onPotionAttemptBreaw(brewingItemStacks))
 			return;

@@ -18,8 +18,6 @@ public class TileEntityEnchantmentTable extends TileEntity {
 	public float field_145924_q;
 	private static final Random field_145923_r = new Random();
 	private String field_145922_s;
-	private static final String __OBFID = "CL_00000354";
-
 	@Override
 	public void writeToNBT(NBTTagCompound p_145841_1_) {
 		super.writeToNBT(p_145841_1_);

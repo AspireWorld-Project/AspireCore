@@ -18,8 +18,6 @@ public class FoodStats {
 	private float foodExhaustionLevel;
 	private int foodTimer;
 	private int prevFoodLevel = 20;
-	private static final String __OBFID = "CL_00001729";
-
 	private EntityPlayer entityplayer;
 
 	public void addStats(int p_75122_1_, float p_75122_2_) {

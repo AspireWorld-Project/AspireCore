@@ -8,8 +8,6 @@ public class ModelChest extends ModelBase {
 	public ModelRenderer chestLid = new ModelRenderer(this, 0, 0).setTextureSize(64, 64);
 	public ModelRenderer chestBelow;
 	public ModelRenderer chestKnob;
-	private static final String __OBFID = "CL_00000834";
-
 	public ModelChest() {
 		chestLid.addBox(0.0F, -5.0F, -14.0F, 14, 5, 14, 0.0F);
 		chestLid.rotationPointX = 1.0F;

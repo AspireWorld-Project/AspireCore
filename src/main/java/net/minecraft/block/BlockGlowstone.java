@@ -10,8 +10,6 @@ import net.minecraft.util.MathHelper;
 import java.util.Random;
 
 public class BlockGlowstone extends Block {
-	private static final String __OBFID = "CL_00000250";
-
 	public BlockGlowstone(Material p_i45409_1_) {
 		super(p_i45409_1_);
 		setCreativeTab(CreativeTabs.tabBlock);

@@ -37,8 +37,6 @@ public class Material {
 	public static final Material portal = new MaterialPortal(MapColor.airColor).setImmovableMobility();
 	public static final Material cake = new Material(MapColor.airColor).setNoPushMobility();
 	public static final Material web = new Material(MapColor.clothColor) {
-		private static final String __OBFID = "CL_00000543";
-
 		@Override
 		public boolean blocksMovement() {
 			return false;
@@ -52,8 +50,6 @@ public class Material {
 	private boolean requiresNoTool = true;
 	private int mobilityFlag;
 	private boolean isAdventureModeExempt;
-	private static final String __OBFID = "CL_00000542";
-
 	public Material(MapColor p_i2116_1_) {
 		materialMapColor = p_i2116_1_;
 	}

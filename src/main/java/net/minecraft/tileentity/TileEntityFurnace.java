@@ -27,8 +27,6 @@ public class TileEntityFurnace extends TileEntity implements ISidedInventory {
 	public int currentItemBurnTime;
 	public int furnaceCookTime;
 	private String field_145958_o;
-	private static final String __OBFID = "CL_00000357";
-
 	@Override
 	public int getSizeInventory() {
 		return furnaceItemStacks.length;

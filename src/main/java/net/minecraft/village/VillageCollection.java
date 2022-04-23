@@ -14,12 +14,13 @@ import java.util.List;
 
 public class VillageCollection extends WorldSavedData {
 	private World worldObj;
+	@SuppressWarnings("rawtypes")
 	private final List villagerPositionsList = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	private final List newDoors = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	private final List villageList = new ArrayList();
 	private int tickCounter;
-	private static final String __OBFID = "CL_00001635";
-
 	public VillageCollection(String p_i1677_1_) {
 		super(p_i1677_1_);
 	}
@@ -30,6 +31,7 @@ public class VillageCollection extends WorldSavedData {
 		markDirty();
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void func_82566_a(World p_82566_1_) {
 		worldObj = p_82566_1_;
 		Iterator iterator = villageList.iterator();
@@ -40,6 +42,7 @@ public class VillageCollection extends WorldSavedData {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public void addVillagerPosition(int p_75551_1_, int p_75551_2_, int p_75551_3_) {
 		if (villagerPositionsList.size() <= 64) {
 			if (!isVillagerPositionPresent(p_75551_1_, p_75551_2_, p_75551_3_)) {
@@ -48,6 +51,7 @@ public class VillageCollection extends WorldSavedData {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void tick() {
 		++tickCounter;
 		Iterator iterator = villageList.iterator();
@@ -66,6 +70,7 @@ public class VillageCollection extends WorldSavedData {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void removeAnnihilatedVillages() {
 		Iterator iterator = villageList.iterator();
 
@@ -79,10 +84,12 @@ public class VillageCollection extends WorldSavedData {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List getVillageList() {
 		return villageList;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Village findNearestVillage(int p_75550_1_, int p_75550_2_, int p_75550_3_, int p_75550_4_) {
 		Village village = null;
 		float f = Float.MAX_VALUE;
@@ -111,6 +118,7 @@ public class VillageCollection extends WorldSavedData {
 		}
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void addNewDoorsToVillageOrCreateVillage() {
 		int i = 0;
 
@@ -171,6 +179,7 @@ public class VillageCollection extends WorldSavedData {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	private VillageDoorInfo getVillageDoorAt(int p_75547_1_, int p_75547_2_, int p_75547_3_) {
 		Iterator iterator = newDoors.iterator();
 		VillageDoorInfo villagedoorinfo;
@@ -198,6 +207,7 @@ public class VillageCollection extends WorldSavedData {
 		return villagedoorinfo;
 	}
 
+	@SuppressWarnings("unchecked")
 	private void addDoorToNewListIfAppropriate(int p_75542_1_, int p_75542_2_, int p_75542_3_) {
 		int l = ((BlockDoor) Blocks.wooden_door).func_150013_e(worldObj, p_75542_1_, p_75542_2_, p_75542_3_);
 		int i1;
@@ -242,6 +252,7 @@ public class VillageCollection extends WorldSavedData {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	private boolean isVillagerPositionPresent(int p_75548_1_, int p_75548_2_, int p_75548_3_) {
 		Iterator iterator = villagerPositionsList.iterator();
 		ChunkCoordinates chunkcoordinates;
@@ -261,6 +272,7 @@ public class VillageCollection extends WorldSavedData {
 		return worldObj.getBlock(p_75541_1_, p_75541_2_, p_75541_3_) == Blocks.wooden_door;
 	}
 
+	@SuppressWarnings({ "unchecked" })
 	@Override
 	public void readFromNBT(NBTTagCompound p_76184_1_) {
 		tickCounter = p_76184_1_.getInteger("Tick");
@@ -274,6 +286,7 @@ public class VillageCollection extends WorldSavedData {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void writeToNBT(NBTTagCompound p_76187_1_) {
 		p_76187_1_.setInteger("Tick", tickCounter);

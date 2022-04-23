@@ -12,8 +12,6 @@ public class TileEntitySign extends TileEntity {
 	public int lineBeingEdited = -1;
 	private boolean field_145916_j = true;
 	private EntityPlayer field_145917_k;
-	private static final String __OBFID = "CL_00000363";
-
 	@Override
 	public void writeToNBT(NBTTagCompound p_145841_1_) {
 		super.writeToNBT(p_145841_1_);

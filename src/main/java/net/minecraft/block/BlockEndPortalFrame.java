@@ -22,8 +22,6 @@ public class BlockEndPortalFrame extends Block {
 	private IIcon iconEndPortalFrameTop;
 	@SideOnly(Side.CLIENT)
 	private IIcon iconEndPortalFrameEye;
-	private static final String __OBFID = "CL_00000237";
-
 	public BlockEndPortalFrame() {
 		super(Material.rock);
 	}
@@ -63,6 +61,7 @@ public class BlockEndPortalFrame extends Block {
 		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.8125F, 1.0F);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_,
 			AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_) {

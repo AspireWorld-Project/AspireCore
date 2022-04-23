@@ -10,8 +10,6 @@ import java.util.Random;
 public class WorldGenHellLava extends WorldGenerator {
 	private final Block field_150553_a;
 	private final boolean field_94524_b;
-	private static final String __OBFID = "CL_00000414";
-
 	public WorldGenHellLava(Block p_i45453_1_, boolean p_i45453_2_) {
 		field_150553_a = p_i45453_1_;
 		field_94524_b = p_i45453_2_;

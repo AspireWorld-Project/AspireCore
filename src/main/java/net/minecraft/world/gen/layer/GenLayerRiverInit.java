@@ -1,8 +1,6 @@
 package net.minecraft.world.gen.layer;
 
 public class GenLayerRiverInit extends GenLayer {
-	private static final String __OBFID = "CL_00000565";
-
 	public GenLayerRiverInit(long p_i2127_1_, GenLayer p_i2127_3_) {
 		super(p_i2127_1_);
 		parent = p_i2127_3_;

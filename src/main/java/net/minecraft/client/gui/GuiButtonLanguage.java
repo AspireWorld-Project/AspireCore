@@ -7,8 +7,6 @@ import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
 public class GuiButtonLanguage extends GuiButton {
-	private static final String __OBFID = "CL_00000672";
-
 	public GuiButtonLanguage(int p_i1041_1_, int p_i1041_2_, int p_i1041_3_) {
 		super(p_i1041_1_, p_i1041_2_, p_i1041_3_, 20, 20, "");
 	}

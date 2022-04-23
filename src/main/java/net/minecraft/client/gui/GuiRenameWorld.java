@@ -12,8 +12,6 @@ public class GuiRenameWorld extends GuiScreen {
 	private final GuiScreen field_146585_a;
 	private GuiTextField field_146583_f;
 	private final String field_146584_g;
-	private static final String __OBFID = "CL_00000709";
-
 	public GuiRenameWorld(GuiScreen p_i1050_1_, String p_i1050_2_) {
 		field_146585_a = p_i1050_1_;
 		field_146584_g = p_i1050_2_;
@@ -24,6 +22,7 @@ public class GuiRenameWorld extends GuiScreen {
 		field_146583_f.updateCursorCounter();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		Keyboard.enableRepeatEvents(true);

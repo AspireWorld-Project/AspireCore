@@ -21,16 +21,17 @@ import java.util.List;
 public class GuiScreenResourcePacks extends GuiScreen {
 	private static final Logger logger = LogManager.getLogger();
 	private final GuiScreen field_146965_f;
+	@SuppressWarnings("rawtypes")
 	private List field_146966_g;
+	@SuppressWarnings("rawtypes")
 	private List field_146969_h;
 	private GuiResourcePackAvailable field_146970_i;
 	private GuiResourcePackSelected field_146967_r;
-	private static final String __OBFID = "CL_00000820";
-
 	public GuiScreenResourcePacks(GuiScreen p_i45050_1_) {
 		field_146965_f = p_i45050_1_;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public void initGui() {
 		buttonList.add(new GuiOptionButton(2, width / 2 - 154, height - 48,
@@ -70,18 +71,22 @@ public class GuiScreenResourcePacks extends GuiScreen {
 		return field_146969_h.contains(p_146961_1_);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List func_146962_b(ResourcePackListEntry p_146962_1_) {
 		return func_146961_a(p_146962_1_) ? field_146969_h : field_146966_g;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List func_146964_g() {
 		return field_146966_g;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List func_146963_h() {
 		return field_146969_h;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	protected void actionPerformed(GuiButton p_146284_1_) {
 		if (p_146284_1_.enabled) {

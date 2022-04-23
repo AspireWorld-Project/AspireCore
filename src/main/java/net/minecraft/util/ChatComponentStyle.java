@@ -8,10 +8,10 @@ import java.util.Iterator;
 import java.util.List;
 
 public abstract class ChatComponentStyle implements IChatComponent {
+	@SuppressWarnings("rawtypes")
 	protected List siblings = Lists.newArrayList();
 	private ChatStyle style;
-	private static final String __OBFID = "CL_00001257";
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public IChatComponent appendSibling(IChatComponent p_150257_1_) {
 		p_150257_1_.getChatStyle().setParentStyle(getChatStyle());
@@ -19,6 +19,7 @@ public abstract class ChatComponentStyle implements IChatComponent {
 		return this;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List getSiblings() {
 		return siblings;
@@ -29,6 +30,7 @@ public abstract class ChatComponentStyle implements IChatComponent {
 		return appendSibling(new ChatComponentText(p_150258_1_));
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public IChatComponent setChatStyle(ChatStyle p_150255_1_) {
 		style = p_150255_1_;
@@ -42,6 +44,7 @@ public abstract class ChatComponentStyle implements IChatComponent {
 		return this;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public ChatStyle getChatStyle() {
 		if (style == null) {
@@ -57,12 +60,14 @@ public abstract class ChatComponentStyle implements IChatComponent {
 		return style;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public Iterator iterator() {
 		return Iterators.concat(Iterators.forArray(this),
 				createDeepCopyIterator(siblings));
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public final String getUnformattedText() {
 		StringBuilder stringbuilder = new StringBuilder();
@@ -77,6 +82,7 @@ public abstract class ChatComponentStyle implements IChatComponent {
 	}
 
 	// @SideOnly(Side.CLIENT)
+	@SuppressWarnings("rawtypes")
 	@Override
 	public final String getFormattedText() {
 		StringBuilder stringbuilder = new StringBuilder();
@@ -92,10 +98,9 @@ public abstract class ChatComponentStyle implements IChatComponent {
 		return stringbuilder.toString();
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static Iterator createDeepCopyIterator(Iterable p_150262_0_) {
 		Iterator iterator = Iterators.concat(Iterators.transform(p_150262_0_.iterator(), new Function() {
-			private static final String __OBFID = "CL_00001258";
-
 			public Iterator apply(IChatComponent p_apply_1_) {
 				return p_apply_1_.iterator();
 			}
@@ -106,8 +111,6 @@ public abstract class ChatComponentStyle implements IChatComponent {
 			}
 		}));
 		iterator = Iterators.transform(iterator, new Function() {
-			private static final String __OBFID = "CL_00001259";
-
 			public IChatComponent apply(IChatComponent p_apply_1_) {
 				IChatComponent ichatcomponent1 = p_apply_1_.createCopy();
 				ichatcomponent1.setChatStyle(ichatcomponent1.getChatStyle().createDeepCopy());

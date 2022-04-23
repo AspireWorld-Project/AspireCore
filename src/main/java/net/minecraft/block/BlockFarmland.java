@@ -25,8 +25,6 @@ public class BlockFarmland extends Block {
 	private IIcon field_149824_a;
 	@SideOnly(Side.CLIENT)
 	private IIcon field_149823_b;
-	private static final String __OBFID = "CL_00000241";
-
 	protected BlockFarmland() {
 		super(Material.ground);
 		setTickRandomly(true);

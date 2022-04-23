@@ -50,8 +50,6 @@ public class ChunkProviderHell implements IChunkProvider {
 	double[] noiseData3;
 	double[] noiseData4;
 	double[] noiseData5;
-	private static final String __OBFID = "CL_00000392";
-
 	{
 		genNetherBridge = (MapGenNetherBridge) TerrainGen.getModdedMapGen(genNetherBridge, NETHER_BRIDGE);
 		netherCaveGenerator = TerrainGen.getModdedMapGen(netherCaveGenerator, NETHER_CAVE);
@@ -512,6 +510,7 @@ public class ChunkProviderHell implements IChunkProvider {
 		return "HellRandomLevelSource";
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List getPossibleCreatures(EnumCreatureType p_73155_1_, int p_73155_2_, int p_73155_3_, int p_73155_4_) {
 		if (p_73155_1_ == EnumCreatureType.monster) {

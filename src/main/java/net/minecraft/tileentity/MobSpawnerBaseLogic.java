@@ -17,6 +17,7 @@ import java.util.List;
 public abstract class MobSpawnerBaseLogic {
 	public int spawnDelay = 20;
 	private String entityTypeName = "Pig";
+	@SuppressWarnings("rawtypes")
 	private List potentialEntitySpawns;
 	private MobSpawnerBaseLogic.WeightedRandomMinecart randomEntity;
 	public double field_98287_c;
@@ -28,8 +29,6 @@ public abstract class MobSpawnerBaseLogic {
 	private int maxNearbyEntities = 6;
 	private int activatingRangeFromPlayer = 16;
 	private int spawnRange = 4;
-	private static final String __OBFID = "CL_00000129";
-
 	public String getEntityNameToSpawn() {
 		if (getRandomEntity() == null) {
 			if (entityTypeName.equals("Minecart")) {
@@ -124,6 +123,7 @@ public abstract class MobSpawnerBaseLogic {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Entity func_98265_a(Entity p_98265_1_) {
 		if (getRandomEntity() != null) {
 			NBTTagCompound nbttagcompound = new NBTTagCompound();
@@ -196,6 +196,7 @@ public abstract class MobSpawnerBaseLogic {
 		func_98267_a(1);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void readFromNBT(NBTTagCompound p_98270_1_) {
 		entityTypeName = p_98270_1_.getString("EntityId");
 		spawnDelay = p_98270_1_.getShort("Delay");
@@ -239,6 +240,7 @@ public abstract class MobSpawnerBaseLogic {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void writeToNBT(NBTTagCompound p_98280_1_) {
 		p_98280_1_.setString("EntityId", getEntityNameToSpawn());
 		p_98280_1_.setShort("Delay", (short) spawnDelay);
@@ -312,8 +314,6 @@ public abstract class MobSpawnerBaseLogic {
 	public class WeightedRandomMinecart extends WeightedRandom.Item {
 		public final NBTTagCompound field_98222_b;
 		public final String entityTypeName;
-		private static final String __OBFID = "CL_00000130";
-
 		public WeightedRandomMinecart(NBTTagCompound p_i1945_2_) {
 			super(p_i1945_2_.getInteger("Weight"));
 			NBTTagCompound nbttagcompound1 = p_i1945_2_.getCompoundTag("Properties");

@@ -22,8 +22,6 @@ public class ModelDragon extends ModelBase {
 	private final ModelRenderer wing;
 	private final ModelRenderer wingTip;
 	private float partialTicks;
-	private static final String __OBFID = "CL_00000870";
-
 	public ModelDragon(float p_i1169_1_) {
 		textureWidth = 256;
 		textureHeight = 256;

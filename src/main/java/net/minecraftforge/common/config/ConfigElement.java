@@ -42,6 +42,7 @@ public class ConfigElement<T> implements IConfigElement<T> {
 		return this;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List<IConfigElement> getChildElements() {
 		if (!isProperty) {
@@ -101,6 +102,7 @@ public class ConfigElement<T> implements IConfigElement<T> {
 		return isProperty;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Class<? extends IConfigEntry> getConfigEntryClass() {
 		return isProperty ? prop.getConfigEntryClass() : ctgy.getConfigEntryClass();
@@ -187,6 +189,7 @@ public class ConfigElement<T> implements IConfigElement<T> {
 		return isProperty ? prop.getLanguageKey() : ctgy.getLanguagekey();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Object getDefault() {
 		return isProperty ? (T) prop.getDefault() : null;
@@ -225,6 +228,7 @@ public class ConfigElement<T> implements IConfigElement<T> {
 		return isProperty ? prop.getValidationPattern() : null;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Object get() {
 		return isProperty ? (T) prop.getString() : null;
@@ -304,11 +308,13 @@ public class ConfigElement<T> implements IConfigElement<T> {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public T getMinValue() {
 		return isProperty ? (T) prop.getMinValue() : null;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public T getMaxValue() {
 		return isProperty ? (T) prop.getMaxValue() : null;

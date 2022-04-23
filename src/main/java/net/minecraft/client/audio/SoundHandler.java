@@ -30,8 +30,6 @@ public class SoundHandler implements IResourceManagerReloadListener, IUpdatePlay
 	private static final Gson field_147699_c = new GsonBuilder()
 			.registerTypeAdapter(SoundList.class, new SoundListSerializer()).create();
 	private static final ParameterizedType field_147696_d = new ParameterizedType() {
-		private static final String __OBFID = "CL_00001148";
-
 		@Override
 		public Type[] getActualTypeArguments() {
 			return new Type[] { String.class, SoundList.class };
@@ -52,13 +50,12 @@ public class SoundHandler implements IResourceManagerReloadListener, IUpdatePlay
 	private final SoundRegistry sndRegistry = new SoundRegistry();
 	private final SoundManager sndManager;
 	private final IResourceManager mcResourceManager;
-	private static final String __OBFID = "CL_00001147";
-
 	public SoundHandler(IResourceManager p_i45122_1_, GameSettings p_i45122_2_) {
 		mcResourceManager = p_i45122_1_;
 		sndManager = new SoundManager(this, p_i45122_2_);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void onResourceManagerReload(IResourceManager p_110549_1_) {
 		sndManager.reloadSoundSystem();
@@ -94,6 +91,7 @@ public class SoundHandler implements IResourceManagerReloadListener, IUpdatePlay
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void loadSoundResource(ResourceLocation p_147693_1_, SoundList p_147693_2_) {
 		SoundEventAccessorComposite soundeventaccessorcomposite;
 
@@ -140,8 +138,6 @@ public class SoundHandler implements IResourceManagerReloadListener, IUpdatePlay
 			case 2:
 				object = new ISoundEventAccessor() {
 					final ResourceLocation field_148726_a = new ResourceLocation(s1, soundentry.getSoundEntryName());
-					private static final String __OBFID = "CL_00001149";
-
 					@Override
 					public int func_148721_a() {
 						SoundEventAccessorComposite soundeventaccessorcomposite1 = (SoundEventAccessorComposite) sndRegistry
@@ -215,6 +211,7 @@ public class SoundHandler implements IResourceManagerReloadListener, IUpdatePlay
 		sndManager.stopSound(p_147683_1_);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public SoundEventAccessorComposite getRandomSoundFromCategories(SoundCategory... p_147686_1_) {
 		ArrayList arraylist = Lists.newArrayList();
 		Iterator iterator = sndRegistry.getKeys().iterator();
@@ -243,8 +240,6 @@ public class SoundHandler implements IResourceManagerReloadListener, IUpdatePlay
 
 	static final class SwitchType {
 		static final int[] field_148765_a = new int[SoundList.SoundEntry.Type.values().length];
-		private static final String __OBFID = "CL_00001150";
-
 		static {
 			try {
 				field_148765_a[SoundList.SoundEntry.Type.FILE.ordinal()] = 1;

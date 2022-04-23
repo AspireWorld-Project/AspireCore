@@ -19,8 +19,6 @@ public class Achievement extends StatBase {
 	private IStatStringFormat statStringFormatter;
 	public final ItemStack theItemStack;
 	private boolean isSpecial;
-	private static final String __OBFID = "CL_00001466";
-
 	public Achievement(String p_i45300_1_, String p_i45300_2_, int p_i45300_3_, int p_i45300_4_, Item p_i45300_5_,
 			Achievement p_i45300_6_) {
 		this(p_i45300_1_, p_i45300_2_, p_i45300_3_, p_i45300_4_, new ItemStack(p_i45300_5_), p_i45300_6_);
@@ -69,6 +67,7 @@ public class Achievement extends StatBase {
 		return this;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Achievement registerStat() {
 		super.registerStat();
@@ -89,6 +88,7 @@ public class Achievement extends StatBase {
 		return ichatcomponent;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Achievement func_150953_b(Class p_150953_1_) {
 		return (Achievement) super.func_150953_b(p_150953_1_);

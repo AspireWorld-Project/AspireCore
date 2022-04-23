@@ -28,8 +28,6 @@ public class BlockCauldron extends Block {
 	private IIcon field_150028_b;
 	@SideOnly(Side.CLIENT)
 	private IIcon field_150030_M;
-	private static final String __OBFID = "CL_00000213";
-
 	public BlockCauldron() {
 		super(Material.iron);
 	}
@@ -49,6 +47,7 @@ public class BlockCauldron extends Block {
 		blockIcon = p_149651_1_.registerIcon(getTextureName() + "_side");
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_,
 			AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_) {

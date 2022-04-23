@@ -16,8 +16,6 @@ import java.util.Random;
 
 public abstract class BlockRailBase extends Block {
 	protected final boolean field_150053_a;
-	private static final String __OBFID = "CL_00000195";
-
 	public static final boolean func_150049_b_(World p_150049_0_, int p_150049_1_, int p_150049_2_, int p_150049_3_) {
 		return func_150051_a(p_150049_0_.getBlock(p_150049_1_, p_150049_2_, p_150049_3_));
 	}
@@ -310,8 +308,8 @@ public abstract class BlockRailBase extends Block {
 		private final int field_150658_d;
 		private final int field_150659_e;
 		private final boolean field_150656_f;
+		@SuppressWarnings("rawtypes")
 		private final List field_150657_g = new ArrayList();
-		private static final String __OBFID = "CL_00000196";
 		private final boolean canMakeSlopes;
 
 		public Rail(World p_i45388_2_, int p_i45388_3_, int p_i45388_4_, int p_i45388_5_) {
@@ -326,6 +324,7 @@ public abstract class BlockRailBase extends Block {
 			func_150648_a(l);
 		}
 
+		@SuppressWarnings("unchecked")
 		private void func_150648_a(int p_150648_1_) {
 			field_150657_g.clear();
 
@@ -362,6 +361,7 @@ public abstract class BlockRailBase extends Block {
 			}
 		}
 
+		@SuppressWarnings("unchecked")
 		private void func_150651_b() {
 			for (int i = 0; i < field_150657_g.size(); ++i) {
 				BlockRailBase.Rail rail = func_150654_a((ChunkPosition) field_150657_g.get(i));
@@ -445,6 +445,7 @@ public abstract class BlockRailBase extends Block {
 			return func_150653_a(p_150649_1_) || field_150657_g.size() != 2;
 		}
 
+		@SuppressWarnings("unchecked")
 		private void func_150645_c(BlockRailBase.Rail p_150645_1_) {
 			field_150657_g.add(new ChunkPosition(p_150645_1_.field_150661_c, p_150645_1_.field_150658_d,
 					p_150645_1_.field_150659_e));

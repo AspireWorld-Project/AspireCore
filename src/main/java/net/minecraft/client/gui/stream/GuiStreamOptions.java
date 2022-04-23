@@ -25,13 +25,12 @@ public class GuiStreamOptions extends GuiScreen {
 	private String field_152313_r;
 	private int field_152314_s;
 	private boolean field_152315_t = false;
-	private static final String __OBFID = "CL_00001841";
-
 	public GuiStreamOptions(GuiScreen p_i1073_1_, GameSettings p_i1073_2_) {
 		field_152317_g = p_i1073_1_;
 		field_152318_h = p_i1073_2_;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		int i = 0;

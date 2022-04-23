@@ -43,8 +43,6 @@ public class GuiCreateWorld extends GuiScreen {
 	private static final String[] field_146327_L = new String[] { "CON", "COM", "PRN", "AUX", "CLOCK$", "NUL", "COM1",
 			"COM2", "COM3", "COM4", "COM5", "COM6", "COM7", "COM8", "COM9", "LPT1", "LPT2", "LPT3", "LPT4", "LPT5",
 			"LPT6", "LPT7", "LPT8", "LPT9" };
-	private static final String __OBFID = "CL_00000689";
-
 	public GuiCreateWorld(GuiScreen p_i1030_1_) {
 		field_146332_f = p_i1030_1_;
 		field_146329_I = "";
@@ -57,6 +55,7 @@ public class GuiCreateWorld extends GuiScreen {
 		field_146335_h.updateCursorCounter();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		Keyboard.enableRepeatEvents(true);

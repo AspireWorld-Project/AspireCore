@@ -7,8 +7,6 @@ import net.minecraft.util.MathHelper;
 
 @SideOnly(Side.CLIENT)
 public class ModelZombieVillager extends ModelBiped {
-	private static final String __OBFID = "CL_00000865";
-
 	public ModelZombieVillager() {
 		this(0.0F, 0.0F, false);
 	}

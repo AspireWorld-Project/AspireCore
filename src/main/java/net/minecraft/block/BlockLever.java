@@ -16,8 +16,6 @@ import org.bukkit.event.block.BlockRedstoneEvent;
 import static net.minecraftforge.common.util.ForgeDirection.*;
 
 public class BlockLever extends Block {
-	private static final String __OBFID = "CL_00000264";
-
 	protected BlockLever() {
 		super(Material.circuits);
 		setCreativeTab(CreativeTabs.tabRedstone);

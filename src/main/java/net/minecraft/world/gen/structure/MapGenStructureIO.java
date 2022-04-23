@@ -10,17 +10,21 @@ import java.util.Map;
 
 public class MapGenStructureIO {
 	private static final Logger logger = LogManager.getLogger();
+	@SuppressWarnings("rawtypes")
 	private static final Map field_143040_a = new HashMap();
+	@SuppressWarnings("rawtypes")
 	private static final Map field_143038_b = new HashMap();
+	@SuppressWarnings("rawtypes")
 	private static final Map field_143039_c = new HashMap();
+	@SuppressWarnings("rawtypes")
 	private static final Map field_143037_d = new HashMap();
-	private static final String __OBFID = "CL_00000509";
-
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void registerStructure(Class p_143034_0_, String p_143034_1_) {
 		field_143040_a.put(p_143034_1_, p_143034_0_);
 		field_143038_b.put(p_143034_0_, p_143034_1_);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void func_143031_a(Class p_143031_0_, String p_143031_1_) {
 		field_143039_c.put(p_143031_1_, p_143031_0_);
 		field_143037_d.put(p_143031_0_, p_143031_1_);
@@ -34,6 +38,7 @@ public class MapGenStructureIO {
 		return (String) field_143037_d.get(p_143036_0_.getClass());
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static StructureStart func_143035_a(NBTTagCompound p_143035_0_, World p_143035_1_) {
 		StructureStart structurestart = null;
 
@@ -57,6 +62,7 @@ public class MapGenStructureIO {
 		return structurestart;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static StructureComponent func_143032_b(NBTTagCompound p_143032_0_, World p_143032_1_) {
 		StructureComponent structurecomponent = null;
 

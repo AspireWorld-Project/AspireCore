@@ -11,14 +11,13 @@ import java.util.Random;
 
 @SideOnly(Side.CLIENT)
 public class SoundEventAccessorComposite implements ISoundEventAccessor {
+	@SuppressWarnings("rawtypes")
 	private final List soundPool = Lists.newArrayList();
 	private final Random rnd = new Random();
 	private final ResourceLocation field_148735_c;
 	private final SoundCategory field_148732_d;
 	private final double eventPitch;
 	private final double eventVolume;
-	private static final String __OBFID = "CL_00001146";
-
 	public SoundEventAccessorComposite(ResourceLocation p_i45120_1_, double p_i45120_2_, double p_i45120_4_,
 			SoundCategory p_i45120_6_) {
 		field_148735_c = p_i45120_1_;
@@ -27,6 +26,7 @@ public class SoundEventAccessorComposite implements ISoundEventAccessor {
 		field_148732_d = p_i45120_6_;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public int func_148721_a() {
 		int i = 0;
@@ -45,6 +45,7 @@ public class SoundEventAccessorComposite implements ISoundEventAccessor {
 
 		if (!soundPool.isEmpty() && i != 0) {
 			int j = rnd.nextInt(i);
+			@SuppressWarnings("rawtypes")
 			Iterator iterator = soundPool.iterator();
 			ISoundEventAccessor isoundeventaccessor;
 
@@ -64,6 +65,7 @@ public class SoundEventAccessorComposite implements ISoundEventAccessor {
 			return SoundHandler.missing_sound;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void addSoundToEventPool(ISoundEventAccessor p_148727_1_) {
 		soundPool.add(p_148727_1_);
 	}

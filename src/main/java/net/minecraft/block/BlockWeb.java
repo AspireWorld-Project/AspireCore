@@ -11,8 +11,6 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class BlockWeb extends Block {
-	private static final String __OBFID = "CL_00000333";
-
 	public BlockWeb() {
 		super(Material.web);
 		setCreativeTab(CreativeTabs.tabDecorations);

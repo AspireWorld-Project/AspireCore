@@ -9,8 +9,6 @@ import java.util.Random;
 public class WorldGenIcePath extends WorldGenerator {
 	private final Block field_150555_a;
 	private final int field_150554_b;
-	private static final String __OBFID = "CL_00000416";
-
 	public WorldGenIcePath(int p_i45454_1_) {
 		field_150555_a = Blocks.packed_ice;
 		field_150554_b = p_i45454_1_;

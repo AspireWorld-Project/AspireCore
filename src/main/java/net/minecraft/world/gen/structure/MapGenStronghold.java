@@ -11,13 +11,13 @@ import java.util.*;
 import java.util.Map.Entry;
 
 public class MapGenStronghold extends MapGenStructure {
+	@SuppressWarnings("rawtypes")
 	public final List field_151546_e;
 	private boolean ranBiomeCheck;
 	private ChunkCoordIntPair[] structureCoords;
 	private double field_82671_h;
 	private int field_82672_i;
-	private static final String __OBFID = "CL_00000481";
-
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public MapGenStronghold() {
 		structureCoords = new ChunkCoordIntPair[3];
 		field_82671_h = 32.0D;
@@ -41,6 +41,7 @@ public class MapGenStronghold extends MapGenStructure {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public MapGenStronghold(Map p_i2068_1_) {
 		this();
 		Iterator iterator = p_i2068_1_.entrySet().iterator();
@@ -109,6 +110,7 @@ public class MapGenStronghold extends MapGenStructure {
 		return false;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	protected List getCoordList() {
 		ArrayList arraylist = new ArrayList();
@@ -140,11 +142,10 @@ public class MapGenStronghold extends MapGenStructure {
 	}
 
 	public static class Start extends StructureStart {
-		private static final String __OBFID = "CL_00000482";
-
 		public Start() {
 		}
 
+		@SuppressWarnings({ "unchecked", "rawtypes" })
 		public Start(World p_i2067_1_, Random p_i2067_2_, int p_i2067_3_, int p_i2067_4_) {
 			super(p_i2067_3_, p_i2067_4_);
 			StructureStrongholdPieces.prepareStructurePieces();

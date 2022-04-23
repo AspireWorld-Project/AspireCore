@@ -32,8 +32,6 @@ public class BlockPistonBase extends Block {
 	private IIcon bottomIcon;
 	@SideOnly(Side.CLIENT)
 	private IIcon topIcon;
-	private static final String __OBFID = "CL_00000366";
-
 	public BlockPistonBase(boolean p_i45443_1_) {
 		super(Material.piston);
 		isSticky = p_i45443_1_;
@@ -293,6 +291,7 @@ public class BlockPistonBase extends Block {
 		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_,
 			AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_) {
@@ -362,6 +361,7 @@ public class BlockPistonBase extends Block {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private static boolean canExtend(World p_150077_0_, int p_150077_1_, int p_150077_2_, int p_150077_3_,
 			int p_150077_4_) {
 		int i1 = p_150077_1_ + Facing.offsetsXForSide[p_150077_4_];

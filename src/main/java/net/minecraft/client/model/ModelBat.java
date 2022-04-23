@@ -14,8 +14,6 @@ public class ModelBat extends ModelBase {
 	private final ModelRenderer batLeftWing;
 	private final ModelRenderer batOuterRightWing;
 	private final ModelRenderer batOuterLeftWing;
-	private static final String __OBFID = "CL_00000830";
-
 	public ModelBat() {
 		textureWidth = 64;
 		textureHeight = 64;

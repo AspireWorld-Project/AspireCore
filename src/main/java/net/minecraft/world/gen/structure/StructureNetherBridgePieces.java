@@ -28,8 +28,6 @@ public class StructureNetherBridgePieces {
 			new StructureNetherBridgePieces.PieceWeight(StructureNetherBridgePieces.Corridor3.class, 10, 3, true),
 			new StructureNetherBridgePieces.PieceWeight(StructureNetherBridgePieces.Corridor4.class, 7, 2),
 			new StructureNetherBridgePieces.PieceWeight(StructureNetherBridgePieces.NetherStalkRoom.class, 5, 2) };
-	private static final String __OBFID = "CL_00000453";
-
 	public static void registerNetherFortressPieces() {
 		MapGenStructureIO.func_143031_a(StructureNetherBridgePieces.Crossing3.class, "NeBCr");
 		MapGenStructureIO.func_143031_a(StructureNetherBridgePieces.End.class, "NeBEF");
@@ -48,6 +46,7 @@ public class StructureNetherBridgePieces {
 		MapGenStructureIO.func_143031_a(StructureNetherBridgePieces.Start.class, "NeStart");
 	}
 
+	@SuppressWarnings("rawtypes")
 	private static StructureNetherBridgePieces.Piece createNextComponentRandom(
 			StructureNetherBridgePieces.PieceWeight p_78738_0_, List p_78738_1_, Random p_78738_2_, int p_78738_3_,
 			int p_78738_4_, int p_78738_5_, int p_78738_6_, int p_78738_7_) {
@@ -100,8 +99,6 @@ public class StructureNetherBridgePieces {
 
 	public static class Corridor extends StructureNetherBridgePieces.Piece {
 		private boolean field_111021_b;
-		private static final String __OBFID = "CL_00000461";
-
 		public Corridor() {
 		}
 
@@ -124,11 +121,13 @@ public class StructureNetherBridgePieces {
 			p_143012_1_.setBoolean("Chest", field_111021_b);
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			getNextComponentX((StructureNetherBridgePieces.Start) p_74861_1_, p_74861_2_, p_74861_3_, 0, 1, true);
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureNetherBridgePieces.Corridor createValidComponent(List p_74978_0_, Random p_74978_1_,
 				int p_74978_2_, int p_74978_3_, int p_74978_4_, int p_74978_5_, int p_74978_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_74978_2_,
@@ -184,8 +183,6 @@ public class StructureNetherBridgePieces {
 
 	public static class Corridor2 extends StructureNetherBridgePieces.Piece {
 		private boolean field_111020_b;
-		private static final String __OBFID = "CL_00000463";
-
 		public Corridor2() {
 		}
 
@@ -208,11 +205,13 @@ public class StructureNetherBridgePieces {
 			p_143012_1_.setBoolean("Chest", field_111020_b);
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			getNextComponentZ((StructureNetherBridgePieces.Start) p_74861_1_, p_74861_2_, p_74861_3_, 0, 1, true);
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureNetherBridgePieces.Corridor2 createValidComponent(List p_74980_0_, Random p_74980_1_,
 				int p_74980_2_, int p_74980_3_, int p_74980_4_, int p_74980_5_, int p_74980_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_74980_2_,
@@ -267,8 +266,6 @@ public class StructureNetherBridgePieces {
 	}
 
 	public static class Corridor3 extends StructureNetherBridgePieces.Piece {
-		private static final String __OBFID = "CL_00000457";
-
 		public Corridor3() {
 		}
 
@@ -278,11 +275,13 @@ public class StructureNetherBridgePieces {
 			boundingBox = p_i2045_3_;
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			getNextComponentNormal((StructureNetherBridgePieces.Start) p_74861_1_, p_74861_2_, p_74861_3_, 1, 0, true);
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureNetherBridgePieces.Corridor3 createValidComponent(List p_74982_0_, Random p_74982_1_,
 				int p_74982_2_, int p_74982_3_, int p_74982_4_, int p_74982_5_, int p_74982_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_74982_2_,
@@ -336,8 +335,6 @@ public class StructureNetherBridgePieces {
 	}
 
 	public static class Corridor4 extends StructureNetherBridgePieces.Piece {
-		private static final String __OBFID = "CL_00000458";
-
 		public Corridor4() {
 		}
 
@@ -347,6 +344,7 @@ public class StructureNetherBridgePieces {
 			boundingBox = p_i2046_3_;
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			byte b0 = 1;
@@ -361,6 +359,7 @@ public class StructureNetherBridgePieces {
 					p_74861_3_.nextInt(8) > 0);
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureNetherBridgePieces.Corridor4 createValidComponent(List p_74985_0_, Random p_74985_1_,
 				int p_74985_2_, int p_74985_3_, int p_74985_4_, int p_74985_5_, int p_74985_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_74985_2_,
@@ -412,8 +411,6 @@ public class StructureNetherBridgePieces {
 	}
 
 	public static class Corridor5 extends StructureNetherBridgePieces.Piece {
-		private static final String __OBFID = "CL_00000462";
-
 		public Corridor5() {
 		}
 
@@ -423,11 +420,13 @@ public class StructureNetherBridgePieces {
 			boundingBox = p_i2050_3_;
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			getNextComponentNormal((StructureNetherBridgePieces.Start) p_74861_1_, p_74861_2_, p_74861_3_, 1, 0, true);
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureNetherBridgePieces.Corridor5 createValidComponent(List p_74981_0_, Random p_74981_1_,
 				int p_74981_2_, int p_74981_3_, int p_74981_4_, int p_74981_5_, int p_74981_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_74981_2_,
@@ -466,8 +465,6 @@ public class StructureNetherBridgePieces {
 	}
 
 	public static class Crossing extends StructureNetherBridgePieces.Piece {
-		private static final String __OBFID = "CL_00000468";
-
 		public Crossing() {
 		}
 
@@ -477,6 +474,7 @@ public class StructureNetherBridgePieces {
 			boundingBox = p_i2057_3_;
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			getNextComponentNormal((StructureNetherBridgePieces.Start) p_74861_1_, p_74861_2_, p_74861_3_, 2, 0, false);
@@ -484,6 +482,7 @@ public class StructureNetherBridgePieces {
 			getNextComponentZ((StructureNetherBridgePieces.Start) p_74861_1_, p_74861_2_, p_74861_3_, 0, 2, false);
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureNetherBridgePieces.Crossing createValidComponent(List p_74974_0_, Random p_74974_1_,
 				int p_74974_2_, int p_74974_3_, int p_74974_4_, int p_74974_5_, int p_74974_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_74974_2_,
@@ -531,8 +530,6 @@ public class StructureNetherBridgePieces {
 	}
 
 	public static class Crossing2 extends StructureNetherBridgePieces.Piece {
-		private static final String __OBFID = "CL_00000460";
-
 		public Crossing2() {
 		}
 
@@ -542,6 +539,7 @@ public class StructureNetherBridgePieces {
 			boundingBox = p_i2048_3_;
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			getNextComponentNormal((StructureNetherBridgePieces.Start) p_74861_1_, p_74861_2_, p_74861_3_, 1, 0, true);
@@ -549,6 +547,7 @@ public class StructureNetherBridgePieces {
 			getNextComponentZ((StructureNetherBridgePieces.Start) p_74861_1_, p_74861_2_, p_74861_3_, 0, 1, true);
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureNetherBridgePieces.Crossing2 createValidComponent(List p_74979_0_, Random p_74979_1_,
 				int p_74979_2_, int p_74979_3_, int p_74979_4_, int p_74979_5_, int p_74979_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_74979_2_,
@@ -581,8 +580,6 @@ public class StructureNetherBridgePieces {
 	}
 
 	public static class Crossing3 extends StructureNetherBridgePieces.Piece {
-		private static final String __OBFID = "CL_00000454";
-
 		public Crossing3() {
 		}
 
@@ -608,6 +605,7 @@ public class StructureNetherBridgePieces {
 			}
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			getNextComponentNormal((StructureNetherBridgePieces.Start) p_74861_1_, p_74861_2_, p_74861_3_, 8, 3, false);
@@ -615,6 +613,7 @@ public class StructureNetherBridgePieces {
 			getNextComponentZ((StructureNetherBridgePieces.Start) p_74861_1_, p_74861_2_, p_74861_3_, 3, 8, false);
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureNetherBridgePieces.Crossing3 createValidComponent(List p_74966_0_, Random p_74966_1_,
 				int p_74966_2_, int p_74966_3_, int p_74966_4_, int p_74966_5_, int p_74966_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_74966_2_,
@@ -678,8 +677,6 @@ public class StructureNetherBridgePieces {
 
 	public static class End extends StructureNetherBridgePieces.Piece {
 		private int fillSeed;
-		private static final String __OBFID = "CL_00000455";
-
 		public End() {
 		}
 
@@ -690,6 +687,7 @@ public class StructureNetherBridgePieces {
 			fillSeed = p_i2043_2_.nextInt();
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureNetherBridgePieces.End func_74971_a(List p_74971_0_, Random p_74971_1_, int p_74971_2_,
 				int p_74971_3_, int p_74971_4_, int p_74971_5_, int p_74971_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_74971_2_,
@@ -752,8 +750,6 @@ public class StructureNetherBridgePieces {
 	}
 
 	public static class Entrance extends StructureNetherBridgePieces.Piece {
-		private static final String __OBFID = "CL_00000459";
-
 		public Entrance() {
 		}
 
@@ -763,11 +759,13 @@ public class StructureNetherBridgePieces {
 			boundingBox = p_i2047_3_;
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			getNextComponentNormal((StructureNetherBridgePieces.Start) p_74861_1_, p_74861_2_, p_74861_3_, 5, 3, true);
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureNetherBridgePieces.Entrance createValidComponent(List p_74984_0_, Random p_74984_1_,
 				int p_74984_2_, int p_74984_3_, int p_74984_4_, int p_74984_5_, int p_74984_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_74984_2_,
@@ -873,8 +871,6 @@ public class StructureNetherBridgePieces {
 	}
 
 	public static class NetherStalkRoom extends StructureNetherBridgePieces.Piece {
-		private static final String __OBFID = "CL_00000464";
-
 		public NetherStalkRoom() {
 		}
 
@@ -884,12 +880,14 @@ public class StructureNetherBridgePieces {
 			boundingBox = p_i2052_3_;
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			getNextComponentNormal((StructureNetherBridgePieces.Start) p_74861_1_, p_74861_2_, p_74861_3_, 5, 3, true);
 			getNextComponentNormal((StructureNetherBridgePieces.Start) p_74861_1_, p_74861_2_, p_74861_3_, 5, 11, true);
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureNetherBridgePieces.NetherStalkRoom createValidComponent(List p_74977_0_,
 				Random p_74977_1_, int p_74977_2_, int p_74977_3_, int p_74977_4_, int p_74977_5_, int p_74977_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_74977_2_,
@@ -1045,8 +1043,6 @@ public class StructureNetherBridgePieces {
 				new WeightedRandomChestContent(Items.golden_horse_armor, 0, 1, 1, 8),
 				new WeightedRandomChestContent(Items.iron_horse_armor, 0, 1, 1, 5),
 				new WeightedRandomChestContent(Items.diamond_horse_armor, 0, 1, 1, 3) };
-		private static final String __OBFID = "CL_00000466";
-
 		public Piece() {
 		}
 
@@ -1062,6 +1058,7 @@ public class StructureNetherBridgePieces {
 		protected void func_143012_a(NBTTagCompound p_143012_1_) {
 		}
 
+		@SuppressWarnings("rawtypes")
 		private int getTotalWeight(List p_74960_1_) {
 			boolean flag = false;
 			int i = 0;
@@ -1078,6 +1075,7 @@ public class StructureNetherBridgePieces {
 			return flag ? i : -1;
 		}
 
+		@SuppressWarnings("rawtypes")
 		private StructureNetherBridgePieces.Piece getNextComponent(StructureNetherBridgePieces.Start p_74959_1_,
 				List p_74959_2_, List p_74959_3_, Random p_74959_4_, int p_74959_5_, int p_74959_6_, int p_74959_7_,
 				int p_74959_8_, int p_74959_9_) {
@@ -1123,6 +1121,7 @@ public class StructureNetherBridgePieces {
 					p_74959_7_, p_74959_8_, p_74959_9_);
 		}
 
+		@SuppressWarnings({ "unchecked", "rawtypes" })
 		private StructureComponent getNextComponent(StructureNetherBridgePieces.Start p_74962_1_, List p_74962_2_,
 				Random p_74962_3_, int p_74962_4_, int p_74962_5_, int p_74962_6_, int p_74962_7_, int p_74962_8_,
 				boolean p_74962_9_) {
@@ -1148,6 +1147,7 @@ public class StructureNetherBridgePieces {
 						p_74962_6_, p_74962_7_, p_74962_8_);
 		}
 
+		@SuppressWarnings("rawtypes")
 		protected StructureComponent getNextComponentNormal(StructureNetherBridgePieces.Start p_74963_1_,
 				List p_74963_2_, Random p_74963_3_, int p_74963_4_, int p_74963_5_, boolean p_74963_6_) {
 			switch (coordBaseMode) {
@@ -1172,6 +1172,7 @@ public class StructureNetherBridgePieces {
 			}
 		}
 
+		@SuppressWarnings("rawtypes")
 		protected StructureComponent getNextComponentX(StructureNetherBridgePieces.Start p_74961_1_, List p_74961_2_,
 				Random p_74961_3_, int p_74961_4_, int p_74961_5_, boolean p_74961_6_) {
 			switch (coordBaseMode) {
@@ -1194,6 +1195,7 @@ public class StructureNetherBridgePieces {
 			}
 		}
 
+		@SuppressWarnings("rawtypes")
 		protected StructureComponent getNextComponentZ(StructureNetherBridgePieces.Start p_74965_1_, List p_74965_2_,
 				Random p_74965_3_, int p_74965_4_, int p_74965_5_, boolean p_74965_6_) {
 			switch (coordBaseMode) {
@@ -1222,13 +1224,13 @@ public class StructureNetherBridgePieces {
 	}
 
 	static class PieceWeight {
+		@SuppressWarnings("rawtypes")
 		public Class weightClass;
 		public final int field_78826_b;
 		public int field_78827_c;
 		public int field_78824_d;
 		public boolean field_78825_e;
-		private static final String __OBFID = "CL_00000467";
-
+		@SuppressWarnings("rawtypes")
 		public PieceWeight(Class p_i2055_1_, int p_i2055_2_, int p_i2055_3_, boolean p_i2055_4_) {
 			weightClass = p_i2055_1_;
 			field_78826_b = p_i2055_2_;
@@ -1236,6 +1238,7 @@ public class StructureNetherBridgePieces {
 			field_78825_e = p_i2055_4_;
 		}
 
+		@SuppressWarnings("rawtypes")
 		public PieceWeight(Class p_i2056_1_, int p_i2056_2_, int p_i2056_3_) {
 			this(p_i2056_1_, p_i2056_2_, p_i2056_3_, false);
 		}
@@ -1250,8 +1253,6 @@ public class StructureNetherBridgePieces {
 	}
 
 	public static class Stairs extends StructureNetherBridgePieces.Piece {
-		private static final String __OBFID = "CL_00000469";
-
 		public Stairs() {
 		}
 
@@ -1261,11 +1262,13 @@ public class StructureNetherBridgePieces {
 			boundingBox = p_i2058_3_;
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			getNextComponentZ((StructureNetherBridgePieces.Start) p_74861_1_, p_74861_2_, p_74861_3_, 6, 2, false);
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureNetherBridgePieces.Stairs createValidComponent(List p_74973_0_, Random p_74973_1_,
 				int p_74973_2_, int p_74973_3_, int p_74973_4_, int p_74973_5_, int p_74973_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_74973_2_,
@@ -1315,14 +1318,16 @@ public class StructureNetherBridgePieces {
 
 	public static class Start extends StructureNetherBridgePieces.Crossing3 {
 		public StructureNetherBridgePieces.PieceWeight theNetherBridgePieceWeight;
+		@SuppressWarnings("rawtypes")
 		public List primaryWeights;
+		@SuppressWarnings("rawtypes")
 		public List secondaryWeights;
+		@SuppressWarnings("rawtypes")
 		public ArrayList field_74967_d = new ArrayList();
-		private static final String __OBFID = "CL_00000470";
-
 		public Start() {
 		}
 
+		@SuppressWarnings({ "rawtypes", "unchecked" })
 		public Start(Random p_i2059_1_, int p_i2059_2_, int p_i2059_3_) {
 			super(p_i2059_1_, p_i2059_2_, p_i2059_3_);
 			primaryWeights = new ArrayList();
@@ -1360,8 +1365,6 @@ public class StructureNetherBridgePieces {
 	}
 
 	public static class Straight extends StructureNetherBridgePieces.Piece {
-		private static final String __OBFID = "CL_00000456";
-
 		public Straight() {
 		}
 
@@ -1371,11 +1374,13 @@ public class StructureNetherBridgePieces {
 			boundingBox = p_i2044_3_;
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			getNextComponentNormal((StructureNetherBridgePieces.Start) p_74861_1_, p_74861_2_, p_74861_3_, 1, 3, false);
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureNetherBridgePieces.Straight createValidComponent(List p_74983_0_, Random p_74983_1_,
 				int p_74983_2_, int p_74983_3_, int p_74983_4_, int p_74983_5_, int p_74983_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_74983_2_,
@@ -1427,8 +1432,6 @@ public class StructureNetherBridgePieces {
 
 	public static class Throne extends StructureNetherBridgePieces.Piece {
 		private boolean hasSpawner;
-		private static final String __OBFID = "CL_00000465";
-
 		public Throne() {
 		}
 
@@ -1450,6 +1453,7 @@ public class StructureNetherBridgePieces {
 			p_143012_1_.setBoolean("Mob", hasSpawner);
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureNetherBridgePieces.Throne createValidComponent(List p_74975_0_, Random p_74975_1_,
 				int p_74975_2_, int p_74975_3_, int p_74975_4_, int p_74975_5_, int p_74975_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_74975_2_,

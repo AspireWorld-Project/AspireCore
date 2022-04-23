@@ -3,8 +3,6 @@ package net.minecraft.util;
 public class TupleIntJsonSerializable {
 	private int integerValue;
 	private IJsonSerializable jsonSerializableValue;
-	private static final String __OBFID = "CL_00001478";
-
 	public int getIntegerValue() {
 		return integerValue;
 	}

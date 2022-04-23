@@ -22,8 +22,6 @@ import java.util.Random;
 public class BlockRailDetector extends BlockRailBase {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] field_150055_b;
-	private static final String __OBFID = "CL_00000225";
-
 	public BlockRailDetector() {
 		super(true);
 		setTickRandomly(true);
@@ -75,6 +73,7 @@ public class BlockRailDetector extends BlockRailBase {
 				: p_149748_5_ == 1 ? 15 : 0;
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void func_150054_a(World world, int x, int y, int z, int p_150054_5_) {
 		boolean flag = (p_150054_5_ & 8) != 0;
 		boolean flag1 = false;
@@ -125,6 +124,7 @@ public class BlockRailDetector extends BlockRailBase {
 		return true;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public int getComparatorInputOverride(World p_149736_1_, int p_149736_2_, int p_149736_3_, int p_149736_4_,
 			int p_149736_5_) {

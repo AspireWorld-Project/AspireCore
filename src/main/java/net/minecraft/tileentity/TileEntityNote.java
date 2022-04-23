@@ -10,8 +10,6 @@ import org.bukkit.event.block.NotePlayEvent;
 public class TileEntityNote extends TileEntity {
 	public byte note;
 	public boolean previousRedstoneState;
-	private static final String __OBFID = "CL_00000362";
-
 	@Override
 	public void writeToNBT(NBTTagCompound p_145841_1_) {
 		super.writeToNBT(p_145841_1_);

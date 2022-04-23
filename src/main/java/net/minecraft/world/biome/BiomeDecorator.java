@@ -51,8 +51,6 @@ public class BiomeDecorator {
 	public int clayPerChunk;
 	public int bigMushroomsPerChunk;
 	public boolean generateLakes;
-	private static final String __OBFID = "CL_00000164";
-
 	public BiomeDecorator() {
 		sandGen = new WorldGenSand(Blocks.sand, 7);
 		gravelAsSandGen = new WorldGenSand(Blocks.gravel, 6);

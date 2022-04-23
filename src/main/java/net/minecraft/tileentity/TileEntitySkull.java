@@ -12,14 +12,10 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.StringUtils;
 
-import java.util.UUID;
-
 public class TileEntitySkull extends TileEntity {
 	private int field_145908_a;
 	private int field_145910_i;
 	private GameProfile field_152110_j = null;
-	private static final String __OBFID = "CL_00000364";
-
 	@Override
 	public void writeToNBT(NBTTagCompound p_145841_1_) {
 		super.writeToNBT(p_145841_1_);

@@ -12,10 +12,9 @@ import java.util.List;
 public class GuiDisconnected extends GuiScreen {
 	private final String field_146306_a;
 	private final IChatComponent field_146304_f;
+	@SuppressWarnings("rawtypes")
 	private List field_146305_g;
 	private final GuiScreen field_146307_h;
-	private static final String __OBFID = "CL_00000693";
-
 	public GuiDisconnected(GuiScreen p_i45020_1_, String p_i45020_2_, IChatComponent p_i45020_3_) {
 		field_146307_h = p_i45020_1_;
 		field_146306_a = I18n.format(p_i45020_2_);
@@ -26,6 +25,7 @@ public class GuiDisconnected extends GuiScreen {
 	protected void keyTyped(char p_73869_1_, int p_73869_2_) {
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		buttonList.clear();
@@ -41,6 +41,7 @@ public class GuiDisconnected extends GuiScreen {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void drawScreen(int p_73863_1_, int p_73863_2_, float p_73863_3_) {
 		drawDefaultBackground();

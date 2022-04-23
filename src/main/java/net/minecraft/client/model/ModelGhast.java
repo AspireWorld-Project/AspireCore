@@ -12,8 +12,6 @@ import java.util.Random;
 public class ModelGhast extends ModelBase {
 	ModelRenderer body;
 	ModelRenderer[] tentacles = new ModelRenderer[9];
-	private static final String __OBFID = "CL_00000839";
-
 	public ModelGhast() {
 		byte b0 = -16;
 		body = new ModelRenderer(this, 0, 0);

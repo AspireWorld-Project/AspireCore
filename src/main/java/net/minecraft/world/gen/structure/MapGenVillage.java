@@ -9,18 +9,18 @@ import java.util.*;
 import java.util.Map.Entry;
 
 public class MapGenVillage extends MapGenStructure {
+	@SuppressWarnings("rawtypes")
 	public static List villageSpawnBiomes = Arrays
 			.asList(BiomeGenBase.plains, BiomeGenBase.desert, BiomeGenBase.savanna);
 	private int terrainType;
 	private int field_82665_g;
 	private final int field_82666_h;
-	private static final String __OBFID = "CL_00000514";
-
 	public MapGenVillage() {
 		field_82665_g = 32;
 		field_82666_h = 8;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public MapGenVillage(Map p_i2093_1_) {
 		this();
 		Iterator iterator = p_i2093_1_.entrySet().iterator();
@@ -80,11 +80,10 @@ public class MapGenVillage extends MapGenStructure {
 
 	public static class Start extends StructureStart {
 		private boolean hasMoreThanTwoComponents;
-		private static final String __OBFID = "CL_00000515";
-
 		public Start() {
 		}
 
+		@SuppressWarnings({ "unchecked", "rawtypes" })
 		public Start(World p_i2092_1_, Random p_i2092_2_, int p_i2092_3_, int p_i2092_4_, int p_i2092_5_) {
 			super(p_i2092_3_, p_i2092_4_);
 			List list = StructureVillagePieces.getStructureVillageWeightedPieceList(p_i2092_2_, p_i2092_5_);

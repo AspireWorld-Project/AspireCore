@@ -21,12 +21,11 @@ public class GuiEditSign extends GuiScreen {
 	private int updateCounter;
 	private int editLine;
 	private GuiButton doneBtn;
-	private static final String __OBFID = "CL_00000764";
-
 	public GuiEditSign(TileEntitySign p_i1097_1_) {
 		tileSign = p_i1097_1_;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		buttonList.clear();

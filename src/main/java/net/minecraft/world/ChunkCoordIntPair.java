@@ -5,8 +5,6 @@ import org.ultramine.server.chunk.ChunkHash;
 public class ChunkCoordIntPair {
 	public final int chunkXPos;
 	public final int chunkZPos;
-	private static final String __OBFID = "CL_00000133";
-
 	public ChunkCoordIntPair(int p_i1947_1_, int p_i1947_2_) {
 		chunkXPos = p_i1947_1_;
 		chunkZPos = p_i1947_2_;

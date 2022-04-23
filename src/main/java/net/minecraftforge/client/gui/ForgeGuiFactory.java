@@ -87,6 +87,7 @@ public class ForgeGuiFactory implements IModGuiFactory {
 					I18n.format("forge.configgui.forgeConfigTitle"));
 		}
 
+		@SuppressWarnings({ "unchecked", "rawtypes" })
 		private static List<IConfigElement> getConfigElements() {
 			List<IConfigElement> list = new ArrayList<>();
 			list.add(new DummyCategoryElement("forgeCfg", "forge.configgui.ctgy.forgeGeneralConfig",
@@ -103,10 +104,12 @@ public class ForgeGuiFactory implements IModGuiFactory {
 		 * screen.
 		 */
 		public static class GeneralEntry extends CategoryEntry {
+			@SuppressWarnings("rawtypes")
 			public GeneralEntry(GuiConfig owningScreen, GuiConfigEntries owningEntryList, IConfigElement prop) {
 				super(owningScreen, owningEntryList, prop);
 			}
 
+			@SuppressWarnings({ "unchecked", "rawtypes" })
 			@Override
 			protected GuiScreen buildChildScreen() {
 				// This GuiConfig object specifies the configID of the object and as such will
@@ -129,10 +132,12 @@ public class ForgeGuiFactory implements IModGuiFactory {
 		 * child screen.
 		 */
 		public static class ChunkLoaderEntry extends CategoryEntry {
+			@SuppressWarnings("rawtypes")
 			public ChunkLoaderEntry(GuiConfig owningScreen, GuiConfigEntries owningEntryList, IConfigElement prop) {
 				super(owningScreen, owningEntryList, prop);
 			}
 
+			@SuppressWarnings({ "unchecked", "rawtypes" })
 			@Override
 			protected GuiScreen buildChildScreen() {
 				List<IConfigElement> list = new ArrayList<>();
@@ -161,6 +166,7 @@ public class ForgeGuiFactory implements IModGuiFactory {
 		 * the existing mod overrides.
 		 */
 		public static class ModOverridesEntry extends CategoryEntry {
+			@SuppressWarnings("rawtypes")
 			public ModOverridesEntry(GuiConfig owningScreen, GuiConfigEntries owningEntryList, IConfigElement prop) {
 				super(owningScreen, owningEntryList, prop);
 			}
@@ -169,6 +175,7 @@ public class ForgeGuiFactory implements IModGuiFactory {
 			 * This method is called in the constructor and is used to set the childScreen
 			 * field.
 			 */
+			@SuppressWarnings({ "unchecked", "rawtypes" })
 			@Override
 			protected GuiScreen buildChildScreen() {
 				List<IConfigElement> list = new ArrayList<>();
@@ -189,6 +196,7 @@ public class ForgeGuiFactory implements IModGuiFactory {
 			 * By overriding the enabled() method and checking the value of the "enabled"
 			 * entry this entry is enabled/disabled based on the value of the other entry.
 			 */
+			@SuppressWarnings("rawtypes")
 			@Override
 			public boolean enabled() {
 				for (IConfigEntry entry : owningEntryList.listEntries) {
@@ -216,6 +224,7 @@ public class ForgeGuiFactory implements IModGuiFactory {
 			 * Since adding a new entry to the child screen is what constitutes a change
 			 * here, reset the child screen listEntries to the saved list.
 			 */
+			@SuppressWarnings("rawtypes")
 			@Override
 			public void undoChanges() {
 				if (childScreen instanceof GuiConfig) {
@@ -237,10 +246,12 @@ public class ForgeGuiFactory implements IModGuiFactory {
 		 * allow a user to define a new mod override.
 		 */
 		public static class AddModOverrideEntry extends CategoryEntry {
+			@SuppressWarnings("rawtypes")
 			public AddModOverrideEntry(GuiConfig owningScreen, GuiConfigEntries owningEntryList, IConfigElement prop) {
 				super(owningScreen, owningEntryList, prop);
 			}
 
+			@SuppressWarnings({ "rawtypes", "unchecked" })
 			@Override
 			protected GuiScreen buildChildScreen() {
 				List<IConfigElement> list = new ArrayList<>();
@@ -271,6 +282,7 @@ public class ForgeGuiFactory implements IModGuiFactory {
 		 * user is done.
 		 */
 		public static class ModIDEntry extends SelectValueEntry {
+			@SuppressWarnings({ "unchecked", "rawtypes" })
 			public ModIDEntry(GuiConfig owningScreen, GuiConfigEntries owningEntryList, IConfigElement prop) {
 				super(owningScreen, owningEntryList, prop, getSelectableValues());
 				if (selectableValues.size() == 0) {
@@ -295,6 +307,7 @@ public class ForgeGuiFactory implements IModGuiFactory {
 			 * when the user is done such as saving a new ConfigCategory object to the
 			 * Configuration object.
 			 */
+			@SuppressWarnings("rawtypes")
 			@Override
 			public void onGuiClosed() {
 				Object modObject = Loader.instance().getModObjectList()

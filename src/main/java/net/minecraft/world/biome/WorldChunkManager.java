@@ -26,9 +26,9 @@ public class WorldChunkManager {
 	private GenLayer genBiomes;
 	private GenLayer biomeIndexLayer;
 	private final BiomeCache biomeCache;
+	@SuppressWarnings("rawtypes")
 	private final List biomesToSpawnIn;
-	private static final String __OBFID = "CL_00000166";
-
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	protected WorldChunkManager() {
 		biomeCache = new BiomeCache(this);
 		biomesToSpawnIn = new ArrayList();
@@ -47,6 +47,7 @@ public class WorldChunkManager {
 		this(p_i1976_1_.getSeed(), p_i1976_1_.getWorldInfo().getTerrainType());
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List getBiomesToSpawnIn() {
 		return biomesToSpawnIn;
 	}
@@ -150,6 +151,7 @@ public class WorldChunkManager {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public boolean areBiomesViable(int p_76940_1_, int p_76940_2_, int p_76940_3_, List p_76940_4_) {
 		IntCache.resetIntCache();
 		int l = p_76940_1_ - p_76940_3_ >> 2;
@@ -181,6 +183,7 @@ public class WorldChunkManager {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public ChunkPosition findBiomePosition(int p_150795_1_, int p_150795_2_, int p_150795_3_, List p_150795_4_,
 			Random p_150795_5_) {
 		IntCache.resetIntCache();

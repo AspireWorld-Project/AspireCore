@@ -14,12 +14,10 @@ import java.io.File;
 //Class used internally to provide the world specific data directories.
 
 public class WorldSpecificSaveHandler implements ISaveHandler {
-	private final WorldServer world;
 	private final ISaveHandler parent;
 	private final File dataDir;
 
 	public WorldSpecificSaveHandler(WorldServer world, ISaveHandler parent) {
-		this.world = world;
 		this.parent = parent;
 		dataDir = new File(world.getChunkSaveLocation(), "data");
 		dataDir.mkdirs();

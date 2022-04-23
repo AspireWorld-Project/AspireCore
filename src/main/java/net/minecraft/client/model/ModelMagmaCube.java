@@ -10,8 +10,6 @@ import net.minecraft.entity.monster.EntityMagmaCube;
 public class ModelMagmaCube extends ModelBase {
 	ModelRenderer[] field_78109_a = new ModelRenderer[8];
 	ModelRenderer field_78108_b;
-	private static final String __OBFID = "CL_00000842";
-
 	public ModelMagmaCube() {
 		for (int i = 0; i < field_78109_a.length; ++i) {
 			byte b0 = 0;

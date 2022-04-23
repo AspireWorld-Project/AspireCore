@@ -9,13 +9,14 @@ import java.util.*;
 import java.util.Map.Entry;
 
 public class MapGenScatteredFeature extends MapGenStructure {
+	@SuppressWarnings("rawtypes")
 	private static final List biomelist = Arrays.asList(BiomeGenBase.desert, BiomeGenBase.desertHills,
 			BiomeGenBase.jungle, BiomeGenBase.jungleHills, BiomeGenBase.swampland);
+	@SuppressWarnings("rawtypes")
 	private final List scatteredFeatureSpawnList;
 	private int maxDistanceBetweenScatteredFeatures;
 	private final int minDistanceBetweenScatteredFeatures;
-	private static final String __OBFID = "CL_00000471";
-
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public MapGenScatteredFeature() {
 		scatteredFeatureSpawnList = new ArrayList();
 		maxDistanceBetweenScatteredFeatures = 32;
@@ -23,6 +24,7 @@ public class MapGenScatteredFeature extends MapGenStructure {
 		scatteredFeatureSpawnList.add(new BiomeGenBase.SpawnListEntry(EntityWitch.class, 1, 1, 1));
 	}
 
+	@SuppressWarnings("rawtypes")
 	public MapGenScatteredFeature(Map p_i2061_1_) {
 		this();
 		Iterator iterator = p_i2061_1_.entrySet().iterator();
@@ -42,6 +44,7 @@ public class MapGenScatteredFeature extends MapGenStructure {
 		return "Temple";
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	protected boolean canSpawnStructureAtCoords(int p_75047_1_, int p_75047_2_) {
 		int k = p_75047_1_;
@@ -94,16 +97,16 @@ public class MapGenScatteredFeature extends MapGenStructure {
 			return false;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List getScatteredFeatureSpawnList() {
 		return scatteredFeatureSpawnList;
 	}
 
 	public static class Start extends StructureStart {
-		private static final String __OBFID = "CL_00000472";
-
 		public Start() {
 		}
 
+		@SuppressWarnings("unchecked")
 		public Start(World p_i2060_1_, Random p_i2060_2_, int p_i2060_3_, int p_i2060_4_) {
 			super(p_i2060_3_, p_i2060_4_);
 			BiomeGenBase biomegenbase = p_i2060_1_.getBiomeGenForCoords(p_i2060_3_ * 16 + 8, p_i2060_4_ * 16 + 8);

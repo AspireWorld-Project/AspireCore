@@ -23,8 +23,6 @@ import java.util.Random;
 
 public class BlockPortal extends BlockBreakable {
 	public static final int[][] field_150001_a = new int[][] { new int[0], { 3, 1 }, { 2, 0 } };
-	private static final String __OBFID = "CL_00000284";
-
 	public BlockPortal() {
 		super("portal", Material.portal, false);
 		setTickRandomly(true);
@@ -234,8 +232,6 @@ public class BlockPortal extends BlockBreakable {
 		private ChunkCoordinates field_150861_f;
 		private int field_150862_g;
 		private int field_150868_h;
-		private static final String __OBFID = "CL_00000285";
-
 		private final List<org.bukkit.block.Block> frameBlocks = new ArrayList<>();
 
 		public Size(World p_i45415_1_, int p_i45415_2_, int p_i45415_3_, int p_i45415_4_, int p_i45415_5_) {

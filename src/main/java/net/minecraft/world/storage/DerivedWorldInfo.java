@@ -9,8 +9,6 @@ import net.minecraft.world.WorldType;
 
 public class DerivedWorldInfo extends WorldInfo {
 	private final WorldInfo theWorldInfo;
-	private static final String __OBFID = "CL_00000584";
-
 	public DerivedWorldInfo(WorldInfo p_i2145_1_) {
 		theWorldInfo = p_i2145_1_;
 	}

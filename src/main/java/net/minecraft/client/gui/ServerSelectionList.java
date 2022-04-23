@@ -13,12 +13,12 @@ import java.util.List;
 @SideOnly(Side.CLIENT)
 public class ServerSelectionList extends GuiListExtended {
 	private final GuiMultiplayer field_148200_k;
+	@SuppressWarnings("rawtypes")
 	private final List field_148198_l = Lists.newArrayList();
+	@SuppressWarnings("rawtypes")
 	private final List field_148199_m = Lists.newArrayList();
 	private final GuiListExtended.IGuiListEntry field_148196_n = new ServerListEntryLanScan();
 	private int field_148197_o = -1;
-	private static final String __OBFID = "CL_00000819";
-
 	public ServerSelectionList(GuiMultiplayer p_i45049_1_, Minecraft p_i45049_2_, int p_i45049_3_, int p_i45049_4_,
 			int p_i45049_5_, int p_i45049_6_, int p_i45049_7_) {
 		super(p_i45049_2_, p_i45049_3_, p_i45049_4_, p_i45049_5_, p_i45049_6_, p_i45049_7_);
@@ -59,6 +59,7 @@ public class ServerSelectionList extends GuiListExtended {
 		return field_148197_o;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void func_148195_a(ServerList p_148195_1_) {
 		field_148198_l.clear();
 
@@ -67,6 +68,7 @@ public class ServerSelectionList extends GuiListExtended {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void func_148194_a(List p_148194_1_) {
 		field_148199_m.clear();
 		Iterator iterator = p_148194_1_.iterator();

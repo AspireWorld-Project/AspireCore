@@ -58,8 +58,6 @@ public class ChunkProviderGenerate implements IChunkProvider {
 	double[] field_147425_f;
 	double[] field_147426_g;
 	int[][] field_73219_j = new int[32][32];
-	private static final String __OBFID = "CL_00000396";
-
 	{
 		caveGenerator = TerrainGen.getModdedMapGen(caveGenerator, CAVE);
 		strongholdGenerator = (MapGenStronghold) TerrainGen.getModdedMapGen(strongholdGenerator, STRONGHOLD);
@@ -439,6 +437,7 @@ public class ChunkProviderGenerate implements IChunkProvider {
 		return "RandomLevelSource";
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List getPossibleCreatures(EnumCreatureType p_73155_1_, int p_73155_2_, int p_73155_3_, int p_73155_4_) {
 		BiomeGenBase biomegenbase = worldObj.getBiomeGenForCoords(p_73155_2_, p_73155_4_);

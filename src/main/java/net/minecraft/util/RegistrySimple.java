@@ -10,9 +10,9 @@ import java.util.Set;
 
 public class RegistrySimple implements IRegistry {
 	private static final Logger logger = LogManager.getLogger();
+	@SuppressWarnings("rawtypes")
 	protected final Map registryObjects = createUnderlyingMap();
-	private static final String __OBFID = "CL_00001210";
-
+	@SuppressWarnings("rawtypes")
 	protected Map createUnderlyingMap() {
 		return Maps.newHashMap();
 	}
@@ -22,6 +22,7 @@ public class RegistrySimple implements IRegistry {
 		return registryObjects.get(p_82594_1_);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void putObject(Object p_82595_1_, Object p_82595_2_) {
 		if (registryObjects.containsKey(p_82595_1_)) {
@@ -31,6 +32,7 @@ public class RegistrySimple implements IRegistry {
 		registryObjects.put(p_82595_1_, p_82595_2_);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Set getKeys() {
 		return Collections.unmodifiableSet(registryObjects.keySet());
 	}

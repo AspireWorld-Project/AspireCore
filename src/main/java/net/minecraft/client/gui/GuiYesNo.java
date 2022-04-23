@@ -15,8 +15,6 @@ public class GuiYesNo extends GuiScreen {
 	protected String cancelButtonText;
 	protected int field_146357_i;
 	private int field_146353_s;
-	private static final String __OBFID = "CL_00000684";
-
 	public GuiYesNo(GuiYesNoCallback p_i1082_1_, String p_i1082_2_, String p_i1082_3_, int p_i1082_4_) {
 		parentScreen = p_i1082_1_;
 		field_146351_f = p_i1082_2_;
@@ -36,6 +34,7 @@ public class GuiYesNo extends GuiScreen {
 		field_146357_i = p_i1083_6_;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		buttonList.add(new GuiOptionButton(0, width / 2 - 155, height / 6 + 96, confirmButtonText));
@@ -55,6 +54,7 @@ public class GuiYesNo extends GuiScreen {
 		super.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void func_146350_a(int p_146350_1_) {
 		field_146353_s = p_146350_1_;
 		GuiButton guibutton;
@@ -64,6 +64,7 @@ public class GuiYesNo extends GuiScreen {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void updateScreen() {
 		super.updateScreen();

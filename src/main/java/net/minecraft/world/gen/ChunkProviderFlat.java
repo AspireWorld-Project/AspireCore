@@ -22,13 +22,13 @@ public class ChunkProviderFlat implements IChunkProvider {
 	private final Block[] cachedBlockIDs = new Block[256];
 	private final byte[] cachedBlockMetadata = new byte[256];
 	private final FlatGeneratorInfo flatWorldGenInfo;
+	@SuppressWarnings("rawtypes")
 	private final List structureGenerators = new ArrayList();
 	private final boolean hasDecoration;
 	private final boolean hasDungeons;
 	private WorldGenLakes waterLakeGenerator;
 	private WorldGenLakes lavaLakeGenerator;
-	private static final String __OBFID = "CL_00000391";
-
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public ChunkProviderFlat(World p_i2004_1_, long p_i2004_2_, boolean p_i2004_4_, String p_i2004_5_) {
 		worldObj = p_i2004_1_;
 		random = new Random(p_i2004_2_);
@@ -88,6 +88,7 @@ public class ChunkProviderFlat implements IChunkProvider {
 		return provideChunk(p_73158_1_, p_73158_2_);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Chunk provideChunk(int p_73154_1_, int p_73154_2_) {
 		Chunk chunk = new Chunk(worldObj, p_73154_1_, p_73154_2_);
@@ -139,6 +140,7 @@ public class ChunkProviderFlat implements IChunkProvider {
 		return true;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void populate(IChunkProvider p_73153_1_, int p_73153_2_, int p_73153_3_) {
 		int k = p_73153_2_ * 16;
@@ -219,12 +221,14 @@ public class ChunkProviderFlat implements IChunkProvider {
 		return "FlatLevelSource";
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List getPossibleCreatures(EnumCreatureType p_73155_1_, int p_73155_2_, int p_73155_3_, int p_73155_4_) {
 		BiomeGenBase biomegenbase = worldObj.getBiomeGenForCoords(p_73155_2_, p_73155_4_);
 		return biomegenbase.getSpawnableList(p_73155_1_);
 	}
 
+	@SuppressWarnings({ "rawtypes" })
 	@Override
 	public ChunkPosition func_147416_a(World p_147416_1_, String p_147416_2_, int p_147416_3_, int p_147416_4_,
 			int p_147416_5_) {
@@ -247,6 +251,7 @@ public class ChunkProviderFlat implements IChunkProvider {
 		return 0;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void recreateStructures(int p_82695_1_, int p_82695_2_) {
 		Iterator iterator = structureGenerators.iterator();

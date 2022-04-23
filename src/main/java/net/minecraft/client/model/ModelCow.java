@@ -5,8 +5,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class ModelCow extends ModelQuadruped {
-	private static final String __OBFID = "CL_00000836";
-
 	public ModelCow() {
 		super(12, 0.0F);
 		head = new ModelRenderer(this, 0, 0);

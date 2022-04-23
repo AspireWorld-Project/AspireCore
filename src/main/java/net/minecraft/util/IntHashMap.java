@@ -5,8 +5,6 @@ import net.openhft.koloboke.collect.map.hash.HashIntObjMaps;
 
 public class IntHashMap {
 	private final IntObjMap<Object> map;
-	private static final String __OBFID = "CL_00001490";
-
 	public IntHashMap(IntObjMap<Object> map) {
 		this.map = map;
 	}
@@ -20,6 +18,7 @@ public class IntHashMap {
 		return p_76044_0_ ^ p_76044_0_ >>> 7 ^ p_76044_0_ >>> 4;
 	}
 
+	@SuppressWarnings("unused")
 	private static int getSlotIndex(int p_76043_0_, int p_76043_1_) {
 		return p_76043_0_ & p_76043_1_ - 1;
 	}
@@ -40,10 +39,12 @@ public class IntHashMap {
 		map.put(p_76038_1_, p_76038_2_);
 	}
 
+	@SuppressWarnings("unused")
 	private void grow(int p_76047_1_) {
 
 	}
 
+	@SuppressWarnings("unused")
 	private void copyTo(IntHashMap.Entry[] p_76048_1_) {
 
 	}
@@ -60,6 +61,7 @@ public class IntHashMap {
 		map.clear();
 	}
 
+	@SuppressWarnings("unused")
 	private void insert(int p_76040_1_, int p_76040_2_, Object p_76040_3_, int p_76040_4_) {
 
 	}
@@ -69,8 +71,6 @@ public class IntHashMap {
 		Object valueEntry;
 		IntHashMap.Entry nextEntry;
 		final int slotHash;
-		private static final String __OBFID = "CL_00001491";
-
 		Entry(int p_i1552_1_, int p_i1552_2_, Object p_i1552_3_, IntHashMap.Entry p_i1552_4_) {
 			valueEntry = p_i1552_3_;
 			nextEntry = p_i1552_4_;

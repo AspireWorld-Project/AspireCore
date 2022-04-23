@@ -19,8 +19,6 @@ public class BlockOldLeaf extends BlockLeaves {
 			{ "leaves_oak", "leaves_spruce", "leaves_birch", "leaves_jungle" },
 			{ "leaves_oak_opaque", "leaves_spruce_opaque", "leaves_birch_opaque", "leaves_jungle_opaque" } };
 	public static final String[] field_150131_O = new String[] { "oak", "spruce", "birch", "jungle" };
-	private static final String __OBFID = "CL_00000280";
-
 	@Override
 	@SideOnly(Side.CLIENT)
 	public int getRenderColor(int p_149741_1_) {
@@ -65,6 +63,7 @@ public class BlockOldLeaf extends BlockLeaves {
 								: field_150129_M[field_150127_b][0];
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {

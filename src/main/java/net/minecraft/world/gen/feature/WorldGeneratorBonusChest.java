@@ -11,8 +11,6 @@ import java.util.Random;
 public class WorldGeneratorBonusChest extends WorldGenerator {
 	private final WeightedRandomChestContent[] theBonusChestGenerator;
 	private final int itemsToGenerateInBonusChest;
-	private static final String __OBFID = "CL_00000403";
-
 	public WorldGeneratorBonusChest(WeightedRandomChestContent[] p_i2010_1_, int p_i2010_2_) {
 		theBonusChestGenerator = p_i2010_1_;
 		itemsToGenerateInBonusChest = p_i2010_2_;

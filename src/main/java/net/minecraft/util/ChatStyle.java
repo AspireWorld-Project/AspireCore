@@ -17,8 +17,6 @@ public class ChatStyle {
 	private ClickEvent chatClickEvent;
 	private HoverEvent chatHoverEvent;
 	private static final ChatStyle rootStyle = new ChatStyle() {
-		private static final String __OBFID = "CL_00001267";
-
 		@Override
 		public EnumChatFormatting getColor() {
 			return null;
@@ -125,8 +123,6 @@ public class ChatStyle {
 			return "";
 		}
 	};
-	private static final String __OBFID = "CL_00001266";
-
 	public EnumChatFormatting getColor() {
 		return color == null ? getParent().getColor() : color;
 	}
@@ -336,9 +332,8 @@ public class ChatStyle {
 		return chatstyle;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static class Serializer implements JsonDeserializer, JsonSerializer {
-		private static final String __OBFID = "CL_00001268";
-
 		@Override
 		public ChatStyle deserialize(JsonElement p_deserialize_1_, Type p_deserialize_2_,
 				JsonDeserializationContext p_deserialize_3_) {

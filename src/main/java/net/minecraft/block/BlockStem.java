@@ -3,7 +3,6 @@ package net.minecraft.block;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -23,8 +22,6 @@ public class BlockStem extends BlockBush implements IGrowable {
 	private final Block field_149877_a;
 	@SideOnly(Side.CLIENT)
 	private IIcon field_149876_b;
-	private static final String __OBFID = "CL_00000316";
-
 	protected BlockStem(Block p_i45430_1_) {
 		field_149877_a = p_i45430_1_;
 		setTickRandomly(true);

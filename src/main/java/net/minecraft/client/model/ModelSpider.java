@@ -18,8 +18,6 @@ public class ModelSpider extends ModelBase {
 	public ModelRenderer spiderLeg6;
 	public ModelRenderer spiderLeg7;
 	public ModelRenderer spiderLeg8;
-	private static final String __OBFID = "CL_00000860";
-
 	public ModelSpider() {
 		float f = 0.0F;
 		byte b0 = 15;

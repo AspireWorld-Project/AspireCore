@@ -15,15 +15,11 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
 
-import java.io.File;
-
 @SideOnly(Side.CLIENT)
 public abstract class AbstractClientPlayer extends EntityPlayer implements SkinManager.SkinAvailableCallback {
 	public static final ResourceLocation locationStevePng = new ResourceLocation("textures/entity/steve.png");
 	private ResourceLocation locationSkin;
 	private ResourceLocation locationCape;
-	private static final String __OBFID = "CL_00000935";
-
 	public AbstractClientPlayer(World p_i45074_1_, GameProfile p_i45074_2_) {
 		super(p_i45074_1_, p_i45074_2_);
 		String s = getCommandSenderName();
@@ -84,8 +80,6 @@ public abstract class AbstractClientPlayer extends EntityPlayer implements SkinM
 
 	static final class SwitchType {
 		static final int[] field_152630_a = new int[Type.values().length];
-		private static final String __OBFID = "CL_00001832";
-
 		static {
 			try {
 				field_152630_a[Type.SKIN.ordinal()] = 1;

@@ -22,6 +22,7 @@ import java.util.*;
 @SideOnly(Side.CLIENT)
 public class GuiFlatPresets extends GuiScreen {
 	private static final RenderItem field_146437_a = new RenderItem();
+	@SuppressWarnings("rawtypes")
 	private static final List field_146431_f = new ArrayList();
 	private final GuiCreateFlatWorld field_146432_g;
 	private String field_146438_h;
@@ -30,12 +31,11 @@ public class GuiFlatPresets extends GuiScreen {
 	private GuiFlatPresets.ListSlot field_146435_s;
 	private GuiButton field_146434_t;
 	private GuiTextField field_146433_u;
-	private static final String __OBFID = "CL_00000704";
-
 	public GuiFlatPresets(GuiCreateFlatWorld p_i1049_1_) {
 		field_146432_g = p_i1049_1_;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		buttonList.clear();
@@ -113,6 +113,7 @@ public class GuiFlatPresets extends GuiScreen {
 		func_146421_a(p_146425_0_, p_146425_1_, p_146425_2_, null, p_146425_3_);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static void func_146421_a(String p_146421_0_, Item p_146421_1_, BiomeGenBase p_146421_2_, List p_146421_3_,
 			FlatLayerInfo... p_146421_4_) {
 		FlatGeneratorInfo flatgeneratorinfo = new FlatGeneratorInfo();
@@ -178,8 +179,6 @@ public class GuiFlatPresets extends GuiScreen {
 		public Item field_148234_a;
 		public String field_148232_b;
 		public String field_148233_c;
-		private static final String __OBFID = "CL_00000705";
-
 		public LayerItem(Item p_i45022_1_, String p_i45022_2_, String p_i45022_3_) {
 			field_148234_a = p_i45022_1_;
 			field_148232_b = p_i45022_2_;
@@ -190,8 +189,6 @@ public class GuiFlatPresets extends GuiScreen {
 	@SideOnly(Side.CLIENT)
 	class ListSlot extends GuiSlot {
 		public int field_148175_k = -1;
-		private static final String __OBFID = "CL_00000706";
-
 		public ListSlot() {
 			super(GuiFlatPresets.this.mc, GuiFlatPresets.this.width, GuiFlatPresets.this.height, 80,
 					GuiFlatPresets.this.height - 37, 24);

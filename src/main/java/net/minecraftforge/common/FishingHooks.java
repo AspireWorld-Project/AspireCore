@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
+@SuppressWarnings("unchecked")
 public class FishingHooks {
 	private static final ArrayList<WeightedRandomFishable> fish = new ArrayList<>();
 	private static final ArrayList<WeightedRandomFishable> junk = new ArrayList<>();

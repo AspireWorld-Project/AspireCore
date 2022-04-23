@@ -18,11 +18,10 @@ import java.util.regex.Pattern;
 public class StringTranslate {
 	private static final Pattern numericVariablePattern = Pattern.compile("%(\\d+\\$)?[\\d\\.]*[df]");
 	private static final Splitter equalSignSplitter = Splitter.on('=').limit(2);
+	@SuppressWarnings("rawtypes")
 	private final Map languageList;
 	private static final StringTranslate instance = new StringTranslate();
 	private long lastUpdateTimeInMilliseconds;
-	private static final String __OBFID = "CL_00001212";
-
 	public StringTranslate() {
 		InputStream inputstream = StringTranslate.class.getResourceAsStream("/assets/minecraft/lang/en_US.lang");
 		languageList = Maps.newHashMap();
@@ -33,12 +32,14 @@ public class StringTranslate {
 		inject(instance, inputstream);
 	}
 
+	@SuppressWarnings("unchecked")
 	private static void inject(StringTranslate inst, InputStream inputstream) {
 		HashMap<String, String> map = parseLangFile(inputstream);
 		inst.languageList.putAll(map);
 		inst.lastUpdateTimeInMilliseconds = System.currentTimeMillis();
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static HashMap<String, String> parseLangFile(InputStream inputstream) {
 		HashMap<String, String> table = Maps.newHashMap();
 		try {
@@ -67,6 +68,7 @@ public class StringTranslate {
 		return instance;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@SideOnly(Side.CLIENT)
 
 	public static synchronized void replaceWith(Map p_135063_0_) {

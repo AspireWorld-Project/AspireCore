@@ -26,8 +26,6 @@ public abstract class StructureComponent {
 	protected StructureBoundingBox boundingBox;
 	protected int coordBaseMode;
 	protected int componentType;
-	private static final String __OBFID = "CL_00000511";
-
 	public StructureComponent() {
 	}
 
@@ -63,6 +61,7 @@ public abstract class StructureComponent {
 
 	protected abstract void func_143011_b(NBTTagCompound p_143011_1_);
 
+	@SuppressWarnings("rawtypes")
 	public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 	}
 
@@ -76,6 +75,7 @@ public abstract class StructureComponent {
 		return componentType;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static StructureComponent findIntersecting(List p_74883_0_, StructureBoundingBox p_74883_1_) {
 		Iterator iterator = p_74883_0_.iterator();
 		StructureComponent structurecomponent;
@@ -588,8 +588,6 @@ public abstract class StructureComponent {
 	public abstract static class BlockSelector {
 		protected Block field_151562_a;
 		protected int selectedBlockMetaData;
-		private static final String __OBFID = "CL_00000512";
-
 		protected BlockSelector() {
 			field_151562_a = Blocks.air;
 		}

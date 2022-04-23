@@ -31,8 +31,6 @@ public class BlockDoublePlant extends BlockBush implements IGrowable, IShearable
 	private IIcon[] doublePlantTopIcons;
 	@SideOnly(Side.CLIENT)
 	public IIcon[] sunflowerIcons;
-	private static final String __OBFID = "CL_00000231";
-
 	public BlockDoublePlant() {
 		super(Material.plants);
 		setHardness(0.0F);
@@ -228,6 +226,7 @@ public class BlockDoublePlant extends BlockBush implements IGrowable, IShearable
 		sunflowerIcons[1] = p_149651_1_.registerIcon("double_plant_sunflower_back");
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {

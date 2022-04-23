@@ -15,8 +15,6 @@ public class ChunkCache implements IBlockAccess {
 	private final Chunk[][] chunkArray;
 	private boolean isEmpty;
 	private final World worldObj;
-	private static final String __OBFID = "CL_00000155";
-
 	public ChunkCache(World p_i1964_1_, int p_i1964_2_, int p_i1964_3_, int p_i1964_4_, int p_i1964_5_, int p_i1964_6_,
 			int p_i1964_7_, int p_i1964_8_) {
 		worldObj = p_i1964_1_;

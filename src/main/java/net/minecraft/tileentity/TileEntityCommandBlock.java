@@ -12,8 +12,6 @@ import net.minecraft.world.World;
 
 public class TileEntityCommandBlock extends TileEntity {
 	private final CommandBlockLogic field_145994_a = new CommandBlockLogic() {
-		private static final String __OBFID = "CL_00000348";
-
 		@Override
 		public ChunkCoordinates getPlayerCoordinates() {
 			return new ChunkCoordinates(TileEntityCommandBlock.this.xCoord, TileEntityCommandBlock.this.yCoord,
@@ -51,8 +49,6 @@ public class TileEntityCommandBlock extends TileEntity {
 			p_145757_1_.writeInt(TileEntityCommandBlock.this.zCoord);
 		}
 	};
-	private static final String __OBFID = "CL_00000347";
-
 	@Override
 	public void writeToNBT(NBTTagCompound p_145841_1_) {
 		super.writeToNBT(p_145841_1_);

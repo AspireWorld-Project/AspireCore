@@ -1,7 +1,6 @@
 package net.minecraft.village;
 
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChunkCoordinates;
@@ -23,8 +22,6 @@ public class VillageSiege {
 	private int field_75532_g;
 	private int field_75538_h;
 	private int field_75539_i;
-	private static final String __OBFID = "CL_00001634";
-
 	public VillageSiege(World p_i1676_1_) {
 		worldObj = p_i1676_1_;
 	}
@@ -81,6 +78,7 @@ public class VillageSiege {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	private boolean func_75529_b() {
 		List list = worldObj.playerEntities;
 		Iterator iterator = list.iterator();

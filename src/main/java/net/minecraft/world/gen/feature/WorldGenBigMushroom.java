@@ -8,8 +8,6 @@ import java.util.Random;
 
 public class WorldGenBigMushroom extends WorldGenerator {
 	private int mushroomType = -1;
-	private static final String __OBFID = "CL_00000415";
-
 	public WorldGenBigMushroom(int p_i2017_1_) {
 		super(true);
 		mushroomType = p_i2017_1_;

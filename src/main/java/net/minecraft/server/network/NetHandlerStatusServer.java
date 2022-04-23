@@ -11,11 +11,10 @@ import net.minecraft.network.status.server.S01PacketPong;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.IChatComponent;
 
+@SuppressWarnings("unused")
 public class NetHandlerStatusServer implements INetHandlerStatusServer {
 	private final MinecraftServer field_147314_a;
 	private final NetworkManager field_147313_b;
-	private static final String __OBFID = "CL_00001464";
-
 	public NetHandlerStatusServer(MinecraftServer p_i45299_1_, NetworkManager p_i45299_2_) {
 		field_147314_a = p_i45299_1_;
 		field_147313_b = p_i45299_2_;

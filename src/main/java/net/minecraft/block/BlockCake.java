@@ -23,8 +23,6 @@ public class BlockCake extends Block {
 	private IIcon field_150037_b;
 	@SideOnly(Side.CLIENT)
 	private IIcon field_150039_M;
-	private static final String __OBFID = "CL_00000211";
-
 	protected BlockCake() {
 		super(Material.cake);
 		setTickRandomly(true);

@@ -7,8 +7,6 @@ import net.minecraft.item.Item;
 import java.util.Random;
 
 public class BlockObsidian extends BlockStone {
-	private static final String __OBFID = "CL_00000279";
-
 	@Override
 	public int quantityDropped(Random p_149745_1_) {
 		return 1;

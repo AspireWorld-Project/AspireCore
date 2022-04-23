@@ -39,8 +39,6 @@ public class WorldInfo {
 	private boolean initialized;
 	private GameRules theGameRules;
 	private Map<String, NBTBase> additionalProperties;
-	private static final String __OBFID = "CL_00000587";
-
 	protected WorldInfo() {
 		terrainType = WorldType.DEFAULT;
 		generatorOptions = "";
@@ -375,18 +373,15 @@ public class WorldInfo {
 		return theGameRules;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void addToCrashReport(CrashReportCategory p_85118_1_) {
 		p_85118_1_.addCrashSectionCallable("Level seed", new Callable() {
-			private static final String __OBFID = "CL_00000588";
-
 			@Override
 			public String call() {
 				return String.valueOf(WorldInfo.this.getSeed());
 			}
 		});
 		p_85118_1_.addCrashSectionCallable("Level generator", new Callable() {
-			private static final String __OBFID = "CL_00000589";
-
 			@Override
 			public String call() {
 				return String.format("ID %02d - %s, ver %d. Features enabled: %b",
@@ -396,24 +391,18 @@ public class WorldInfo {
 			}
 		});
 		p_85118_1_.addCrashSectionCallable("Level generator options", new Callable() {
-			private static final String __OBFID = "CL_00000590";
-
 			@Override
 			public String call() {
 				return generatorOptions;
 			}
 		});
 		p_85118_1_.addCrashSectionCallable("Level spawn location", new Callable() {
-			private static final String __OBFID = "CL_00000591";
-
 			@Override
 			public String call() {
 				return CrashReportCategory.getLocationInfo(spawnX, spawnY, spawnZ);
 			}
 		});
 		p_85118_1_.addCrashSectionCallable("Level time", new Callable() {
-			private static final String __OBFID = "CL_00000592";
-
 			@Override
 			public String call() {
 				return String.format("%d game time, %d day time",
@@ -421,16 +410,12 @@ public class WorldInfo {
 			}
 		});
 		p_85118_1_.addCrashSectionCallable("Level dimension", new Callable() {
-			private static final String __OBFID = "CL_00000593";
-
 			@Override
 			public String call() {
 				return String.valueOf(dimension);
 			}
 		});
 		p_85118_1_.addCrashSectionCallable("Level storage version", new Callable() {
-			private static final String __OBFID = "CL_00000594";
-
 			@Override
 			public String call() {
 				String s = "Unknown?";
@@ -450,8 +435,6 @@ public class WorldInfo {
 			}
 		});
 		p_85118_1_.addCrashSectionCallable("Level weather", new Callable() {
-			private static final String __OBFID = "CL_00000595";
-
 			@Override
 			public String call() {
 				return String.format("Rain time: %d (now: %b), thunder time: %d (now: %b)",
@@ -460,8 +443,6 @@ public class WorldInfo {
 			}
 		});
 		p_85118_1_.addCrashSectionCallable("Level game mode", new Callable() {
-			private static final String __OBFID = "CL_00000597";
-
 			@Override
 			public String call() {
 				return String.format("Game mode: %s (ID %d). Hardcore: %b. Cheats: %b",

@@ -23,11 +23,10 @@ public class GuiWinGame extends GuiScreen {
 	private static final ResourceLocation field_146576_f = new ResourceLocation("textures/gui/title/minecraft.png");
 	private static final ResourceLocation field_146577_g = new ResourceLocation("textures/misc/vignette.png");
 	private int field_146581_h;
+	@SuppressWarnings("rawtypes")
 	private List field_146582_i;
 	private int field_146579_r;
 	private final float field_146578_s = 0.5F;
-	private static final String __OBFID = "CL_00000719";
-
 	@Override
 	public void updateScreen() {
 		++field_146581_h;
@@ -56,6 +55,7 @@ public class GuiWinGame extends GuiScreen {
 		return true;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void initGui() {
 		if (field_146582_i == null) {

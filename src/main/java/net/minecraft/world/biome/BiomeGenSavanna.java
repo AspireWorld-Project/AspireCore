@@ -11,8 +11,7 @@ import java.util.Random;
 
 public class BiomeGenSavanna extends BiomeGenBase {
 	private static final WorldGenSavannaTree field_150627_aC = new WorldGenSavannaTree(false);
-	private static final String __OBFID = "CL_00000182";
-
+	@SuppressWarnings("unchecked")
 	public BiomeGenSavanna(int p_i45383_1_) {
 		super(p_i45383_1_);
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityHorse.class, 1, 2, 6));
@@ -50,8 +49,6 @@ public class BiomeGenSavanna extends BiomeGenBase {
 	}
 
 	public static class Mutated extends BiomeGenMutated {
-		private static final String __OBFID = "CL_00000183";
-
 		public Mutated(int p_i45382_1_, BiomeGenBase p_i45382_2_) {
 			super(p_i45382_1_, p_i45382_2_);
 			theBiomeDecorator.treesPerChunk = 2;

@@ -39,8 +39,6 @@ public class GuiStats extends GuiScreen implements IProgressMeter {
 	private final StatFileWriter field_146546_t;
 	private GuiSlot field_146545_u;
 	private boolean doesGuiPauseGame = true;
-	private static final String __OBFID = "CL_00000723";
-
 	public GuiStats(GuiScreen p_i1071_1_, StatFileWriter p_i1071_2_) {
 		field_146549_a = p_i1071_1_;
 		field_146546_t = p_i1071_2_;
@@ -52,6 +50,7 @@ public class GuiStats extends GuiScreen implements IProgressMeter {
 		mc.getNetHandler().addToSendQueue(new C16PacketClientStatus(C16PacketClientStatus.EnumState.REQUEST_STATS));
 	}
 
+	@SuppressWarnings("unchecked")
 	public void func_146541_h() {
 		buttonList.add(new GuiButton(0, width / 2 + 4, height - 28, 150, 20, I18n.format("gui.done")));
 		buttonList.add(new GuiButton(1, width / 2 - 160, height - 52, 80, 20,
@@ -169,12 +168,12 @@ public class GuiStats extends GuiScreen implements IProgressMeter {
 	@SideOnly(Side.CLIENT)
 	abstract class Stats extends GuiSlot {
 		protected int field_148218_l = -1;
+		@SuppressWarnings("rawtypes")
 		protected List field_148219_m;
+		@SuppressWarnings("rawtypes")
 		protected Comparator field_148216_n;
 		protected int field_148217_o = -1;
 		protected int field_148215_p;
-		private static final String __OBFID = "CL_00000730";
-
 		protected Stats() {
 			super(GuiStats.this.mc, GuiStats.this.width, GuiStats.this.height, 32, GuiStats.this.height - 64, 20);
 			setShowSelectionBox(false);
@@ -337,6 +336,7 @@ public class GuiStats extends GuiScreen implements IProgressMeter {
 			}
 		}
 
+		@SuppressWarnings("unchecked")
 		protected void func_148212_h(int p_148212_1_) {
 			if (p_148212_1_ != field_148217_o) {
 				field_148217_o = p_148212_1_;
@@ -354,8 +354,7 @@ public class GuiStats extends GuiScreen implements IProgressMeter {
 
 	@SideOnly(Side.CLIENT)
 	class StatsBlock extends GuiStats.Stats {
-		private static final String __OBFID = "CL_00000724";
-
+		@SuppressWarnings({ "rawtypes", "unchecked" })
 		public StatsBlock() {
 			field_148219_m = new ArrayList();
 			Iterator iterator = StatList.objectMineStats.iterator();
@@ -381,8 +380,6 @@ public class GuiStats extends GuiScreen implements IProgressMeter {
 			}
 
 			field_148216_n = new Comparator() {
-				private static final String __OBFID = "CL_00000725";
-
 				public int compare(StatCrafting p_compare_1_, StatCrafting p_compare_2_) {
 					int j = Item.getIdFromItem(p_compare_1_.func_150959_a());
 					int k = Item.getIdFromItem(p_compare_2_.func_150959_a());
@@ -467,8 +464,6 @@ public class GuiStats extends GuiScreen implements IProgressMeter {
 
 	@SideOnly(Side.CLIENT)
 	class StatsGeneral extends GuiSlot {
-		private static final String __OBFID = "CL_00000726";
-
 		public StatsGeneral() {
 			super(GuiStats.this.mc, GuiStats.this.width, GuiStats.this.height, 32, GuiStats.this.height - 64, 10);
 			setShowSelectionBox(false);
@@ -513,8 +508,7 @@ public class GuiStats extends GuiScreen implements IProgressMeter {
 
 	@SideOnly(Side.CLIENT)
 	class StatsItem extends GuiStats.Stats {
-		private static final String __OBFID = "CL_00000727";
-
+		@SuppressWarnings({ "rawtypes", "unchecked" })
 		public StatsItem() {
 			field_148219_m = new ArrayList();
 			Iterator iterator = StatList.itemStats.iterator();
@@ -540,8 +534,6 @@ public class GuiStats extends GuiScreen implements IProgressMeter {
 			}
 
 			field_148216_n = new Comparator() {
-				private static final String __OBFID = "CL_00000728";
-
 				public int compare(StatCrafting p_compare_1_, StatCrafting p_compare_2_) {
 					int j = Item.getIdFromItem(p_compare_1_.func_150959_a());
 					int k = Item.getIdFromItem(p_compare_2_.func_150959_a());
@@ -626,9 +618,9 @@ public class GuiStats extends GuiScreen implements IProgressMeter {
 
 	@SideOnly(Side.CLIENT)
 	class StatsMobsList extends GuiSlot {
+		@SuppressWarnings("rawtypes")
 		private final List field_148222_l = new ArrayList();
-		private static final String __OBFID = "CL_00000729";
-
+		@SuppressWarnings({ "rawtypes", "unchecked" })
 		public StatsMobsList() {
 			super(GuiStats.this.mc, GuiStats.this.width, GuiStats.this.height, 32, GuiStats.this.height - 64,
 					GuiStats.this.fontRendererObj.FONT_HEIGHT * 4);

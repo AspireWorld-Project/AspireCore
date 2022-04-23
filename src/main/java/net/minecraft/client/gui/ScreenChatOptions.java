@@ -19,13 +19,12 @@ public class ScreenChatOptions extends GuiScreen {
 	private String field_146401_i;
 	private String field_146398_r;
 	private int field_146397_s;
-	private static final String __OBFID = "CL_00000681";
-
 	public ScreenChatOptions(GuiScreen p_i1023_1_, GameSettings p_i1023_2_) {
 		field_146396_g = p_i1023_1_;
 		field_146400_h = p_i1023_2_;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		int i = 0;

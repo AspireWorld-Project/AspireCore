@@ -23,8 +23,6 @@ public class BlockCactus extends Block implements IPlantable {
 	private IIcon field_150041_a;
 	@SideOnly(Side.CLIENT)
 	private IIcon field_150040_b;
-	private static final String __OBFID = "CL_00000210";
-
 	protected BlockCactus() {
 		super(Material.cactus);
 		setTickRandomly(true);

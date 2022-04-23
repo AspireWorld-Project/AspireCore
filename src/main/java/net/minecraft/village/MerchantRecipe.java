@@ -12,8 +12,6 @@ public class MerchantRecipe {
 	private ItemStack itemToSell;
 	private int toolUses;
 	private int maxTradeUses;
-	private static final String __OBFID = "CL_00000126";
-
 	public MerchantRecipe(NBTTagCompound p_i1940_1_) {
 		readFromTags(p_i1940_1_);
 	}

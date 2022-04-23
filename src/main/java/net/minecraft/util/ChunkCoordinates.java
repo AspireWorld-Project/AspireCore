@@ -1,11 +1,10 @@
 package net.minecraft.util;
 
+@SuppressWarnings("rawtypes")
 public class ChunkCoordinates implements Comparable {
 	public int posX;
 	public int posY;
 	public int posZ;
-	private static final String __OBFID = "CL_00001555";
-
 	public ChunkCoordinates() {
 	}
 

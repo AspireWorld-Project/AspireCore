@@ -10,8 +10,7 @@ import java.util.Random;
 
 public class BiomeGenJungle extends BiomeGenBase {
 	private final boolean field_150614_aC;
-	private static final String __OBFID = "CL_00000175";
-
+	@SuppressWarnings("unchecked")
 	public BiomeGenJungle(int p_i45379_1_, boolean p_i45379_2_) {
 		super(p_i45379_1_);
 		field_150614_aC = p_i45379_2_;

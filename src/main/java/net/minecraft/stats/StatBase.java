@@ -18,11 +18,10 @@ public class StatBase {
 	public boolean isIndependent;
 	private final IStatType type;
 	private final IScoreObjectiveCriteria field_150957_c;
+	@SuppressWarnings("rawtypes")
 	private Class field_150956_d;
 	private static final NumberFormat numberFormat = NumberFormat.getIntegerInstance(Locale.US);
 	public static IStatType simpleStatType = new IStatType() {
-		private static final String __OBFID = "CL_00001473";
-
 		@Override
 		@SideOnly(Side.CLIENT)
 		public String format(int p_75843_1_) {
@@ -31,8 +30,6 @@ public class StatBase {
 	};
 	private static final DecimalFormat decimalFormat = new DecimalFormat("########0.00");
 	public static IStatType timeStatType = new IStatType() {
-		private static final String __OBFID = "CL_00001474";
-
 		@Override
 		@SideOnly(Side.CLIENT)
 		public String format(int p_75843_1_) {
@@ -48,8 +45,6 @@ public class StatBase {
 		}
 	};
 	public static IStatType distanceStatType = new IStatType() {
-		private static final String __OBFID = "CL_00001475";
-
 		@Override
 		@SideOnly(Side.CLIENT)
 		public String format(int p_75843_1_) {
@@ -60,16 +55,13 @@ public class StatBase {
 		}
 	};
 	public static IStatType field_111202_k = new IStatType() {
-		private static final String __OBFID = "CL_00001476";
-
 		@Override
 		@SideOnly(Side.CLIENT)
 		public String format(int p_75843_1_) {
 			return StatBase.decimalFormat.format(p_75843_1_ * 0.1D);
 		}
 	};
-	private static final String __OBFID = "CL_00001472";
-
+	@SuppressWarnings("unchecked")
 	public StatBase(String p_i45307_1_, IChatComponent p_i45307_2_, IStatType p_i45307_3_) {
 		statId = p_i45307_1_;
 		statName = p_i45307_2_;
@@ -87,6 +79,7 @@ public class StatBase {
 		return this;
 	}
 
+	@SuppressWarnings("unchecked")
 	public StatBase registerStat() {
 		if (StatList.oneShotStats.containsKey(statId))
 			throw new RuntimeException("Duplicate stat id: \"" + ((StatBase) StatList.oneShotStats.get(statId)).statName
@@ -148,10 +141,12 @@ public class StatBase {
 		return field_150957_c;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Class func_150954_l() {
 		return field_150956_d;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public StatBase func_150953_b(Class p_150953_1_) {
 		field_150956_d = p_150953_1_;
 		return this;

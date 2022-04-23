@@ -7,8 +7,6 @@ import java.util.Date;
 import java.util.UUID;
 
 public class UserListBansEntry extends BanEntry {
-	private static final String __OBFID = "CL_00001872";
-
 	public UserListBansEntry(GameProfile p_i1134_1_) {
 		this(p_i1134_1_, null, null, null, null);
 	}

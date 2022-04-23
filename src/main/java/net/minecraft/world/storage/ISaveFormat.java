@@ -13,6 +13,7 @@ public interface ISaveFormat {
 
 	ISaveHandler getSaveLoader(String p_75804_1_, boolean p_75804_2_);
 
+	@SuppressWarnings("rawtypes")
 	@SideOnly(Side.CLIENT)
 	List getSaveList() throws AnvilConverterException;
 

@@ -6,12 +6,10 @@ import java.util.List;
 
 public class ThreadedFileIOBase implements Runnable {
 	public static final ThreadedFileIOBase threadedIOInstance = new ThreadedFileIOBase();
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private final List threadedIOQueue = Collections.synchronizedList(new ArrayList());
 	private volatile long writeQueuedCounter;
 	private volatile long savedIOCounter;
-	private volatile boolean isThreadWaiting;
-	private static final String __OBFID = "CL_00000605";
-
 	private ThreadedFileIOBase() {
 		Thread thread = new Thread(this, "File IO Thread");
 		thread.setPriority(1);
@@ -34,15 +32,6 @@ public class ThreadedFileIOBase implements Runnable {
 				threadedIOQueue.remove(i--);
 				++savedIOCounter;
 			}
-
-			// try
-			// {
-			// Thread.sleep(this.isThreadWaiting ? 0L : 10L);
-			// }
-			// catch (InterruptedException interruptedexception1)
-			// {
-			// interruptedexception1.printStackTrace();
-			// }
 		}
 
 		if (threadedIOQueue.isEmpty()) {
@@ -54,6 +43,7 @@ public class ThreadedFileIOBase implements Runnable {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public void queueIO(IThreadedFileIO p_75735_1_) {
 		if (!threadedIOQueue.contains(p_75735_1_)) {
 			++writeQueuedCounter;
@@ -62,13 +52,9 @@ public class ThreadedFileIOBase implements Runnable {
 	}
 
 	public void waitForFinish() throws InterruptedException {
-		isThreadWaiting = true;
-
 		while (writeQueuedCounter != savedIOCounter) {
 			Thread.sleep(10L);
 		}
-
-		isThreadWaiting = false;
 	}
 
 	public void waitForFinish(IThreadedFileIO special) throws InterruptedException {

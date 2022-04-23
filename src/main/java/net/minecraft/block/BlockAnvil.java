@@ -25,8 +25,6 @@ public class BlockAnvil extends BlockFalling {
 	public int anvilRenderSide;
 	@SideOnly(Side.CLIENT)
 	private IIcon[] anvilIcons;
-	private static final String __OBFID = "CL_00000192";
-
 	protected BlockAnvil() {
 		super(Material.anvil);
 		setLightOpacity(0);
@@ -122,6 +120,7 @@ public class BlockAnvil extends BlockFalling {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {

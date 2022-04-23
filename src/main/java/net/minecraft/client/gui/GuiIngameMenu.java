@@ -5,18 +5,13 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.achievement.GuiAchievements;
 import net.minecraft.client.gui.achievement.GuiStats;
-import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.resources.I18n;
 
 @SideOnly(Side.CLIENT)
 public class GuiIngameMenu extends GuiScreen {
-	private int field_146445_a;
-	private int field_146444_f;
-	private static final String __OBFID = "CL_00000703";
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
-		field_146445_a = 0;
 		buttonList.clear();
 		byte b0 = -16;
 		buttonList.add(new GuiButton(1, width / 2 - 100, height / 4 + 120 + b0,
@@ -82,7 +77,6 @@ public class GuiIngameMenu extends GuiScreen {
 	@Override
 	public void updateScreen() {
 		super.updateScreen();
-		++field_146444_f;
 	}
 
 	@Override

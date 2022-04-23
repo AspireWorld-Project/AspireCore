@@ -7,8 +7,6 @@ import net.minecraft.client.settings.GameSettings;
 @SideOnly(Side.CLIENT)
 public class GuiOptionButton extends GuiButton {
 	private final GameSettings.Options enumOptions;
-	private static final String __OBFID = "CL_00000676";
-
 	public GuiOptionButton(int p_i45011_1_, int p_i45011_2_, int p_i45011_3_, String p_i45011_4_) {
 		this(p_i45011_1_, p_i45011_2_, p_i45011_3_, null, p_i45011_4_);
 	}

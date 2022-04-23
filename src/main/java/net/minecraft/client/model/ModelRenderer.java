@@ -25,15 +25,16 @@ public class ModelRenderer {
 	public boolean mirror;
 	public boolean showModel;
 	public boolean isHidden;
+	@SuppressWarnings("rawtypes")
 	public List cubeList;
+	@SuppressWarnings("rawtypes")
 	public List childModels;
 	public final String boxName;
 	private final ModelBase baseModel;
 	public float offsetX;
 	public float offsetY;
 	public float offsetZ;
-	private static final String __OBFID = "CL_00000874";
-
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public ModelRenderer(ModelBase p_i1172_1_, String p_i1172_2_) {
 		textureWidth = 64.0F;
 		textureHeight = 32.0F;
@@ -54,6 +55,7 @@ public class ModelRenderer {
 		setTextureOffset(p_i1174_2_, p_i1174_3_);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void addChild(ModelRenderer p_78792_1_) {
 		if (childModels == null) {
 			childModels = new ArrayList();
@@ -68,6 +70,7 @@ public class ModelRenderer {
 		return this;
 	}
 
+	@SuppressWarnings("unchecked")
 	public ModelRenderer addBox(String p_78786_1_, float p_78786_2_, float p_78786_3_, float p_78786_4_, int p_78786_5_,
 			int p_78786_6_, int p_78786_7_) {
 		p_78786_1_ = boxName + "." + p_78786_1_;
@@ -78,6 +81,7 @@ public class ModelRenderer {
 		return this;
 	}
 
+	@SuppressWarnings("unchecked")
 	public ModelRenderer addBox(float p_78789_1_, float p_78789_2_, float p_78789_3_, int p_78789_4_, int p_78789_5_,
 			int p_78789_6_) {
 		cubeList.add(new ModelBox(this, textureOffsetX, textureOffsetY, p_78789_1_, p_78789_2_, p_78789_3_, p_78789_4_,
@@ -85,6 +89,7 @@ public class ModelRenderer {
 		return this;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void addBox(float p_78790_1_, float p_78790_2_, float p_78790_3_, int p_78790_4_, int p_78790_5_,
 			int p_78790_6_, float p_78790_7_) {
 		cubeList.add(new ModelBox(this, textureOffsetX, textureOffsetY, p_78790_1_, p_78790_2_, p_78790_3_, p_78790_4_,

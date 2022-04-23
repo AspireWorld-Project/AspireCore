@@ -47,7 +47,8 @@ public class BaseComponentSerializer {
         }
     }
 
-    protected void serialize(JsonObject object, BaseComponent component, JsonSerializationContext context) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	protected void serialize(JsonObject object, BaseComponent component, JsonSerializationContext context) {
         boolean first = false;
         if (ComponentSerializer.serializedComponents.get() == null) {
             first = true;

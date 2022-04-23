@@ -8,8 +8,6 @@ import net.minecraft.entity.monster.EntitySkeleton;
 
 @SideOnly(Side.CLIENT)
 public class ModelSkeleton extends ModelZombie {
-	private static final String __OBFID = "CL_00000857";
-
 	public ModelSkeleton() {
 		this(0.0F);
 	}

@@ -11,8 +11,6 @@ import net.minecraft.util.MathHelper;
 public class ModelWither extends ModelBase {
 	private final ModelRenderer[] field_82905_a;
 	private final ModelRenderer[] field_82904_b;
-	private static final String __OBFID = "CL_00000867";
-
 	public ModelWither() {
 		textureWidth = 64;
 		textureHeight = 64;

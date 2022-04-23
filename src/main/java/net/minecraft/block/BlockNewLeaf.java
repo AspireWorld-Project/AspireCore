@@ -16,8 +16,6 @@ public class BlockNewLeaf extends BlockLeaves {
 	public static final String[][] field_150132_N = new String[][] { { "leaves_acacia", "leaves_big_oak" },
 			{ "leaves_acacia_opaque", "leaves_big_oak_opaque" } };
 	public static final String[] field_150133_O = new String[] { "acacia", "big_oak" };
-	private static final String __OBFID = "CL_00000276";
-
 	@Override
 	protected void func_150124_c(World p_150124_1_, int p_150124_2_, int p_150124_3_, int p_150124_4_, int p_150124_5_,
 			int p_150124_6_) {
@@ -42,6 +40,7 @@ public class BlockNewLeaf extends BlockLeaves {
 		return (p_149691_2_ & 3) == 1 ? field_150129_M[field_150127_b][1] : field_150129_M[field_150127_b][0];
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {

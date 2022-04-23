@@ -16,8 +16,6 @@ public class Timer {
 	private long lastSyncHRClock;
 	private long field_74285_i;
 	private double timeSyncAdjustment = 1.0D;
-	private static final String __OBFID = "CL_00000658";
-
 	public Timer(float p_i1018_1_) {
 		ticksPerSecond = p_i1018_1_;
 		lastSyncSysClock = Minecraft.getSystemTime();

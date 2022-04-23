@@ -32,8 +32,6 @@ public class BlockHopper extends BlockContainer {
 	private IIcon field_149923_M;
 	@SideOnly(Side.CLIENT)
 	private IIcon field_149924_N;
-	private static final String __OBFID = "CL_00000257";
-
 	public BlockHopper() {
 		super(Material.iron);
 		setCreativeTab(CreativeTabs.tabRedstone);
@@ -46,6 +44,7 @@ public class BlockHopper extends BlockContainer {
 		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_,
 			AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_) {

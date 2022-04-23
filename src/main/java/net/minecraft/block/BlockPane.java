@@ -26,8 +26,6 @@ public class BlockPane extends Block {
 	private final String field_150101_M;
 	@SideOnly(Side.CLIENT)
 	private IIcon field_150102_N;
-	private static final String __OBFID = "CL_00000322";
-
 	protected BlockPane(String p_i45432_1_, String p_i45432_2_, Material p_i45432_3_, boolean p_i45432_4_) {
 		super(p_i45432_3_);
 		field_150100_a = p_i45432_2_;
@@ -63,6 +61,7 @@ public class BlockPane extends Block {
 		return p_149646_1_.getBlock(p_149646_2_, p_149646_3_, p_149646_4_) != this && super.shouldSideBeRendered(p_149646_1_, p_149646_2_, p_149646_3_, p_149646_4_, p_149646_5_);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_,
 			AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_) {

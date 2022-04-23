@@ -7,8 +7,6 @@ import java.io.File;
 import java.util.Iterator;
 
 public class UserListOps extends UserList {
-	private static final String __OBFID = "CL_00001879";
-
 	public UserListOps(File p_i1152_1_) {
 		super(p_i1152_1_);
 	}
@@ -18,6 +16,7 @@ public class UserListOps extends UserList {
 		return new UserListOpsEntry(p_152682_1_);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public String[] func_152685_a() {
 		String[] astring = new String[func_152688_e().size()];
@@ -36,6 +35,7 @@ public class UserListOps extends UserList {
 		return p_152699_1_.getId().toString();
 	}
 
+	@SuppressWarnings("rawtypes")
 	public GameProfile func_152700_a(String p_152700_1_) {
 		Iterator iterator = func_152688_e().values().iterator();
 		UserListOpsEntry userlistopsentry;

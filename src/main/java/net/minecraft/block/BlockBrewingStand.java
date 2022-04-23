@@ -26,8 +26,6 @@ public class BlockBrewingStand extends BlockContainer {
 	private final Random field_149961_a = new Random();
 	@SideOnly(Side.CLIENT)
 	private IIcon iconBrewingStandBase;
-	private static final String __OBFID = "CL_00000207";
-
 	public BlockBrewingStand() {
 		super(Material.iron);
 	}
@@ -52,6 +50,7 @@ public class BlockBrewingStand extends BlockContainer {
 		return false;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_,
 			AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_) {

@@ -16,10 +16,9 @@ import java.util.Map;
 
 public class RegionFileCache {
 	private static final Map<File, CachedEntry<RegionFile>> regionsByFilenameUM = new HashMap<>();
+	@SuppressWarnings("rawtypes")
 	private static final Map regionsByFilename = Maps.transformValues(regionsByFilenameUM,
 			LambdaHolder.cachedEntryGetValueGuavaFunc());
-	private static final String __OBFID = "CL_00000383";
-
 	public static synchronized RegionFile createOrLoadRegionFile(File p_76550_0_, int p_76550_1_, int p_76550_2_) {
 		File file2 = new File(p_76550_0_, "region");
 		File file3 = new File(file2, "r." + (p_76550_1_ >> 5) + "." + (p_76550_2_ >> 5) + ".mca");
@@ -49,6 +48,7 @@ public class RegionFileCache {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static void clearRegionFileReferences() {
 		if (!Thread.currentThread().getName().equals("File IO Thread")) {
 			try {

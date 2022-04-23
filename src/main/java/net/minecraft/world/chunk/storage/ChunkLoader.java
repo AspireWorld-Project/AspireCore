@@ -6,8 +6,6 @@ import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.chunk.NibbleArray;
 
 public class ChunkLoader {
-	private static final String __OBFID = "CL_00000379";
-
 	public static ChunkLoader.AnvilConverterData load(NBTTagCompound p_76691_0_) {
 		int i = p_76691_0_.getInteger("xPos");
 		int j = p_76691_0_.getInteger("zPos");
@@ -137,8 +135,6 @@ public class ChunkLoader {
 		public NBTTagList field_151563_j;
 		public final int x;
 		public final int z;
-		private static final String __OBFID = "CL_00000380";
-
 		public AnvilConverterData(int p_i1999_1_, int p_i1999_2_) {
 			x = p_i1999_1_;
 			z = p_i1999_2_;

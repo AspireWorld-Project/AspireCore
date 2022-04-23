@@ -17,8 +17,6 @@ import java.util.List;
 
 public class BlockWall extends Block {
 	public static final String[] field_150092_a = new String[] { "normal", "mossy" };
-	private static final String __OBFID = "CL_00000331";
-
 	public BlockWall(Block p_i45435_1_) {
 		super(p_i45435_1_.blockMaterial);
 		setHardness(p_i45435_1_.blockHardness);
@@ -109,6 +107,7 @@ public class BlockWall extends Block {
 		return block == this || block == Blocks.fence_gate || block.blockMaterial.isOpaque() && block.renderAsNormalBlock() && block.blockMaterial != Material.gourd;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {

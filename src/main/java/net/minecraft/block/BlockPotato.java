@@ -14,8 +14,6 @@ import java.util.ArrayList;
 public class BlockPotato extends BlockCrops {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] field_149869_a;
-	private static final String __OBFID = "CL_00000286";
-
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int p_149691_1_, int p_149691_2_) {

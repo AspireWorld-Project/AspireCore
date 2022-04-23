@@ -21,8 +21,6 @@ import java.util.Random;
 
 public class BlockRedstoneOre extends Block {
 	private final boolean field_150187_a;
-	private static final String __OBFID = "CL_00000294";
-
 	public BlockRedstoneOre(boolean p_i45420_1_) {
 		super(Material.rock);
 

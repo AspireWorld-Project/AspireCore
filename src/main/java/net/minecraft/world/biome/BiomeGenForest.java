@@ -19,8 +19,7 @@ public class BiomeGenForest extends BiomeGenBase {
 	protected static final WorldGenForest field_150629_aC = new WorldGenForest(false, true);
 	protected static final WorldGenForest field_150630_aD = new WorldGenForest(false, false);
 	protected static final WorldGenCanopyTree field_150631_aE = new WorldGenCanopyTree(false);
-	private static final String __OBFID = "CL_00000170";
-
+	@SuppressWarnings("unchecked")
 	public BiomeGenForest(int p_i45377_1_, int p_i45377_2_) {
 		super(p_i45377_1_);
 		field_150632_aF = p_i45377_2_;
@@ -185,16 +184,12 @@ public class BiomeGenForest extends BiomeGenBase {
 		} else
 			return biomeID != BiomeGenBase.birchForest.biomeID && biomeID != BiomeGenBase.birchForestHills.biomeID
 					? new BiomeGenMutated(biomeID + 128, this) {
-						private static final String __OBFID = "CL_00000172";
-
 						@Override
 						public void decorate(World p_76728_1_, Random p_76728_2_, int p_76728_3_, int p_76728_4_) {
 							baseBiome.decorate(p_76728_1_, p_76728_2_, p_76728_3_, p_76728_4_);
 						}
 					}
 					: new BiomeGenMutated(biomeID + 128, this) {
-						private static final String __OBFID = "CL_00001861";
-
 						@Override
 						public WorldGenAbstractTree func_150567_a(Random p_150567_1_) {
 							return p_150567_1_.nextBoolean() ? BiomeGenForest.field_150629_aC

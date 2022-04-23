@@ -14,8 +14,6 @@ import java.util.Random;
 import static net.minecraftforge.common.util.ForgeDirection.*;
 
 public class BlockTorch extends Block {
-	private static final String __OBFID = "CL_00000325";
-
 	protected BlockTorch() {
 		super(Material.circuits);
 		setTickRandomly(true);

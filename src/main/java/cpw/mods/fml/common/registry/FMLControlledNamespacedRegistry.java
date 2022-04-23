@@ -493,6 +493,7 @@ public class FMLControlledNamespacedRegistry<I> extends RegistryNamespaced {
 		return GameData.buildDelegate(thing, clazz);
 	}
 
+	@SuppressWarnings("unchecked")
 	void activateSubstitution(String nameToReplace) {
 		if (getPersistentSubstitutions().containsKey(nameToReplace)) {
 			I original = getRaw(nameToReplace);

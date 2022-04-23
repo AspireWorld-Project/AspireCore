@@ -10,8 +10,6 @@ public class GuiConfirmOpenLink extends GuiYesNo {
 	private final String copyLinkButtonText;
 	private final String field_146361_t;
 	private boolean field_146360_u = true;
-	private static final String __OBFID = "CL_00000683";
-
 	public GuiConfirmOpenLink(GuiYesNoCallback p_i1084_1_, String p_i1084_2_, int p_i1084_3_, boolean p_i1084_4_) {
 		super(p_i1084_1_, I18n.format(p_i1084_4_ ? "chat.link.confirmTrusted" : "chat.link.confirm"),
 				p_i1084_2_, p_i1084_3_);
@@ -22,6 +20,7 @@ public class GuiConfirmOpenLink extends GuiYesNo {
 		field_146361_t = p_i1084_2_;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		buttonList.add(new GuiButton(0, width / 3 - 83 + 0, height / 6 + 96, 100, 20, confirmButtonText));

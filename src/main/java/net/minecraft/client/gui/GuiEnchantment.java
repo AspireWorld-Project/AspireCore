@@ -6,7 +6,6 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.model.ModelBook;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.resources.I18n;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ContainerEnchantment;
 import net.minecraft.item.ItemStack;
@@ -38,8 +37,6 @@ public class GuiEnchantment extends GuiContainer {
 	public float field_147076_A;
 	ItemStack field_147077_B;
 	private final String field_147079_H;
-	private static final String __OBFID = "CL_00000757";
-
 	public GuiEnchantment(InventoryPlayer p_i1090_1_, World p_i1090_2_, int p_i1090_3_, int p_i1090_4_, int p_i1090_5_,
 			String p_i1090_6_) {
 		super(new ContainerEnchantment(p_i1090_1_, p_i1090_2_, p_i1090_3_, p_i1090_4_, p_i1090_5_));

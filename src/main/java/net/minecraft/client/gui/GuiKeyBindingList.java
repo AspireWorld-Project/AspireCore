@@ -18,8 +18,6 @@ public class GuiKeyBindingList extends GuiListExtended {
 	private final Minecraft mc;
 	private final GuiListExtended.IGuiListEntry[] field_148190_m;
 	private int field_148188_n = 0;
-	private static final String __OBFID = "CL_00000732";
-
 	public GuiKeyBindingList(GuiControls p_i45031_1_, Minecraft p_i45031_2_) {
 		super(p_i45031_2_, p_i45031_1_.width, p_i45031_1_.height, 63, p_i45031_1_.height - 32, 20);
 		field_148191_k = p_i45031_1_;
@@ -75,8 +73,6 @@ public class GuiKeyBindingList extends GuiListExtended {
 	public class CategoryEntry implements GuiListExtended.IGuiListEntry {
 		private final String field_148285_b;
 		private final int field_148286_c;
-		private static final String __OBFID = "CL_00000734";
-
 		public CategoryEntry(String p_i45028_2_) {
 			field_148285_b = I18n.format(p_i45028_2_);
 			field_148286_c = mc.fontRenderer.getStringWidth(field_148285_b);
@@ -107,8 +103,6 @@ public class GuiKeyBindingList extends GuiListExtended {
 		private final String field_148283_c;
 		private final GuiButton btnChangeKeyBinding;
 		private final GuiButton btnReset;
-		private static final String __OBFID = "CL_00000735";
-
 		private KeyEntry(KeyBinding p_i45029_2_) {
 			field_148282_b = p_i45029_2_;
 			field_148283_c = I18n.format(p_i45029_2_.getKeyDescription());

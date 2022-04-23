@@ -10,12 +10,12 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 @SideOnly(Side.CLIENT)
 public class ThreadSafeBoundList {
 	private final Object[] field_152759_a;
+	@SuppressWarnings("rawtypes")
 	private final Class field_152760_b;
 	private final ReadWriteLock field_152761_c = new ReentrantReadWriteLock();
 	private int field_152762_d;
 	private int field_152763_e;
-	private static final String __OBFID = "CL_00001868";
-
+	@SuppressWarnings("rawtypes")
 	public ThreadSafeBoundList(Class p_i1126_1_, int p_i1126_2_) {
 		field_152760_b = p_i1126_1_;
 		field_152759_a = (Object[]) Array.newInstance(p_i1126_1_, p_i1126_2_);

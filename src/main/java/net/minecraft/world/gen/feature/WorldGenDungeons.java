@@ -31,8 +31,6 @@ public class WorldGenDungeons extends WorldGenerator {
 			new WeightedRandomChestContent(Items.golden_horse_armor, 0, 1, 1, 2),
 			new WeightedRandomChestContent(Items.iron_horse_armor, 0, 1, 1, 5),
 			new WeightedRandomChestContent(Items.diamond_horse_armor, 0, 1, 1, 1) };
-	private static final String __OBFID = "CL_00000425";
-
 	@Override
 	public boolean generate(World p_76484_1_, Random p_76484_2_, int p_76484_3_, int p_76484_4_, int p_76484_5_) {
 		byte b0 = 3;

@@ -14,8 +14,6 @@ import java.util.Random;
 public class BlockMelon extends Block {
 	@SideOnly(Side.CLIENT)
 	private IIcon field_150201_a;
-	private static final String __OBFID = "CL_00000267";
-
 	protected BlockMelon() {
 		super(Material.gourd);
 		setCreativeTab(CreativeTabs.tabBlock);

@@ -4,8 +4,6 @@ public class Vec3 {
 	public double xCoord;
 	public double yCoord;
 	public double zCoord;
-	private static final String __OBFID = "CL_00000612";
-
 	public static Vec3 createVectorHelper(double p_72443_0_, double p_72443_2_, double p_72443_4_) {
 		return new Vec3(p_72443_0_, p_72443_2_, p_72443_4_);
 	}

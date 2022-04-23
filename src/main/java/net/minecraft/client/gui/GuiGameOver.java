@@ -2,7 +2,6 @@ package net.minecraft.client.gui;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.EnumChatFormatting;
 import org.lwjgl.opengl.GL11;
@@ -12,9 +11,7 @@ import java.util.Iterator;
 @SideOnly(Side.CLIENT)
 public class GuiGameOver extends GuiScreen implements GuiYesNoCallback {
 	private int field_146347_a;
-	private final boolean field_146346_f = false;
-	private static final String __OBFID = "CL_00000690";
-
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public void initGui() {
 		buttonList.clear();
@@ -103,6 +100,7 @@ public class GuiGameOver extends GuiScreen implements GuiYesNoCallback {
 		return false;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void updateScreen() {
 		super.updateScreen();

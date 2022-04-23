@@ -237,7 +237,6 @@ public class DimensionManager {
 
 		MinecraftServer mcServer = overworld.func_73046_m();
 
-		String worldType;
 		String name;
 
 		int providerId = 0;
@@ -252,7 +251,6 @@ public class DimensionManager {
 		}
 
 		Environment env = creator.environment();
-		worldType = env.name().toLowerCase();
 		name = creator.name();
 		int dim = 0;
 		// Use saved dimension from level.dat if it exists. This guarantees that after a world is created, the same dimension will be used. Fixes issues with MultiVerse

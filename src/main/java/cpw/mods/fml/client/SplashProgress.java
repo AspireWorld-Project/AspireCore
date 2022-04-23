@@ -153,6 +153,11 @@ public class SplashProgress {
 			}
 		});
 		CrashReport report = CrashReport.makeCrashReport(new Throwable() {
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public String getMessage() {
 				return "This is just a prompt for computer specs to be printed. THIS IS NOT A ERROR";
@@ -456,6 +461,11 @@ public class SplashProgress {
 			e.printStackTrace();
 			if (disableSplash())
 				throw new EnhancedRuntimeException(e) {
+					/**
+					 * 
+					 */
+					private static final long serialVersionUID = 1L;
+
 					@Override
 					protected void printStackTrace(WrappedPrintStream stream) {
 						stream.println("SplashProgress has detected a error loading Minecraft.");
@@ -467,6 +477,11 @@ public class SplashProgress {
 				};
 			else
 				throw new EnhancedRuntimeException(e) {
+					/**
+					 * 
+					 */
+					private static final long serialVersionUID = 1L;
+
 					@Override
 					protected void printStackTrace(WrappedPrintStream stream) {
 						stream.println("SplashProgress has detected a error loading Minecraft.");
@@ -581,6 +596,7 @@ public class SplashProgress {
 			return location;
 		}
 
+		@SuppressWarnings("unused")
 		public int getName() {
 			return name;
 		}
@@ -597,6 +613,7 @@ public class SplashProgress {
 			return frames;
 		}
 
+		@SuppressWarnings("unused")
 		public int getSize() {
 			return size;
 		}

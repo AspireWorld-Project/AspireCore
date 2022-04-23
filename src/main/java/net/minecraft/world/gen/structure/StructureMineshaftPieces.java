@@ -35,8 +35,6 @@ public class StructureMineshaftPieces {
 			new WeightedRandomChestContent(Items.pumpkin_seeds, 0, 2, 4, 10),
 			new WeightedRandomChestContent(Items.saddle, 0, 1, 1, 3),
 			new WeightedRandomChestContent(Items.iron_horse_armor, 0, 1, 1, 1) };
-	private static final String __OBFID = "CL_00000444";
-
 	public static void registerStructurePieces() {
 		MapGenStructureIO.func_143031_a(StructureMineshaftPieces.Corridor.class, "MSCorridor");
 		MapGenStructureIO.func_143031_a(StructureMineshaftPieces.Cross.class, "MSCrossing");
@@ -44,6 +42,7 @@ public class StructureMineshaftPieces {
 		MapGenStructureIO.func_143031_a(StructureMineshaftPieces.Stairs.class, "MSStairs");
 	}
 
+	@SuppressWarnings("rawtypes")
 	private static StructureComponent getRandomComponent(List p_78815_0_, Random p_78815_1_, int p_78815_2_,
 			int p_78815_3_, int p_78815_4_, int p_78815_5_, int p_78815_6_) {
 		int j1 = p_78815_1_.nextInt(100);
@@ -72,6 +71,7 @@ public class StructureMineshaftPieces {
 		return null;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static StructureComponent getNextMineShaftComponent(StructureComponent p_78817_0_, List p_78817_1_,
 			Random p_78817_2_, int p_78817_3_, int p_78817_4_, int p_78817_5_, int p_78817_6_, int p_78817_7_) {
 		if (p_78817_7_ > 8)
@@ -96,8 +96,6 @@ public class StructureMineshaftPieces {
 		private boolean hasSpiders;
 		private boolean spawnerPlaced;
 		private int sectionCount;
-		private static final String __OBFID = "CL_00000445";
-
 		public Corridor() {
 		}
 
@@ -131,6 +129,7 @@ public class StructureMineshaftPieces {
 			}
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureBoundingBox findValidPlacement(List p_74954_0_, Random p_74954_1_, int p_74954_2_,
 				int p_74954_3_, int p_74954_4_, int p_74954_5_) {
 			StructureBoundingBox structureboundingbox = new StructureBoundingBox(p_74954_2_, p_74954_3_, p_74954_4_,
@@ -166,6 +165,7 @@ public class StructureMineshaftPieces {
 			return i1 > 0 ? structureboundingbox : null;
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			int i = getComponentType();
@@ -387,8 +387,6 @@ public class StructureMineshaftPieces {
 	public static class Cross extends StructureComponent {
 		private int corridorDirection;
 		private boolean isMultipleFloors;
-		private static final String __OBFID = "CL_00000446";
-
 		public Cross() {
 		}
 
@@ -411,6 +409,7 @@ public class StructureMineshaftPieces {
 			isMultipleFloors = p_i2036_3_.getYSize() > 3;
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureBoundingBox findValidPlacement(List p_74951_0_, Random p_74951_1_, int p_74951_2_,
 				int p_74951_3_, int p_74951_4_, int p_74951_5_) {
 			StructureBoundingBox structureboundingbox = new StructureBoundingBox(p_74951_2_, p_74951_3_, p_74951_4_,
@@ -446,6 +445,7 @@ public class StructureMineshaftPieces {
 					: structureboundingbox;
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			int i = getComponentType();
@@ -558,9 +558,8 @@ public class StructureMineshaftPieces {
 	}
 
 	public static class Room extends StructureComponent {
+		@SuppressWarnings("rawtypes")
 		private final List roomsLinkedToTheRoom = new LinkedList();
-		private static final String __OBFID = "CL_00000447";
-
 		public Room() {
 		}
 
@@ -570,6 +569,7 @@ public class StructureMineshaftPieces {
 					54 + p_i2037_2_.nextInt(6), p_i2037_4_ + 7 + p_i2037_2_.nextInt(6));
 		}
 
+		@SuppressWarnings({ "rawtypes", "unchecked" })
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			int i = getComponentType();
@@ -660,6 +660,7 @@ public class StructureMineshaftPieces {
 			}
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public boolean addComponentParts(World p_74875_1_, Random p_74875_2_, StructureBoundingBox p_74875_3_) {
 			if (isLiquidInStructureBoundingBox(p_74875_1_, p_74875_3_))
@@ -685,6 +686,7 @@ public class StructureMineshaftPieces {
 			}
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		protected void func_143012_a(NBTTagCompound p_143012_1_) {
 			NBTTagList nbttaglist = new NBTTagList();
@@ -698,6 +700,7 @@ public class StructureMineshaftPieces {
 			p_143012_1_.setTag("Entrances", nbttaglist);
 		}
 
+		@SuppressWarnings("unchecked")
 		@Override
 		protected void func_143011_b(NBTTagCompound p_143011_1_) {
 			NBTTagList nbttaglist = p_143011_1_.getTagList("Entrances", 11);
@@ -709,8 +712,6 @@ public class StructureMineshaftPieces {
 	}
 
 	public static class Stairs extends StructureComponent {
-		private static final String __OBFID = "CL_00000449";
-
 		public Stairs() {
 		}
 
@@ -728,6 +729,7 @@ public class StructureMineshaftPieces {
 		protected void func_143011_b(NBTTagCompound p_143011_1_) {
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureBoundingBox findValidPlacement(List p_74950_0_, Random p_74950_1_, int p_74950_2_,
 				int p_74950_3_, int p_74950_4_, int p_74950_5_) {
 			StructureBoundingBox structureboundingbox = new StructureBoundingBox(p_74950_2_, p_74950_3_ - 5, p_74950_4_,
@@ -755,6 +757,7 @@ public class StructureMineshaftPieces {
 					: structureboundingbox;
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			int i = getComponentType();

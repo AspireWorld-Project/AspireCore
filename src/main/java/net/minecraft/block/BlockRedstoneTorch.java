@@ -2,7 +2,6 @@ package net.minecraft.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.world.IBlockAccess;
@@ -15,9 +14,9 @@ import java.util.*;
 
 public class BlockRedstoneTorch extends BlockTorch {
 	private final boolean field_150113_a;
+	@SuppressWarnings("rawtypes")
 	private static final Map field_150112_b = new HashMap();
-	private static final String __OBFID = "CL_00000298";
-
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private boolean func_150111_a(World p_150111_1_, int p_150111_2_, int p_150111_3_, int p_150111_4_,
 			boolean p_150111_5_) {
 		if (!field_150112_b.containsKey(p_150111_1_)) {
@@ -109,6 +108,7 @@ public class BlockRedstoneTorch extends BlockTorch {
 				p_150110_3_, p_150110_4_, 5);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random random) {
 		boolean flag = func_150110_m(world, x, y, z);
@@ -226,8 +226,6 @@ public class BlockRedstoneTorch extends BlockTorch {
 		int field_150845_b;
 		int field_150846_c;
 		public long field_150844_d;
-		private static final String __OBFID = "CL_00000299";
-
 		public Toggle(int p_i45422_1_, int p_i45422_2_, int p_i45422_3_, long p_i45422_4_) {
 			field_150847_a = p_i45422_1_;
 			field_150845_b = p_i45422_2_;

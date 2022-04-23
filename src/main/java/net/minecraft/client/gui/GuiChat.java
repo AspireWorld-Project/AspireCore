@@ -39,6 +39,7 @@ import java.util.Set;
 
 @SideOnly(Side.CLIENT)
 public class GuiChat extends GuiScreen implements GuiYesNoCallback {
+	@SuppressWarnings("rawtypes")
 	private static final Set field_152175_f = Sets.newHashSet("http", "https");
 	private static final Logger logger = LogManager.getLogger();
 	private String field_146410_g = "";
@@ -46,12 +47,11 @@ public class GuiChat extends GuiScreen implements GuiYesNoCallback {
 	private boolean field_146417_i;
 	private boolean field_146414_r;
 	private int field_146413_s;
+	@SuppressWarnings("rawtypes")
 	private final List field_146412_t = new ArrayList();
 	private URI clickedURI;
 	protected GuiTextField inputField;
 	private String defaultInputFieldText = "";
-	private static final String __OBFID = "CL_00000682";
-
 	public GuiChat() {
 	}
 
@@ -218,6 +218,7 @@ public class GuiChat extends GuiScreen implements GuiYesNoCallback {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void func_146407_a(URI p_146407_1_) {
 		try {
 			Class oclass = Class.forName("java.awt.Desktop");
@@ -228,6 +229,7 @@ public class GuiChat extends GuiScreen implements GuiYesNoCallback {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void func_146404_p_() {
 		String s1;
 
@@ -307,6 +309,7 @@ public class GuiChat extends GuiScreen implements GuiYesNoCallback {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public void drawScreen(int p_73863_1_, int p_73863_2_, float p_73863_3_) {
 		drawRect(2, height - 14, width - 2, height - 2, Integer.MIN_VALUE);
@@ -366,6 +369,7 @@ public class GuiChat extends GuiScreen implements GuiYesNoCallback {
 		super.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
 	}
 
+	@SuppressWarnings("unchecked")
 	public void func_146406_a(String[] p_146406_1_) {
 		if (field_146414_r) {
 			field_146417_i = false;

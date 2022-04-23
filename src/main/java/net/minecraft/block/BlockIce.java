@@ -19,8 +19,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class BlockIce extends BlockBreakable {
-	private static final String __OBFID = "CL_00000259";
-
 	public BlockIce() {
 		super("ice", Material.ice, false);
 		slipperiness = 0.98F;

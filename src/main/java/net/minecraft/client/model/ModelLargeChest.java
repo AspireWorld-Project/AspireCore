@@ -5,8 +5,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class ModelLargeChest extends ModelChest {
-	private static final String __OBFID = "CL_00000841";
-
 	public ModelLargeChest() {
 		chestLid = new ModelRenderer(this, 0, 0).setTextureSize(128, 64);
 		chestLid.addBox(0.0F, -5.0F, -14.0F, 30, 5, 14, 0.0F);

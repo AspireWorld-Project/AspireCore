@@ -31,8 +31,10 @@ public class GuiScreenEvent extends Event {
 		 * The {@code buttonList} field from the GuiScreen object referenced by
 		 * {@code gui}.
 		 */
+		@SuppressWarnings("rawtypes")
 		public List buttonList;
 
+		@SuppressWarnings("rawtypes")
 		public InitGuiEvent(GuiScreen gui, List buttonList) {
 			super(gui);
 			this.buttonList = buttonList;
@@ -55,6 +57,7 @@ public class GuiScreenEvent extends Event {
 		 */
 		@Cancelable
 		public static class Pre extends InitGuiEvent {
+			@SuppressWarnings("rawtypes")
 			public Pre(GuiScreen gui, List buttonList) {
 				super(gui, buttonList);
 			}
@@ -67,6 +70,7 @@ public class GuiScreenEvent extends Event {
 		 * @author bspkrs
 		 */
 		public static class Post extends InitGuiEvent {
+			@SuppressWarnings("rawtypes")
 			public Post(GuiScreen gui, List buttonList) {
 				super(gui, buttonList);
 			}
@@ -128,8 +132,10 @@ public class GuiScreenEvent extends Event {
 		 * A COPY of the {@code buttonList} field from the GuiScreen referenced by
 		 * {@code gui}.
 		 */
+		@SuppressWarnings("rawtypes")
 		public List buttonList;
 
+		@SuppressWarnings({ "rawtypes", "unchecked" })
 		public ActionPerformedEvent(GuiScreen gui, GuiButton button, List buttonList) {
 			super(gui);
 			this.button = button;
@@ -146,6 +152,7 @@ public class GuiScreenEvent extends Event {
 		 */
 		@Cancelable
 		public static class Pre extends ActionPerformedEvent {
+			@SuppressWarnings("rawtypes")
 			public Pre(GuiScreen gui, GuiButton button, List buttonList) {
 				super(gui, button, buttonList);
 			}
@@ -159,6 +166,7 @@ public class GuiScreenEvent extends Event {
 		 * @author bspkrs
 		 */
 		public static class Post extends ActionPerformedEvent {
+			@SuppressWarnings("rawtypes")
 			public Post(GuiScreen gui, GuiButton button, List buttonList) {
 				super(gui, button, buttonList);
 			}

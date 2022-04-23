@@ -15,8 +15,6 @@ import java.util.List;
 
 public class BlockPressurePlate extends BlockBasePressurePlate {
 	private final BlockPressurePlate.Sensitivity field_150069_a;
-	private static final String __OBFID = "CL_00000289";
-
 	protected BlockPressurePlate(String p_i45418_1_, Material p_i45418_2_, BlockPressurePlate.Sensitivity p_i45418_3_) {
 		super(p_i45418_1_, p_i45418_2_);
 		field_150069_a = p_i45418_3_;
@@ -32,6 +30,7 @@ public class BlockPressurePlate extends BlockBasePressurePlate {
 		return p_150060_1_ == 1 ? 15 : 0;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	protected int func_150065_e(World world, int x, int y, int z) {
 		List entityList = null;
@@ -69,8 +68,6 @@ public class BlockPressurePlate extends BlockBasePressurePlate {
 	}
 
 	public enum Sensitivity {
-		everything, mobs, players;
-
-		private static final String __OBFID = "CL_00000290";
+		everything, mobs, players
 	}
 }

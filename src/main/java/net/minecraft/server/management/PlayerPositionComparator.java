@@ -5,10 +5,9 @@ import net.minecraft.util.ChunkCoordinates;
 
 import java.util.Comparator;
 
+@SuppressWarnings("rawtypes")
 public class PlayerPositionComparator implements Comparator {
 	private final ChunkCoordinates theChunkCoordinates;
-	private static final String __OBFID = "CL_00001422";
-
 	public PlayerPositionComparator(ChunkCoordinates p_i1499_1_) {
 		theChunkCoordinates = p_i1499_1_;
 	}

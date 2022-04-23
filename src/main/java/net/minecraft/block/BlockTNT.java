@@ -22,8 +22,6 @@ public class BlockTNT extends Block {
 	private IIcon field_150116_a;
 	@SideOnly(Side.CLIENT)
 	private IIcon field_150115_b;
-	private static final String __OBFID = "CL_00000324";
-
 	public BlockTNT() {
 		super(Material.tnt);
 		setCreativeTab(CreativeTabs.tabRedstone);

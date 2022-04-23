@@ -5,8 +5,6 @@ import net.minecraft.nbt.NBTTagCompound;
 public abstract class WorldSavedData {
 	public final String mapName;
 	private boolean dirty;
-	private static final String __OBFID = "CL_00000580";
-
 	public WorldSavedData(String p_i2141_1_) {
 		mapName = p_i2141_1_;
 	}

@@ -12,8 +12,6 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 
 public class CryptManager {
-	private static final String __OBFID = "CL_00001483";
-
 	@SideOnly(Side.CLIENT)
 	public static SecretKey createNewSharedKey() {
 		try {

@@ -7,8 +7,6 @@ import java.io.File;
 import java.util.Iterator;
 
 public class UserListBans extends UserList {
-	private static final String __OBFID = "CL_00001873";
-
 	public UserListBans(File p_i1138_1_) {
 		super(p_i1138_1_);
 	}
@@ -22,6 +20,7 @@ public class UserListBans extends UserList {
 		return func_152692_d(p_152702_1_);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public String[] func_152685_a() {
 		String[] astring = new String[func_152688_e().size()];
@@ -40,6 +39,7 @@ public class UserListBans extends UserList {
 		return p_152701_1_.getId().toString();
 	}
 
+	@SuppressWarnings("rawtypes")
 	public GameProfile func_152703_a(String p_152703_1_) {
 		Iterator iterator = func_152688_e().values().iterator();
 		UserListBansEntry userlistbansentry;

@@ -14,8 +14,6 @@ public class ModelSilverfish extends ModelBase {
 			{ 2, 2, 3 }, { 2, 1, 2 }, { 1, 1, 2 } };
 	private static final int[][] silverfishTexturePositions = new int[][] { { 0, 0 }, { 0, 4 }, { 0, 9 }, { 0, 16 },
 			{ 0, 22 }, { 11, 0 }, { 13, 4 } };
-	private static final String __OBFID = "CL_00000855";
-
 	public ModelSilverfish() {
 		float f = -3.5F;
 

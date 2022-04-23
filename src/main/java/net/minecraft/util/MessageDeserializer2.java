@@ -10,8 +10,7 @@ import net.minecraft.network.PacketBuffer;
 import java.util.List;
 
 public class MessageDeserializer2 extends ByteToMessageDecoder {
-	private static final String __OBFID = "CL_00001255";
-
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	protected void decode(ChannelHandlerContext p_decode_1_, ByteBuf p_decode_2_, List p_decode_3_) {
 		p_decode_2_.markReaderIndex();

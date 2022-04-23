@@ -11,8 +11,6 @@ import net.minecraft.world.World;
 public abstract class BlockRotatedPillar extends Block {
 	@SideOnly(Side.CLIENT)
 	protected IIcon field_150164_N;
-	private static final String __OBFID = "CL_00000302";
-
 	protected BlockRotatedPillar(Material p_i45425_1_) {
 		super(p_i45425_1_);
 	}

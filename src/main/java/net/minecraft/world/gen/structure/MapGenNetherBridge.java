@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.Random;
 
 public class MapGenNetherBridge extends MapGenStructure {
+	@SuppressWarnings("rawtypes")
 	private final List spawnList = new ArrayList();
-	private static final String __OBFID = "CL_00000451";
-
+	@SuppressWarnings("unchecked")
 	public MapGenNetherBridge() {
 		spawnList.add(new BiomeGenBase.SpawnListEntry(EntityBlaze.class, 10, 2, 3));
 		spawnList.add(new BiomeGenBase.SpawnListEntry(EntityPigZombie.class, 5, 4, 4));
@@ -27,6 +27,7 @@ public class MapGenNetherBridge extends MapGenStructure {
 		return "Fortress";
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List getSpawnList() {
 		return spawnList;
 	}
@@ -46,11 +47,10 @@ public class MapGenNetherBridge extends MapGenStructure {
 	}
 
 	public static class Start extends StructureStart {
-		private static final String __OBFID = "CL_00000452";
-
 		public Start() {
 		}
 
+		@SuppressWarnings({ "unchecked", "rawtypes" })
 		public Start(World p_i2040_1_, Random p_i2040_2_, int p_i2040_3_, int p_i2040_4_) {
 			super(p_i2040_3_, p_i2040_4_);
 			StructureNetherBridgePieces.Start start = new StructureNetherBridgePieces.Start(p_i2040_2_,

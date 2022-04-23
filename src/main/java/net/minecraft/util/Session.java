@@ -15,8 +15,6 @@ public class Session {
 	private final String playerID;
 	private final String token;
 	private final Session.Type field_152429_d;
-	private static final String __OBFID = "CL_00000659";
-
 	public Session(String p_i1098_1_, String p_i1098_2_, String p_i1098_3_, String p_i1098_4_) {
 		if (p_i1098_1_ == null || p_i1098_1_.isEmpty()) {
 			p_i1098_1_ = "MissingName";
@@ -67,13 +65,13 @@ public class Session {
 		return field_152429_d;
 	}
 
+	@SuppressWarnings("unchecked")
 	@SideOnly(Side.CLIENT)
 	public enum Type {
 		LEGACY("legacy"), MOJANG("mojang");
+		@SuppressWarnings("rawtypes")
 		private static final Map field_152425_c = Maps.newHashMap();
 		private final String field_152426_d;
-
-		private static final String __OBFID = "CL_00001851";
 
 		Type(String p_i1096_3_) {
 			field_152426_d = p_i1096_3_;

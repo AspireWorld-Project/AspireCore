@@ -11,8 +11,6 @@ import java.util.Random;
 
 public class WorldGenLakes extends WorldGenerator {
 	private final Block field_150556_a;
-	private static final String __OBFID = "CL_00000418";
-
 	public WorldGenLakes(Block p_i45455_1_) {
 		field_150556_a = p_i45455_1_;
 	}

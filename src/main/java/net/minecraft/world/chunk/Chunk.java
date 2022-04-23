@@ -57,7 +57,9 @@ public class Chunk implements IChunkDependency {
 	public final int xPosition;
 	public final int zPosition;
 	private boolean isGapLightingUpdated;
+	@SuppressWarnings("rawtypes")
 	public Map chunkTileEntityMap;
+	@SuppressWarnings("rawtypes")
 	public List[] entityLists;
 	public boolean isTerrainPopulated;
 	public boolean isLightPopulated;
@@ -69,8 +71,7 @@ public class Chunk implements IChunkDependency {
 	public int heightMapMinimum;
 	public long inhabitedTime;
 	private int queuedLightChecks;
-	private static final String __OBFID = "CL_00000373";
-
+	@SuppressWarnings("rawtypes")
 	public Chunk(World p_i1995_1_, int p_i1995_2_, int p_i1995_3_) {
 		storageArrays = new ExtendedBlockStorage[16];
 		blockBiomeArray = new byte[256];
@@ -449,6 +450,7 @@ public class Chunk implements IChunkDependency {
 		return getBlock(p_150808_1_, p_150808_2_, p_150808_3_).getLightOpacity(worldObj, x, p_150808_2_, z);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Block getBlock(final int p_150810_1_, final int p_150810_2_, final int p_150810_3_) {
 		Block block = Blocks.air;
 
@@ -462,8 +464,6 @@ public class Chunk implements IChunkDependency {
 					CrashReport crashreport = CrashReport.makeCrashReport(throwable, "Getting block");
 					CrashReportCategory crashreportcategory = crashreport.makeCategory("Block being got");
 					crashreportcategory.addCrashSectionCallable("Location", new Callable() {
-						private static final String __OBFID = "CL_00000374";
-
 						@Override
 						public String call() {
 							return CrashReportCategory.getLocationInfo(p_150810_1_, p_150810_2_, p_150810_3_);
@@ -691,6 +691,7 @@ public class Chunk implements IChunkDependency {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public void addEntity(Entity p_76612_1_) {
 		hasEntities = true;
 		int i = MathHelper.floor_double(p_76612_1_.posX / 16.0D);
@@ -795,6 +796,7 @@ public class Chunk implements IChunkDependency {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public void func_150812_a(int p_150812_1_, int p_150812_2_, int p_150812_3_, TileEntity p_150812_4_) {
 		ChunkPosition chunkposition = new ChunkPosition(p_150812_1_, p_150812_2_, p_150812_3_);
 		short hash = ChunkHash.chunkCoordToHash(p_150812_1_, p_150812_2_, p_150812_3_);
@@ -830,6 +832,7 @@ public class Chunk implements IChunkDependency {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void onChunkLoad() {
 		isChunkLoaded = true;
 		worldObj.func_147448_a(chunkTileEntityMap.values());
@@ -850,6 +853,7 @@ public class Chunk implements IChunkDependency {
 		loadTime = unbindTime = MinecraftServer.getServer().getTickCounter();
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void onChunkUnload() {
 		isChunkLoaded = false;
 		Iterator iterator = chunkTileEntityMap.values().iterator();
@@ -876,6 +880,7 @@ public class Chunk implements IChunkDependency {
 		isModified = true;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void getEntitiesWithinAABBForEntity(Entity p_76588_1_, AxisAlignedBB p_76588_2_, List p_76588_3_,
 			IEntitySelector p_76588_4_) {
 		int i = MathHelper.floor_double((p_76588_2_.minY - World.MAX_ENTITY_RADIUS) / 16.0D);
@@ -910,6 +915,7 @@ public class Chunk implements IChunkDependency {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void getEntitiesOfTypeWithinAAAB(Class p_76618_1_, AxisAlignedBB p_76618_2_, List p_76618_3_,
 			IEntitySelector p_76618_4_) {
 		int i = MathHelper.floor_double((p_76618_2_.minY - World.MAX_ENTITY_RADIUS) / 16.0D);
@@ -1022,6 +1028,7 @@ public class Chunk implements IChunkDependency {
 		storageArrays = p_76602_1_;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@SideOnly(Side.CLIENT)
 	public void fillChunk(byte[] p_76607_1_, int p_76607_2_, int p_76607_3_, boolean p_76607_4_) {
 		Iterator iterator = chunkTileEntityMap.values().iterator();

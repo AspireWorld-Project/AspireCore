@@ -14,8 +14,6 @@ public class ModelIronGolem extends ModelBase {
 	public ModelRenderer ironGolemLeftArm;
 	public ModelRenderer ironGolemLeftLeg;
 	public ModelRenderer ironGolemRightLeg;
-	private static final String __OBFID = "CL_00000863";
-
 	public ModelIronGolem() {
 		this(0.0F);
 	}

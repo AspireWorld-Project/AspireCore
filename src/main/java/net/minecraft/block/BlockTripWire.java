@@ -21,8 +21,6 @@ import java.util.List;
 import java.util.Random;
 
 public class BlockTripWire extends Block {
-	private static final String __OBFID = "CL_00000328";
-
 	public BlockTripWire() {
 		super(Material.circuits);
 		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.15625F, 1.0F);
@@ -175,6 +173,7 @@ public class BlockTripWire extends Block {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void func_150140_e(World p_150140_1_, int p_150140_2_, int p_150140_3_, int p_150140_4_) {
 		int l = p_150140_1_.getBlockMetadata(p_150140_2_, p_150140_3_, p_150140_4_);
 		boolean flag = (l & 1) == 1;

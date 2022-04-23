@@ -10,8 +10,6 @@ public class MovingObjectPosition {
 	public int sideHit;
 	public Vec3 hitVec;
 	public Entity entityHit;
-	private static final String __OBFID = "CL_00000610";
-
 	/** Used to determine what sub-segment is hit */
 	public int subHit = -1;
 
@@ -50,8 +48,6 @@ public class MovingObjectPosition {
 	}
 
 	public enum MovingObjectType {
-		MISS, BLOCK, ENTITY;
-
-		private static final String __OBFID = "CL_00000611";
+		MISS, BLOCK, ENTITY
 	}
 }

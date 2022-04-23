@@ -46,15 +46,21 @@ public class SoundManager {
 	private SoundManager.SoundSystemStarterThread sndSystem;
 	private boolean loaded;
 	private int playTime = 0;
+	@SuppressWarnings("rawtypes")
 	private final Map playingSounds = HashBiMap.create();
+	@SuppressWarnings("rawtypes")
 	private final Map invPlayingSounds;
+	@SuppressWarnings("rawtypes")
 	private final Map playingSoundPoolEntries;
+	@SuppressWarnings("rawtypes")
 	private final Multimap categorySounds;
+	@SuppressWarnings("rawtypes")
 	private final List tickableSounds;
+	@SuppressWarnings("rawtypes")
 	private final Map delayedSounds;
+	@SuppressWarnings("rawtypes")
 	private final Map playingSoundsStopTime;
-	private static final String __OBFID = "CL_00001141";
-
+	@SuppressWarnings("rawtypes")
 	public SoundManager(SoundHandler p_i45119_1_, GameSettings p_i45119_2_) {
 		invPlayingSounds = ((BiMap) playingSounds).inverse();
 		playingSoundPoolEntries = Maps.newHashMap();
@@ -84,8 +90,6 @@ public class SoundManager {
 		if (!loaded) {
 			try {
 				new Thread(new Runnable() {
-					private static final String __OBFID = "CL_00001142";
-
 					@Override
 					public void run() {
 						sndSystem = SoundManager.this.new SoundSystemStarterThread(null);
@@ -107,6 +111,7 @@ public class SoundManager {
 		return p_148595_1_ != null && p_148595_1_ != SoundCategory.MASTER ? options.getSoundLevel(p_148595_1_) : 1.0F;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void setSoundCategoryVolume(SoundCategory p_148601_1_, float p_148601_2_) {
 		if (loaded) {
 			if (p_148601_1_ == SoundCategory.MASTER) {
@@ -138,6 +143,7 @@ public class SoundManager {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void stopAllSounds() {
 		if (loaded) {
 			Iterator iterator = playingSounds.keySet().iterator();
@@ -156,6 +162,7 @@ public class SoundManager {
 		}
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void updateAllSounds() {
 		++playTime;
 		Iterator iterator = tickableSounds.iterator();
@@ -256,6 +263,7 @@ public class SoundManager {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public void playSound(ISound p_148611_1_) {
 		if (loaded) {
 			if (sndSystem.getMasterVolume() <= 0.0F) {
@@ -345,6 +353,7 @@ public class SoundManager {
 				p_148594_1_.getVolume() * p_148594_2_.getVolume() * getSoundCategoryVolume(p_148594_3_), 0.0D, 1.0D);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void pauseAllSounds() {
 		Iterator iterator = playingSounds.keySet().iterator();
 
@@ -355,6 +364,7 @@ public class SoundManager {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void resumeAllSounds() {
 		Iterator iterator = playingSounds.keySet().iterator();
 
@@ -365,6 +375,7 @@ public class SoundManager {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public void addDelayedSound(ISound p_148599_1_, int p_148599_2_) {
 		delayedSounds.put(p_148599_1_, Integer.valueOf(playTime + p_148599_2_));
 	}
@@ -373,13 +384,9 @@ public class SoundManager {
 		String s = String.format("%s:%s:%s",
 				"mcsounddomain", p_148612_0_.getResourceDomain(), p_148612_0_.getResourcePath());
 		URLStreamHandler urlstreamhandler = new URLStreamHandler() {
-			private static final String __OBFID = "CL_00001143";
-
 			@Override
 			protected URLConnection openConnection(final URL p_openConnection_1_) {
 				return new URLConnection(p_openConnection_1_) {
-					private static final String __OBFID = "CL_00001144";
-
 					@Override
 					public void connect() {
 					}
@@ -425,8 +432,6 @@ public class SoundManager {
 
 	@SideOnly(Side.CLIENT)
 	class SoundSystemStarterThread extends SoundSystem {
-		private static final String __OBFID = "CL_00001145";
-
 		private SoundSystemStarterThread() {
 		}
 

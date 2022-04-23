@@ -16,8 +16,6 @@ public class ModelQuadruped extends ModelBase {
 	public ModelRenderer leg4;
 	protected float field_78145_g = 8.0F;
 	protected float field_78151_h = 4.0F;
-	private static final String __OBFID = "CL_00000851";
-
 	public ModelQuadruped(int p_i1154_1_, float p_i1154_2_) {
 		head.addBox(-4.0F, -4.0F, -8.0F, 8, 8, 8, p_i1154_2_);
 		head.setRotationPoint(0.0F, 18 - p_i1154_1_, -6.0F);

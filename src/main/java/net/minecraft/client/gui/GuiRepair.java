@@ -26,8 +26,6 @@ public class GuiRepair extends GuiContainer implements ICrafting {
 	private final ContainerRepair field_147092_v;
 	private GuiTextField field_147091_w;
 	private final InventoryPlayer field_147094_x;
-	private static final String __OBFID = "CL_00000738";
-
 	public GuiRepair(InventoryPlayer p_i1073_1_, World p_i1073_2_, int p_i1073_3_, int p_i1073_4_, int p_i1073_5_) {
 		super(new ContainerRepair(p_i1073_1_, p_i1073_2_, p_i1073_3_, p_i1073_4_, p_i1073_5_,
 				Minecraft.getMinecraft().thePlayer));
@@ -150,6 +148,7 @@ public class GuiRepair extends GuiContainer implements ICrafting {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void sendContainerAndContentsToPlayer(Container p_71110_1_, List p_71110_2_) {
 		sendSlotContents(p_71110_1_, 0, p_71110_1_.getSlot(0).getStack());

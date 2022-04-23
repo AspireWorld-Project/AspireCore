@@ -18,8 +18,6 @@ public class ModelWolf extends ModelBase {
 	public ModelRenderer wolfLeg4;
 	ModelRenderer wolfTail;
 	ModelRenderer wolfMane;
-	private static final String __OBFID = "CL_00000868";
-
 	public ModelWolf() {
 		float f = 0.0F;
 		float f1 = 13.5F;

@@ -15,17 +15,17 @@ import org.apache.logging.log4j.MarkerManager;
 
 import java.io.IOException;
 
+@SuppressWarnings("rawtypes")
 public class MessageSerializer extends MessageToByteEncoder {
 	private static final Logger logger = LogManager.getLogger();
 	private static final Marker field_150797_b = MarkerManager.getMarker("PACKET_SENT",
 			NetworkManager.logMarkerPackets);
 	private final NetworkStatistics field_152500_c;
-	private static final String __OBFID = "CL_00001253";
-
 	public MessageSerializer(NetworkStatistics p_i1182_1_) {
 		field_152500_c = p_i1182_1_;
 	}
 
+	@SuppressWarnings("unchecked")
 	protected void encode(ChannelHandlerContext p_encode_1_, Packet p_encode_2_, ByteBuf p_encode_3_)
 			throws IOException {
 		Integer integer = (Integer) ((BiMap) p_encode_1_.channel().attr(NetworkManager.attrKeySendable).get()).inverse()

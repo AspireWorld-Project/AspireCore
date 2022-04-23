@@ -9,8 +9,6 @@ import net.minecraft.realms.RealmsScrolledSelectionList;
 @SideOnly(Side.CLIENT)
 public class GuiSlotRealmsProxy extends GuiSlot {
 	private final RealmsScrolledSelectionList field_154340_k;
-	private static final String __OBFID = "CL_00001846";
-
 	public GuiSlotRealmsProxy(RealmsScrolledSelectionList p_i1085_1_, int p_i1085_2_, int p_i1085_3_, int p_i1085_4_,
 			int p_i1085_5_, int p_i1085_6_) {
 		super(Minecraft.getMinecraft(), p_i1085_2_, p_i1085_3_, p_i1085_4_, p_i1085_5_, p_i1085_6_);

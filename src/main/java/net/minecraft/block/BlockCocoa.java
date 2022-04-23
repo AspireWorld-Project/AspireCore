@@ -23,8 +23,6 @@ import java.util.Random;
 public class BlockCocoa extends BlockDirectional implements IGrowable {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] field_149989_a;
-	private static final String __OBFID = "CL_00000216";
-
 	public BlockCocoa() {
 		super(Material.plants);
 		setTickRandomly(true);

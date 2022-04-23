@@ -4,8 +4,6 @@ import net.minecraft.nbt.NBTTagCompound;
 
 public class TileEntityComparator extends TileEntity {
 	private int field_145997_a;
-	private static final String __OBFID = "CL_00000349";
-
 	@Override
 	public void writeToNBT(NBTTagCompound p_145841_1_) {
 		super.writeToNBT(p_145841_1_);

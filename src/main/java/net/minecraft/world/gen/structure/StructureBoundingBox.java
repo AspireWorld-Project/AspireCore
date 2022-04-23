@@ -9,8 +9,6 @@ public class StructureBoundingBox {
 	public int maxX;
 	public int maxY;
 	public int maxZ;
-	private static final String __OBFID = "CL_00000442";
-
 	public StructureBoundingBox() {
 	}
 

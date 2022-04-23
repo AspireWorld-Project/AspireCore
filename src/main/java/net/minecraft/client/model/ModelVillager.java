@@ -13,8 +13,6 @@ public class ModelVillager extends ModelBase {
 	public ModelRenderer rightVillagerLeg;
 	public ModelRenderer leftVillagerLeg;
 	public ModelRenderer villagerNose;
-	private static final String __OBFID = "CL_00000864";
-
 	public ModelVillager(float p_i1163_1_) {
 		this(p_i1163_1_, 0.0F, 64, 64);
 	}

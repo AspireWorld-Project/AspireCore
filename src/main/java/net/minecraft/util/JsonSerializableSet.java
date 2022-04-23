@@ -9,10 +9,10 @@ import com.google.gson.JsonPrimitive;
 import java.util.Iterator;
 import java.util.Set;
 
+@SuppressWarnings("rawtypes")
 public class JsonSerializableSet extends ForwardingSet implements IJsonSerializable {
 	private final Set underlyingSet = Sets.newHashSet();
-	private static final String __OBFID = "CL_00001482";
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public void func_152753_a(JsonElement p_152753_1_) {
 		if (p_152753_1_.isJsonArray()) {

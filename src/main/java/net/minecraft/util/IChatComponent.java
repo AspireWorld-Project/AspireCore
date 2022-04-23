@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
+@SuppressWarnings("rawtypes")
 public interface IChatComponent extends Iterable {
 	IChatComponent setChatStyle(ChatStyle p_150255_1_);
 
@@ -29,8 +30,6 @@ public interface IChatComponent extends Iterable {
 
 	class Serializer implements JsonDeserializer, JsonSerializer {
 		private static final Gson field_150700_a;
-		private static final String __OBFID = "CL_00001263";
-
 		@Override
 		public IChatComponent deserialize(JsonElement p_deserialize_1_, Type p_deserialize_2_,
 				JsonDeserializationContext p_deserialize_3_) {

@@ -45,11 +45,11 @@ public class GuiContainerCreative extends InventoryEffectRenderer {
 	private boolean isScrolling;
 	private boolean wasClicking;
 	private GuiTextField searchField;
+	@SuppressWarnings("rawtypes")
 	private List field_147063_B;
 	private Slot field_147064_C;
 	private boolean field_147057_D;
 	private CreativeCrafting field_147059_E;
-	private static final String __OBFID = "CL_00000752";
 	private static int tabPage = 0;
 	private int maxPages = 0;
 
@@ -207,6 +207,7 @@ public class GuiContainerCreative extends InventoryEffectRenderer {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		if (mc.playerController.isInCreativeMode()) {
@@ -269,6 +270,7 @@ public class GuiContainerCreative extends InventoryEffectRenderer {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void updateCreativeSearch() {
 		GuiContainerCreative.ContainerCreative containercreative = (GuiContainerCreative.ContainerCreative) inventorySlots;
 		containercreative.itemList.clear();
@@ -293,6 +295,7 @@ public class GuiContainerCreative extends InventoryEffectRenderer {
 	}
 
 	// split from above for custom search tabs
+	@SuppressWarnings("rawtypes")
 	private void updateFilteredItems(GuiContainerCreative.ContainerCreative containercreative) {
 		Iterator iterator;
 		Enchantment[] aenchantment = Enchantment.enchantmentsList;
@@ -398,6 +401,7 @@ public class GuiContainerCreative extends InventoryEffectRenderer {
 				&& ((GuiContainerCreative.ContainerCreative) inventorySlots).func_148328_e();
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void setCurrentCreativeTab(CreativeTabs p_147050_1_) {
 		if (p_147050_1_ == null)
 			return;
@@ -584,6 +588,7 @@ public class GuiContainerCreative extends InventoryEffectRenderer {
 		GL11.glDisable(GL11.GL_LIGHTING);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	protected void renderToolTip(ItemStack p_146285_1_, int p_146285_2_, int p_146285_3_) {
 		if (selectedTabIndex == CreativeTabs.tabAllSearch.getTabIndex()) {
@@ -818,9 +823,8 @@ public class GuiContainerCreative extends InventoryEffectRenderer {
 
 	@SideOnly(Side.CLIENT)
 	static class ContainerCreative extends Container {
+		@SuppressWarnings("rawtypes")
 		public List itemList = new ArrayList();
-		private static final String __OBFID = "CL_00000753";
-
 		public ContainerCreative(EntityPlayer p_i1086_1_) {
 			InventoryPlayer inventoryplayer = p_i1086_1_.inventory;
 			int i;
@@ -902,8 +906,6 @@ public class GuiContainerCreative extends InventoryEffectRenderer {
 	@SideOnly(Side.CLIENT)
 	class CreativeSlot extends Slot {
 		private final Slot field_148332_b;
-		private static final String __OBFID = "CL_00000754";
-
 		public CreativeSlot(Slot p_i1087_2_, int p_i1087_3_) {
 			super(p_i1087_2_.inventory, p_i1087_3_, 0, 0);
 			field_148332_b = p_i1087_2_;

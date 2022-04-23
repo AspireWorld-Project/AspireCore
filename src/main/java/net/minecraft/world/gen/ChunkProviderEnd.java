@@ -37,8 +37,6 @@ public class ChunkProviderEnd implements IChunkProvider {
 	double[] noiseData4;
 	double[] noiseData5;
 	int[][] field_73203_h = new int[32][32];
-	private static final String __OBFID = "CL_00000397";
-
 	public ChunkProviderEnd(World p_i2007_1_, long p_i2007_2_) {
 		endWorld = p_i2007_1_;
 		endRNG = new Random(p_i2007_2_);
@@ -367,6 +365,7 @@ public class ChunkProviderEnd implements IChunkProvider {
 		return "RandomLevelSource";
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List getPossibleCreatures(EnumCreatureType p_73155_1_, int p_73155_2_, int p_73155_3_, int p_73155_4_) {
 		BiomeGenBase biomegenbase = endWorld.getBiomeGenForCoords(p_73155_2_, p_73155_4_);

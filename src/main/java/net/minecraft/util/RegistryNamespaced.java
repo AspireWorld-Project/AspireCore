@@ -8,9 +8,9 @@ import java.util.Map;
 
 public class RegistryNamespaced extends RegistrySimple implements IObjectIntIterable {
 	protected ObjectIntIdentityMap underlyingIntegerMap = new ObjectIntIdentityMap();
+	@SuppressWarnings("rawtypes")
 	protected final Map field_148758_b;
-	private static final String __OBFID = "CL_00001206";
-
+	@SuppressWarnings("rawtypes")
 	public RegistryNamespaced() {
 		field_148758_b = ((BiMap) registryObjects).inverse();
 	}
@@ -20,6 +20,7 @@ public class RegistryNamespaced extends RegistrySimple implements IObjectIntIter
 		putObject(ensureNamespaced(p_148756_2_), p_148756_3_);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	protected Map createUnderlyingMap() {
 		return HashBiMap.create();
@@ -45,6 +46,7 @@ public class RegistryNamespaced extends RegistrySimple implements IObjectIntIter
 		return underlyingIntegerMap.func_148745_a(p_148754_1_);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Iterator iterator() {
 		return underlyingIntegerMap.iterator();

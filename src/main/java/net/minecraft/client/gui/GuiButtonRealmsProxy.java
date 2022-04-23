@@ -8,8 +8,6 @@ import net.minecraft.realms.RealmsButton;
 @SideOnly(Side.CLIENT)
 public class GuiButtonRealmsProxy extends GuiButton {
 	private final RealmsButton field_154318_o;
-	private static final String __OBFID = "CL_00001848";
-
 	public GuiButtonRealmsProxy(RealmsButton p_i1089_1_, int p_i1089_2_, int p_i1089_3_, int p_i1089_4_,
 			String p_i1089_5_) {
 		super(p_i1089_2_, p_i1089_3_, p_i1089_4_, p_i1089_5_);

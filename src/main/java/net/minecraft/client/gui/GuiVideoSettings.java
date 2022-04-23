@@ -19,13 +19,12 @@ public class GuiVideoSettings extends GuiScreen {
 			GameSettings.Options.RENDER_CLOUDS, GameSettings.Options.PARTICLES, GameSettings.Options.USE_FULLSCREEN,
 			GameSettings.Options.ENABLE_VSYNC, GameSettings.Options.MIPMAP_LEVELS,
 			GameSettings.Options.ANISOTROPIC_FILTERING };
-	private static final String __OBFID = "CL_00000718";
-
 	public GuiVideoSettings(GuiScreen p_i1062_1_, GameSettings p_i1062_2_) {
 		parentGuiScreen = p_i1062_1_;
 		guiGameSettings = p_i1062_2_;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		screenTitle = I18n.format("options.videoTitle");

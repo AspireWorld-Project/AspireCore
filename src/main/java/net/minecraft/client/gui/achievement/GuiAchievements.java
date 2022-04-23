@@ -52,8 +52,6 @@ public class GuiAchievements extends GuiScreen implements IProgressMeter {
 	private int field_146554_D;
 	private final StatFileWriter field_146556_E;
 	private boolean field_146558_F = true;
-	private static final String __OBFID = "CL_00000722";
-
 	private int currentPage = -1;
 	private GuiButton button;
 	private final LinkedList<Achievement> minecraftAchievements = new LinkedList<>();
@@ -74,6 +72,7 @@ public class GuiAchievements extends GuiScreen implements IProgressMeter {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		mc.getNetHandler().addToSendQueue(new C16PacketClientStatus(C16PacketClientStatus.EnumState.REQUEST_STATS));

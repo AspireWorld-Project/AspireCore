@@ -6,8 +6,7 @@ import net.minecraft.client.resources.I18n;
 
 @SideOnly(Side.CLIENT)
 public class GuiMemoryErrorScreen extends GuiScreen {
-	private static final String __OBFID = "CL_00000702";
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		buttonList.clear();

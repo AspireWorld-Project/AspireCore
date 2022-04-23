@@ -2,7 +2,6 @@ package org.bukkit.craftbukkit;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.IEntityLivingData;
 import net.minecraftforge.common.util.BlockSnapshot;
 import org.apache.commons.lang.Validate;
 import org.bukkit.*;

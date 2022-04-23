@@ -10,8 +10,6 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class WorldGenSavannaTree extends WorldGenAbstractTree {
-	private static final String __OBFID = "CL_00000432";
-
 	public WorldGenSavannaTree(boolean p_i45463_1_) {
 		super(p_i45463_1_);
 	}

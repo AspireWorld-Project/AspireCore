@@ -8,7 +8,6 @@ import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityMinecart;
-import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.client.*;
 import net.minecraft.stats.StatBase;
 import net.minecraft.stats.StatFileWriter;
@@ -23,18 +22,14 @@ public class EntityClientPlayerMP extends EntityPlayerSP {
 	private final StatFileWriter field_146108_bO;
 	private double oldPosX;
 	private double oldMinY;
-	private double oldPosY;
 	private double oldPosZ;
 	private float oldRotationYaw;
 	private float oldRotationPitch;
-	private boolean wasOnGround;
 	private boolean wasSneaking;
 	private boolean wasSprinting;
 	private int ticksSinceMovePacket;
 	private boolean hasSetHealth;
 	private String field_142022_ce;
-	private static final String __OBFID = "CL_00000887";
-
 	public EntityClientPlayerMP(Minecraft p_i45064_1_, World p_i45064_2_, Session p_i45064_3_,
 			NetHandlerPlayClient p_i45064_4_, StatFileWriter p_i45064_5_) {
 		super(p_i45064_1_, p_i45064_2_, p_i45064_3_, 0);
@@ -125,12 +120,9 @@ public class EntityClientPlayerMP extends EntityPlayerSP {
 		}
 
 		++ticksSinceMovePacket;
-		wasOnGround = onGround;
-
 		if (flag2) {
 			oldPosX = posX;
 			oldMinY = boundingBox.minY;
-			oldPosY = posY;
 			oldPosZ = posZ;
 			ticksSinceMovePacket = 0;
 		}

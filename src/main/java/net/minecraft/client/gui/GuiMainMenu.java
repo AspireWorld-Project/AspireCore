@@ -64,8 +64,7 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback {
 	private int field_92020_v;
 	private int field_92019_w;
 	private ResourceLocation field_110351_G;
-	private static final String __OBFID = "CL_00001154";
-
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public GuiMainMenu() {
 		field_146972_A = field_96138_a;
 		splashText = "missingno";
@@ -125,6 +124,7 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback {
 	protected void keyTyped(char p_73869_1_, int p_73869_2_) {
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		viewportTexture = new DynamicTexture(256, 256);
@@ -167,6 +167,7 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	private void addSingleplayerMultiplayerButtons(int p_73969_1_, int p_73969_2_) {
 		buttonList.add(new GuiButton(1, width / 2 - 100, p_73969_1_, I18n.format("menu.singleplayer")));
 		buttonList.add(new GuiButton(2, width / 2 - 100, p_73969_1_ + p_73969_2_ * 1,
@@ -181,6 +182,7 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback {
 		buttonList.add(fmlModButton);
 	}
 
+	@SuppressWarnings("unchecked")
 	private void addDemoButtons(int p_73972_1_, int p_73972_2_) {
 		buttonList.add(new GuiButton(11, width / 2 - 100, p_73972_1_, I18n.format("menu.playdemo")));
 		buttonList.add(buttonResetDemo = new GuiButton(12, width / 2 - 100, p_73972_1_ + p_73972_2_ * 1,
@@ -243,6 +245,7 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback {
 		realmsbridge.switchToRealms(this);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public void confirmClicked(boolean p_73878_1_, int p_73878_2_) {
 		if (p_73878_1_ && p_73878_2_ == 12) {

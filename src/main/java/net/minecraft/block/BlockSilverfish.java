@@ -19,8 +19,6 @@ import java.util.Random;
 public class BlockSilverfish extends Block {
 	public static final String[] field_150198_a = new String[] { "stone", "cobble", "brick", "mossybrick",
 			"crackedbrick", "chiseledbrick" };
-	private static final String __OBFID = "CL_00000271";
-
 	public BlockSilverfish() {
 		super(Material.clay);
 		setHardness(0.0F);
@@ -94,6 +92,7 @@ public class BlockSilverfish extends Block {
 		return 0;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static ImmutablePair func_150197_b(int p_150197_0_) {
 		switch (p_150197_0_) {
 		case 1:
@@ -145,6 +144,7 @@ public class BlockSilverfish extends Block {
 		return p_149643_1_.getBlockMetadata(p_149643_2_, p_149643_3_, p_149643_4_);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {

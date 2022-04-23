@@ -77,7 +77,9 @@ public class WorldServer extends World {
 	private final MinecraftServer mcServer;
 	private final EntityTracker theEntityTracker;
 	private final PlayerManager thePlayerManager;
+	@SuppressWarnings("rawtypes")
 	private Set pendingTickListEntriesHashSet;
+	@SuppressWarnings("rawtypes")
 	private TreeSet pendingTickListEntriesTreeSet;
 	public ChunkProviderServer theChunkProviderServer;
 	public boolean levelSaving;
@@ -99,12 +101,12 @@ public class WorldServer extends World {
 			new WeightedRandomChestContent(Items.apple, 0, 2, 3, 5),
 			new WeightedRandomChestContent(Items.bread, 0, 2, 3, 3),
 			new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.log2), 0, 1, 3, 10) };
+	@SuppressWarnings({ "unused", "rawtypes" })
 	private final List pendingTickListEntriesThisTick = new ArrayList();
 	private IntHashMap entityIdMap;
-	private static final String __OBFID = "CL_00001437";
-
 	public List<Teleporter> customTeleporters = new ArrayList<>();
 
+	@SuppressWarnings("rawtypes")
 	public WorldServer(MinecraftServer p_i45284_1_, ISaveHandler p_i45284_2_, String p_i45284_3_, int p_i45284_4_,
 			WorldSettings p_i45284_5_, Profiler p_i45284_6_) {
 		super(p_i45284_2_, p_i45284_3_, p_i45284_5_, WorldProvider.getProviderForDimension(p_i45284_4_), p_i45284_6_);
@@ -145,6 +147,7 @@ public class WorldServer extends World {
 	}
 
 	// Add env and gen to constructor
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public WorldServer(MinecraftServer p_i45284_1_, ISaveHandler p_i45284_2_, String p_i45284_3_, int p_i45284_4_, WorldSettings p_i45284_5_,
 					   Profiler p_i45284_6_, org.bukkit.World.Environment env, org.bukkit.generator.ChunkGenerator gen)
 	{
@@ -259,6 +262,7 @@ public class WorldServer extends World {
 		func_147488_Z();
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public BiomeGenBase.SpawnListEntry spawnRandomCreature(EnumCreatureType p_73057_1_, int p_73057_2_, int p_73057_3_,
 			int p_73057_4_) {
 		List list = getChunkProvider().getPossibleCreatures(p_73057_1_, p_73057_2_, p_73057_3_, p_73057_4_);
@@ -267,6 +271,7 @@ public class WorldServer extends World {
 				: null;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void updateAllPlayersSleepingFlag() {
 		allPlayersSleeping = !playerEntities.isEmpty();
@@ -282,6 +287,7 @@ public class WorldServer extends World {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	protected void wakeAllPlayers() {
 		allPlayersSleeping = false;
 		Iterator iterator = playerEntities.iterator();
@@ -315,6 +321,7 @@ public class WorldServer extends World {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public boolean areAllPlayersAsleep() {
 		if (allPlayersSleeping && !isRemote) {
 			Iterator iterator = playerEntities.iterator();
@@ -605,6 +612,7 @@ public class WorldServer extends World {
 		return theChunkProviderServer;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List func_147486_a(int p_147486_1_, int p_147486_2_, int p_147486_3_, int p_147486_4_, int p_147486_5_,
 			int p_147486_6_) {
 		ArrayList arraylist = new ArrayList();
@@ -640,6 +648,7 @@ public class WorldServer extends World {
 		return !mcServer.isBlockProtected(this, par2, par3, par4, par1EntityPlayer);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	protected void initialize(WorldSettings p_72963_1_) {
 		if (entityIdMap == null) {
@@ -659,6 +668,7 @@ public class WorldServer extends World {
 		super.initialize(p_72963_1_);
 	}
 
+	@SuppressWarnings("rawtypes")
 	protected void createSpawnPosition(WorldSettings p_73052_1_) {
 		if (!provider.canRespawnHere()) {
 			worldInfo.setSpawnPosition(0, provider.getAverageGroundLevel(), 0);
@@ -805,6 +815,7 @@ public class WorldServer extends World {
 		getEntityTracker().func_151248_b(p_72960_1_, new S19PacketEntityStatus(p_72960_1_, p_72960_2_));
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Explosion newExplosion(Entity p_72885_1_, double p_72885_2_, double p_72885_4_, double p_72885_6_,
 			float p_72885_8_, boolean p_72885_9_, boolean p_72885_10_) {
@@ -835,6 +846,7 @@ public class WorldServer extends World {
 		return explosion;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void addBlockEvent(int p_147452_1_, int p_147452_2_, int p_147452_3_, Block p_147452_4_, int p_147452_5_,
 			int p_147452_6_) {
@@ -854,6 +866,7 @@ public class WorldServer extends World {
 		} while (!blockeventdata1.equals(blockeventdata));
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void func_147488_Z() {
 		getEventProxy().pushState(WorldUpdateObjectType.BLOCK_EVENT);
 		while (!field_147490_S[blockEventCacheIndex].isEmpty()) {
@@ -997,9 +1010,8 @@ public class WorldServer extends World {
 		return ((AnvilChunkLoader) theChunkProviderServer.currentChunkLoader).chunkSaveLocation;
 	}
 
+	@SuppressWarnings({ "serial", "rawtypes" })
 	static class ServerBlockEventList extends ArrayList {
-		private static final String __OBFID = "CL_00001439";
-
 		private ServerBlockEventList() {
 		}
 

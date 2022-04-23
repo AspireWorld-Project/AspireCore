@@ -7,8 +7,6 @@ import java.util.Random;
 
 public abstract class WorldGenerator {
 	private final boolean doBlockNotify;
-	private static final String __OBFID = "CL_00000409";
-
 	public WorldGenerator() {
 		doBlockNotify = false;
 	}

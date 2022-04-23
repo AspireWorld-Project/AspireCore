@@ -9,10 +9,11 @@ import java.util.Iterator;
 import java.util.List;
 
 public class ObjectIntIdentityMap implements IObjectIntIterable {
+	@SuppressWarnings("rawtypes")
 	protected IdentityHashMap field_148749_a = new IdentityHashMap(512);
+	@SuppressWarnings("rawtypes")
 	protected List field_148748_b = Lists.newArrayList();
-	private static final String __OBFID = "CL_00001203";
-
+	@SuppressWarnings("unchecked")
 	public void func_148746_a(Object p_148746_1_, int p_148746_2_) {
 		field_148749_a.put(p_148746_1_, Integer.valueOf(p_148746_2_));
 
@@ -32,6 +33,7 @@ public class ObjectIntIdentityMap implements IObjectIntIterable {
 		return p_148745_1_ >= 0 && p_148745_1_ < field_148748_b.size() ? field_148748_b.get(p_148745_1_) : null;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public Iterator iterator() {
 		return Iterators.filter(field_148748_b.iterator(), Predicates.notNull());

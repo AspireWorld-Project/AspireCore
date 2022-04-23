@@ -8,8 +8,6 @@ import net.minecraft.entity.Entity;
 public class ModelEnderman extends ModelBiped {
 	public boolean isCarrying;
 	public boolean isAttacking;
-	private static final String __OBFID = "CL_00000838";
-
 	public ModelEnderman() {
 		super(0.0F, -14.0F, 64, 32);
 		float f = -14.0F;

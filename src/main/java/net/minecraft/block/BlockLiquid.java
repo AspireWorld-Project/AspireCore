@@ -18,8 +18,6 @@ import java.util.Random;
 public abstract class BlockLiquid extends Block {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] field_149806_a;
-	private static final String __OBFID = "CL_00000265";
-
 	protected BlockLiquid(Material p_i45413_1_) {
 		super(p_i45413_1_);
 		float f = 0.0F;

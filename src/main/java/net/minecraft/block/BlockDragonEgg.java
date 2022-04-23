@@ -13,8 +13,6 @@ import org.bukkit.event.block.BlockFromToEvent;
 import java.util.Random;
 
 public class BlockDragonEgg extends Block {
-	private static final String __OBFID = "CL_00000232";
-
 	public BlockDragonEgg() {
 		super(Material.dragonEgg);
 		setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 1.0F, 0.9375F);

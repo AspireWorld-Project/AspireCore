@@ -7,8 +7,6 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
 public class BlockSoulSand extends Block {
-	private static final String __OBFID = "CL_00000310";
-
 	public BlockSoulSand() {
 		super(Material.sand);
 		setCreativeTab(CreativeTabs.tabBlock);

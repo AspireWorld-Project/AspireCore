@@ -150,6 +150,7 @@ public enum NetworkRegistry {
 	 * @param handlers
 	 * @return
 	 */
+	@SuppressWarnings("unlikely-arg-type")
 	public EnumMap<Side, FMLEmbeddedChannel> newChannel(String name, ChannelHandler... handlers) {
 		if (channels.containsKey(name) || name.startsWith("MC|") || name.startsWith("\u0001") || name.startsWith("FML"))
 			throw new RuntimeException("That channel is already registered");
@@ -198,6 +199,7 @@ public enum NetworkRegistry {
 	 * @return an {@link EnumMap} of the pair of channels. keys are {@link Side}.
 	 *         There will always be two entries.
 	 */
+	@SuppressWarnings("unlikely-arg-type")
 	public EnumMap<Side, FMLEmbeddedChannel> newChannel(ModContainer container, String name,
 			ChannelHandler... handlers) {
 		if (channels.containsKey(name) || name.startsWith("MC|") || name.startsWith("\u0001")

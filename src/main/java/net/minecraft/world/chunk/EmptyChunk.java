@@ -15,8 +15,6 @@ import java.util.List;
 import java.util.Random;
 
 public class EmptyChunk extends Chunk {
-	private static final String __OBFID = "CL_00000372";
-
 	public EmptyChunk(World p_i1994_1_, int p_i1994_2_, int p_i1994_3_) {
 		super(p_i1994_1_, p_i1994_2_, p_i1994_3_);
 	}
@@ -126,11 +124,13 @@ public class EmptyChunk extends Chunk {
 	public void setChunkModified() {
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void getEntitiesWithinAABBForEntity(Entity p_76588_1_, AxisAlignedBB p_76588_2_, List p_76588_3_,
 			IEntitySelector p_76588_4_) {
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void getEntitiesOfTypeWithinAAAB(Class p_76618_1_, AxisAlignedBB p_76618_2_, List p_76618_3_,
 			IEntitySelector p_76618_4_) {

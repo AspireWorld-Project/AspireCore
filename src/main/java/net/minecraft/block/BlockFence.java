@@ -17,14 +17,13 @@ import java.util.List;
 
 public class BlockFence extends Block {
 	private final String field_149827_a;
-	private static final String __OBFID = "CL_00000242";
-
 	public BlockFence(String p_i45406_1_, Material p_i45406_2_) {
 		super(p_i45406_2_);
 		field_149827_a = p_i45406_1_;
 		setCreativeTab(CreativeTabs.tabDecorations);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_,
 			AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_) {

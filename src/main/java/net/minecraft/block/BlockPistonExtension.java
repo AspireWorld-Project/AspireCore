@@ -21,8 +21,6 @@ import java.util.Random;
 public class BlockPistonExtension extends Block {
 	@SideOnly(Side.CLIENT)
 	private IIcon field_150088_a;
-	private static final String __OBFID = "CL_00000367";
-
 	public BlockPistonExtension() {
 		super(Material.piston);
 		setStepSound(soundTypePiston);
@@ -125,6 +123,7 @@ public class BlockPistonExtension extends Block {
 		return 0;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_,
 			AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_) {

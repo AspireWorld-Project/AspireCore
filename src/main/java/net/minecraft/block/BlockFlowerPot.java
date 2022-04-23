@@ -17,8 +17,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class BlockFlowerPot extends BlockContainer {
-	private static final String __OBFID = "CL_00000247";
-
 	public BlockFlowerPot() {
 		super(Material.circuits);
 		setBlockBoundsForItemRender();

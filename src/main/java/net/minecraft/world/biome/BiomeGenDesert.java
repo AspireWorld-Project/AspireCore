@@ -7,8 +7,6 @@ import net.minecraft.world.gen.feature.WorldGenDesertWells;
 import java.util.Random;
 
 public class BiomeGenDesert extends BiomeGenBase {
-	private static final String __OBFID = "CL_00000167";
-
 	public BiomeGenDesert(int p_i1977_1_) {
 		super(p_i1977_1_);
 		spawnableCreatureList.clear();

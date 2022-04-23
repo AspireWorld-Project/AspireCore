@@ -2,10 +2,9 @@ package net.minecraft.server.management;
 
 import java.util.*;
 
+@SuppressWarnings("rawtypes")
 public class LowerStringMap implements Map {
 	private final Map internalMap = new LinkedHashMap();
-	private static final String __OBFID = "CL_00001488";
-
 	@Override
 	public int size() {
 		return internalMap.size();
@@ -31,6 +30,7 @@ public class LowerStringMap implements Map {
 		return internalMap.get(p_get_1_.toString().toLowerCase());
 	}
 
+	@SuppressWarnings("unchecked")
 	public Object put(String p_put_1_, Object p_put_2_) {
 		return internalMap.put(p_put_1_.toLowerCase(), p_put_2_);
 	}

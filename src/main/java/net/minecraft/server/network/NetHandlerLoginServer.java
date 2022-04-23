@@ -5,7 +5,6 @@ import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.exceptions.AuthenticationUnavailableException;
 import com.mojang.authlib.properties.Property;
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
-import io.netty.util.concurrent.GenericFutureListener;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.EnumConnectionState;
 import net.minecraft.network.NetworkManager;
@@ -45,8 +44,6 @@ public class NetHandlerLoginServer implements INetHandlerLoginServer {
 	private static GameProfile field_147337_i;
 	private final String field_147334_j;
 	private SecretKey field_147335_k;
-	private static final String __OBFID = "CL_00001458";
-
 	public NetHandlerLoginServer(MinecraftServer p_i45298_1_, NetworkManager p_i45298_2_) {
 		field_147328_g = NetHandlerLoginServer.LoginState.HELLO;
 		field_147334_j = "";
@@ -167,8 +164,6 @@ public class NetHandlerLoginServer implements INetHandlerLoginServer {
 			field_147328_g = NetHandlerLoginServer.LoginState.AUTHENTICATING;
 			field_147333_a.enableEncryption(field_147335_k);
 			GlobalExecutors.cachedIO().execute(new Runnable() {
-				private static final String __OBFID = "CL_00001459";
-
 				@Override
 				public void run() {
 					GameProfile gameprofile = field_147337_i;

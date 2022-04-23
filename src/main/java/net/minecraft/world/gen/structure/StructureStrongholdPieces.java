@@ -28,26 +28,22 @@ public class StructureStrongholdPieces {
 			new StructureStrongholdPieces.PieceWeight(StructureStrongholdPieces.Crossing.class, 5, 4),
 			new StructureStrongholdPieces.PieceWeight(StructureStrongholdPieces.ChestCorridor.class, 5, 4),
 			new StructureStrongholdPieces.PieceWeight(StructureStrongholdPieces.Library.class, 10, 2) {
-				private static final String __OBFID = "CL_00000484";
-
 				@Override
 				public boolean canSpawnMoreStructuresOfType(int p_75189_1_) {
 					return super.canSpawnMoreStructuresOfType(p_75189_1_) && p_75189_1_ > 4;
 				}
 			}, new StructureStrongholdPieces.PieceWeight(StructureStrongholdPieces.PortalRoom.class, 20, 1) {
-				private static final String __OBFID = "CL_00000485";
-
 				@Override
 				public boolean canSpawnMoreStructuresOfType(int p_75189_1_) {
 					return super.canSpawnMoreStructuresOfType(p_75189_1_) && p_75189_1_ > 5;
 				}
 			} };
+	@SuppressWarnings("rawtypes")
 	private static List structurePieceList;
+	@SuppressWarnings("rawtypes")
 	private static Class strongComponentType;
 	static int totalWeight;
 	private static final StructureStrongholdPieces.Stones strongholdStones = new StructureStrongholdPieces.Stones(null);
-	private static final String __OBFID = "CL_00000483";
-
 	public static void registerStrongholdPieces() {
 		MapGenStructureIO.func_143031_a(StructureStrongholdPieces.ChestCorridor.class, "SHCC");
 		MapGenStructureIO.func_143031_a(StructureStrongholdPieces.Corridor.class, "SHFC");
@@ -64,6 +60,7 @@ public class StructureStrongholdPieces {
 		MapGenStructureIO.func_143031_a(StructureStrongholdPieces.StairsStraight.class, "SHSSD");
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void prepareStructurePieces() {
 		structurePieceList = new ArrayList();
 		StructureStrongholdPieces.PieceWeight[] apieceweight = pieceWeightArray;
@@ -78,6 +75,7 @@ public class StructureStrongholdPieces {
 		strongComponentType = null;
 	}
 
+	@SuppressWarnings("rawtypes")
 	private static boolean canAddStructurePieces() {
 		boolean flag = false;
 		totalWeight = 0;
@@ -95,6 +93,7 @@ public class StructureStrongholdPieces {
 		return flag;
 	}
 
+	@SuppressWarnings("rawtypes")
 	private static StructureStrongholdPieces.Stronghold getStrongholdComponentFromWeightedPiece(Class p_75200_0_,
 			List p_75200_1_, Random p_75200_2_, int p_75200_3_, int p_75200_4_, int p_75200_5_, int p_75200_6_,
 			int p_75200_7_) {
@@ -138,6 +137,7 @@ public class StructureStrongholdPieces {
 		return (StructureStrongholdPieces.Stronghold) object;
 	}
 
+	@SuppressWarnings("rawtypes")
 	private static StructureStrongholdPieces.Stronghold getNextComponent(StructureStrongholdPieces.Stairs2 p_75201_0_,
 			List p_75201_1_, Random p_75201_2_, int p_75201_3_, int p_75201_4_, int p_75201_5_, int p_75201_6_,
 			int p_75201_7_) {
@@ -200,6 +200,7 @@ public class StructureStrongholdPieces {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static StructureComponent getNextValidComponent(StructureStrongholdPieces.Stairs2 p_75196_0_,
 			List p_75196_1_, Random p_75196_2_, int p_75196_3_, int p_75196_4_, int p_75196_5_, int p_75196_6_,
 			int p_75196_7_) {
@@ -241,8 +242,6 @@ public class StructureStrongholdPieces {
 				new WeightedRandomChestContent(Items.golden_horse_armor, 0, 1, 1, 1),
 				new WeightedRandomChestContent(Items.diamond_horse_armor, 0, 1, 1, 1) };
 		private boolean hasMadeChest;
-		private static final String __OBFID = "CL_00000487";
-
 		public ChestCorridor() {
 		}
 
@@ -265,11 +264,13 @@ public class StructureStrongholdPieces {
 			hasMadeChest = p_143011_1_.getBoolean("Chest");
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			getNextComponentNormal((StructureStrongholdPieces.Stairs2) p_74861_1_, p_74861_2_, p_74861_3_, 1, 1);
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureStrongholdPieces.ChestCorridor findValidPlacement(List p_75000_0_, Random p_75000_1_,
 				int p_75000_2_, int p_75000_3_, int p_75000_4_, int p_75000_5_, int p_75000_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_75000_2_,
@@ -322,8 +323,6 @@ public class StructureStrongholdPieces {
 
 	public static class Corridor extends StructureStrongholdPieces.Stronghold {
 		private int field_74993_a;
-		private static final String __OBFID = "CL_00000488";
-
 		public Corridor() {
 		}
 
@@ -346,6 +345,7 @@ public class StructureStrongholdPieces {
 			field_74993_a = p_143011_1_.getInteger("Steps");
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureBoundingBox func_74992_a(List p_74992_0_, Random p_74992_1_, int p_74992_2_,
 				int p_74992_3_, int p_74992_4_, int p_74992_5_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_74992_2_,
@@ -408,8 +408,6 @@ public class StructureStrongholdPieces {
 		private boolean field_74997_c;
 		private boolean field_74995_d;
 		private boolean field_74999_h;
-		private static final String __OBFID = "CL_00000489";
-
 		public Crossing() {
 		}
 
@@ -442,6 +440,7 @@ public class StructureStrongholdPieces {
 			field_74999_h = p_143011_1_.getBoolean("rightHigh");
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			int i = 3;
@@ -471,6 +470,7 @@ public class StructureStrongholdPieces {
 			}
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureStrongholdPieces.Crossing findValidPlacement(List p_74994_0_, Random p_74994_1_,
 				int p_74994_2_, int p_74994_3_, int p_74994_4_, int p_74994_5_, int p_74994_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_74994_2_,
@@ -535,8 +535,6 @@ public class StructureStrongholdPieces {
 	}
 
 	public static class LeftTurn extends StructureStrongholdPieces.Stronghold {
-		private static final String __OBFID = "CL_00000490";
-
 		public LeftTurn() {
 		}
 
@@ -547,6 +545,7 @@ public class StructureStrongholdPieces {
 			boundingBox = p_i2074_3_;
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			if (coordBaseMode != 2 && coordBaseMode != 3) {
@@ -556,6 +555,7 @@ public class StructureStrongholdPieces {
 			}
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureStrongholdPieces.LeftTurn findValidPlacement(List p_75010_0_, Random p_75010_1_,
 				int p_75010_2_, int p_75010_3_, int p_75010_4_, int p_75010_5_, int p_75010_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_75010_2_,
@@ -594,8 +594,6 @@ public class StructureStrongholdPieces {
 				new WeightedRandomChestContent(Items.map, 0, 1, 1, 1),
 				new WeightedRandomChestContent(Items.compass, 0, 1, 1, 1) };
 		private boolean isLargeRoom;
-		private static final String __OBFID = "CL_00000491";
-
 		public Library() {
 		}
 
@@ -619,6 +617,7 @@ public class StructureStrongholdPieces {
 			isLargeRoom = p_143011_1_.getBoolean("Tall");
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureStrongholdPieces.Library findValidPlacement(List p_75006_0_, Random p_75006_1_,
 				int p_75006_2_, int p_75006_3_, int p_75006_4_, int p_75006_5_, int p_75006_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_75006_2_,
@@ -752,12 +751,12 @@ public class StructureStrongholdPieces {
 	}
 
 	static class PieceWeight {
+		@SuppressWarnings("rawtypes")
 		public Class pieceClass;
 		public final int pieceWeight;
 		public int instancesSpawned;
 		public int instancesLimit;
-		private static final String __OBFID = "CL_00000492";
-
+		@SuppressWarnings("rawtypes")
 		public PieceWeight(Class p_i2076_1_, int p_i2076_2_, int p_i2076_3_) {
 			pieceClass = p_i2076_1_;
 			pieceWeight = p_i2076_2_;
@@ -775,8 +774,6 @@ public class StructureStrongholdPieces {
 
 	public static class PortalRoom extends StructureStrongholdPieces.Stronghold {
 		private boolean hasSpawner;
-		private static final String __OBFID = "CL_00000493";
-
 		public PortalRoom() {
 		}
 
@@ -798,6 +795,7 @@ public class StructureStrongholdPieces {
 			hasSpawner = p_143011_1_.getBoolean("Mob");
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			if (p_74861_1_ != null) {
@@ -805,6 +803,7 @@ public class StructureStrongholdPieces {
 			}
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureStrongholdPieces.PortalRoom findValidPlacement(List p_75004_0_, Random p_75004_1_,
 				int p_75004_2_, int p_75004_3_, int p_75004_4_, int p_75004_5_, int p_75004_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_75004_2_,
@@ -936,8 +935,6 @@ public class StructureStrongholdPieces {
 	}
 
 	public static class Prison extends StructureStrongholdPieces.Stronghold {
-		private static final String __OBFID = "CL_00000494";
-
 		public Prison() {
 		}
 
@@ -948,11 +945,13 @@ public class StructureStrongholdPieces {
 			boundingBox = p_i2078_3_;
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			getNextComponentNormal((StructureStrongholdPieces.Stairs2) p_74861_1_, p_74861_2_, p_74861_3_, 1, 1);
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureStrongholdPieces.Prison findValidPlacement(List p_75016_0_, Random p_75016_1_,
 				int p_75016_2_, int p_75016_3_, int p_75016_4_, int p_75016_5_, int p_75016_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_75016_2_,
@@ -999,8 +998,7 @@ public class StructureStrongholdPieces {
 	}
 
 	public static class RightTurn extends StructureStrongholdPieces.LeftTurn {
-		private static final String __OBFID = "CL_00000495";
-
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			if (coordBaseMode != 2 && coordBaseMode != 3) {
@@ -1040,8 +1038,6 @@ public class StructureStrongholdPieces {
 				new WeightedRandomChestContent(Items.apple, 0, 1, 3, 15),
 				new WeightedRandomChestContent(Items.iron_pickaxe, 0, 1, 1, 1) };
 		protected int roomType;
-		private static final String __OBFID = "CL_00000496";
-
 		public RoomCrossing() {
 		}
 
@@ -1065,6 +1061,7 @@ public class StructureStrongholdPieces {
 			roomType = p_143011_1_.getInteger("Type");
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			getNextComponentNormal((StructureStrongholdPieces.Stairs2) p_74861_1_, p_74861_2_, p_74861_3_, 4, 1);
@@ -1072,6 +1069,7 @@ public class StructureStrongholdPieces {
 			getNextComponentZ((StructureStrongholdPieces.Stairs2) p_74861_1_, p_74861_2_, p_74861_3_, 1, 4);
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureStrongholdPieces.RoomCrossing findValidPlacement(List p_75012_0_, Random p_75012_1_,
 				int p_75012_2_, int p_75012_3_, int p_75012_4_, int p_75012_5_, int p_75012_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_75012_2_,
@@ -1188,8 +1186,6 @@ public class StructureStrongholdPieces {
 
 	public static class Stairs extends StructureStrongholdPieces.Stronghold {
 		private boolean field_75024_a;
-		private static final String __OBFID = "CL_00000498";
-
 		public Stairs() {
 		}
 
@@ -1231,6 +1227,7 @@ public class StructureStrongholdPieces {
 			field_75024_a = p_143011_1_.getBoolean("Source");
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			if (field_75024_a) {
@@ -1240,6 +1237,7 @@ public class StructureStrongholdPieces {
 			getNextComponentNormal((StructureStrongholdPieces.Stairs2) p_74861_1_, p_74861_2_, p_74861_3_, 1, 1);
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureStrongholdPieces.Stairs getStrongholdStairsComponent(List p_75022_0_, Random p_75022_1_,
 				int p_75022_2_, int p_75022_3_, int p_75022_4_, int p_75022_5_, int p_75022_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_75022_2_,
@@ -1286,9 +1284,8 @@ public class StructureStrongholdPieces {
 	public static class Stairs2 extends StructureStrongholdPieces.Stairs {
 		public StructureStrongholdPieces.PieceWeight strongholdPieceWeight;
 		public StructureStrongholdPieces.PortalRoom strongholdPortalRoom;
+		@SuppressWarnings("rawtypes")
 		public List field_75026_c = new ArrayList();
-		private static final String __OBFID = "CL_00000499";
-
 		public Stairs2() {
 		}
 
@@ -1303,8 +1300,6 @@ public class StructureStrongholdPieces {
 	}
 
 	public static class StairsStraight extends StructureStrongholdPieces.Stronghold {
-		private static final String __OBFID = "CL_00000501";
-
 		public StairsStraight() {
 		}
 
@@ -1315,11 +1310,13 @@ public class StructureStrongholdPieces {
 			boundingBox = p_i2085_3_;
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			getNextComponentNormal((StructureStrongholdPieces.Stairs2) p_74861_1_, p_74861_2_, p_74861_3_, 1, 1);
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureStrongholdPieces.StairsStraight findValidPlacement(List p_75028_0_, Random p_75028_1_,
 				int p_75028_2_, int p_75028_3_, int p_75028_4_, int p_75028_5_, int p_75028_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_75028_2_,
@@ -1361,8 +1358,6 @@ public class StructureStrongholdPieces {
 	}
 
 	static class Stones extends StructureComponent.BlockSelector {
-		private static final String __OBFID = "CL_00000497";
-
 		private Stones() {
 		}
 
@@ -1397,8 +1392,6 @@ public class StructureStrongholdPieces {
 	public static class Straight extends StructureStrongholdPieces.Stronghold {
 		private boolean expandsX;
 		private boolean expandsZ;
-		private static final String __OBFID = "CL_00000500";
-
 		public Straight() {
 		}
 
@@ -1425,6 +1418,7 @@ public class StructureStrongholdPieces {
 			expandsZ = p_143011_1_.getBoolean("Right");
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			getNextComponentNormal((StructureStrongholdPieces.Stairs2) p_74861_1_, p_74861_2_, p_74861_3_, 1, 1);
@@ -1438,6 +1432,7 @@ public class StructureStrongholdPieces {
 			}
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureStrongholdPieces.Straight findValidPlacement(List p_75018_0_, Random p_75018_1_,
 				int p_75018_2_, int p_75018_3_, int p_75018_4_, int p_75018_5_, int p_75018_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_75018_2_,
@@ -1479,8 +1474,6 @@ public class StructureStrongholdPieces {
 
 	public abstract static class Stronghold extends StructureComponent {
 		protected StructureStrongholdPieces.Stronghold.Door field_143013_d;
-		private static final String __OBFID = "CL_00000503";
-
 		public Stronghold() {
 			field_143013_d = StructureStrongholdPieces.Stronghold.Door.OPENING;
 		}
@@ -1593,6 +1586,7 @@ public class StructureStrongholdPieces {
 			}
 		}
 
+		@SuppressWarnings("rawtypes")
 		protected StructureComponent getNextComponentNormal(StructureStrongholdPieces.Stairs2 p_74986_1_,
 				List p_74986_2_, Random p_74986_3_, int p_74986_4_, int p_74986_5_) {
 			switch (coordBaseMode) {
@@ -1617,6 +1611,7 @@ public class StructureStrongholdPieces {
 			}
 		}
 
+		@SuppressWarnings("rawtypes")
 		protected StructureComponent getNextComponentX(StructureStrongholdPieces.Stairs2 p_74989_1_, List p_74989_2_,
 				Random p_74989_3_, int p_74989_4_, int p_74989_5_) {
 			switch (coordBaseMode) {
@@ -1641,6 +1636,7 @@ public class StructureStrongholdPieces {
 			}
 		}
 
+		@SuppressWarnings("rawtypes")
 		protected StructureComponent getNextComponentZ(StructureStrongholdPieces.Stairs2 p_74987_1_, List p_74987_2_,
 				Random p_74987_3_, int p_74987_4_, int p_74987_5_) {
 			switch (coordBaseMode) {
@@ -1670,16 +1666,12 @@ public class StructureStrongholdPieces {
 		}
 
 		public enum Door {
-			OPENING, WOOD_DOOR, GRATES, IRON_DOOR;
-
-			private static final String __OBFID = "CL_00000504";
+			OPENING, WOOD_DOOR, GRATES, IRON_DOOR
 		}
 	}
 
 	static final class SwitchDoor {
 		static final int[] doorEnum = new int[StructureStrongholdPieces.Stronghold.Door.values().length];
-		private static final String __OBFID = "CL_00000486";
-
 		static {
 			try {
 				doorEnum[StructureStrongholdPieces.Stronghold.Door.OPENING.ordinal()] = 1;

@@ -15,19 +15,20 @@ import java.util.TreeMap;
 public class GuiSnooper extends GuiScreen {
 	private final GuiScreen field_146608_a;
 	private final GameSettings field_146603_f;
+	@SuppressWarnings("rawtypes")
 	private final java.util.List field_146604_g = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	private final java.util.List field_146609_h = new ArrayList();
 	private String field_146610_i;
 	private String[] field_146607_r;
 	private GuiSnooper.List field_146606_s;
 	private GuiButton field_146605_t;
-	private static final String __OBFID = "CL_00000714";
-
 	public GuiSnooper(GuiScreen p_i1061_1_, GameSettings p_i1061_2_) {
 		field_146608_a = p_i1061_1_;
 		field_146603_f = p_i1061_2_;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void initGui() {
 		field_146610_i = I18n.format("options.snooper.title");
@@ -106,8 +107,6 @@ public class GuiSnooper extends GuiScreen {
 
 	@SideOnly(Side.CLIENT)
 	class List extends GuiSlot {
-		private static final String __OBFID = "CL_00000715";
-
 		public List() {
 			super(GuiSnooper.this.mc, GuiSnooper.this.width, GuiSnooper.this.height, 80, GuiSnooper.this.height - 40,
 					GuiSnooper.this.fontRendererObj.FONT_HEIGHT + 1);

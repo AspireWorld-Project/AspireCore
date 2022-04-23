@@ -15,12 +15,11 @@ public class GuiShareToLan extends GuiScreen {
 	private GuiButton field_146597_g;
 	private String field_146599_h = "survival";
 	private boolean field_146600_i;
-	private static final String __OBFID = "CL_00000713";
-
 	public GuiShareToLan(GuiScreen p_i1055_1_) {
 		field_146598_a = p_i1055_1_;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		buttonList.clear();

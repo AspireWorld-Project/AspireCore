@@ -29,8 +29,6 @@ public interface ISound {
 		NONE(0), LINEAR(2);
 		private final int field_148589_c;
 
-		private static final String __OBFID = "CL_00001126";
-
 		AttenuationType(int p_i45110_3_) {
 			field_148589_c = p_i45110_3_;
 		}

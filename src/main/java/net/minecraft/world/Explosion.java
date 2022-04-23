@@ -30,10 +30,10 @@ public class Explosion {
 	public double explosionZ;
 	public Entity exploder;
 	public float explosionSize;
+	@SuppressWarnings("rawtypes")
 	public List affectedBlockPositions = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	private final Map field_77288_k = new HashMap();
-	private static final String __OBFID = "CL_00000134";
-
 	public Explosion(World p_i1948_1_, Entity p_i1948_2_, double p_i1948_3_, double p_i1948_5_, double p_i1948_7_,
 			float p_i1948_9_) {
 		worldObj = p_i1948_1_;
@@ -44,6 +44,7 @@ public class Explosion {
 		explosionZ = p_i1948_7_;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void doExplosionA() {
 		// CraftBukkit start
 		if (explosionSize < 0.1F)
@@ -154,6 +155,7 @@ public class Explosion {
 		explosionSize = f;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void doExplosionB(boolean p_77279_1_) {
 		worldObj.playSoundEffect(explosionX, explosionY, explosionZ, "random.explode", 4.0F,
 				(1.0F + (worldObj.rand.nextFloat() - worldObj.rand.nextFloat()) * 0.2F) * 0.7F);
@@ -266,6 +268,7 @@ public class Explosion {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Map func_77277_b() {
 		return field_77288_k;
 	}

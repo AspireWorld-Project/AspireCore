@@ -3,8 +3,6 @@ package net.minecraft.util;
 public class RegistryNamespacedDefaultedByKey extends RegistryNamespaced {
 	private final String field_148760_d;
 	private Object field_148761_e;
-	private static final String __OBFID = "CL_00001196";
-
 	public RegistryNamespacedDefaultedByKey(String p_i45127_1_) {
 		field_148760_d = p_i45127_1_;
 	}

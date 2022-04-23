@@ -25,8 +25,6 @@ public class WorldGenBigTree extends WorldGenAbstractTree {
 	int heightLimitLimit = 12;
 	int leafDistanceLimit = 4;
 	int[][] leafNodes;
-	private static final String __OBFID = "CL_00000400";
-
 	public WorldGenBigTree(boolean p_i2008_1_) {
 		super(p_i2008_1_);
 	}

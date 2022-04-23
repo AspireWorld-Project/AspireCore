@@ -18,8 +18,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class BlockPistonMoving extends BlockContainer {
-	private static final String __OBFID = "CL_00000368";
-
 	public BlockPistonMoving() {
 		super(Material.piston);
 		setHardness(-1.0F);

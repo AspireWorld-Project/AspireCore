@@ -435,6 +435,7 @@ public class ForgeHooks {
 		return true;
 	}
 
+	@SuppressWarnings("unchecked")
 	public static boolean onPlaceItemIntoWorld(ItemStack itemstack, EntityPlayer player, World world, int x, int y,
 			int z, int side, float hitX, float hitY, float hitZ) {
 		int meta = itemstack.getItemDamage();

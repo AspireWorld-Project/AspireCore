@@ -7,8 +7,6 @@ public class AxisAlignedBB {
 	public double maxX;
 	public double maxY;
 	public double maxZ;
-	private static final String __OBFID = "CL_00000607";
-
 	public static AxisAlignedBB getBoundingBox(double p_72330_0_, double p_72330_2_, double p_72330_4_,
 			double p_72330_6_, double p_72330_8_, double p_72330_10_) {
 		return new AxisAlignedBB(p_72330_0_, p_72330_2_, p_72330_4_, p_72330_6_, p_72330_8_, p_72330_10_);

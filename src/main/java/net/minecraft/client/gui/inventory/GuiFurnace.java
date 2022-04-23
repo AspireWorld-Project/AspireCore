@@ -14,8 +14,6 @@ public class GuiFurnace extends GuiContainer {
 	private static final ResourceLocation furnaceGuiTextures = new ResourceLocation(
 			"textures/gui/container/furnace.png");
 	private final TileEntityFurnace tileFurnace;
-	private static final String __OBFID = "CL_00000758";
-
 	public GuiFurnace(InventoryPlayer p_i1091_1_, TileEntityFurnace p_i1091_2_) {
 		super(new ContainerFurnace(p_i1091_1_, p_i1091_2_));
 		tileFurnace = p_i1091_2_;

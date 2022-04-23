@@ -17,8 +17,6 @@ public class BiomeGenHills extends BiomeGenBase {
 	private final int field_150636_aF;
 	private final int field_150637_aG;
 	private int field_150638_aH;
-	private static final String __OBFID = "CL_00000168";
-
 	public BiomeGenHills(int p_i45373_1_, boolean p_i45373_2_) {
 		super(p_i45373_1_);
 		theWorldGenerator = new WorldGenMinable(Blocks.monster_egg, 8);

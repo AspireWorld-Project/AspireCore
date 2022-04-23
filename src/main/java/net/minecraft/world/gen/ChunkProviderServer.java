@@ -46,6 +46,7 @@ public class ChunkProviderServer implements IChunkProvider {
 	public ChunkMap chunkMap = new ChunkMap();
 	public LongHashMap loadedChunkHashMap = new VanillaChunkHashMap(chunkMap); // mods compatibility
 	public WorldServer worldObj;
+	@SuppressWarnings("rawtypes")
 	public List loadedChunks = new AbstractList() // mods compatibility
 	{
 		@Override
@@ -68,8 +69,6 @@ public class ChunkProviderServer implements IChunkProvider {
 			return chunkMap.valueCollection().toArray();
 		}
 	};
-	private static final String __OBFID = "CL_00001436";
-
 	public ChunkProviderServer(WorldServer par1WorldServer, IChunkLoader par2IChunkLoader,
 			IChunkProvider par3IChunkProvider) {
 		defaultEmptyChunk = new EmptyChunk(par1WorldServer, 0, 0);
@@ -82,6 +81,7 @@ public class ChunkProviderServer implements IChunkProvider {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List func_152380_a() {
 		return new ArrayList<>(chunkMap.valueCollection());
 	}
@@ -369,6 +369,7 @@ public class ChunkProviderServer implements IChunkProvider {
 		return "ServerChunkCache: " + chunkMap.size() + " Drop: " + unloadQueue.size();
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List getPossibleCreatures(EnumCreatureType par1EnumCreatureType, int par2, int par3, int par4) {
 		return currentChunkProvider.getPossibleCreatures(par1EnumCreatureType, par2, par3, par4);

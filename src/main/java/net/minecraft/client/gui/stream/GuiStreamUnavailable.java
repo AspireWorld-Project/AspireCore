@@ -32,14 +32,15 @@ public class GuiStreamUnavailable extends GuiScreen {
 	private final IChatComponent field_152324_f;
 	private final GuiScreen field_152325_g;
 	private final GuiStreamUnavailable.Reason field_152326_h;
+	@SuppressWarnings("rawtypes")
 	private final List field_152327_i;
+	@SuppressWarnings("rawtypes")
 	private final List field_152323_r;
-	private static final String __OBFID = "CL_00001840";
-
 	public GuiStreamUnavailable(GuiScreen p_i1070_1_, GuiStreamUnavailable.Reason p_i1070_2_) {
 		this(p_i1070_1_, p_i1070_2_, null);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public GuiStreamUnavailable(GuiScreen p_i1071_1_, GuiStreamUnavailable.Reason p_i1071_2_, List p_i1071_3_) {
 		field_152324_f = new ChatComponentTranslation("stream.unavailable.title");
 		field_152323_r = Lists.newArrayList();
@@ -48,6 +49,7 @@ public class GuiStreamUnavailable extends GuiScreen {
 		field_152327_i = p_i1071_3_;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public void initGui() {
 		if (field_152323_r.isEmpty()) {
@@ -80,6 +82,7 @@ public class GuiStreamUnavailable extends GuiScreen {
 	public void onGuiClosed() {
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void drawScreen(int p_73863_1_, int p_73863_2_, float p_73863_3_) {
 		drawDefaultBackground();
@@ -122,6 +125,7 @@ public class GuiStreamUnavailable extends GuiScreen {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void func_152320_a(String p_152320_1_) {
 		try {
 			Class oclass = Class.forName("java.awt.Desktop");
@@ -132,6 +136,7 @@ public class GuiStreamUnavailable extends GuiScreen {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void func_152321_a(GuiScreen p_152321_0_) {
 		Minecraft minecraft = Minecraft.getMinecraft();
 		IStream istream = minecraft.func_152346_Z();
@@ -255,8 +260,6 @@ public class GuiStreamUnavailable extends GuiScreen {
 		private final IChatComponent field_152574_m;
 		private final IChatComponent field_152575_n;
 
-		private static final String __OBFID = "CL_00001838";
-
 		Reason(IChatComponent p_i1066_3_) {
 			this(p_i1066_3_, null);
 		}
@@ -283,8 +286,6 @@ public class GuiStreamUnavailable extends GuiScreen {
 		static final int[] field_152578_b;
 
 		static final int[] field_152579_c = new int[IStream.AuthFailureReason.values().length];
-		private static final String __OBFID = "CL_00001839";
-
 		static {
 			try {
 				field_152579_c[IStream.AuthFailureReason.INVALID_TOKEN.ordinal()] = 1;

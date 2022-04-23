@@ -16,8 +16,6 @@ import java.util.Random;
 import static net.minecraftforge.common.util.ForgeDirection.*;
 
 public class BlockTripWireHook extends Block {
-	private static final String __OBFID = "CL_00000329";
-
 	public BlockTripWireHook() {
 		super(Material.circuits);
 		setCreativeTab(CreativeTabs.tabRedstone);

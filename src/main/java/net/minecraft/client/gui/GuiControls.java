@@ -18,13 +18,12 @@ public class GuiControls extends GuiScreen {
 	public long field_152177_g;
 	private GuiKeyBindingList keyBindingList;
 	private GuiButton field_146493_s;
-	private static final String __OBFID = "CL_00000736";
-
 	public GuiControls(GuiScreen p_i1027_1_, GameSettings p_i1027_2_) {
 		parentScreen = p_i1027_1_;
 		options = p_i1027_2_;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		keyBindingList = new GuiKeyBindingList(this, mc);

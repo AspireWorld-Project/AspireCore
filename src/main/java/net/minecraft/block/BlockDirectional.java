@@ -3,8 +3,6 @@ package net.minecraft.block;
 import net.minecraft.block.material.Material;
 
 public abstract class BlockDirectional extends Block {
-	private static final String __OBFID = "CL_00000227";
-
 	protected BlockDirectional(Material p_i45401_1_) {
 		super(p_i45401_1_);
 	}

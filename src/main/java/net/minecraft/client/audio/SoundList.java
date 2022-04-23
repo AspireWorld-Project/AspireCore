@@ -8,11 +8,11 @@ import java.util.List;
 
 @SideOnly(Side.CLIENT)
 public class SoundList {
+	@SuppressWarnings("rawtypes")
 	private final List field_148577_a = Lists.newArrayList();
 	private boolean replaceExisting;
 	private SoundCategory field_148576_c;
-	private static final String __OBFID = "CL_00001121";
-
+	@SuppressWarnings("rawtypes")
 	public List getSoundList() {
 		return field_148577_a;
 	}
@@ -41,8 +41,6 @@ public class SoundList {
 		private int field_148565_d = 1;
 		private SoundList.SoundEntry.Type field_148566_e;
 		private boolean field_148564_f;
-		private static final String __OBFID = "CL_00001122";
-
 		public SoundEntry() {
 			field_148566_e = SoundList.SoundEntry.Type.FILE;
 			field_148564_f = false;
@@ -100,8 +98,6 @@ public class SoundList {
 		public enum Type {
 			FILE("file"), SOUND_EVENT("event");
 			private final String field_148583_c;
-
-			private static final String __OBFID = "CL_00001123";
 
 			Type(String p_i45109_3_) {
 				field_148583_c = p_i45109_3_;

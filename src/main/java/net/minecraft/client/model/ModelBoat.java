@@ -7,8 +7,6 @@ import net.minecraft.entity.Entity;
 @SideOnly(Side.CLIENT)
 public class ModelBoat extends ModelBase {
 	public ModelRenderer[] boatSides = new ModelRenderer[5];
-	private static final String __OBFID = "CL_00000832";
-
 	public ModelBoat() {
 		boatSides[0] = new ModelRenderer(this, 0, 8);
 		boatSides[1] = new ModelRenderer(this, 0, 0);

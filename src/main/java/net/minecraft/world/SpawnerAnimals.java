@@ -18,9 +18,8 @@ import net.minecraftforge.event.ForgeEventFactory;
 import java.util.*;
 
 public final class SpawnerAnimals {
+	@SuppressWarnings("rawtypes")
 	private final HashMap eligibleChunksForSpawning = new HashMap();
-	private static final String __OBFID = "CL_00000152";
-
 	protected static ChunkPosition func_151350_a(World p_151350_0_, int p_151350_1_, int p_151350_2_) {
 		Chunk chunk = p_151350_0_.getChunkFromChunkCoords(p_151350_1_, p_151350_2_);
 		int k = p_151350_1_ * 16 + p_151350_0_.rand.nextInt(16);
@@ -30,6 +29,7 @@ public final class SpawnerAnimals {
 		return new ChunkPosition(k, i1, l);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public int findChunksForSpawning(WorldServer p_77192_1_, boolean p_77192_2_, boolean p_77192_3_,
 			boolean p_77192_4_) {
 		if (!p_77192_2_ && !p_77192_3_)
@@ -213,6 +213,7 @@ public final class SpawnerAnimals {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void performWorldGenSpawning(World p_77191_0_, BiomeGenBase p_77191_1_, int p_77191_2_,
 			int p_77191_3_, int p_77191_4_, int p_77191_5_, Random p_77191_6_) {
 		List list = p_77191_1_.getSpawnableList(EnumCreatureType.creature);

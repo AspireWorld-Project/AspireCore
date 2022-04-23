@@ -25,7 +25,6 @@ public class BlockSapling extends BlockBush implements IGrowable {
 	public static final String[] field_149882_a = new String[] { "oak", "spruce", "birch", "jungle", "acacia",
 			"roofed_oak" };
 	private static final IIcon[] field_149881_b = new IIcon[field_149882_a.length];
-	private static final String __OBFID = "CL_00000305";
 	public static UMTreeType treeType;
 
 	protected BlockSapling() {
@@ -34,6 +33,7 @@ public class BlockSapling extends BlockBush implements IGrowable {
 		setCreativeTab(CreativeTabs.tabDecorations);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random random) {
 		if (!world.isRemote) {
@@ -221,6 +221,7 @@ public class BlockSapling extends BlockBush implements IGrowable {
 		return MathHelper.clamp_int(p_149692_1_ & 7, 0, 5);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {

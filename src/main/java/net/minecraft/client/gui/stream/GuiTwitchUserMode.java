@@ -27,11 +27,11 @@ public class GuiTwitchUserMode extends GuiScreen {
 	private static final EnumChatFormatting field_152336_g = EnumChatFormatting.DARK_PURPLE;
 	private final ChatUserInfo field_152337_h;
 	private final IChatComponent field_152338_i;
+	@SuppressWarnings("rawtypes")
 	private final List field_152332_r = Lists.newArrayList();
 	private final IStream field_152333_s;
 	private int field_152334_t;
-	private static final String __OBFID = "CL_00001837";
-
+	@SuppressWarnings("unchecked")
 	public GuiTwitchUserMode(IStream p_i1064_1_, ChatUserInfo p_i1064_2_) {
 		field_152333_s = p_i1064_1_;
 		field_152337_h = p_i1064_2_;
@@ -39,6 +39,7 @@ public class GuiTwitchUserMode extends GuiScreen {
 		field_152332_r.addAll(func_152328_a(p_i1064_2_.modes, p_i1064_2_.subscriptions, p_i1064_1_));
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static List func_152328_a(Set p_152328_0_, Set p_152328_1_, IStream p_152328_2_) {
 		String s = p_152328_2_ == null ? null : p_152328_2_.func_152921_C();
 		boolean flag = p_152328_2_ != null && p_152328_2_.func_152927_B();
@@ -148,6 +149,7 @@ public class GuiTwitchUserMode extends GuiScreen {
 		return chatcomponenttranslation;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public void initGui() {
 		int i = width / 3;
@@ -193,6 +195,7 @@ public class GuiTwitchUserMode extends GuiScreen {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void drawScreen(int p_73863_1_, int p_73863_2_, float p_73863_3_) {
 		drawDefaultBackground();

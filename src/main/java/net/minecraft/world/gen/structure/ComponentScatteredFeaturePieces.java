@@ -1,7 +1,6 @@
 package net.minecraft.world.gen.structure;
 
 import net.minecraft.block.BlockLever;
-import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.monster.EntityWitch;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -16,8 +15,6 @@ import java.util.Random;
 import static net.minecraftforge.common.ChestGenHooks.*;
 
 public class ComponentScatteredFeaturePieces {
-	private static final String __OBFID = "CL_00000473";
-
 	public static void registerScatteredFeaturePieces() {
 		MapGenStructureIO.func_143031_a(ComponentScatteredFeaturePieces.DesertPyramid.class, "TeDP");
 		MapGenStructureIO.func_143031_a(ComponentScatteredFeaturePieces.JunglePyramid.class, "TeJP");
@@ -37,8 +34,6 @@ public class ComponentScatteredFeaturePieces {
 				new WeightedRandomChestContent(Items.iron_horse_armor, 0, 1, 1, 1),
 				new WeightedRandomChestContent(Items.golden_horse_armor, 0, 1, 1, 1),
 				new WeightedRandomChestContent(Items.diamond_horse_armor, 0, 1, 1, 1) };
-		private static final String __OBFID = "CL_00000476";
-
 		public DesertPyramid() {
 		}
 
@@ -302,8 +297,6 @@ public class ComponentScatteredFeaturePieces {
 		protected int scatteredFeatureSizeY;
 		protected int scatteredFeatureSizeZ;
 		protected int field_74936_d = -1;
-		private static final String __OBFID = "CL_00000479";
-
 		public Feature() {
 		}
 
@@ -391,8 +384,6 @@ public class ComponentScatteredFeaturePieces {
 				new WeightedRandomChestContent(Items.arrow, 0, 2, 7, 30) };
 		private static final ComponentScatteredFeaturePieces.JunglePyramid.Stones junglePyramidsRandomScatteredStones = new ComponentScatteredFeaturePieces.JunglePyramid.Stones(
 				null);
-		private static final String __OBFID = "CL_00000477";
-
 		public JunglePyramid() {
 		}
 
@@ -663,8 +654,6 @@ public class ComponentScatteredFeaturePieces {
 		}
 
 		static class Stones extends StructureComponent.BlockSelector {
-			private static final String __OBFID = "CL_00000478";
-
 			private Stones() {
 			}
 
@@ -686,8 +675,6 @@ public class ComponentScatteredFeaturePieces {
 
 	public static class SwampHut extends ComponentScatteredFeaturePieces.Feature {
 		private boolean hasWitch;
-		private static final String __OBFID = "CL_00000480";
-
 		public SwampHut() {
 		}
 

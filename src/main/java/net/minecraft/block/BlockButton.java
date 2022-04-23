@@ -23,8 +23,6 @@ import static net.minecraftforge.common.util.ForgeDirection.*;
 
 public abstract class BlockButton extends Block {
 	private final boolean field_150047_a;
-	private static final String __OBFID = "CL_00000209";
-
 	protected BlockButton(boolean p_i45396_1_) {
 		super(Material.circuits);
 		setTickRandomly(true);
@@ -287,6 +285,7 @@ public abstract class BlockButton extends Block {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void func_150046_n(World p_150046_1_, int p_150046_2_, int p_150046_3_, int p_150046_4_) {
 		int l = p_150046_1_.getBlockMetadata(p_150046_2_, p_150046_3_, p_150046_4_);
 		int i1 = l & 7;

@@ -886,7 +886,6 @@ public final class CraftServer implements Server {
 		Validate.notNull(creator, "Creator may not be null");
 
 		String name = creator.name();
-		ChunkGenerator generator = creator.generator();
 		File folder = new File(getWorldContainer(), name);
 		World world = getWorld(name);
 		net.minecraft.world.WorldType type = net.minecraft.world.WorldType.parseWorldType(creator.type().getName());

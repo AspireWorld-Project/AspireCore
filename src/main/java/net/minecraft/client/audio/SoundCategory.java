@@ -6,16 +6,17 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.Map;
 
+@SuppressWarnings("unchecked")
 @SideOnly(Side.CLIENT)
 public enum SoundCategory {
 	MASTER("master", 0), MUSIC("music", 1), RECORDS("record", 2), WEATHER("weather", 3), BLOCKS("block",
 			4), MOBS("hostile", 5), ANIMALS("neutral", 6), PLAYERS("player", 7), AMBIENT("ambient", 8);
+	@SuppressWarnings("rawtypes")
 	private static final Map field_147168_j = Maps.newHashMap();
+	@SuppressWarnings("rawtypes")
 	private static final Map field_147169_k = Maps.newHashMap();
 	private final String categoryName;
 	private final int categoryId;
-
-	private static final String __OBFID = "CL_00001686";
 
 	SoundCategory(String p_i45126_3_, int p_i45126_4_) {
 		categoryName = p_i45126_3_;

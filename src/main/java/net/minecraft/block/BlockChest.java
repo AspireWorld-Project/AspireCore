@@ -30,8 +30,6 @@ import static net.minecraftforge.common.util.ForgeDirection.DOWN;
 public class BlockChest extends BlockContainer {
 	private final Random field_149955_b = new Random();
 	public final int field_149956_a;
-	private static final String __OBFID = "CL_00000214";
-
 	protected BlockChest(int p_i45397_1_) {
 		super(Material.wood);
 		field_149956_a = p_i45397_1_;
@@ -423,6 +421,7 @@ public class BlockChest extends BlockContainer {
 				: 0;
 	}
 
+	@SuppressWarnings("rawtypes")
 	private static boolean func_149953_o(World p_149953_0_, int p_149953_1_, int p_149953_2_, int p_149953_3_) {
 		Iterator iterator = p_149953_0_
 				.getEntitiesWithinAABB(EntityOcelot.class, AxisAlignedBB.getBoundingBox(p_149953_1_, p_149953_2_ + 1,

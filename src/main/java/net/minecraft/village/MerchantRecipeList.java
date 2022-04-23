@@ -10,9 +10,8 @@ import net.minecraft.network.PacketBuffer;
 import java.io.IOException;
 import java.util.ArrayList;
 
+@SuppressWarnings({ "rawtypes", "serial" })
 public class MerchantRecipeList extends ArrayList {
-	private static final String __OBFID = "CL_00000127";
-
 	public MerchantRecipeList() {
 	}
 
@@ -48,6 +47,7 @@ public class MerchantRecipeList extends ArrayList {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public void addToListWithCheck(MerchantRecipe p_77205_1_) {
 		for (int i = 0; i < size(); ++i) {
 			MerchantRecipe merchantrecipe1 = (MerchantRecipe) get(i);
@@ -82,6 +82,7 @@ public class MerchantRecipeList extends ArrayList {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public void readRecipiesFromTags(NBTTagCompound p_77201_1_) {
 		NBTTagList nbttaglist = p_77201_1_.getTagList("Recipes", 10);
 
@@ -104,6 +105,7 @@ public class MerchantRecipeList extends ArrayList {
 		return nbttagcompound;
 	}
 
+	@SuppressWarnings("unchecked")
 	@SideOnly(Side.CLIENT)
 	public static MerchantRecipeList func_151390_b(PacketBuffer p_151390_0_) throws IOException {
 		MerchantRecipeList merchantrecipelist = new MerchantRecipeList();

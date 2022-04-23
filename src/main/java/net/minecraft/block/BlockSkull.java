@@ -29,8 +29,6 @@ import java.util.Iterator;
 import java.util.Random;
 
 public class BlockSkull extends BlockContainer {
-	private static final String __OBFID = "CL_00000307";
-
 	protected BlockSkull() {
 		super(Material.circuits);
 		setBlockBounds(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);
@@ -163,6 +161,7 @@ public class BlockSkull extends BlockContainer {
 		return Items.skull;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void func_149965_a(World p_149965_1_, int p_149965_2_, int p_149965_3_, int p_149965_4_,
 			TileEntitySkull p_149965_5_) {
 		if (p_149965_5_.func_145904_a() == 1 && p_149965_3_ >= 2

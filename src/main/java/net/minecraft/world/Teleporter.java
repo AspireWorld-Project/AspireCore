@@ -20,9 +20,8 @@ public class Teleporter {
 	private final WorldServer worldServerInstance;
 	private final Random random;
 	public final LongHashMap destinationCoordinateCache = new LongHashMap();
+	@SuppressWarnings("rawtypes")
 	public final List destinationCoordinateKeys = new ArrayList();
-	private static final String __OBFID = "CL_00000153";
-
 	public Teleporter(WorldServer p_i1963_1_) {
 		worldServerInstance = p_i1963_1_;
 		random = new Random(p_i1963_1_.getSeed());
@@ -105,6 +104,7 @@ public class Teleporter {
 		return true;
 	}
 
+	@SuppressWarnings("unchecked")
 	public ChunkCoordinates findPortal(double x, double y, double z, int short1) {
 		if (worldServerInstance.getWorld().getEnvironment() == org.bukkit.World.Environment.THE_END)
 			return findEndPortal(worldServerInstance.provider.getEntrancePortalLocation());
@@ -489,6 +489,7 @@ public class Teleporter {
 		return true;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void removeStalePortalLocations(long p_85189_1_) {
 		if (p_85189_1_ % 100L == 0L) {
 			Iterator iterator = destinationCoordinateKeys.iterator();
@@ -513,8 +514,6 @@ public class Teleporter {
 
 	public class PortalPosition extends ChunkCoordinates {
 		public long lastUpdateTime;
-		private static final String __OBFID = "CL_00000154";
-
 		public PortalPosition(int p_i1962_2_, int p_i1962_3_, int p_i1962_4_, long p_i1962_5_) {
 			super(p_i1962_2_, p_i1962_3_, p_i1962_4_);
 			lastUpdateTime = p_i1962_5_;

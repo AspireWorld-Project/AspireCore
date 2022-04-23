@@ -13,6 +13,7 @@ public class AchievementList {
 	public static int minDisplayRow;
 	public static int maxDisplayColumn;
 	public static int maxDisplayRow;
+	@SuppressWarnings("rawtypes")
 	public static List achievementList = new ArrayList();
 	public static Achievement openInventory = new Achievement("achievement.openInventory", "openInventory", 0, 0,
 			Items.book, null).initIndependentStat().registerStat();
@@ -80,8 +81,6 @@ public class AchievementList {
 			Blocks.beacon, field_150964_J).setSpecial().registerStat();
 	public static Achievement field_150961_L = new Achievement("achievement.exploreAllBiomes", "exploreAllBiomes", 4, 8,
 			Items.diamond_boots, theEnd).func_150953_b(JsonSerializableSet.class).setSpecial().registerStat();
-	private static final String __OBFID = "CL_00001467";
-
 	public static void init() {
 	}
 }

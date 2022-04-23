@@ -13,8 +13,6 @@ import java.util.Iterator;
 public class WorldManager implements IWorldAccess {
 	private final MinecraftServer mcServer;
 	private final WorldServer theWorldServer;
-	private static final String __OBFID = "CL_00001433";
-
 	public WorldManager(MinecraftServer p_i1517_1_, WorldServer p_i1517_2_) {
 		mcServer = p_i1517_1_;
 		theWorldServer = p_i1517_2_;
@@ -83,6 +81,7 @@ public class WorldManager implements IWorldAccess {
 				new S28PacketEffect(p_82746_1_, p_82746_2_, p_82746_3_, p_82746_4_, p_82746_5_, true));
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void destroyBlockPartially(int p_147587_1_, int p_147587_2_, int p_147587_3_, int p_147587_4_,
 			int p_147587_5_) {

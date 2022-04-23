@@ -10,8 +10,6 @@ import org.bukkit.event.block.BlockSpreadEvent;
 import java.util.Random;
 
 public class BlockMushroom extends BlockBush implements IGrowable {
-	private static final String __OBFID = "CL_00000272";
-
 	protected BlockMushroom() {
 		float f = 0.2F;
 		setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);

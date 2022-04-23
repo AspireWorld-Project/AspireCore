@@ -13,8 +13,7 @@ import java.util.HashMap;
 import java.util.Locale;
 
 public class EnumTypeAdapterFactory implements TypeAdapterFactory {
-	private static final String __OBFID = "CL_00001494";
-
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public TypeAdapter create(Gson p_create_1_, TypeToken p_create_2_) {
 		Class oclass = p_create_2_.getRawType();
@@ -32,8 +31,6 @@ public class EnumTypeAdapterFactory implements TypeAdapterFactory {
 			}
 
 			return new TypeAdapter() {
-				private static final String __OBFID = "CL_00001495";
-
 				@Override
 				public void write(JsonWriter p_write_1_, Object p_write_2_) throws IOException {
 					if (p_write_2_ == null) {
@@ -55,6 +52,7 @@ public class EnumTypeAdapterFactory implements TypeAdapterFactory {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	private String func_151232_a(Object p_151232_1_) {
 		return p_151232_1_ instanceof Enum ? ((Enum) p_151232_1_).name().toLowerCase(Locale.US)
 				: p_151232_1_.toString().toLowerCase(Locale.US);

@@ -12,8 +12,6 @@ public class UserListEntry {
 	}
 
 	private final Object field_152642_a;
-	private static final String __OBFID = "CL_00001877";
-
 	public UserListEntry(Object p_i1146_1_) {
 		field_152642_a = p_i1146_1_;
 	}

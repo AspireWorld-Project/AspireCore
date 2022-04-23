@@ -4,8 +4,6 @@ import java.util.Iterator;
 
 public class ChatComponentText extends ChatComponentStyle {
 	private final String text;
-	private static final String __OBFID = "CL_00001269";
-
 	public ChatComponentText(String p_i45159_1_) {
 		text = p_i45159_1_;
 	}
@@ -19,6 +17,7 @@ public class ChatComponentText extends ChatComponentStyle {
 		return text;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public ChatComponentText createCopy() {
 		ChatComponentText chatcomponenttext = new ChatComponentText(text);

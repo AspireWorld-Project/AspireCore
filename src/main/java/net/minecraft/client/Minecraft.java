@@ -14,7 +14,6 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.StartupQuery;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import io.netty.util.concurrent.GenericFutureListener;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.audio.MusicTicker;
 import net.minecraft.client.audio.SoundHandler;
@@ -106,9 +105,11 @@ public class Minecraft implements IPlayerUsage {
 	private static final ResourceLocation locationMojangPng = new ResourceLocation("textures/gui/title/mojang.png");
 	public static final boolean isRunningOnMac = Util.getOSType() == Util.EnumOS.OSX;
 	public static byte[] memoryReserve = new byte[10485760];
+	@SuppressWarnings("rawtypes")
 	private static final List macDisplayModes = Lists
 			.newArrayList(new DisplayMode(2560, 1600), new DisplayMode(2880, 1800));
 	private final File fileResourcepacks;
+	@SuppressWarnings("rawtypes")
 	private final Multimap field_152356_J;
 	private ServerData currentServerData;
 	public TextureManager renderEngine;
@@ -166,6 +167,7 @@ public class Minecraft implements IPlayerUsage {
 	private long field_83002_am = -1L;
 	private IReloadableResourceManager mcResourceManager;
 	private final IMetadataSerializer metadataSerializer_ = new IMetadataSerializer();
+	@SuppressWarnings("rawtypes")
 	private final List defaultResourcePacks = Lists.newArrayList();
 	public DefaultResourcePack mcDefaultResourcePack;
 	private ResourcePackRepository mcResourcePackRepository;
@@ -178,6 +180,7 @@ public class Minecraft implements IPlayerUsage {
 	private ResourceLocation field_152354_ay;
 	private final MinecraftSessionService field_152355_az;
 	private SkinManager field_152350_aA;
+	@SuppressWarnings("rawtypes")
 	private final Queue field_152351_aB = Queues.newArrayDeque();
 	private final Thread field_152352_aC = Thread.currentThread();
 	volatile boolean running = true;
@@ -186,8 +189,7 @@ public class Minecraft implements IPlayerUsage {
 	int fpsCounter;
 	long prevFrameTime = -1L;
 	private String debugProfilerName = "root";
-	private static final String __OBFID = "CL_00000631";
-
+	@SuppressWarnings("rawtypes")
 	public Minecraft(Session p_i1103_1_, int p_i1103_2_, int p_i1103_3_, boolean p_i1103_4_, boolean p_i1103_5_,
 			File p_i1103_6_, File p_i1103_7_, File p_i1103_8_, Proxy p_i1103_9_, String p_i1103_10_,
 			Multimap p_i1103_11_, String p_i1103_12_) {
@@ -238,8 +240,6 @@ public class Minecraft implements IPlayerUsage {
 
 	private void startTimerHackThread() {
 		Thread thread = new Thread("Timer hack thread") {
-			private static final String __OBFID = "CL_00000632";
-
 			@Override
 			public void run() {
 				while (running) {
@@ -284,6 +284,7 @@ public class Minecraft implements IPlayerUsage {
 		serverPort = p_71367_2_;
 	}
 
+	@SuppressWarnings("unchecked")
 	private void startGame() throws LWJGLException {
 		gameSettings = new GameSettings(this, mcDataDir);
 
@@ -402,8 +403,6 @@ public class Minecraft implements IPlayerUsage {
 		entityRenderer = new EntityRenderer(this, mcResourceManager);
 		mcResourceManager.registerReloadListener(entityRenderer);
 		AchievementList.openInventory.setStatStringFormatter(new IStatStringFormat() {
-			private static final String __OBFID = "CL_00000639";
-
 			@Override
 			public String formatString(String p_74535_1_) {
 				try {
@@ -474,6 +473,7 @@ public class Minecraft implements IPlayerUsage {
 		return mcLanguageManager.isCurrentLocaleUnicode() || gameSettings.forceUnicodeFont;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void refreshResources() {
 		ArrayList arraylist = Lists.newArrayList(defaultResourcePacks);
 		Iterator iterator = mcResourcePackRepository.getRepositoryEntries().iterator();
@@ -506,6 +506,7 @@ public class Minecraft implements IPlayerUsage {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	private void addDefaultResourcePack() {
 		defaultResourcePacks.add(mcDefaultResourcePack);
 	}
@@ -527,6 +528,7 @@ public class Minecraft implements IPlayerUsage {
 		return bytebuffer;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void updateDisplayMode() throws LWJGLException {
 		HashSet hashset = new HashSet();
 		Collections.addAll(hashset, Display.getAvailableDisplayModes());
@@ -940,6 +942,7 @@ public class Minecraft implements IPlayerUsage {
 		System.gc();
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void updateDebugProfilerName(int p_71383_1_) {
 		List list = mcProfiler.getProfilingData(debugProfilerName);
 
@@ -969,6 +972,7 @@ public class Minecraft implements IPlayerUsage {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void displayDebugInfo(long p_71366_1_) {
 		if (mcProfiler.profilingEnabled) {
 			List list = mcProfiler.getProfilingData(debugProfilerName);
@@ -1288,6 +1292,7 @@ public class Minecraft implements IPlayerUsage {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void runTick() {
 		mcProfiler.startSection("scheduledExecutables");
 		synchronized (field_152351_aB) {
@@ -1348,8 +1353,6 @@ public class Minecraft implements IPlayerUsage {
 				crashreport = CrashReport.makeCrashReport(throwable1, "Updating screen events");
 				crashreportcategory = crashreport.makeCategory("Affected screen");
 				crashreportcategory.addCrashSectionCallable("Screen name", new Callable() {
-					private static final String __OBFID = "CL_00000640";
-
 					@Override
 					public String call() {
 						return currentScreen.getClass().getCanonicalName();
@@ -1365,8 +1368,6 @@ public class Minecraft implements IPlayerUsage {
 					crashreport = CrashReport.makeCrashReport(throwable, "Ticking screen");
 					crashreportcategory = crashreport.makeCategory("Affected screen");
 					crashreportcategory.addCrashSectionCallable("Screen name", new Callable() {
-						private static final String __OBFID = "CL_00000642";
-
 						@Override
 						public String call() {
 							return currentScreen.getClass().getCanonicalName();
@@ -1916,26 +1917,21 @@ public class Minecraft implements IPlayerUsage {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public CrashReport addGraphicsAndWorldToCrashReport(CrashReport p_71396_1_) {
 		p_71396_1_.getCategory().addCrashSectionCallable("Launched Version", new Callable() {
-			private static final String __OBFID = "CL_00000643";
-
 			@Override
 			public String call() {
 				return launchedVersion;
 			}
 		});
 		p_71396_1_.getCategory().addCrashSectionCallable("LWJGL", new Callable() {
-			private static final String __OBFID = "CL_00000644";
-
 			@Override
 			public String call() {
 				return Sys.getVersion();
 			}
 		});
 		p_71396_1_.getCategory().addCrashSectionCallable("OpenGL", new Callable() {
-			private static final String __OBFID = "CL_00000645";
-
 			@Override
 			public String call() {
 				return GL11.glGetString(GL11.GL_RENDERER) + " GL version " + GL11.glGetString(GL11.GL_VERSION) + ", "
@@ -1943,16 +1939,12 @@ public class Minecraft implements IPlayerUsage {
 			}
 		});
 		p_71396_1_.getCategory().addCrashSectionCallable("GL Caps", new Callable() {
-			private static final String __OBFID = "CL_00000646";
-
 			@Override
 			public String call() {
 				return OpenGlHelper.func_153172_c();
 			}
 		});
 		p_71396_1_.getCategory().addCrashSectionCallable("Is Modded", new Callable() {
-			private static final String __OBFID = "CL_00000647";
-
 			@Override
 			public String call() {
 				String s = ClientBrandRetriever.getClientModName();
@@ -1962,40 +1954,30 @@ public class Minecraft implements IPlayerUsage {
 			}
 		});
 		p_71396_1_.getCategory().addCrashSectionCallable("Type", new Callable() {
-			private static final String __OBFID = "CL_00000633";
-
 			@Override
 			public String call() {
 				return "Client (map_client.txt)";
 			}
 		});
 		p_71396_1_.getCategory().addCrashSectionCallable("Resource Packs", new Callable() {
-			private static final String __OBFID = "CL_00000634";
-
 			@Override
 			public String call() {
 				return gameSettings.resourcePacks.toString();
 			}
 		});
 		p_71396_1_.getCategory().addCrashSectionCallable("Current Language", new Callable() {
-			private static final String __OBFID = "CL_00000635";
-
 			@Override
 			public String call() {
 				return mcLanguageManager.getCurrentLanguage().toString();
 			}
 		});
 		p_71396_1_.getCategory().addCrashSectionCallable("Profiler Position", new Callable() {
-			private static final String __OBFID = "CL_00000636";
-
 			@Override
 			public String call() {
 				return mcProfiler.profilingEnabled ? mcProfiler.getNameOfLastSection() : "N/A (disabled)";
 			}
 		});
 		p_71396_1_.getCategory().addCrashSectionCallable("Vec3 Pool Size", new Callable() {
-			private static final String __OBFID = "CL_00000637";
-
 			@Override
 			public String call() {
 				byte b0 = 0;
@@ -2009,8 +1991,6 @@ public class Minecraft implements IPlayerUsage {
 			}
 		});
 		p_71396_1_.getCategory().addCrashSectionCallable("Anisotropic Filtering", new Callable() {
-			private static final String __OBFID = "CL_00001853";
-
 			public String func_152388_a() {
 				return gameSettings.anisotropicFiltering == 1 ? "Off (1)"
 						: "On (" + gameSettings.anisotropicFiltering + ")";
@@ -2037,6 +2017,7 @@ public class Minecraft implements IPlayerUsage {
 		refreshTexturePacksScheduled = true;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void addServerStatsToSnooper(PlayerUsageSnooper p_70000_1_) {
 		p_70000_1_.func_152768_a("fps", Integer.valueOf(debugFPS));
@@ -2326,6 +2307,7 @@ public class Minecraft implements IPlayerUsage {
 		return session;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Multimap func_152341_N() {
 		return field_152356_J;
 	}
@@ -2396,8 +2378,6 @@ public class Minecraft implements IPlayerUsage {
 							func_152346_Z().func_152914_u();
 						} else if (func_152346_Z().func_152924_m()) {
 							displayGuiScreen(new GuiYesNo(new GuiYesNoCallback() {
-								private static final String __OBFID = "CL_00001852";
-
 								@Override
 								public void confirmClicked(boolean p_73878_1_, int p_73878_2_) {
 									if (p_73878_1_) {
@@ -2442,6 +2422,7 @@ public class Minecraft implements IPlayerUsage {
 		}
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public ListenableFuture func_152343_a(Callable p_152343_1_) {
 		Validate.notNull(p_152343_1_);
 
@@ -2460,6 +2441,7 @@ public class Minecraft implements IPlayerUsage {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public ListenableFuture func_152344_a(Runnable p_152344_1_) {
 		Validate.notNull(p_152344_1_);
 		return func_152343_a(Executors.callable(p_152344_1_));
@@ -2481,8 +2463,6 @@ public class Minecraft implements IPlayerUsage {
 
 	static final class SwitchMovingObjectType {
 		static final int[] field_152390_a = new int[MovingObjectPosition.MovingObjectType.values().length];
-		private static final String __OBFID = "CL_00000638";
-
 		static {
 			try {
 				field_152390_a[MovingObjectPosition.MovingObjectType.ENTITY.ordinal()] = 1;

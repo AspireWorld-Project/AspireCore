@@ -23,6 +23,7 @@ import java.util.Set;
 
 public class BlockRedstoneWire extends Block {
 	private boolean field_150181_a = true;
+	@SuppressWarnings("rawtypes")
 	private final Set field_150179_b = new HashSet();
 	@SideOnly(Side.CLIENT)
 	private IIcon field_150182_M;
@@ -32,8 +33,6 @@ public class BlockRedstoneWire extends Block {
 	private IIcon field_150184_O;
 	@SideOnly(Side.CLIENT)
 	private IIcon field_150180_P;
-	private static final String __OBFID = "CL_00000295";
-
 	public BlockRedstoneWire() {
 		super(Material.circuits);
 		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
@@ -72,6 +71,7 @@ public class BlockRedstoneWire extends Block {
 				|| p_149742_1_.getBlock(p_149742_2_, p_149742_3_ - 1, p_149742_4_) == Blocks.glowstone;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void func_150177_e(World p_150177_1_, int p_150177_2_, int p_150177_3_, int p_150177_4_) {
 		func_150175_a(p_150177_1_, p_150177_2_, p_150177_3_, p_150177_4_, p_150177_2_, p_150177_3_, p_150177_4_);
 		ArrayList arraylist = new ArrayList(field_150179_b);
@@ -84,6 +84,7 @@ public class BlockRedstoneWire extends Block {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	private void func_150175_a(World world, int x, int y, int z, int p_150175_5_, int p_150175_6_, int p_150175_7_) {
 		int k1 = world.getBlockMetadata(x, y, z);
 		byte b0 = 0;

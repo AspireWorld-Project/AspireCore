@@ -10,8 +10,6 @@ public class ModelSlime extends ModelBase {
 	ModelRenderer slimeRightEye;
 	ModelRenderer slimeLeftEye;
 	ModelRenderer slimeMouth;
-	private static final String __OBFID = "CL_00000858";
-
 	public ModelSlime(int p_i1157_1_) {
 		slimeBodies = new ModelRenderer(this, 0, p_i1157_1_);
 		slimeBodies.addBox(-4.0F, 16.0F, -4.0F, 8, 8, 8);

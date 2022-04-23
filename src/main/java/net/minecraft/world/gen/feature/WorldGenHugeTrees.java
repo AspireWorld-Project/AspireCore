@@ -13,8 +13,6 @@ public abstract class WorldGenHugeTrees extends WorldGenAbstractTree {
 	protected final int woodMetadata;
 	protected final int leavesMetadata;
 	protected int field_150538_d;
-	private static final String __OBFID = "CL_00000423";
-
 	public WorldGenHugeTrees(boolean p_i45458_1_, int p_i45458_2_, int p_i45458_3_, int p_i45458_4_, int p_i45458_5_) {
 		super(p_i45458_1_);
 		baseHeight = p_i45458_2_;

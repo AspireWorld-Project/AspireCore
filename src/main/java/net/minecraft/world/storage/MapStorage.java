@@ -14,16 +14,18 @@ import java.util.*;
 
 public class MapStorage {
 	private final ISaveHandler saveHandler;
+	@SuppressWarnings("rawtypes")
 	private final Map loadedDataMap = new HashMap();
+	@SuppressWarnings("rawtypes")
 	private final List loadedDataList = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	private final Map idCounts = new HashMap();
-	private static final String __OBFID = "CL_00000604";
-
 	public MapStorage(ISaveHandler p_i2162_1_) {
 		saveHandler = p_i2162_1_;
 		loadIdCounts();
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public WorldSavedData loadData(Class p_75742_1_, String p_75742_2_) {
 		WorldSavedData worldsaveddata = (WorldSavedData) loadedDataMap.get(p_75742_2_);
 
@@ -66,6 +68,7 @@ public class MapStorage {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public void setData(String p_75745_1_, WorldSavedData p_75745_2_) {
 		if (p_75745_2_ == null)
 			throw new RuntimeException("Can't set null data");
@@ -116,6 +119,7 @@ public class MapStorage {
 		}
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void loadIdCounts() {
 		try {
 			idCounts.clear();
@@ -147,6 +151,7 @@ public class MapStorage {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public int getUniqueDataId(String p_75743_1_) {
 		Short oshort = (Short) idCounts.get(p_75743_1_);
 

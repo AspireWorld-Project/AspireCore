@@ -14,8 +14,6 @@ import java.util.Random;
 import static net.minecraftforge.common.util.ForgeDirection.*;
 
 public class BlockLadder extends Block {
-	private static final String __OBFID = "CL_00000262";
-
 	protected BlockLadder() {
 		super(Material.circuits);
 		setCreativeTab(CreativeTabs.tabDecorations);

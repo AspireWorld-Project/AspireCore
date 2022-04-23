@@ -28,16 +28,16 @@ public class StatisticsFile extends StatFileWriter {
 	private static final Logger logger = LogManager.getLogger();
 	private final MinecraftServer field_150890_c;
 	private final File field_150887_d;
+	@SuppressWarnings("rawtypes")
 	private final Set field_150888_e = Sets.newHashSet();
 	private int field_150885_f = -300;
 	private boolean field_150886_g = false;
-	private static final String __OBFID = "CL_00001471";
-
 	public StatisticsFile(MinecraftServer p_i45306_1_, File p_i45306_2_) {
 		field_150890_c = p_i45306_1_;
 		field_150887_d = p_i45306_2_;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void func_150882_a() {
 		if (field_150887_d.isFile()) {
 			try {
@@ -52,16 +52,10 @@ public class StatisticsFile extends StatFileWriter {
 	}
 
 	public void func_150883_b() {
-		// try
-		// {
 		AsyncIOUtils.writeString(field_150887_d, func_150880_a(field_150875_a));
-		// }
-		// catch (IOException ioexception)
-		// {
-		// logger.error("Couldn\'t save stats", ioexception);
-		// }
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void func_150873_a(EntityPlayer p_150873_1_, StatBase p_150873_2_, int p_150873_3_) {
 		int j = p_150873_2_.isAchievement() ? writeStat(p_150873_2_) : 0;
@@ -79,6 +73,7 @@ public class StatisticsFile extends StatFileWriter {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Set func_150878_c() {
 		HashSet hashset = Sets.newHashSet(field_150888_e);
 		field_150888_e.clear();
@@ -86,6 +81,7 @@ public class StatisticsFile extends StatFileWriter {
 		return hashset;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Map func_150881_a(String p_150881_1_) {
 		JsonElement jsonelement = new JsonParser().parse(p_150881_1_);
 
@@ -139,6 +135,7 @@ public class StatisticsFile extends StatFileWriter {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static String func_150880_a(Map p_150880_0_) {
 		JsonObject jsonobject = new JsonObject();
 		Iterator iterator = p_150880_0_.entrySet().iterator();
@@ -169,6 +166,7 @@ public class StatisticsFile extends StatFileWriter {
 		return jsonobject.toString();
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void func_150877_d() {
 		Iterator iterator = field_150875_a.keySet().iterator();
 
@@ -178,6 +176,7 @@ public class StatisticsFile extends StatFileWriter {
 		}
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void func_150876_a(EntityPlayerMP p_150876_1_) {
 		int i = field_150890_c.getTickCounter();
 		HashMap hashmap = Maps.newHashMap();
@@ -195,6 +194,7 @@ public class StatisticsFile extends StatFileWriter {
 		p_150876_1_.playerNetServerHandler.sendPacket(new S37PacketStatistics(hashmap));
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void func_150884_b(EntityPlayerMP p_150884_1_) {
 		HashMap hashmap = Maps.newHashMap();
 		Iterator iterator = AchievementList.achievementList.iterator();

@@ -8,8 +8,6 @@ import net.minecraft.tileentity.TileEntityNote;
 import net.minecraft.world.World;
 
 public class BlockNote extends BlockContainer {
-	private static final String __OBFID = "CL_00000278";
-
 	public BlockNote() {
 		super(Material.wood);
 		setCreativeTab(CreativeTabs.tabRedstone);

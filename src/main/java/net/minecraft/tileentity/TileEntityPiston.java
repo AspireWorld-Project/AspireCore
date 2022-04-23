@@ -21,9 +21,8 @@ public class TileEntityPiston extends TileEntity {
 	private boolean shouldHeadBeRendered;
 	private float progress;
 	private float lastProgress;
+	@SuppressWarnings("rawtypes")
 	private final List pushedObjects = new ArrayList();
-	private static final String __OBFID = "CL_00000369";
-
 	public TileEntityPiston() {
 	}
 
@@ -66,6 +65,7 @@ public class TileEntityPiston extends TileEntity {
 		return lastProgress + (progress - lastProgress) * p_145860_1_;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void func_145863_a(float p_145863_1_, float p_145863_2_) {
 		if (extending) {
 			p_145863_1_ = 1.0F - p_145863_1_;

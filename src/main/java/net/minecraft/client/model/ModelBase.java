@@ -8,13 +8,13 @@ import java.util.*;
 public abstract class ModelBase {
 	public float onGround;
 	public boolean isRiding;
+	@SuppressWarnings("rawtypes")
 	public List boxList = new ArrayList();
 	public boolean isChild = true;
+	@SuppressWarnings("rawtypes")
 	private final Map modelTextureMap = new HashMap();
 	public int textureWidth = 64;
 	public int textureHeight = 32;
-	private static final String __OBFID = "CL_00000845";
-
 	public void render(Entity p_78088_1_, float p_78088_2_, float p_78088_3_, float p_78088_4_, float p_78088_5_,
 			float p_78088_6_, float p_78088_7_) {
 	}
@@ -30,6 +30,7 @@ public abstract class ModelBase {
 		return (ModelRenderer) boxList.get(p_85181_1_.nextInt(boxList.size()));
 	}
 
+	@SuppressWarnings("unchecked")
 	protected void setTextureOffset(String p_78085_1_, int p_78085_2_, int p_78085_3_) {
 		modelTextureMap.put(p_78085_1_, new TextureOffset(p_78085_2_, p_78085_3_));
 	}

@@ -1,8 +1,6 @@
 package net.minecraft.world.gen.layer;
 
 public class GenLayerRemoveTooMuchOcean extends GenLayer {
-	private static final String __OBFID = "CL_00000564";
-
 	public GenLayerRemoveTooMuchOcean(long p_i45480_1_, GenLayer p_i45480_3_) {
 		super(p_i45480_1_);
 		parent = p_i45480_3_;

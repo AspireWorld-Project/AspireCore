@@ -14,8 +14,6 @@ public class GuiDispenser extends GuiContainer {
 	private static final ResourceLocation dispenserGuiTextures = new ResourceLocation(
 			"textures/gui/container/dispenser.png");
 	public TileEntityDispenser tileDispenser;
-	private static final String __OBFID = "CL_00000765";
-
 	public GuiDispenser(InventoryPlayer p_i1098_1_, TileEntityDispenser p_i1098_2_) {
 		super(new ContainerDispenser(p_i1098_1_, p_i1098_2_));
 		tileDispenser = p_i1098_2_;

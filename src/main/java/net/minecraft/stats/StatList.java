@@ -14,10 +14,15 @@ import net.minecraft.util.ChatComponentTranslation;
 import java.util.*;
 
 public class StatList {
+	@SuppressWarnings("rawtypes")
 	protected static Map oneShotStats = new HashMap();
+	@SuppressWarnings("rawtypes")
 	public static List allStats = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	public static List generalStats = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	public static List itemStats = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	public static List objectMineStats = new ArrayList();
 	public static StatBase leaveGameStat = new StatBasic("stat.leaveGame",
 			new ChatComponentTranslation("stat.leaveGame")).initIndependentStat().registerStat();
@@ -80,8 +85,6 @@ public class StatList {
 	public static final StatBase[] objectCraftStats = new StatBase[32000];
 	public static final StatBase[] objectUseStats = new StatBase[32000];
 	public static final StatBase[] objectBreakStats = new StatBase[32000];
-	private static final String __OBFID = "CL_00001480";
-
 	public static void func_151178_a() {
 		func_151181_c();
 		initStats();
@@ -91,6 +94,7 @@ public class StatList {
 		EntityList.func_151514_a();
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static void initCraftableStats() {
 		HashSet hashset = new HashSet();
 		Iterator iterator = CraftingManager.getInstance().getRecipeList().iterator();
@@ -125,6 +129,7 @@ public class StatList {
 		replaceAllSimilarBlocks(objectCraftStats);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static void func_151181_c() {
 		Iterator iterator = Block.blockRegistry.iterator();
 
@@ -147,6 +152,7 @@ public class StatList {
 		replaceAllSimilarBlocks(mineBlockStatArray);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static void initStats() {
 		Iterator iterator = Item.itemRegistry.iterator();
 
@@ -167,6 +173,7 @@ public class StatList {
 		replaceAllSimilarBlocks(objectUseStats);
 	}
 
+	@SuppressWarnings("rawtypes")
 	private static void func_151179_e() {
 		Iterator iterator = Item.itemRegistry.iterator();
 

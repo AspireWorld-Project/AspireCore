@@ -33,8 +33,6 @@ public class WorldType {
 	private boolean canBeCreated;
 	private boolean isWorldTypeVersioned;
 	private boolean hasNotificationData;
-	private static final String __OBFID = "CL_00000150";
-
 	private WorldType(int p_i1959_1_, String p_i1959_2_) {
 		this(p_i1959_1_, p_i1959_2_, 0);
 	}

@@ -10,8 +10,6 @@ import java.util.Random;
 public class WorldGenClay extends WorldGenerator {
 	private final Block field_150546_a;
 	private final int numberOfBlocks;
-	private static final String __OBFID = "CL_00000405";
-
 	public WorldGenClay(int p_i2011_1_) {
 		field_150546_a = Blocks.clay;
 		numberOfBlocks = p_i2011_1_;

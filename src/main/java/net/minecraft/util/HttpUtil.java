@@ -16,8 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class HttpUtil {
 	private static final AtomicInteger downloadThreadsStarted = new AtomicInteger(0);
 	private static final Logger logger = LogManager.getLogger();
-	private static final String __OBFID = "CL_00001485";
-
+	@SuppressWarnings("rawtypes")
 	public static String buildPostString(Map p_76179_0_) {
 		StringBuilder stringbuilder = new StringBuilder();
 		Iterator iterator = p_76179_0_.entrySet().iterator();
@@ -49,6 +48,7 @@ public class HttpUtil {
 		return stringbuilder.toString();
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static String func_151226_a(URL p_151226_0_, Map p_151226_1_, boolean p_151226_2_) {
 		return func_151225_a(p_151226_0_, buildPostString(p_151226_1_), p_151226_2_);
 	}
@@ -94,13 +94,12 @@ public class HttpUtil {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	@SideOnly(Side.CLIENT)
 	public static void func_151223_a(final File p_151223_0_, final String p_151223_1_,
 			final HttpUtil.DownloadListener p_151223_2_, final Map p_151223_3_, final int p_151223_4_,
 			final IProgressUpdate p_151223_5_, final Proxy p_151223_6_) {
 		Thread thread = new Thread(new Runnable() {
-			private static final String __OBFID = "CL_00001486";
-
 			@Override
 			public void run() {
 				URLConnection urlconnection = null;

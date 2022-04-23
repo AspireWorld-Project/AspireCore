@@ -11,7 +11,6 @@ public class WorldGenMinable extends WorldGenerator {
 	private final Block field_150519_a;
 	private final int numberOfBlocks;
 	private final Block field_150518_c;
-	private static final String __OBFID = "CL_00000426";
 	private int mineableBlockMeta;
 
 	public WorldGenMinable(Block p_i45459_1_, int p_i45459_2_) {

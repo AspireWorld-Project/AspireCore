@@ -18,8 +18,6 @@ import java.util.List;
 public class SaveFormatOld implements ISaveFormat {
 	private static final Logger logger = LogManager.getLogger();
 	public final File savesDirectory;
-	private static final String __OBFID = "CL_00000586";
-
 	public SaveFormatOld(File p_i2147_1_) {
 		if (!p_i2147_1_.exists()) {
 			p_i2147_1_.mkdirs();
@@ -34,6 +32,7 @@ public class SaveFormatOld implements ISaveFormat {
 		return "Old Format";
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public List getSaveList() throws AnvilConverterException {

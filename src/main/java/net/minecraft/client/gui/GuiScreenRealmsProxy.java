@@ -14,8 +14,7 @@ import java.util.List;
 @SideOnly(Side.CLIENT)
 public class GuiScreenRealmsProxy extends GuiScreen {
 	private final RealmsScreen field_154330_a;
-	private static final String __OBFID = "CL_00001847";
-
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public GuiScreenRealmsProxy(RealmsScreen p_i1087_1_) {
 		field_154330_a = p_i1087_1_;
 		super.buttonList = Collections.synchronizedList(new ArrayList());
@@ -82,6 +81,7 @@ public class GuiScreenRealmsProxy extends GuiScreen {
 		super.drawCreativeTabHoveringText(p_146279_1_, p_146279_2_, p_146279_3_);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void func_146283_a(List p_146283_1_, int p_146283_2_, int p_146283_3_) {
 		super.func_146283_a(p_146283_1_, p_146283_2_, p_146283_3_);
@@ -105,6 +105,7 @@ public class GuiScreenRealmsProxy extends GuiScreen {
 		fontRendererObj.drawStringWithShadow(p_154319_1_, p_154319_2_, p_154319_3_, p_154319_4_);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List func_154323_a(String p_154323_1_, int p_154323_2_) {
 		return fontRendererObj.listFormattedStringToWidth(p_154323_1_, p_154323_2_);
 	}
@@ -118,10 +119,12 @@ public class GuiScreenRealmsProxy extends GuiScreen {
 		super.buttonList.clear();
 	}
 
+	@SuppressWarnings("unchecked")
 	public void func_154327_a(RealmsButton p_154327_1_) {
 		super.buttonList.add(p_154327_1_.getProxy());
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List func_154320_j() {
 		ArrayList arraylist = new ArrayList(super.buttonList.size());
 		Iterator iterator = super.buttonList.iterator();

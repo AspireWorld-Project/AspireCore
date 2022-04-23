@@ -16,11 +16,11 @@ import java.util.concurrent.Callable;
 
 public abstract class MapGenStructure extends MapGenBase {
 	private MapGenStructureData field_143029_e;
+	@SuppressWarnings("rawtypes")
 	protected Map structureMap = new HashMap();
-	private static final String __OBFID = "CL_00000505";
-
 	public abstract String func_143025_a();
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	protected final void func_151538_a(World p_151538_1_, final int p_151538_2_, final int p_151538_3_, int p_151538_4_,
 			int p_151538_5_, Block[] p_151538_6_) {
@@ -41,8 +41,6 @@ public abstract class MapGenStructure extends MapGenBase {
 						"Exception preparing structure feature");
 				CrashReportCategory crashreportcategory = crashreport.makeCategory("Feature being prepared");
 				crashreportcategory.addCrashSectionCallable("Is feature chunk", new Callable() {
-					private static final String __OBFID = "CL_00000506";
-
 					@Override
 					public String call() {
 						return MapGenStructure.this.canSpawnStructureAtCoords(p_151538_2_, p_151538_3_) ? "True"
@@ -52,16 +50,12 @@ public abstract class MapGenStructure extends MapGenBase {
 				crashreportcategory.addCrashSection("Chunk location", String.format("%d,%d",
 						Integer.valueOf(p_151538_2_), Integer.valueOf(p_151538_3_)));
 				crashreportcategory.addCrashSectionCallable("Chunk pos hash", new Callable() {
-					private static final String __OBFID = "CL_00000507";
-
 					@Override
 					public String call() {
 						return String.valueOf(ChunkCoordIntPair.chunkXZ2Int(p_151538_2_, p_151538_3_));
 					}
 				});
 				crashreportcategory.addCrashSectionCallable("Structure type", new Callable() {
-					private static final String __OBFID = "CL_00000508";
-
 					@Override
 					public String call() {
 						return MapGenStructure.this.getClass().getCanonicalName();
@@ -72,6 +66,7 @@ public abstract class MapGenStructure extends MapGenBase {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public boolean generateStructuresInChunk(World p_75051_1_, Random p_75051_2_, int p_75051_3_, int p_75051_4_) {
 		func_143027_a(p_75051_1_);
 		int k = (p_75051_3_ << 4) + 8;
@@ -99,6 +94,7 @@ public abstract class MapGenStructure extends MapGenBase {
 		return func_143028_c(p_75048_1_, p_75048_2_, p_75048_3_) != null;
 	}
 
+	@SuppressWarnings("rawtypes")
 	protected StructureStart func_143028_c(int p_143028_1_, int p_143028_2_, int p_143028_3_) {
 		Iterator iterator = structureMap.values().iterator();
 
@@ -121,6 +117,7 @@ public abstract class MapGenStructure extends MapGenBase {
 		return null;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public boolean func_142038_b(int p_142038_1_, int p_142038_2_, int p_142038_3_) {
 		func_143027_a(worldObj);
 		Iterator iterator = structureMap.values().iterator();
@@ -136,6 +133,7 @@ public abstract class MapGenStructure extends MapGenBase {
 		return structurestart.getBoundingBox().intersectsWith(p_142038_1_, p_142038_3_, p_142038_1_, p_142038_3_);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public ChunkPosition func_151545_a(World p_151545_1_, int p_151545_2_, int p_151545_3_, int p_151545_4_) {
 		worldObj = p_151545_1_;
 		func_143027_a(p_151545_1_);
@@ -201,10 +199,12 @@ public abstract class MapGenStructure extends MapGenBase {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	protected List getCoordList() {
 		return null;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void func_143027_a(World p_143027_1_) {
 		if (field_143029_e == null) {
 			field_143029_e = (MapGenStructureData) p_143027_1_.perWorldStorage.loadData(MapGenStructureData.class,

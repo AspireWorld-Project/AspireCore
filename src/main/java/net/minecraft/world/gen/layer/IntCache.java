@@ -5,12 +5,15 @@ import java.util.List;
 
 public class IntCache {
 	private static int intCacheSize = 256;
+	@SuppressWarnings("rawtypes")
 	private static final List freeSmallArrays = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	private static final List inUseSmallArrays = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	private static final List freeLargeArrays = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	private static final List inUseLargeArrays = new ArrayList();
-	private static final String __OBFID = "CL_00000557";
-
+	@SuppressWarnings("unchecked")
 	public static synchronized int[] getIntCache(int p_76445_0_) {
 		int[] aint;
 
@@ -42,6 +45,7 @@ public class IntCache {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public static synchronized void resetIntCache() {
 		if (!freeLargeArrays.isEmpty()) {
 			freeLargeArrays.remove(freeLargeArrays.size() - 1);

@@ -1,8 +1,6 @@
 package net.minecraft.world.gen.layer;
 
 public class GenLayerSmooth extends GenLayer {
-	private static final String __OBFID = "CL_00000569";
-
 	public GenLayerSmooth(long p_i2131_1_, GenLayer p_i2131_3_) {
 		super(p_i2131_1_);
 		super.parent = p_i2131_3_;

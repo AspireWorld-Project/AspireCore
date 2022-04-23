@@ -35,8 +35,6 @@ public class GuiMultiplayer extends GuiScreen implements GuiYesNoCallback {
 	private LanServerDetector.LanServerList field_146799_A;
 	private LanServerDetector.ThreadLanServerFind field_146800_B;
 	private boolean field_146801_C;
-	private static final String __OBFID = "CL_00000814";
-
 	public GuiMultiplayer(GuiScreen p_i1040_1_) {
 		field_146798_g = p_i1040_1_;
 		FMLClientHandler.instance().setupServerList();
@@ -69,6 +67,7 @@ public class GuiMultiplayer extends GuiScreen implements GuiYesNoCallback {
 		func_146794_g();
 	}
 
+	@SuppressWarnings("unchecked")
 	public void func_146794_g() {
 		buttonList.add(field_146810_r = new GuiButton(7, width / 2 - 154, height - 28, 70, 20,
 				I18n.format("selectServer.edit")));
@@ -87,6 +86,7 @@ public class GuiMultiplayer extends GuiScreen implements GuiYesNoCallback {
 		func_146790_a(field_146803_h.func_148193_k());
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void updateScreen() {
 		super.updateScreen();

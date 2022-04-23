@@ -7,8 +7,6 @@ import net.minecraft.entity.Entity;
 @SideOnly(Side.CLIENT)
 public class ModelMinecart extends ModelBase {
 	public ModelRenderer[] sideModels = new ModelRenderer[7];
-	private static final String __OBFID = "CL_00000844";
-
 	public ModelMinecart() {
 		sideModels[0] = new ModelRenderer(this, 0, 10);
 		sideModels[1] = new ModelRenderer(this, 0, 0);

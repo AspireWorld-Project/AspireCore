@@ -8,8 +8,6 @@ import java.util.Random;
 public class MathHelper {
 	private static final float[] SIN_TABLE = new float[65536];
 	private static final int[] multiplyDeBruijnBitPosition;
-	private static final String __OBFID = "CL_00001496";
-
 	public static final float sin(float p_76126_0_) {
 		return SIN_TABLE[(int) (p_76126_0_ * 10430.378F) & 65535];
 	}

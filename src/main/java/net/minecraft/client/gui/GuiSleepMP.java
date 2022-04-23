@@ -8,8 +8,7 @@ import net.minecraft.network.play.client.C0BPacketEntityAction;
 
 @SideOnly(Side.CLIENT)
 public class GuiSleepMP extends GuiChat {
-	private static final String __OBFID = "CL_00000697";
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		super.initGui();

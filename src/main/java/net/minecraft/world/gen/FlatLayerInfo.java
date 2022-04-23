@@ -7,8 +7,6 @@ public class FlatLayerInfo {
 	private int layerCount;
 	private int layerFillBlockMeta;
 	private int layerMinimumY;
-	private static final String __OBFID = "CL_00000441";
-
 	public FlatLayerInfo(int p_i45467_1_, Block p_i45467_2_) {
 		layerCount = 1;
 		layerCount = p_i45467_1_;

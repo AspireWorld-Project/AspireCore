@@ -20,8 +20,6 @@ public class BlockSandStone extends Block {
 	private IIcon field_150159_N;
 	@SideOnly(Side.CLIENT)
 	private IIcon field_150160_O;
-	private static final String __OBFID = "CL_00000304";
-
 	public BlockSandStone() {
 		super(Material.rock);
 		setCreativeTab(CreativeTabs.tabBlock);
@@ -49,6 +47,7 @@ public class BlockSandStone extends Block {
 		return p_149692_1_;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {

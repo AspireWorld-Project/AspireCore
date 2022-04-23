@@ -9,8 +9,6 @@ import java.util.Random;
 
 public class WorldGenSpikes extends WorldGenerator {
 	private final Block field_150520_a;
-	private static final String __OBFID = "CL_00000433";
-
 	public WorldGenSpikes(Block p_i45464_1_) {
 		field_150520_a = p_i45464_1_;
 	}

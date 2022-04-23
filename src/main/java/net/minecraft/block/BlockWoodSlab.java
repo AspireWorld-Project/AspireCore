@@ -16,8 +16,6 @@ import java.util.Random;
 public class BlockWoodSlab extends BlockSlab {
 	public static final String[] field_150005_b = new String[] { "oak", "spruce", "birch", "jungle", "acacia",
 			"big_oak" };
-	private static final String __OBFID = "CL_00000337";
-
 	public BlockWoodSlab(boolean p_i45437_1_) {
 		super(p_i45437_1_, Material.wood);
 		setCreativeTab(CreativeTabs.tabBlock);
@@ -48,6 +46,7 @@ public class BlockWoodSlab extends BlockSlab {
 		return super.getUnlocalizedName() + "." + field_150005_b[p_150002_1_];
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {

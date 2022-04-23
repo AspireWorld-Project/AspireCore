@@ -19,17 +19,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PlayerManager {
+	@SuppressWarnings("unused")
 	private static final Logger field_152627_a = LogManager.getLogger();
 	private final WorldServer theWorldServer;
+	@SuppressWarnings("rawtypes")
 	private final List players = new ArrayList();
 	private final LongHashMap playerInstances = new LongHashMap();
+	@SuppressWarnings("rawtypes")
 	private final List chunkWatcherWithPlayers = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	private final List playerInstanceList = new ArrayList();
 	private int playerViewRadius;
 	private long previousTotalWorldTime;
 	private final int[][] xzDirectionsConst = new int[][] { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
-	private static final String __OBFID = "CL_00001434";
-
 	public PlayerManager(WorldServer p_i1176_1_) {
 		theWorldServer = p_i1176_1_;
 		func_152622_a(p_i1176_1_.func_73046_m().getConfigurationManager().getViewDistance());
@@ -75,6 +77,7 @@ public class PlayerManager {
 		return playerInstances.getValueByKey(k) != null;
 	}
 
+	@SuppressWarnings("unchecked")
 	public PlayerManager.PlayerInstance getOrCreateChunkWatcher(int p_72690_1_, int p_72690_2_, boolean p_72690_3_) {
 		long k = p_72690_1_ + 2147483647L | p_72690_2_ + 2147483647L << 32;
 		PlayerManager.PlayerInstance playerinstance = (PlayerManager.PlayerInstance) playerInstances.getValueByKey(k);
@@ -98,11 +101,13 @@ public class PlayerManager {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public void addPlayer(EntityPlayerMP par1EntityPlayerMP) {
 		par1EntityPlayerMP.getChunkMgr().addTo(this);
 		players.add(par1EntityPlayerMP);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void filterChunkLoadQueue(EntityPlayerMP p_72691_1_) {
 		ArrayList arraylist = new ArrayList(p_72691_1_.loadedChunks);
 		int i = 0;
@@ -154,6 +159,7 @@ public class PlayerManager {
 		players.remove(par1EntityPlayerMP);
 	}
 
+	@SuppressWarnings("unused")
 	private boolean overlaps(int p_72684_1_, int p_72684_2_, int p_72684_3_, int p_72684_4_, int p_72684_5_) {
 		int j1 = p_72684_1_ - p_72684_3_;
 		int k1 = p_72684_2_ - p_72684_4_;
@@ -204,20 +210,20 @@ public class PlayerManager {
 	}
 
 	public class PlayerInstance {
+		@SuppressWarnings("rawtypes")
 		private final List playersWatchingChunk = new ArrayList();
 		private final ChunkCoordIntPair chunkLocation;
 		private short[] locationOfBlockChange = new short[64];
 		private int numberOfTilesToUpdate;
 		private int flagsYAreasToUpdate;
 		private long previousWorldTime;
-		private static final String __OBFID = "CL_00001435";
-
 		public PlayerInstance(int par2, int par3) {
 			chunkLocation = new ChunkCoordIntPair(par2, par3);
 			// getWorldServer().theChunkProviderServer.loadAsync(par2, par3,
 			// this.loadedRunnable);
 		}
 
+		@SuppressWarnings("unchecked")
 		public void addPlayer(EntityPlayerMP par1EntityPlayerMP) {
 			if (playersWatchingChunk.contains(par1EntityPlayerMP))
 				throw new IllegalStateException("Failed to add player. " + par1EntityPlayerMP + " already is in chunk "
@@ -272,6 +278,7 @@ public class PlayerManager {
 			previousWorldTime = theWorldServer.getTotalWorldTime();
 		}
 
+		@SuppressWarnings("unchecked")
 		public void flagChunkForUpdate(int p_151253_1_, int p_151253_2_, int p_151253_3_) {
 			if (numberOfTilesToUpdate == 0) {
 				chunkWatcherWithPlayers.add(this);
@@ -306,7 +313,7 @@ public class PlayerManager {
 			}
 		}
 
-		@SuppressWarnings("unused")
+		@SuppressWarnings({ "unused", "rawtypes" })
 		public void sendChunkUpdate() {
 			if (numberOfTilesToUpdate != 0) {
 				int i;

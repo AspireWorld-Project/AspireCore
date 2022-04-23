@@ -9,8 +9,6 @@ import net.minecraft.world.WorldServer;
 
 public class BlockLeavesBase extends Block {
 	protected boolean field_150121_P;
-	private static final String __OBFID = "CL_00000326";
-
 	protected BlockLeavesBase(Material p_i45433_1_, boolean p_i45433_2_) {
 		super(p_i45433_1_);
 		field_150121_P = p_i45433_2_;

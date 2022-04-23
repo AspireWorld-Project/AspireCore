@@ -20,8 +20,6 @@ public class BlockDirt extends Block {
 	private IIcon field_150008_b;
 	@SideOnly(Side.CLIENT)
 	private IIcon field_150010_M;
-	private static final String __OBFID = "CL_00000228";
-
 	protected BlockDirt() {
 		super(Material.ground);
 		setCreativeTab(CreativeTabs.tabBlock);
@@ -80,6 +78,7 @@ public class BlockDirt extends Block {
 		return super.createStackedBlock(p_149644_1_);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {

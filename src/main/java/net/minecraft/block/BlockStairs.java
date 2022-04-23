@@ -25,8 +25,6 @@ public class BlockStairs extends Block {
 	private final int field_150151_M;
 	private boolean field_150152_N;
 	private int field_150153_O;
-	private static final String __OBFID = "CL_00000314";
-
 	protected BlockStairs(Block p_i45428_1_, int p_i45428_2_) {
 		super(p_i45428_1_.blockMaterial);
 		field_150149_b = p_i45428_1_;
@@ -275,6 +273,7 @@ public class BlockStairs extends Block {
 		return flag;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_,
 			AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_) {

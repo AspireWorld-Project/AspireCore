@@ -23,8 +23,6 @@ import java.util.*;
 
 public class AnvilSaveConverter extends SaveFormatOld {
 	private static final Logger logger = LogManager.getLogger();
-	private static final String __OBFID = "CL_00000582";
-
 	public AnvilSaveConverter(File p_i2144_1_) {
 		super(p_i2144_1_);
 	}
@@ -35,6 +33,7 @@ public class AnvilSaveConverter extends SaveFormatOld {
 		return "Anvil";
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public List getSaveList() throws AnvilConverterException {
@@ -100,6 +99,7 @@ public class AnvilSaveConverter extends SaveFormatOld {
 		return worldinfo != null && worldinfo.getSaveVersion() != getSaveVersion();
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public boolean convertMapFormat(String p_75805_1_, IProgressUpdate p_75805_2_) {
 		p_75805_2_.setLoadingProgress(0);
@@ -168,6 +168,7 @@ public class AnvilSaveConverter extends SaveFormatOld {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void convertFile(File p_75813_1_, Iterable p_75813_2_, WorldChunkManager p_75813_3_, int p_75813_4_,
 			int p_75813_5_, IProgressUpdate p_75813_6_) {
 		Iterator iterator = p_75813_2_.iterator();
@@ -229,11 +230,10 @@ public class AnvilSaveConverter extends SaveFormatOld {
 		}
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void addRegionFilesToCollection(File p_75810_1_, Collection p_75810_2_) {
 		File file2 = new File(p_75810_1_, "region");
 		File[] afile = file2.listFiles(new FilenameFilter() {
-			private static final String __OBFID = "CL_00000583";
-
 			@Override
 			public boolean accept(File p_accept_1_, String p_accept_2_) {
 				return p_accept_2_.endsWith(".mcr");

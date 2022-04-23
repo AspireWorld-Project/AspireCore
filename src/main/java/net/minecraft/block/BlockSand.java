@@ -17,8 +17,6 @@ public class BlockSand extends BlockFalling {
 	private static IIcon field_149837_b;
 	@SideOnly(Side.CLIENT)
 	private static IIcon field_149839_N;
-	private static final String __OBFID = "CL_00000303";
-
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
@@ -37,6 +35,7 @@ public class BlockSand extends BlockFalling {
 		return p_149692_1_;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {

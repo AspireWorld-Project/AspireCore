@@ -9,8 +9,6 @@ import net.minecraft.world.World;
 public class BlockRailPowered extends BlockRailBase {
 	@SideOnly(Side.CLIENT)
 	protected IIcon field_150059_b;
-	private static final String __OBFID = "CL_00000288";
-
 	protected BlockRailPowered() {
 		super(true);
 	}

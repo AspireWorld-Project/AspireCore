@@ -25,15 +25,16 @@ import java.util.*;
 
 public class PlayerProfileCache {
 	public static final SimpleDateFormat field_152659_a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss Z");
+	@SuppressWarnings("rawtypes")
 	private final Map field_152661_c = Maps.newHashMap();
+	@SuppressWarnings("rawtypes")
 	private final Map field_152662_d = Maps.newHashMap();
+	@SuppressWarnings("rawtypes")
 	private final LinkedList field_152663_e = Lists.newLinkedList();
 	private final MinecraftServer field_152664_f;
 	protected final Gson field_152660_b;
 	private final File field_152665_g;
 	private static final ParameterizedType field_152666_h = new ParameterizedType() {
-		private static final String __OBFID = "CL_00001886";
-
 		@Override
 		public Type[] getActualTypeArguments() {
 			return new Type[] { PlayerProfileCache.ProfileEntry.class };
@@ -49,8 +50,6 @@ public class PlayerProfileCache {
 			return null;
 		}
 	};
-	private static final String __OBFID = "CL_00001888";
-
 	public PlayerProfileCache(MinecraftServer p_i1171_1_, File p_i1171_2_) {
 		field_152664_f = p_i1171_1_;
 		field_152665_g = p_i1171_2_;
@@ -64,8 +63,6 @@ public class PlayerProfileCache {
 	private static GameProfile func_152650_a(MinecraftServer p_152650_0_, String p_152650_1_) {
 		final GameProfile[] agameprofile = new GameProfile[1];
 		ProfileLookupCallback profilelookupcallback = new ProfileLookupCallback() {
-			private static final String __OBFID = "CL_00001887";
-
 			@Override
 			public void onProfileLookupSucceeded(GameProfile p_onProfileLookupSucceeded_1_) {
 				agameprofile[0] = p_onProfileLookupSucceeded_1_;
@@ -93,6 +90,7 @@ public class PlayerProfileCache {
 		func_152651_a(p_152649_1_, null);
 	}
 
+	@SuppressWarnings("unchecked")
 	private void func_152651_a(GameProfile p_152651_1_, Date p_152651_2_) {
 		UUID uuid = p_152651_1_.getId();
 
@@ -123,6 +121,7 @@ public class PlayerProfileCache {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public GameProfile func_152655_a(String p_152655_1_) {
 		String s1 = p_152655_1_.toLowerCase(Locale.ROOT);
 		PlayerProfileCache.ProfileEntry profileentry = (PlayerProfileCache.ProfileEntry) field_152661_c.get(s1);
@@ -161,6 +160,7 @@ public class PlayerProfileCache {
 		return profileentry == null ? null : profileentry.func_152668_a();
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public String[] func_152654_a() {
 		ArrayList arraylist = Lists.newArrayList(field_152661_c.keySet());
 		return (String[]) arraylist.toArray(new String[arraylist.size()]);
@@ -172,6 +172,7 @@ public class PlayerProfileCache {
 		return profileentry == null ? null : profileentry.func_152668_a();
 	}
 
+	@SuppressWarnings("unchecked")
 	private PlayerProfileCache.ProfileEntry func_152653_b(UUID p_152653_1_) {
 		PlayerProfileCache.ProfileEntry profileentry = (PlayerProfileCache.ProfileEntry) field_152662_d
 				.get(p_152653_1_);
@@ -187,6 +188,7 @@ public class PlayerProfileCache {
 		return profileentry;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void func_152657_b() {
 		List list = null;
 		BufferedReader bufferedreader = null;
@@ -228,6 +230,7 @@ public class PlayerProfileCache {
 		AsyncIOUtils.writeString(field_152665_g, s);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private List func_152656_a(int p_152656_1_) {
 		ArrayList arraylist = Lists.newArrayList();
 		ArrayList arraylist1;
@@ -253,8 +256,6 @@ public class PlayerProfileCache {
 	class ProfileEntry {
 		private final GameProfile field_152672_b;
 		private final Date field_152673_c;
-		private static final String __OBFID = "CL_00001885";
-
 		private ProfileEntry(GameProfile p_i1165_2_, Date p_i1165_3_) {
 			field_152672_b = p_i1165_2_;
 			field_152673_c = p_i1165_3_;
@@ -273,9 +274,8 @@ public class PlayerProfileCache {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	class Serializer implements JsonDeserializer, JsonSerializer {
-		private static final String __OBFID = "CL_00001884";
-
 		private Serializer() {
 		}
 

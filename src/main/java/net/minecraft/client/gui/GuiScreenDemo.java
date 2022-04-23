@@ -15,8 +15,7 @@ import java.net.URI;
 public class GuiScreenDemo extends GuiScreen {
 	private static final Logger logger = LogManager.getLogger();
 	private static final ResourceLocation field_146348_f = new ResourceLocation("textures/gui/demo_background.png");
-	private static final String __OBFID = "CL_00000691";
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		buttonList.clear();
@@ -27,6 +26,7 @@ public class GuiScreenDemo extends GuiScreen {
 				I18n.format("demo.help.later")));
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	protected void actionPerformed(GuiButton p_146284_1_) {
 		switch (p_146284_1_.id) {

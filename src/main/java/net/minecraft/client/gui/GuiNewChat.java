@@ -21,13 +21,14 @@ import java.util.List;
 public class GuiNewChat extends Gui {
 	private static final Logger logger = LogManager.getLogger();
 	private final Minecraft mc;
+	@SuppressWarnings("rawtypes")
 	private final List sentMessages = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	private final List chatLines = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	private final List field_146253_i = new ArrayList();
 	private int field_146250_j;
 	private boolean field_146251_k;
-	private static final String __OBFID = "CL_00000669";
-
 	public GuiNewChat(Minecraft p_i1022_1_) {
 		mc = p_i1022_1_;
 	}
@@ -137,6 +138,7 @@ public class GuiNewChat extends Gui {
 				: EnumChatFormatting.getTextWithoutFormattingCodes(p_146235_1_);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void func_146237_a(IChatComponent p_146237_1_, int p_146237_2_, int p_146237_3_, boolean p_146237_4_) {
 		if (p_146237_2_ != 0) {
 			deleteChatLine(p_146237_2_);
@@ -231,10 +233,12 @@ public class GuiNewChat extends Gui {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List getSentMessages() {
 		return sentMessages;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void addToSentMessages(String p_146239_1_) {
 		if (sentMessages.isEmpty() || !sentMessages.get(sentMessages.size() - 1).equals(p_146239_1_)) {
 			sentMessages.add(p_146239_1_);
@@ -260,6 +264,7 @@ public class GuiNewChat extends Gui {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public IChatComponent func_146236_a(int p_146236_1_, int p_146236_2_) {
 		if (!getChatOpen())
 			return null;
@@ -309,6 +314,7 @@ public class GuiNewChat extends Gui {
 		return mc.currentScreen instanceof GuiChat;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void deleteChatLine(int p_146242_1_) {
 		Iterator iterator = field_146253_i.iterator();
 		ChatLine chatline;

@@ -6,8 +6,6 @@ public class PositionTextureVertex {
 	public Vec3 vector3D;
 	public float texturePositionX;
 	public float texturePositionY;
-	private static final String __OBFID = "CL_00000862";
-
 	public PositionTextureVertex(float p_i1158_1_, float p_i1158_2_, float p_i1158_3_, float p_i1158_4_,
 			float p_i1158_5_) {
 		this(Vec3.createVectorHelper(p_i1158_1_, p_i1158_2_, p_i1158_3_), p_i1158_4_, p_i1158_5_);

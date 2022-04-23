@@ -21,8 +21,6 @@ import java.util.Random;
 
 public class BlockEndPortal extends BlockContainer {
 	public static boolean field_149948_a;
-	private static final String __OBFID = "CL_00000236";
-
 	protected BlockEndPortal(Material p_i45404_1_) {
 		super(p_i45404_1_);
 		setLightLevel(1.0F);
@@ -47,6 +45,7 @@ public class BlockEndPortal extends BlockContainer {
 		return p_149646_5_ == 0 && super.shouldSideBeRendered(p_149646_1_, p_149646_2_, p_149646_3_, p_149646_4_, p_149646_5_);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_,
 			AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_) {

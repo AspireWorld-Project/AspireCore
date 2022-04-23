@@ -5,8 +5,6 @@ import net.openhft.koloboke.collect.map.hash.HashLongObjMaps;
 
 public class LongHashMap {
 	private final LongObjMap<Object> map;
-	private static final String __OBFID = "CL_00001492";
-
 	public LongHashMap(LongObjMap<Object> map) {
 		this.map = map;
 	}
@@ -24,6 +22,7 @@ public class LongHashMap {
 		return p_76157_0_ ^ p_76157_0_ >>> 7 ^ p_76157_0_ >>> 4;
 	}
 
+	@SuppressWarnings("unused")
 	private static int getHashIndex(int p_76158_0_, int p_76158_1_) {
 		return p_76158_0_ & p_76158_1_ - 1;
 	}
@@ -48,10 +47,12 @@ public class LongHashMap {
 		map.put(p_76163_1_, p_76163_3_);
 	}
 
+	@SuppressWarnings("unused")
 	private void resizeTable(int p_76153_1_) {
 
 	}
 
+	@SuppressWarnings("unused")
 	private void copyHashTableTo(LongHashMap.Entry[] p_76154_1_) {
 
 	}
@@ -64,6 +65,7 @@ public class LongHashMap {
 		return null;
 	}
 
+	@SuppressWarnings("unused")
 	private void createKey(int p_76156_1_, long p_76156_2_, Object p_76156_4_, int p_76156_5_) {
 
 	}
@@ -73,8 +75,6 @@ public class LongHashMap {
 		Object value;
 		LongHashMap.Entry nextEntry;
 		final int hash;
-		private static final String __OBFID = "CL_00001493";
-
 		Entry(int p_i1553_1_, long p_i1553_2_, Object p_i1553_4_, LongHashMap.Entry p_i1553_5_) {
 			value = p_i1553_4_;
 			nextEntry = p_i1553_5_;

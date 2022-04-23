@@ -33,13 +33,10 @@ public class PreYggdrasilConverter {
 	public static final File field_152729_b = MinecraftServer.getServer().getFile("banned-players.txt");
 	public static final File field_152730_c = MinecraftServer.getServer().getFile("ops.txt");
 	public static final File field_152731_d = MinecraftServer.getServer().getFile("white-list.txt");
-	private static final String __OBFID = "CL_00001882";
-
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static void func_152717_a(MinecraftServer p_152717_0_, Collection p_152717_1_,
 			ProfileLookupCallback p_152717_2_) {
 		String[] astring = Iterators.toArray(Iterators.filter(p_152717_1_.iterator(), new Predicate() {
-			private static final String __OBFID = "CL_00001881";
-
 			public boolean func_152733_a(String p_152733_1_) {
 				return !StringUtils.isNullOrEmpty(p_152733_1_);
 			}
@@ -65,6 +62,7 @@ public class PreYggdrasilConverter {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static String func_152719_a(String p_152719_0_) {
 		if (!StringUtils.isNullOrEmpty(p_152719_0_) && p_152719_0_.length() <= 16) {
 			final MinecraftServer minecraftserver = MinecraftServer.getServer();
@@ -75,8 +73,7 @@ public class PreYggdrasilConverter {
 			else if (!minecraftserver.isSinglePlayer() && minecraftserver.isServerInOnlineMode()) {
 				final ArrayList arraylist = Lists.newArrayList();
 				ProfileLookupCallback profilelookupcallback = new ProfileLookupCallback() {
-					private static final String __OBFID = "CL_00001880";
-
+					@SuppressWarnings("unchecked")
 					@Override
 					public void onProfileLookupSucceeded(GameProfile p_onProfileLookupSucceeded_1_) {
 						minecraftserver.func_152358_ax().func_152649_a(p_onProfileLookupSucceeded_1_);
@@ -101,6 +98,7 @@ public class PreYggdrasilConverter {
 			return p_152719_0_;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@SideOnly(Side.SERVER)
 	static List func_152721_a(File p_152721_0_, Map p_152721_1_) throws IOException {
 		List list = Files.readLines(p_152721_0_, Charsets.UTF_8);
@@ -119,6 +117,7 @@ public class PreYggdrasilConverter {
 		return list;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@SideOnly(Side.SERVER)
 	public static boolean func_152724_a(final MinecraftServer p_152724_0_) throws IOException {
 		final UserListBans userlistbans = new UserListBans(ServerConfigurationManager.field_152613_a);
@@ -137,8 +136,6 @@ public class PreYggdrasilConverter {
 				final HashMap hashmap = Maps.newHashMap();
 				func_152721_a(field_152729_b, hashmap);
 				ProfileLookupCallback profilelookupcallback = new ProfileLookupCallback() {
-					private static final String __OBFID = "CL_00001910";
-
 					@Override
 					public void onProfileLookupSucceeded(GameProfile p_onProfileLookupSucceeded_1_) {
 						p_152724_0_.func_152358_ax().func_152649_a(p_onProfileLookupSucceeded_1_);
@@ -191,6 +188,7 @@ public class PreYggdrasilConverter {
 			return true;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@SideOnly(Side.SERVER)
 	public static boolean func_152722_b(MinecraftServer p_152722_0_) throws IOException {
 		BanList banlist = new BanList(ServerConfigurationManager.field_152614_b);
@@ -231,6 +229,7 @@ public class PreYggdrasilConverter {
 			return true;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@SideOnly(Side.SERVER)
 	public static boolean func_152718_c(final MinecraftServer p_152718_0_) throws IOException {
 		final UserListOps userlistops = new UserListOps(ServerConfigurationManager.field_152615_c);
@@ -248,8 +247,6 @@ public class PreYggdrasilConverter {
 			try {
 				List list = Files.readLines(field_152730_c, Charsets.UTF_8);
 				ProfileLookupCallback profilelookupcallback = new ProfileLookupCallback() {
-					private static final String __OBFID = "CL_00001909";
-
 					@Override
 					public void onProfileLookupSucceeded(GameProfile p_onProfileLookupSucceeded_1_) {
 						p_152718_0_.func_152358_ax().func_152649_a(p_onProfileLookupSucceeded_1_);
@@ -285,6 +282,7 @@ public class PreYggdrasilConverter {
 			return true;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@SideOnly(Side.SERVER)
 	public static boolean func_152710_d(final MinecraftServer p_152710_0_) throws IOException {
 		final UserListWhitelist userlistwhitelist = new UserListWhitelist(ServerConfigurationManager.field_152616_d);
@@ -302,8 +300,6 @@ public class PreYggdrasilConverter {
 			try {
 				List list = Files.readLines(field_152731_d, Charsets.UTF_8);
 				ProfileLookupCallback profilelookupcallback = new ProfileLookupCallback() {
-					private static final String __OBFID = "CL_00001908";
-
 					@Override
 					public void onProfileLookupSucceeded(GameProfile p_onProfileLookupSucceeded_1_) {
 						p_152710_0_.func_152358_ax().func_152649_a(p_onProfileLookupSucceeded_1_);
@@ -338,6 +334,7 @@ public class PreYggdrasilConverter {
 			return true;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@SideOnly(Side.SERVER)
 	public static boolean func_152723_a(final DedicatedServer p_152723_0_, File p_152723_1_) {
 		final File file1 = func_152725_d(p_152723_1_);
@@ -366,8 +363,6 @@ public class PreYggdrasilConverter {
 			try {
 				final String[] astring = (String[]) arraylist.toArray(new String[arraylist.size()]);
 				ProfileLookupCallback profilelookupcallback = new ProfileLookupCallback() {
-					private static final String __OBFID = "CL_00001907";
-
 					@Override
 					public void onProfileLookupSucceeded(GameProfile p_onProfileLookupSucceeded_1_) {
 						p_152723_0_.func_152358_ax().func_152649_a(p_onProfileLookupSucceeded_1_);
@@ -494,8 +489,6 @@ public class PreYggdrasilConverter {
 
 		if (file1.exists() && file1.isDirectory()) {
 			String[] astring = file1.list(new FilenameFilter() {
-				private static final String __OBFID = "CL_00001906";
-
 				@Override
 				public boolean accept(File p_accept_1_, String p_accept_2_) {
 					return p_accept_2_.endsWith(".dat");
@@ -540,10 +533,9 @@ public class PreYggdrasilConverter {
 		return date1;
 	}
 
+	@SuppressWarnings("serial")
 	@SideOnly(Side.SERVER)
 	static class ConversionError extends RuntimeException {
-		private static final String __OBFID = "CL_00001905";
-
 		private ConversionError(String p_i1206_1_, Throwable p_i1206_2_) {
 			super(p_i1206_1_, p_i1206_2_);
 		}

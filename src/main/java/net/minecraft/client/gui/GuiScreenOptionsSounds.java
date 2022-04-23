@@ -17,13 +17,12 @@ public class GuiScreenOptionsSounds extends GuiScreen {
 	private final GameSettings field_146506_g;
 	protected String field_146507_a = "Options";
 	private String field_146508_h;
-	private static final String __OBFID = "CL_00000716";
-
 	public GuiScreenOptionsSounds(GuiScreen p_i45025_1_, GameSettings p_i45025_2_) {
 		field_146505_f = p_i45025_1_;
 		field_146506_g = p_i45025_2_;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		byte b0 = 0;
@@ -76,8 +75,6 @@ public class GuiScreenOptionsSounds extends GuiScreen {
 		private final String field_146152_s;
 		public float field_146156_o = 1.0F;
 		public boolean field_146155_p;
-		private static final String __OBFID = "CL_00000717";
-
 		public Button(int p_i45024_2_, int p_i45024_3_, int p_i45024_4_, SoundCategory p_i45024_5_,
 				boolean p_i45024_6_) {
 			super(p_i45024_2_, p_i45024_3_, p_i45024_4_, p_i45024_6_ ? 310 : 150, 20, "");

@@ -16,8 +16,6 @@ import java.util.Random;
 
 public abstract class BlockBasePressurePlate extends Block {
 	private final String field_150067_a;
-	private static final String __OBFID = "CL_00000194";
-
 	protected BlockBasePressurePlate(String p_i45387_1_, Material p_i45387_2_) {
 		super(p_i45387_2_);
 		field_150067_a = p_i45387_1_;

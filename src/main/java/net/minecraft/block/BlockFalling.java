@@ -10,8 +10,6 @@ import java.util.Random;
 
 public class BlockFalling extends Block {
 	public static boolean fallInstantly;
-	private static final String __OBFID = "CL_00000240";
-
 	public BlockFalling() {
 		super(Material.sand);
 		setCreativeTab(CreativeTabs.tabBlock);

@@ -19,8 +19,6 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class BlockEnderChest extends BlockContainer {
-	private static final String __OBFID = "CL_00000238";
-
 	protected BlockEnderChest() {
 		super(Material.rock);
 		setCreativeTab(CreativeTabs.tabDecorations);

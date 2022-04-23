@@ -8,8 +8,6 @@ import net.minecraft.world.World;
 
 public class TileEntityMobSpawner extends TileEntity {
 	private final MobSpawnerBaseLogic field_145882_a = new MobSpawnerBaseLogic() {
-		private static final String __OBFID = "CL_00000361";
-
 		@Override
 		public void func_98267_a(int p_98267_1_) {
 			TileEntityMobSpawner.this.worldObj.addBlockEvent(TileEntityMobSpawner.this.xCoord,
@@ -47,8 +45,6 @@ public class TileEntityMobSpawner extends TileEntity {
 			}
 		}
 	};
-	private static final String __OBFID = "CL_00000360";
-
 	@Override
 	public void readFromNBT(NBTTagCompound p_145839_1_) {
 		super.readFromNBT(p_145839_1_);

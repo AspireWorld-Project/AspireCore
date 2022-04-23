@@ -39,13 +39,8 @@ public class EntityPlayerSP extends AbstractClientPlayer {
 	public float prevRenderArmPitch;
 	private int horseJumpPowerCounter;
 	private float horseJumpPower;
-	private final MouseFilter field_71162_ch = new MouseFilter();
-	private final MouseFilter field_71160_ci = new MouseFilter();
-	private final MouseFilter field_71161_cj = new MouseFilter();
 	public float timeInPortal;
 	public float prevTimeInPortal;
-	private static final String __OBFID = "CL_00000938";
-
 	public EntityPlayerSP(Minecraft p_i1238_1_, World p_i1238_2_, Session p_i1238_3_, int p_i1238_4_) {
 		super(p_i1238_2_, p_i1238_3_.func_148256_e());
 		mc = p_i1238_1_;

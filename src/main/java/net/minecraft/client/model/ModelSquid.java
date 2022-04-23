@@ -8,8 +8,6 @@ import net.minecraft.entity.Entity;
 public class ModelSquid extends ModelBase {
 	ModelRenderer squidBody;
 	ModelRenderer[] squidTentacles = new ModelRenderer[8];
-	private static final String __OBFID = "CL_00000861";
-
 	public ModelSquid() {
 		byte b0 = -16;
 		squidBody = new ModelRenderer(this, 0, 0);

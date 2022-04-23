@@ -9,8 +9,6 @@ import org.lwjgl.opengl.Display;
 public class MouseHelper {
 	public int deltaX;
 	public int deltaY;
-	private static final String __OBFID = "CL_00000648";
-
 	public void grabMouseCursor() {
 		if (Boolean.parseBoolean(System.getProperty("fml.noGrab", "false")))
 			return;

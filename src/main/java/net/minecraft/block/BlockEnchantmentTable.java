@@ -21,8 +21,6 @@ public class BlockEnchantmentTable extends BlockContainer {
 	private IIcon field_149950_a;
 	@SideOnly(Side.CLIENT)
 	private IIcon field_149949_b;
-	private static final String __OBFID = "CL_00000235";
-
 	protected BlockEnchantmentTable() {
 		super(Material.rock);
 		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.75F, 1.0F);

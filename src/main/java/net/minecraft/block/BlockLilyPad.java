@@ -14,8 +14,6 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class BlockLilyPad extends BlockBush {
-	private static final String __OBFID = "CL_00000332";
-
 	protected BlockLilyPad() {
 		float f = 0.5F;
 		float f1 = 0.015625F;
@@ -28,6 +26,7 @@ public class BlockLilyPad extends BlockBush {
 		return 23;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_,
 			AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_) {

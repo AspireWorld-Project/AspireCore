@@ -10,8 +10,6 @@ public class ModelEnderCrystal extends ModelBase {
 	private final ModelRenderer cube;
 	private final ModelRenderer glass = new ModelRenderer(this, "glass");
 	private ModelRenderer base;
-	private static final String __OBFID = "CL_00000871";
-
 	public ModelEnderCrystal(float p_i1170_1_, boolean p_i1170_2_) {
 		glass.setTextureOffset(0, 0).addBox(-4.0F, -4.0F, -4.0F, 8, 8, 8);
 		cube = new ModelRenderer(this, "cube");

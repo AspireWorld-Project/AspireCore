@@ -3,7 +3,6 @@ package net.minecraft.block;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -20,8 +19,6 @@ import java.util.Random;
 public class BlockCrops extends BlockBush implements IGrowable {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] field_149867_a;
-	private static final String __OBFID = "CL_00000222";
-
 	protected BlockCrops() {
 		setTickRandomly(true);
 		float f = 0.5F;

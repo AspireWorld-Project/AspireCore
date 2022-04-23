@@ -12,8 +12,6 @@ public class ScaledResolution {
 	private final double scaledWidthD;
 	private final double scaledHeightD;
 	private int scaleFactor;
-	private static final String __OBFID = "CL_00000666";
-
 	public ScaledResolution(Minecraft p_i1094_1_, int p_i1094_2_, int p_i1094_3_) {
 		scaledWidth = p_i1094_2_;
 		scaledHeight = p_i1094_3_;

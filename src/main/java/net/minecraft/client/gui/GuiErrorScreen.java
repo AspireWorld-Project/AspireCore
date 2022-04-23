@@ -8,13 +8,12 @@ import net.minecraft.client.resources.I18n;
 public class GuiErrorScreen extends GuiScreen {
 	private final String field_146313_a;
 	private final String field_146312_f;
-	private static final String __OBFID = "CL_00000696";
-
 	public GuiErrorScreen(String p_i1034_1_, String p_i1034_2_) {
 		field_146313_a = p_i1034_1_;
 		field_146312_f = p_i1034_2_;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		super.initGui();

@@ -26,8 +26,6 @@ public class BlockQuartz extends Block {
 	private IIcon field_150190_P;
 	@SideOnly(Side.CLIENT)
 	private IIcon field_150188_Q;
-	private static final String __OBFID = "CL_00000292";
-
 	public BlockQuartz() {
 		super(Material.rock);
 		setCreativeTab(CreativeTabs.tabBlock);
@@ -94,6 +92,7 @@ public class BlockQuartz extends Block {
 		return 39;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {

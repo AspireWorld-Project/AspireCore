@@ -1,5 +1,13 @@
 package net.minecraft.block;
 
+import static net.minecraftforge.common.util.ForgeDirection.DOWN;
+import static net.minecraftforge.common.util.ForgeDirection.UP;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
+
 import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -24,7 +32,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntitySign;
-import net.minecraft.util.*;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.IIcon;
+import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.RegistryNamespaced;
+import net.minecraft.util.StatCollector;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -35,14 +49,6 @@ import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.common.util.RotationHelper;
 import net.minecraftforge.event.ForgeEventFactory;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-
-import static net.minecraftforge.common.util.ForgeDirection.DOWN;
-import static net.minecraftforge.common.util.ForgeDirection.UP;
 
 public class Block {
 	public static final RegistryNamespaced blockRegistry = GameData.getBlockRegistry();
@@ -55,8 +61,6 @@ public class Block {
 	public static final Block.SoundType soundTypePiston = new Block.SoundType("stone", 1.0F, 1.0F);
 	public static final Block.SoundType soundTypeMetal = new Block.SoundType("stone", 1.0F, 1.5F);
 	public static final Block.SoundType soundTypeGlass = new Block.SoundType("stone", 1.0F, 1.0F) {
-		private static final String __OBFID = "CL_00000200";
-
 		@Override
 		public String getBreakSound() {
 			return "dig.glass";
@@ -71,16 +75,12 @@ public class Block {
 	public static final Block.SoundType soundTypeSand = new Block.SoundType("sand", 1.0F, 1.0F);
 	public static final Block.SoundType soundTypeSnow = new Block.SoundType("snow", 1.0F, 1.0F);
 	public static final Block.SoundType soundTypeLadder = new Block.SoundType("ladder", 1.0F, 1.0F) {
-		private static final String __OBFID = "CL_00000201";
-
 		@Override
 		public String getBreakSound() {
 			return "dig.wood";
 		}
 	};
 	public static final Block.SoundType soundTypeAnvil = new Block.SoundType("anvil", 0.3F, 1.0F) {
-		private static final String __OBFID = "CL_00000202";
-
 		@Override
 		public String getBreakSound() {
 			return "dig.stone";
@@ -115,8 +115,7 @@ public class Block {
 	private String unlocalizedName;
 	@SideOnly(Side.CLIENT)
 	protected IIcon blockIcon;
-	private static final String __OBFID = "CL_00000199";
-
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public final cpw.mods.fml.common.registry.RegistryDelegate<Block> delegate = ((cpw.mods.fml.common.registry.FMLControlledNamespacedRegistry) blockRegistry)
 			.getDelegate(this, Block.class);
 
@@ -174,6 +173,7 @@ public class Block {
 		return getMaterial().getMaterialMapColor();
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static void registerBlocks() {
 		blockRegistry.addObject(0, "air", new BlockAir().setBlockName("air"));
 		blockRegistry.addObject(1, "stone", new BlockStone().setHardness(1.5F).setResistance(10.0F)
@@ -702,6 +702,7 @@ public class Block {
 		return blockIcon;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_,
 			AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_) {
 		AxisAlignedBB axisalignedbb1 = getCollisionBoundingBoxFromPool(p_149743_1_, p_149743_2_, p_149743_3_,
@@ -1184,6 +1185,7 @@ public class Block {
 		return damageDropped(p_149643_1_.getBlockMetadata(p_149643_2_, p_149643_3_, p_149643_4_));
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {
 		p_149666_3_.add(new ItemStack(p_149666_1_, 1, 0));
@@ -1270,7 +1272,9 @@ public class Block {
 	 * =====================================
 	 */
 	// For ForgeInternal use Only!
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	protected ThreadLocal<EntityPlayer> harvesters = new ThreadLocal();
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private final ThreadLocal<Integer> silk_check_meta = new ThreadLocal();
 
 	/**
@@ -2102,10 +2106,7 @@ public class Block {
 		Block plant = plantable.getPlant(world, x, y + 1, z);
 		EnumPlantType plantType = plantable.getPlantType(world, x, y + 1, z);
 
-		if (plant == Blocks.cactus && this == Blocks.cactus)
-			return true;
-
-		if (plant == Blocks.reeds && this == Blocks.reeds)
+		if ((plant == Blocks.cactus && this == Blocks.cactus) || (plant == Blocks.reeds && this == Blocks.reeds))
 			return true;
 
 		if (plantable instanceof BlockBush && ((BlockBush) plantable).canPlaceBlockOn(this))
@@ -2531,8 +2532,6 @@ public class Block {
 		public final String soundName;
 		public final float volume;
 		public final float frequency;
-		private static final String __OBFID = "CL_00000203";
-
 		public SoundType(String p_i45393_1_, float p_i45393_2_, float p_i45393_3_) {
 			soundName = p_i45393_1_;
 			volume = p_i45393_2_;

@@ -20,6 +20,7 @@ import java.util.TreeMap;
 
 public class Village {
 	private World worldObj;
+	@SuppressWarnings("rawtypes")
 	private final List villageDoorInfoList = new ArrayList();
 	private final ChunkCoordinates centerHelper = new ChunkCoordinates(0, 0, 0);
 	private final ChunkCoordinates center = new ChunkCoordinates(0, 0, 0);
@@ -28,11 +29,11 @@ public class Village {
 	private int tickCounter;
 	private int numVillagers;
 	private int noBreedTicks;
+	@SuppressWarnings("rawtypes")
 	private final TreeMap playerReputation = new TreeMap();
+	@SuppressWarnings("rawtypes")
 	private final List villageAgressors = new ArrayList();
 	private int numIronGolems;
-	private static final String __OBFID = "CL_00001631";
-
 	public Village() {
 	}
 
@@ -108,6 +109,7 @@ public class Village {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void updateNumIronGolems() {
 		List list = worldObj.getEntitiesWithinAABB(EntityIronGolem.class,
 				AxisAlignedBB.getBoundingBox(center.posX - villageRadius, center.posY - 4, center.posZ - villageRadius,
@@ -115,6 +117,7 @@ public class Village {
 		numIronGolems = list.size();
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void updateNumVillagers() {
 		List list = worldObj.getEntitiesWithinAABB(EntityVillager.class,
 				AxisAlignedBB.getBoundingBox(center.posX - villageRadius, center.posY - 4, center.posZ - villageRadius,
@@ -150,10 +153,12 @@ public class Village {
 		return center.getDistanceSquared(p_75570_1_, p_75570_2_, p_75570_3_) < villageRadius * villageRadius;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List getVillageDoorInfoList() {
 		return villageDoorInfoList;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public VillageDoorInfo findNearestDoor(int p_75564_1_, int p_75564_2_, int p_75564_3_) {
 		VillageDoorInfo villagedoorinfo = null;
 		int l = Integer.MAX_VALUE;
@@ -172,6 +177,7 @@ public class Village {
 		return villagedoorinfo;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public VillageDoorInfo findNearestDoorUnrestricted(int p_75569_1_, int p_75569_2_, int p_75569_3_) {
 		VillageDoorInfo villagedoorinfo = null;
 		int l = Integer.MAX_VALUE;
@@ -196,6 +202,7 @@ public class Village {
 		return villagedoorinfo;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public VillageDoorInfo getVillageDoorAt(int p_75578_1_, int p_75578_2_, int p_75578_3_) {
 		if (center.getDistanceSquared(p_75578_1_, p_75578_2_, p_75578_3_) > villageRadius * villageRadius)
 			return null;
@@ -215,6 +222,7 @@ public class Village {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public void addVillageDoorInfo(VillageDoorInfo p_75576_1_) {
 		villageDoorInfoList.add(p_75576_1_);
 		centerHelper.posX += p_75576_1_.posX;
@@ -228,6 +236,7 @@ public class Village {
 		return villageDoorInfoList.isEmpty();
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void addOrRenewAgressor(EntityLivingBase p_75575_1_) {
 		Iterator iterator = villageAgressors.iterator();
 		Village.VillageAgressor villageagressor;
@@ -261,6 +270,7 @@ public class Village {
 		return villageagressor != null ? villageagressor.agressor : null;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public EntityPlayer func_82685_c(EntityLivingBase p_82685_1_) {
 		double d0 = Double.MAX_VALUE;
 		EntityPlayer entityplayer = null;
@@ -286,6 +296,7 @@ public class Village {
 		return entityplayer;
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void removeDeadAndOldAgressors() {
 		Iterator iterator = villageAgressors.iterator();
 
@@ -299,6 +310,7 @@ public class Village {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void removeDeadAndOutOfRangeDoors() {
 		boolean flag = false;
 		boolean flag1 = worldObj.rand.nextInt(50) == 0;
@@ -331,6 +343,7 @@ public class Village {
 		return worldObj.getBlockIfExists(p_75574_1_, p_75574_2_, p_75574_3_) == Blocks.wooden_door;
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void updateVillageRadiusAndCenter() {
 		int i = villageDoorInfoList.size();
 
@@ -356,6 +369,7 @@ public class Village {
 		return integer != null ? integer.intValue() : 0;
 	}
 
+	@SuppressWarnings("unchecked")
 	public int setReputationForPlayer(String p_82688_1_, int p_82688_2_) {
 		int j = getReputationForPlayer(p_82688_1_);
 		int k = MathHelper.clamp_int(j + p_82688_2_, -30, 10);
@@ -367,6 +381,7 @@ public class Village {
 		return getReputationForPlayer(p_82687_1_) <= -15;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void readVillageDataFromNBT(NBTTagCompound p_82690_1_) {
 		numVillagers = p_82690_1_.getInteger("PopSize");
 		villageRadius = p_82690_1_.getInteger("Radius");
@@ -398,6 +413,7 @@ public class Village {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void writeVillageDataToNBT(NBTTagCompound p_82689_1_) {
 		p_82689_1_.setInteger("PopSize", numVillagers);
 		p_82689_1_.setInteger("Radius", villageRadius);
@@ -449,6 +465,7 @@ public class Village {
 		return noBreedTicks == 0 || tickCounter - noBreedTicks >= 3600;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void setDefaultPlayerReputation(int p_82683_1_) {
 		Iterator iterator = playerReputation.keySet().iterator();
 
@@ -461,8 +478,6 @@ public class Village {
 	class VillageAgressor {
 		public EntityLivingBase agressor;
 		public int agressionTime;
-		private static final String __OBFID = "CL_00001632";
-
 		VillageAgressor(EntityLivingBase p_i1674_2_, int p_i1674_3_) {
 			agressor = p_i1674_2_;
 			agressionTime = p_i1674_3_;

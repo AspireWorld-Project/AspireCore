@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class BlockVine extends Block implements IShearable {
-	private static final String __OBFID = "CL_00000330";
-
 	public BlockVine() {
 		super(Material.vine);
 		setTickRandomly(true);

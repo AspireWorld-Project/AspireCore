@@ -18,8 +18,6 @@ public class ExtendedBlockStorage {
 	private int blockRefCount;
 	private int tickRefCount;
 	private volatile MemSlot slot; // volatile read is cheap on x86
-	private static final String __OBFID = "CL_00000375";
-
 	public ExtendedBlockStorage(int p_i1997_1_, boolean p_i1997_2_, boolean zerofill) {
 		yBase = p_i1997_1_;
 		slot = alloc.allocateSlot();

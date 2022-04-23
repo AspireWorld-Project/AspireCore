@@ -18,8 +18,6 @@ import org.bukkit.event.block.BlockRedstoneEvent;
 public class BlockTrapDoor extends Block {
 	/** Set this to allow trapdoors to remain free-floating */
 	public static boolean disableValidation = false;
-	private static final String __OBFID = "CL_00000327";
-
 	protected BlockTrapDoor(Material p_i45434_1_) {
 		super(p_i45434_1_);
 		float f = 0.5F;

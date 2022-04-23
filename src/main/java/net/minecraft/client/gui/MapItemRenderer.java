@@ -19,9 +19,8 @@ import java.util.Map;
 public class MapItemRenderer {
 	private static final ResourceLocation field_148253_a = new ResourceLocation("textures/map/map_icons.png");
 	private final TextureManager field_148251_b;
+	@SuppressWarnings("rawtypes")
 	private final Map field_148252_c = Maps.newHashMap();
-	private static final String __OBFID = "CL_00000663";
-
 	public MapItemRenderer(TextureManager p_i45009_1_) {
 		field_148251_b = p_i45009_1_;
 	}
@@ -34,6 +33,7 @@ public class MapItemRenderer {
 		func_148248_b(p_148250_1_).func_148237_a(p_148250_2_);
 	}
 
+	@SuppressWarnings("unchecked")
 	private MapItemRenderer.Instance func_148248_b(MapData p_148248_1_) {
 		MapItemRenderer.Instance instance = (MapItemRenderer.Instance) field_148252_c.get(p_148248_1_.mapName);
 
@@ -45,6 +45,7 @@ public class MapItemRenderer {
 		return instance;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void func_148249_a() {
 		Iterator iterator = field_148252_c.values().iterator();
 
@@ -62,8 +63,6 @@ public class MapItemRenderer {
 		private final DynamicTexture field_148243_c;
 		private final ResourceLocation field_148240_d;
 		private final int[] field_148241_e;
-		private static final String __OBFID = "CL_00000665";
-
 		private Instance(MapData p_i45007_2_) {
 			field_148242_b = p_i45007_2_;
 			field_148243_c = new DynamicTexture(128, 128);
@@ -89,6 +88,7 @@ public class MapItemRenderer {
 			field_148243_c.updateDynamicTexture();
 		}
 
+		@SuppressWarnings("rawtypes")
 		private void func_148237_a(boolean p_148237_1_) {
 			byte b0 = 0;
 			byte b1 = 0;

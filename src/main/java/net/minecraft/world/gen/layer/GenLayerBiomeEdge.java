@@ -3,8 +3,6 @@ package net.minecraft.world.gen.layer;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GenLayerBiomeEdge extends GenLayer {
-	private static final String __OBFID = "CL_00000554";
-
 	public GenLayerBiomeEdge(long p_i45475_1_, GenLayer p_i45475_3_) {
 		super(p_i45475_1_);
 		parent = p_i45475_3_;

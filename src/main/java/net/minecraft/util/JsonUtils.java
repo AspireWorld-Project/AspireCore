@@ -5,8 +5,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class JsonUtils {
-	private static final String __OBFID = "CL_00001484";
-
 	@SideOnly(Side.CLIENT)
 	public static boolean jsonObjectFieldTypeIsString(JsonObject p_151205_0_, String p_151205_1_) {
 		return jsonObjectFieldTypeIsPrimitive(p_151205_0_, p_151205_1_) && p_151205_0_.getAsJsonPrimitive(p_151205_1_).isString();

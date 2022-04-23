@@ -25,8 +25,6 @@ import net.minecraft.network.play.server.S40PacketDisconnect;
 import net.minecraft.server.management.ServerConfigurationManager;
 import net.minecraft.util.ChatComponentText;
 import org.apache.logging.log4j.Level;
-import org.bukkit.craftbukkit.entity.CraftPlayer;
-
 import java.net.SocketAddress;
 import java.nio.channels.ClosedChannelException;
 import java.util.List;

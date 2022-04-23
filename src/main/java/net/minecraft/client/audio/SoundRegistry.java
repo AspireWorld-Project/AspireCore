@@ -9,9 +9,9 @@ import java.util.Map;
 
 @SideOnly(Side.CLIENT)
 public class SoundRegistry extends RegistrySimple {
+	@SuppressWarnings("rawtypes")
 	private Map field_148764_a;
-	private static final String __OBFID = "CL_00001151";
-
+	@SuppressWarnings("rawtypes")
 	@Override
 	protected Map createUnderlyingMap() {
 		field_148764_a = Maps.newHashMap();

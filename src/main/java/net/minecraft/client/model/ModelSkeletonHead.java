@@ -7,8 +7,6 @@ import net.minecraft.entity.Entity;
 @SideOnly(Side.CLIENT)
 public class ModelSkeletonHead extends ModelBase {
 	public ModelRenderer skeletonHead;
-	private static final String __OBFID = "CL_00000856";
-
 	public ModelSkeletonHead() {
 		this(0, 35, 64, 64);
 	}

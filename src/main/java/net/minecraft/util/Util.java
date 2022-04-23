@@ -5,8 +5,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class Util {
-	private static final String __OBFID = "CL_00001633";
-
 	public static Util.EnumOS getOSType() {
 		String s = System.getProperty("os.name").toLowerCase();
 		return s.contains("win") ? Util.EnumOS.WINDOWS
@@ -19,8 +17,6 @@ public class Util {
 
 	@SideOnly(Side.CLIENT)
 	public enum EnumOS {
-		LINUX, SOLARIS, WINDOWS, OSX, UNKNOWN;
-
-		private static final String __OBFID = "CL_00001660";
+		LINUX, SOLARIS, WINDOWS, OSX, UNKNOWN
 	}
 }

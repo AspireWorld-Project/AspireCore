@@ -1257,6 +1257,7 @@ public class Configuration {
 	 * {@code IConfigElement} (the IConfigElement for this Property will be
 	 * provided).
 	 */
+	@SuppressWarnings("rawtypes")
 	public Configuration setCategoryConfigEntryClass(String category, Class<? extends IConfigEntry> clazz) {
 
 		if (!caseSensitiveCustomCategories) {
@@ -1327,10 +1328,7 @@ public class Configuration {
 
 	public static class UnicodeInputStreamReader extends Reader {
 		private final InputStreamReader input;
-		private final String defaultEnc;
-
 		public UnicodeInputStreamReader(InputStream source, String encoding) throws IOException {
-			defaultEnc = encoding;
 			String enc = encoding;
 			byte[] data = new byte[4];
 

@@ -10,9 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GenLayerBiome extends GenLayer {
+	@SuppressWarnings("unchecked")
 	private final List<BiomeEntry>[] biomes = new ArrayList[BiomeManager.BiomeType.values().length];
-
-	private static final String __OBFID = "CL_00000555";
 
 	public GenLayerBiome(long p_i2122_1_, GenLayer p_i2122_3_, WorldType p_i2122_4_) {
 		super(p_i2122_1_);

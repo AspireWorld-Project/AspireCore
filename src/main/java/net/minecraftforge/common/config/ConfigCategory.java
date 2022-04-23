@@ -23,12 +23,14 @@ public class ConfigCategory implements Map<String, Property> {
 	private String languagekey;
 	private final ArrayList<ConfigCategory> children = new ArrayList<>();
 	private final Map<String, Property> properties = new TreeMap<>();
+	@SuppressWarnings("unused")
 	private final int propNumber = 0;
 	public final ConfigCategory parent;
 	private boolean changed = false;
 	private boolean requiresWorldRestart = false;
 	private boolean showInGui = true;
 	private boolean requiresMcRestart = false;
+	@SuppressWarnings("rawtypes")
 	private Class<? extends IConfigEntry> customEntryClass = null;
 	private List<String> propertyOrder = null;
 
@@ -91,11 +93,13 @@ public class ConfigCategory implements Map<String, Property> {
 			return ImmutableList.copyOf(properties.values());
 	}
 
+	@SuppressWarnings("rawtypes")
 	public ConfigCategory setConfigEntryClass(Class<? extends IConfigEntry> clazz) {
 		customEntryClass = clazz;
 		return this;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Class<? extends IConfigEntry> getConfigEntryClass() {
 		return customEntryClass;
 	}

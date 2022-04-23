@@ -16,8 +16,6 @@ import java.util.List;
 public class BlockColored extends Block {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] field_150033_a;
-	private static final String __OBFID = "CL_00000217";
-
 	public BlockColored(Material p_i45398_1_) {
 		super(p_i45398_1_);
 		setCreativeTab(CreativeTabs.tabBlock);
@@ -42,6 +40,7 @@ public class BlockColored extends Block {
 		return ~p_150031_0_ & 15;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {

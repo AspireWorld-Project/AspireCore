@@ -9,8 +9,6 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class WorldGenTaiga2 extends WorldGenAbstractTree {
-	private static final String __OBFID = "CL_00000435";
-
 	public WorldGenTaiga2(boolean p_i2025_1_) {
 		super(p_i2025_1_);
 	}

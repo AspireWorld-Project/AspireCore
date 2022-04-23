@@ -26,8 +26,6 @@ public class GuiAchievement extends Gui {
 	private long field_146263_l;
 	private final RenderItem field_146264_m;
 	private boolean field_146262_n;
-	private static final String __OBFID = "CL_00000721";
-
 	public GuiAchievement(Minecraft p_i1063_1_) {
 		field_146259_f = p_i1063_1_;
 		field_146264_m = new RenderItem();

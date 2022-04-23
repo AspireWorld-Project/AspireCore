@@ -9,8 +9,6 @@ public class BlockEventData {
 	private final Block field_151344_d;
 	private final int eventID;
 	private final int eventParameter;
-	private static final String __OBFID = "CL_00000131";
-
 	public GameProfile initiator;
 
 	public BlockEventData(int p_i45362_1_, int p_i45362_2_, int p_i45362_3_, Block p_i45362_4_, int p_i45362_5_,

@@ -18,8 +18,6 @@ import java.util.Random;
 
 public class BlockDaylightDetector extends BlockContainer {
 	private final IIcon[] field_149958_a = new IIcon[2];
-	private static final String __OBFID = "CL_00000223";
-
 	public BlockDaylightDetector() {
 		super(Material.wood);
 		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.375F, 1.0F);

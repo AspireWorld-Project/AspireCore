@@ -19,8 +19,6 @@ public class GuiCommandBlock extends GuiScreen {
 	private final CommandBlockLogic localCommandBlock;
 	private GuiButton doneBtn;
 	private GuiButton cancelBtn;
-	private static final String __OBFID = "CL_00000748";
-
 	public GuiCommandBlock(CommandBlockLogic p_i45032_1_) {
 		localCommandBlock = p_i45032_1_;
 	}
@@ -30,6 +28,7 @@ public class GuiCommandBlock extends GuiScreen {
 		commandTextField.updateCursorCounter();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		Keyboard.enableRepeatEvents(true);

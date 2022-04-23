@@ -21,8 +21,6 @@ public class ModelBiped extends ModelBase {
 	public int heldItemRight;
 	public boolean isSneak;
 	public boolean aimedBow;
-	private static final String __OBFID = "CL_00000840";
-
 	public ModelBiped() {
 		this(0.0F);
 	}

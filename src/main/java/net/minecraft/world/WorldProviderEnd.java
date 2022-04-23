@@ -11,8 +11,6 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderEnd;
 
 public class WorldProviderEnd extends WorldProvider {
-	private static final String __OBFID = "CL_00000389";
-
 	@Override
 	public void registerWorldChunkManager() {
 		worldChunkMgr = new WorldChunkManagerHell(BiomeGenBase.sky, 0.0F);

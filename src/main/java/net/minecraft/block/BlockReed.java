@@ -17,8 +17,6 @@ import org.bukkit.craftbukkit.event.CraftEventFactory;
 import java.util.Random;
 
 public class BlockReed extends Block implements IPlantable {
-	private static final String __OBFID = "CL_00000300";
-
 	protected BlockReed() {
 		super(Material.plants);
 		float f = 0.375F;

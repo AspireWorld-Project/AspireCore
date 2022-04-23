@@ -8,8 +8,6 @@ import net.minecraft.item.Item;
 import java.util.Random;
 
 public class BlockClay extends Block {
-	private static final String __OBFID = "CL_00000215";
-
 	public BlockClay() {
 		super(Material.clay);
 		setCreativeTab(CreativeTabs.tabBlock);

@@ -6,7 +6,6 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -30,8 +29,6 @@ public class GuiBeacon extends GuiContainer {
 	private final TileEntityBeacon tileBeacon;
 	private GuiBeacon.ConfirmButton beaconConfirmButton;
 	private boolean buttonsNotDrawn;
-	private static final String __OBFID = "CL_00000739";
-
 	public GuiBeacon(InventoryPlayer p_i1078_1_, TileEntityBeacon p_i1078_2_) {
 		super(new ContainerBeacon(p_i1078_1_, p_i1078_2_));
 		tileBeacon = p_i1078_2_;
@@ -39,6 +36,7 @@ public class GuiBeacon extends GuiContainer {
 		ySize = 219;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		super.initGui();
@@ -48,6 +46,7 @@ public class GuiBeacon extends GuiContainer {
 		beaconConfirmButton.enabled = false;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void updateScreen() {
 		super.updateScreen();
@@ -150,6 +149,7 @@ public class GuiBeacon extends GuiContainer {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_) {
 		RenderHelper.disableStandardItemLighting();
@@ -194,8 +194,6 @@ public class GuiBeacon extends GuiContainer {
 		private final int field_146144_p;
 		private final int field_146143_q;
 		private boolean field_146142_r;
-		private static final String __OBFID = "CL_00000743";
-
 		protected Button(int p_i1077_1_, int p_i1077_2_, int p_i1077_3_, ResourceLocation p_i1077_4_, int p_i1077_5_,
 				int p_i1077_6_) {
 			super(p_i1077_1_, p_i1077_2_, p_i1077_3_, 22, 22, "");
@@ -243,8 +241,6 @@ public class GuiBeacon extends GuiContainer {
 
 	@SideOnly(Side.CLIENT)
 	class CancelButton extends GuiBeacon.Button {
-		private static final String __OBFID = "CL_00000740";
-
 		public CancelButton(int p_i1074_2_, int p_i1074_3_, int p_i1074_4_) {
 			super(p_i1074_2_, p_i1074_3_, p_i1074_4_, GuiBeacon.beaconGuiTextures, 112, 220);
 		}
@@ -257,8 +253,6 @@ public class GuiBeacon extends GuiContainer {
 
 	@SideOnly(Side.CLIENT)
 	class ConfirmButton extends GuiBeacon.Button {
-		private static final String __OBFID = "CL_00000741";
-
 		public ConfirmButton(int p_i1075_2_, int p_i1075_3_, int p_i1075_4_) {
 			super(p_i1075_2_, p_i1075_3_, p_i1075_4_, GuiBeacon.beaconGuiTextures, 90, 220);
 		}
@@ -273,8 +267,6 @@ public class GuiBeacon extends GuiContainer {
 	class PowerButton extends GuiBeacon.Button {
 		private final int field_146149_p;
 		private final int field_146148_q;
-		private static final String __OBFID = "CL_00000742";
-
 		public PowerButton(int p_i1076_2_, int p_i1076_3_, int p_i1076_4_, int p_i1076_5_, int p_i1076_6_) {
 			super(p_i1076_2_, p_i1076_3_, p_i1076_4_, GuiContainer.field_147001_a,
 					0 + Potion.potionTypes[p_i1076_5_].getStatusIconIndex() % 8 * 18,

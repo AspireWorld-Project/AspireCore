@@ -146,13 +146,11 @@ public class ChestGenHooks {
 		return getInfo(category).getOneItem(rand);
 	}
 
-	private final String category;
 	private int countMin = 0;
 	private int countMax = 0;
 	private final ArrayList<WeightedRandomChestContent> contents = new ArrayList<>();
 
 	public ChestGenHooks(String category) {
-		this.category = category;
 	}
 
 	public ChestGenHooks(String category, WeightedRandomChestContent[] items, int min, int max) {

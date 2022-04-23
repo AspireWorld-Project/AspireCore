@@ -44,8 +44,6 @@ public class MapColor {
 	public static final MapColor netherrackColor = new MapColor(35, 7340544);
 	public final int colorValue;
 	public final int colorIndex;
-	private static final String __OBFID = "CL_00000544";
-
 	private MapColor(int p_i2117_1_, int p_i2117_2_) {
 		if (p_i2117_1_ >= 0 && p_i2117_1_ <= 63) {
 			colorIndex = p_i2117_1_;

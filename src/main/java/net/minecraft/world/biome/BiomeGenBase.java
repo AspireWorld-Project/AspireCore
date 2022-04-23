@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+@SuppressWarnings("unchecked")
 public abstract class BiomeGenBase {
 	private static final Logger logger = LogManager.getLogger();
 	protected static final BiomeGenBase.Height height_Default = new BiomeGenBase.Height(0.1F, 0.2F);
@@ -45,6 +46,7 @@ public abstract class BiomeGenBase {
 	protected static final BiomeGenBase.Height height_LowIslands = new BiomeGenBase.Height(0.2F, 0.3F);
 	protected static final BiomeGenBase.Height height_PartiallySubmerged = new BiomeGenBase.Height(-0.2F, 0.1F);
 	private static final BiomeGenBase[] biomeList = new BiomeGenBase[256];
+	@SuppressWarnings("rawtypes")
 	public static final Set explorationBiomesList = Sets.newHashSet();
 	public static final BiomeGenBase ocean = new BiomeGenOcean(0).setColor(112).setBiomeName("Ocean")
 			.setHeight(height_Oceans);
@@ -145,9 +147,13 @@ public abstract class BiomeGenBase {
 	public float rainfall;
 	public int waterColorMultiplier;
 	public BiomeDecorator theBiomeDecorator;
+	@SuppressWarnings("rawtypes")
 	protected List spawnableMonsterList;
+	@SuppressWarnings("rawtypes")
 	protected List spawnableCreatureList;
+	@SuppressWarnings("rawtypes")
 	protected List spawnableWaterCreatureList;
+	@SuppressWarnings("rawtypes")
 	protected List spawnableCaveCreatureList;
 	protected boolean enableSnow;
 	protected boolean enableRain;
@@ -155,12 +161,11 @@ public abstract class BiomeGenBase {
 	protected WorldGenTrees worldGeneratorTrees;
 	protected WorldGenBigTree worldGeneratorBigTree;
 	protected WorldGenSwamp worldGeneratorSwamp;
-	private static final String __OBFID = "CL_00000158";
-
 	public BiomeGenBase(int p_i1971_1_) {
 		this(p_i1971_1_, true);
 	}
 
+	@SuppressWarnings({ "rawtypes" })
 	public BiomeGenBase(int p_i1971_1_, boolean register) {
 		topBlock = Blocks.grass;
 		field_150604_aj = 0;
@@ -289,6 +294,7 @@ public abstract class BiomeGenBase {
 		return Color.getHSBColor(0.62222224F - p_76731_1_ * 0.05F, 0.5F + p_76731_1_ * 0.1F, 1.0F).getRGB();
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List getSpawnableList(EnumCreatureType p_76747_1_) {
 		return p_76747_1_ == EnumCreatureType.monster ? spawnableMonsterList
 				: p_76747_1_ == EnumCreatureType.creature ? spawnableCreatureList
@@ -432,6 +438,7 @@ public abstract class BiomeGenBase {
 		return new BiomeGenMutated(biomeID + 128, this);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Class getBiomeClass() {
 		return this.getClass();
 	}
@@ -586,8 +593,6 @@ public abstract class BiomeGenBase {
 	public static class Height {
 		public float rootHeight;
 		public float variation;
-		private static final String __OBFID = "CL_00000159";
-
 		public Height(float p_i45371_1_, float p_i45371_2_) {
 			rootHeight = p_i45371_1_;
 			variation = p_i45371_2_;
@@ -599,11 +604,11 @@ public abstract class BiomeGenBase {
 	}
 
 	public static class SpawnListEntry extends WeightedRandom.Item {
+		@SuppressWarnings("rawtypes")
 		public Class entityClass;
 		public int minGroupCount;
 		public int maxGroupCount;
-		private static final String __OBFID = "CL_00000161";
-
+		@SuppressWarnings("rawtypes")
 		public SpawnListEntry(Class p_i1970_1_, int p_i1970_2_, int p_i1970_3_, int p_i1970_4_) {
 			super(p_i1970_2_);
 			entityClass = p_i1970_1_;
@@ -618,8 +623,6 @@ public abstract class BiomeGenBase {
 	}
 
 	public enum TempCategory {
-		OCEAN, COLD, MEDIUM, WARM;
-
-		private static final String __OBFID = "CL_00000160";
+		OCEAN, COLD, MEDIUM, WARM
 	}
 }

@@ -11,8 +11,7 @@ import java.util.Random;
 
 public class BiomeGenMutated extends BiomeGenBase {
 	protected BiomeGenBase baseBiome;
-	private static final String __OBFID = "CL_00000178";
-
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public BiomeGenMutated(int p_i45381_1_, BiomeGenBase p_i45381_2_) {
 		super(p_i45381_1_);
 		baseBiome = p_i45381_2_;
@@ -72,6 +71,7 @@ public class BiomeGenMutated extends BiomeGenBase {
 		return baseBiome.getBiomeGrassColor(p_150558_1_, p_150558_2_, p_150558_2_);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Class getBiomeClass() {
 		return baseBiome.getBiomeClass();

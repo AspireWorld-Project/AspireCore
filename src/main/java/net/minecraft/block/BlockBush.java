@@ -15,8 +15,6 @@ import java.util.Random;
 import static net.minecraftforge.common.EnumPlantType.*;
 
 public class BlockBush extends Block implements IPlantable {
-	private static final String __OBFID = "CL_00000208";
-
 	protected BlockBush(Material p_i45395_1_) {
 		super(p_i45395_1_);
 		setTickRandomly(true);

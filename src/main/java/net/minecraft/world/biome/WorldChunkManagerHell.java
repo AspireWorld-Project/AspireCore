@@ -9,8 +9,6 @@ import java.util.Random;
 public class WorldChunkManagerHell extends WorldChunkManager {
 	private final BiomeGenBase biomeGenerator;
 	private final float rainfall;
-	private static final String __OBFID = "CL_00000169";
-
 	public WorldChunkManagerHell(BiomeGenBase p_i45374_1_, float p_i45374_2_) {
 		biomeGenerator = p_i45374_1_;
 		rainfall = p_i45374_2_;
@@ -59,6 +57,7 @@ public class WorldChunkManagerHell extends WorldChunkManager {
 		return loadBlockGeneratorData(p_76931_1_, p_76931_2_, p_76931_3_, p_76931_4_, p_76931_5_);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public ChunkPosition findBiomePosition(int p_150795_1_, int p_150795_2_, int p_150795_3_, List p_150795_4_,
 			Random p_150795_5_) {
@@ -68,6 +67,7 @@ public class WorldChunkManagerHell extends WorldChunkManager {
 				: null;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public boolean areBiomesViable(int p_76940_1_, int p_76940_2_, int p_76940_3_, List p_76940_4_) {
 		return p_76940_4_.contains(biomeGenerator);

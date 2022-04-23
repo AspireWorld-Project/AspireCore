@@ -9,11 +9,11 @@ import java.util.*;
 import java.util.Map.Entry;
 
 public class FlatGeneratorInfo {
+	@SuppressWarnings("rawtypes")
 	private final List flatLayers = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	private final Map worldFeatures = new HashMap();
 	private int biomeToUse;
-	private static final String __OBFID = "CL_00000440";
-
 	public int getBiome() {
 		return biomeToUse;
 	}
@@ -22,14 +22,17 @@ public class FlatGeneratorInfo {
 		biomeToUse = p_82647_1_;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Map getWorldFeatures() {
 		return worldFeatures;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List getFlatLayers() {
 		return flatLayers;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void func_82645_d() {
 		int i = 0;
 		FlatLayerInfo flatlayerinfo;
@@ -40,6 +43,7 @@ public class FlatGeneratorInfo {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public String toString() {
 		StringBuilder stringbuilder = new StringBuilder();
@@ -149,6 +153,7 @@ public class FlatGeneratorInfo {
 		return flatlayerinfo;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static List func_82652_b(String p_82652_0_) {
 		if (p_82652_0_ != null && p_82652_0_.length() >= 1) {
 			ArrayList arraylist = new ArrayList();
@@ -173,6 +178,7 @@ public class FlatGeneratorInfo {
 			return null;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static FlatGeneratorInfo createFlatGeneratorFromString(String p_82651_0_) {
 		if (p_82651_0_ == null)
 			return getDefaultFlatGenerator();
@@ -234,6 +240,7 @@ public class FlatGeneratorInfo {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static FlatGeneratorInfo getDefaultFlatGenerator() {
 		FlatGeneratorInfo flatgeneratorinfo = new FlatGeneratorInfo();
 		flatgeneratorinfo.setBiome(BiomeGenBase.plains.biomeID);

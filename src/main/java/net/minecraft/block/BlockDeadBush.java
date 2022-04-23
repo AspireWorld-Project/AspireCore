@@ -14,8 +14,6 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class BlockDeadBush extends BlockBush implements IShearable {
-	private static final String __OBFID = "CL_00000224";
-
 	protected BlockDeadBush() {
 		super(Material.vine);
 		float f = 0.4F;

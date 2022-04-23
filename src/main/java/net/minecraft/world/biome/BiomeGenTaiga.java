@@ -15,8 +15,7 @@ public class BiomeGenTaiga extends BiomeGenBase {
 	private static final WorldGenMegaPineTree field_150642_aF = new WorldGenMegaPineTree(false, true);
 	private static final WorldGenBlockBlob field_150643_aG = new WorldGenBlockBlob(Blocks.mossy_cobblestone, 0);
 	private final int field_150644_aH;
-	private static final String __OBFID = "CL_00000186";
-
+	@SuppressWarnings("unchecked")
 	public BiomeGenTaiga(int p_i45385_1_, int p_i45385_2_) {
 		super(p_i45385_1_);
 		field_150644_aH = p_i45385_2_;

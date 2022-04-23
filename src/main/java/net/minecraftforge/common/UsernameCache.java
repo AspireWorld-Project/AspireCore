@@ -129,6 +129,7 @@ public final class UsernameCache {
 	/**
 	 * Load the cache from file
 	 */
+	@SuppressWarnings("serial")
 	protected static void load() {
 		if (!saveFile.exists())
 			return;

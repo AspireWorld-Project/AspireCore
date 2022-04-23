@@ -21,8 +21,6 @@ public class BlockMycelium extends Block {
 	private IIcon field_150200_a;
 	@SideOnly(Side.CLIENT)
 	private IIcon field_150199_b;
-	private static final String __OBFID = "CL_00000273";
-
 	protected BlockMycelium() {
 		super(Material.grass);
 		setTickRandomly(true);

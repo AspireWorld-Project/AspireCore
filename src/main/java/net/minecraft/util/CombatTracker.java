@@ -12,16 +12,13 @@ import java.util.Iterator;
 import java.util.List;
 
 public class CombatTracker {
+	@SuppressWarnings("rawtypes")
 	private final List combatEntries = new ArrayList();
 	private final EntityLivingBase fighter;
 	private int field_94555_c;
-	private int field_152775_d;
-	private int field_152776_e;
 	private boolean field_94552_d;
 	private boolean field_94553_e;
 	private String field_94551_f;
-	private static final String __OBFID = "CL_00001520";
-
 	public CombatTracker(EntityLivingBase p_i1565_1_) {
 		fighter = p_i1565_1_;
 	}
@@ -43,6 +40,7 @@ public class CombatTracker {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public void func_94547_a(DamageSource p_94547_1_, float p_94547_2_, float p_94547_3_) {
 		func_94549_h();
 		func_94545_a();
@@ -54,8 +52,6 @@ public class CombatTracker {
 
 		if (combatentry.func_94559_f() && !field_94552_d && fighter.isEntityAlive()) {
 			field_94552_d = true;
-			field_152775_d = fighter.ticksExisted;
-			field_152776_e = field_152775_d;
 			fighter.func_152111_bt();
 		}
 	}
@@ -115,6 +111,7 @@ public class CombatTracker {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public EntityLivingBase func_94550_c() {
 		EntityLivingBase entitylivingbase = null;
 		EntityPlayer entityplayer = null;
@@ -194,8 +191,6 @@ public class CombatTracker {
 			boolean flag = field_94552_d;
 			field_94553_e = false;
 			field_94552_d = false;
-			field_152776_e = fighter.ticksExisted;
-
 			if (flag) {
 				fighter.func_152112_bu();
 			}

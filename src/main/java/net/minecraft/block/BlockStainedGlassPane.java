@@ -15,8 +15,6 @@ import java.util.List;
 public class BlockStainedGlassPane extends BlockPane {
 	private static final IIcon[] field_150106_a = new IIcon[16];
 	private static final IIcon[] field_150105_b = new IIcon[16];
-	private static final String __OBFID = "CL_00000313";
-
 	public BlockStainedGlassPane() {
 		super("glass", "glass_pane_top", Material.glass, false);
 		setCreativeTab(CreativeTabs.tabDecorations);
@@ -49,6 +47,7 @@ public class BlockStainedGlassPane extends BlockPane {
 		return p_150103_0_ & 15;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {

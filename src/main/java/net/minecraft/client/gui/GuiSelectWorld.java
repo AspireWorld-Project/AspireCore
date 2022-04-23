@@ -29,6 +29,7 @@ public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback {
 	protected String field_146628_f = "Select world";
 	private boolean field_146634_i;
 	private int field_146640_r;
+	@SuppressWarnings("rawtypes")
 	private java.util.List field_146639_s;
 	private GuiSelectWorld.List field_146638_t;
 	private String field_146637_u;
@@ -39,8 +40,6 @@ public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback {
 	private GuiButton field_146641_z;
 	private GuiButton field_146630_A;
 	private GuiButton field_146631_B;
-	private static final String __OBFID = "CL_00000711";
-
 	public GuiSelectWorld(GuiScreen p_i1054_1_) {
 		field_146632_a = p_i1054_1_;
 	}
@@ -67,6 +66,7 @@ public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback {
 		func_146618_g();
 	}
 
+	@SuppressWarnings("unchecked")
 	private void func_146627_h() throws AnvilConverterException {
 		ISaveFormat isaveformat = mc.getSaveLoader();
 		field_146639_s = isaveformat.getSaveList();
@@ -88,6 +88,7 @@ public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback {
 		return s;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void func_146618_g() {
 		buttonList.add(field_146641_z = new GuiButton(1, width / 2 - 154, height - 52, 150, 20,
 				I18n.format("selectWorld.select")));
@@ -200,8 +201,6 @@ public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback {
 
 	@SideOnly(Side.CLIENT)
 	class List extends GuiSlot {
-		private static final String __OBFID = "CL_00000712";
-
 		public List() {
 			super(GuiSelectWorld.this.mc, GuiSelectWorld.this.width, GuiSelectWorld.this.height, 32,
 					GuiSelectWorld.this.height - 64, 36);

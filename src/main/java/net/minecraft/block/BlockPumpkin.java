@@ -20,8 +20,6 @@ public class BlockPumpkin extends BlockDirectional {
 	private IIcon field_149984_b;
 	@SideOnly(Side.CLIENT)
 	private IIcon field_149986_M;
-	private static final String __OBFID = "CL_00000291";
-
 	protected BlockPumpkin(boolean p_i45419_1_) {
 		super(Material.gourd);
 		setTickRandomly(true);

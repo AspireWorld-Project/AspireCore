@@ -4,7 +4,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -28,13 +27,12 @@ public class BlockBed extends BlockDirectional {
 	private IIcon[] field_149982_M;
 	@SideOnly(Side.CLIENT)
 	private IIcon[] field_149983_N;
-	private static final String __OBFID = "CL_00000198";
-
 	public BlockBed() {
 		super(Material.cloth);
 		func_149978_e();
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public boolean onBlockActivated(World p_149727_1_, int p_149727_2_, int p_149727_3_, int p_149727_4_,
 			EntityPlayer p_149727_5_, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {

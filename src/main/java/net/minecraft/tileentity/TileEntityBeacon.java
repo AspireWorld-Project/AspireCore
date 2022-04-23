@@ -30,8 +30,6 @@ public class TileEntityBeacon extends TileEntity implements IInventory {
 	private int secondaryEffect;
 	private ItemStack payment;
 	private String field_146008_p;
-	private static final String __OBFID = "CL_00000339";
-
 	@Override
 	public void updateEntity() {
 		if (worldObj.getTotalWorldTime() % 80L == 0L) {
@@ -40,6 +38,7 @@ public class TileEntityBeacon extends TileEntity implements IInventory {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void func_146000_x() {
 		if (field_146015_k && levels > 0 && !worldObj.isRemote && primaryEffect > 0) {
 			double d0 = levels * 10 + 10;
@@ -72,6 +71,7 @@ public class TileEntityBeacon extends TileEntity implements IInventory {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void func_146003_y() {
 		int i = levels;
 

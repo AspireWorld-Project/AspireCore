@@ -41,6 +41,7 @@ public class Property {
 	private String minValue;
 	private String maxValue;
 
+	@SuppressWarnings("rawtypes")
 	private Class<? extends IConfigEntry> configEntryClass = null;
 	private Class<? extends IArrayEntry> arrayEntryClass = null;
 
@@ -342,6 +343,7 @@ public class Property {
 	 * GuiConfigEntries will be provided), {@code IConfigElement} (the
 	 * IConfigElement for this Property will be provided).
 	 */
+	@SuppressWarnings("rawtypes")
 	public Property setConfigEntryClass(Class<? extends IConfigEntry> clazz) {
 		configEntryClass = clazz;
 		return this;
@@ -353,6 +355,7 @@ public class Property {
 	 *
 	 * @return a class that implements IConfigEntry
 	 */
+	@SuppressWarnings("rawtypes")
 	public Class<? extends IConfigEntry> getConfigEntryClass() {
 		return configEntryClass;
 	}

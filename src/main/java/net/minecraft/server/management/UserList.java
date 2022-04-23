@@ -23,16 +23,16 @@ public class UserList {
 	protected static final Logger field_152693_a = LogManager.getLogger();
 	protected final Gson field_152694_b;
 	private final File field_152695_c;
+	@SuppressWarnings("rawtypes")
 	private final Map field_152696_d = Maps.newHashMap();
 	private boolean field_152697_e = true;
 
+	@SuppressWarnings("unchecked")
 	public Collection<UserListEntry> getValues() {
 		return field_152696_d.values();
 	}
 
 	private static final ParameterizedType field_152698_f = new ParameterizedType() {
-		private static final String __OBFID = "CL_00001875";
-
 		@Override
 		public Type[] getActualTypeArguments() {
 			return new Type[] { UserListEntry.class };
@@ -48,8 +48,6 @@ public class UserList {
 			return null;
 		}
 	};
-	private static final String __OBFID = "CL_00001876";
-
 	public UserList(File p_i1144_1_) {
 		field_152695_c = p_i1144_1_;
 		GsonBuilder gsonbuilder = new GsonBuilder().setPrettyPrinting();
@@ -65,6 +63,7 @@ public class UserList {
 		field_152697_e = p_152686_1_;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void func_152687_a(UserListEntry p_152687_1_) {
 		field_152696_d.put(func_152681_a(p_152687_1_.func_152640_f()), p_152687_1_);
 
@@ -95,6 +94,7 @@ public class UserList {
 		return field_152695_c;
 	}
 
+	@SuppressWarnings("unchecked")
 	public String[] func_152685_a() {
 		return (String[]) field_152696_d.keySet().toArray(new String[field_152696_d.size()]);
 	}
@@ -107,6 +107,7 @@ public class UserList {
 		return field_152696_d.containsKey(func_152681_a(p_152692_1_));
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void func_152680_h() {
 		ArrayList arraylist = Lists.newArrayList();
 		Iterator iterator = field_152696_d.values().iterator();
@@ -131,10 +132,12 @@ public class UserList {
 		return new UserListEntry(null, p_152682_1_);
 	}
 
+	@SuppressWarnings("rawtypes")
 	protected Map func_152688_e() {
 		return field_152696_d;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void func_152678_f() throws IOException {
 		Collection collection = field_152696_d.values();
 		String s = field_152694_b.toJson(collection);
@@ -153,6 +156,7 @@ public class UserList {
 		return field_152696_d.size() < 1;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@SideOnly(Side.SERVER)
 	public void func_152679_g() throws IOException {
 		if (!field_152695_c.exists())
@@ -182,9 +186,8 @@ public class UserList {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	class Serializer implements JsonDeserializer, JsonSerializer {
-		private static final String __OBFID = "CL_00001874";
-
 		private Serializer() {
 		}
 

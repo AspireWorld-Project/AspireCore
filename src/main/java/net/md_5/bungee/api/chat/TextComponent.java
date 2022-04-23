@@ -31,7 +31,8 @@ public class TextComponent
     public TextComponent() {
     }
 
-    public static BaseComponent[] fromLegacyText(String message) {
+    @SuppressWarnings("incomplete-switch")
+	public static BaseComponent[] fromLegacyText(String message) {
         ArrayList<TextComponent> components = new ArrayList<TextComponent>();
         StringBuilder builder = new StringBuilder();
         TextComponent component = new TextComponent();

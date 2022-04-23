@@ -39,8 +39,6 @@ public class ServerListEntryNormal implements GuiListExtended.IGuiListEntry {
 	private String field_148299_g;
 	private DynamicTexture field_148305_h;
 	private final ResourceLocation field_148306_i;
-	private static final String __OBFID = "CL_00000817";
-
 	protected ServerListEntryNormal(GuiMultiplayer p_i45048_1_, ServerData p_i45048_2_) {
 		field_148303_c = p_i45048_1_;
 		field_148301_e = p_i45048_2_;
@@ -49,6 +47,7 @@ public class ServerListEntryNormal implements GuiListExtended.IGuiListEntry {
 		field_148305_h = (DynamicTexture) field_148300_d.getTextureManager().getTexture(field_148306_i);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void drawEntry(int p_148279_1_, int p_148279_2_, int p_148279_3_, int p_148279_4_, int p_148279_5_,
 			Tessellator p_148279_6_, int p_148279_7_, int p_148279_8_, boolean p_148279_9_) {
@@ -58,8 +57,6 @@ public class ServerListEntryNormal implements GuiListExtended.IGuiListEntry {
 			field_148301_e.serverMOTD = "";
 			field_148301_e.populationInfo = "";
 			field_148302_b.submit(new Runnable() {
-				private static final String __OBFID = "CL_00000818";
-
 				@Override
 				public void run() {
 					try {

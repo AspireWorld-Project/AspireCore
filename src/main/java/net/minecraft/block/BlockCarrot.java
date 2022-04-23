@@ -10,8 +10,6 @@ import net.minecraft.util.IIcon;
 public class BlockCarrot extends BlockCrops {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] field_149868_a;
-	private static final String __OBFID = "CL_00000212";
-
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int p_149691_1_, int p_149691_2_) {

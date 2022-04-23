@@ -18,10 +18,10 @@ import org.bukkit.event.block.BlockRedstoneEvent;
 import java.util.Random;
 
 public class BlockSign extends BlockContainer {
+	@SuppressWarnings("rawtypes")
 	private final Class field_149968_a;
 	private final boolean field_149967_b;
-	private static final String __OBFID = "CL_00000306";
-
+	@SuppressWarnings("rawtypes")
 	protected BlockSign(Class p_i45426_1_, boolean p_i45426_2_) {
 		super(Material.wood);
 		field_149967_b = p_i45426_2_;

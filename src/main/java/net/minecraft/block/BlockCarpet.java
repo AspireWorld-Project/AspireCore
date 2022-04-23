@@ -16,8 +16,6 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class BlockCarpet extends Block {
-	private static final String __OBFID = "CL_00000338";
-
 	protected BlockCarpet() {
 		super(Material.carpet);
 		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
@@ -107,6 +105,7 @@ public class BlockCarpet extends Block {
 		return p_149692_1_;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {

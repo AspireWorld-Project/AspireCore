@@ -30,8 +30,6 @@ public abstract class WorldProvider {
 	public float[] lightBrightnessTable = new float[16];
 	public int dimensionId;
 	private final float[] colorsSunriseSunset = new float[4];
-	private static final String __OBFID = "CL_00000386";
-
 	public final void registerWorld(World p_76558_1_) {
 		worldObj = p_76558_1_;
 		terrainType = p_76558_1_.getWorldInfo().getTerrainType();

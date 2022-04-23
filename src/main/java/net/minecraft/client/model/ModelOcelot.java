@@ -19,8 +19,6 @@ public class ModelOcelot extends ModelBase {
 	ModelRenderer ocelotHead;
 	ModelRenderer ocelotBody;
 	int field_78163_i = 1;
-	private static final String __OBFID = "CL_00000848";
-
 	public ModelOcelot() {
 		setTextureOffset("head.main", 0, 0);
 		setTextureOffset("head.nose", 0, 24);

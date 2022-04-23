@@ -1,7 +1,10 @@
 package net.minecraft.util;
 
 public class ChatComponentTranslationFormatException extends IllegalArgumentException {
-	private static final String __OBFID = "CL_00001271";
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -480820791337603148L;
 
 	public ChatComponentTranslationFormatException(ChatComponentTranslation p_i45161_1_, String p_i45161_2_) {
 		super(String.format("Error parsing: %s: %s", p_i45161_1_, p_i45161_2_));

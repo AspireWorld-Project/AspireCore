@@ -44,6 +44,7 @@ public class MinecraftForge {
 	/**
 	 * Method invoked by FML before any other mods are loaded.
 	 */
+	@SuppressWarnings("rawtypes")
 	public static void initialize() {
 		FMLLog.info("MinecraftForge v%s Initialized", ForgeVersion.getVersion());
 

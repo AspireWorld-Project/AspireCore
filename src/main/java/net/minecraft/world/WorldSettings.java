@@ -14,8 +14,6 @@ public final class WorldSettings {
 	private boolean commandsAllowed;
 	private boolean bonusChestEnabled;
 	private String field_82751_h;
-	private static final String __OBFID = "CL_00000147";
-
 	public WorldSettings(long p_i1957_1_, WorldSettings.GameType p_i1957_3_, boolean p_i1957_4_, boolean p_i1957_5_,
 			WorldType p_i1957_6_) {
 		field_82751_h = "";
@@ -87,8 +85,6 @@ public final class WorldSettings {
 		NOT_SET(-1, ""), SURVIVAL(0, "survival"), CREATIVE(1, "creative"), ADVENTURE(2, "adventure");
 		int id;
 		String name;
-
-		private static final String __OBFID = "CL_00000148";
 
 		GameType(int p_i1956_3_, String p_i1956_4_) {
 			id = p_i1956_3_;

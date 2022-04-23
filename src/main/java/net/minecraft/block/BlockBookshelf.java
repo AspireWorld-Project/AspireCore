@@ -12,8 +12,6 @@ import net.minecraft.util.IIcon;
 import java.util.Random;
 
 public class BlockBookshelf extends Block {
-	private static final String __OBFID = "CL_00000206";
-
 	public BlockBookshelf() {
 		super(Material.wood);
 		setCreativeTab(CreativeTabs.tabBlock);

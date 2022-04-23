@@ -5,9 +5,8 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 import net.minecraft.network.PacketBuffer;
 
+@SuppressWarnings("rawtypes")
 public class MessageSerializer2 extends MessageToByteEncoder {
-	private static final String __OBFID = "CL_00001256";
-
 	protected void encode(ChannelHandlerContext p_encode_1_, ByteBuf p_encode_2_, ByteBuf p_encode_3_) {
 		int i = p_encode_2_.readableBytes();
 		int j = PacketBuffer.getVarIntSize(i);

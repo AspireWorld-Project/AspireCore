@@ -21,7 +21,6 @@ public class GuiButton extends Gui {
 	public boolean enabled;
 	public boolean visible;
 	protected boolean field_146123_n;
-	private static final String __OBFID = "CL_00000668";
 	public int packedFGColour;
 
 	public GuiButton(int p_i1020_1_, int p_i1020_2_, int p_i1020_3_, String p_i1020_4_) {

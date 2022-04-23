@@ -12,9 +12,8 @@ import org.bukkit.event.Cancellable;
 import java.util.Map;
 
 public class StatFileWriter {
+	@SuppressWarnings("rawtypes")
 	protected final Map field_150875_a = Maps.newConcurrentMap();
-	private static final String __OBFID = "CL_00001481";
-
 	public boolean hasAchievementUnlocked(Achievement p_77443_1_) {
 		return writeStat(p_77443_1_) > 0;
 	}
@@ -50,6 +49,7 @@ public class StatFileWriter {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public void func_150873_a(EntityPlayer p_150873_1_, StatBase p_150873_2_, int p_150873_3_) {
 		TupleIntJsonSerializable tupleintjsonserializable = (TupleIntJsonSerializable) field_150875_a.get(p_150873_2_);
 
@@ -71,6 +71,7 @@ public class StatFileWriter {
 		return tupleintjsonserializable != null ? tupleintjsonserializable.getJsonSerializableValue() : null;
 	}
 
+	@SuppressWarnings("unchecked")
 	public IJsonSerializable func_150872_a(StatBase p_150872_1_, IJsonSerializable p_150872_2_) {
 		TupleIntJsonSerializable tupleintjsonserializable = (TupleIntJsonSerializable) field_150875_a.get(p_150872_1_);
 

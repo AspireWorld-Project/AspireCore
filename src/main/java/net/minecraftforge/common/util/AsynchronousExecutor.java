@@ -340,6 +340,7 @@ public final class AsynchronousExecutor<P, T, C, E extends Throwable> {
 	 * Processes a parameter as if it was in the queue, without ever passing to
 	 * another thread.
 	 */
+	@SuppressWarnings("unchecked")
 	public T getSkipQueue(P parameter, C... callbacks) throws E {
 		final CallBackProvider<P, T, C, E> provider = this.provider;
 		final T object = skipQueue(parameter);

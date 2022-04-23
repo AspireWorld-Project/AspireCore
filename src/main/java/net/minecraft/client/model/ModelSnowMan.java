@@ -12,8 +12,6 @@ public class ModelSnowMan extends ModelBase {
 	public ModelRenderer head;
 	public ModelRenderer rightHand;
 	public ModelRenderer leftHand;
-	private static final String __OBFID = "CL_00000859";
-
 	public ModelSnowMan() {
 		float f = 4.0F;
 		float f1 = 0.0F;

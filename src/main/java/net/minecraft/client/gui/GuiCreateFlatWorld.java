@@ -26,8 +26,6 @@ public class GuiCreateFlatWorld extends GuiScreen {
 	private GuiButton field_146389_t;
 	private GuiButton field_146388_u;
 	private GuiButton field_146386_v;
-	private static final String __OBFID = "CL_00000687";
-
 	public GuiCreateFlatWorld(GuiCreateWorld p_i1029_1_, String p_i1029_2_) {
 		createWorldGui = p_i1029_1_;
 		func_146383_a(p_i1029_2_);
@@ -41,6 +39,7 @@ public class GuiCreateFlatWorld extends GuiScreen {
 		theFlatGeneratorInfo = FlatGeneratorInfo.createFlatGeneratorFromString(p_146383_1_);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		buttonList.clear();
@@ -112,8 +111,6 @@ public class GuiCreateFlatWorld extends GuiScreen {
 	@SideOnly(Side.CLIENT)
 	class Details extends GuiSlot {
 		public int field_148228_k = -1;
-		private static final String __OBFID = "CL_00000688";
-
 		public Details() {
 			super(GuiCreateFlatWorld.this.mc, GuiCreateFlatWorld.this.width, GuiCreateFlatWorld.this.height, 43,
 					GuiCreateFlatWorld.this.height - 60, 24);

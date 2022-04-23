@@ -18,8 +18,6 @@ import net.minecraft.world.World;
 public class BlockJukebox extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	private IIcon field_149927_a;
-	private static final String __OBFID = "CL_00000260";
-
 	protected BlockJukebox() {
 		super(Material.wood);
 		setCreativeTab(CreativeTabs.tabDecorations);
@@ -126,8 +124,6 @@ public class BlockJukebox extends BlockContainer {
 
 	public static class TileEntityJukebox extends TileEntity {
 		private ItemStack field_145858_a;
-		private static final String __OBFID = "CL_00000261";
-
 		@Override
 		public void readFromNBT(NBTTagCompound p_145839_1_) {
 			super.readFromNBT(p_145839_1_);

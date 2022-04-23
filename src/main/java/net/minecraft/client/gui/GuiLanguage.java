@@ -21,14 +21,13 @@ public class GuiLanguage extends GuiScreen {
 	private final LanguageManager field_146454_h;
 	private GuiOptionButton field_146455_i;
 	private GuiOptionButton field_146452_r;
-	private static final String __OBFID = "CL_00000698";
-
 	public GuiLanguage(GuiScreen p_i1043_1_, GameSettings p_i1043_2_, LanguageManager p_i1043_3_) {
 		field_146453_a = p_i1043_1_;
 		field_146451_g = p_i1043_2_;
 		field_146454_h = p_i1043_3_;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		if (field_146455_i != null) {
@@ -80,10 +79,11 @@ public class GuiLanguage extends GuiScreen {
 
 	@SideOnly(Side.CLIENT)
 	class List extends GuiSlot {
+		@SuppressWarnings("rawtypes")
 		private final java.util.List field_148176_l = Lists.newArrayList();
+		@SuppressWarnings("rawtypes")
 		private final Map field_148177_m = Maps.newHashMap();
-		private static final String __OBFID = "CL_00000699";
-
+		@SuppressWarnings({ "rawtypes", "unchecked" })
 		public List() {
 			super(GuiLanguage.this.mc, GuiLanguage.this.width, GuiLanguage.this.height, 32,
 					GuiLanguage.this.height - 65 + 4, 18);

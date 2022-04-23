@@ -17,8 +17,6 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class BlockSnow extends Block {
-	private static final String __OBFID = "CL_00000309";
-
 	protected BlockSnow() {
 		super(Material.snow);
 		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);

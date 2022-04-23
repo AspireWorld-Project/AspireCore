@@ -11,8 +11,6 @@ import java.io.File;
 
 @SideOnly(Side.CLIENT)
 public class SaveHandlerMP implements ISaveHandler {
-	private static final String __OBFID = "CL_00000602";
-
 	@Override
 	public WorldInfo loadWorldInfo() {
 		return null;

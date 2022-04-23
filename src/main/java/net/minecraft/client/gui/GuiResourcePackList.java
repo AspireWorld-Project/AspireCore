@@ -12,9 +12,9 @@ import java.util.List;
 @SideOnly(Side.CLIENT)
 public abstract class GuiResourcePackList extends GuiListExtended {
 	protected final Minecraft field_148205_k;
+	@SuppressWarnings("rawtypes")
 	protected final List field_148204_l;
-	private static final String __OBFID = "CL_00000825";
-
+	@SuppressWarnings("rawtypes")
 	public GuiResourcePackList(Minecraft p_i45055_1_, int p_i45055_2_, int p_i45055_3_, List p_i45055_4_) {
 		super(p_i45055_1_, p_i45055_2_, p_i45055_3_, 32, p_i45055_3_ - 55 + 4, 36);
 		field_148205_k = p_i45055_1_;
@@ -33,6 +33,7 @@ public abstract class GuiResourcePackList extends GuiListExtended {
 
 	protected abstract String func_148202_k();
 
+	@SuppressWarnings("rawtypes")
 	public List func_148201_l() {
 		return field_148204_l;
 	}

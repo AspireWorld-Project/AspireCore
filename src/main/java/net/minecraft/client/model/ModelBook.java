@@ -21,8 +21,6 @@ public class ModelBook extends ModelBase {
 			5, 8, 0);
 	public ModelRenderer bookSpine = new ModelRenderer(this).setTextureOffset(12, 0).addBox(-1.0F, -5.0F, 0.0F, 2, 10,
 			0);
-	private static final String __OBFID = "CL_00000833";
-
 	public ModelBook() {
 		coverRight.setRotationPoint(0.0F, 0.0F, -1.0F);
 		coverLeft.setRotationPoint(0.0F, 0.0F, 1.0F);

@@ -26,7 +26,9 @@ import java.util.concurrent.Callable;
 
 public class TileEntity {
 	private static final Logger logger = LogManager.getLogger();
+	@SuppressWarnings("rawtypes")
 	private static final Map nameToClassMap = new HashMap();
+	@SuppressWarnings("rawtypes")
 	private static final Map classToNameMap = new HashMap();
 	public World worldObj;
 	public int xCoord;
@@ -35,8 +37,7 @@ public class TileEntity {
 	protected boolean tileEntityInvalid;
 	public int blockMetadata = -1;
 	public Block blockType;
-	private static final String __OBFID = "CL_00000340";
-
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void addMapping(Class p_145826_0_, String p_145826_1_) {
 		if (nameToClassMap.containsKey(p_145826_1_))
 			throw new IllegalArgumentException("Duplicate id: " + p_145826_1_);
@@ -86,6 +87,7 @@ public class TileEntity {
 	public void updateEntity() {
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static TileEntity createAndLoadEntity(NBTTagCompound p_145827_0_) {
 		TileEntity tileentity = null;
 
@@ -180,10 +182,9 @@ public class TileEntity {
 		blockMetadata = -1;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void func_145828_a(CrashReportCategory p_145828_1_) {
 		p_145828_1_.addCrashSectionCallable("Name", new Callable() {
-			private static final String __OBFID = "CL_00000341";
-
 			@Override
 			public String call() {
 				return TileEntity.classToNameMap.get(TileEntity.this.getClass()) + " // "
@@ -192,8 +193,6 @@ public class TileEntity {
 		});
 		CrashReportCategory.func_147153_a(p_145828_1_, xCoord, yCoord, zCoord, getBlockType(), getBlockMetadata());
 		p_145828_1_.addCrashSectionCallable("Actual block type", new Callable() {
-			private static final String __OBFID = "CL_00000343";
-
 			@Override
 			public String call() {
 				int i = Block.getIdFromBlock(worldObj.getBlock(xCoord, yCoord, zCoord));
@@ -208,8 +207,6 @@ public class TileEntity {
 			}
 		});
 		p_145828_1_.addCrashSectionCallable("Actual block data value", new Callable() {
-			private static final String __OBFID = "CL_00000344";
-
 			@Override
 			public String call() {
 				int i = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);

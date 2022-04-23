@@ -13,8 +13,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import java.util.Random;
 
 public class BiomeGenSwamp extends BiomeGenBase {
-	private static final String __OBFID = "CL_00000185";
-
+	@SuppressWarnings("unchecked")
 	protected BiomeGenSwamp(int p_i1988_1_) {
 		super(p_i1988_1_);
 		theBiomeDecorator.treesPerChunk = 2;

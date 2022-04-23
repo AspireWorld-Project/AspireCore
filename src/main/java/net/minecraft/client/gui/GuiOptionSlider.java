@@ -11,10 +11,6 @@ public class GuiOptionSlider extends GuiButton {
 	private float field_146134_p;
 	public boolean field_146135_o;
 	private final GameSettings.Options field_146133_q;
-	private final float field_146132_r;
-	private final float field_146131_s;
-	private static final String __OBFID = "CL_00000680";
-
 	public GuiOptionSlider(int p_i45016_1_, int p_i45016_2_, int p_i45016_3_, GameSettings.Options p_i45016_4_) {
 		this(p_i45016_1_, p_i45016_2_, p_i45016_3_, p_i45016_4_, 0.0F, 1.0F);
 	}
@@ -24,8 +20,6 @@ public class GuiOptionSlider extends GuiButton {
 		super(p_i45017_1_, p_i45017_2_, p_i45017_3_, 150, 20, "");
 		field_146134_p = 1.0F;
 		field_146133_q = p_i45017_4_;
-		field_146132_r = p_i45017_5_;
-		field_146131_s = p_i45017_6_;
 		Minecraft minecraft = Minecraft.getMinecraft();
 		field_146134_p = p_i45017_4_.normalizeValue(minecraft.gameSettings.getOptionFloatValue(p_i45017_4_));
 		displayString = minecraft.gameSettings.getKeyBinding(p_i45017_4_);

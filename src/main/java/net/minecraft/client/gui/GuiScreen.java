@@ -17,7 +17,6 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
 import java.awt.*;
-import java.awt.datatransfer.ClipboardOwner;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
@@ -32,7 +31,9 @@ public class GuiScreen extends Gui {
 	public Minecraft mc;
 	public int width;
 	public int height;
+	@SuppressWarnings("rawtypes")
 	protected List buttonList = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	protected List labelList = new ArrayList();
 	public boolean allowUserInput;
 	protected FontRenderer fontRendererObj;
@@ -40,8 +41,6 @@ public class GuiScreen extends Gui {
 	private int eventButton;
 	private long lastMouseEvent;
 	private int field_146298_h;
-	private static final String __OBFID = "CL_00000710";
-
 	public void drawScreen(int p_73863_1_, int p_73863_2_, float p_73863_3_) {
 		int k;
 
@@ -81,6 +80,7 @@ public class GuiScreen extends Gui {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	protected void renderToolTip(ItemStack p_146285_1_, int p_146285_2_, int p_146285_3_) {
 		List list = p_146285_1_.getTooltip(mc.thePlayer, mc.gameSettings.advancedItemTooltips);
 
@@ -100,10 +100,12 @@ public class GuiScreen extends Gui {
 		func_146283_a(Arrays.asList(p_146279_1_), p_146279_2_, p_146279_3_);
 	}
 
+	@SuppressWarnings("rawtypes")
 	protected void func_146283_a(List p_146283_1_, int p_146283_2_, int p_146283_3_) {
 		drawHoveringText(p_146283_1_, p_146283_2_, p_146283_3_, fontRendererObj);
 	}
 
+	@SuppressWarnings("rawtypes")
 	protected void drawHoveringText(List p_146283_1_, int p_146283_2_, int p_146283_3_, FontRenderer font) {
 		if (!p_146283_1_.isEmpty()) {
 			GL11.glDisable(GL12.GL_RESCALE_NORMAL);

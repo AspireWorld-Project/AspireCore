@@ -5,5 +5,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class MinecraftError extends Error {
-	private static final String __OBFID = "CL_00000657";
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 }

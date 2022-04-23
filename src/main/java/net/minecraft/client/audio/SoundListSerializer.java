@@ -8,10 +8,10 @@ import org.apache.commons.lang3.Validate;
 
 import java.lang.reflect.Type;
 
+@SuppressWarnings("rawtypes")
 @SideOnly(Side.CLIENT)
 public class SoundListSerializer implements JsonDeserializer {
-	private static final String __OBFID = "CL_00001124";
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public SoundList deserialize(JsonElement p_deserialize_1_, Type p_deserialize_2_,
 			JsonDeserializationContext p_deserialize_3_) {

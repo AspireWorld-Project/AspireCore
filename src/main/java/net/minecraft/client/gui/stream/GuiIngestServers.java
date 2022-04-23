@@ -16,12 +16,11 @@ public class GuiIngestServers extends GuiScreen {
 	private final GuiScreen field_152309_a;
 	private String field_152310_f;
 	private GuiIngestServers.ServerList field_152311_g;
-	private static final String __OBFID = "CL_00001843";
-
 	public GuiIngestServers(GuiScreen p_i1077_1_) {
 		field_152309_a = p_i1077_1_;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		field_152310_f = I18n.format("options.stream.ingest.title");
@@ -66,8 +65,6 @@ public class GuiIngestServers extends GuiScreen {
 
 	@SideOnly(Side.CLIENT)
 	class ServerList extends GuiSlot {
-		private static final String __OBFID = "CL_00001842";
-
 		public ServerList() {
 			super(GuiIngestServers.this.mc, GuiIngestServers.this.width, GuiIngestServers.this.height, 32,
 					GuiIngestServers.this.height - 35,

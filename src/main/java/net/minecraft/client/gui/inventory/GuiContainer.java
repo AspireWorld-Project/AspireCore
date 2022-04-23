@@ -44,6 +44,7 @@ public abstract class GuiContainer extends GuiScreen {
 	private ItemStack returningStack;
 	private Slot field_146985_D;
 	private long field_146986_E;
+	@SuppressWarnings("rawtypes")
 	protected final Set field_147008_s = new HashSet();
 	protected boolean field_147007_t;
 	private int field_146987_F;
@@ -55,8 +56,6 @@ public abstract class GuiContainer extends GuiScreen {
 	private int field_146992_L;
 	private boolean field_146993_M;
 	private ItemStack field_146994_N;
-	private static final String __OBFID = "CL_00000737";
-
 	public GuiContainer(Container p_i1072_1_) {
 		inventorySlots = p_i1072_1_;
 		field_146995_H = true;
@@ -258,6 +257,7 @@ public abstract class GuiContainer extends GuiScreen {
 		zLevel = 0.0F;
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void func_146980_g() {
 		ItemStack itemstack = mc.thePlayer.inventory.getItemStack();
 
@@ -371,6 +371,7 @@ public abstract class GuiContainer extends GuiScreen {
 		field_146992_L = p_73864_3_;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	protected void mouseClickMove(int p_146273_1_, int p_146273_2_, int p_146273_3_, long p_146273_4_) {
 		Slot slot = getSlotAtPosition(p_146273_1_, p_146273_2_);
@@ -408,6 +409,7 @@ public abstract class GuiContainer extends GuiScreen {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	protected void mouseMovedOrUp(int p_146286_1_, int p_146286_2_, int p_146286_3_) {
 		super.mouseMovedOrUp(p_146286_1_, p_146286_2_, p_146286_3_); // Forge, Call parent to release buttons

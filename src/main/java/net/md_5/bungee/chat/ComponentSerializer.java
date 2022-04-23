@@ -10,7 +10,8 @@ import java.util.HashSet;
 
 public class ComponentSerializer
         implements JsonDeserializer<BaseComponent> {
-    public static final ThreadLocal<HashSet<BaseComponent>> serializedComponents = new ThreadLocal();
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	public static final ThreadLocal<HashSet<BaseComponent>> serializedComponents = new ThreadLocal();
     private static final Gson gson = new GsonBuilder().registerTypeAdapter(BaseComponent.class, new ComponentSerializer()).registerTypeAdapter(TextComponent.class, new TextComponentSerializer()).registerTypeAdapter(TranslatableComponent.class, new TranslatableComponentSerializer()).create();
 
     public static BaseComponent[] parse(String json) {

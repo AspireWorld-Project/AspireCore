@@ -28,8 +28,6 @@ public class BiomeManager {
 	@Deprecated
 	public static List<BiomeEntry> icyBiomes = biomes[BiomeType.ICY.ordinal()];
 
-	private static boolean isModded = false;
-
 	public static List<BiomeGenBase> oceanBiomes = new ArrayList<>();
 
 	public static ArrayList<BiomeGenBase> strongHoldBiomes = new ArrayList<>();
@@ -41,6 +39,7 @@ public class BiomeManager {
 		oceanBiomes.add(BiomeGenBase.frozenOcean);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static TrackedList<BiomeEntry>[] setupBiomes() {
 		TrackedList<BiomeEntry>[] currentBiomes = new TrackedList[BiomeType.values().length];
 		List list = new ArrayList();
@@ -115,8 +114,6 @@ public class BiomeManager {
 	}
 
 	public static void addBiome(BiomeType type, BiomeEntry entry) {
-		isModded = true;
-
 		int idx = type.ordinal();
 		List<BiomeEntry> list = idx > biomes.length ? null : biomes[idx];
 		if (list != null) {
@@ -125,8 +122,6 @@ public class BiomeManager {
 	}
 
 	public static void removeBiome(BiomeType type, BiomeEntry entry) {
-		isModded = true;
-
 		int idx = type.ordinal();
 		List<BiomeEntry> list = idx > biomes.length ? null : biomes[idx];
 
@@ -183,6 +178,7 @@ public class BiomeManager {
 		}
 	}
 
+	@SuppressWarnings("serial")
 	private static class TrackedList<E> extends ArrayList<E> {
 		private boolean isModded = false;
 

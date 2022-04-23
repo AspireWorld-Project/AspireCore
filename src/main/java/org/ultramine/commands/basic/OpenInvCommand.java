@@ -59,14 +59,11 @@ public class OpenInvCommand
 
     private static class PlayerWrappedInventory implements IInventory
     {
-        private final MinecraftServer server;
-
         private InventoryPlayer inv;
         private OfflinePlayer offline;
 
         public PlayerWrappedInventory(MinecraftServer server, InventoryPlayer player, OfflinePlayer offline)
         {
-            this.server = server;
             this.inv = player;
             this.offline = offline;
         }

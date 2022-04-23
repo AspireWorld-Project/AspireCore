@@ -30,8 +30,6 @@ public class BlockFire extends Block {
 	private final int[] field_149848_b = new int[4096];
 	@SideOnly(Side.CLIENT)
 	private IIcon[] field_149850_M;
-	private static final String __OBFID = "CL_00000245";
-
 	protected BlockFire() {
 		super(Material.fire);
 		setTickRandomly(true);
@@ -237,6 +235,7 @@ public class BlockFire extends Block {
 		return false;
 	}
 
+	@SuppressWarnings("unused")
 	@Deprecated
 	private void tryCatchFire(World p_149841_1_, int p_149841_2_, int p_149841_3_, int p_149841_4_, int p_149841_5_,
 			Random p_149841_6_, int p_149841_7_) {

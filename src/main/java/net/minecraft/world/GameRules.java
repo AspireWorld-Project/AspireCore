@@ -7,9 +7,8 @@ import java.util.Set;
 import java.util.TreeMap;
 
 public class GameRules {
+	@SuppressWarnings("rawtypes")
 	private final TreeMap theGameRules = new TreeMap();
-	private static final String __OBFID = "CL_00000136";
-
 	public GameRules() {
 		addGameRule("doFireTick", "true");
 		addGameRule("mobGriefing", "true");
@@ -22,6 +21,7 @@ public class GameRules {
 		addGameRule("doDaylightCycle", "true");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void addGameRule(String p_82769_1_, String p_82769_2_) {
 		theGameRules.put(p_82769_1_, new GameRules.Value(p_82769_2_));
 	}
@@ -46,6 +46,7 @@ public class GameRules {
 		return value != null && value.getGameRuleBooleanValue();
 	}
 
+	@SuppressWarnings("rawtypes")
 	public NBTTagCompound writeGameRulesToNBT() {
 		NBTTagCompound nbttagcompound = new NBTTagCompound();
 		Iterator iterator = theGameRules.keySet().iterator();
@@ -59,6 +60,7 @@ public class GameRules {
 		return nbttagcompound;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void readGameRulesFromNBT(NBTTagCompound p_82768_1_) {
 		Set set = p_82768_1_.func_150296_c();
 		Iterator iterator = set.iterator();
@@ -70,6 +72,7 @@ public class GameRules {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public String[] getRules() {
 		return (String[]) theGameRules.keySet().toArray(new String[0]);
 	}
@@ -81,10 +84,6 @@ public class GameRules {
 	static class Value {
 		private String valueString;
 		private boolean valueBoolean;
-		private int valueInteger;
-		private double valueDouble;
-		private static final String __OBFID = "CL_00000137";
-
 		public Value(String p_i1949_1_) {
 			setValue(p_i1949_1_);
 		}
@@ -94,12 +93,12 @@ public class GameRules {
 			valueBoolean = Boolean.parseBoolean(p_82757_1_);
 
 			try {
-				valueInteger = Integer.parseInt(p_82757_1_);
+				Integer.parseInt(p_82757_1_);
 			} catch (NumberFormatException numberformatexception1) {
 			}
 
 			try {
-				valueDouble = Double.parseDouble(p_82757_1_);
+				Double.parseDouble(p_82757_1_);
 			} catch (NumberFormatException numberformatexception) {
 			}
 		}

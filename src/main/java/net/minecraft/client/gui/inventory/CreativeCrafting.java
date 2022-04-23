@@ -12,12 +12,11 @@ import java.util.List;
 @SideOnly(Side.CLIENT)
 public class CreativeCrafting implements ICrafting {
 	private final Minecraft field_146109_a;
-	private static final String __OBFID = "CL_00000751";
-
 	public CreativeCrafting(Minecraft p_i1085_1_) {
 		field_146109_a = p_i1085_1_;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void sendContainerAndContentsToPlayer(Container p_71110_1_, List p_71110_2_) {
 	}

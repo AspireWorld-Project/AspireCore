@@ -15,10 +15,9 @@ public class ChatComponentTranslation extends ChatComponentStyle {
 	private final Object[] formatArgs;
 	private final Object syncLock = new Object();
 	private long lastTranslationUpdateTimeInMilliseconds = -1L;
+	@SuppressWarnings("rawtypes")
 	List children = Lists.newArrayList();
 	public static final Pattern stringVariablePattern = Pattern.compile("%(?:(\\d+)\\$)?([A-Za-z%]|$)");
-	private static final String __OBFID = "CL_00001270";
-
 	public ChatComponentTranslation(String p_i45160_1_, Object... p_i45160_2_) {
 		key = p_i45160_1_;
 		formatArgs = p_i45160_2_;
@@ -58,6 +57,7 @@ public class ChatComponentTranslation extends ChatComponentStyle {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	protected void initializeFromFormat(String p_150269_1_) {
 		Matcher matcher = stringVariablePattern.matcher(p_150269_1_);
 		int i = 0;
@@ -123,6 +123,7 @@ public class ChatComponentTranslation extends ChatComponentStyle {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public IChatComponent setChatStyle(ChatStyle p_150255_1_) {
 		super.setChatStyle(p_150255_1_);
@@ -149,12 +150,14 @@ public class ChatComponentTranslation extends ChatComponentStyle {
 		return this;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public Iterator iterator() {
 		ensureInitialized();
 		return Iterators.concat(createDeepCopyIterator(children), createDeepCopyIterator(siblings));
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public String getUnformattedTextForChat() {
 		ensureInitialized();
@@ -169,6 +172,7 @@ public class ChatComponentTranslation extends ChatComponentStyle {
 		return stringbuilder.toString();
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public ChatComponentTranslation createCopy() {
 		Object[] aobject = new Object[formatArgs.length];

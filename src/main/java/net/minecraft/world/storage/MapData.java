@@ -19,11 +19,12 @@ public class MapData extends WorldSavedData {
 	public int dimension;
 	public byte scale;
 	public byte[] colors = new byte[16384];
+	@SuppressWarnings("rawtypes")
 	public List playersArrayList = new ArrayList();
+	@SuppressWarnings("rawtypes")
 	private final Map playersHashMap = new HashMap();
+	@SuppressWarnings("rawtypes")
 	public Map playersVisibleOnMap = new LinkedHashMap();
-	private static final String __OBFID = "CL_00000577";
-
 	public MapData(String p_i2140_1_) {
 		super(p_i2140_1_);
 	}
@@ -88,6 +89,7 @@ public class MapData extends WorldSavedData {
 		p_76187_1_.setByteArray("colors", colors);
 	}
 
+	@SuppressWarnings("unchecked")
 	public void updateVisiblePlayers(EntityPlayer p_76191_1_, ItemStack p_76191_2_) {
 		if (!playersHashMap.containsKey(p_76191_1_)) {
 			MapData.MapInfo mapinfo = new MapData.MapInfo(p_76191_1_);
@@ -122,6 +124,7 @@ public class MapData extends WorldSavedData {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	private void func_82567_a(int p_82567_1_, World p_82567_2_, String p_82567_3_, double p_82567_4_, double p_82567_6_,
 			double p_82567_8_) {
 		int j = 1 << scale;
@@ -190,6 +193,7 @@ public class MapData extends WorldSavedData {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@SideOnly(Side.CLIENT)
 	public void updateMPMapData(byte[] p_76192_1_) {
 		int i;
@@ -218,6 +222,7 @@ public class MapData extends WorldSavedData {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public MapData.MapInfo func_82568_a(EntityPlayer p_82568_1_) {
 		MapData.MapInfo mapinfo = (MapData.MapInfo) playersHashMap.get(p_82568_1_);
 
@@ -235,8 +240,6 @@ public class MapData extends WorldSavedData {
 		public byte centerX;
 		public byte centerZ;
 		public byte iconRotation;
-		private static final String __OBFID = "CL_00000579";
-
 		public MapCoord(byte p_i2139_2_, byte p_i2139_3_, byte p_i2139_4_, byte p_i2139_5_) {
 			iconSize = p_i2139_2_;
 			centerX = p_i2139_3_;
@@ -254,8 +257,6 @@ public class MapData extends WorldSavedData {
 		private byte[] lastPlayerLocationOnMap;
 		public int field_82569_d;
 		private boolean field_82570_i;
-		private static final String __OBFID = "CL_00000578";
-
 		public MapInfo(EntityPlayer p_i2138_2_) {
 			entityplayerObj = p_i2138_2_;
 
@@ -265,6 +266,7 @@ public class MapData extends WorldSavedData {
 			}
 		}
 
+		@SuppressWarnings("rawtypes")
 		public byte[] getPlayersOnMap(ItemStack p_76204_1_) {
 			byte[] abyte;
 

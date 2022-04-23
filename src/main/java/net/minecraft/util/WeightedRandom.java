@@ -5,8 +5,7 @@ import java.util.Iterator;
 import java.util.Random;
 
 public class WeightedRandom {
-	private static final String __OBFID = "CL_00001503";
-
+	@SuppressWarnings("rawtypes")
 	public static int getTotalWeight(Collection p_76272_0_) {
 		int i = 0;
 		WeightedRandom.Item item;
@@ -18,6 +17,7 @@ public class WeightedRandom {
 		return i;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static WeightedRandom.Item getRandomItem(Random p_76273_0_, Collection p_76273_1_, int p_76273_2_) {
 		if (p_76273_2_ <= 0)
 			throw new IllegalArgumentException();
@@ -27,6 +27,7 @@ public class WeightedRandom {
 	// Forge: Added to allow custom random implementations, Modder is responsible
 	// for making sure the
 	// 'weight' is under the totalWeight of the items.
+	@SuppressWarnings("rawtypes")
 	public static WeightedRandom.Item getItem(Collection par1Collection, int weight) {
 		{
 			int j = weight;
@@ -45,6 +46,7 @@ public class WeightedRandom {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static WeightedRandom.Item getRandomItem(Random p_76271_0_, Collection p_76271_1_) {
 		return getRandomItem(p_76271_0_, p_76271_1_, getTotalWeight(p_76271_1_));
 	}
@@ -96,8 +98,6 @@ public class WeightedRandom {
 
 	public static class Item {
 		public int itemWeight;
-		private static final String __OBFID = "CL_00001504";
-
 		public Item(int p_i1556_1_) {
 			itemWeight = p_i1556_1_;
 		}

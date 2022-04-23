@@ -9,8 +9,6 @@ import net.minecraft.util.MathHelper;
 public class ModelBlaze extends ModelBase {
 	private final ModelRenderer[] blazeSticks = new ModelRenderer[12];
 	private final ModelRenderer blazeHead;
-	private static final String __OBFID = "CL_00000831";
-
 	public ModelBlaze() {
 		for (int i = 0; i < blazeSticks.length; ++i) {
 			blazeSticks[i] = new ModelRenderer(this, 0, 16);

@@ -29,8 +29,6 @@ public class BlockFurnace extends BlockContainer {
 	private IIcon field_149935_N;
 	@SideOnly(Side.CLIENT)
 	private IIcon field_149936_O;
-	private static final String __OBFID = "CL_00000248";
-
 	protected BlockFurnace(boolean p_i45407_1_) {
 		super(Material.rock);
 		field_149932_b = p_i45407_1_;

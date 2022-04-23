@@ -16,8 +16,6 @@ public abstract class GenLayer {
 	protected GenLayer parent;
 	private long chunkSeed;
 	protected long baseSeed;
-	private static final String __OBFID = "CL_00000559";
-
 	public static GenLayer[] initializeAllBiomeGenerators(long p_75901_0_, WorldType p_75901_2_) {
 		boolean flag = false;
 		GenLayerIsland genlayerisland = new GenLayerIsland(1L);
@@ -133,6 +131,7 @@ public abstract class GenLayer {
 
 	public abstract int[] getInts(int p_75904_1_, int p_75904_2_, int p_75904_3_, int p_75904_4_);
 
+	@SuppressWarnings("rawtypes")
 	protected static boolean compareBiomesById(final int p_151616_0_, final int p_151616_1_) {
 		if (p_151616_0_ == p_151616_1_)
 			return true;
@@ -145,16 +144,12 @@ public abstract class GenLayer {
 				crashreportcategory.addCrashSection("Biome A ID", Integer.valueOf(p_151616_0_));
 				crashreportcategory.addCrashSection("Biome B ID", Integer.valueOf(p_151616_1_));
 				crashreportcategory.addCrashSectionCallable("Biome A", new Callable() {
-					private static final String __OBFID = "CL_00000560";
-
 					@Override
 					public String call() {
 						return String.valueOf(BiomeGenBase.getBiome(p_151616_0_));
 					}
 				});
 				crashreportcategory.addCrashSectionCallable("Biome B", new Callable() {
-					private static final String __OBFID = "CL_00000561";
-
 					@Override
 					public String call() {
 						return String.valueOf(BiomeGenBase.getBiome(p_151616_1_));

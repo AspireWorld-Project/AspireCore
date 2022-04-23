@@ -32,8 +32,6 @@ public class BlockDispenser extends BlockContainer {
 	protected IIcon field_149945_N;
 	@SideOnly(Side.CLIENT)
 	protected IIcon field_149946_O;
-	private static final String __OBFID = "CL_00000229";
-
 	protected BlockDispenser() {
 		super(Material.rock);
 		setCreativeTab(CreativeTabs.tabRedstone);

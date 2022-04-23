@@ -47,8 +47,6 @@ public class FontRenderer implements IResourceManagerReloadListener {
 	private boolean italicStyle;
 	private boolean underlineStyle;
 	private boolean strikethroughStyle;
-	private static final String __OBFID = "CL_00000660";
-
 	public FontRenderer(GameSettings p_i1035_1_, ResourceLocation p_i1035_2_, TextureManager p_i1035_3_,
 			boolean p_i1035_4_) {
 		locationFontTexture = p_i1035_2_;
@@ -565,6 +563,7 @@ public class FontRenderer implements IResourceManagerReloadListener {
 		renderSplitString(p_78279_1_, p_78279_2_, p_78279_3_, p_78279_4_, false);
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void renderSplitString(String p_78268_1_, int p_78268_2_, int p_78268_3_, int p_78268_4_,
 			boolean p_78268_5_) {
 		List list = listFormattedStringToWidth(p_78268_1_, p_78268_4_);
@@ -591,6 +590,7 @@ public class FontRenderer implements IResourceManagerReloadListener {
 		bidiFlag = p_78275_1_;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List listFormattedStringToWidth(String p_78271_1_, int p_78271_2_) {
 		return Arrays.asList(wrapFormattedStringToWidth(p_78271_1_, p_78271_2_).split("\n"));
 	}

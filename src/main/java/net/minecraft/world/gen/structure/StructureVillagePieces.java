@@ -26,8 +26,6 @@ import java.util.Random;
 import static net.minecraftforge.common.ChestGenHooks.VILLAGE_BLACKSMITH;
 
 public class StructureVillagePieces {
-	private static final String __OBFID = "CL_00000516";
-
 	public static void registerVillagePieces() {
 		MapGenStructureIO.func_143031_a(StructureVillagePieces.House1.class, "ViBH");
 		MapGenStructureIO.func_143031_a(StructureVillagePieces.Field1.class, "ViDF");
@@ -44,6 +42,7 @@ public class StructureVillagePieces {
 		MapGenStructureIO.func_143031_a(StructureVillagePieces.Well.class, "ViW");
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static List getStructureVillageWeightedPieceList(Random p_75084_0_, int p_75084_1_) {
 		ArrayList arraylist = new ArrayList();
 		arraylist.add(new StructureVillagePieces.PieceWeight(StructureVillagePieces.House4Garden.class, 4,
@@ -77,6 +76,7 @@ public class StructureVillagePieces {
 		return arraylist;
 	}
 
+	@SuppressWarnings("rawtypes")
 	private static int func_75079_a(List p_75079_0_) {
 		boolean flag = false;
 		int i = 0;
@@ -94,6 +94,7 @@ public class StructureVillagePieces {
 		return flag ? i : -1;
 	}
 
+	@SuppressWarnings("rawtypes")
 	private static StructureVillagePieces.Village func_75083_a(StructureVillagePieces.Start p_75083_0_,
 			StructureVillagePieces.PieceWeight p_75083_1_, List p_75083_2_, Random p_75083_3_, int p_75083_4_,
 			int p_75083_5_, int p_75083_6_, int p_75083_7_, int p_75083_8_) {
@@ -135,6 +136,7 @@ public class StructureVillagePieces {
 		return (StructureVillagePieces.Village) object;
 	}
 
+	@SuppressWarnings("rawtypes")
 	private static StructureVillagePieces.Village getNextVillageComponent(StructureVillagePieces.Start p_75081_0_,
 			List p_75081_1_, Random p_75081_2_, int p_75081_3_, int p_75081_4_, int p_75081_5_, int p_75081_6_,
 			int p_75081_7_) {
@@ -190,6 +192,7 @@ public class StructureVillagePieces {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static StructureComponent getNextVillageStructureComponent(StructureVillagePieces.Start p_75077_0_,
 			List p_75077_1_, Random p_75077_2_, int p_75077_3_, int p_75077_4_, int p_75077_5_, int p_75077_6_,
 			int p_75077_7_) {
@@ -220,6 +223,7 @@ public class StructureVillagePieces {
 			return null;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static StructureComponent getNextComponentVillagePath(StructureVillagePieces.Start p_75080_0_,
 			List p_75080_1_, Random p_75080_2_, int p_75080_3_, int p_75080_4_, int p_75080_5_, int p_75080_6_,
 			int p_75080_7_) {
@@ -253,8 +257,6 @@ public class StructureVillagePieces {
 	}
 
 	public static class Church extends StructureVillagePieces.Village {
-		private static final String __OBFID = "CL_00000525";
-
 		public Church() {
 		}
 
@@ -265,6 +267,7 @@ public class StructureVillagePieces {
 			boundingBox = p_i2102_4_;
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureVillagePieces.Church func_74919_a(StructureVillagePieces.Start p_74919_0_,
 				List p_74919_1_, Random p_74919_2_, int p_74919_3_, int p_74919_4_, int p_74919_5_, int p_74919_6_,
 				int p_74919_7_) {
@@ -379,8 +382,6 @@ public class StructureVillagePieces {
 		private Block cropTypeB;
 		private Block cropTypeC;
 		private Block cropTypeD;
-		private static final String __OBFID = "CL_00000518";
-
 		public Field1() {
 		}
 
@@ -424,6 +425,7 @@ public class StructureVillagePieces {
 			}
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureVillagePieces.Field1 func_74900_a(StructureVillagePieces.Start p_74900_0_,
 				List p_74900_1_, Random p_74900_2_, int p_74900_3_, int p_74900_4_, int p_74900_5_, int p_74900_6_,
 				int p_74900_7_) {
@@ -494,8 +496,6 @@ public class StructureVillagePieces {
 	public static class Field2 extends StructureVillagePieces.Village {
 		private Block cropTypeA;
 		private Block cropTypeB;
-		private static final String __OBFID = "CL_00000519";
-
 		public Field2() {
 		}
 
@@ -533,6 +533,7 @@ public class StructureVillagePieces {
 			}
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureVillagePieces.Field2 func_74902_a(StructureVillagePieces.Start p_74902_0_,
 				List p_74902_1_, Random p_74902_2_, int p_74902_3_, int p_74902_4_, int p_74902_5_, int p_74902_6_,
 				int p_74902_7_) {
@@ -589,8 +590,6 @@ public class StructureVillagePieces {
 	}
 
 	public static class Hall extends StructureVillagePieces.Village {
-		private static final String __OBFID = "CL_00000522";
-
 		public Hall() {
 		}
 
@@ -601,6 +600,7 @@ public class StructureVillagePieces {
 			boundingBox = p_i2099_4_;
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureVillagePieces.Hall func_74906_a(StructureVillagePieces.Start p_74906_0_, List p_74906_1_,
 				Random p_74906_2_, int p_74906_3_, int p_74906_4_, int p_74906_5_, int p_74906_6_, int p_74906_7_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_74906_3_,
@@ -715,8 +715,6 @@ public class StructureVillagePieces {
 	}
 
 	public static class House1 extends StructureVillagePieces.Village {
-		private static final String __OBFID = "CL_00000517";
-
 		public House1() {
 		}
 
@@ -727,6 +725,7 @@ public class StructureVillagePieces {
 			boundingBox = p_i2094_4_;
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureVillagePieces.House1 func_74898_a(StructureVillagePieces.Start p_74898_0_,
 				List p_74898_1_, Random p_74898_2_, int p_74898_3_, int p_74898_4_, int p_74898_5_, int p_74898_6_,
 				int p_74898_7_) {
@@ -861,8 +860,6 @@ public class StructureVillagePieces {
 				new WeightedRandomChestContent(Items.golden_horse_armor, 0, 1, 1, 1),
 				new WeightedRandomChestContent(Items.diamond_horse_armor, 0, 1, 1, 1) };
 		private boolean hasMadeChest;
-		private static final String __OBFID = "CL_00000526";
-
 		public House2() {
 		}
 
@@ -873,6 +870,7 @@ public class StructureVillagePieces {
 			boundingBox = p_i2103_4_;
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureVillagePieces.House2 func_74915_a(StructureVillagePieces.Start p_74915_0_,
 				List p_74915_1_, Random p_74915_2_, int p_74915_3_, int p_74915_4_, int p_74915_5_, int p_74915_6_,
 				int p_74915_7_) {
@@ -987,8 +985,6 @@ public class StructureVillagePieces {
 	}
 
 	public static class House3 extends StructureVillagePieces.Village {
-		private static final String __OBFID = "CL_00000530";
-
 		public House3() {
 		}
 
@@ -999,6 +995,7 @@ public class StructureVillagePieces {
 			boundingBox = p_i2106_4_;
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureVillagePieces.House3 func_74921_a(StructureVillagePieces.Start p_74921_0_,
 				List p_74921_1_, Random p_74921_2_, int p_74921_3_, int p_74921_4_, int p_74921_5_, int p_74921_6_,
 				int p_74921_7_) {
@@ -1143,8 +1140,6 @@ public class StructureVillagePieces {
 
 	public static class House4Garden extends StructureVillagePieces.Village {
 		private boolean isRoofAccessible;
-		private static final String __OBFID = "CL_00000523";
-
 		public House4Garden() {
 		}
 
@@ -1168,6 +1163,7 @@ public class StructureVillagePieces {
 			isRoofAccessible = p_143011_1_.getBoolean("Terrace");
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureVillagePieces.House4Garden func_74912_a(StructureVillagePieces.Start p_74912_0_,
 				List p_74912_1_, Random p_74912_2_, int p_74912_3_, int p_74912_4_, int p_74912_5_, int p_74912_6_,
 				int p_74912_7_) {
@@ -1271,8 +1267,6 @@ public class StructureVillagePieces {
 
 	public static class Path extends StructureVillagePieces.Road {
 		private int averageGroundLevel;
-		private static final String __OBFID = "CL_00000528";
-
 		public Path() {
 		}
 
@@ -1296,6 +1290,7 @@ public class StructureVillagePieces {
 			averageGroundLevel = p_143011_1_.getInteger("Length");
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			boolean flag = false;
@@ -1373,6 +1368,7 @@ public class StructureVillagePieces {
 			}
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureBoundingBox func_74933_a(StructureVillagePieces.Start p_74933_0_, List p_74933_1_,
 				Random p_74933_2_, int p_74933_3_, int p_74933_4_, int p_74933_5_, int p_74933_6_) {
 			for (int i1 = 7 * MathHelper.getRandomIntegerInRange(p_74933_2_, 3, 5); i1 >= 7; i1 -= 7) {
@@ -1404,12 +1400,12 @@ public class StructureVillagePieces {
 	}
 
 	public static class PieceWeight {
+		@SuppressWarnings("rawtypes")
 		public Class villagePieceClass;
 		public final int villagePieceWeight;
 		public int villagePiecesSpawned;
 		public int villagePiecesLimit;
-		private static final String __OBFID = "CL_00000521";
-
+		@SuppressWarnings("rawtypes")
 		public PieceWeight(Class p_i2098_1_, int p_i2098_2_, int p_i2098_3_) {
 			villagePieceClass = p_i2098_1_;
 			villagePieceWeight = p_i2098_2_;
@@ -1426,8 +1422,6 @@ public class StructureVillagePieces {
 	}
 
 	public abstract static class Road extends StructureVillagePieces.Village {
-		private static final String __OBFID = "CL_00000532";
-
 		public Road() {
 		}
 
@@ -1441,15 +1435,18 @@ public class StructureVillagePieces {
 		public boolean inDesert;
 		public int terrainType;
 		public StructureVillagePieces.PieceWeight structVillagePieceWeight;
+		@SuppressWarnings("rawtypes")
 		public List structureVillageWeightedPieceList;
+		@SuppressWarnings("rawtypes")
 		public List field_74932_i = new ArrayList();
+		@SuppressWarnings("rawtypes")
 		public List field_74930_j = new ArrayList();
-		private static final String __OBFID = "CL_00000527";
 		public BiomeGenBase biome;
 
 		public Start() {
 		}
 
+		@SuppressWarnings("rawtypes")
 		public Start(WorldChunkManager p_i2104_1_, int p_i2104_2_, Random p_i2104_3_, int p_i2104_4_, int p_i2104_5_,
 				List p_i2104_6_, int p_i2104_7_) {
 			super(null, 0, p_i2104_3_, p_i2104_4_, p_i2104_5_);
@@ -1467,8 +1464,6 @@ public class StructureVillagePieces {
 	}
 
 	public static class Torch extends StructureVillagePieces.Village {
-		private static final String __OBFID = "CL_00000520";
-
 		public Torch() {
 		}
 
@@ -1479,6 +1474,7 @@ public class StructureVillagePieces {
 			boundingBox = p_i2097_4_;
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureBoundingBox func_74904_a(StructureVillagePieces.Start p_74904_0_, List p_74904_1_,
 				Random p_74904_2_, int p_74904_3_, int p_74904_4_, int p_74904_5_, int p_74904_6_) {
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(p_74904_3_,
@@ -1515,7 +1511,6 @@ public class StructureVillagePieces {
 		protected int field_143015_k = -1;
 		private int villagersSpawned;
 		private boolean field_143014_b;
-		private static final String __OBFID = "CL_00000531";
 		private StructureVillagePieces.Start startPiece;
 
 		public Village() {
@@ -1544,6 +1539,7 @@ public class StructureVillagePieces {
 			field_143014_b = p_143011_1_.getBoolean("Desert");
 		}
 
+		@SuppressWarnings("rawtypes")
 		protected StructureComponent getNextComponentNN(StructureVillagePieces.Start p_74891_1_, List p_74891_2_,
 				Random p_74891_3_, int p_74891_4_, int p_74891_5_) {
 			switch (coordBaseMode) {
@@ -1568,6 +1564,7 @@ public class StructureVillagePieces {
 			}
 		}
 
+		@SuppressWarnings("rawtypes")
 		protected StructureComponent getNextComponentPP(StructureVillagePieces.Start p_74894_1_, List p_74894_2_,
 				Random p_74894_3_, int p_74894_4_, int p_74894_5_) {
 			switch (coordBaseMode) {
@@ -1720,8 +1717,6 @@ public class StructureVillagePieces {
 	}
 
 	public static class Well extends StructureVillagePieces.Village {
-		private static final String __OBFID = "CL_00000533";
-
 		public Well() {
 		}
 
@@ -1742,6 +1737,7 @@ public class StructureVillagePieces {
 			}
 		}
 
+		@SuppressWarnings("rawtypes")
 		@Override
 		public void buildComponent(StructureComponent p_74861_1_, List p_74861_2_, Random p_74861_3_) {
 			StructureVillagePieces.getNextComponentVillagePath((StructureVillagePieces.Start) p_74861_1_, p_74861_2_,
@@ -1800,8 +1796,6 @@ public class StructureVillagePieces {
 	public static class WoodHut extends StructureVillagePieces.Village {
 		private boolean isTallHouse;
 		private int tablePosition;
-		private static final String __OBFID = "CL_00000524";
-
 		public WoodHut() {
 		}
 
@@ -1828,6 +1822,7 @@ public class StructureVillagePieces {
 			isTallHouse = p_143011_1_.getBoolean("C");
 		}
 
+		@SuppressWarnings("rawtypes")
 		public static StructureVillagePieces.WoodHut func_74908_a(StructureVillagePieces.Start p_74908_0_,
 				List p_74908_1_, Random p_74908_2_, int p_74908_3_, int p_74908_4_, int p_74908_5_, int p_74908_6_,
 				int p_74908_7_) {

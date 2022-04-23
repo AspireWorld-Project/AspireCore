@@ -55,14 +55,13 @@ public class GuiIngame extends Gui {
 	public float prevVignetteBrightness = 1.0F;
 	protected int remainingHighlightTicks;
 	protected ItemStack highlightingItemStack;
-	private static final String __OBFID = "CL_00000661";
-
 	public GuiIngame(Minecraft p_i1036_1_) {
 		mc = p_i1036_1_;
 		persistantChatGUI = new GuiNewChat(p_i1036_1_);
 		field_152127_m = new GuiStreamIndicator(mc);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void renderGameOverlay(float p_73830_1_, boolean p_73830_2_, int p_73830_3_, int p_73830_4_) {
 		ScaledResolution scaledresolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
 		int k = scaledresolution.getScaledWidth();
@@ -462,6 +461,7 @@ public class GuiIngame extends Gui {
 		field_152127_m.func_152437_a((int) (p_152126_1_ - 10.0F), 10);
 	}
 
+	@SuppressWarnings("rawtypes")
 	protected void func_96136_a(ScoreObjective p_96136_1_, int p_96136_2_, int p_96136_3_, FontRenderer p_96136_4_) {
 		Scoreboard scoreboard = p_96136_1_.getScoreboard();
 		Collection collection = scoreboard.func_96534_i(p_96136_1_);

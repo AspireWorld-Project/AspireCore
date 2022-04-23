@@ -93,13 +93,6 @@ public class Loader {
 	 * The singleton instance
 	 */
 	private static Loader instance;
-	/**
-	 * Build information for tracking purposes.
-	 */
-	private static String major;
-	private static String minor;
-	private static String rev;
-	private static String build;
 	private static String mccversion;
 	private static String mcpversion;
 
@@ -145,10 +138,6 @@ public class Loader {
 
 	@SuppressWarnings("unchecked")
 	public static void injectData(Object... data) {
-		major = (String) data[0];
-		minor = (String) data[1];
-		rev = (String) data[2];
-		build = (String) data[3];
 		mccversion = (String) data[4];
 		mcpversion = (String) data[5];
 		minecraftDir = (File) data[6];

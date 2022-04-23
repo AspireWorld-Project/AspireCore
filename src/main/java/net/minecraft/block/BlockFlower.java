@@ -22,8 +22,6 @@ public class BlockFlower extends BlockBush {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] field_149861_N;
 	private final int field_149862_O;
-	private static final String __OBFID = "CL_00000246";
-
 	protected BlockFlower(int p_i2173_1_) {
 		super(Material.plants);
 		field_149862_O = p_i2173_1_;
@@ -54,6 +52,7 @@ public class BlockFlower extends BlockBush {
 		return p_149692_1_;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {

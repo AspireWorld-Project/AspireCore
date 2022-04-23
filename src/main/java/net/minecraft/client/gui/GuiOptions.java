@@ -19,13 +19,12 @@ public class GuiOptions extends GuiScreen implements GuiYesNoCallback {
 	private final GuiScreen field_146441_g;
 	private final GameSettings field_146443_h;
 	protected String field_146442_a = "Options";
-	private static final String __OBFID = "CL_00000700";
-
 	public GuiOptions(GuiScreen p_i1046_1_, GameSettings p_i1046_2_) {
 		field_146441_g = p_i1046_1_;
 		field_146443_h = p_i1046_2_;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		int i = 0;
@@ -58,8 +57,6 @@ public class GuiOptions extends GuiScreen implements GuiYesNoCallback {
 		}
 
 		buttonList.add(new GuiButton(8675309, width / 2 + 5, height / 6 + 48 - 6, 150, 20, "Super Secret Settings...") {
-			private static final String __OBFID = "CL_00000701";
-
 			@Override
 			public void func_146113_a(SoundHandler p_146113_1_) {
 				SoundEventAccessorComposite soundeventaccessorcomposite = p_146113_1_

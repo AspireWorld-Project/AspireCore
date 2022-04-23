@@ -10,22 +10,16 @@ import java.util.zip.InflaterInputStream;
 
 public class RegionFile {
 	private static final byte[] emptySector = new byte[4096];
-	private final File fileName;
 	private RandomAccessFile dataFile;
 	private final int[] offsets = new int[1024];
 	private final int[] chunkTimestamps = new int[1024];
+	@SuppressWarnings("rawtypes")
 	private ArrayList sectorFree;
-	private int sizeDelta;
-	private long lastModified;
-	private static final String __OBFID = "CL_00000381";
-
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public RegionFile(File p_i2001_1_) {
-		fileName = p_i2001_1_;
-		sizeDelta = 0;
-
 		try {
 			if (p_i2001_1_.exists()) {
-				lastModified = p_i2001_1_.lastModified();
+				p_i2001_1_.lastModified();
 			}
 
 			dataFile = new RandomAccessFile(p_i2001_1_, "rw");
@@ -39,8 +33,6 @@ public class RegionFile {
 				for (i = 0; i < 1024; ++i) {
 					dataFile.writeInt(0);
 				}
-
-				sizeDelta += 8192;
 			}
 
 			if ((dataFile.length() & 4095L) != 0L) {
@@ -170,6 +162,7 @@ public class RegionFile {
 				: new DataOutputStream(new DeflaterOutputStream(new RegionFile.ChunkBuffer(p_76710_1_, p_76710_2_)));
 	}
 
+	@SuppressWarnings("unchecked")
 	protected synchronized void write(int p_76706_1_, int p_76706_2_, byte[] p_76706_3_, int p_76706_4_) {
 		try {
 			int l = getOffset(p_76706_1_, p_76706_2_);
@@ -230,7 +223,6 @@ public class RegionFile {
 						sectorFree.add(Boolean.valueOf(false));
 					}
 
-					sizeDelta += 4096 * k1;
 					this.write(i1, p_76706_3_, p_76706_4_);
 					setOffset(p_76706_1_, p_76706_2_, i1 << 8 | k1);
 				}
@@ -283,8 +275,6 @@ public class RegionFile {
 	class ChunkBuffer extends ByteArrayOutputStream {
 		private final int chunkX;
 		private final int chunkZ;
-		private static final String __OBFID = "CL_00000382";
-
 		public ChunkBuffer(int p_i2000_2_, int p_i2000_3_) {
 			super(8096);
 			chunkX = p_i2000_2_;

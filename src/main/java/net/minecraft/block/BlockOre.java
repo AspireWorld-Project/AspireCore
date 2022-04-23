@@ -12,8 +12,6 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class BlockOre extends Block {
-	private static final String __OBFID = "CL_00000282";
-
 	public BlockOre() {
 		super(Material.rock);
 		setCreativeTab(CreativeTabs.tabBlock);

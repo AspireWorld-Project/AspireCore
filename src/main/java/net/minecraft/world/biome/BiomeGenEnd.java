@@ -6,8 +6,7 @@ import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.init.Blocks;
 
 public class BiomeGenEnd extends BiomeGenBase {
-	private static final String __OBFID = "CL_00000187";
-
+	@SuppressWarnings("unchecked")
 	public BiomeGenEnd(int p_i1990_1_) {
 		super(p_i1990_1_);
 		spawnableMonsterList.clear();

@@ -11,24 +11,23 @@ public class MathHelper {
 	private static final int[] multiplyDeBruijnBitPosition;
 
 	public static float sin(float p_76126_0_) {
-		return (float) FastMath.sin(p_76126_0_);
+		return (float) FastMath.sinQuick(p_76126_0_);
 	}
 
 	public static float cos(float p_76134_0_) {
-		return SIN_TABLE[(int) (p_76134_0_ * 10430.378F + 16384.0F) & 65535];
+		return (float) FastMath.cosQuick(p_76134_0_);
 	}
 
 	public static float sqrt_float(float p_76129_0_) {
-		return (float) Math.sqrt(p_76129_0_);
+		return (float) FastMath.sqrtQuick(p_76129_0_);
 	}
 
 	public static float sqrt_double(double p_76133_0_) {
-		return (float) Math.sqrt(p_76133_0_);
+		return (float) FastMath.sqrtQuick(p_76133_0_);
 	}
 
 	public static int floor_float(float p_76141_0_) {
-		int i = (int) p_76141_0_;
-		return p_76141_0_ < i ? i - 1 : i;
+		return (int) FastMath.floor(p_76141_0_);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -37,13 +36,11 @@ public class MathHelper {
 	}
 
 	public static int floor_double(double p_76128_0_) {
-		int i = (int) p_76128_0_;
-		return p_76128_0_ < i ? i - 1 : i;
+		return (int) FastMath.floor(p_76128_0_);
 	}
 
 	public static long floor_double_long(double p_76124_0_) {
-		long i = (long) p_76124_0_;
-		return p_76124_0_ < i ? i - 1L : i;
+		return (long) FastMath.floor(p_76124_0_);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -52,16 +49,15 @@ public class MathHelper {
 	}
 
 	public static float abs(float p_76135_0_) {
-		return p_76135_0_ >= 0.0F ? p_76135_0_ : -p_76135_0_;
+		return FastMath.abs(p_76135_0_);
 	}
 
 	public static int abs_int(int p_76130_0_) {
-		return p_76130_0_ >= 0 ? p_76130_0_ : -p_76130_0_;
+		return FastMath.abs(p_76130_0_);
 	}
 
 	public static int ceiling_float_int(float p_76123_0_) {
-		int i = (int) p_76123_0_;
-		return p_76123_0_ > i ? i + 1 : i;
+		return (int) FastMath.ceil(p_76123_0_);
 	}
 
 	public static int ceiling_double_int(double p_76143_0_) {

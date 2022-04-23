@@ -48,7 +48,7 @@ public class SoundManager {
 	private int playTime = 0;
 	private final Map playingSounds = HashBiMap.create();
 	private final Map invPlayingSounds;
-	private Map playingSoundPoolEntries;
+	private final Map playingSoundPoolEntries;
 	private final Multimap categorySounds;
 	private final List tickableSounds;
 	private final Map delayedSounds;
@@ -199,8 +199,8 @@ public class SoundManager {
 					}
 
 					iterator.remove();
-					logger.debug(field_148623_a, "Removed channel {} because it\'s not playing anymore",
-							new Object[] { s });
+					logger.debug(field_148623_a, "Removed channel {} because it's not playing anymore",
+							s);
 					sndSystem.removeSource(s);
 					playingSoundsStopTime.remove(s);
 					playingSoundPoolEntries.remove(isound);
@@ -209,7 +209,6 @@ public class SoundManager {
 						categorySounds
 								.remove(sndHandler.getSound(isound.getPositionedSoundLocation()).getSoundCategory(), s);
 					} catch (RuntimeException runtimeexception) {
-						;
 					}
 
 					if (isound instanceof ITickableSound) {
@@ -242,9 +241,8 @@ public class SoundManager {
 			return false;
 		else {
 			String s = (String) invPlayingSounds.get(p_148597_1_);
-			return s == null ? false
-					: sndSystem.playing(s) || playingSoundsStopTime.containsKey(s)
-							&& ((Integer) playingSoundsStopTime.get(s)).intValue() <= playTime;
+			return s != null && (sndSystem.playing(s) || playingSoundsStopTime.containsKey(s)
+					&& ((Integer) playingSoundsStopTime.get(s)).intValue() <= playTime);
 		}
 	}
 
@@ -262,7 +260,7 @@ public class SoundManager {
 		if (loaded) {
 			if (sndSystem.getMasterVolume() <= 0.0F) {
 				logger.debug(field_148623_a, "Skipped playing soundEvent: {}, master volume was zero",
-						new Object[] { p_148611_1_.getPositionedSoundLocation() });
+						p_148611_1_.getPositionedSoundLocation());
 			} else {
 				p_148611_1_ = ForgeHooksClient.playSound(this, p_148611_1_);
 				if (p_148611_1_ == null)
@@ -273,13 +271,13 @@ public class SoundManager {
 
 				if (soundeventaccessorcomposite == null) {
 					logger.warn(field_148623_a, "Unable to play unknown soundEvent: {}",
-							new Object[] { p_148611_1_.getPositionedSoundLocation() });
+							p_148611_1_.getPositionedSoundLocation());
 				} else {
 					SoundPoolEntry soundpoolentry = soundeventaccessorcomposite.func_148720_g();
 
 					if (soundpoolentry == SoundHandler.missing_sound) {
 						logger.warn(field_148623_a, "Unable to play empty soundEvent: {}",
-								new Object[] { soundeventaccessorcomposite.getSoundEventLocation() });
+								soundeventaccessorcomposite.getSoundEventLocation());
 					} else {
 						float f = p_148611_1_.getVolume();
 						float f1 = 16.0F;
@@ -295,7 +293,7 @@ public class SoundManager {
 
 						if (f2 == 0.0F) {
 							logger.debug(field_148623_a, "Skipped playing sound {}, volume was zero.",
-									new Object[] { resourcelocation });
+									resourcelocation);
 						} else {
 							boolean flag = p_148611_1_.canRepeat() && p_148611_1_.getRepeatDelay() == 0;
 							String s = UUID.randomUUID().toString();
@@ -315,8 +313,8 @@ public class SoundManager {
 							}
 
 							logger.debug(field_148623_a, "Playing sound {} for event {} as channel {}",
-									new Object[] { soundpoolentry.getSoundPoolEntryLocation(),
-											soundeventaccessorcomposite.getSoundEventLocation(), s });
+									soundpoolentry.getSoundPoolEntryLocation(),
+									soundeventaccessorcomposite.getSoundEventLocation(), s);
 							sndSystem.setPitch(s, (float) d0);
 							sndSystem.setVolume(s, f2);
 							sndSystem.play(s);
@@ -352,7 +350,7 @@ public class SoundManager {
 
 		while (iterator.hasNext()) {
 			String s = (String) iterator.next();
-			logger.debug(field_148623_a, "Pausing channel {}", new Object[] { s });
+			logger.debug(field_148623_a, "Pausing channel {}", s);
 			sndSystem.pause(s);
 		}
 	}
@@ -362,7 +360,7 @@ public class SoundManager {
 
 		while (iterator.hasNext()) {
 			String s = (String) iterator.next();
-			logger.debug(field_148623_a, "Resuming channel {}", new Object[] { s });
+			logger.debug(field_148623_a, "Resuming channel {}", s);
 			sndSystem.play(s);
 		}
 	}
@@ -373,7 +371,7 @@ public class SoundManager {
 
 	private static URL getURLForSoundResource(final ResourceLocation p_148612_0_) {
 		String s = String.format("%s:%s:%s",
-				new Object[] { "mcsounddomain", p_148612_0_.getResourceDomain(), p_148612_0_.getResourcePath() });
+				"mcsounddomain", p_148612_0_.getResourceDomain(), p_148612_0_.getResourcePath());
 		URLStreamHandler urlstreamhandler = new URLStreamHandler() {
 			private static final String __OBFID = "CL_00001143";
 
@@ -395,7 +393,7 @@ public class SoundManager {
 		};
 
 		try {
-			return new URL((URL) null, s, urlstreamhandler);
+			return new URL(null, s, urlstreamhandler);
 		} catch (MalformedURLException malformedurlexception) {
 			throw new Error("TODO: Sanely handle url exception! :D");
 		}
@@ -439,7 +437,7 @@ public class SoundManager {
 					return false;
 				else {
 					Source source = soundLibrary.getSources().get(p_playing_1_);
-					return source == null ? false : source.playing() || source.paused() || source.preLoad;
+					return source != null && (source.playing() || source.paused() || source.preLoad);
 				}
 			}
 		}

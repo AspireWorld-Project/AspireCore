@@ -80,7 +80,7 @@ public class SharedMonsterAttributes {
 			if (iattributeinstance != null) {
 				applyModifiersToAttributeInstance(iattributeinstance, nbttagcompound);
 			} else {
-				logger.warn("Ignoring unknown attribute \'" + nbttagcompound.getString("Name") + "\'");
+				logger.warn("Ignoring unknown attribute '" + nbttagcompound.getString("Name") + "'");
 			}
 		}
 	}

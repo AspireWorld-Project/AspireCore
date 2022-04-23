@@ -37,14 +37,14 @@ public class GuiSelectString extends GuiScreen {
 	protected IConfigElement configElement;
 	private GuiSelectStringEntries entriesList;
 	private GuiButtonExt btnUndoChanges, btnDefault, btnDone;
-	private String title;
+	private final String title;
 	protected String titleLine2;
 	protected String titleLine3;
 	protected int slotIndex;
 	private final Map<Object, String> selectableValues;
 	public final Object beforeValue;
 	public Object currentValue;
-	private HoverChecker tooltipHoverChecker;
+	private final HoverChecker tooltipHoverChecker;
 	@SuppressWarnings("rawtypes")
 	private List toolTip;
 	protected boolean enabled;

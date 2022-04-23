@@ -14,19 +14,19 @@ import java.util.Map.Entry;
 public class RConThreadQuery extends RConThreadBase {
 	private long lastAuthCheckTime;
 	private int queryPort;
-	private int serverPort;
-	private int maxPlayers;
-	private String serverMotd;
-	private String worldName;
+	private final int serverPort;
+	private final int maxPlayers;
+	private final String serverMotd;
+	private final String worldName;
 	private DatagramSocket querySocket;
-	private byte[] buffer = new byte[1460];
+	private final byte[] buffer = new byte[1460];
 	private DatagramPacket incomingPacket;
-	private Map field_72644_p;
+	private final Map field_72644_p;
 	private String queryHostname;
 	private String serverHostname;
-	private Map queryClients;
-	private long time;
-	private RConOutputStream output;
+	private final Map queryClients;
+	private final long time;
+	private final RConOutputStream output;
 	private long lastQueryResponseTime;
 	private static final String __OBFID = "CL_00001802";
 
@@ -50,8 +50,8 @@ public class RConThreadQuery extends RConThreadBase {
 				InetAddress inetaddress = InetAddress.getLocalHost();
 				queryHostname = inetaddress.getHostAddress();
 			} catch (UnknownHostException unknownhostexception) {
-				logWarning("Unable to determine local host IP, please set server-ip in \'"
-						+ p_i1536_1_.getSettingsFilename() + "\' : " + unknownhostexception.getMessage());
+				logWarning("Unable to determine local host IP, please set server-ip in '"
+						+ p_i1536_1_.getSettingsFilename() + "' : " + unknownhostexception.getMessage());
 			}
 		}
 
@@ -80,7 +80,7 @@ public class RConThreadQuery extends RConThreadBase {
 		logDebug("Packet len " + i + " [" + socketaddress + "]");
 
 		if (3 <= i && -2 == abyte[0] && -3 == abyte[1]) {
-			logDebug("Packet \'" + RConUtils.getByteAsHexString(abyte[2]) + "\' [" + socketaddress + "]");
+			logDebug("Packet '" + RConUtils.getByteAsHexString(abyte[2]) + "' [" + socketaddress + "]");
 
 			switch (abyte[2]) {
 			case 0:
@@ -230,7 +230,6 @@ public class RConThreadQuery extends RConThreadBase {
 				} catch (SocketTimeoutException sockettimeoutexception) {
 					cleanQueryClientsMap();
 				} catch (PortUnreachableException portunreachableexception) {
-					;
 				} catch (IOException ioexception) {
 					stopWithException(ioexception);
 				}
@@ -248,8 +247,8 @@ public class RConThreadQuery extends RConThreadBase {
 					super.startThread();
 				}
 			} else {
-				logWarning("Invalid query port " + queryPort + " found in \'" + server.getSettingsFilename()
-						+ "\' (queries disabled)");
+				logWarning("Invalid query port " + queryPort + " found in '" + server.getSettingsFilename()
+						+ "' (queries disabled)");
 			}
 		}
 	}
@@ -287,11 +286,11 @@ public class RConThreadQuery extends RConThreadBase {
 
 	@SideOnly(Side.SERVER)
 	class Auth {
-		private long timestamp = new Date().getTime();
-		private int randomChallenge;
-		private byte[] requestId;
-		private byte[] challengeValue;
-		private String requestIdAsString;
+		private final long timestamp = new Date().getTime();
+		private final int randomChallenge;
+		private final byte[] requestId;
+		private final byte[] challengeValue;
+		private final String requestIdAsString;
 		private static final String __OBFID = "CL_00001803";
 
 		public Auth(DatagramPacket p_i1535_2_) {

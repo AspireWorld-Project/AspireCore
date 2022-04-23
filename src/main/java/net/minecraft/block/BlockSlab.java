@@ -106,22 +106,16 @@ public abstract class BlockSlab extends Block {
 			int k1 = p_149646_4_ + Facing.offsetsZForSide[Facing.oppositeSide[p_149646_5_]];
 			boolean flag = (p_149646_1_.getBlockMetadata(i1, j1, k1) & 8) != 0;
 			return flag
-					? p_149646_5_ == 0 ? true
-							: p_149646_5_ == 1 && super.shouldSideBeRendered(p_149646_1_, p_149646_2_, p_149646_3_,
-									p_149646_4_, p_149646_5_)
-											? true
-											: !func_150003_a(
-													p_149646_1_.getBlock(p_149646_2_, p_149646_3_, p_149646_4_))
-													|| (p_149646_1_.getBlockMetadata(p_149646_2_, p_149646_3_,
-															p_149646_4_) & 8) == 0
-					: p_149646_5_ == 1 ? true
-							: p_149646_5_ == 0 && super.shouldSideBeRendered(p_149646_1_, p_149646_2_, p_149646_3_,
-									p_149646_4_, p_149646_5_)
-											? true
-											: !func_150003_a(
-													p_149646_1_.getBlock(p_149646_2_, p_149646_3_, p_149646_4_))
-													|| (p_149646_1_.getBlockMetadata(p_149646_2_, p_149646_3_,
-															p_149646_4_) & 8) != 0;
+					? p_149646_5_ == 0 || p_149646_5_ == 1 && super.shouldSideBeRendered(p_149646_1_, p_149646_2_, p_149646_3_,
+                    p_149646_4_, p_149646_5_) || !func_150003_a(
+                    p_149646_1_.getBlock(p_149646_2_, p_149646_3_, p_149646_4_))
+                    || (p_149646_1_.getBlockMetadata(p_149646_2_, p_149646_3_,
+                    p_149646_4_) & 8) == 0
+					: p_149646_5_ == 1 || p_149646_5_ == 0 && super.shouldSideBeRendered(p_149646_1_, p_149646_2_, p_149646_3_,
+                    p_149646_4_, p_149646_5_) || !func_150003_a(
+                    p_149646_1_.getBlock(p_149646_2_, p_149646_3_, p_149646_4_))
+                    || (p_149646_1_.getBlockMetadata(p_149646_2_, p_149646_3_,
+                    p_149646_4_) & 8) != 0;
 		}
 	}
 

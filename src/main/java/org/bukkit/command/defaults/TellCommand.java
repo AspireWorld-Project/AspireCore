@@ -12,7 +12,7 @@ public class TellCommand extends VanillaCommand {
 		super("tell");
 		description = "Sends a private message to the given player";
 		usageMessage = "/tell <player> <message>";
-		setAliases(Arrays.asList(new String[] { "w", "msg" }));
+		setAliases(Arrays.asList("w", "msg"));
 		setPermission("bukkit.command.tell");
 	}
 

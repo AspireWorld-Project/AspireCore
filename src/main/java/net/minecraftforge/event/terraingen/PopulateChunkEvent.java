@@ -111,7 +111,7 @@ public class PopulateChunkEvent extends ChunkProviderEvent {
 		/**
 		 * Use CUSTOM to filter custom event types
 		 */
-		public static enum EventType {
+		public enum EventType {
 			DUNGEON, FIRE, GLOWSTONE, ICE, LAKE, LAVA, NETHER_LAVA, ANIMALS, CUSTOM
 		}
 

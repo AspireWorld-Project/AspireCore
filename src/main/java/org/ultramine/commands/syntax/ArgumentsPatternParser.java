@@ -108,8 +108,8 @@ public class ArgumentsPatternParser {
 	}
 
 	private static class WrappedCompletionHandler implements IArgumentCompletionHandler {
-		private Method method;
-		private boolean isUsername;
+		private final Method method;
+		private final boolean isUsername;
 
 		private WrappedCompletionHandler(Method method, boolean isUsername) {
 			this.method = method;
@@ -135,7 +135,7 @@ public class ArgumentsPatternParser {
 	}
 
 	private static class WrappedValidationHandler implements IArgumentValidationHandler {
-		private Method method;
+		private final Method method;
 
 		private WrappedValidationHandler(Method method) {
 			this.method = method;

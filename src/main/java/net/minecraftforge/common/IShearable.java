@@ -29,7 +29,7 @@ public interface IShearable {
 	 *            The Z Position
 	 * @return If this is shearable, and onSheared should be called.
 	 */
-	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z);
+    boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z);
 
 	/**
 	 * Performs the shear function on this object. This is called for both client,
@@ -57,5 +57,5 @@ public interface IShearable {
 	 * @return A ArrayList containing all items from this shearing. Possible to be
 	 *         null.
 	 */
-	public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune);
+    ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune);
 }

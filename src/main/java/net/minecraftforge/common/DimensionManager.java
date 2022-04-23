@@ -27,17 +27,17 @@ import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentMap;
 
 public class DimensionManager {
-	private static Hashtable<Integer, Class<? extends WorldProvider>> providers = new Hashtable<>();
-	private static Hashtable<Integer, Boolean> spawnSettings = new Hashtable<>();
-	private static Hashtable<Integer, WorldServer> worlds = new Hashtable<>();
+	private static final Hashtable<Integer, Class<? extends WorldProvider>> providers = new Hashtable<>();
+	private static final Hashtable<Integer, Boolean> spawnSettings = new Hashtable<>();
+	private static final Hashtable<Integer, WorldServer> worlds = new Hashtable<>();
 	private static boolean hasInit = false;
-	private static Hashtable<Integer, Integer> dimensions = new Hashtable<>();
-	private static ArrayList<Integer> unloadQueue = new ArrayList<>();
-	private static BitSet dimensionMap = new BitSet(Long.SIZE << 4);
-	private static ConcurrentMap<World, World> weakWorldMap = new MapMaker().weakKeys().weakValues()
-			.<World, World>makeMap();
-	private static Multiset<Integer> leakedWorlds = HashMultiset.create();
-	private static ArrayList<Integer> bukkitDims = new ArrayList<>(); // used to keep track of Bukkit dimensions
+	private static final Hashtable<Integer, Integer> dimensions = new Hashtable<>();
+	private static final ArrayList<Integer> unloadQueue = new ArrayList<>();
+	private static final BitSet dimensionMap = new BitSet(Long.SIZE << 4);
+	private static final ConcurrentMap<World, World> weakWorldMap = new MapMaker().weakKeys().weakValues()
+			.makeMap();
+	private static final Multiset<Integer> leakedWorlds = HashMultiset.create();
+	private static final ArrayList<Integer> bukkitDims = new ArrayList<>(); // used to keep track of Bukkit dimensions
 
 	public static boolean registerProviderType(int id, Class<? extends WorldProvider> provider, boolean keepLoaded) {
 		if (providers.containsKey(id))
@@ -451,7 +451,7 @@ public class DimensionManager {
 	 */
 	public static File getCurrentSaveRootDirectory() {
 		if (DimensionManager.getWorld(0) != null)
-			return ((SaveHandler) DimensionManager.getWorld(0).getSaveHandler()).getWorldDirectory();
+			return DimensionManager.getWorld(0).getSaveHandler().getWorldDirectory();
 		else if (MinecraftServer.getServer() != null) {
 			MinecraftServer srv = MinecraftServer.getServer();
 			String name = srv.isSinglePlayer() ? srv.getFolderName()

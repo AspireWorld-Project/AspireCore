@@ -24,9 +24,9 @@ import java.util.Map;
 public class ModAnnotation {
 	public class EnumHolder {
 		@SuppressWarnings("unused")
-		private String desc;
+		private final String desc;
 		@SuppressWarnings("unused")
-		private String value;
+		private final String value;
 
 		public EnumHolder(String desc, String value) {
 			this.desc = desc;

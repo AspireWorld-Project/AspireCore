@@ -9,11 +9,11 @@ import java.util.*;
 import java.util.Map.Entry;
 
 public class MapGenScatteredFeature extends MapGenStructure {
-	private static List biomelist = Arrays.asList(new BiomeGenBase[] { BiomeGenBase.desert, BiomeGenBase.desertHills,
-			BiomeGenBase.jungle, BiomeGenBase.jungleHills, BiomeGenBase.swampland });
-	private List scatteredFeatureSpawnList;
+	private static final List biomelist = Arrays.asList(BiomeGenBase.desert, BiomeGenBase.desertHills,
+			BiomeGenBase.jungle, BiomeGenBase.jungleHills, BiomeGenBase.swampland);
+	private final List scatteredFeatureSpawnList;
 	private int maxDistanceBetweenScatteredFeatures;
-	private int minDistanceBetweenScatteredFeatures;
+	private final int minDistanceBetweenScatteredFeatures;
 	private static final String __OBFID = "CL_00000471";
 
 	public MapGenScatteredFeature() {
@@ -30,7 +30,7 @@ public class MapGenScatteredFeature extends MapGenStructure {
 		while (iterator.hasNext()) {
 			Entry entry = (Entry) iterator.next();
 
-			if (((String) entry.getKey()).equals("distance")) {
+			if (entry.getKey().equals("distance")) {
 				maxDistanceBetweenScatteredFeatures = MathHelper.parseIntWithDefaultAndMax((String) entry.getValue(),
 						maxDistanceBetweenScatteredFeatures, minDistanceBetweenScatteredFeatures + 1);
 			}

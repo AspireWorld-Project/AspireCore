@@ -83,14 +83,14 @@ public final class WorldSettings {
 		return field_82751_h;
 	}
 
-	public static enum GameType {
+	public enum GameType {
 		NOT_SET(-1, ""), SURVIVAL(0, "survival"), CREATIVE(1, "creative"), ADVENTURE(2, "adventure");
 		int id;
 		String name;
 
 		private static final String __OBFID = "CL_00000148";
 
-		private GameType(int p_i1956_3_, String p_i1956_4_) {
+		GameType(int p_i1956_3_, String p_i1956_4_) {
 			id = p_i1956_3_;
 			name = p_i1956_4_;
 		}

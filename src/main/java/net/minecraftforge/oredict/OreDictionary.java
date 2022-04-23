@@ -27,13 +27,13 @@ import java.util.*;
 
 public class OreDictionary {
 	private static boolean hasInit = false;
-	private static List<String> idToName = new ArrayList<>();
-	private static Map<String, Integer> nameToId = new HashMap<>();
-	private static List<ArrayList<ItemStack>> idToStack = Lists.newArrayList(); // ToDo: Unqualify to List when possible
+	private static final List<String> idToName = new ArrayList<>();
+	private static final Map<String, Integer> nameToId = new HashMap<>();
+	private static final List<ArrayList<ItemStack>> idToStack = Lists.newArrayList(); // ToDo: Unqualify to List when possible
 																				// {1.8}
-	private static List<ArrayList<ItemStack>> idToStackUn = Lists.newArrayList(); // ToDo: Unqualify to List when
+	private static final List<ArrayList<ItemStack>> idToStackUn = Lists.newArrayList(); // ToDo: Unqualify to List when
 																					// possible {1.8}
-	private static TIntObjectMap<TIntList> stackToId = new TIntObjectHashMap<>();
+	private static final TIntObjectMap<TIntList> stackToId = new TIntObjectHashMap<>();
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static final ArrayList<ItemStack> EMPTY_LIST = new UnmodifiableArrayList(Lists.newArrayList()); // ToDo:
 																											// Unqualify

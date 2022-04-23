@@ -24,9 +24,9 @@ public class GuiDispenser extends GuiContainer {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_) {
 		String s = tileDispenser.hasCustomInventoryName() ? tileDispenser.getInventoryName()
-				: I18n.format(tileDispenser.getInventoryName(), new Object[0]);
+				: I18n.format(tileDispenser.getInventoryName());
 		fontRendererObj.drawString(s, xSize / 2 - fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
-		fontRendererObj.drawString(I18n.format("container.inventory", new Object[0]), 8, ySize - 96 + 2, 4210752);
+		fontRendererObj.drawString(I18n.format("container.inventory"), 8, ySize - 96 + 2, 4210752);
 	}
 
 	@Override

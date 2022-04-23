@@ -432,14 +432,14 @@ public class EntityPlayerMP extends EntityPlayer implements ICrafting {
 						.setGameType(WorldSettings.GameType.getByID(p_70037_1_.getInteger("playerGameType")));
 			}
 		}
-		((CraftPlayer) getBukkitEntity()).readExtraData(p_70037_1_);
+		getBukkitEntity().readExtraData(p_70037_1_);
 	}
 
 	@Override
 	public void writeEntityToNBT(NBTTagCompound p_70014_1_) {
 		super.writeEntityToNBT(p_70014_1_);
 		p_70014_1_.setInteger("playerGameType", theItemInWorldManager.getGameType().getID());
-		((CraftPlayer) getBukkitEntity()).setExtraData(p_70014_1_);
+		getBukkitEntity().setExtraData(p_70014_1_);
 	}
 
 	@Override
@@ -533,7 +533,7 @@ public class EntityPlayerMP extends EntityPlayer implements ICrafting {
 				while (iterator.hasNext()) {
 					ScoreObjective scoreobjective = (ScoreObjective) iterator.next();
 					getWorldScoreboard().func_96529_a(getCommandSenderName(), scoreobjective)
-							.func_96651_a(Arrays.asList(new EntityPlayer[] { this }));
+							.func_96651_a(Arrays.asList(this));
 				}
 			}
 
@@ -552,7 +552,7 @@ public class EntityPlayerMP extends EntityPlayer implements ICrafting {
 			}
 
 			if (this.oldLevel != this.experienceLevel) {
-				CraftEventFactory.callPlayerLevelChangeEvent(this.worldObj.getServer().getPlayer((EntityPlayerMP) this), this.oldLevel, this.experienceLevel);
+				CraftEventFactory.callPlayerLevelChangeEvent(this.worldObj.getServer().getPlayer(this), this.oldLevel, this.experienceLevel);
 				this.oldLevel = this.experienceLevel;
 			}
 
@@ -698,7 +698,7 @@ public class EntityPlayerMP extends EntityPlayer implements ICrafting {
 
 	@Override
 	public boolean canAttackPlayer(EntityPlayer p_96122_1_) {
-		return !getServerForPlayer().getConfig().settings.pvp ? false : super.canAttackPlayer(p_96122_1_);
+		return getServerForPlayer().getConfig().settings.pvp && super.canAttackPlayer(p_96122_1_);
 	}
 
 	@Override
@@ -1037,7 +1037,7 @@ public class EntityPlayerMP extends EntityPlayer implements ICrafting {
 
 	public void func_152339_d(Entity p_152339_1_) {
 		if (p_152339_1_ instanceof EntityPlayer) {
-			playerNetServerHandler.sendPacket(new S13PacketDestroyEntities(new int[] { p_152339_1_.getEntityId() }));
+			playerNetServerHandler.sendPacket(new S13PacketDestroyEntities(p_152339_1_.getEntityId()));
 		} else {
 			destroyedItemsNetCache.add(Integer.valueOf(p_152339_1_.getEntityId()));
 		}
@@ -1122,7 +1122,7 @@ public class EntityPlayerMP extends EntityPlayer implements ICrafting {
 	public String getTabListName() {
 		String meta = getMeta("tablistcolor");
 		EnumChatFormatting color = meta.isEmpty() ? null : BasicTypeParser.parseColor(meta);
-		String name = color == null ? getCommandSenderName() : color.toString() + getCommandSenderName();
+		String name = color == null ? getCommandSenderName() : color + getCommandSenderName();
 		return name.length() > 16 ? name.substring(0, 16) : name;
 	}
 

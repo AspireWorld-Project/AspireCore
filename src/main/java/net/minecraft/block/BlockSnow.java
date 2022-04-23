@@ -72,13 +72,8 @@ public class BlockSnow extends Block {
 	@Override
 	public boolean canPlaceBlockAt(World p_149742_1_, int p_149742_2_, int p_149742_3_, int p_149742_4_) {
 		Block block = p_149742_1_.getBlock(p_149742_2_, p_149742_3_ - 1, p_149742_4_);
-		return block != Blocks.ice && block != Blocks.packed_ice
-				? block.isLeaves(p_149742_1_, p_149742_2_, p_149742_3_ - 1, p_149742_4_) ? true
-						: block == this
-								&& (p_149742_1_.getBlockMetadata(p_149742_2_, p_149742_3_ - 1, p_149742_4_) & 7) == 7
-										? true
-										: block.isOpaqueCube() && block.blockMaterial.blocksMovement()
-				: false;
+		return block != Blocks.ice && block != Blocks.packed_ice && (block.isLeaves(p_149742_1_, p_149742_2_, p_149742_3_ - 1, p_149742_4_) || block == this
+                && (p_149742_1_.getBlockMetadata(p_149742_2_, p_149742_3_ - 1, p_149742_4_) & 7) == 7 || block.isOpaqueCube() && block.blockMaterial.blocksMovement());
 	}
 
 	@Override
@@ -133,8 +128,7 @@ public class BlockSnow extends Block {
 	@SideOnly(Side.CLIENT)
 	public boolean shouldSideBeRendered(IBlockAccess p_149646_1_, int p_149646_2_, int p_149646_3_, int p_149646_4_,
 			int p_149646_5_) {
-		return p_149646_5_ == 1 ? true
-				: super.shouldSideBeRendered(p_149646_1_, p_149646_2_, p_149646_3_, p_149646_4_, p_149646_5_);
+		return p_149646_5_ == 1 || super.shouldSideBeRendered(p_149646_1_, p_149646_2_, p_149646_3_, p_149646_4_, p_149646_5_);
 	}
 
 	/**
@@ -171,6 +165,6 @@ public class BlockSnow extends Block {
 	@Override
 	public boolean isReplaceable(IBlockAccess world, int x, int y, int z) {
 		int meta = world.getBlockMetadata(x, y, z);
-		return meta >= 7 ? false : blockMaterial.isReplaceable();
+		return meta < 7 && blockMaterial.isReplaceable();
 	}
 }

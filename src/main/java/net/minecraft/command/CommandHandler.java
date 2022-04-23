@@ -45,12 +45,12 @@ public class CommandHandler implements ICommandManager {
 		boolean tryConversation = false;
 		if (sender instanceof EntityPlayerMP) {
 			PlayerCommandPreprocessEvent event = new PlayerCommandPreprocessEvent(
-					(Player) ((EntityPlayerMP) sender).getBukkitEntity(), line, new LazyPlayerSet());
+					((EntityPlayerMP) sender).getBukkitEntity(), line, new LazyPlayerSet());
 			Bukkit.getServer().getPluginManager().callEvent(event);
 			if (event.isCancelled())
 				return 0;
 			line = event.getMessage();
-			bukkitSender = (Player) ((EntityPlayerMP) sender).getBukkitEntity();
+			bukkitSender = ((EntityPlayerMP) sender).getBukkitEntity();
 		} else if (sender instanceof CommandBlockLogic) {
 			WorldUpdateObject wuo = WorldEventProxy.getCurrent().getUpdateObject();
 			if (wuo.getType() == WorldUpdateObjectType.TILEE_ENTITY) {
@@ -137,14 +137,14 @@ public class CommandHandler implements ICommandManager {
 				}
 			} else {
 				ChatComponentTranslation chatcomponenttranslation2 = new ChatComponentTranslation(
-						"commands.generic.permission", new Object[0]);
+						"commands.generic.permission");
 				chatcomponenttranslation2.getChatStyle().setColor(EnumChatFormatting.RED);
 				sender.addChatMessage(chatcomponenttranslation2);
 			}
 		} catch (WrongUsageException wrongusageexception) {
 			chatcomponenttranslation = new ChatComponentTranslation("commands.generic.usage",
-					new Object[] { new ChatComponentTranslation(wrongusageexception.getMessage(),
-							wrongusageexception.getErrorOjbects()) });
+					new ChatComponentTranslation(wrongusageexception.getMessage(),
+							wrongusageexception.getErrorOjbects()));
 			chatcomponenttranslation.getChatStyle().setColor(EnumChatFormatting.RED);
 			sender.addChatMessage(chatcomponenttranslation);
 		} catch (CommandException commandexception1) {
@@ -153,10 +153,10 @@ public class CommandHandler implements ICommandManager {
 			chatcomponenttranslation.getChatStyle().setColor(EnumChatFormatting.RED);
 			sender.addChatMessage(chatcomponenttranslation);
 		} catch (Throwable throwable) {
-			chatcomponenttranslation = new ChatComponentTranslation("commands.generic.exception", new Object[0]);
+			chatcomponenttranslation = new ChatComponentTranslation("commands.generic.exception");
 			chatcomponenttranslation.getChatStyle().setColor(EnumChatFormatting.RED);
 			sender.addChatMessage(chatcomponenttranslation);
-			logger.error("Couldn\'t process command", throwable);
+			logger.error("Couldn't process command", throwable);
 		}
 
 		return j;

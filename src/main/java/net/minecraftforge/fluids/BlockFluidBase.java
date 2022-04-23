@@ -137,10 +137,7 @@ public abstract class BlockFluidBase extends Block implements IFluidBlock {
 		if (density == Integer.MAX_VALUE)
 			return true;
 
-		if (this.density > density)
-			return true;
-		else
-			return false;
+		return this.density > density;
 	}
 
 	/**
@@ -172,10 +169,7 @@ public abstract class BlockFluidBase extends Block implements IFluidBlock {
 			return true;
 		}
 
-		if (this.density > density)
-			return true;
-		else
-			return false;
+		return this.density > density;
 	}
 
 	public abstract int getQuantaValue(IBlockAccess world, int x, int y, int z);
@@ -296,7 +290,7 @@ public abstract class BlockFluidBase extends Block implements IFluidBlock {
 		Block block = world.getBlock(x, y, z);
 		if (block != this)
 			return !block.isOpaqueCube();
-		return block.getMaterial() == getMaterial() ? false : super.shouldSideBeRendered(world, x, y, z, side);
+		return block.getMaterial() != getMaterial() && super.shouldSideBeRendered(world, x, y, z, side);
 	}
 
 	/* FLUID FUNCTIONS */

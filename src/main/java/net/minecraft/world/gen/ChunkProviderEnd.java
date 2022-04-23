@@ -22,13 +22,13 @@ import java.util.List;
 import java.util.Random;
 
 public class ChunkProviderEnd implements IChunkProvider {
-	private Random endRNG;
+	private final Random endRNG;
 	private NoiseGeneratorOctaves noiseGen1;
 	private NoiseGeneratorOctaves noiseGen2;
 	private NoiseGeneratorOctaves noiseGen3;
 	public NoiseGeneratorOctaves noiseGen4;
 	public NoiseGeneratorOctaves noiseGen5;
-	private World endWorld;
+	private final World endWorld;
 	private double[] densities;
 	private BiomeGenBase[] biomesForGeneration;
 	double[] noiseData1;

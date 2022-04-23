@@ -239,7 +239,7 @@ public class SimpleCommandMap implements CommandMap {
 		if (!target.testPermissionSilent(sender))
 			return null;
 
-		String argLine = cmdLine.substring(spaceIndex + 1, cmdLine.length());
+		String argLine = cmdLine.substring(spaceIndex + 1);
 		String[] args = PATTERN_ON_SPACE.split(argLine, -1);
 
 		try {

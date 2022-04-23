@@ -125,68 +125,51 @@ public class BlockPistonBase extends Block {
 
 	private boolean isIndirectlyPowered(World p_150072_1_, int p_150072_2_, int p_150072_3_, int p_150072_4_,
 			int p_150072_5_) {
-		return p_150072_5_ != 0 && p_150072_1_.getIndirectPowerOutput(p_150072_2_, p_150072_3_ - 1, p_150072_4_, 0)
-				? true
-				: p_150072_5_ != 1 && p_150072_1_.getIndirectPowerOutput(p_150072_2_, p_150072_3_ + 1, p_150072_4_, 1)
-						? true
-						: p_150072_5_ != 2
-								&& p_150072_1_.getIndirectPowerOutput(p_150072_2_, p_150072_3_, p_150072_4_ - 1, 2)
-										? true
-										: p_150072_5_ != 3 && p_150072_1_.getIndirectPowerOutput(p_150072_2_,
-												p_150072_3_, p_150072_4_ + 1, 3)
-														? true
-														: p_150072_5_ != 5 && p_150072_1_.getIndirectPowerOutput(
-																p_150072_2_ + 1, p_150072_3_, p_150072_4_, 5)
-																		? true
-																		: p_150072_5_ != 4 && p_150072_1_
-																				.getIndirectPowerOutput(p_150072_2_ - 1,
-																						p_150072_3_, p_150072_4_, 4)
-																								? true
-																								: p_150072_1_
-																										.getIndirectPowerOutput(
-																												p_150072_2_,
-																												p_150072_3_,
-																												p_150072_4_,
-																												0) ? true
-																														: p_150072_1_
-																																.getIndirectPowerOutput(
-																																		p_150072_2_,
-																																		p_150072_3_
-																																				+ 2,
-																																		p_150072_4_,
-																																		1) ? true
-																																				: p_150072_1_
-																																						.getIndirectPowerOutput(
-																																								p_150072_2_,
-																																								p_150072_3_
-																																										+ 1,
-																																								p_150072_4_
-																																										- 1,
-																																								2) ? true
-																																										: p_150072_1_
-																																												.getIndirectPowerOutput(
-																																														p_150072_2_,
-																																														p_150072_3_
-																																																+ 1,
-																																														p_150072_4_
-																																																+ 1,
-																																														3) ? true
-																																																: p_150072_1_
-																																																		.getIndirectPowerOutput(
-																																																				p_150072_2_
-																																																						- 1,
-																																																				p_150072_3_
-																																																						+ 1,
-																																																				p_150072_4_,
-																																																				4) ? true
-																																																						: p_150072_1_
-																																																								.getIndirectPowerOutput(
-																																																										p_150072_2_
-																																																												+ 1,
-																																																										p_150072_3_
-																																																												+ 1,
-																																																										p_150072_4_,
-																																																										5);
+		return p_150072_5_ != 0 && p_150072_1_.getIndirectPowerOutput(p_150072_2_, p_150072_3_ - 1, p_150072_4_, 0) || p_150072_5_ != 1 && p_150072_1_.getIndirectPowerOutput(p_150072_2_, p_150072_3_ + 1, p_150072_4_, 1) || p_150072_5_ != 2
+				&& p_150072_1_.getIndirectPowerOutput(p_150072_2_, p_150072_3_, p_150072_4_ - 1, 2) || p_150072_5_ != 3 && p_150072_1_.getIndirectPowerOutput(p_150072_2_,
+				p_150072_3_, p_150072_4_ + 1, 3) || p_150072_5_ != 5 && p_150072_1_.getIndirectPowerOutput(
+				p_150072_2_ + 1, p_150072_3_, p_150072_4_, 5) || p_150072_5_ != 4 && p_150072_1_
+				.getIndirectPowerOutput(p_150072_2_ - 1,
+						p_150072_3_, p_150072_4_, 4) || p_150072_1_
+				.getIndirectPowerOutput(
+						p_150072_2_,
+						p_150072_3_,
+						p_150072_4_,
+						0) || p_150072_1_
+				.getIndirectPowerOutput(
+						p_150072_2_,
+						p_150072_3_
+								+ 2,
+						p_150072_4_,
+						1) || p_150072_1_
+				.getIndirectPowerOutput(
+						p_150072_2_,
+						p_150072_3_
+								+ 1,
+						p_150072_4_
+								- 1,
+						2) || p_150072_1_
+				.getIndirectPowerOutput(
+						p_150072_2_,
+						p_150072_3_
+								+ 1,
+						p_150072_4_
+								+ 1,
+						3) || p_150072_1_
+				.getIndirectPowerOutput(
+						p_150072_2_
+								- 1,
+						p_150072_3_
+								+ 1,
+						p_150072_4_,
+						4) || p_150072_1_
+				.getIndirectPowerOutput(
+						p_150072_2_
+								+ 1,
+						p_150072_3_
+								+ 1,
+						p_150072_4_,
+						5);
 	}
 
 	@Override
@@ -368,10 +351,7 @@ public class BlockPistonBase extends Block {
 					return false;
 
 				if (p_150080_0_.getMobilityFlag() == 1) {
-					if (!p_150080_5_)
-						return false;
-
-					return true;
+					return p_150080_5_;
 				}
 			} else if (isExtended(p_150080_1_.getBlockMetadata(p_150080_2_, p_150080_3_, p_150080_4_)))
 				return false;

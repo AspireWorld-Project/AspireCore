@@ -76,7 +76,7 @@ public class SoundHandler implements IResourceManagerReloadListener, IUpdatePlay
 					IResource iresource = (IResource) iterator1.next();
 
 					try {
-						Map map = (Map) field_147699_c.fromJson(new InputStreamReader(iresource.getInputStream()),
+						Map map = field_147699_c.fromJson(new InputStreamReader(iresource.getInputStream()),
 								field_147696_d);
 						Iterator iterator2 = map.entrySet().iterator();
 
@@ -90,7 +90,6 @@ public class SoundHandler implements IResourceManagerReloadListener, IUpdatePlay
 					}
 				}
 			} catch (IOException ioexception) {
-				;
 			}
 		}
 	}
@@ -101,7 +100,7 @@ public class SoundHandler implements IResourceManagerReloadListener, IUpdatePlay
 		if (sndRegistry.containsKey(p_147693_1_) && !p_147693_2_.canReplaceExisting()) {
 			soundeventaccessorcomposite = (SoundEventAccessorComposite) sndRegistry.getObject(p_147693_1_);
 		} else {
-			logger.debug("Registered/replaced new sound event location {}", new Object[] { p_147693_1_ });
+			logger.debug("Registered/replaced new sound event location {}", p_147693_1_);
 			soundeventaccessorcomposite = new SoundEventAccessorComposite(p_147693_1_, 1.0D, 1.0D,
 					p_147693_2_.getSoundCategory());
 			sndRegistry.registerSound(soundeventaccessorcomposite);
@@ -125,7 +124,7 @@ public class SoundHandler implements IResourceManagerReloadListener, IUpdatePlay
 					mcResourceManager.getResource(resourcelocation2);
 				} catch (FileNotFoundException filenotfoundexception) {
 					logger.warn("File {} does not exist, cannot add it to event {}",
-							new Object[] { resourcelocation2, p_147693_1_ });
+							resourcelocation2, p_147693_1_);
 					continue;
 				} catch (IOException ioexception) {
 					logger.warn("Could not load sound file " + resourcelocation2 + ", cannot add it to event "
@@ -250,13 +249,11 @@ public class SoundHandler implements IResourceManagerReloadListener, IUpdatePlay
 			try {
 				field_148765_a[SoundList.SoundEntry.Type.FILE.ordinal()] = 1;
 			} catch (NoSuchFieldError var2) {
-				;
 			}
 
 			try {
 				field_148765_a[SoundList.SoundEntry.Type.SOUND_EVENT.ordinal()] = 2;
 			} catch (NoSuchFieldError var1) {
-				;
 			}
 		}
 	}

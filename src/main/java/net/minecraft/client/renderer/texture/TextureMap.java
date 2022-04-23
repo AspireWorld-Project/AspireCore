@@ -153,7 +153,7 @@ public class TextureMap extends AbstractTexture implements ITickableTextureObjec
 										.read(p_110571_1_.getResource(resourcelocation2).getInputStream());
 							} catch (IOException ioexception) {
 								logger.error("Unable to load miplevel {} from: {}",
-										new Object[] { Integer.valueOf(l), resourcelocation2, ioexception });
+										Integer.valueOf(l), resourcelocation2, ioexception);
 							}
 						}
 					}
@@ -184,7 +184,7 @@ public class TextureMap extends AbstractTexture implements ITickableTextureObjec
 
 		if (i1 < mipmapLevels) {
 			logger.debug("{}: dropping miplevel from {} to {}, because of minTexel: {}",
-					new Object[] { basePath, Integer.valueOf(mipmapLevels), Integer.valueOf(i1), Integer.valueOf(j) });
+					basePath, Integer.valueOf(mipmapLevels), Integer.valueOf(i1), Integer.valueOf(j));
 			mipmapLevels = i1;
 		}
 
@@ -243,8 +243,8 @@ public class TextureMap extends AbstractTexture implements ITickableTextureObjec
 			throw stitcherexception;
 		}
 
-		logger.info("Created: {}x{} {}-atlas", new Object[] { Integer.valueOf(stitcher.getCurrentWidth()),
-				Integer.valueOf(stitcher.getCurrentHeight()), basePath });
+		logger.info("Created: {}x{} {}-atlas", Integer.valueOf(stitcher.getCurrentWidth()),
+				Integer.valueOf(stitcher.getCurrentHeight()), basePath);
 		bar.step("Allocating GL texture");
 		TextureUtil.allocateTextureImpl(getGlTextureId(), mipmapLevels, stitcher.getCurrentWidth(),
 				stitcher.getCurrentHeight(), anisotropicFiltering);
@@ -290,10 +290,10 @@ public class TextureMap extends AbstractTexture implements ITickableTextureObjec
 	private ResourceLocation completeResourceLocation(ResourceLocation p_147634_1_, int p_147634_2_) {
 		return p_147634_2_ == 0
 				? new ResourceLocation(p_147634_1_.getResourceDomain(),
-						String.format("%s/%s%s", new Object[] { basePath, p_147634_1_.getResourcePath(), ".png" }))
+						String.format("%s/%s%s", basePath, p_147634_1_.getResourcePath(), ".png"))
 				: new ResourceLocation(p_147634_1_.getResourceDomain(),
-						String.format("%s/mipmaps/%s.%d%s", new Object[] { basePath, p_147634_1_.getResourcePath(),
-								Integer.valueOf(p_147634_2_), ".png" }));
+						String.format("%s/mipmaps/%s.%d%s", basePath, p_147634_1_.getResourcePath(),
+								Integer.valueOf(p_147634_2_), ".png"));
 	}
 
 	private void registerIcons() {

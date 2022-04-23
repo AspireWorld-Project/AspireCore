@@ -62,7 +62,7 @@ public class CombatTracker {
 
 	public IChatComponent func_151521_b() {
 		if (combatEntries.size() == 0)
-			return new ChatComponentTranslation("death.attack.generic", new Object[] { fighter.func_145748_c_() });
+			return new ChatComponentTranslation("death.attack.generic", fighter.func_145748_c_());
 		else {
 			CombatEntry combatentry = func_94544_f();
 			CombatEntry combatentry1 = (CombatEntry) combatEntries.get(combatEntries.size() - 1);
@@ -83,11 +83,10 @@ public class CombatTracker {
 								: null;
 
 						if (itemstack1 != null && itemstack1.hasDisplayName()) {
-							object = new ChatComponentTranslation("death.fell.assist.item", new Object[] {
-									fighter.func_145748_c_(), ichatcomponent1, itemstack1.func_151000_E() });
+							object = new ChatComponentTranslation("death.fell.assist.item", fighter.func_145748_c_(), ichatcomponent1, itemstack1.func_151000_E());
 						} else {
 							object = new ChatComponentTranslation("death.fell.assist",
-									new Object[] { fighter.func_145748_c_(), ichatcomponent1 });
+                                    fighter.func_145748_c_(), ichatcomponent1);
 						}
 					} else if (ichatcomponent != null) {
 						ItemStack itemstack = entity instanceof EntityLivingBase
@@ -95,19 +94,18 @@ public class CombatTracker {
 								: null;
 
 						if (itemstack != null && itemstack.hasDisplayName()) {
-							object = new ChatComponentTranslation("death.fell.finish.item", new Object[] {
-									fighter.func_145748_c_(), ichatcomponent, itemstack.func_151000_E() });
+							object = new ChatComponentTranslation("death.fell.finish.item", fighter.func_145748_c_(), ichatcomponent, itemstack.func_151000_E());
 						} else {
 							object = new ChatComponentTranslation("death.fell.finish",
-									new Object[] { fighter.func_145748_c_(), ichatcomponent });
+                                    fighter.func_145748_c_(), ichatcomponent);
 						}
 					} else {
 						object = new ChatComponentTranslation("death.fell.killer",
-								new Object[] { fighter.func_145748_c_() });
+                                fighter.func_145748_c_());
 					}
 				} else {
 					object = new ChatComponentTranslation("death.fell.accident." + func_94548_b(combatentry),
-							new Object[] { fighter.func_145748_c_() });
+                            fighter.func_145748_c_());
 				}
 			} else {
 				object = combatentry1.getDamageSrc().func_151519_b(fighter);

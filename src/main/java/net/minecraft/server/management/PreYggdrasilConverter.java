@@ -58,7 +58,7 @@ public class PreYggdrasilConverter {
 
 			for (int j = 0; j < i; ++j) {
 				String s = astring1[j];
-				UUID uuid = EntityPlayer.func_146094_a(new GameProfile((UUID) null, s));
+				UUID uuid = EntityPlayer.func_146094_a(new GameProfile(null, s));
 				GameProfile gameprofile = new GameProfile(uuid, s);
 				p_152717_2_.onProfileLookupSucceeded(gameprofile);
 			}
@@ -91,12 +91,12 @@ public class PreYggdrasilConverter {
 								p_onProfileLookupFailed_2_);
 					}
 				};
-				func_152717_a(minecraftserver, Lists.newArrayList(new String[] { p_152719_0_ }), profilelookupcallback);
+				func_152717_a(minecraftserver, Lists.newArrayList(p_152719_0_), profilelookupcallback);
 				return arraylist.size() > 0 && ((GameProfile) arraylist.get(0)).getId() != null
 						? ((GameProfile) arraylist.get(0)).getId().toString()
 						: "";
 			} else
-				return EntityPlayer.func_146094_a(new GameProfile((UUID) null, p_152719_0_)).toString();
+				return EntityPlayer.func_146094_a(new GameProfile(null, p_152719_0_)).toString();
 		} else
 			return p_152719_0_;
 	}
@@ -151,11 +151,11 @@ public class PreYggdrasilConverter {
 							throw new PreYggdrasilConverter.ConversionError("Profile not in the conversionlist", null);
 						} else {
 							Date date = astring.length > 1
-									? PreYggdrasilConverter.func_152713_b(astring[1], (Date) null)
+									? PreYggdrasilConverter.func_152713_b(astring[1], null)
 									: null;
 							String s = astring.length > 2 ? astring[2] : null;
 							Date date1 = astring.length > 3
-									? PreYggdrasilConverter.func_152713_b(astring[3], (Date) null)
+									? PreYggdrasilConverter.func_152713_b(astring[3], null)
 									: null;
 							String s1 = astring.length > 4 ? astring[4] : null;
 							userlistbans.func_152687_a(
@@ -213,9 +213,9 @@ public class PreYggdrasilConverter {
 				while (iterator.hasNext()) {
 					String s = (String) iterator.next();
 					String[] astring = (String[]) hashmap.get(s);
-					Date date = astring.length > 1 ? func_152713_b(astring[1], (Date) null) : null;
+					Date date = astring.length > 1 ? func_152713_b(astring[1], null) : null;
 					String s1 = astring.length > 2 ? astring[2] : null;
-					Date date1 = astring.length > 3 ? func_152713_b(astring[3], (Date) null) : null;
+					Date date1 = astring.length > 3 ? func_152713_b(astring[3], null) : null;
 					String s2 = astring.length > 4 ? astring[4] : null;
 					banlist.func_152687_a(new IPBanEntry(s, date, s1, date1, s2));
 				}
@@ -439,10 +439,10 @@ public class PreYggdrasilConverter {
 		if (p_152711_0_.exists()) {
 			if (!p_152711_0_.isDirectory())
 				throw new PreYggdrasilConverter.ConversionError(
-						"Can\'t create directory " + p_152711_0_.getName() + " in world save directory.", null);
+						"Can't create directory " + p_152711_0_.getName() + " in world save directory.", null);
 		} else if (!p_152711_0_.mkdirs())
 			throw new PreYggdrasilConverter.ConversionError(
-					"Can\'t create directory " + p_152711_0_.getName() + " in world save directory.", null);
+					"Can't create directory " + p_152711_0_.getName() + " in world save directory.", null);
 	}
 
 	@SideOnly(Side.SERVER)
@@ -454,29 +454,13 @@ public class PreYggdrasilConverter {
 
 	@SideOnly(Side.SERVER)
 	private static boolean func_152712_b(PropertyManager p_152712_0_) {
-		boolean flag = false;
+		boolean flag = field_152729_b.exists() && field_152729_b.isFile();
 
-		if (field_152729_b.exists() && field_152729_b.isFile()) {
-			flag = true;
-		}
+		boolean flag1 = field_152728_a.exists() && field_152728_a.isFile();
 
-		boolean flag1 = false;
+		boolean flag2 = field_152730_c.exists() && field_152730_c.isFile();
 
-		if (field_152728_a.exists() && field_152728_a.isFile()) {
-			flag1 = true;
-		}
-
-		boolean flag2 = false;
-
-		if (field_152730_c.exists() && field_152730_c.isFile()) {
-			flag2 = true;
-		}
-
-		boolean flag3 = false;
-
-		if (field_152731_d.exists() && field_152731_d.isFile()) {
-			flag3 = true;
-		}
+		boolean flag3 = field_152731_d.exists() && field_152731_d.isFile();
 
 		if (!flag && !flag1 && !flag2 && !flag3)
 			return true;
@@ -522,8 +506,8 @@ public class PreYggdrasilConverter {
 				field_152732_e.warn("**** DETECTED OLD PLAYER FILES IN THE WORLD SAVE");
 				field_152732_e.warn("**** THIS USUALLY HAPPENS WHEN THE AUTOMATIC CONVERSION FAILED IN SOME WAY");
 				field_152732_e.warn(
-						"** please restart the server and if the problem persists, remove the directory \'{}\'",
-						new Object[] { file1.getPath() });
+						"** please restart the server and if the problem persists, remove the directory '{}'",
+						file1.getPath());
 				return false;
 			}
 		}

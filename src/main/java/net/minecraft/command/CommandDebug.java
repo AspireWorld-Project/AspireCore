@@ -36,7 +36,7 @@ public class CommandDebug extends CommandBase {
 	public void processCommand(ICommandSender p_71515_1_, String[] p_71515_2_) {
 		if (p_71515_2_.length == 1) {
 			if (p_71515_2_[0].equals("start")) {
-				func_152373_a(p_71515_1_, this, "commands.debug.start", new Object[0]);
+				func_152373_a(p_71515_1_, this, "commands.debug.start");
 				MinecraftServer.getServer().enableProfiling();
 				field_147206_b = MinecraftServer.getSystemTimeMillis();
 				field_147207_c = MinecraftServer.getServer().getTickCounter();
@@ -45,7 +45,7 @@ public class CommandDebug extends CommandBase {
 
 			if (p_71515_2_[0].equals("stop")) {
 				if (!MinecraftServer.getServer().theProfiler.profilingEnabled)
-					throw new CommandException("commands.debug.notStarted", new Object[0]);
+					throw new CommandException("commands.debug.notStarted");
 
 				long i = MinecraftServer.getSystemTimeMillis();
 				int j = MinecraftServer.getServer().getTickCounter();
@@ -54,12 +54,12 @@ public class CommandDebug extends CommandBase {
 				func_147205_a(k, l);
 				MinecraftServer.getServer().theProfiler.profilingEnabled = false;
 				func_152373_a(p_71515_1_, this, "commands.debug.stop",
-						new Object[] { Float.valueOf(k / 1000.0F), Integer.valueOf(l) });
+						Float.valueOf(k / 1000.0F), Integer.valueOf(l));
 				return;
 			}
 		}
 
-		throw new WrongUsageException("commands.debug.usage", new Object[0]);
+		throw new WrongUsageException("commands.debug.usage");
 	}
 
 	private void func_147205_a(long p_147205_1_, int p_147205_3_) {
@@ -85,7 +85,7 @@ public class CommandDebug extends CommandBase {
 		stringbuilder.append("Time span: ").append(p_147204_1_).append(" ms\n");
 		stringbuilder.append("Tick span: ").append(p_147204_3_).append(" ticks\n");
 		stringbuilder.append("// This is approximately ")
-				.append(String.format("%.2f", new Object[] { Float.valueOf(p_147204_3_ / (p_147204_1_ / 1000.0F)) }))
+				.append(String.format("%.2f", Float.valueOf(p_147204_3_ / (p_147204_1_ / 1000.0F))))
 				.append(" ticks per second. It should be ").append(20).append(" ticks per second\n\n");
 		stringbuilder.append("--- BEGIN PROFILE DUMP ---\n\n");
 		func_147202_a(0, "root", stringbuilder);
@@ -99,7 +99,7 @@ public class CommandDebug extends CommandBase {
 		if (list != null && list.size() >= 3) {
 			for (int j = 1; j < list.size(); ++j) {
 				Profiler.Result result = (Profiler.Result) list.get(j);
-				p_147202_3_.append(String.format("[%02d] ", new Object[] { Integer.valueOf(p_147202_1_) }));
+				p_147202_3_.append(String.format("[%02d] ", Integer.valueOf(p_147202_1_)));
 
 				for (int k = 0; k < p_147202_1_; ++k) {
 					p_147202_3_.append(" ");
@@ -107,9 +107,9 @@ public class CommandDebug extends CommandBase {
 
 				p_147202_3_.append(result.field_76331_c);
 				p_147202_3_.append(" - ");
-				p_147202_3_.append(String.format("%.2f", new Object[] { Double.valueOf(result.field_76332_a) }));
+				p_147202_3_.append(String.format("%.2f", Double.valueOf(result.field_76332_a)));
 				p_147202_3_.append("%/");
-				p_147202_3_.append(String.format("%.2f", new Object[] { Double.valueOf(result.field_76330_b) }));
+				p_147202_3_.append(String.format("%.2f", Double.valueOf(result.field_76330_b)));
 				p_147202_3_.append("%\n");
 
 				if (!result.field_76331_c.equals("unspecified")) {
@@ -125,11 +125,11 @@ public class CommandDebug extends CommandBase {
 
 	private static String func_147203_d() {
 		String[] astring = new String[] { "Shiny numbers!", "Am I not running fast enough? :(",
-				"I\'m working as hard as I can!", "Will I ever be good enough for you? :(", "Speedy. Zoooooom!",
+				"I'm working as hard as I can!", "Will I ever be good enough for you? :(", "Speedy. Zoooooom!",
 				"Hello world", "40% better than a crash report.", "Now with extra numbers", "Now with less numbers",
 				"Now with the same numbers", "You should add flames to things, it makes them go faster!",
 				"Do you feel the need for... optimization?", "*cracks redstone whip*",
-				"Maybe if you treated it better then it\'ll have more motivation to work faster! Poor server." };
+				"Maybe if you treated it better then it'll have more motivation to work faster! Poor server."};
 
 		try {
 			return astring[(int) (System.nanoTime() % astring.length)];
@@ -140,7 +140,7 @@ public class CommandDebug extends CommandBase {
 
 	@Override
 	public List addTabCompletionOptions(ICommandSender p_71516_1_, String[] p_71516_2_) {
-		return p_71516_2_.length == 1 ? getListOfStringsMatchingLastWord(p_71516_2_, new String[] { "start", "stop" })
+		return p_71516_2_.length == 1 ? getListOfStringsMatchingLastWord(p_71516_2_, "start", "stop")
 				: null;
 	}
 }

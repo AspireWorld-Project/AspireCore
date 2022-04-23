@@ -12,17 +12,17 @@ import java.util.PriorityQueue;
 
 @SideOnly(Side.CLIENT)
 public class Tessellator {
-	private static int nativeBufferSize = 0x200000;
-	private static int trivertsInBuffer = nativeBufferSize / 48 * 6;
+	private static final int nativeBufferSize = 0x200000;
+	private static final int trivertsInBuffer = nativeBufferSize / 48 * 6;
 	public static boolean renderingWorldRenderer = false;
 	public boolean defaultTexture = false;
 	private int rawBufferSize = 0;
 	public int textureID = 0;
 
-	private static ByteBuffer byteBuffer = GLAllocation.createDirectByteBuffer(nativeBufferSize * 4);
-	private static IntBuffer intBuffer = byteBuffer.asIntBuffer();
-	private static FloatBuffer floatBuffer = byteBuffer.asFloatBuffer();
-	private static ShortBuffer shortBuffer = byteBuffer.asShortBuffer();
+	private static final ByteBuffer byteBuffer = GLAllocation.createDirectByteBuffer(nativeBufferSize * 4);
+	private static final IntBuffer intBuffer = byteBuffer.asIntBuffer();
+	private static final FloatBuffer floatBuffer = byteBuffer.asFloatBuffer();
+	private static final ShortBuffer shortBuffer = byteBuffer.asShortBuffer();
 	private int[] rawBuffer;
 	private int vertexCount;
 	private double textureU;

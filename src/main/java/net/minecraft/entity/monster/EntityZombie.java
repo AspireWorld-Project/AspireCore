@@ -168,7 +168,7 @@ public class EntityZombie extends EntityMob {
 
 						if (itemstack.getItemDamageForDisplay() >= itemstack.getMaxDamage()) {
 							renderBrokenItemStack(itemstack);
-							setCurrentItemOrArmor(4, (ItemStack) null);
+							setCurrentItemOrArmor(4, null);
 						}
 					}
 
@@ -249,7 +249,7 @@ public class EntityZombie extends EntityMob {
 								if (entitylivingbase != null) {
 									entityzombie.setAttackTarget(entitylivingbase);
 								}
-								entityzombie.onSpawnWithEgg((IEntityLivingData) null);
+								entityzombie.onSpawnWithEgg(null);
 								getEntityAttribute(field_110186_bp).applyModifier(new AttributeModifier(
 										"Zombie reinforcement caller charge", -0.05000000074505806D, 0));
 								entityzombie.getEntityAttribute(field_110186_bp).applyModifier(new AttributeModifier(
@@ -399,7 +399,7 @@ public class EntityZombie extends EntityMob {
 			EntityZombie entityzombie = new EntityZombie(worldObj);
 			entityzombie.copyLocationAndAnglesFrom(p_70074_1_);
 			worldObj.removeEntity(p_70074_1_);
-			entityzombie.onSpawnWithEgg((IEntityLivingData) null);
+			entityzombie.onSpawnWithEgg(null);
 			entityzombie.setVillager(true);
 
 			if (p_70074_1_.isChild()) {
@@ -407,7 +407,7 @@ public class EntityZombie extends EntityMob {
 			}
 
 			worldObj.spawnEntityInWorld(entityzombie);
-			worldObj.playAuxSFXAtEntity((EntityPlayer) null, 1016, (int) posX, (int) posY, (int) posZ, 0);
+			worldObj.playAuxSFXAtEntity(null, 1016, (int) posX, (int) posY, (int) posZ, 0);
 		}
 	}
 
@@ -444,7 +444,7 @@ public class EntityZombie extends EntityMob {
 				} else if (worldObj.rand.nextFloat() < 0.05D) {
 					EntityChicken entitychicken1 = new EntityChicken(worldObj);
 					entitychicken1.setLocationAndAngles(posX, posY, posZ, rotationYaw, 0.0F);
-					entitychicken1.onSpawnWithEgg((IEntityLivingData) null);
+					entitychicken1.onSpawnWithEgg(null);
 					entitychicken1.func_152117_i(true);
 					worldObj.spawnEntityInWorld(entitychicken1);
 					mountEntity(entitychicken1);
@@ -496,7 +496,7 @@ public class EntityZombie extends EntityMob {
 			}
 
 			if (itemstack.stackSize <= 0) {
-				p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, (ItemStack) null);
+				p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, null);
 			}
 
 			if (!worldObj.isRemote) {
@@ -540,7 +540,7 @@ public class EntityZombie extends EntityMob {
 	protected void convertToVillager() {
 		EntityVillager entityvillager = new EntityVillager(worldObj);
 		entityvillager.copyLocationAndAnglesFrom(this);
-		entityvillager.onSpawnWithEgg((IEntityLivingData) null);
+		entityvillager.onSpawnWithEgg(null);
 		entityvillager.setLookingForHome();
 
 		if (isChild()) {
@@ -550,7 +550,7 @@ public class EntityZombie extends EntityMob {
 		worldObj.removeEntity(this);
 		worldObj.spawnEntityInWorld(entityvillager);
 		entityvillager.addPotionEffect(new PotionEffect(Potion.confusion.id, 200, 0));
-		worldObj.playAuxSFXAtEntity((EntityPlayer) null, 1017, (int) posX, (int) posY, (int) posZ, 0);
+		worldObj.playAuxSFXAtEntity(null, 1017, (int) posX, (int) posY, (int) posZ, 0);
 	}
 
 	protected int getConversionTimeBoost() {

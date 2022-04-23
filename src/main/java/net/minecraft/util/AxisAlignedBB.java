@@ -180,10 +180,7 @@ public class AxisAlignedBB {
 	}
 
 	public boolean intersectsWith(AxisAlignedBB p_72326_1_) {
-		return p_72326_1_.maxX > minX && p_72326_1_.minX < maxX
-				? p_72326_1_.maxY > minY && p_72326_1_.minY < maxY ? p_72326_1_.maxZ > minZ && p_72326_1_.minZ < maxZ
-						: false
-				: false;
+		return p_72326_1_.maxX > minX && p_72326_1_.minX < maxX && p_72326_1_.maxY > minY && p_72326_1_.minY < maxY && p_72326_1_.maxZ > minZ && p_72326_1_.minZ < maxZ;
 	}
 
 	public AxisAlignedBB offset(double p_72317_1_, double p_72317_3_, double p_72317_5_) {
@@ -197,11 +194,7 @@ public class AxisAlignedBB {
 	}
 
 	public boolean isVecInside(Vec3 p_72318_1_) {
-		return p_72318_1_.xCoord > minX && p_72318_1_.xCoord < maxX
-				? p_72318_1_.yCoord > minY && p_72318_1_.yCoord < maxY
-						? p_72318_1_.zCoord > minZ && p_72318_1_.zCoord < maxZ
-						: false
-				: false;
+		return p_72318_1_.xCoord > minX && p_72318_1_.xCoord < maxX && p_72318_1_.yCoord > minY && p_72318_1_.yCoord < maxY && p_72318_1_.zCoord > minZ && p_72318_1_.zCoord < maxZ;
 	}
 
 	public double getAverageEdgeLength() {
@@ -323,21 +316,18 @@ public class AxisAlignedBB {
 	}
 
 	private boolean isVecInYZ(Vec3 p_72333_1_) {
-		return p_72333_1_ == null ? false
-				: p_72333_1_.yCoord >= minY && p_72333_1_.yCoord <= maxY && p_72333_1_.zCoord >= minZ
-						&& p_72333_1_.zCoord <= maxZ;
+		return p_72333_1_ != null && p_72333_1_.yCoord >= minY && p_72333_1_.yCoord <= maxY && p_72333_1_.zCoord >= minZ
+                && p_72333_1_.zCoord <= maxZ;
 	}
 
 	private boolean isVecInXZ(Vec3 p_72315_1_) {
-		return p_72315_1_ == null ? false
-				: p_72315_1_.xCoord >= minX && p_72315_1_.xCoord <= maxX && p_72315_1_.zCoord >= minZ
-						&& p_72315_1_.zCoord <= maxZ;
+		return p_72315_1_ != null && p_72315_1_.xCoord >= minX && p_72315_1_.xCoord <= maxX && p_72315_1_.zCoord >= minZ
+                && p_72315_1_.zCoord <= maxZ;
 	}
 
 	private boolean isVecInXY(Vec3 p_72319_1_) {
-		return p_72319_1_ == null ? false
-				: p_72319_1_.xCoord >= minX && p_72319_1_.xCoord <= maxX && p_72319_1_.yCoord >= minY
-						&& p_72319_1_.yCoord <= maxY;
+		return p_72319_1_ != null && p_72319_1_.xCoord >= minX && p_72319_1_.xCoord <= maxX && p_72319_1_.yCoord >= minY
+                && p_72319_1_.yCoord <= maxY;
 	}
 
 	public void setBB(AxisAlignedBB p_72328_1_) {

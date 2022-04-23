@@ -138,7 +138,7 @@ public class EntitySpider extends EntityMob {
 
 	@Override
 	public boolean isPotionApplicable(PotionEffect p_70687_1_) {
-		return p_70687_1_.getPotionID() == Potion.poison.id ? false : super.isPotionApplicable(p_70687_1_);
+		return p_70687_1_.getPotionID() != Potion.poison.id && super.isPotionApplicable(p_70687_1_);
 	}
 
 	public boolean isBesideClimbableBlock() {
@@ -164,7 +164,7 @@ public class EntitySpider extends EntityMob {
 		if (worldObj.rand.nextInt(100) == 0) {
 			EntitySkeleton entityskeleton = new EntitySkeleton(worldObj);
 			entityskeleton.setLocationAndAngles(posX, posY, posZ, rotationYaw, 0.0F);
-			entityskeleton.onSpawnWithEgg((IEntityLivingData) null);
+			entityskeleton.onSpawnWithEgg(null);
 			worldObj.spawnEntityInWorld(entityskeleton);
 			entityskeleton.mountEntity(this);
 		}

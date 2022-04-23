@@ -28,8 +28,8 @@ public class Village {
 	private int tickCounter;
 	private int numVillagers;
 	private int noBreedTicks;
-	private TreeMap playerReputation = new TreeMap();
-	private List villageAgressors = new ArrayList();
+	private final TreeMap playerReputation = new TreeMap();
+	private final List villageAgressors = new ArrayList();
 	private int numIronGolems;
 	private static final String __OBFID = "CL_00001631";
 

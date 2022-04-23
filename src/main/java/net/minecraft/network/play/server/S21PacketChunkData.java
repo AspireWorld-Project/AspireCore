@@ -171,9 +171,9 @@ public class S21PacketChunkData extends Packet {
 	@Override
 	public String serialize() {
 		return String.format("x=%d, z=%d, full=%b, sects=%d, add=%d, size=%d",
-				new Object[] { Integer.valueOf(field_149284_a), Integer.valueOf(field_149282_b),
-						Boolean.valueOf(field_149279_g), Integer.valueOf(field_149283_c),
-						Integer.valueOf(field_149280_d), Integer.valueOf(field_149285_h) });
+				Integer.valueOf(field_149284_a), Integer.valueOf(field_149282_b),
+				Boolean.valueOf(field_149279_g), Integer.valueOf(field_149283_c),
+				Integer.valueOf(field_149280_d), Integer.valueOf(field_149285_h));
 	}
 
 	@SideOnly(Side.CLIENT)

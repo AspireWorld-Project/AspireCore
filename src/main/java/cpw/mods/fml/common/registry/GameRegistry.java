@@ -43,11 +43,11 @@ import java.lang.reflect.Constructor;
 import java.util.*;
 
 public class GameRegistry {
-	private static Set<IWorldGenerator> worldGenerators = Sets.newHashSet();
-	private static Map<IWorldGenerator, Integer> worldGeneratorIndex = Maps.newHashMap();
-	private static List<IFuelHandler> fuelHandlers = Lists.newArrayList();
+	private static final Set<IWorldGenerator> worldGenerators = Sets.newHashSet();
+	private static final Map<IWorldGenerator, Integer> worldGeneratorIndex = Maps.newHashMap();
+	private static final List<IFuelHandler> fuelHandlers = Lists.newArrayList();
 	private static List<IWorldGenerator> sortedGeneratorList;
-	private static Map<IWorldGenerator, String> worldGeneratorOwners = Maps.newHashMap();
+	private static final Map<IWorldGenerator, String> worldGeneratorOwners = Maps.newHashMap();
 
 	/**
 	 * Register a world generator - something that inserts new block types into the
@@ -425,7 +425,7 @@ public class GameRegistry {
 		}
 	}
 
-	public static enum Type {
+	public enum Type {
 		BLOCK {
 			@Override
 			public FMLControlledNamespacedRegistry<?> getRegistry() {
@@ -501,14 +501,14 @@ public class GameRegistry {
 		 *
 		 * @return The registry name
 		 */
-		public String value();
+        String value();
 
 		/**
 		 * The metadata or damage value for the itemstack, defaults to 0.
 		 *
 		 * @return the metadata value
 		 */
-		public int meta() default 0;
+        int meta() default 0;
 
 		/**
 		 * The string serialized nbt value for the itemstack. Defaults to empty for no
@@ -516,7 +516,7 @@ public class GameRegistry {
 		 *
 		 * @return a nbt string
 		 */
-		public String nbt() default "";
+        String nbt() default "";
 	}
 
 	/**

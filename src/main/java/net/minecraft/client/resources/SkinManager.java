@@ -58,7 +58,7 @@ public class SkinManager {
 	}
 
 	public ResourceLocation func_152792_a(MinecraftProfileTexture p_152792_1_, Type p_152792_2_) {
-		return func_152789_a(p_152792_1_, p_152792_2_, (SkinManager.SkinAvailableCallback) null);
+		return func_152789_a(p_152792_1_, p_152792_2_, null);
 	}
 
 	public ResourceLocation func_152789_a(MinecraftProfileTexture p_152789_1_, final Type p_152789_2_,
@@ -116,7 +116,6 @@ public class SkinManager {
 				try {
 					hashmap.putAll(field_152797_e.getTextures(p_152790_1_, p_152790_3_));
 				} catch (InsecureTextureException insecuretextureexception) {
-					;
 				}
 
 				if (hashmap.isEmpty()

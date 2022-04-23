@@ -10,8 +10,8 @@ import net.minecraft.village.MerchantRecipeList;
 
 @SideOnly(Side.CLIENT)
 public class NpcMerchant implements IMerchant {
-	private InventoryMerchant theMerchantInventory;
-	private EntityPlayer customer;
+	private final InventoryMerchant theMerchantInventory;
+	private final EntityPlayer customer;
 	private MerchantRecipeList recipeList;
 	private static final String __OBFID = "CL_00001705";
 

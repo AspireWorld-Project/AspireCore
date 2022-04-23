@@ -46,16 +46,16 @@ public class CoreModManager {
 	private static final Attributes.Name COREMODCONTAINSFMLMOD = new Attributes.Name("FMLCorePluginContainsFMLMod");
 	private static final Attributes.Name MODTYPE = new Attributes.Name("ModType");
 	private static final Attributes.Name MODSIDE = new Attributes.Name("ModSide");
-	private static String[] rootPlugins = { "cpw.mods.fml.relauncher.FMLCorePlugin",
+	private static final String[] rootPlugins = { "cpw.mods.fml.relauncher.FMLCorePlugin",
 			"net.minecraftforge.classloading.FMLForgePlugin", "org.ultramine.server.UltraminePlugin",
 			"org.ultramine.bukkit.asm.UmBukkitCoremod" };
-	private static List<String> loadedCoremods = Lists.newArrayList();
+	private static final List<String> loadedCoremods = Lists.newArrayList();
 	private static List<FMLPluginWrapper> loadPlugins;
 	private static boolean deobfuscatedEnvironment;
 	private static FMLTweaker tweaker;
 	private static File mcDir;
-	private static List<String> reparsedCoremods = Lists.newArrayList();
-	private static List<String> accessTransformers = Lists.newArrayList();
+	private static final List<String> reparsedCoremods = Lists.newArrayList();
+	private static final List<String> accessTransformers = Lists.newArrayList();
 
 	private static class FMLPluginWrapper implements ITweaker {
 		public final String name;
@@ -510,7 +510,7 @@ public class CoreModManager {
 		}
 	}
 
-	private static Map<String, Integer> tweakSorting = Maps.newHashMap();
+	private static final Map<String, Integer> tweakSorting = Maps.newHashMap();
 
 	public static void sortTweakList() {
 		@SuppressWarnings("unchecked")

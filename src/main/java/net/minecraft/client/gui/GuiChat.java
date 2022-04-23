@@ -39,14 +39,14 @@ import java.util.Set;
 
 @SideOnly(Side.CLIENT)
 public class GuiChat extends GuiScreen implements GuiYesNoCallback {
-	private static final Set field_152175_f = Sets.newHashSet(new String[] { "http", "https" });
+	private static final Set field_152175_f = Sets.newHashSet("http", "https");
 	private static final Logger logger = LogManager.getLogger();
 	private String field_146410_g = "";
 	private int sentHistoryCursor = -1;
 	private boolean field_146417_i;
 	private boolean field_146414_r;
 	private int field_146413_s;
-	private List field_146412_t = new ArrayList();
+	private final List field_146412_t = new ArrayList();
 	private URI clickedURI;
 	protected GuiTextField inputField;
 	private String defaultInputFieldText = "";
@@ -93,7 +93,7 @@ public class GuiChat extends GuiScreen implements GuiYesNoCallback {
 		}
 
 		if (p_73869_2_ == 1) {
-			mc.displayGuiScreen((GuiScreen) null);
+			mc.displayGuiScreen(null);
 		} else if (p_73869_2_ != 28 && p_73869_2_ != 156) {
 			if (p_73869_2_ == 200) {
 				getSentHistory(-1);
@@ -113,7 +113,7 @@ public class GuiChat extends GuiScreen implements GuiYesNoCallback {
 				func_146403_a(s);
 			}
 
-			mc.displayGuiScreen((GuiScreen) null);
+			mc.displayGuiScreen(null);
 		}
 	}
 
@@ -175,7 +175,7 @@ public class GuiChat extends GuiScreen implements GuiYesNoCallback {
 									func_146407_a(uri);
 								}
 							} catch (URISyntaxException urisyntaxexception) {
-								logger.error("Can\'t open url for " + clickevent, urisyntaxexception);
+								logger.error("Can't open url for " + clickevent, urisyntaxexception);
 							}
 						} else if (clickevent.getAction() == ClickEvent.Action.OPEN_FILE) {
 							uri = new File(clickevent.getValue()).toURI();
@@ -190,10 +190,10 @@ public class GuiChat extends GuiScreen implements GuiYesNoCallback {
 							if (chatuserinfo != null) {
 								mc.displayGuiScreen(new GuiTwitchUserMode(mc.func_152346_Z(), chatuserinfo));
 							} else {
-								logger.error("Tried to handle twitch user but couldn\'t find them!");
+								logger.error("Tried to handle twitch user but couldn't find them!");
 							}
 						} else {
-							logger.error("Don\'t know how to handle " + clickevent);
+							logger.error("Don't know how to handle " + clickevent);
 						}
 					}
 
@@ -221,10 +221,10 @@ public class GuiChat extends GuiScreen implements GuiYesNoCallback {
 	private void func_146407_a(URI p_146407_1_) {
 		try {
 			Class oclass = Class.forName("java.awt.Desktop");
-			Object object = oclass.getMethod("getDesktop", new Class[0]).invoke((Object) null, new Object[0]);
-			oclass.getMethod("browse", new Class[] { URI.class }).invoke(object, new Object[] { p_146407_1_ });
+			Object object = oclass.getMethod("getDesktop", new Class[0]).invoke(null);
+			oclass.getMethod("browse", new Class[] { URI.class }).invoke(object, p_146407_1_);
 		} catch (Throwable throwable) {
-			logger.error("Couldn\'t open link", throwable);
+			logger.error("Couldn't open link", throwable);
 		}
 	}
 
@@ -326,7 +326,6 @@ public class GuiChat extends GuiScreen implements GuiYesNoCallback {
 						itemstack = ItemStack.loadItemStackFromNBT((NBTTagCompound) nbtbase);
 					}
 				} catch (NBTException nbtexception) {
-					;
 				}
 
 				if (itemstack != null) {
@@ -343,12 +342,12 @@ public class GuiChat extends GuiScreen implements GuiYesNoCallback {
 				if (statbase != null) {
 					IChatComponent ichatcomponent1 = statbase.func_150951_e();
 					ChatComponentTranslation chatcomponenttranslation = new ChatComponentTranslation(
-							"stats.tooltip.type." + (statbase.isAchievement() ? "achievement" : "statistic"),
-							new Object[0]);
+							"stats.tooltip.type." + (statbase.isAchievement() ? "achievement" : "statistic")
+					);
 					chatcomponenttranslation.getChatStyle().setItalic(Boolean.valueOf(true));
 					String s = statbase instanceof Achievement ? ((Achievement) statbase).getDescription() : null;
-					ArrayList arraylist = Lists.newArrayList(new String[] { ichatcomponent1.getFormattedText(),
-							chatcomponenttranslation.getFormattedText() });
+					ArrayList arraylist = Lists.newArrayList(ichatcomponent1.getFormattedText(),
+							chatcomponenttranslation.getFormattedText());
 
 					if (s != null) {
 						arraylist.addAll(fontRendererObj.listFormattedStringToWidth(s, 150));

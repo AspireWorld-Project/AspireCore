@@ -34,12 +34,12 @@ public class ASMModParser {
 	private Type asmType;
 	private int classVersion;
 	private Type asmSuperType;
-	private LinkedList<ModAnnotation> annotations = Lists.newLinkedList();
+	private final LinkedList<ModAnnotation> annotations = Lists.newLinkedList();
 	private String baseModProperties;
 
-	static enum AnnotationType {
-		CLASS, FIELD, METHOD, SUBTYPE;
-	}
+	enum AnnotationType {
+		CLASS, FIELD, METHOD, SUBTYPE
+    }
 
 	public ASMModParser(InputStream stream) throws IOException {
 		try {
@@ -76,7 +76,7 @@ public class ASMModParser {
 	public String toString() {
 		return Objects.toStringHelper("ASMAnnotationDiscoverer").add("className", asmType.getClassName())
 				.add("classVersion", classVersion).add("superName", asmSuperType.getClassName())
-				.add("annotations", annotations).add("isBaseMod", isBaseMod(Collections.<String>emptyList()))
+				.add("annotations", annotations).add("isBaseMod", isBaseMod(Collections.emptyList()))
 				.add("baseModProperties", baseModProperties).toString();
 	}
 

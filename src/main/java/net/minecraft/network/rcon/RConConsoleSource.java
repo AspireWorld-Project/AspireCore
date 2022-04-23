@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 
 public class RConConsoleSource implements ICommandSender {
 	public static final RConConsoleSource instance = new RConConsoleSource();
-	private StringBuffer buffer = new StringBuffer();
+	private final StringBuffer buffer = new StringBuffer();
 	private static final String __OBFID = "CL_00001800";
 
 	@Override

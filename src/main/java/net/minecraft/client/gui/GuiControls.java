@@ -11,9 +11,9 @@ import net.minecraft.client.settings.KeyBinding;
 public class GuiControls extends GuiScreen {
 	private static final GameSettings.Options[] field_146492_g = new GameSettings.Options[] {
 			GameSettings.Options.INVERT_MOUSE, GameSettings.Options.SENSITIVITY, GameSettings.Options.TOUCHSCREEN };
-	private GuiScreen parentScreen;
+	private final GuiScreen parentScreen;
 	protected String field_146495_a = "Controls";
-	private GameSettings options;
+	private final GameSettings options;
 	public KeyBinding buttonId = null;
 	public long field_152177_g;
 	private GuiKeyBindingList keyBindingList;
@@ -29,10 +29,10 @@ public class GuiControls extends GuiScreen {
 	public void initGui() {
 		keyBindingList = new GuiKeyBindingList(this, mc);
 		buttonList
-				.add(new GuiButton(200, width / 2 - 155, height - 29, 150, 20, I18n.format("gui.done", new Object[0])));
+				.add(new GuiButton(200, width / 2 - 155, height - 29, 150, 20, I18n.format("gui.done")));
 		buttonList.add(field_146493_s = new GuiButton(201, width / 2 - 155 + 160, height - 29, 150, 20,
-				I18n.format("controls.resetAll", new Object[0])));
-		field_146495_a = I18n.format("controls.title", new Object[0]);
+				I18n.format("controls.resetAll")));
+		field_146495_a = I18n.format("controls.title");
 		int i = 0;
 		GameSettings.Options[] aoptions = field_146492_g;
 		int j = aoptions.length;

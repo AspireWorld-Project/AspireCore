@@ -28,7 +28,7 @@ public class ModelRenderer {
 	public List cubeList;
 	public List childModels;
 	public final String boxName;
-	private ModelBase baseModel;
+	private final ModelBase baseModel;
 	public float offsetX;
 	public float offsetY;
 	public float offsetZ;
@@ -46,7 +46,7 @@ public class ModelRenderer {
 	}
 
 	public ModelRenderer(ModelBase p_i1173_1_) {
-		this(p_i1173_1_, (String) null);
+		this(p_i1173_1_, null);
 	}
 
 	public ModelRenderer(ModelBase p_i1174_1_, int p_i1174_2_, int p_i1174_3_) {

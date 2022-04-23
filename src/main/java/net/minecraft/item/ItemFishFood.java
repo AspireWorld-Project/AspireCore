@@ -97,7 +97,7 @@ public class ItemFishFood extends ItemFood {
 				+ (field_150907_b && fishtype.func_150973_i() ? "cooked" : "raw");
 	}
 
-	public static enum FishType {
+	public enum FishType {
 		COD(0, "cod", 2, 0.1F, 5, 0.6F), SALMON(1, "salmon", 2, 0.1F, 6, 0.8F), CLOWNFISH(2, "clownfish", 1,
 				0.1F), PUFFERFISH(3, "pufferfish", 1, 0.1F);
 		private static final Map field_150983_e = Maps.newHashMap();
@@ -115,8 +115,8 @@ public class ItemFishFood extends ItemFood {
 
 		private static final String __OBFID = "CL_00000033";
 
-		private FishType(int p_i45336_3_, String p_i45336_4_, int p_i45336_5_, float p_i45336_6_, int p_i45336_7_,
-				float p_i45336_8_) {
+		FishType(int p_i45336_3_, String p_i45336_4_, int p_i45336_5_, float p_i45336_6_, int p_i45336_7_,
+                 float p_i45336_8_) {
 			field_150980_f = p_i45336_3_;
 			field_150981_g = p_i45336_4_;
 			field_150991_j = p_i45336_5_;
@@ -126,7 +126,7 @@ public class ItemFishFood extends ItemFood {
 			field_150987_n = true;
 		}
 
-		private FishType(int p_i45337_3_, String p_i45337_4_, int p_i45337_5_, float p_i45337_6_) {
+		FishType(int p_i45337_3_, String p_i45337_4_, int p_i45337_5_, float p_i45337_6_) {
 			field_150980_f = p_i45337_3_;
 			field_150981_g = p_i45337_4_;
 			field_150991_j = p_i45337_5_;

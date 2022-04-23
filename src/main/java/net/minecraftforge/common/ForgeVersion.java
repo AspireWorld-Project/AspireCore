@@ -61,7 +61,7 @@ public class ForgeVersion {
 		return String.format("%d.%d.%d.%d", majorVersion, minorVersion, revisionVersion, buildVersion);
 	}
 
-	public static enum Status {
+	public enum Status {
 		PENDING, FAILED, UP_TO_DATE, OUTDATED, AHEAD, BETA, BETA_OUTDATED
 	}
 

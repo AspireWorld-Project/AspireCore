@@ -33,7 +33,7 @@ import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
 public class MarkerTransformer implements IClassTransformer {
-	private ListMultimap<String, String> markers = ArrayListMultimap.create();
+	private final ListMultimap<String, String> markers = ArrayListMultimap.create();
 
 	public MarkerTransformer() throws IOException {
 		this("fml_marker.cfg");

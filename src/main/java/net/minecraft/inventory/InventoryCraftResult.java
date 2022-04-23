@@ -4,7 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
 public class InventoryCraftResult implements IInventory {
-	private ItemStack[] stackResult = new ItemStack[1];
+	private final ItemStack[] stackResult = new ItemStack[1];
 	private static final String __OBFID = "CL_00001760";
 
 	@Override

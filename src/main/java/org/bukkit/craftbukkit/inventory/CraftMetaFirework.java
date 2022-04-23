@@ -340,7 +340,7 @@ class CraftMetaFirework extends CraftMetaItem implements FireworkMeta {
 
 	@Override
 	public List<FireworkEffect> getEffects() {
-		return effects == null ? ImmutableList.<FireworkEffect>of() : ImmutableList.copyOf(effects);
+		return effects == null ? ImmutableList.of() : ImmutableList.copyOf(effects);
 	}
 
 	@Override

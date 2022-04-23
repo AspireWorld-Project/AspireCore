@@ -10,7 +10,7 @@ public class UserListBansEntry extends BanEntry {
 	private static final String __OBFID = "CL_00001872";
 
 	public UserListBansEntry(GameProfile p_i1134_1_) {
-		this(p_i1134_1_, (Date) null, (String) null, (Date) null, (String) null);
+		this(p_i1134_1_, null, null, null, null);
 	}
 
 	public UserListBansEntry(GameProfile p_i1135_1_, Date p_i1135_2_, String p_i1135_3_, Date p_i1135_4_,

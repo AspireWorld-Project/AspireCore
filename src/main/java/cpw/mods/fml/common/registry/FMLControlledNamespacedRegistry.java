@@ -30,7 +30,7 @@ public class FMLControlledNamespacedRegistry<I> extends RegistryNamespaced {
 	// linked item for a block which may get renamed by itself.
 	private final Map<String, String> aliases = new HashMap<>();
 	private BiMap<String, I> persistentSubstitutions;
-	private BiMap<String, I> activeSubstitutions = HashBiMap.create();
+	private final BiMap<String, I> activeSubstitutions = HashBiMap.create();
 
 	FMLControlledNamespacedRegistry(String optionalDefault, int maxIdValue, int minIdValue, Class<I> type,
 			char discriminator) {

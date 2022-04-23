@@ -41,7 +41,7 @@ public class GuiKeyBindingList extends GuiListExtended {
 				field_148190_m[i++] = new GuiKeyBindingList.CategoryEntry(s1);
 			}
 
-			int l = p_i45031_2_.fontRenderer.getStringWidth(I18n.format(keybinding.getKeyDescription(), new Object[0]));
+			int l = p_i45031_2_.fontRenderer.getStringWidth(I18n.format(keybinding.getKeyDescription()));
 
 			if (l > field_148188_n) {
 				field_148188_n = l;
@@ -78,7 +78,7 @@ public class GuiKeyBindingList extends GuiListExtended {
 		private static final String __OBFID = "CL_00000734";
 
 		public CategoryEntry(String p_i45028_2_) {
-			field_148285_b = I18n.format(p_i45028_2_, new Object[0]);
+			field_148285_b = I18n.format(p_i45028_2_);
 			field_148286_c = mc.fontRenderer.getStringWidth(field_148285_b);
 		}
 
@@ -111,10 +111,10 @@ public class GuiKeyBindingList extends GuiListExtended {
 
 		private KeyEntry(KeyBinding p_i45029_2_) {
 			field_148282_b = p_i45029_2_;
-			field_148283_c = I18n.format(p_i45029_2_.getKeyDescription(), new Object[0]);
+			field_148283_c = I18n.format(p_i45029_2_.getKeyDescription());
 			btnChangeKeyBinding = new GuiButton(0, 0, 0, 75, 18,
-					I18n.format(p_i45029_2_.getKeyDescription(), new Object[0]));
-			btnReset = new GuiButton(0, 0, 0, 50, 18, I18n.format("controls.reset", new Object[0]));
+					I18n.format(p_i45029_2_.getKeyDescription()));
+			btnReset = new GuiButton(0, 0, 0, 50, 18, I18n.format("controls.reset"));
 		}
 
 		@Override

@@ -14,7 +14,7 @@ import org.bukkit.event.entity.EntityInteractEvent;
 import java.util.List;
 
 public class BlockPressurePlate extends BlockBasePressurePlate {
-	private BlockPressurePlate.Sensitivity field_150069_a;
+	private final BlockPressurePlate.Sensitivity field_150069_a;
 	private static final String __OBFID = "CL_00000289";
 
 	protected BlockPressurePlate(String p_i45418_1_, Material p_i45418_2_, BlockPressurePlate.Sensitivity p_i45418_3_) {
@@ -68,7 +68,7 @@ public class BlockPressurePlate extends BlockBasePressurePlate {
 		return 0;
 	}
 
-	public static enum Sensitivity {
+	public enum Sensitivity {
 		everything, mobs, players;
 
 		private static final String __OBFID = "CL_00000290";

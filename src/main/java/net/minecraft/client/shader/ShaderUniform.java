@@ -197,8 +197,7 @@ public class ShaderUniform {
 
 	public void func_148093_b() {
 		if (!field_148105_h) {
-			;
-		}
+        }
 
 		field_148105_h = false;
 

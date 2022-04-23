@@ -17,7 +17,7 @@ public class ObjectIntIdentityMap implements IObjectIntIterable {
 		field_148749_a.put(p_148746_1_, Integer.valueOf(p_148746_2_));
 
 		while (field_148748_b.size() <= p_148746_2_) {
-			field_148748_b.add((Object) null);
+			field_148748_b.add(null);
 		}
 
 		field_148748_b.set(p_148746_2_, p_148746_1_);

@@ -81,16 +81,12 @@ public class ServerCommandManager extends CommandHandler implements IAdminComman
 	}
 
 	public void notifyAdmins(ICommandSender par1ICommandSender, int par2, String par3Str, Object... par4ArrayOfObj) {
-		boolean flag = true;
-
-		if (par1ICommandSender instanceof CommandBlockLogic && !MinecraftServer.getServer().worldServers[0]
-				.getGameRules().getGameRuleBooleanValue("commandBlockOutput")) {
-			flag = false;
-		}
+		boolean flag = !(par1ICommandSender instanceof CommandBlockLogic) || MinecraftServer.getServer().worldServers[0]
+				.getGameRules().getGameRuleBooleanValue("commandBlockOutput");
 
 		ChatComponentTranslation chatcomponenttranslation = new ChatComponentTranslation("chat.type.admin",
-				new Object[] { par1ICommandSender.getCommandSenderName(),
-						new ChatComponentTranslation(par3Str, par4ArrayOfObj) });
+				par1ICommandSender.getCommandSenderName(),
+				new ChatComponentTranslation(par3Str, par4ArrayOfObj));
 		chatcomponenttranslation.getChatStyle().setColor(EnumChatFormatting.GRAY);
 		chatcomponenttranslation.getChatStyle().setItalic(Boolean.valueOf(true));
 

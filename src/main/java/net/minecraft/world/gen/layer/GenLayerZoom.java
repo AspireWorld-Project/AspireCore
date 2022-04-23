@@ -30,8 +30,8 @@ public class GenLayerZoom extends GenLayer {
 				int l3 = aint[i3 + 1 + (k2 + 0) * k1];
 				int i4 = aint[i3 + 1 + (k2 + 1) * k1];
 				aint1[l2] = j3;
-				aint1[l2++ + i2] = selectRandom(new int[] { j3, k3 });
-				aint1[l2] = selectRandom(new int[] { j3, l3 });
+				aint1[l2++ + i2] = selectRandom(j3, k3);
+				aint1[l2] = selectRandom(j3, l3);
 				aint1[l2++ + i2] = selectModeOrRandom(j3, l3, k3, i4);
 				j3 = l3;
 				k3 = i4;

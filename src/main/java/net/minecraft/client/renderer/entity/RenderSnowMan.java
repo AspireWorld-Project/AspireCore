@@ -22,7 +22,7 @@ import static net.minecraftforge.client.IItemRenderer.ItemRendererHelper.BLOCK_3
 @SideOnly(Side.CLIENT)
 public class RenderSnowMan extends RenderLiving {
 	private static final ResourceLocation snowManTextures = new ResourceLocation("textures/entity/snowman.png");
-	private ModelSnowMan snowmanModel;
+	private final ModelSnowMan snowmanModel;
 	private static final String __OBFID = "CL_00001025";
 
 	public RenderSnowMan() {

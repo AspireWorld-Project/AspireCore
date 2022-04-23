@@ -25,17 +25,17 @@ public class CrashReportCategory {
 	@SideOnly(Side.CLIENT)
 	public static String func_85074_a(double p_85074_0_, double p_85074_2_, double p_85074_4_) {
 		return String.format("%.2f,%.2f,%.2f - %s",
-				new Object[] { Double.valueOf(p_85074_0_), Double.valueOf(p_85074_2_), Double.valueOf(p_85074_4_),
-						getLocationInfo(MathHelper.floor_double(p_85074_0_), MathHelper.floor_double(p_85074_2_),
-								MathHelper.floor_double(p_85074_4_)) });
+				Double.valueOf(p_85074_0_), Double.valueOf(p_85074_2_), Double.valueOf(p_85074_4_),
+				getLocationInfo(MathHelper.floor_double(p_85074_0_), MathHelper.floor_double(p_85074_2_),
+						MathHelper.floor_double(p_85074_4_)));
 	}
 
 	public static String getLocationInfo(int p_85071_0_, int p_85071_1_, int p_85071_2_) {
 		StringBuilder stringbuilder = new StringBuilder();
 
 		try {
-			stringbuilder.append(String.format("World: (%d,%d,%d)", new Object[] { Integer.valueOf(p_85071_0_),
-					Integer.valueOf(p_85071_1_), Integer.valueOf(p_85071_2_) }));
+			stringbuilder.append(String.format("World: (%d,%d,%d)", Integer.valueOf(p_85071_0_),
+					Integer.valueOf(p_85071_1_), Integer.valueOf(p_85071_2_)));
 		} catch (Throwable throwable2) {
 			stringbuilder.append("(Error finding world loc)");
 		}
@@ -62,9 +62,9 @@ public class CrashReportCategory {
 			k2 = (l + 1 << 4) - 1;
 			l2 = (i1 + 1 << 4) - 1;
 			stringbuilder.append(String.format("Chunk: (at %d,%d,%d in %d,%d; contains blocks %d,0,%d to %d,255,%d)",
-					new Object[] { Integer.valueOf(j1), Integer.valueOf(k1), Integer.valueOf(l1), Integer.valueOf(l),
-							Integer.valueOf(i1), Integer.valueOf(i2), Integer.valueOf(j2), Integer.valueOf(k2),
-							Integer.valueOf(l2) }));
+					Integer.valueOf(j1), Integer.valueOf(k1), Integer.valueOf(l1), Integer.valueOf(l),
+					Integer.valueOf(i1), Integer.valueOf(i2), Integer.valueOf(j2), Integer.valueOf(k2),
+					Integer.valueOf(l2)));
 		} catch (Throwable throwable1) {
 			stringbuilder.append("(Error finding chunk loc)");
 		}
@@ -84,9 +84,9 @@ public class CrashReportCategory {
 			int i3 = (i1 + 1 << 9) - 1;
 			stringbuilder.append(
 					String.format("Region: (%d,%d; contains chunks %d,%d to %d,%d, blocks %d,0,%d to %d,255,%d)",
-							new Object[] { Integer.valueOf(l), Integer.valueOf(i1), Integer.valueOf(j1),
-									Integer.valueOf(k1), Integer.valueOf(l1), Integer.valueOf(i2), Integer.valueOf(j2),
-									Integer.valueOf(k2), Integer.valueOf(l2), Integer.valueOf(i3) }));
+							Integer.valueOf(l), Integer.valueOf(i1), Integer.valueOf(j1),
+							Integer.valueOf(k1), Integer.valueOf(l1), Integer.valueOf(i2), Integer.valueOf(j2),
+							Integer.valueOf(k2), Integer.valueOf(l2), Integer.valueOf(i3)));
 		} catch (Throwable throwable) {
 			stringbuilder.append("(Error finding world loc)");
 		}
@@ -194,8 +194,8 @@ public class CrashReportCategory {
 			@Override
 			public String call() {
 				try {
-					return String.format("ID #%d (%s // %s)", new Object[] { Integer.valueOf(i),
-							p_147153_4_.getUnlocalizedName(), p_147153_4_.getClass().getCanonicalName() });
+					return String.format("ID #%d (%s // %s)", Integer.valueOf(i),
+							p_147153_4_.getUnlocalizedName(), p_147153_4_.getClass().getCanonicalName());
 				} catch (Throwable throwable) {
 					return "ID #" + i;
 				}
@@ -211,7 +211,7 @@ public class CrashReportCategory {
 				else {
 					String s = String.format("%4s", new Object[] { Integer.toBinaryString(p_147153_5_) }).replace(" ",
 							"0");
-					return String.format("%1$d / 0x%1$X / 0b%2$s", new Object[] { Integer.valueOf(p_147153_5_), s });
+					return String.format("%1$d / 0x%1$X / 0b%2$s", Integer.valueOf(p_147153_5_), s);
 				}
 			}
 		});

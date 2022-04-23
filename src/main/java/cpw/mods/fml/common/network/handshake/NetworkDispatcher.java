@@ -35,13 +35,13 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
 public class NetworkDispatcher extends SimpleChannelInboundHandler<Packet> implements ChannelOutboundHandler {
-	private static enum ConnectionState {
-		OPENING, AWAITING_HANDSHAKE, HANDSHAKING, HANDSHAKECOMPLETE, CONNECTED;
-	}
+	private enum ConnectionState {
+		OPENING, AWAITING_HANDSHAKE, HANDSHAKING, HANDSHAKECOMPLETE, CONNECTED
+    }
 
-	private static enum ConnectionType {
-		MODDED, BUKKIT, VANILLA;
-	}
+	private enum ConnectionType {
+		MODDED, BUKKIT, VANILLA
+    }
 
 	public static NetworkDispatcher get(NetworkManager manager) {
 		return manager.channel().attr(FML_DISPATCHER).get();
@@ -261,7 +261,7 @@ public class NetworkDispatcher extends SimpleChannelInboundHandler<Packet> imple
 	}
 
 	private boolean handleServerSideCustomPacket(C17PacketCustomPayload msg, ChannelHandlerContext context) {
-		((CraftPlayer) player.getBukkitEntity()).addChannel(msg.func_149559_c()); // Cauldron -
+		player.getBukkitEntity().addChannel(msg.func_149559_c()); // Cauldron -
 																					// register channel
 																					// for bukkit player
 		if (state == ConnectionState.AWAITING_HANDSHAKE) {

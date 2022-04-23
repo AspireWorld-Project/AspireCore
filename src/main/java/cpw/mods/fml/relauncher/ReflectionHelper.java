@@ -25,7 +25,7 @@ public class ReflectionHelper {
 	public static class UnableToFindMethodException extends RuntimeException {
 		private static final long serialVersionUID = 1L;
 		@SuppressWarnings("unused")
-		private String[] methodNames;
+		private final String[] methodNames;
 
 		public UnableToFindMethodException(String[] methodNames, Exception failed) {
 			super(failed);
@@ -37,7 +37,7 @@ public class ReflectionHelper {
 	public static class UnableToFindClassException extends RuntimeException {
 		private static final long serialVersionUID = 1L;
 		@SuppressWarnings("unused")
-		private String[] classNames;
+		private final String[] classNames;
 
 		public UnableToFindClassException(String[] classNames, Exception err) {
 			super(err);
@@ -49,7 +49,7 @@ public class ReflectionHelper {
 	public static class UnableToAccessFieldException extends RuntimeException {
 		private static final long serialVersionUID = 1L;
 		@SuppressWarnings("unused")
-		private String[] fieldNameList;
+		private final String[] fieldNameList;
 
 		public UnableToAccessFieldException(String[] fieldNames, Exception e) {
 			super(e);
@@ -60,7 +60,7 @@ public class ReflectionHelper {
 	public static class UnableToFindFieldException extends RuntimeException {
 		private static final long serialVersionUID = 1L;
 		@SuppressWarnings("unused")
-		private String[] fieldNameList;
+		private final String[] fieldNameList;
 
 		public UnableToFindFieldException(String[] fieldNameList, Exception e) {
 			super(e);

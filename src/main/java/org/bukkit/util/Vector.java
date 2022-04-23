@@ -17,7 +17,7 @@ import java.util.Random;
  */
 @SerializableAs("Vector")
 public class Vector implements Cloneable, ConfigurationSerializable {
-	private static Random random = new Random();
+	private static final Random random = new Random();
 
 	/**
 	 * Threshold for fuzzy equals().

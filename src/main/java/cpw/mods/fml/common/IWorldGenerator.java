@@ -43,6 +43,6 @@ public interface IWorldGenerator {
 	 *            world generation.
 	 *
 	 */
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator,
-			IChunkProvider chunkProvider);
+    void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator,
+                  IChunkProvider chunkProvider);
 }

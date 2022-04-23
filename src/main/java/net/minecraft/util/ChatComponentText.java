@@ -47,6 +47,6 @@ public class ChatComponentText extends ChatComponentStyle {
 
 	@Override
 	public String toString() {
-		return "TextComponent{text=\'" + text + '\'' + ", siblings=" + siblings + ", style=" + getChatStyle() + '}';
+		return "TextComponent{text='" + text + '\'' + ", siblings=" + siblings + ", style=" + getChatStyle() + '}';
 	}
 }

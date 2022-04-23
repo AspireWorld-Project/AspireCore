@@ -461,8 +461,7 @@ public class BlockStairs extends Block {
 				i2 = aint1[l1];
 
 				if (i2 == j1) {
-					;
-				}
+                }
 			}
 
 			amovingobjectposition[j1] = super.collisionRayTrace(p_149731_1_, p_149731_2_, p_149731_3_, p_149731_4_,

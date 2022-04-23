@@ -14,7 +14,7 @@ public interface IModGuiFactory {
 	 * @param minecraftInstance
 	 *            the instance
 	 */
-	public void initialize(Minecraft minecraftInstance);
+    void initialize(Minecraft minecraftInstance);
 
 	/**
 	 * Return the name of a class extending {@link GuiScreen}. This class will be
@@ -37,7 +37,7 @@ public interface IModGuiFactory {
 	 * @return A class that will be instantiated on clicks on the config button or
 	 *         null if no GUI is desired.
 	 */
-	public Class<? extends GuiScreen> mainConfigGuiClass();
+    Class<? extends GuiScreen> mainConfigGuiClass();
 
 	/**
 	 * Return a list of the "runtime" categories this mod wishes to populate with
@@ -60,7 +60,7 @@ public interface IModGuiFactory {
 	 * @return the set of options this mod wishes to have available, or empty if
 	 *         none
 	 */
-	public Set<RuntimeOptionCategoryElement> runtimeGuiCategories();
+    Set<RuntimeOptionCategoryElement> runtimeGuiCategories();
 
 	/**
 	 * Return an instance of a {@link RuntimeOptionGuiHandler} that handles painting
@@ -71,7 +71,7 @@ public interface IModGuiFactory {
 	 *            The element we wish to paint for
 	 * @return The Handler for painting it
 	 */
-	public RuntimeOptionGuiHandler getHandlerFor(RuntimeOptionCategoryElement element);
+    RuntimeOptionGuiHandler getHandlerFor(RuntimeOptionCategoryElement element);
 
 	/**
 	 * Represents an option category and entry in the runtime gui options list.
@@ -79,7 +79,7 @@ public interface IModGuiFactory {
 	 * @author cpw
 	 *
 	 */
-	public static class RuntimeOptionCategoryElement {
+    class RuntimeOptionCategoryElement {
 		public final String parent;
 		public final String child;
 
@@ -96,7 +96,7 @@ public interface IModGuiFactory {
 	 * @author cpw
 	 *
 	 */
-	public interface RuntimeOptionGuiHandler {
+    interface RuntimeOptionGuiHandler {
 		/**
 		 * Called to add widgets to the screen, such as buttons. GUI identifier numbers
 		 * should start at 100 and increase. The callback will be through
@@ -111,7 +111,7 @@ public interface IModGuiFactory {
 		 * @param h
 		 *            height
 		 */
-		public void addWidgets(List<Gui> widgetList, int x, int y, int w, int h);
+        void addWidgets(List<Gui> widgetList, int x, int y, int w, int h);
 
 		/**
 		 * Called to paint the rectangle specified.
@@ -125,7 +125,7 @@ public interface IModGuiFactory {
 		 * @param h
 		 *            height
 		 */
-		public void paint(int x, int y, int w, int h);
+        void paint(int x, int y, int w, int h);
 
 		/**
 		 * Called if a widget with id >= 100 is fired.
@@ -133,12 +133,12 @@ public interface IModGuiFactory {
 		 * @param actionId
 		 *            the actionId of the firing widget
 		 */
-		public void actionCallback(int actionId);
+        void actionCallback(int actionId);
 
 		/**
 		 * Called when this handler is about to go away (probably replaced by another
 		 * one, or closing the option screen)
 		 */
-		public void close();
+        void close();
 	}
 }

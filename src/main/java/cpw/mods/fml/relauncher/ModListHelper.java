@@ -23,7 +23,7 @@ public class ModListHelper {
 	}
 
 	private static File mcDirectory;
-	private static Set<File> visitedFiles = Sets.newHashSet();
+	private static final Set<File> visitedFiles = Sets.newHashSet();
 	public static final Map<String, File> additionalMods = Maps.newLinkedHashMap();
 
 	static void parseModList(File minecraftDirectory) {

@@ -12,7 +12,7 @@ public interface Enderman extends Monster {
 	 *
 	 * @return MaterialData containing the id and data of the block
 	 */
-	public MaterialData getCarriedMaterial();
+    MaterialData getCarriedMaterial();
 
 	/**
 	 * Set the id and data of the block that the Enderman is carring.
@@ -20,5 +20,5 @@ public interface Enderman extends Monster {
 	 * @param material
 	 *            data to set the carried block to
 	 */
-	public void setCarriedMaterial(MaterialData material);
+    void setCarriedMaterial(MaterialData material);
 }

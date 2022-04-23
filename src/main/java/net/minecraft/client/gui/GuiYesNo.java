@@ -10,7 +10,7 @@ import java.util.Iterator;
 public class GuiYesNo extends GuiScreen {
 	protected GuiYesNoCallback parentScreen;
 	protected String field_146351_f;
-	private String field_146354_r;
+	private final String field_146354_r;
 	protected String confirmButtonText;
 	protected String cancelButtonText;
 	protected int field_146357_i;
@@ -22,8 +22,8 @@ public class GuiYesNo extends GuiScreen {
 		field_146351_f = p_i1082_2_;
 		field_146354_r = p_i1082_3_;
 		field_146357_i = p_i1082_4_;
-		confirmButtonText = I18n.format("gui.yes", new Object[0]);
-		cancelButtonText = I18n.format("gui.no", new Object[0]);
+		confirmButtonText = I18n.format("gui.yes");
+		cancelButtonText = I18n.format("gui.no");
 	}
 
 	public GuiYesNo(GuiYesNoCallback p_i1083_1_, String p_i1083_2_, String p_i1083_3_, String p_i1083_4_,

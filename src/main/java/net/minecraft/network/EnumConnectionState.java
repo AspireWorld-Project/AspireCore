@@ -151,7 +151,7 @@ public enum EnumConnectionState {
 
 	private static final String __OBFID = "CL_00001245";
 
-	private EnumConnectionState(int p_i45152_3_) {
+	EnumConnectionState(int p_i45152_3_) {
 		field_150769_h = HashBiMap.create();
 		field_150770_i = HashBiMap.create();
 		field_150762_g = p_i45152_3_;
@@ -241,7 +241,7 @@ public enum EnumConnectionState {
 
 				if (field_150761_f.containsKey(var5) && field_150761_f.get(var5) != var3)
 					throw new Error("Packet " + var5 + " is already assigned to protocol " + field_150761_f.get(var5)
-							+ " - can\'t reassign to " + var3);
+							+ " - can't reassign to " + var3);
 
 				field_150761_f.put(var5, var3);
 			}

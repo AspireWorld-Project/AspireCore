@@ -192,7 +192,7 @@ public class RenderPlayer extends RendererLivingEntity {
 						gameprofile = NBTUtil.func_152459_a(nbttagcompound.getCompoundTag("SkullOwner"));
 					} else if (nbttagcompound.hasKey("SkullOwner", 8)
 							&& !StringUtils.isNullOrEmpty(nbttagcompound.getString("SkullOwner"))) {
-						gameprofile = new GameProfile((UUID) null, nbttagcompound.getString("SkullOwner"));
+						gameprofile = new GameProfile(null, nbttagcompound.getString("SkullOwner"));
 					}
 				}
 

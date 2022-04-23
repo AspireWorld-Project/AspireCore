@@ -36,15 +36,15 @@ public class ContainerEnchantment extends Container {
 			ContainerEnchantment.this.onCraftMatrixChanged(this);
 		}
 	};
-	private World worldPointer;
-	private int posX;
-	private int posY;
-	private int posZ;
-	private Random rand = new Random();
+	private final World worldPointer;
+	private final int posX;
+	private final int posY;
+	private final int posZ;
+	private final Random rand = new Random();
 	public long nameSeed;
 	public int[] enchantLevels = new int[3];
 	private static final String __OBFID = "CL_00001745";
-	private Player player;
+	private final Player player;
 
 	public ContainerEnchantment(InventoryPlayer p_i1811_1_, World p_i1811_2_, int p_i1811_3_, int p_i1811_4_,
 			int p_i1811_5_) {
@@ -242,8 +242,7 @@ public class ContainerEnchantment extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer p_75145_1_) {
-		return worldPointer.getBlock(posX, posY, posZ) != Blocks.enchanting_table ? false
-				: p_75145_1_.getDistanceSq(posX + 0.5D, posY + 0.5D, posZ + 0.5D) <= 64.0D;
+		return worldPointer.getBlock(posX, posY, posZ) == Blocks.enchanting_table && p_75145_1_.getDistanceSq(posX + 0.5D, posY + 0.5D, posZ + 0.5D) <= 64.0D;
 	}
 
 	@Override
@@ -274,7 +273,7 @@ public class ContainerEnchantment extends Container {
 			}
 
 			if (itemstack1.stackSize == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(null);
 			} else {
 				slot.onSlotChanged();
 			}

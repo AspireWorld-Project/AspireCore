@@ -7,7 +7,7 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.util.IChatComponent;
 
 public class GuiMessageDialog extends GuiDisconnected {
-	private String buttonText;
+	private final String buttonText;
 
 	public GuiMessageDialog(GuiScreen nextScreen, String title, IChatComponent message, String buttonText) {
 		super(nextScreen, title, message);

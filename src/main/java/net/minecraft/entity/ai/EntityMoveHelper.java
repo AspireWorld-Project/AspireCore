@@ -5,7 +5,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.MathHelper;
 
 public class EntityMoveHelper {
-	private EntityLiving entity;
+	private final EntityLiving entity;
 	private double posX;
 	private double posY;
 	private double posZ;

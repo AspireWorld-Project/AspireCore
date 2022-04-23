@@ -16,7 +16,7 @@ public class ForgeTimeTracker {
 	public static int tileEntityTrackingDuration;
 	public static long tileEntityTrackingTime;
 
-	private Map<TileEntity, int[]> tileEntityTimings;
+	private final Map<TileEntity, int[]> tileEntityTimings;
 	private static final ForgeTimeTracker INSTANCE = new ForgeTimeTracker();
 
 	private WeakReference<TileEntity> tile;
@@ -62,7 +62,7 @@ public class ForgeTimeTracker {
 	}
 
 	private ImmutableMap<TileEntity, int[]> buildImmutableTileEntityTimingMap() {
-		Builder<TileEntity, int[]> builder = ImmutableMap.<TileEntity, int[]>builder();
+		Builder<TileEntity, int[]> builder = ImmutableMap.builder();
 		for (Entry<TileEntity, int[]> entry : tileEntityTimings.entrySet()) {
 			builder.put(entry.getKey(), Arrays.copyOfRange(entry.getValue(), 0, 100));
 		}

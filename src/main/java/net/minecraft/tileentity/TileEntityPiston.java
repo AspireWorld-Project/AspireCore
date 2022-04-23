@@ -21,7 +21,7 @@ public class TileEntityPiston extends TileEntity {
 	private boolean shouldHeadBeRendered;
 	private float progress;
 	private float lastProgress;
-	private List pushedObjects = new ArrayList();
+	private final List pushedObjects = new ArrayList();
 	private static final String __OBFID = "CL_00000369";
 
 	public TileEntityPiston() {
@@ -77,7 +77,7 @@ public class TileEntityPiston extends TileEntity {
 				storedBlock, p_145863_1_, storedOrientation);
 
 		if (axisalignedbb != null) {
-			List list = worldObj.getEntitiesWithinAABBExcludingEntity((Entity) null, axisalignedbb);
+			List list = worldObj.getEntitiesWithinAABBExcludingEntity(null, axisalignedbb);
 
 			if (!list.isEmpty()) {
 				pushedObjects.addAll(list);

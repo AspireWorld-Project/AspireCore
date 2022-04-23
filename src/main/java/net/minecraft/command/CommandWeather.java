@@ -42,30 +42,30 @@ public class CommandWeather extends CommandBase {
 				worldinfo.setThunderTime(0);
 				worldinfo.setRaining(false);
 				worldinfo.setThundering(false);
-				func_152373_a(p_71515_1_, this, "commands.weather.clear", new Object[0]);
+				func_152373_a(p_71515_1_, this, "commands.weather.clear");
 			} else if ("rain".equalsIgnoreCase(p_71515_2_[0])) {
 				worldinfo.setRainTime(i);
 				worldinfo.setRaining(true);
 				worldinfo.setThundering(false);
-				func_152373_a(p_71515_1_, this, "commands.weather.rain", new Object[0]);
+				func_152373_a(p_71515_1_, this, "commands.weather.rain");
 			} else {
 				if (!"thunder".equalsIgnoreCase(p_71515_2_[0]))
-					throw new WrongUsageException("commands.weather.usage", new Object[0]);
+					throw new WrongUsageException("commands.weather.usage");
 
 				worldinfo.setRainTime(i);
 				worldinfo.setThunderTime(i);
 				worldinfo.setRaining(true);
 				worldinfo.setThundering(true);
-				func_152373_a(p_71515_1_, this, "commands.weather.thunder", new Object[0]);
+				func_152373_a(p_71515_1_, this, "commands.weather.thunder");
 			}
 		} else
-			throw new WrongUsageException("commands.weather.usage", new Object[0]);
+			throw new WrongUsageException("commands.weather.usage");
 	}
 
 	@Override
 	public List addTabCompletionOptions(ICommandSender p_71516_1_, String[] p_71516_2_) {
 		return p_71516_2_.length == 1
-				? getListOfStringsMatchingLastWord(p_71516_2_, new String[] { "clear", "rain", "thunder" })
+				? getListOfStringsMatchingLastWord(p_71516_2_, "clear", "rain", "thunder")
 				: null;
 	}
 }

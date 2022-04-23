@@ -197,20 +197,20 @@ public class ServerStatusResponse {
 			ServerStatusResponse serverstatusresponse = new ServerStatusResponse();
 
 			if (jsonobject.has("description")) {
-				serverstatusresponse.func_151315_a((IChatComponent) p_deserialize_3_
+				serverstatusresponse.func_151315_a(p_deserialize_3_
 						.deserialize(jsonobject.get("description"), IChatComponent.class));
 			}
 
 			if (jsonobject.has("players")) {
-				serverstatusresponse.func_151319_a((ServerStatusResponse.PlayerCountData) p_deserialize_3_
-						.deserialize(jsonobject.get("players"), ServerStatusResponse.PlayerCountData.class));
+				serverstatusresponse.func_151319_a(p_deserialize_3_
+						.deserialize(jsonobject.get("players"), PlayerCountData.class));
 			}
 
 			if (jsonobject.has("version")) {
 				serverstatusresponse
-						.func_151321_a((ServerStatusResponse.MinecraftProtocolVersionIdentifier) p_deserialize_3_
+						.func_151321_a(p_deserialize_3_
 								.deserialize(jsonobject.get("version"),
-										ServerStatusResponse.MinecraftProtocolVersionIdentifier.class));
+										MinecraftProtocolVersionIdentifier.class));
 			}
 
 			if (jsonobject.has("favicon")) {

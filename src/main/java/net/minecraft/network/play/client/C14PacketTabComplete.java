@@ -39,7 +39,7 @@ public class C14PacketTabComplete extends Packet {
 
 	@Override
 	public String serialize() {
-		return String.format("message=\'%s\'", new Object[] { field_149420_a });
+		return String.format("message='%s'", field_149420_a);
 	}
 
 	@Override

@@ -44,9 +44,9 @@ public class StatisticsFile extends StatFileWriter {
 				field_150875_a.clear();
 				field_150875_a.putAll(func_150881_a(FileUtils.readFileToString(field_150887_d)));
 			} catch (IOException ioexception) {
-				logger.error("Couldn\'t read statistics file " + field_150887_d, ioexception);
+				logger.error("Couldn't read statistics file " + field_150887_d, ioexception);
 			} catch (JsonParseException jsonparseexception) {
-				logger.error("Couldn\'t parse statistics file " + field_150887_d, jsonparseexception);
+				logger.error("Couldn't parse statistics file " + field_150887_d, jsonparseexception);
 			}
 		}
 	}
@@ -74,7 +74,7 @@ public class StatisticsFile extends StatFileWriter {
 			if (field_150890_c.func_147136_ar()) {
 				field_150890_c.getConfigurationManager()
 						.sendChatMsg(new ChatComponentTranslation("chat.type.achievement",
-								new Object[] { p_150873_1_.func_145748_c_(), p_150873_2_.func_150955_j() }));
+								p_150873_1_.func_145748_c_(), p_150873_2_.func_150955_j()));
 			}
 		}
 	}
@@ -117,7 +117,7 @@ public class StatisticsFile extends StatFileWriter {
 
 						if (jsonobject1.has("progress") && statbase.func_150954_l() != null) {
 							try {
-								Constructor constructor = statbase.func_150954_l().getConstructor(new Class[0]);
+								Constructor constructor = statbase.func_150954_l().getConstructor();
 								IJsonSerializable ijsonserializable = (IJsonSerializable) constructor
 										.newInstance(new Object[0]);
 								ijsonserializable.func_152753_a(jsonobject1.get("progress"));
@@ -130,8 +130,8 @@ public class StatisticsFile extends StatFileWriter {
 
 					hashmap.put(statbase, tupleintjsonserializable);
 				} else {
-					logger.warn("Invalid statistic in " + field_150887_d + ": Don\'t know what "
-							+ (String) entry.getKey() + " is");
+					logger.warn("Invalid statistic in " + field_150887_d + ": Don't know what "
+							+ entry.getKey() + " is");
 				}
 			}
 
@@ -155,7 +155,7 @@ public class StatisticsFile extends StatFileWriter {
 					jsonobject1.add("progress", ((TupleIntJsonSerializable) entry.getValue()).getJsonSerializableValue()
 							.getSerializableElement());
 				} catch (Throwable throwable) {
-					logger.warn("Couldn\'t save statistic " + ((StatBase) entry.getKey()).func_150951_e()
+					logger.warn("Couldn't save statistic " + ((StatBase) entry.getKey()).func_150951_e()
 							+ ": error serializing progress", throwable);
 				}
 

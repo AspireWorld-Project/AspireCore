@@ -30,7 +30,7 @@ public class ScreenShotHelper {
 
 	public static IChatComponent saveScreenshot(File p_148260_0_, int p_148260_1_, int p_148260_2_,
 			Framebuffer p_148260_3_) {
-		return saveScreenshot(p_148260_0_, (String) null, p_148260_1_, p_148260_2_, p_148260_3_);
+		return saveScreenshot(p_148260_0_, null, p_148260_1_, p_148260_2_, p_148260_3_);
 	}
 
 	public static IChatComponent saveScreenshot(File p_148259_0_, String p_148259_1_, int p_148259_2_, int p_148259_3_,
@@ -94,15 +94,15 @@ public class ScreenShotHelper {
 			chatcomponenttext.getChatStyle()
 					.setChatClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, file3.getAbsolutePath()));
 			chatcomponenttext.getChatStyle().setUnderlined(Boolean.valueOf(true));
-			return new ChatComponentTranslation("screenshot.success", new Object[] { chatcomponenttext });
+			return new ChatComponentTranslation("screenshot.success", chatcomponenttext);
 		} catch (Exception exception) {
-			logger.warn("Couldn\'t save screenshot", exception);
-			return new ChatComponentTranslation("screenshot.failure", new Object[] { exception.getMessage() });
+			logger.warn("Couldn't save screenshot", exception);
+			return new ChatComponentTranslation("screenshot.failure", exception.getMessage());
 		}
 	}
 
 	private static File getTimestampedPNGFileForDirectory(File p_74290_0_) {
-		String s = dateFormat.format(new Date()).toString();
+		String s = dateFormat.format(new Date());
 		int i = 1;
 
 		while (true) {

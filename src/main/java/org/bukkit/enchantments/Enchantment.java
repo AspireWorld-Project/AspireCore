@@ -207,9 +207,7 @@ public abstract class Enchantment {
 		if (!(obj instanceof Enchantment))
 			return false;
 		final Enchantment other = (Enchantment) obj;
-		if (id != other.id)
-			return false;
-		return true;
+		return id == other.id;
 	}
 
 	@Override

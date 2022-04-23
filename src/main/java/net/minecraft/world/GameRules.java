@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 public class GameRules {
-	private TreeMap theGameRules = new TreeMap();
+	private final TreeMap theGameRules = new TreeMap();
 	private static final String __OBFID = "CL_00000136";
 
 	public GameRules() {
@@ -43,7 +43,7 @@ public class GameRules {
 
 	public boolean getGameRuleBooleanValue(String p_82766_1_) {
 		GameRules.Value value = (GameRules.Value) theGameRules.get(p_82766_1_);
-		return value != null ? value.getGameRuleBooleanValue() : false;
+		return value != null && value.getGameRuleBooleanValue();
 	}
 
 	public NBTTagCompound writeGameRulesToNBT() {
@@ -96,13 +96,11 @@ public class GameRules {
 			try {
 				valueInteger = Integer.parseInt(p_82757_1_);
 			} catch (NumberFormatException numberformatexception1) {
-				;
 			}
 
 			try {
 				valueDouble = Double.parseDouble(p_82757_1_);
 			} catch (NumberFormatException numberformatexception) {
-				;
 			}
 		}
 

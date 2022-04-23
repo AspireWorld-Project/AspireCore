@@ -6,8 +6,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class EntityAITempt extends EntityAIBase {
-	private EntityCreature temptedEntity;
-	private double field_75282_b;
+	private final EntityCreature temptedEntity;
+	private final double field_75282_b;
 	private double targetX;
 	private double targetY;
 	private double targetZ;
@@ -16,8 +16,8 @@ public class EntityAITempt extends EntityAIBase {
 	private EntityPlayer temptingPlayer;
 	private int delayTemptCounter;
 	private boolean isRunning;
-	private Item field_151484_k;
-	private boolean scaredByPlayerMovement;
+	private final Item field_151484_k;
+	private final boolean scaredByPlayerMovement;
 	private boolean field_75286_m;
 	private static final String __OBFID = "CL_00001616";
 
@@ -41,7 +41,7 @@ public class EntityAITempt extends EntityAIBase {
 				return false;
 			else {
 				ItemStack itemstack = temptingPlayer.getCurrentEquippedItem();
-				return itemstack == null ? false : itemstack.getItem() == field_151484_k;
+				return itemstack != null && itemstack.getItem() == field_151484_k;
 			}
 		}
 	}

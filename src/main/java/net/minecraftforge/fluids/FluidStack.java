@@ -26,7 +26,7 @@ public class FluidStack {
 	public final Fluid fluid;
 	public int amount;
 	public NBTTagCompound tag;
-	private RegistryDelegate<Fluid> fluidDelegate;
+	private final RegistryDelegate<Fluid> fluidDelegate;
 
 	public FluidStack(Fluid fluid, int amount) {
 		if (fluid == null) {
@@ -132,7 +132,7 @@ public class FluidStack {
 	}
 
 	private boolean isFluidStackTagEqual(FluidStack other) {
-		return tag == null ? other.tag == null : other.tag == null ? false : tag.equals(other.tag);
+		return tag == null ? other.tag == null : other.tag != null && tag.equals(other.tag);
 	}
 
 	/**
@@ -140,8 +140,7 @@ public class FluidStack {
 	 * equal.
 	 */
 	public static boolean areFluidStackTagsEqual(FluidStack stack1, FluidStack stack2) {
-		return stack1 == null && stack2 == null ? true
-				: stack1 == null || stack2 == null ? false : stack1.isFluidStackTagEqual(stack2);
+		return stack1 == null && stack2 == null || stack1 != null && stack2 != null && stack1.isFluidStackTagEqual(stack2);
 	}
 
 	/**

@@ -6,7 +6,7 @@ import org.bukkit.plugin.Plugin;
 import java.util.*;
 
 public abstract class MetadataStoreBase<T> {
-	private Map<String, Map<Plugin, MetadataValue>> metadataMap = new HashMap<>();
+	private final Map<String, Map<Plugin, MetadataValue>> metadataMap = new HashMap<>();
 
 	/**
 	 * Adds a metadata value to an object. Each metadata value is owned by a

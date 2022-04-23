@@ -37,7 +37,7 @@ public class CommandSummon extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender p_71515_1_, String[] p_71515_2_) {
 		if (p_71515_2_.length < 1)
-			throw new WrongUsageException("commands.summon.usage", new Object[0]);
+			throw new WrongUsageException("commands.summon.usage");
 		else {
 			String s = p_71515_2_[0];
 			double d0 = p_71515_1_.getPlayerCoordinates().posX + 0.5D;
@@ -53,7 +53,7 @@ public class CommandSummon extends CommandBase {
 			World world = p_71515_1_.getEntityWorld();
 
 			if (!world.blockExists((int) d0, (int) d1, (int) d2)) {
-				func_152373_a(p_71515_1_, this, "commands.summon.outOfWorld", new Object[0]);
+				func_152373_a(p_71515_1_, this, "commands.summon.outOfWorld");
 			} else {
 				NBTTagCompound nbttagcompound = new NBTTagCompound();
 				boolean flag = false;
@@ -66,7 +66,7 @@ public class CommandSummon extends CommandBase {
 
 						if (!(nbtbase instanceof NBTTagCompound)) {
 							func_152373_a(p_71515_1_, this, "commands.summon.tagError",
-									new Object[] { "Not a valid tag" });
+									"Not a valid tag");
 							return;
 						}
 
@@ -74,7 +74,7 @@ public class CommandSummon extends CommandBase {
 						flag = true;
 					} catch (NBTException nbtexception) {
 						func_152373_a(p_71515_1_, this, "commands.summon.tagError",
-								new Object[] { nbtexception.getMessage() });
+								nbtexception.getMessage());
 						return;
 					}
 				}
@@ -83,12 +83,12 @@ public class CommandSummon extends CommandBase {
 				Entity entity1 = EntityList.createEntityFromNBT(nbttagcompound, world);
 
 				if (entity1 == null) {
-					func_152373_a(p_71515_1_, this, "commands.summon.failed", new Object[0]);
+					func_152373_a(p_71515_1_, this, "commands.summon.failed");
 				} else {
 					entity1.setLocationAndAngles(d0, d1, d2, entity1.rotationYaw, entity1.rotationPitch);
 
 					if (!flag && entity1 instanceof EntityLiving) {
-						((EntityLiving) entity1).onSpawnWithEgg((IEntityLivingData) null);
+						((EntityLiving) entity1).onSpawnWithEgg(null);
 					}
 
 					world.spawnEntityInWorld(entity1);
@@ -107,7 +107,7 @@ public class CommandSummon extends CommandBase {
 						entity2 = entity;
 					}
 
-					func_152373_a(p_71515_1_, this, "commands.summon.success", new Object[0]);
+					func_152373_a(p_71515_1_, this, "commands.summon.success");
 				}
 			}
 		}

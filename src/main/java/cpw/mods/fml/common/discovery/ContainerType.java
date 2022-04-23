@@ -20,9 +20,9 @@ import java.util.List;
 public enum ContainerType {
 	JAR(JarDiscoverer.class), DIR(DirectoryDiscoverer.class);
 
-	private ITypeDiscoverer discoverer;
+	private final ITypeDiscoverer discoverer;
 
-	private ContainerType(Class<? extends ITypeDiscoverer> discovererClass) {
+	ContainerType(Class<? extends ITypeDiscoverer> discovererClass) {
 		try {
 			discoverer = discovererClass.newInstance();
 		} catch (Exception e) {

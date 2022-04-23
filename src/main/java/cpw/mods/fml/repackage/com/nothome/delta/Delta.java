@@ -97,14 +97,14 @@ public class Delta {
 	/**
 	 * Compares the source bytes with target bytes, writing to output.
 	 */
-	public void compute(byte source[], byte target[], OutputStream output) throws IOException {
+	public void compute(byte[] source, byte[] target, OutputStream output) throws IOException {
 		compute(new ByteBufferSeekableSource(source), new ByteArrayInputStream(target), new GDiffWriter(output));
 	}
 
 	/**
 	 * Compares the source bytes with target bytes, returning output.
 	 */
-	public byte[] compute(byte source[], byte target[]) throws IOException {
+	public byte[] compute(byte[] source, byte[] target) throws IOException {
 		ByteArrayOutputStream os = new ByteArrayOutputStream();
 		compute(source, target, os);
 		return os.toByteArray();
@@ -193,8 +193,8 @@ public class Delta {
 
 	class SourceState {
 
-		private Checksum checksum;
-		private SeekableSource source;
+		private final Checksum checksum;
+		private final SeekableSource source;
 
 		public SourceState(SeekableSource source) throws IOException {
 			checksum = new Checksum(source, S);
@@ -218,9 +218,9 @@ public class Delta {
 
 	class TargetState {
 
-		private ReadableByteChannel c;
-		private ByteBuffer tbuf = ByteBuffer.allocate(blocksize());
-		private ByteBuffer sbuf = ByteBuffer.allocate(blocksize());
+		private final ReadableByteChannel c;
+		private final ByteBuffer tbuf = ByteBuffer.allocate(blocksize());
+		private final ByteBuffer sbuf = ByteBuffer.allocate(blocksize());
 		private long hash;
 		private boolean hashReset = true;
 		private boolean eof;
@@ -377,7 +377,7 @@ public class Delta {
 	/**
 	 * Creates a patch using file names.
 	 */
-	public static void main(String argv[]) throws Exception {
+	public static void main(String[] argv) throws Exception {
 		if (argv.length != 3) {
 			System.err.println("usage Delta [-d] source target [output]");
 			System.err.println("either -d or an output filename must be specified.");

@@ -15,13 +15,13 @@ public enum BlockFace {
 	private final int modY;
 	private final int modZ;
 
-	private BlockFace(final int modX, final int modY, final int modZ) {
+	BlockFace(final int modX, final int modY, final int modZ) {
 		this.modX = modX;
 		this.modY = modY;
 		this.modZ = modZ;
 	}
 
-	private BlockFace(final BlockFace face1, final BlockFace face2) {
+	BlockFace(final BlockFace face1, final BlockFace face2) {
 		modX = face1.getModX() + face2.getModX();
 		modY = face1.getModY() + face2.getModY();
 		modZ = face1.getModZ() + face2.getModZ();

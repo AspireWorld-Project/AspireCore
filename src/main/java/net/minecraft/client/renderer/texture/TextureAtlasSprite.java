@@ -186,9 +186,9 @@ public class TextureAtlasSprite implements IIcon {
 				if (k > 0 && (bufferedimage.getWidth() != i >> k || bufferedimage.getHeight() != j >> k))
 					throw new RuntimeException(
 							String.format("Unable to load miplevel: %d, image is size: %dx%d, expected %dx%d",
-									new Object[] { Integer.valueOf(k), Integer.valueOf(bufferedimage.getWidth()),
-											Integer.valueOf(bufferedimage.getHeight()), Integer.valueOf(i >> k),
-											Integer.valueOf(j >> k) }));
+									Integer.valueOf(k), Integer.valueOf(bufferedimage.getWidth()),
+									Integer.valueOf(bufferedimage.getHeight()), Integer.valueOf(i >> k),
+									Integer.valueOf(j >> k)));
 
 				aint[k] = new int[bufferedimage.getWidth() * bufferedimage.getHeight()];
 				bufferedimage.getRGB(0, 0, bufferedimage.getWidth(), bufferedimage.getHeight(), aint[k], 0,
@@ -332,7 +332,7 @@ public class TextureAtlasSprite implements IIcon {
 	private void allocateFrameTextureData(int p_130099_1_) {
 		if (framesTextureData.size() <= p_130099_1_) {
 			for (int j = framesTextureData.size(); j <= p_130099_1_; ++j) {
-				framesTextureData.add((Object) null);
+				framesTextureData.add(null);
 			}
 		}
 	}
@@ -373,7 +373,7 @@ public class TextureAtlasSprite implements IIcon {
 
 	@Override
 	public String toString() {
-		return "TextureAtlasSprite{name=\'" + iconName + '\'' + ", frameCount=" + framesTextureData.size()
+		return "TextureAtlasSprite{name='" + iconName + '\'' + ", frameCount=" + framesTextureData.size()
 				+ ", rotated=" + rotated + ", x=" + originX + ", y=" + originY + ", height=" + height + ", width="
 				+ width + ", u0=" + minU + ", u1=" + maxU + ", v0=" + minV + ", v1=" + maxV + '}';
 	}

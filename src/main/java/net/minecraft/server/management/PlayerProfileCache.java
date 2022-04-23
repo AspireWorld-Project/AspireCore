@@ -81,7 +81,7 @@ public class PlayerProfileCache {
 				profilelookupcallback);
 
 		if (!p_152650_0_.isServerInOnlineMode() && agameprofile[0] == null) {
-			UUID uuid = EntityPlayer.func_146094_a(new GameProfile((UUID) null, p_152650_1_));
+			UUID uuid = EntityPlayer.func_146094_a(new GameProfile(null, p_152650_1_));
 			GameProfile gameprofile = new GameProfile(uuid, p_152650_1_);
 			profilelookupcallback.onProfileLookupSucceeded(gameprofile);
 		}
@@ -90,7 +90,7 @@ public class PlayerProfileCache {
 	}
 
 	public void func_152649_a(GameProfile p_152649_1_) {
-		func_152651_a(p_152649_1_, (Date) null);
+		func_152651_a(p_152649_1_, null);
 	}
 
 	private void func_152651_a(GameProfile p_152651_1_, Date p_152651_2_) {
@@ -193,7 +193,7 @@ public class PlayerProfileCache {
 		{
 			try {
 				bufferedreader = Files.newReader(field_152665_g, Charsets.UTF_8);
-				list = (List) field_152660_b.fromJson(bufferedreader, field_152666_h);
+				list = field_152660_b.fromJson(bufferedreader, field_152666_h);
 
 				if (list != null) {
 					field_152661_c.clear();
@@ -215,7 +215,6 @@ public class PlayerProfileCache {
 					}
 				}
 			} catch (FileNotFoundException filenotfoundexception) {
-				;
 			} catch (com.google.gson.JsonParseException parsefail) {
 				// No op - the cache can quietly rebuild if it's junk
 			} finally {

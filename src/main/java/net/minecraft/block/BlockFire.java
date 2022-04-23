@@ -25,9 +25,9 @@ import static net.minecraftforge.common.util.ForgeDirection.*;
 
 public class BlockFire extends Block {
 	@Deprecated
-	private int[] field_149849_a = new int[4096];
+	private final int[] field_149849_a = new int[4096];
 	@Deprecated
-	private int[] field_149848_b = new int[4096];
+	private final int[] field_149848_b = new int[4096];
 	@SideOnly(Side.CLIENT)
 	private IIcon[] field_149850_M;
 	private static final String __OBFID = "CL_00000245";
@@ -461,7 +461,7 @@ public class BlockFire extends Block {
 		private int flammibility = 0;
 	}
 
-	private IdentityHashMap<Block, FireInfo> blockInfo = Maps.newIdentityHashMap();
+	private final IdentityHashMap<Block, FireInfo> blockInfo = Maps.newIdentityHashMap();
 
 	public void setFireInfo(Block block, int encouragement, int flammibility) {
 		if (block == Blocks.air)

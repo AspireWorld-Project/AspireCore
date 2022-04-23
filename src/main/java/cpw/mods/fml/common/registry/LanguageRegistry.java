@@ -38,7 +38,7 @@ import java.util.zip.ZipFile;
 public class LanguageRegistry {
 	private static final LanguageRegistry INSTANCE = new LanguageRegistry();
 
-	private Map<String, Properties> modLanguageData = new HashMap<>();
+	private final Map<String, Properties> modLanguageData = new HashMap<>();
 
 	private static final Pattern assetENUSLang = Pattern.compile("assets/(.*)/lang/(?:.+/|)([\\w_-]+).lang");
 

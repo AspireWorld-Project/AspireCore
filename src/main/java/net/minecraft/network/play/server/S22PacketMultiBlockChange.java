@@ -48,9 +48,9 @@ public class S22PacketMultiBlockChange extends Packet {
 
 			if (field_148926_c.length != j)
 				throw new RuntimeException(
-						"Expected length " + j + " doesn\'t match received length " + field_148926_c.length);
+						"Expected length " + j + " doesn't match received length " + field_148926_c.length);
 		} catch (IOException ioexception) {
-			logger.error("Couldn\'t create bulk block update packet", ioexception);
+			logger.error("Couldn't create bulk block update packet", ioexception);
 			field_148926_c = null;
 		}
 	}
@@ -87,8 +87,8 @@ public class S22PacketMultiBlockChange extends Packet {
 
 	@Override
 	public String serialize() {
-		return String.format("xc=%d, zc=%d, count=%d", new Object[] { Integer.valueOf(field_148925_b.chunkXPos),
-				Integer.valueOf(field_148925_b.chunkZPos), Integer.valueOf(field_148924_d) });
+		return String.format("xc=%d, zc=%d, count=%d", Integer.valueOf(field_148925_b.chunkXPos),
+				Integer.valueOf(field_148925_b.chunkZPos), Integer.valueOf(field_148924_d));
 	}
 
 	@SideOnly(Side.CLIENT)

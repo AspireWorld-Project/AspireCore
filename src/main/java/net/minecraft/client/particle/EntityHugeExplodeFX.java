@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 @SideOnly(Side.CLIENT)
 public class EntityHugeExplodeFX extends EntityFX {
 	private int timeSinceStart;
-	private int maximumTime = 8;
+	private final int maximumTime = 8;
 	private static final String __OBFID = "CL_00000911";
 
 	public EntityHugeExplodeFX(World p_i1214_1_, double p_i1214_2_, double p_i1214_4_, double p_i1214_6_,

@@ -189,7 +189,6 @@ public abstract class EntityFireball extends Entity {
 
 			for (rotationPitch = (float) (Math.atan2(f1, motionY) * 180.0D / Math.PI) - 90.0F; rotationPitch
 					- prevRotationPitch < -180.0F; prevRotationPitch -= 360.0F) {
-				;
 			}
 
 			while (rotationPitch - prevRotationPitch >= 180.0F) {
@@ -242,7 +241,7 @@ public abstract class EntityFireball extends Entity {
 		p_70014_1_.setShort("zTile", (short) field_145794_g);
 		p_70014_1_.setByte("inTile", (byte) Block.getIdFromBlock(field_145796_h));
 		p_70014_1_.setByte("inGround", (byte) (inGround ? 1 : 0));
-		p_70014_1_.setTag("direction", newDoubleNBTList(new double[] { motionX, motionY, motionZ }));
+		p_70014_1_.setTag("direction", newDoubleNBTList(motionX, motionY, motionZ));
 	}
 
 	@Override

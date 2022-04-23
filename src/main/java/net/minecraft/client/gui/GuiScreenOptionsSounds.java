@@ -27,8 +27,8 @@ public class GuiScreenOptionsSounds extends GuiScreen {
 	@Override
 	public void initGui() {
 		byte b0 = 0;
-		field_146507_a = I18n.format("options.sounds.title", new Object[0]);
-		field_146508_h = I18n.format("options.off", new Object[0]);
+		field_146507_a = I18n.format("options.sounds.title");
+		field_146508_h = I18n.format("options.off");
 		buttonList.add(new GuiScreenOptionsSounds.Button(SoundCategory.MASTER.getCategoryId(),
 				width / 2 - 155 + b0 % 2 * 160, height / 6 - 12 + 24 * (b0 >> 1), SoundCategory.MASTER, true));
 		int k = b0 + 2;
@@ -45,7 +45,7 @@ public class GuiScreenOptionsSounds extends GuiScreen {
 			}
 		}
 
-		buttonList.add(new GuiButton(200, width / 2 - 100, height / 6 + 168, I18n.format("gui.done", new Object[0])));
+		buttonList.add(new GuiButton(200, width / 2 - 100, height / 6 + 168, I18n.format("gui.done")));
 	}
 
 	@Override
@@ -82,7 +82,7 @@ public class GuiScreenOptionsSounds extends GuiScreen {
 				boolean p_i45024_6_) {
 			super(p_i45024_2_, p_i45024_3_, p_i45024_4_, p_i45024_6_ ? 310 : 150, 20, "");
 			field_146153_r = p_i45024_5_;
-			field_146152_s = I18n.format("soundCategory." + p_i45024_5_.getCategoryName(), new Object[0]);
+			field_146152_s = I18n.format("soundCategory." + p_i45024_5_.getCategoryName());
 			displayString = field_146152_s + ": " + func_146504_a(p_i45024_5_);
 			field_146156_o = field_146506_g.getSoundLevel(p_i45024_5_);
 		}

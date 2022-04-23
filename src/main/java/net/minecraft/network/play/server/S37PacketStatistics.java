@@ -59,7 +59,7 @@ public class S37PacketStatistics extends Packet {
 
 	@Override
 	public String serialize() {
-		return String.format("count=%d", new Object[] { Integer.valueOf(field_148976_a.size()) });
+		return String.format("count=%d", Integer.valueOf(field_148976_a.size()));
 	}
 
 	@SideOnly(Side.CLIENT)

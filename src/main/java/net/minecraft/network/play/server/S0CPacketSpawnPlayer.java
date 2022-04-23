@@ -111,10 +111,10 @@ public class S0CPacketSpawnPlayer extends Packet {
 
 	@Override
 	public String serialize() {
-		return String.format("id=%d, gameProfile=\'%s\', x=%.2f, y=%.2f, z=%.2f, carried=%d",
-				new Object[] { Integer.valueOf(field_148957_a), field_148955_b, Float.valueOf(field_148956_c / 32.0F),
-						Float.valueOf(field_148953_d / 32.0F), Float.valueOf(field_148954_e / 32.0F),
-						Integer.valueOf(field_148959_h) });
+		return String.format("id=%d, gameProfile='%s', x=%.2f, y=%.2f, z=%.2f, carried=%d",
+				Integer.valueOf(field_148957_a), field_148955_b, Float.valueOf(field_148956_c / 32.0F),
+				Float.valueOf(field_148953_d / 32.0F), Float.valueOf(field_148954_e / 32.0F),
+				Integer.valueOf(field_148959_h));
 	}
 
 	@SideOnly(Side.CLIENT)

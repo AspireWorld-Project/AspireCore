@@ -13,8 +13,8 @@ import org.lwjgl.opengl.GL11;
 public class EntityFootStepFX extends EntityFX {
 	private static final ResourceLocation field_110126_a = new ResourceLocation("textures/particle/footprint.png");
 	private int footstepAge;
-	private int footstepMaxAge;
-	private TextureManager currentFootSteps;
+	private final int footstepMaxAge;
+	private final TextureManager currentFootSteps;
 	private static final String __OBFID = "CL_00000908";
 
 	public EntityFootStepFX(TextureManager p_i1210_1_, World p_i1210_2_, double p_i1210_3_, double p_i1210_5_,

@@ -40,7 +40,7 @@ public class CommandAchievement extends CommandBase {
 			StatBase statbase = StatList.func_151177_a(p_71515_2_[1]);
 
 			if (statbase == null && !p_71515_2_[1].equals("*"))
-				throw new CommandException("commands.achievement.unknownAchievement", new Object[] { p_71515_2_[1] });
+				throw new CommandException("commands.achievement.unknownAchievement", p_71515_2_[1]);
 
 			EntityPlayerMP entityplayermp;
 
@@ -60,7 +60,7 @@ public class CommandAchievement extends CommandBase {
 					}
 
 					func_152373_a(p_71515_1_, this, "commands.achievement.give.success.all",
-							new Object[] { entityplayermp.getCommandSenderName() });
+							entityplayermp.getCommandSenderName());
 				} else {
 					if (statbase instanceof Achievement) {
 						Achievement achievement2 = (Achievement) statbase;
@@ -82,20 +82,20 @@ public class CommandAchievement extends CommandBase {
 
 					entityplayermp.triggerAchievement(statbase);
 					func_152373_a(p_71515_1_, this, "commands.achievement.give.success.one",
-							new Object[] { entityplayermp.getCommandSenderName(), statbase.func_150955_j() });
+							entityplayermp.getCommandSenderName(), statbase.func_150955_j());
 				}
 
 				return;
 			}
 		}
 
-		throw new WrongUsageException("commands.achievement.usage", new Object[0]);
+		throw new WrongUsageException("commands.achievement.usage");
 	}
 
 	@Override
 	public List addTabCompletionOptions(ICommandSender p_71516_1_, String[] p_71516_2_) {
 		if (p_71516_2_.length == 1)
-			return getListOfStringsMatchingLastWord(p_71516_2_, new String[] { "give" });
+			return getListOfStringsMatchingLastWord(p_71516_2_, "give");
 		else if (p_71516_2_.length != 2)
 			return p_71516_2_.length == 3
 					? getListOfStringsMatchingLastWord(p_71516_2_, MinecraftServer.getServer().getAllUsernames())

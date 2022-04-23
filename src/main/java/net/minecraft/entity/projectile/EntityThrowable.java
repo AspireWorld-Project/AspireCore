@@ -231,7 +231,6 @@ public abstract class EntityThrowable extends Entity implements IProjectile {
 
 		for (rotationPitch = (float) (Math.atan2(motionY, f1) * 180.0D / Math.PI); rotationPitch
 				- prevRotationPitch < -180.0F; prevRotationPitch -= 360.0F) {
-			;
 		}
 
 		while (rotationPitch - prevRotationPitch >= 180.0F) {

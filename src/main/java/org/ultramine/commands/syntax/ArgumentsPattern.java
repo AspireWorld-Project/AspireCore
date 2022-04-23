@@ -87,7 +87,7 @@ public class ArgumentsPattern {
 	}
 
 	public static class Builder {
-		private ArgumentsPattern pattern;
+		private final ArgumentsPattern pattern;
 
 		public Builder() {
 			pattern = new ArgumentsPattern();
@@ -173,7 +173,7 @@ public class ArgumentsPattern {
 		}
 	};
 
-	public static enum MatchResult {
+	public enum MatchResult {
 		FULLY, POSSIBLY, NOT
 	}
 }

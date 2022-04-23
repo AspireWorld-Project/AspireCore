@@ -12,7 +12,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import java.util.List;
 
 public class ChunkProviderEmpty implements IChunkProvider {
-	private World world;
+	private final World world;
 
 	public ChunkProviderEmpty(World world) {
 		this.world = world;

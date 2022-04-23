@@ -20,7 +20,7 @@ import java.util.List;
 public class GuiMultiplayer extends GuiScreen implements GuiYesNoCallback {
 	private static final Logger logger = LogManager.getLogger();
 	private final OldServerPinger field_146797_f = new OldServerPinger();
-	private GuiScreen field_146798_g;
+	private final GuiScreen field_146798_g;
 	private ServerSelectionList field_146803_h;
 	private ServerList field_146804_i;
 	private GuiButton field_146810_r;
@@ -71,19 +71,19 @@ public class GuiMultiplayer extends GuiScreen implements GuiYesNoCallback {
 
 	public void func_146794_g() {
 		buttonList.add(field_146810_r = new GuiButton(7, width / 2 - 154, height - 28, 70, 20,
-				I18n.format("selectServer.edit", new Object[0])));
+				I18n.format("selectServer.edit")));
 		buttonList.add(field_146808_t = new GuiButton(2, width / 2 - 74, height - 28, 70, 20,
-				I18n.format("selectServer.delete", new Object[0])));
+				I18n.format("selectServer.delete")));
 		buttonList.add(field_146809_s = new GuiButton(1, width / 2 - 154, height - 52, 100, 20,
-				I18n.format("selectServer.select", new Object[0])));
+				I18n.format("selectServer.select")));
 		buttonList.add(new GuiButton(4, width / 2 - 50, height - 52, 100, 20,
-				I18n.format("selectServer.direct", new Object[0])));
+				I18n.format("selectServer.direct")));
 		buttonList.add(new GuiButton(3, width / 2 + 4 + 50, height - 52, 100, 20,
-				I18n.format("selectServer.add", new Object[0])));
+				I18n.format("selectServer.add")));
 		buttonList.add(new GuiButton(8, width / 2 + 4, height - 28, 70, 20,
-				I18n.format("selectServer.refresh", new Object[0])));
+				I18n.format("selectServer.refresh")));
 		buttonList.add(
-				new GuiButton(0, width / 2 + 4 + 76, height - 28, 75, 20, I18n.format("gui.cancel", new Object[0])));
+				new GuiButton(0, width / 2 + 4 + 76, height - 28, 75, 20, I18n.format("gui.cancel")));
 		func_146790_a(field_146803_h.func_148193_k());
 	}
 
@@ -123,10 +123,10 @@ public class GuiMultiplayer extends GuiScreen implements GuiYesNoCallback {
 
 				if (s4 != null) {
 					field_146807_u = true;
-					String s = I18n.format("selectServer.deleteQuestion", new Object[0]);
-					String s1 = "\'" + s4 + "\' " + I18n.format("selectServer.deleteWarning", new Object[0]);
-					String s2 = I18n.format("selectServer.deleteButton", new Object[0]);
-					String s3 = I18n.format("gui.cancel", new Object[0]);
+					String s = I18n.format("selectServer.deleteQuestion");
+					String s1 = "'" + s4 + "' " + I18n.format("selectServer.deleteWarning");
+					String s2 = I18n.format("selectServer.deleteButton");
+					String s3 = I18n.format("gui.cancel");
 					GuiYesNo guiyesno = new GuiYesNo(this, s, s1, s2, s3, field_146803_h.func_148193_k());
 					mc.displayGuiScreen(guiyesno);
 				}
@@ -135,11 +135,11 @@ public class GuiMultiplayer extends GuiScreen implements GuiYesNoCallback {
 			} else if (p_146284_1_.id == 4) {
 				field_146813_x = true;
 				mc.displayGuiScreen(new GuiScreenServerList(this,
-						field_146811_z = new ServerData(I18n.format("selectServer.defaultName", new Object[0]), "")));
+						field_146811_z = new ServerData(I18n.format("selectServer.defaultName"), "")));
 			} else if (p_146284_1_.id == 3) {
 				field_146806_v = true;
 				mc.displayGuiScreen(new GuiScreenAddServer(this,
-						field_146811_z = new ServerData(I18n.format("selectServer.defaultName", new Object[0]), "")));
+						field_146811_z = new ServerData(I18n.format("selectServer.defaultName"), "")));
 			} else if (p_146284_1_.id == 7 && iguilistentry instanceof ServerListEntryNormal) {
 				field_146805_w = true;
 				ServerData serverdata = ((ServerListEntryNormal) iguilistentry).func_148296_a();
@@ -282,7 +282,7 @@ public class GuiMultiplayer extends GuiScreen implements GuiYesNoCallback {
 		field_146812_y = null;
 		drawDefaultBackground();
 		field_146803_h.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
-		drawCenteredString(fontRendererObj, I18n.format("multiplayer.title", new Object[0]), width / 2, 20, 16777215);
+		drawCenteredString(fontRendererObj, I18n.format("multiplayer.title"), width / 2, 20, 16777215);
 		super.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
 
 		if (field_146812_y != null) {

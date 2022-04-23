@@ -77,7 +77,7 @@ public class ProgressManager {
 		private volatile int step = 0;
 		private volatile String message = "";
 		private boolean timeEachStep = false;
-		private long startTime = System.nanoTime();
+		private final long startTime = System.nanoTime();
 		private long lastTime = startTime;
 
 		private ProgressBar(String title, int steps) {

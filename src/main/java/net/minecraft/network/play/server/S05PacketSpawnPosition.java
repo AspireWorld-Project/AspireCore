@@ -49,8 +49,8 @@ public class S05PacketSpawnPosition extends Packet {
 
 	@Override
 	public String serialize() {
-		return String.format("x=%d, y=%d, z=%d", new Object[] { Integer.valueOf(field_149364_a),
-				Integer.valueOf(field_149362_b), Integer.valueOf(field_149363_c) });
+		return String.format("x=%d, y=%d, z=%d", Integer.valueOf(field_149364_a),
+				Integer.valueOf(field_149362_b), Integer.valueOf(field_149363_c));
 	}
 
 	@SideOnly(Side.CLIENT)

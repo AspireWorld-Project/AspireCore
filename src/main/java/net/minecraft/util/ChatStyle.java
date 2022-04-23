@@ -370,7 +370,7 @@ public class ChatStyle {
 					}
 
 					if (jsonobject.has("color")) {
-						chatstyle.color = (EnumChatFormatting) p_deserialize_3_.deserialize(jsonobject.get("color"),
+						chatstyle.color = p_deserialize_3_.deserialize(jsonobject.get("color"),
 								EnumChatFormatting.class);
 					}
 
@@ -400,7 +400,7 @@ public class ChatStyle {
 							jsonprimitive = jsonobject1.getAsJsonPrimitive("action");
 							HoverEvent.Action action1 = jsonprimitive == null ? null
 									: HoverEvent.Action.getValueByCanonicalName(jsonprimitive.getAsString());
-							IChatComponent ichatcomponent = (IChatComponent) p_deserialize_3_
+							IChatComponent ichatcomponent = p_deserialize_3_
 									.deserialize(jsonobject1.get("value"), IChatComponent.class);
 
 							if (action1 != null && ichatcomponent != null && action1.shouldAllowInChat()) {

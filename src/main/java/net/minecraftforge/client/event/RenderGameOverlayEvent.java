@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 @Cancelable
 public class RenderGameOverlayEvent extends Event {
-	public static enum ElementType {
+	public enum ElementType {
 		ALL, HELMET, PORTAL, CROSSHAIRS, BOSSHEALTH, ARMOR, HEALTH, FOOD, AIR, HOTBAR, EXPERIENCE, TEXT, HEALTHMOUNT, JUMPBAR, CHAT, PLAYER_LIST, DEBUG
 	}
 

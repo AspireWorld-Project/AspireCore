@@ -26,9 +26,9 @@ public class CommandDefaultGameMode extends CommandGameMode {
 			WorldSettings.GameType gametype = getGameModeFromCommand(p_71515_1_, p_71515_2_[0]);
 			setGameType(gametype);
 			func_152373_a(p_71515_1_, this, "commands.defaultgamemode.success",
-					new Object[] { new ChatComponentTranslation("gameMode." + gametype.getName(), new Object[0]) });
+					new ChatComponentTranslation("gameMode." + gametype.getName()));
 		} else
-			throw new WrongUsageException("commands.defaultgamemode.usage", new Object[0]);
+			throw new WrongUsageException("commands.defaultgamemode.usage");
 	}
 
 	protected void setGameType(WorldSettings.GameType p_71541_1_) {

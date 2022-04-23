@@ -67,7 +67,7 @@ public class EntitySpawnHandler extends SimpleChannelInboundHandler<FMLMessage.E
 					((EntityLiving) entity).rotationYawHead = spawnMsg.scaledHeadYaw;
 				}
 
-				Entity parts[] = entity.getParts();
+				Entity[] parts = entity.getParts();
 				if (parts != null) {
 					for (int j = 0; j < parts.length; j++) {
 						parts[j].setEntityId(parts[j].getEntityId() + offset);

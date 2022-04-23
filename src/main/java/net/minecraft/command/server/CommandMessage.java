@@ -19,7 +19,7 @@ public class CommandMessage extends CommandBase {
 
 	@Override
 	public List getCommandAliases() {
-		return Arrays.asList(new String[] { "w", "msg" });
+		return Arrays.asList("w", "msg");
 	}
 
 	@Override
@@ -40,23 +40,23 @@ public class CommandMessage extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender p_71515_1_, String[] p_71515_2_) {
 		if (p_71515_2_.length < 2)
-			throw new WrongUsageException("commands.message.usage", new Object[0]);
+			throw new WrongUsageException("commands.message.usage");
 		else {
 			EntityPlayerMP entityplayermp = getPlayer(p_71515_1_, p_71515_2_[0]);
 
 			if (entityplayermp == null)
 				throw new PlayerNotFoundException();
 			else if (entityplayermp == p_71515_1_)
-				throw new PlayerNotFoundException("commands.message.sameTarget", new Object[0]);
+				throw new PlayerNotFoundException("commands.message.sameTarget");
 			else {
 				IChatComponent ichatcomponent = func_147176_a(p_71515_1_, p_71515_2_, 1,
 						!(p_71515_1_ instanceof EntityPlayer));
 				ChatComponentTranslation chatcomponenttranslation = new ChatComponentTranslation(
 						"commands.message.display.incoming",
-						new Object[] { p_71515_1_.func_145748_c_(), ichatcomponent.createCopy() });
+						p_71515_1_.func_145748_c_(), ichatcomponent.createCopy());
 				ChatComponentTranslation chatcomponenttranslation1 = new ChatComponentTranslation(
 						"commands.message.display.outgoing",
-						new Object[] { entityplayermp.func_145748_c_(), ichatcomponent.createCopy() });
+						entityplayermp.func_145748_c_(), ichatcomponent.createCopy());
 				chatcomponenttranslation.getChatStyle().setColor(EnumChatFormatting.GRAY)
 						.setItalic(Boolean.valueOf(true));
 				chatcomponenttranslation1.getChatStyle().setColor(EnumChatFormatting.GRAY)

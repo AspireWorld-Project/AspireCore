@@ -182,7 +182,7 @@ public class ChatController implements IChatCallbacks {
 
 			if (ErrorCode.failed(errorcode)) {
 				String s = ErrorCode.getString(errorcode);
-				func_152995_h(String.format("Error disconnecting: %s", new Object[] { s }));
+				func_152995_h(String.format("Error disconnecting: %s", s));
 				return false;
 			}
 
@@ -200,7 +200,7 @@ public class ChatController implements IChatCallbacks {
 
 			if (ErrorCode.failed(errorcode)) {
 				String s1 = ErrorCode.getString(errorcode);
-				func_152995_h(String.format("Error initializing chat: %s", new Object[] { s1 }));
+				func_152995_h(String.format("Error initializing chat: %s", s1));
 				func_152989_q();
 				return false;
 			} else {
@@ -218,7 +218,7 @@ public class ChatController implements IChatCallbacks {
 
 			if (ErrorCode.failed(errorcode)) {
 				String s = ErrorCode.getString(errorcode);
-				func_152995_h(String.format("Error shutting down chat: %s", new Object[] { s }));
+				func_152995_h(String.format("Error shutting down chat: %s", s));
 				return false;
 			}
 		}
@@ -226,7 +226,7 @@ public class ChatController implements IChatCallbacks {
 		field_153011_i = ChatController.ChatState.Uninitialized;
 		field_153009_g = false;
 		func_152996_t();
-		field_153008_f.setChatCallbacks((IChatCallbacks) null);
+		field_153008_f.setChatCallbacks(null);
 		return true;
 	}
 
@@ -237,7 +237,7 @@ public class ChatController implements IChatCallbacks {
 
 			if (ErrorCode.failed(errorcode)) {
 				s = ErrorCode.getString(errorcode);
-				func_152995_h(String.format("Error flushing chat events: %s", new Object[] { s }));
+				func_152995_h(String.format("Error flushing chat events: %s", s));
 			}
 
 			switch (ChatController.SwitchChatState.field_152983_b[field_153011_i.ordinal()]) {
@@ -255,7 +255,7 @@ public class ChatController implements IChatCallbacks {
 
 				if (ErrorCode.failed(errorcode)) {
 					s = ErrorCode.getString(errorcode);
-					func_152995_h(String.format("Error connecting: %s", new Object[] { s }));
+					func_152995_h(String.format("Error connecting: %s", s));
 					func_152993_m();
 					func_152989_q();
 				} else {
@@ -278,7 +278,7 @@ public class ChatController implements IChatCallbacks {
 
 			if (ErrorCode.failed(errorcode)) {
 				String s1 = ErrorCode.getString(errorcode);
-				func_152995_h(String.format("Error sending chat message: %s", new Object[] { s1 }));
+				func_152995_h(String.format("Error sending chat message: %s", s1));
 				return false;
 			} else
 				return true;
@@ -327,7 +327,7 @@ public class ChatController implements IChatCallbacks {
 	}
 
 	protected void func_152995_h(String p_152995_1_) {
-		field_153018_p.error(TwitchStream.field_152949_a, "[Chat controller] {}", new Object[] { p_152995_1_ });
+		field_153018_p.error(TwitchStream.field_152949_a, "[Chat controller] {}", p_152995_1_);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -344,7 +344,7 @@ public class ChatController implements IChatCallbacks {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static enum ChatState {
+	public enum ChatState {
 		Uninitialized, Initialized, Connecting, Connected, Disconnected;
 
 		private static final String __OBFID = "CL_00001817";
@@ -362,31 +362,26 @@ public class ChatController implements IChatCallbacks {
 			try {
 				field_152983_b[ChatController.ChatState.Uninitialized.ordinal()] = 1;
 			} catch (NoSuchFieldError var7) {
-				;
 			}
 
 			try {
 				field_152983_b[ChatController.ChatState.Initialized.ordinal()] = 2;
 			} catch (NoSuchFieldError var6) {
-				;
 			}
 
 			try {
 				field_152983_b[ChatController.ChatState.Connecting.ordinal()] = 3;
 			} catch (NoSuchFieldError var5) {
-				;
 			}
 
 			try {
 				field_152983_b[ChatController.ChatState.Connected.ordinal()] = 4;
 			} catch (NoSuchFieldError var4) {
-				;
 			}
 
 			try {
 				field_152983_b[ChatController.ChatState.Disconnected.ordinal()] = 5;
 			} catch (NoSuchFieldError var3) {
-				;
 			}
 
 			field_152982_a = new int[ChatEvent.values().length];
@@ -394,13 +389,11 @@ public class ChatController implements IChatCallbacks {
 			try {
 				field_152982_a[ChatEvent.TTV_CHAT_JOINED_CHANNEL.ordinal()] = 1;
 			} catch (NoSuchFieldError var2) {
-				;
 			}
 
 			try {
 				field_152982_a[ChatEvent.TTV_CHAT_LEFT_CHANNEL.ordinal()] = 2;
 			} catch (NoSuchFieldError var1) {
-				;
 			}
 		}
 	}

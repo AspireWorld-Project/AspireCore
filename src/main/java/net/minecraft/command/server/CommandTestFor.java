@@ -26,9 +26,9 @@ public class CommandTestFor extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender p_71515_1_, String[] p_71515_2_) {
 		if (p_71515_2_.length != 1)
-			throw new WrongUsageException("commands.testfor.usage", new Object[0]);
+			throw new WrongUsageException("commands.testfor.usage");
 		else if (!(p_71515_1_ instanceof CommandBlockLogic))
-			throw new CommandException("commands.testfor.failed", new Object[0]);
+			throw new CommandException("commands.testfor.failed");
 		else {
 			getPlayer(p_71515_1_, p_71515_2_[0]);
 		}

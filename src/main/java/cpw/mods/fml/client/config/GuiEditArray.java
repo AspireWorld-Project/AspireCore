@@ -40,13 +40,13 @@ public class GuiEditArray extends GuiScreen {
 	protected IConfigElement configElement;
 	private GuiEditArrayEntries entryList;
 	private GuiButtonExt btnUndoChanges, btnDefault, btnDone;
-	private String title;
+	private final String title;
 	protected String titleLine2;
 	protected String titleLine3;
 	protected int slotIndex;
 	private final Object[] beforeValues;
 	private Object[] currentValues;
-	private HoverChecker tooltipHoverChecker;
+	private final HoverChecker tooltipHoverChecker;
 	@SuppressWarnings("rawtypes")
 	private List toolTip;
 	protected boolean enabled;

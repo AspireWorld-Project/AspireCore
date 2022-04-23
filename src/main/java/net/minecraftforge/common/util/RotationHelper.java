@@ -22,7 +22,7 @@ public class RotationHelper {
 	 * itemID) should be listed as a type. Some of the types aren't actual blocks
 	 * (helper types).
 	 */
-	private static enum BlockType {
+	private enum BlockType {
 		LOG, DISPENSER, BED, RAIL, RAIL_POWERED, RAIL_ASCENDING, RAIL_CORNER, TORCH, STAIR, CHEST, SIGNPOST, DOOR, LEVER, BUTTON, REDSTONE_REPEATER, TRAPDOOR, MUSHROOM_CAP, MUSHROOM_CAP_CORNER, MUSHROOM_CAP_SIDE, VINE, SKULL, ANVIL
 	}
 

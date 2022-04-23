@@ -18,7 +18,7 @@ public class Util {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static enum EnumOS {
+	public enum EnumOS {
 		LINUX, SOLARIS, WINDOWS, OSX, UNKNOWN;
 
 		private static final String __OBFID = "CL_00001660";

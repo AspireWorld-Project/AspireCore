@@ -22,10 +22,10 @@ import java.util.Set;
 
 public class ASMDataTable {
 	public final static class ASMData implements Cloneable {
-		private ModCandidate candidate;
-		private String annotationName;
-		private String className;
-		private String objectName;
+		private final ModCandidate candidate;
+		private final String annotationName;
+		private final String className;
+		private final String objectName;
 		private Map<String, Object> annotationInfo;
 
 		public ASMData(ModCandidate candidate, String annotationName, String className, String objectName,
@@ -69,7 +69,7 @@ public class ASMDataTable {
 	}
 
 	private static class ModContainerPredicate implements Predicate<ASMData> {
-		private ModContainer container;
+		private final ModContainer container;
 
 		public ModContainerPredicate(ModContainer container) {
 			this.container = container;
@@ -81,16 +81,16 @@ public class ASMDataTable {
 		}
 	}
 
-	private SetMultimap<String, ASMData> globalAnnotationData = HashMultimap.create();
+	private final SetMultimap<String, ASMData> globalAnnotationData = HashMultimap.create();
 	private Map<ModContainer, SetMultimap<String, ASMData>> containerAnnotationData;
 
-	private List<ModContainer> containers = Lists.newArrayList();
-	private SetMultimap<String, ModCandidate> packageMap = HashMultimap.create();
+	private final List<ModContainer> containers = Lists.newArrayList();
+	private final SetMultimap<String, ModCandidate> packageMap = HashMultimap.create();
 
 	public SetMultimap<String, ASMData> getAnnotationsFor(ModContainer container) {
 		if (containerAnnotationData == null) {
 			ImmutableMap.Builder<ModContainer, SetMultimap<String, ASMData>> mapBuilder = ImmutableMap
-					.<ModContainer, SetMultimap<String, ASMData>>builder();
+					.builder();
 			for (ModContainer cont : containers) {
 				Multimap<String, ASMData> values = Multimaps.filterValues(globalAnnotationData,
 						new ModContainerPredicate(cont));

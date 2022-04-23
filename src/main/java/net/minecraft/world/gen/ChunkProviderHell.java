@@ -30,7 +30,7 @@ import static net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.Ev
 import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.*;
 
 public class ChunkProviderHell implements IChunkProvider {
-	private Random hellRNG;
+	private final Random hellRNG;
 	private NoiseGeneratorOctaves netherNoiseGen1;
 	private NoiseGeneratorOctaves netherNoiseGen2;
 	private NoiseGeneratorOctaves netherNoiseGen3;
@@ -38,7 +38,7 @@ public class ChunkProviderHell implements IChunkProvider {
 	private NoiseGeneratorOctaves netherrackExculsivityNoiseGen;
 	public NoiseGeneratorOctaves netherNoiseGen6;
 	public NoiseGeneratorOctaves netherNoiseGen7;
-	private World worldObj;
+	private final World worldObj;
 	private double[] noiseField;
 	public MapGenNetherBridge genNetherBridge = new MapGenNetherBridge();
 	private double[] slowsandNoise = new double[256];
@@ -240,7 +240,7 @@ public class ChunkProviderHell implements IChunkProvider {
 		hellRNG.setSeed(p_73154_1_ * 341873128712L + p_73154_2_ * 132897987541L);
 		Block[] ablock = new Block[32768];
 		byte[] meta = new byte[ablock.length];
-		BiomeGenBase[] abiomegenbase = worldObj.getWorldChunkManager().loadBlockGeneratorData((BiomeGenBase[]) null,
+		BiomeGenBase[] abiomegenbase = worldObj.getWorldChunkManager().loadBlockGeneratorData(null,
 				p_73154_1_ * 16, p_73154_2_ * 16, 16, 16); // Forge Move
 															// up to
 															// allow for
@@ -540,6 +540,6 @@ public class ChunkProviderHell implements IChunkProvider {
 
 	@Override
 	public void recreateStructures(int p_82695_1_, int p_82695_2_) {
-		genNetherBridge.func_151539_a(this, worldObj, p_82695_1_, p_82695_2_, (Block[]) null);
+		genNetherBridge.func_151539_a(this, worldObj, p_82695_1_, p_82695_2_, null);
 	}
 }

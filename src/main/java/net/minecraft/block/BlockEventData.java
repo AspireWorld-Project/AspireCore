@@ -3,12 +3,12 @@ package net.minecraft.block;
 import com.mojang.authlib.GameProfile;
 
 public class BlockEventData {
-	private int coordX;
-	private int coordY;
-	private int coordZ;
-	private Block field_151344_d;
-	private int eventID;
-	private int eventParameter;
+	private final int coordX;
+	private final int coordY;
+	private final int coordZ;
+	private final Block field_151344_d;
+	private final int eventID;
+	private final int eventParameter;
 	private static final String __OBFID = "CL_00000131";
 
 	public GameProfile initiator;

@@ -179,7 +179,7 @@ public class ChunkProviderServer implements IChunkProvider {
 								"Exception generating new chunk");
 						CrashReportCategory crashreportcategory = crashreport.makeCategory("Chunk to be generated");
 						crashreportcategory.addCrashSection("Location",
-								String.format("%d,%d", new Object[] { Integer.valueOf(par1), Integer.valueOf(par2) }));
+								String.format("%d,%d", Integer.valueOf(par1), Integer.valueOf(par2)));
 						crashreportcategory.addCrashSection("Position hash", Long.valueOf(k));
 						crashreportcategory.addCrashSection("Generator", currentChunkProvider.makeString());
 						throw new ReportedException(crashreport);
@@ -219,7 +219,7 @@ public class ChunkProviderServer implements IChunkProvider {
 
 				return chunk;
 			} catch (Exception exception) {
-				logger.error("Couldn\'t load chunk", exception);
+				logger.error("Couldn't load chunk", exception);
 				return null;
 			}
 		}
@@ -230,7 +230,7 @@ public class ChunkProviderServer implements IChunkProvider {
 			try {
 				currentChunkLoader.saveExtraChunkData(worldObj, par1Chunk);
 			} catch (Exception exception) {
-				logger.error("Couldn\'t save entities", exception);
+				logger.error("Couldn't save entities", exception);
 			}
 		}
 	}
@@ -241,9 +241,9 @@ public class ChunkProviderServer implements IChunkProvider {
 				par1Chunk.lastSaveTime = worldObj.getTotalWorldTime();
 				currentChunkLoader.saveChunk(worldObj, par1Chunk);
 			} catch (IOException ioexception) {
-				logger.error("Couldn\'t save chunk", ioexception);
+				logger.error("Couldn't save chunk", ioexception);
 			} catch (MinecraftException minecraftexception) {
-				logger.error("Couldn\'t save chunk; already in use by another instance of Minecraft?",
+				logger.error("Couldn't save chunk; already in use by another instance of Minecraft?",
 						minecraftexception);
 			}
 		}

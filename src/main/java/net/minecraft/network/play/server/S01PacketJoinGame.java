@@ -76,9 +76,9 @@ public class S01PacketJoinGame extends Packet {
 	@Override
 	public String serialize() {
 		return String.format("eid=%d, gameType=%d, hardcore=%b, dimension=%d, difficulty=%s, maxplayers=%d",
-				new Object[] { Integer.valueOf(field_149206_a), Integer.valueOf(field_149205_c.getID()),
-						Boolean.valueOf(field_149204_b), Integer.valueOf(field_149202_d), field_149203_e,
-						Integer.valueOf(field_149200_f) });
+				Integer.valueOf(field_149206_a), Integer.valueOf(field_149205_c.getID()),
+				Boolean.valueOf(field_149204_b), Integer.valueOf(field_149202_d), field_149203_e,
+				Integer.valueOf(field_149200_f));
 	}
 
 	@SideOnly(Side.CLIENT)

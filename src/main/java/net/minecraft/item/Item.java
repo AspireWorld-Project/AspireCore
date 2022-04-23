@@ -387,7 +387,7 @@ public class Item {
 				new ItemNameTag().setUnlocalizedName("nameTag").setTextureName("name_tag"));
 		itemRegistry.addObject(422, "command_block_minecart",
 				new ItemMinecart(6).setUnlocalizedName("minecartCommandBlock").setTextureName("minecart_command_block")
-						.setCreativeTab((CreativeTabs) null));
+						.setCreativeTab(null));
 		itemRegistry.addObject(2256, "record_13",
 				new ItemRecord("13").setUnlocalizedName("record").setTextureName("record_13"));
 		itemRegistry.addObject(2257, "record_cat",
@@ -412,13 +412,13 @@ public class Item {
 				new ItemRecord("11").setUnlocalizedName("record").setTextureName("record_11"));
 		itemRegistry.addObject(2267, "record_wait",
 				new ItemRecord("wait").setUnlocalizedName("record").setTextureName("record_wait"));
-		HashSet hashset = Sets.newHashSet(new Block[] { Blocks.air, Blocks.brewing_stand, Blocks.bed,
-				Blocks.nether_wart, Blocks.cauldron, Blocks.flower_pot, Blocks.wheat, Blocks.reeds, Blocks.cake,
-				Blocks.skull, Blocks.piston_head, Blocks.piston_extension, Blocks.lit_redstone_ore,
-				Blocks.powered_repeater, Blocks.pumpkin_stem, Blocks.standing_sign, Blocks.powered_comparator,
-				Blocks.tripwire, Blocks.lit_redstone_lamp, Blocks.melon_stem, Blocks.unlit_redstone_torch,
-				Blocks.unpowered_comparator, Blocks.redstone_wire, Blocks.wall_sign, Blocks.unpowered_repeater,
-				Blocks.iron_door, Blocks.wooden_door });
+		HashSet hashset = Sets.newHashSet(Blocks.air, Blocks.brewing_stand, Blocks.bed,
+                Blocks.nether_wart, Blocks.cauldron, Blocks.flower_pot, Blocks.wheat, Blocks.reeds, Blocks.cake,
+                Blocks.skull, Blocks.piston_head, Blocks.piston_extension, Blocks.lit_redstone_ore,
+                Blocks.powered_repeater, Blocks.pumpkin_stem, Blocks.standing_sign, Blocks.powered_comparator,
+                Blocks.tripwire, Blocks.lit_redstone_lamp, Blocks.melon_stem, Blocks.unlit_redstone_torch,
+                Blocks.unpowered_comparator, Blocks.redstone_wire, Blocks.wall_sign, Blocks.unpowered_repeater,
+                Blocks.iron_door, Blocks.wooden_door);
 		Iterator iterator = Block.blockRegistry.getKeys().iterator();
 
 		while (iterator.hasNext()) {
@@ -1398,7 +1398,7 @@ public class Item {
 		return this.getItemStackLimit();
 	}
 
-	private HashMap<String, Integer> toolClasses = new HashMap<>();
+	private final HashMap<String, Integer> toolClasses = new HashMap<>();
 
 	/**
 	 * Sets or removes the harvest level for the specified tool class.
@@ -1461,7 +1461,7 @@ public class Item {
 	 * =====================================
 	 */
 
-	public static enum ToolMaterial {
+	public enum ToolMaterial {
 		WOOD(0, 59, 2.0F, 0.0F, 15), STONE(1, 131, 4.0F, 1.0F, 5), IRON(2, 250, 6.0F, 2.0F, 14), EMERALD(3, 1561, 8.0F,
 				3.0F, 10), GOLD(0, 32, 12.0F, 0.0F, 22);
 		private final int harvestLevel;
@@ -1477,7 +1477,7 @@ public class Item {
 		public Item customCraftingMaterial = null;
 		private ItemStack repairMaterial = null;
 
-		private ToolMaterial(int p_i1874_3_, int p_i1874_4_, float p_i1874_5_, float p_i1874_6_, int p_i1874_7_) {
+		ToolMaterial(int p_i1874_3_, int p_i1874_4_, float p_i1874_5_, float p_i1874_6_, int p_i1874_7_) {
 			harvestLevel = p_i1874_3_;
 			maxUses = p_i1874_4_;
 			efficiencyOnProperMaterial = p_i1874_5_;

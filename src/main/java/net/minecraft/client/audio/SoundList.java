@@ -97,13 +97,13 @@ public class SoundList {
 		}
 
 		@SideOnly(Side.CLIENT)
-		public static enum Type {
+		public enum Type {
 			FILE("file"), SOUND_EVENT("event");
 			private final String field_148583_c;
 
 			private static final String __OBFID = "CL_00001123";
 
-			private Type(String p_i45109_3_) {
+			Type(String p_i45109_3_) {
 				field_148583_c = p_i45109_3_;
 			}
 

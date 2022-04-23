@@ -6,7 +6,7 @@ import cpw.mods.fml.common.toposort.ModSortingException.SortingExceptionData;
 import net.minecraft.client.gui.GuiScreen;
 
 public class GuiSortingProblem extends GuiScreen {
-	private SortingExceptionData<ModContainer> failedList;
+	private final SortingExceptionData<ModContainer> failedList;
 
 	public GuiSortingProblem(ModSortingException modSorting) {
 		failedList = modSorting.getExceptionData();

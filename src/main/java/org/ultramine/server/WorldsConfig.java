@@ -42,7 +42,7 @@ public class WorldsConfig {
 			public MobSpawnEngine spawnEngine = MobSpawnEngine.OLD;
 			public NewEngineSettings newEngineSettings;
 
-			public static enum MobSpawnEngine {
+			public enum MobSpawnEngine {
 				OLD, NEW, NONE
 			}
 

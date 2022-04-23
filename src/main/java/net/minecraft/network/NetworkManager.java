@@ -80,7 +80,7 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 
 	@Override
 	public void channelInactive(ChannelHandlerContext p_channelInactive_1_) {
-		closeChannel(new ChatComponentTranslation("disconnect.endOfStream", new Object[0]));
+		closeChannel(new ChatComponentTranslation("disconnect.endOfStream"));
 	}
 
 	@Override
@@ -88,7 +88,7 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 		ChatComponentTranslation chatcomponenttranslation;
 
 		if (p_exceptionCaught_2_ instanceof TimeoutException) {
-			chatcomponenttranslation = new ChatComponentTranslation("disconnect.timeout", new Object[0]);
+			chatcomponenttranslation = new ChatComponentTranslation("disconnect.timeout");
 		} else {
 			chatcomponenttranslation = new ChatComponentTranslation("disconnect.genericReason",
 					"Internal Exception: " + p_exceptionCaught_2_);
@@ -108,8 +108,8 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	}
 
 	public void setNetHandler(INetHandler p_150719_1_) {
-		Validate.notNull(p_150719_1_, "packetListener", new Object[0]);
-		logger.debug("Set listener of {} to {}", new Object[] { this, p_150719_1_ });
+		Validate.notNull(p_150719_1_, "packetListener");
+		logger.debug("Set listener of {} to {}", this, p_150719_1_);
 		netHandler = p_150719_1_;
 	}
 
@@ -250,13 +250,11 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 				try {
 					p_initChannel_1_.config().setOption(ChannelOption.IP_TOS, Integer.valueOf(24));
 				} catch (ChannelException ignored) {
-					;
 				}
 
 				try {
 					p_initChannel_1_.config().setOption(ChannelOption.TCP_NODELAY, Boolean.valueOf(false));
 				} catch (ChannelException ignored) {
-					;
 				}
 
 				p_initChannel_1_.pipeline().addLast("timeout", new ReadTimeoutHandler(20))

@@ -17,8 +17,8 @@ import net.minecraft.world.gen.structure.*;
 import java.util.*;
 
 public class ChunkProviderFlat implements IChunkProvider {
-	private World worldObj;
-	private Random random;
+	private final World worldObj;
+	private final Random random;
 	private final Block[] cachedBlockIDs = new Block[256];
 	private final byte[] cachedBlockMetadata = new byte[256];
 	private final FlatGeneratorInfo flatWorldGenInfo;
@@ -115,7 +115,7 @@ public class ChunkProviderFlat implements IChunkProvider {
 		}
 
 		chunk.generateSkylightMap();
-		BiomeGenBase[] abiomegenbase = worldObj.getWorldChunkManager().loadBlockGeneratorData((BiomeGenBase[]) null,
+		BiomeGenBase[] abiomegenbase = worldObj.getWorldChunkManager().loadBlockGeneratorData(null,
 				p_73154_1_ * 16, p_73154_2_ * 16, 16, 16);
 		byte[] abyte = chunk.getBiomeArray();
 
@@ -127,7 +127,7 @@ public class ChunkProviderFlat implements IChunkProvider {
 
 		while (iterator.hasNext()) {
 			MapGenBase mapgenbase = (MapGenBase) iterator.next();
-			mapgenbase.func_151539_a(this, worldObj, p_73154_1_, p_73154_2_, (Block[]) null);
+			mapgenbase.func_151539_a(this, worldObj, p_73154_1_, p_73154_2_, null);
 		}
 
 		chunk.generateSkylightMap();
@@ -253,7 +253,7 @@ public class ChunkProviderFlat implements IChunkProvider {
 
 		while (iterator.hasNext()) {
 			MapGenStructure mapgenstructure = (MapGenStructure) iterator.next();
-			mapgenstructure.func_151539_a(this, worldObj, p_82695_1_, p_82695_2_, (Block[]) null);
+			mapgenstructure.func_151539_a(this, worldObj, p_82695_1_, p_82695_2_, null);
 		}
 	}
 }

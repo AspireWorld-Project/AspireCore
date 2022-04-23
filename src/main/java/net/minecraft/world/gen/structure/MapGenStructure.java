@@ -50,7 +50,7 @@ public abstract class MapGenStructure extends MapGenBase {
 					}
 				});
 				crashreportcategory.addCrashSection("Chunk location", String.format("%d,%d",
-						new Object[] { Integer.valueOf(p_151538_2_), Integer.valueOf(p_151538_3_) }));
+						Integer.valueOf(p_151538_2_), Integer.valueOf(p_151538_3_)));
 				crashreportcategory.addCrashSectionCallable("Chunk pos hash", new Callable() {
 					private static final String __OBFID = "CL_00000507";
 
@@ -145,7 +145,7 @@ public abstract class MapGenStructure extends MapGenBase {
 		long j1 = (p_151545_2_ >> 4) * l;
 		long k1 = (p_151545_4_ >> 4) * i1;
 		rand.setSeed(j1 ^ k1 ^ p_151545_1_.getSeed());
-		func_151538_a(p_151545_1_, p_151545_2_ >> 4, p_151545_4_ >> 4, 0, 0, (Block[]) null);
+		func_151538_a(p_151545_1_, p_151545_2_ >> 4, p_151545_4_ >> 4, 0, 0, null);
 		double d0 = Double.MAX_VALUE;
 		ChunkPosition chunkposition = null;
 		Iterator iterator = structureMap.values().iterator();

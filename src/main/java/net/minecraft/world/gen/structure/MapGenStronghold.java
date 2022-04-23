@@ -48,12 +48,12 @@ public class MapGenStronghold extends MapGenStructure {
 		while (iterator.hasNext()) {
 			Entry entry = (Entry) iterator.next();
 
-			if (((String) entry.getKey()).equals("distance")) {
+			if (entry.getKey().equals("distance")) {
 				field_82671_h = MathHelper.parseDoubleWithDefaultAndMax((String) entry.getValue(), field_82671_h, 1.0D);
-			} else if (((String) entry.getKey()).equals("count")) {
+			} else if (entry.getKey().equals("count")) {
 				structureCoords = new ChunkCoordIntPair[MathHelper.parseIntWithDefaultAndMax((String) entry.getValue(),
 						structureCoords.length, 1)];
-			} else if (((String) entry.getKey()).equals("spread")) {
+			} else if (entry.getKey().equals("spread")) {
 				field_82672_i = MathHelper.parseIntWithDefaultAndMax((String) entry.getValue(), field_82672_i, 1);
 			}
 		}
@@ -134,7 +134,6 @@ public class MapGenStronghold extends MapGenStructure {
 				|| ((StructureStrongholdPieces.Stairs2) start.getComponents()
 						.get(0)).strongholdPortalRoom == null; start = new MapGenStronghold.Start(worldObj, rand,
 								p_75049_1_, p_75049_2_)) {
-			;
 		}
 
 		return start;

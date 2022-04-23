@@ -5,8 +5,8 @@ import net.minecraft.world.ChunkCoordIntPair;
 
 // Sorter to load nearby chunks first
 public class ChunkCoordComparator implements java.util.Comparator<ChunkCoordIntPair> {
-	private int x;
-	private int z;
+	private final int x;
+	private final int z;
 
 	public ChunkCoordComparator(EntityPlayerMP entityplayer) {
 		x = (int) entityplayer.posX >> 4;

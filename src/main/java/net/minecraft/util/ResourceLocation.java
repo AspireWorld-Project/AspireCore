@@ -25,7 +25,7 @@ public class ResourceLocation {
 		int i = p_i1293_1_.indexOf(58);
 
 		if (i >= 0) {
-			s2 = p_i1293_1_.substring(i + 1, p_i1293_1_.length());
+			s2 = p_i1293_1_.substring(i + 1);
 
 			if (i > 1) {
 				s1 = p_i1293_1_.substring(0, i);

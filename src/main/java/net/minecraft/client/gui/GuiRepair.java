@@ -23,9 +23,9 @@ import java.util.List;
 @SideOnly(Side.CLIENT)
 public class GuiRepair extends GuiContainer implements ICrafting {
 	private static final ResourceLocation field_147093_u = new ResourceLocation("textures/gui/container/anvil.png");
-	private ContainerRepair field_147092_v;
+	private final ContainerRepair field_147092_v;
 	private GuiTextField field_147091_w;
-	private InventoryPlayer field_147094_x;
+	private final InventoryPlayer field_147094_x;
 	private static final String __OBFID = "CL_00000738";
 
 	public GuiRepair(InventoryPlayer p_i1073_1_, World p_i1073_2_, int p_i1073_3_, int p_i1073_4_, int p_i1073_5_) {
@@ -61,16 +61,16 @@ public class GuiRepair extends GuiContainer implements ICrafting {
 	protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_) {
 		GL11.glDisable(GL11.GL_LIGHTING);
 		GL11.glDisable(GL11.GL_BLEND);
-		fontRendererObj.drawString(I18n.format("container.repair", new Object[0]), 60, 6, 4210752);
+		fontRendererObj.drawString(I18n.format("container.repair"), 60, 6, 4210752);
 
 		if (field_147092_v.maximumCost > 0) {
 			int k = 8453920;
 			boolean flag = true;
 			String s = I18n.format("container.repair.cost",
-					new Object[] { Integer.valueOf(field_147092_v.maximumCost) });
+					Integer.valueOf(field_147092_v.maximumCost));
 
 			if (field_147092_v.maximumCost >= 40 && !mc.thePlayer.capabilities.isCreativeMode) {
-				s = I18n.format("container.repair.expensive", new Object[0]);
+				s = I18n.format("container.repair.expensive");
 				k = 16736352;
 			} else if (!field_147092_v.getSlot(2).getHasStack()) {
 				flag = false;

@@ -51,7 +51,7 @@ public class EntityEnderPearl extends EntityThrowable {
 						setDead();
 						return;
 					}
-					CraftPlayer player = (CraftPlayer) entityplayermp.getBukkitEntity();
+					CraftPlayer player = entityplayermp.getBukkitEntity();
 					Location location = this.getBukkitEntity().getLocation();
 					location.setPitch(player.getLocation().getPitch());
 					location.setYaw(player.getLocation().getYaw());

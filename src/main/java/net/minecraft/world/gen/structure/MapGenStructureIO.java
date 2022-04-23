@@ -10,10 +10,10 @@ import java.util.Map;
 
 public class MapGenStructureIO {
 	private static final Logger logger = LogManager.getLogger();
-	private static Map field_143040_a = new HashMap();
-	private static Map field_143038_b = new HashMap();
-	private static Map field_143039_c = new HashMap();
-	private static Map field_143037_d = new HashMap();
+	private static final Map field_143040_a = new HashMap();
+	private static final Map field_143038_b = new HashMap();
+	private static final Map field_143039_c = new HashMap();
+	private static final Map field_143037_d = new HashMap();
 	private static final String __OBFID = "CL_00000509";
 
 	public static void registerStructure(Class p_143034_0_, String p_143034_1_) {

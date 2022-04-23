@@ -38,9 +38,9 @@ public class Checksum {
 
 	static final boolean debug = false;
 
-	private Map<Long, Integer> checksums = Maps.newHashMap();
+	private final Map<Long, Integer> checksums = Maps.newHashMap();
 
-	private static final char single_hash[] = {
+	private static final char[] single_hash = {
 			/* Random numbers generated using SLIB's pseudo-random number generator. */
 			0xbcd1, 0xbb65, 0x42c2, 0xdffe, 0x9666, 0x431b, 0x8504, 0xeb46, 0x6379, 0xd460, 0xcf14, 0x53cf, 0xdb51,
 			0xdb08, 0x12c8, 0xf602, 0xe766, 0x2394, 0x250d, 0xdcbb, 0xa678, 0x02af, 0xa5c6, 0x7ea6, 0xb645, 0xcb4d,

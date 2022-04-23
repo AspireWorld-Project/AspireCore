@@ -26,7 +26,7 @@ public class ChannelRegistrationHandler extends SimpleChannelInboundHandler<FMLP
 			String[] split = channels.split("\0");
 			// Cauldron start - register bukkit channels for players
 			NetworkDispatcher dispatcher = ctx.channel().attr(NetworkDispatcher.FML_DISPATCHER).get();
-			CraftPlayer player = (CraftPlayer) dispatcher.getPlayer().getBukkitEntity();
+			CraftPlayer player = dispatcher.getPlayer().getBukkitEntity();
 			if (msg.channel().equals("REGISTER")) {
 				for (String channel : split) {
 					player.addChannel(channel);

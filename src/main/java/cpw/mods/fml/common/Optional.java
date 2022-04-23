@@ -33,7 +33,7 @@ public final class Optional {
 		 *
 		 * @return
 		 */
-		public Interface[] value();
+        Interface[] value();
 	}
 
 	/**
@@ -50,14 +50,14 @@ public final class Optional {
 		 *
 		 * @return the interface name
 		 */
-		public String iface();
+        String iface();
 
 		/**
 		 * The modid that is required to be present for stripping NOT to occur
 		 *
 		 * @return the modid
 		 */
-		public String modid();
+        String modid();
 
 		/**
 		 * Strip references to this interface in method declarations? (Useful to kill
@@ -65,7 +65,7 @@ public final class Optional {
 		 *
 		 * @return if references should be stripped
 		 */
-		public boolean striprefs() default false;
+        boolean striprefs() default false;
 	}
 
 	/**
@@ -82,6 +82,6 @@ public final class Optional {
 		 *
 		 * @return the modid
 		 */
-		public String modid();
+        String modid();
 	}
 }

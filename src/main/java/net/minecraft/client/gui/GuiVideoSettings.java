@@ -8,9 +8,9 @@ import net.minecraft.client.settings.GameSettings;
 
 @SideOnly(Side.CLIENT)
 public class GuiVideoSettings extends GuiScreen {
-	private GuiScreen parentGuiScreen;
+	private final GuiScreen parentGuiScreen;
 	protected String screenTitle = "Video Settings";
-	private GameSettings guiGameSettings;
+	private final GameSettings guiGameSettings;
 	private GuiListExtended optionsRowList;
 	private static final GameSettings.Options[] videoOptions = new GameSettings.Options[] {
 			GameSettings.Options.GRAPHICS, GameSettings.Options.RENDER_DISTANCE, GameSettings.Options.AMBIENT_OCCLUSION,
@@ -28,9 +28,9 @@ public class GuiVideoSettings extends GuiScreen {
 
 	@Override
 	public void initGui() {
-		screenTitle = I18n.format("options.videoTitle", new Object[0]);
+		screenTitle = I18n.format("options.videoTitle");
 		buttonList.clear();
-		buttonList.add(new GuiButton(200, width / 2 - 100, height - 27, I18n.format("gui.done", new Object[0])));
+		buttonList.add(new GuiButton(200, width / 2 - 100, height - 27, I18n.format("gui.done")));
 
 		if (OpenGlHelper.field_153197_d) {
 			optionsRowList = new GuiOptionsRowList(mc, width, height, 32, height - 32, 25, videoOptions);

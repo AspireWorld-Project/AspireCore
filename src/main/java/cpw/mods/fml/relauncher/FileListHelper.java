@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public final class FileListHelper {
-	private static enum CaseInsensitiveFileComparator implements Comparator<File> {
+	private enum CaseInsensitiveFileComparator implements Comparator<File> {
 		INSTANCE;
 		@Override
 		public int compare(File o1, File o2) {

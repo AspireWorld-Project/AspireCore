@@ -127,13 +127,9 @@ public class BlockTorch extends Block {
 			Block p_150108_5_) {
 		if (func_150109_e(p_150108_1_, p_150108_2_, p_150108_3_, p_150108_4_)) {
 			int l = p_150108_1_.getBlockMetadata(p_150108_2_, p_150108_3_, p_150108_4_);
-			boolean flag = false;
+			boolean flag = !p_150108_1_.isSideSolid(p_150108_2_ - 1, p_150108_3_, p_150108_4_, EAST, true) && l == 1;
 
-			if (!p_150108_1_.isSideSolid(p_150108_2_ - 1, p_150108_3_, p_150108_4_, EAST, true) && l == 1) {
-				flag = true;
-			}
-
-			if (!p_150108_1_.isSideSolid(p_150108_2_ + 1, p_150108_3_, p_150108_4_, WEST, true) && l == 2) {
+            if (!p_150108_1_.isSideSolid(p_150108_2_ + 1, p_150108_3_, p_150108_4_, WEST, true) && l == 2) {
 				flag = true;
 			}
 

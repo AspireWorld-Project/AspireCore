@@ -58,8 +58,8 @@ public class S10PacketSpawnPainting extends Packet {
 	@Override
 	public String serialize() {
 		return String.format("id=%d, type=%s, x=%d, y=%d, z=%d",
-				new Object[] { Integer.valueOf(field_148973_a), field_148968_f, Integer.valueOf(field_148971_b),
-						Integer.valueOf(field_148972_c), Integer.valueOf(field_148969_d) });
+				Integer.valueOf(field_148973_a), field_148968_f, Integer.valueOf(field_148971_b),
+				Integer.valueOf(field_148972_c), Integer.valueOf(field_148969_d));
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -10,8 +10,8 @@ public class HandshakeMessageHandler<S extends Enum<S> & IHandshakeState<S>>
 		extends SimpleChannelInboundHandler<FMLHandshakeMessage> {
 	private static final AttributeKey<IHandshakeState<?>> STATE = new AttributeKey<>("fml:handshake-state");
 	private final AttributeKey<S> fmlHandshakeState;
-	private S initialState;
-	private Class<S> stateType;
+	private final S initialState;
+	private final Class<S> stateType;
 
 	@SuppressWarnings("unchecked")
 	public HandshakeMessageHandler(Class<S> stateType) {

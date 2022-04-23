@@ -59,9 +59,9 @@ public class S2CPacketSpawnGlobalEntity extends Packet {
 	@Override
 	public String serialize() {
 		return String.format("id=%d, type=%d, x=%.2f, y=%.2f, z=%.2f",
-				new Object[] { Integer.valueOf(field_149059_a), Integer.valueOf(field_149056_e),
-						Float.valueOf(field_149057_b / 32.0F), Float.valueOf(field_149058_c / 32.0F),
-						Float.valueOf(field_149055_d / 32.0F) });
+				Integer.valueOf(field_149059_a), Integer.valueOf(field_149056_e),
+				Float.valueOf(field_149057_b / 32.0F), Float.valueOf(field_149058_c / 32.0F),
+				Float.valueOf(field_149055_d / 32.0F));
 	}
 
 	@SideOnly(Side.CLIENT)

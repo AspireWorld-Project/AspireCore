@@ -13,12 +13,12 @@ public class GuiConfirmOpenLink extends GuiYesNo {
 	private static final String __OBFID = "CL_00000683";
 
 	public GuiConfirmOpenLink(GuiYesNoCallback p_i1084_1_, String p_i1084_2_, int p_i1084_3_, boolean p_i1084_4_) {
-		super(p_i1084_1_, I18n.format(p_i1084_4_ ? "chat.link.confirmTrusted" : "chat.link.confirm", new Object[0]),
+		super(p_i1084_1_, I18n.format(p_i1084_4_ ? "chat.link.confirmTrusted" : "chat.link.confirm"),
 				p_i1084_2_, p_i1084_3_);
-		confirmButtonText = I18n.format(p_i1084_4_ ? "chat.link.open" : "gui.yes", new Object[0]);
-		cancelButtonText = I18n.format(p_i1084_4_ ? "gui.cancel" : "gui.no", new Object[0]);
-		copyLinkButtonText = I18n.format("chat.copy", new Object[0]);
-		openLinkWarning = I18n.format("chat.link.warning", new Object[0]);
+		confirmButtonText = I18n.format(p_i1084_4_ ? "chat.link.open" : "gui.yes");
+		cancelButtonText = I18n.format(p_i1084_4_ ? "gui.cancel" : "gui.no");
+		copyLinkButtonText = I18n.format("chat.copy");
+		openLinkWarning = I18n.format("chat.link.warning");
 		field_146361_t = p_i1084_2_;
 	}
 

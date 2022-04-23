@@ -58,13 +58,11 @@ public class NetworkSystem {
 							try {
 								p_initChannel_1_.config().setOption(ChannelOption.IP_TOS, Integer.valueOf(24));
 							} catch (ChannelException channelexception1) {
-								;
 							}
 
 							try {
 								p_initChannel_1_.config().setOption(ChannelOption.TCP_NODELAY, Boolean.valueOf(false));
 							} catch (ChannelException channelexception) {
-								;
 							}
 
 							p_initChannel_1_.pipeline()
@@ -153,14 +151,14 @@ public class NetworkSystem {
 						logger.warn("Failed to handle packet for " + networkmanager.getSocketAddress(), exception);
 						final ChatComponentText chatcomponenttext = new ChatComponentText("Internal server error");
 						networkmanager.scheduleOutboundPacket(new S40PacketDisconnect(chatcomponenttext),
-								new GenericFutureListener[] { new GenericFutureListener() {
+								new GenericFutureListener() {
 									private static final String __OBFID = "CL_00001451";
 
 									@Override
 									public void operationComplete(Future p_operationComplete_1_) {
 										networkmanager.closeChannel(chatcomponenttext);
 									}
-								} });
+								});
 						networkmanager.disableAutoRead();
 					}
 				}

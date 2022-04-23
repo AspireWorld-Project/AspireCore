@@ -23,8 +23,8 @@ public class EntityList {
 	public static Map stringToClassMapping = new HashMap();
 	public static Map classToStringMapping = new HashMap();
 	public static Map IDtoClassMapping = new HashMap();
-	private static Map classToIDMapping = new HashMap();
-	private static Map stringToIDMapping = new HashMap();
+	private static final Map classToIDMapping = new HashMap();
+	private static final Map stringToIDMapping = new HashMap();
 	public static HashMap entityEggs = new LinkedHashMap();
 	private static final String __OBFID = "CL_00001538";
 

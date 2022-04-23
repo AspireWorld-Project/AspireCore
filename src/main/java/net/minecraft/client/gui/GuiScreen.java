@@ -56,19 +56,18 @@ public class GuiScreen extends Gui {
 
 	protected void keyTyped(char p_73869_1_, int p_73869_2_) {
 		if (p_73869_2_ == 1) {
-			mc.displayGuiScreen((GuiScreen) null);
+			mc.displayGuiScreen(null);
 			mc.setIngameFocus();
 		}
 	}
 
 	public static String getClipboardString() {
 		try {
-			Transferable transferable = Toolkit.getDefaultToolkit().getSystemClipboard().getContents((Object) null);
+			Transferable transferable = Toolkit.getDefaultToolkit().getSystemClipboard().getContents(null);
 
 			if (transferable != null && transferable.isDataFlavorSupported(DataFlavor.stringFlavor))
 				return (String) transferable.getTransferData(DataFlavor.stringFlavor);
 		} catch (Exception exception) {
-			;
 		}
 
 		return "";
@@ -77,9 +76,8 @@ public class GuiScreen extends Gui {
 	public static void setClipboardString(String p_146275_0_) {
 		try {
 			StringSelection stringselection = new StringSelection(p_146275_0_);
-			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringselection, (ClipboardOwner) null);
+			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringselection, null);
 		} catch (Exception exception) {
-			;
 		}
 	}
 
@@ -99,7 +97,7 @@ public class GuiScreen extends Gui {
 	}
 
 	protected void drawCreativeTabHoveringText(String p_146279_1_, int p_146279_2_, int p_146279_3_) {
-		func_146283_a(Arrays.asList(new String[] { p_146279_1_ }), p_146279_2_, p_146279_3_);
+		func_146283_a(Arrays.asList(p_146279_1_), p_146279_2_, p_146279_3_);
 	}
 
 	protected void func_146283_a(List p_146283_1_, int p_146283_2_, int p_146283_3_) {

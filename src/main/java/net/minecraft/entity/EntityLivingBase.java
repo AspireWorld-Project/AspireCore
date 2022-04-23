@@ -276,7 +276,7 @@ public abstract class EntityLivingBase extends Entity {
 			}
 
 			if (!worldObj.isRemote && isRiding() && ridingEntity != null && ridingEntity.shouldDismountInWater(this)) {
-				mountEntity((Entity) null);
+				mountEntity(null);
 			}
 		} else {
 			if (getAir() != 300) {
@@ -318,9 +318,9 @@ public abstract class EntityLivingBase extends Entity {
 
 		if (entityLivingToAttack != null) {
 			if (!entityLivingToAttack.isEntityAlive()) {
-				setRevengeTarget((EntityLivingBase) null);
+				setRevengeTarget(null);
 			} else if (ticksExisted - revengeTimer > 100) {
-				setRevengeTarget((EntityLivingBase) null);
+				setRevengeTarget(null);
 			}
 		}
 
@@ -621,8 +621,7 @@ public abstract class EntityLivingBase extends Entity {
 		if (getCreatureAttribute() == EnumCreatureAttribute.UNDEAD) {
 			int i = p_70687_1_.getPotionID();
 
-			if (i == Potion.regeneration.id || i == Potion.poison.id)
-				return false;
+			return i != Potion.regeneration.id && i != Potion.poison.id;
 		}
 
 		return true;
@@ -1880,7 +1879,7 @@ public abstract class EntityLivingBase extends Entity {
 	}
 
 	public boolean isOnTeam(Team p_142012_1_) {
-		return getTeam() != null ? getTeam().isSameTeam(p_142012_1_) : false;
+		return getTeam() != null && getTeam().isSameTeam(p_142012_1_);
 	}
 
 	/***

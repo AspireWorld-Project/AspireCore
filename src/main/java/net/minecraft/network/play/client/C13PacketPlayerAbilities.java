@@ -72,9 +72,9 @@ public class C13PacketPlayerAbilities extends Packet {
 	@Override
 	public String serialize() {
 		return String.format("invuln=%b, flying=%b, canfly=%b, instabuild=%b, flyspeed=%.4f, walkspped=%.4f",
-				new Object[] { Boolean.valueOf(func_149494_c()), Boolean.valueOf(func_149488_d()),
-						Boolean.valueOf(func_149486_e()), Boolean.valueOf(func_149484_f()),
-						Float.valueOf(func_149482_g()), Float.valueOf(func_149489_h()) });
+				Boolean.valueOf(func_149494_c()), Boolean.valueOf(func_149488_d()),
+				Boolean.valueOf(func_149486_e()), Boolean.valueOf(func_149484_f()),
+				Float.valueOf(func_149482_g()), Float.valueOf(func_149489_h()));
 	}
 
 	public boolean func_149494_c() {

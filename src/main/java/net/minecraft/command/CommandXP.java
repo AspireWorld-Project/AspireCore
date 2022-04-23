@@ -26,7 +26,7 @@ public class CommandXP extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender p_71515_1_, String[] p_71515_2_) {
 		if (p_71515_2_.length <= 0)
-			throw new WrongUsageException("commands.xp.usage", new Object[0]);
+			throw new WrongUsageException("commands.xp.usage");
 		else {
 			String s = p_71515_2_[0];
 			boolean flag = s.endsWith("l") || s.endsWith("L");
@@ -54,19 +54,19 @@ public class CommandXP extends CommandBase {
 				if (flag1) {
 					entityplayermp.addExperienceLevel(-i);
 					func_152373_a(p_71515_1_, this, "commands.xp.success.negative.levels",
-							new Object[] { Integer.valueOf(i), entityplayermp.getCommandSenderName() });
+							Integer.valueOf(i), entityplayermp.getCommandSenderName());
 				} else {
 					entityplayermp.addExperienceLevel(i);
 					func_152373_a(p_71515_1_, this, "commands.xp.success.levels",
-							new Object[] { Integer.valueOf(i), entityplayermp.getCommandSenderName() });
+							Integer.valueOf(i), entityplayermp.getCommandSenderName());
 				}
 			} else {
 				if (flag1)
-					throw new WrongUsageException("commands.xp.failure.widthdrawXp", new Object[0]);
+					throw new WrongUsageException("commands.xp.failure.widthdrawXp");
 
 				entityplayermp.addExperience(i);
 				func_152373_a(p_71515_1_, this, "commands.xp.success",
-						new Object[] { Integer.valueOf(i), entityplayermp.getCommandSenderName() });
+						Integer.valueOf(i), entityplayermp.getCommandSenderName());
 			}
 		}
 	}

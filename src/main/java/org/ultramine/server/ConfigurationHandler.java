@@ -18,17 +18,17 @@ import java.util.Random;
 
 @SideOnly(Side.SERVER)
 public class ConfigurationHandler {
-	private static File settingsDir = new File(FMLLaunchHandler.getMinecraftHome(),
+	private static final File settingsDir = new File(FMLLaunchHandler.getMinecraftHome(),
 			System.getProperty("org.ultramine.dirs.settings", "settings"));
-	private static File storageDir = new File(FMLLaunchHandler.getMinecraftHome(),
+	private static final File storageDir = new File(FMLLaunchHandler.getMinecraftHome(),
 			System.getProperty("org.ultramine.dirs.storage", "storage"));
-	private static File worldsDir = new File(FMLLaunchHandler.getMinecraftHome(),
+	private static final File worldsDir = new File(FMLLaunchHandler.getMinecraftHome(),
 			System.getProperty("org.ultramine.dirs.worlds", "worlds"));
-	private static File vanillaConfigsDir = new File(FMLLaunchHandler.getMinecraftHome(),
+	private static final File vanillaConfigsDir = new File(FMLLaunchHandler.getMinecraftHome(),
 			System.getProperty("org.ultramine.dirs.vanilla", "storage"));
 
-	private static File serverConfigFile = new File(getSettingDir(), "server.yml");
-	private static File worldsConfigFile = new File(getSettingDir(), "worlds.yml");
+	private static final File serverConfigFile = new File(getSettingDir(), "server.yml");
+	private static final File worldsConfigFile = new File(getSettingDir(), "worlds.yml");
 
 	private static UltramineServerConfig serverConfig;
 	private static WorldsConfig worldsConfig;

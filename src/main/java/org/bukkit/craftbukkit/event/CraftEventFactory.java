@@ -391,7 +391,7 @@ public class CraftEventFactory {
 
 	public static PlayerDeathEvent callPlayerDeathEvent(net.minecraft.entity.player.EntityPlayerMP victim,
 			List<org.bukkit.inventory.ItemStack> drops, String deathMessage, boolean keepInventory) {
-		CraftPlayer entity = (CraftPlayer) victim.getBukkitEntity();
+		CraftPlayer entity = victim.getBukkitEntity();
 		PlayerDeathEvent event = new PlayerDeathEvent(entity, drops, victim.getExpReward(), 0, deathMessage);
 		event.setKeepInventory(keepInventory);
 		event.setKeepLevel(keepInventory);
@@ -891,7 +891,7 @@ public class CraftEventFactory {
 		}
 
 		CraftServer server = player.worldObj.getServer();
-		CraftPlayer craftPlayer = (CraftPlayer) player.getBukkitEntity();
+		CraftPlayer craftPlayer = player.getBukkitEntity();
 		// Cauldron start - vanilla compatibility
 		player.openContainer.transferTo(container, craftPlayer);
 		// Cauldron end
@@ -1068,7 +1068,7 @@ public class CraftEventFactory {
 
 	public static PlayerEditBookEvent handleEditBookEvent(net.minecraft.entity.player.EntityPlayerMP player,
 			net.minecraft.item.ItemStack newBookItem, net.minecraft.item.ItemStack oldBookItem) {
-		PlayerEditBookEvent editBookEvent = new PlayerEditBookEvent((Player) player.getBukkitEntity(),
+		PlayerEditBookEvent editBookEvent = new PlayerEditBookEvent(player.getBukkitEntity(),
 				player.inventory.currentItem, (BookMeta) CraftItemStack.getItemMeta(oldBookItem),
 				(BookMeta) CraftItemStack.getItemMeta(newBookItem),
 				newBookItem.getItem() == net.minecraft.init.Items.written_book);
@@ -1080,7 +1080,7 @@ public class CraftEventFactory {
 			net.minecraft.item.ItemStack newBookItem) {
 		int itemInHandIndex = player.inventory.currentItem;
 
-		PlayerEditBookEvent editBookEvent = new PlayerEditBookEvent((Player) player.getBukkitEntity(),
+		PlayerEditBookEvent editBookEvent = new PlayerEditBookEvent(player.getBukkitEntity(),
 				player.inventory.currentItem, (BookMeta) CraftItemStack.getItemMeta(player.inventory.getCurrentItem()),
 				(BookMeta) CraftItemStack.getItemMeta(newBookItem),
 				newBookItem.getItem() == net.minecraft.init.Items.written_book);
@@ -1168,7 +1168,7 @@ public class CraftEventFactory {
 			net.minecraft.block.Block block, int blockMetadata, net.minecraft.entity.player.EntityPlayerMP player) {
 		org.bukkit.block.Block bukkitBlock = world.getWorld().getBlockAt(x, y, z);
 		org.bukkit.event.block.BlockBreakEvent blockBreakEvent = new org.bukkit.event.block.BlockBreakEvent(bukkitBlock,
-				(Player) player.getBukkitEntity());
+				player.getBukkitEntity());
 		EntityPlayerMP playermp = player;
 		if (!(playermp instanceof FakePlayer)) {
 			if (!(playermp.theItemInWorldManager.getGameType().isAdventure()

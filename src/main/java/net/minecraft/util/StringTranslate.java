@@ -19,7 +19,7 @@ public class StringTranslate {
 	private static final Pattern numericVariablePattern = Pattern.compile("%(\\d+\\$)?[\\d\\.]*[df]");
 	private static final Splitter equalSignSplitter = Splitter.on('=').limit(2);
 	private final Map languageList;
-	private static StringTranslate instance = new StringTranslate();
+	private static final StringTranslate instance = new StringTranslate();
 	private long lastUpdateTimeInMilliseconds;
 	private static final String __OBFID = "CL_00001212";
 
@@ -59,8 +59,7 @@ public class StringTranslate {
 			}
 
 		} catch (Exception ioexception) {
-			;
-		}
+        }
 		return table;
 	}
 

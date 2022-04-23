@@ -125,10 +125,10 @@ public class S0FPacketSpawnMob extends Packet {
 	@Override
 	public String serialize() {
 		return String.format("id=%d, type=%d, x=%.2f, y=%.2f, z=%.2f, xd=%.2f, yd=%.2f, zd=%.2f",
-				new Object[] { Integer.valueOf(field_149042_a), Integer.valueOf(field_149040_b),
-						Float.valueOf(field_149041_c / 32.0F), Float.valueOf(field_149038_d / 32.0F),
-						Float.valueOf(field_149039_e / 32.0F), Float.valueOf(field_149036_f / 8000.0F),
-						Float.valueOf(field_149037_g / 8000.0F), Float.valueOf(field_149047_h / 8000.0F) });
+				Integer.valueOf(field_149042_a), Integer.valueOf(field_149040_b),
+				Float.valueOf(field_149041_c / 32.0F), Float.valueOf(field_149038_d / 32.0F),
+				Float.valueOf(field_149039_e / 32.0F), Float.valueOf(field_149036_f / 8000.0F),
+				Float.valueOf(field_149037_g / 8000.0F), Float.valueOf(field_149047_h / 8000.0F));
 	}
 
 	@SideOnly(Side.CLIENT)

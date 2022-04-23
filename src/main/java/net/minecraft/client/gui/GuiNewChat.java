@@ -236,7 +236,7 @@ public class GuiNewChat extends Gui {
 	}
 
 	public void addToSentMessages(String p_146239_1_) {
-		if (sentMessages.isEmpty() || !((String) sentMessages.get(sentMessages.size() - 1)).equals(p_146239_1_)) {
+		if (sentMessages.isEmpty() || !sentMessages.get(sentMessages.size() - 1).equals(p_146239_1_)) {
 			sentMessages.add(p_146239_1_);
 		}
 	}

@@ -15,12 +15,12 @@ import org.lwjgl.opengl.GL11;
 @SideOnly(Side.CLIENT)
 public class LoadingScreenRenderer implements IProgressUpdate {
 	private String field_73727_a = "";
-	private Minecraft mc;
+	private final Minecraft mc;
 	private String currentlyDisplayedText = "";
 	private long field_73723_d = Minecraft.getSystemTime();
 	private boolean field_73724_e;
-	private ScaledResolution field_146587_f;
-	private Framebuffer field_146588_g;
+	private final ScaledResolution field_146587_f;
+	private final Framebuffer field_146588_g;
 	private static final String __OBFID = "CL_00000655";
 
 	public LoadingScreenRenderer(Minecraft p_i1017_1_) {
@@ -168,8 +168,7 @@ public class LoadingScreenRenderer implements IProgressUpdate {
 				try {
 					Thread.yield();
 				} catch (Exception exception) {
-					;
-				}
+                }
 			}
 		}
 	}

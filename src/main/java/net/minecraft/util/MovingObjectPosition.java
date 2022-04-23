@@ -49,7 +49,7 @@ public class MovingObjectPosition {
 				+ ", pos=" + hitVec + ", entity=" + entityHit + '}';
 	}
 
-	public static enum MovingObjectType {
+	public enum MovingObjectType {
 		MISS, BLOCK, ENTITY;
 
 		private static final String __OBFID = "CL_00000611";

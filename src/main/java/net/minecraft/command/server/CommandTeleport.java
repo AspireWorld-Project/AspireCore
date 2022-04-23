@@ -31,7 +31,7 @@ public class CommandTeleport extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender p_71515_1_, String[] p_71515_2_) {
 		if (p_71515_2_.length < 1)
-			throw new WrongUsageException("commands.tp.usage", new Object[0]);
+			throw new WrongUsageException("commands.tp.usage");
 		else {
 			EntityPlayerMP entityplayermp;
 
@@ -52,26 +52,25 @@ public class CommandTeleport extends CommandBase {
 						throw new PlayerNotFoundException();
 
 					if (entityplayermp1.worldObj != entityplayermp.worldObj) {
-						func_152373_a(p_71515_1_, this, "commands.tp.notSameDimension", new Object[0]);
+						func_152373_a(p_71515_1_, this, "commands.tp.notSameDimension");
 						return;
 					}
 
-					entityplayermp.mountEntity((Entity) null);
+					entityplayermp.mountEntity(null);
 					entityplayermp.playerNetServerHandler.setPlayerLocation(entityplayermp1.posX, entityplayermp1.posY,
 							entityplayermp1.posZ, entityplayermp1.rotationYaw, entityplayermp1.rotationPitch);
-					func_152373_a(p_71515_1_, this, "commands.tp.success", new Object[] {
-							entityplayermp.getCommandSenderName(), entityplayermp1.getCommandSenderName() });
+					func_152373_a(p_71515_1_, this, "commands.tp.success", entityplayermp.getCommandSenderName(), entityplayermp1.getCommandSenderName());
 				}
 			} else if (entityplayermp.worldObj != null) {
 				int i = p_71515_2_.length - 3;
 				double d0 = func_110666_a(p_71515_1_, entityplayermp.posX, p_71515_2_[i++]);
 				double d1 = func_110665_a(p_71515_1_, entityplayermp.posY, p_71515_2_[i++], 0, 0);
 				double d2 = func_110666_a(p_71515_1_, entityplayermp.posZ, p_71515_2_[i++]);
-				entityplayermp.mountEntity((Entity) null);
+				entityplayermp.mountEntity(null);
 				entityplayermp.setPositionAndUpdate(d0, d1, d2);
 				func_152373_a(p_71515_1_, this, "commands.tp.success.coordinates",
-						new Object[] { entityplayermp.getCommandSenderName(), Double.valueOf(d0), Double.valueOf(d1),
-								Double.valueOf(d2) });
+						entityplayermp.getCommandSenderName(), Double.valueOf(d0), Double.valueOf(d1),
+						Double.valueOf(d2));
 			}
 		}
 	}

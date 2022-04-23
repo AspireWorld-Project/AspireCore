@@ -109,13 +109,9 @@ public abstract class BlockRailBase extends Block {
 				i1 = l & 7;
 			}
 
-			boolean flag = false;
+			boolean flag = !World.doesBlockHaveSolidTopSurface(p_149695_1_, p_149695_2_, p_149695_3_ - 1, p_149695_4_);
 
-			if (!World.doesBlockHaveSolidTopSurface(p_149695_1_, p_149695_2_, p_149695_3_ - 1, p_149695_4_)) {
-				flag = true;
-			}
-
-			if (i1 == 2
+            if (i1 == 2
 					&& !World.doesBlockHaveSolidTopSurface(p_149695_1_, p_149695_2_ + 1, p_149695_3_, p_149695_4_)) {
 				flag = true;
 			}
@@ -309,12 +305,12 @@ public abstract class BlockRailBase extends Block {
 	 */
 
 	public class Rail {
-		private World field_150660_b;
-		private int field_150661_c;
-		private int field_150658_d;
-		private int field_150659_e;
+		private final World field_150660_b;
+		private final int field_150661_c;
+		private final int field_150658_d;
+		private final int field_150659_e;
 		private final boolean field_150656_f;
-		private List field_150657_g = new ArrayList();
+		private final List field_150657_g = new ArrayList();
 		private static final String __OBFID = "CL_00000196";
 		private final boolean canMakeSlopes;
 
@@ -380,9 +376,7 @@ public abstract class BlockRailBase extends Block {
 		}
 
 		private boolean func_150646_a(int p_150646_1_, int p_150646_2_, int p_150646_3_) {
-			return BlockRailBase.func_150049_b_(field_150660_b, p_150646_1_, p_150646_2_, p_150646_3_) ? true
-					: BlockRailBase.func_150049_b_(field_150660_b, p_150646_1_, p_150646_2_ + 1, p_150646_3_) ? true
-							: BlockRailBase.func_150049_b_(field_150660_b, p_150646_1_, p_150646_2_ - 1, p_150646_3_);
+			return BlockRailBase.func_150049_b_(field_150660_b, p_150646_1_, p_150646_2_, p_150646_3_) || BlockRailBase.func_150049_b_(field_150660_b, p_150646_1_, p_150646_2_ + 1, p_150646_3_) || BlockRailBase.func_150049_b_(field_150660_b, p_150646_1_, p_150646_2_ - 1, p_150646_3_);
 		}
 
 		private BlockRailBase.Rail func_150654_a(ChunkPosition p_150654_1_) {
@@ -448,8 +442,7 @@ public abstract class BlockRailBase extends Block {
 		}
 
 		private boolean func_150649_b(BlockRailBase.Rail p_150649_1_) {
-			return func_150653_a(p_150649_1_) ? true
-					: field_150657_g.size() == 2 ? false : field_150657_g.isEmpty() ? true : true;
+			return func_150653_a(p_150649_1_) || field_150657_g.size() != 2;
 		}
 
 		private void func_150645_c(BlockRailBase.Rail p_150645_1_) {

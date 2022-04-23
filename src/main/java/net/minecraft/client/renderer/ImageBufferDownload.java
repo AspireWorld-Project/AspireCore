@@ -24,7 +24,7 @@ public class ImageBufferDownload implements IImageBuffer {
 			imageHeight = 32;
 			BufferedImage bufferedimage1 = new BufferedImage(imageWidth, imageHeight, 2);
 			Graphics graphics = bufferedimage1.getGraphics();
-			graphics.drawImage(p_78432_1_, 0, 0, (ImageObserver) null);
+			graphics.drawImage(p_78432_1_, 0, 0, null);
 			graphics.dispose();
 			imageData = ((DataBufferInt) bufferedimage1.getRaster().getDataBuffer()).getData();
 			setAreaOpaque(0, 0, 32, 16);

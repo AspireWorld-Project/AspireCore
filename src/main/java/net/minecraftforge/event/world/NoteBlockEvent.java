@@ -96,7 +96,7 @@ public class NoteBlockEvent extends BlockEvent {
 	 * The Instrument being played can be overridden with
 	 * {@link NoteBlockEvent.Play#setInstrument(Instrument)}
 	 */
-	public static enum Instrument {
+	public enum Instrument {
 		PIANO, BASSDRUM, SNARE, CLICKS, BASSGUITAR;
 
 		// cache to avoid creating a new array every time
@@ -112,7 +112,7 @@ public class NoteBlockEvent extends BlockEvent {
 	 * G-Sharp / A-Flat the Sharp variant is used here.
 	 *
 	 */
-	public static enum Note {
+	public enum Note {
 		F_SHARP, G, G_SHARP, A, A_SHARP, B, C, C_SHARP, D, D_SHARP, E, F;
 
 		private static final Note[] values = values();
@@ -127,7 +127,7 @@ public class NoteBlockEvent extends BlockEvent {
 	 * {@link Note} it fully describes the note.
 	 *
 	 */
-	public static enum Octave {
+	public enum Octave {
 		LOW, MID, HIGH; // only valid for F_SHARP
 
 		static Octave fromId(int id) {

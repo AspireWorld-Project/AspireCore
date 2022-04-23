@@ -1340,7 +1340,7 @@ public class Chunk implements IChunkDependency {
 	private TreeSet<PendingBlockUpdate> pendingUpdatesQueue;
 
 	private ChunkBindState bindState = ChunkBindState.NONE;
-	private List<IChunkDependency> dependencies = new ArrayList<>(2);
+	private final List<IChunkDependency> dependencies = new ArrayList<>(2);
 	private int loadTime;
 	private int unbindTime;
 	private boolean wasActive;

@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 import org.bukkit.craftbukkit.event.CraftEventFactory;
 
 public class EntityOcelot extends EntityTameable {
-	private EntityAITempt aiTempt;
+	private final EntityAITempt aiTempt;
 	private static final String __OBFID = "CL_00001646";
 
 	public EntityOcelot(World p_i1688_1_) {
@@ -205,7 +205,7 @@ public class EntityOcelot extends EntityTameable {
 			return false;
 		else {
 			EntityOcelot entityocelot = (EntityOcelot) p_70878_1_;
-			return !entityocelot.isTamed() ? false : isInLove() && entityocelot.isInLove();
+			return entityocelot.isTamed() && isInLove() && entityocelot.isInLove();
 		}
 	}
 
@@ -234,8 +234,7 @@ public class EntityOcelot extends EntityTameable {
 
 				Block block = worldObj.getBlock(i, j - 1, k);
 
-				if (block == Blocks.grass || block.isLeaves(worldObj, i, j - 1, k))
-					return true;
+				return block == Blocks.grass || block.isLeaves(worldObj, i, j - 1, k);
 			}
 
 			return false;

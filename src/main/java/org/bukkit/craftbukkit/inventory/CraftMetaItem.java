@@ -53,7 +53,7 @@ class CraftMetaItem implements ItemMeta, Repairable {
 		@Target(ElementType.FIELD)
 		@interface Specific {
 			enum To {
-				BUKKIT, NBT,;
+				BUKKIT, NBT,
 			}
 
 			To value();
@@ -457,7 +457,7 @@ class CraftMetaItem implements ItemMeta, Repairable {
 
 	@Override
 	public Map<Enchantment, Integer> getEnchants() {
-		return hasEnchants() ? ImmutableMap.copyOf(enchantments) : ImmutableMap.<Enchantment, Integer>of();
+		return hasEnchants() ? ImmutableMap.copyOf(enchantments) : ImmutableMap.of();
 	}
 
 	@Override

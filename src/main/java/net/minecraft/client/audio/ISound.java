@@ -25,13 +25,13 @@ public interface ISound {
 	ISound.AttenuationType getAttenuationType();
 
 	@SideOnly(Side.CLIENT)
-	public static enum AttenuationType {
+    enum AttenuationType {
 		NONE(0), LINEAR(2);
 		private final int field_148589_c;
 
 		private static final String __OBFID = "CL_00001126";
 
-		private AttenuationType(int p_i45110_3_) {
+		AttenuationType(int p_i45110_3_) {
 			field_148589_c = p_i45110_3_;
 		}
 

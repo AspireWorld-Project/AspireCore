@@ -23,7 +23,7 @@ public interface IMinecartCollisionHandler {
 	 * @param other
 	 *            The object it collided with.
 	 */
-	public void onEntityCollision(EntityMinecart cart, Entity other);
+    void onEntityCollision(EntityMinecart cart, Entity other);
 
 	/**
 	 * This function replaced the function of the same name in EntityMinecart. It is
@@ -36,7 +36,7 @@ public interface IMinecartCollisionHandler {
 	 *            The entity requesting the collision box.
 	 * @return The collision box or null.
 	 */
-	public AxisAlignedBB getCollisionBox(EntityMinecart cart, Entity other);
+    AxisAlignedBB getCollisionBox(EntityMinecart cart, Entity other);
 
 	/**
 	 * This function is used to define the box used for detecting minecart
@@ -46,7 +46,7 @@ public interface IMinecartCollisionHandler {
 	 *            The cart for which the collision box was requested.
 	 * @return The collision box, cannot be null.
 	 */
-	public AxisAlignedBB getMinecartCollisionBox(EntityMinecart cart);
+    AxisAlignedBB getMinecartCollisionBox(EntityMinecart cart);
 
 	/**
 	 * This function replaces the function of the same name in EntityMinecart. It
@@ -56,5 +56,5 @@ public interface IMinecartCollisionHandler {
 	 *            The cart for which the bounding box was requested.
 	 * @return The bounding box or null.
 	 */
-	public AxisAlignedBB getBoundingBox(EntityMinecart cart);
+    AxisAlignedBB getBoundingBox(EntityMinecart cart);
 }

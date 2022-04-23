@@ -97,8 +97,7 @@ public class RegionFile {
 		int sectorNumber = offset >> 8;
 		int numSectors = offset & 255;
 
-		if (sectorNumber + numSectors > sectorFree.size())
-			return false;
+		return sectorNumber + numSectors <= sectorFree.size();
 
 		// No IO operations in main thread
 		// this.dataFile.seek((long)(sectorNumber * 4096));
@@ -116,8 +115,6 @@ public class RegionFile {
 		// }
 		//
 		// return false;
-
-		return true;
 	}
 
 	public synchronized DataInputStream getChunkDataInputStream(int p_76704_1_, int p_76704_2_) {
@@ -284,8 +281,8 @@ public class RegionFile {
 	}
 
 	class ChunkBuffer extends ByteArrayOutputStream {
-		private int chunkX;
-		private int chunkZ;
+		private final int chunkX;
+		private final int chunkZ;
 		private static final String __OBFID = "CL_00000382";
 
 		public ChunkBuffer(int p_i2000_2_, int p_i2000_3_) {

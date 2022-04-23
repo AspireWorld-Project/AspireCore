@@ -42,14 +42,14 @@ public class C16PacketClientStatus extends Packet {
 		this.processPacket((INetHandlerPlayServer) p_148833_1_);
 	}
 
-	public static enum EnumState {
+	public enum EnumState {
 		PERFORM_RESPAWN(0), REQUEST_STATS(1), OPEN_INVENTORY_ACHIEVEMENT(2);
 		private final int field_151403_d;
 		private static final C16PacketClientStatus.EnumState[] field_151404_e = new C16PacketClientStatus.EnumState[values().length];
 
 		private static final String __OBFID = "CL_00001349";
 
-		private EnumState(int p_i45241_3_) {
+		EnumState(int p_i45241_3_) {
 			field_151403_d = p_i45241_3_;
 		}
 

@@ -14,9 +14,9 @@ import java.io.File;
 //Class used internally to provide the world specific data directories.
 
 public class WorldSpecificSaveHandler implements ISaveHandler {
-	private WorldServer world;
-	private ISaveHandler parent;
-	private File dataDir;
+	private final WorldServer world;
+	private final ISaveHandler parent;
+	private final File dataDir;
 
 	public WorldSpecificSaveHandler(WorldServer world, ISaveHandler parent) {
 		this.world = world;

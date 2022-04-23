@@ -63,7 +63,7 @@ public abstract class GenLayer {
 		object = new GenLayerRareBiome(1001L, genlayerhills);
 
 		for (int j = 0; j < b0; ++j) {
-			object = new GenLayerZoom((long) (1000 + j), (GenLayer) object);
+			object = new GenLayerZoom(1000 + j, (GenLayer) object);
 
 			if (j == 0) {
 				object = new GenLayerAddIsland(3L, (GenLayer) object);
@@ -138,9 +138,7 @@ public abstract class GenLayer {
 			return true;
 		else if (p_151616_0_ != BiomeGenBase.mesaPlateau_F.biomeID && p_151616_0_ != BiomeGenBase.mesaPlateau.biomeID) {
 			try {
-				return BiomeGenBase.getBiome(p_151616_0_) != null && BiomeGenBase.getBiome(p_151616_1_) != null
-						? BiomeGenBase.getBiome(p_151616_0_).isEqualTo(BiomeGenBase.getBiome(p_151616_1_))
-						: false;
+				return BiomeGenBase.getBiome(p_151616_0_) != null && BiomeGenBase.getBiome(p_151616_1_) != null && BiomeGenBase.getBiome(p_151616_0_).isEqualTo(BiomeGenBase.getBiome(p_151616_1_));
 			} catch (Throwable throwable) {
 				CrashReport crashreport = CrashReport.makeCrashReport(throwable, "Comparing biomes");
 				CrashReportCategory crashreportcategory = crashreport.makeCategory("Biomes being compared");
@@ -195,11 +193,10 @@ public abstract class GenLayer {
 																										&& p_151617_1_ != p_151617_2_
 																												? p_151617_3_
 																												: selectRandom(
-																														new int[] {
-																																p_151617_1_,
-																																p_151617_2_,
-																																p_151617_3_,
-																																p_151617_4_ });
+				p_151617_1_,
+				p_151617_2_,
+				p_151617_3_,
+				p_151617_4_);
 	}
 
 	/*

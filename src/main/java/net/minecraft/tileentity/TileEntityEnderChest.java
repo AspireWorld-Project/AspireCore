@@ -83,7 +83,6 @@ public class TileEntityEnderChest extends TileEntity {
 	}
 
 	public boolean func_145971_a(EntityPlayer p_145971_1_) {
-		return worldObj.getTileEntity(xCoord, yCoord, zCoord) != this ? false
-				: p_145971_1_.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 64.0D;
+		return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this && p_145971_1_.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 64.0D;
 	}
 }

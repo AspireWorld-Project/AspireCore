@@ -35,7 +35,7 @@ public class EntityLargeFireball extends EntityFireball {
 				p_70227_1_.entityHit.attackEntityFrom(DamageSource.causeFireballDamage(this, shootingEntity), 6.0F);
 			}
 
-			worldObj.newExplosion((Entity) null, posX, posY, posZ, field_92057_e, true,
+			worldObj.newExplosion(null, posX, posY, posZ, field_92057_e, true,
 					worldObj.getGameRules().getGameRuleBooleanValue("mobGriefing"));
 			setDead();
 		}

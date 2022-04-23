@@ -31,8 +31,7 @@ public class BlockFenceGate extends BlockDirectional {
 
 	@Override
 	public boolean canPlaceBlockAt(World p_149742_1_, int p_149742_2_, int p_149742_3_, int p_149742_4_) {
-		return !p_149742_1_.getBlock(p_149742_2_, p_149742_3_ - 1, p_149742_4_).getMaterial().isSolid() ? false
-				: super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_);
+		return p_149742_1_.getBlock(p_149742_2_, p_149742_3_ - 1, p_149742_4_).getMaterial().isSolid() && super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_);
 	}
 
 	@Override
@@ -118,10 +117,10 @@ public class BlockFenceGate extends BlockDirectional {
 			if (flag || p_149695_5_.canProvidePower()) {
 				if (flag && !isFenceGateOpen(l)) {
 					p_149695_1_.setBlockMetadataWithNotify(p_149695_2_, p_149695_3_, p_149695_4_, l | 4, 2);
-					p_149695_1_.playAuxSFXAtEntity((EntityPlayer) null, 1003, p_149695_2_, p_149695_3_, p_149695_4_, 0);
+					p_149695_1_.playAuxSFXAtEntity(null, 1003, p_149695_2_, p_149695_3_, p_149695_4_, 0);
 				} else if (!flag && isFenceGateOpen(l)) {
 					p_149695_1_.setBlockMetadataWithNotify(p_149695_2_, p_149695_3_, p_149695_4_, l & -5, 2);
-					p_149695_1_.playAuxSFXAtEntity((EntityPlayer) null, 1003, p_149695_2_, p_149695_3_, p_149695_4_, 0);
+					p_149695_1_.playAuxSFXAtEntity(null, 1003, p_149695_2_, p_149695_3_, p_149695_4_, 0);
 				}
 			}
 		}

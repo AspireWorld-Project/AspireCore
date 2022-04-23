@@ -40,5 +40,5 @@ public interface HelpTopicFactory<TCommand extends Command> {
 	 * @return A new custom help topic or {@code null} to intentionally NOT create a
 	 *         topic.
 	 */
-	public HelpTopic createTopic(TCommand command);
+    HelpTopic createTopic(TCommand command);
 }

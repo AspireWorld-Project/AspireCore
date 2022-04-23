@@ -60,7 +60,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 			field_152885_u.data = "";
 			func_152827_a(BroadcastController.BroadcastState.Initialized);
 			String s = ErrorCode.getString(p_requestAuthTokenCallback_1_);
-			func_152820_d(String.format("RequestAuthTokenDoneCallback got failure: %s", new Object[] { s }));
+			func_152820_d(String.format("RequestAuthTokenDoneCallback got failure: %s", s));
 		}
 
 		try {
@@ -82,7 +82,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 			func_152827_a(BroadcastController.BroadcastState.Initialized);
 			field_152877_m = false;
 			String s = ErrorCode.getString(p_loginCallback_1_);
-			func_152820_d(String.format("LoginCallback got failure: %s", new Object[] { s }));
+			func_152820_d(String.format("LoginCallback got failure: %s", s));
 		}
 
 		try {
@@ -111,7 +111,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 			}
 		} else {
 			String s = ErrorCode.getString(p_getIngestServersCallback_1_);
-			func_152820_d(String.format("IngestListCallback got failure: %s", new Object[] { s }));
+			func_152820_d(String.format("IngestListCallback got failure: %s", s));
 			func_152827_a(BroadcastController.BroadcastState.LoggingIn);
 		}
 	}
@@ -122,7 +122,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 
 		if (ErrorCode.failed(p_getUserInfoCallback_1_)) {
 			String s = ErrorCode.getString(p_getUserInfoCallback_1_);
-			func_152820_d(String.format("UserInfoDoneCallback got failure: %s", new Object[] { s }));
+			func_152820_d(String.format("UserInfoDoneCallback got failure: %s", s));
 		}
 	}
 
@@ -140,7 +140,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 			}
 		} else {
 			String s = ErrorCode.getString(p_getStreamInfoCallback_1_);
-			func_152832_e(String.format("StreamInfoDoneCallback got failure: %s", new Object[] { s }));
+			func_152832_e(String.format("StreamInfoDoneCallback got failure: %s", s));
 		}
 	}
 
@@ -150,7 +150,6 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 		field_152889_y = p_getArchivingStateCallback_2_;
 
 		if (ErrorCode.failed(p_getArchivingStateCallback_1_)) {
-			;
 		}
 	}
 
@@ -158,7 +157,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 	public void runCommercialCallback(ErrorCode p_runCommercialCallback_1_) {
 		if (ErrorCode.failed(p_runCommercialCallback_1_)) {
 			String s = ErrorCode.getString(p_runCommercialCallback_1_);
-			func_152832_e(String.format("RunCommercialCallback got failure: %s", new Object[] { s }));
+			func_152832_e(String.format("RunCommercialCallback got failure: %s", s));
 		}
 	}
 
@@ -166,7 +165,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 	public void setStreamInfoCallback(ErrorCode p_setStreamInfoCallback_1_) {
 		if (ErrorCode.failed(p_setStreamInfoCallback_1_)) {
 			String s = ErrorCode.getString(p_setStreamInfoCallback_1_);
-			func_152832_e(String.format("SetStreamInfoCallback got failure: %s", new Object[] { s }));
+			func_152832_e(String.format("SetStreamInfoCallback got failure: %s", s));
 		}
 	}
 
@@ -175,7 +174,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 			GameInfoList p_getGameNameListCallback_2_) {
 		if (ErrorCode.failed(p_getGameNameListCallback_1_)) {
 			String s = ErrorCode.getString(p_getGameNameListCallback_1_);
-			func_152820_d(String.format("GameNameListCallback got failure: %s", new Object[] { s }));
+			func_152820_d(String.format("GameNameListCallback got failure: %s", s));
 		}
 
 		try {
@@ -212,7 +211,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 			func_152827_a(BroadcastController.BroadcastState.ReadyToBroadcast);
 			String s = ErrorCode.getString(p_startCallback_1_);
 			field_152867_c.func_152892_c(p_startCallback_1_);
-			func_152820_d(String.format("startCallback got failure: %s", new Object[] { s }));
+			func_152820_d(String.format("startCallback got failure: %s", s));
 		}
 	}
 
@@ -239,7 +238,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 		} else {
 			func_152827_a(BroadcastController.BroadcastState.ReadyToBroadcast);
 			String s = ErrorCode.getString(p_stopCallback_1_);
-			func_152820_d(String.format("stopCallback got failure: %s", new Object[] { s }));
+			func_152820_d(String.format("stopCallback got failure: %s", s));
 		}
 	}
 
@@ -378,14 +377,14 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 				field_152873_i.setStreamCallbacks(this);
 
 				if (!func_152853_a(errorcode)) {
-					field_152873_i.setStreamCallbacks((IStreamCallbacks) null);
+					field_152873_i.setStreamCallbacks(null);
 					field_152864_E = errorcode;
 					return false;
 				} else {
 					errorcode = field_152872_h.setTraceLevel(MessageLevel.TTV_ML_ERROR);
 
 					if (!func_152853_a(errorcode)) {
-						field_152873_i.setStreamCallbacks((IStreamCallbacks) null);
+						field_152873_i.setStreamCallbacks(null);
 						field_152864_E = errorcode;
 						return false;
 					} else if (ErrorCode.succeeded(errorcode)) {
@@ -409,8 +408,8 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 		else {
 			field_152878_n = true;
 			func_152845_C();
-			field_152873_i.setStreamCallbacks((IStreamCallbacks) null);
-			field_152873_i.setStatCallbacks((IStatCallbacks) null);
+			field_152873_i.setStreamCallbacks(null);
+			field_152873_i.setStatCallbacks(null);
 			ErrorCode errorcode = field_152872_h.shutdown();
 			func_152853_a(errorcode);
 			field_152876_l = false;
@@ -545,7 +544,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 				if (ErrorCode.failed(errorcode)) {
 					func_152831_M();
 					String s = ErrorCode.getString(errorcode);
-					func_152820_d(String.format("Error while starting to broadcast: %s", new Object[] { s }));
+					func_152820_d(String.format("Error while starting to broadcast: %s", s));
 					field_152881_q = null;
 					field_152882_r = null;
 					return false;
@@ -566,7 +565,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 
 			if (ErrorCode.failed(errorcode)) {
 				String s = ErrorCode.getString(errorcode);
-				func_152820_d(String.format("Error while stopping the broadcast: %s", new Object[] { s }));
+				func_152820_d(String.format("Error while stopping the broadcast: %s", s));
 				return false;
 			} else {
 				func_152827_a(BroadcastController.BroadcastState.Stopping);
@@ -584,7 +583,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 			if (ErrorCode.failed(errorcode)) {
 				func_152819_E();
 				String s = ErrorCode.getString(errorcode);
-				func_152820_d(String.format("Error pausing stream: %s\n", new Object[] { s }));
+				func_152820_d(String.format("Error pausing stream: %s\n", s));
 			} else {
 				func_152827_a(BroadcastController.BroadcastState.Paused);
 			}
@@ -608,7 +607,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 
 		if (ErrorCode.failed(errorcode)) {
 			String s3 = ErrorCode.getString(errorcode);
-			func_152820_d(String.format("Error while sending meta data: %s\n", new Object[] { s3 }));
+			func_152820_d(String.format("Error while sending meta data: %s\n", s3));
 			return false;
 		} else
 			return true;
@@ -651,7 +650,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 
 				if (ErrorCode.failed(errorcode)) {
 					s = ErrorCode.getString(errorcode);
-					func_152820_d(String.format("Error in TTV_Login: %s\n", new Object[] { s }));
+					func_152820_d(String.format("Error in TTV_Login: %s\n", s));
 				}
 
 				break;
@@ -662,7 +661,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 				if (ErrorCode.failed(errorcode)) {
 					func_152827_a(BroadcastController.BroadcastState.LoggedIn);
 					s = ErrorCode.getString(errorcode);
-					func_152820_d(String.format("Error in TTV_GetIngestServers: %s\n", new Object[] { s }));
+					func_152820_d(String.format("Error in TTV_GetIngestServers: %s\n", s));
 				}
 
 				break;
@@ -672,7 +671,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 
 				if (ErrorCode.failed(errorcode)) {
 					s = ErrorCode.getString(errorcode);
-					func_152820_d(String.format("Error in TTV_GetUserInfo: %s\n", new Object[] { s }));
+					func_152820_d(String.format("Error in TTV_GetUserInfo: %s\n", s));
 				}
 
 				func_152835_I();
@@ -680,7 +679,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 
 				if (ErrorCode.failed(errorcode)) {
 					s = ErrorCode.getString(errorcode);
-					func_152820_d(String.format("Error in TTV_GetArchivingState: %s\n", new Object[] { s }));
+					func_152820_d(String.format("Error in TTV_GetArchivingState: %s\n", s));
 				}
 			case 4:
 			case 5:
@@ -708,7 +707,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 
 			if (ErrorCode.failed(errorcode)) {
 				String s = ErrorCode.getString(errorcode);
-				func_152820_d(String.format("Error in TTV_GetStreamInfo: %s", new Object[] { s }));
+				func_152820_d(String.format("Error in TTV_GetStreamInfo: %s", s));
 			}
 		}
 	}
@@ -733,7 +732,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 					.allocateFrameBuffer(field_152881_q.outputWidth * field_152881_q.outputHeight * 4);
 
 			if (!framebuffer.getIsValid()) {
-				func_152820_d(String.format("Error while allocating frame buffer", new Object[0]));
+				func_152820_d(String.format("Error while allocating frame buffer"));
 				return false;
 			}
 
@@ -756,7 +755,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 
 	public FrameBuffer func_152822_N() {
 		if (field_152875_k.size() == 0) {
-			func_152820_d(String.format("Out of free buffers, this should never happen", new Object[0]));
+			func_152820_d(String.format("Out of free buffers, this should never happen"));
 			return null;
 		} else {
 			FrameBuffer framebuffer = (FrameBuffer) field_152875_k.get(field_152875_k.size() - 1);
@@ -792,9 +791,9 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 			String s = ErrorCode.getString(errorcode);
 
 			if (ErrorCode.succeeded(errorcode)) {
-				func_152832_e(String.format("Warning in SubmitTexturePointer: %s\n", new Object[] { s }));
+				func_152832_e(String.format("Warning in SubmitTexturePointer: %s\n", s));
 			} else {
-				func_152820_d(String.format("Error in SubmitTexturePointer: %s\n", new Object[] { s }));
+				func_152820_d(String.format("Error in SubmitTexturePointer: %s\n", s));
 				func_152819_E();
 			}
 
@@ -817,12 +816,12 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 	protected void func_152820_d(String p_152820_1_) {
 		field_152863_D = p_152820_1_;
 		field_152862_C.func_152757_a("<Error> " + p_152820_1_);
-		field_152861_B.error(TwitchStream.field_152949_a, "[Broadcast controller] {}", new Object[] { p_152820_1_ });
+		field_152861_B.error(TwitchStream.field_152949_a, "[Broadcast controller] {}", p_152820_1_);
 	}
 
 	protected void func_152832_e(String p_152832_1_) {
 		field_152862_C.func_152757_a("<Warning> " + p_152832_1_);
-		field_152861_B.warn(TwitchStream.field_152949_a, "[Broadcast controller] {}", new Object[] { p_152832_1_ });
+		field_152861_B.warn(TwitchStream.field_152949_a, "[Broadcast controller] {}", p_152832_1_);
 	}
 
 	public ErrorCode func_152852_P() {
@@ -855,7 +854,7 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static enum BroadcastState {
+	public enum BroadcastState {
 		Uninitialized, Initialized, Authenticating, Authenticated, LoggingIn, LoggedIn, FindingIngestServer, ReceivedIngestServers, ReadyToBroadcast, Starting, Broadcasting, Stopping, Paused, IngestTesting;
 
 		private static final String __OBFID = "CL_00001820";
@@ -871,73 +870,61 @@ public class BroadcastController implements IStatCallbacks, IStreamCallbacks {
 			try {
 				field_152815_a[BroadcastController.BroadcastState.Authenticated.ordinal()] = 1;
 			} catch (NoSuchFieldError var12) {
-				;
 			}
 
 			try {
 				field_152815_a[BroadcastController.BroadcastState.LoggedIn.ordinal()] = 2;
 			} catch (NoSuchFieldError var11) {
-				;
 			}
 
 			try {
 				field_152815_a[BroadcastController.BroadcastState.ReceivedIngestServers.ordinal()] = 3;
 			} catch (NoSuchFieldError var10) {
-				;
 			}
 
 			try {
 				field_152815_a[BroadcastController.BroadcastState.Starting.ordinal()] = 4;
 			} catch (NoSuchFieldError var9) {
-				;
 			}
 
 			try {
 				field_152815_a[BroadcastController.BroadcastState.Stopping.ordinal()] = 5;
 			} catch (NoSuchFieldError var8) {
-				;
 			}
 
 			try {
 				field_152815_a[BroadcastController.BroadcastState.FindingIngestServer.ordinal()] = 6;
 			} catch (NoSuchFieldError var7) {
-				;
 			}
 
 			try {
 				field_152815_a[BroadcastController.BroadcastState.Authenticating.ordinal()] = 7;
 			} catch (NoSuchFieldError var6) {
-				;
 			}
 
 			try {
 				field_152815_a[BroadcastController.BroadcastState.Initialized.ordinal()] = 8;
 			} catch (NoSuchFieldError var5) {
-				;
 			}
 
 			try {
 				field_152815_a[BroadcastController.BroadcastState.Uninitialized.ordinal()] = 9;
 			} catch (NoSuchFieldError var4) {
-				;
 			}
 
 			try {
 				field_152815_a[BroadcastController.BroadcastState.IngestTesting.ordinal()] = 10;
 			} catch (NoSuchFieldError var3) {
-				;
 			}
 
 			try {
 				field_152815_a[BroadcastController.BroadcastState.Paused.ordinal()] = 11;
 			} catch (NoSuchFieldError var2) {
-				;
 			}
 
 			try {
 				field_152815_a[BroadcastController.BroadcastState.Broadcasting.ordinal()] = 12;
 			} catch (NoSuchFieldError var1) {
-				;
 			}
 		}
 	}

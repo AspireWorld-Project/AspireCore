@@ -13,8 +13,8 @@ import org.lwjgl.opengl.GL11;
 @SideOnly(Side.CLIENT)
 public class GuiHopper extends GuiContainer {
 	private static final ResourceLocation field_147085_u = new ResourceLocation("textures/gui/container/hopper.png");
-	private IInventory field_147084_v;
-	private IInventory field_147083_w;
+	private final IInventory field_147084_v;
+	private final IInventory field_147083_w;
 	private static final String __OBFID = "CL_00000759";
 
 	public GuiHopper(InventoryPlayer p_i1092_1_, IInventory p_i1092_2_) {
@@ -28,9 +28,9 @@ public class GuiHopper extends GuiContainer {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_) {
 		fontRendererObj.drawString(field_147083_w.hasCustomInventoryName() ? field_147083_w.getInventoryName()
-				: I18n.format(field_147083_w.getInventoryName(), new Object[0]), 8, 6, 4210752);
+				: I18n.format(field_147083_w.getInventoryName()), 8, 6, 4210752);
 		fontRendererObj.drawString(field_147084_v.hasCustomInventoryName() ? field_147084_v.getInventoryName()
-				: I18n.format(field_147084_v.getInventoryName(), new Object[0]), 8, ySize - 96 + 2, 4210752);
+				: I18n.format(field_147084_v.getInventoryName()), 8, ySize - 96 + 2, 4210752);
 	}
 
 	@Override

@@ -8,10 +8,10 @@ import net.minecraft.world.World;
 
 @SideOnly(Side.CLIENT)
 public class EntityCrit2FX extends EntityFX {
-	private Entity theEntity;
+	private final Entity theEntity;
 	private int currentLife;
-	private int maximumLife;
-	private String particleName;
+	private final int maximumLife;
+	private final String particleName;
 	private static final String __OBFID = "CL_00000899";
 
 	public EntityCrit2FX(World p_i1199_1_, Entity p_i1199_2_) {

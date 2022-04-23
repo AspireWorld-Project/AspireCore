@@ -11,7 +11,7 @@ public class ShapedRecipes implements IRecipe {
 	public final int recipeWidth;
 	public final int recipeHeight;
 	public final ItemStack[] recipeItems;
-	private ItemStack recipeOutput;
+	private final ItemStack recipeOutput;
 	private boolean field_92101_f;
 	private static final String __OBFID = "CL_00000093";
 

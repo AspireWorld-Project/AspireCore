@@ -132,10 +132,7 @@ public class BlockFence extends Block {
 
 	public boolean canConnectFenceTo(IBlockAccess p_149826_1_, int p_149826_2_, int p_149826_3_, int p_149826_4_) {
 		Block block = p_149826_1_.getBlock(p_149826_2_, p_149826_3_, p_149826_4_);
-		return block != this && block != Blocks.fence_gate
-				? block.blockMaterial.isOpaque() && block.renderAsNormalBlock() ? block.blockMaterial != Material.gourd
-						: false
-				: true;
+		return block == this || block == Blocks.fence_gate || block.blockMaterial.isOpaque() && block.renderAsNormalBlock() && block.blockMaterial != Material.gourd;
 	}
 
 	public static boolean func_149825_a(Block p_149825_0_) {
@@ -158,7 +155,6 @@ public class BlockFence extends Block {
 	@Override
 	public boolean onBlockActivated(World p_149727_1_, int p_149727_2_, int p_149727_3_, int p_149727_4_,
 			EntityPlayer p_149727_5_, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
-		return p_149727_1_.isRemote ? true
-				: ItemLead.func_150909_a(p_149727_5_, p_149727_1_, p_149727_2_, p_149727_3_, p_149727_4_);
+		return p_149727_1_.isRemote || ItemLead.func_150909_a(p_149727_5_, p_149727_1_, p_149727_2_, p_149727_3_, p_149727_4_);
 	}
 }

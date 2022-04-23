@@ -19,5 +19,5 @@ public interface PluginMessageListener {
 	 * @param message
 	 *            The raw message that was sent.
 	 */
-	public void onPluginMessageReceived(String channel, Player player, byte[] message);
+    void onPluginMessageReceived(String channel, Player player, byte[] message);
 }

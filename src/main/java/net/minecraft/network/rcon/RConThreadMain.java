@@ -17,10 +17,10 @@ import java.util.Map.Entry;
 @SideOnly(Side.SERVER)
 public class RConThreadMain extends RConThreadBase {
 	private int rconPort;
-	private int serverPort;
+	private final int serverPort;
 	private String hostname;
 	private ServerSocket serverSocket;
-	private String rconPassword;
+	private final String rconPassword;
 	private Map clientThreads;
 	private static final String __OBFID = "CL_00001805";
 
@@ -91,7 +91,7 @@ public class RConThreadMain extends RConThreadBase {
 	@Override
 	public void startThread() {
 		if (0 == rconPassword.length()) {
-			logWarning("No rcon password set in \'" + server.getSettingsFilename() + "\', rcon disabled!");
+			logWarning("No rcon password set in '" + server.getSettingsFilename() + "', rcon disabled!");
 		} else if (0 < rconPort && 65535 >= rconPort) {
 			if (!running) {
 				try {
@@ -104,8 +104,8 @@ public class RConThreadMain extends RConThreadBase {
 				}
 			}
 		} else {
-			logWarning("Invalid rcon port " + rconPort + " found in \'" + server.getSettingsFilename()
-					+ "\', rcon disabled!");
+			logWarning("Invalid rcon port " + rconPort + " found in '" + server.getSettingsFilename()
+					+ "', rcon disabled!");
 		}
 	}
 }

@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
 
 public class MethodBasedCommandHandler implements ICommandHandler {
 	private static final Logger logger = LogManager.getLogger();
-	private Method method;
+	private final Method method;
 
 	public MethodBasedCommandHandler(Method method) {
 		this.method = method;

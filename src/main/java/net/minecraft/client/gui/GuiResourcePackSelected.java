@@ -17,6 +17,6 @@ public class GuiResourcePackSelected extends GuiResourcePackList {
 
 	@Override
 	protected String func_148202_k() {
-		return I18n.format("resourcePack.selected.title", new Object[0]);
+		return I18n.format("resourcePack.selected.title");
 	}
 }

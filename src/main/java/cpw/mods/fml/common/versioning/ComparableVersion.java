@@ -79,9 +79,9 @@ public class ComparableVersion implements Comparable<ComparableVersion> {
 	private ListItem items;
 
 	private interface Item {
-		final int INTEGER_ITEM = 0;
-		final int STRING_ITEM = 1;
-		final int LIST_ITEM = 2;
+		int INTEGER_ITEM = 0;
+		int STRING_ITEM = 1;
+		int LIST_ITEM = 2;
 
 		int compareTo(Item item);
 
@@ -166,7 +166,7 @@ public class ComparableVersion implements Comparable<ComparableVersion> {
 		 */
 		private static final String RELEASE_VERSION_INDEX = String.valueOf(_QUALIFIERS.indexOf(""));
 
-		private String value;
+		private final String value;
 
 		public StringItem(String value, boolean followedByDigit) {
 			if (followedByDigit && value.length() == 1) {

@@ -9,8 +9,8 @@ import net.minecraft.util.Facing;
 import net.minecraft.world.IBlockAccess;
 
 public class BlockBreakable extends Block {
-	private boolean field_149996_a;
-	private String field_149995_b;
+	private final boolean field_149996_a;
+	private final String field_149995_b;
 	private static final String __OBFID = "CL_00000254";
 
 	protected BlockBreakable(String p_i45411_1_, Material p_i45411_2_, boolean p_i45411_3_) {
@@ -41,8 +41,7 @@ public class BlockBreakable extends Block {
 				return false;
 		}
 
-		return !field_149996_a && block == this ? false
-				: super.shouldSideBeRendered(p_149646_1_, p_149646_2_, p_149646_3_, p_149646_4_, p_149646_5_);
+		return (field_149996_a || block != this) && super.shouldSideBeRendered(p_149646_1_, p_149646_2_, p_149646_3_, p_149646_4_, p_149646_5_);
 	}
 
 	@Override

@@ -238,7 +238,7 @@ public class BlockDoor extends Block {
 						p_150014_3_, p_150014_4_);
 			}
 
-			p_150014_1_.playAuxSFXAtEntity((EntityPlayer) null, 1003, p_150014_2_, p_150014_3_, p_150014_4_, 0);
+			p_150014_1_.playAuxSFXAtEntity(null, 1003, p_150014_2_, p_150014_3_, p_150014_4_, 0);
 		}
 	}
 
@@ -298,10 +298,9 @@ public class BlockDoor extends Block {
 
 	@Override
 	public boolean canPlaceBlockAt(World p_149742_1_, int p_149742_2_, int p_149742_3_, int p_149742_4_) {
-		return p_149742_3_ >= p_149742_1_.getHeight() - 1 ? false
-				: World.doesBlockHaveSolidTopSurface(p_149742_1_, p_149742_2_, p_149742_3_ - 1, p_149742_4_)
-						&& super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_)
-						&& super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_ + 1, p_149742_4_);
+		return p_149742_3_ < p_149742_1_.getHeight() - 1 && World.doesBlockHaveSolidTopSurface(p_149742_1_, p_149742_2_, p_149742_3_ - 1, p_149742_4_)
+                && super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_)
+                && super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_ + 1, p_149742_4_);
 	}
 
 	@Override

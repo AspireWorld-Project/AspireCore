@@ -11,10 +11,10 @@ import java.util.List;
 public class EntityAITasks {
 	private static final Logger logger = LogManager.getLogger();
 	public List taskEntries = new ArrayList();
-	private List executingTaskEntries = new ArrayList();
+	private final List executingTaskEntries = new ArrayList();
 	private final Profiler theProfiler;
 	private int tickCount;
-	private int tickRate = 3;
+	private final int tickRate = 3;
 	private static final String __OBFID = "CL_00001588";
 
 	public EntityAITasks(Profiler p_i1628_1_) {

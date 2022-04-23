@@ -19,7 +19,7 @@ public class Scoreboard {
 		ScoreObjective scoreobjective = getObjective(p_96535_1_);
 
 		if (scoreobjective != null)
-			throw new IllegalArgumentException("An objective with the name \'" + p_96535_1_ + "\' already exists!");
+			throw new IllegalArgumentException("An objective with the name '" + p_96535_1_ + "' already exists!");
 		else {
 			scoreobjective = new ScoreObjective(this, p_96535_1_, p_96535_2_);
 			Object object = scoreObjectiveCriterias.get(p_96535_2_);
@@ -120,7 +120,7 @@ public class Scoreboard {
 
 		for (int i = 0; i < 3; ++i) {
 			if (func_96539_a(i) == p_96519_1_) {
-				func_96530_a(i, (ScoreObjective) null);
+				func_96530_a(i, null);
 			}
 		}
 
@@ -156,7 +156,7 @@ public class Scoreboard {
 		ScorePlayerTeam scoreplayerteam = getTeam(p_96527_1_);
 
 		if (scoreplayerteam != null)
-			throw new IllegalArgumentException("A team with the name \'" + p_96527_1_ + "\' already exists!");
+			throw new IllegalArgumentException("A team with the name '" + p_96527_1_ + "' already exists!");
 		else {
 			scoreplayerteam = new ScorePlayerTeam(this, p_96527_1_);
 			teams.put(p_96527_1_, scoreplayerteam);
@@ -206,8 +206,8 @@ public class Scoreboard {
 	public void removePlayerFromTeam(String p_96512_1_, ScorePlayerTeam p_96512_2_) {
 		if (getPlayersTeam(p_96512_1_) != p_96512_2_)
 			throw new IllegalStateException(
-					"Player is either on another team or not on any team. Cannot remove from team \'"
-							+ p_96512_2_.getRegisteredName() + "\'.");
+					"Player is either on another team or not on any team. Cannot remove from team '"
+							+ p_96512_2_.getRegisteredName() + "'.");
 		else {
 			teamMemberships.remove(p_96512_1_);
 			p_96512_2_.getMembershipCollection().remove(p_96512_1_);

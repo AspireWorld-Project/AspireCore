@@ -32,7 +32,7 @@ public class ItemSaddle extends Item {
 
 	@Override
 	public boolean hitEntity(ItemStack p_77644_1_, EntityLivingBase p_77644_2_, EntityLivingBase p_77644_3_) {
-		itemInteractionForEntity(p_77644_1_, (EntityPlayer) null, p_77644_2_);
+		itemInteractionForEntity(p_77644_1_, null, p_77644_2_);
 		return true;
 	}
 }

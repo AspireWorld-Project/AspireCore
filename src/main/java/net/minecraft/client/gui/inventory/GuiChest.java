@@ -12,9 +12,9 @@ import org.lwjgl.opengl.GL11;
 public class GuiChest extends GuiContainer {
 	private static final ResourceLocation field_147017_u = new ResourceLocation(
 			"textures/gui/container/generic_54.png");
-	private IInventory upperChestInventory;
-	private IInventory lowerChestInventory;
-	private int inventoryRows;
+	private final IInventory upperChestInventory;
+	private final IInventory lowerChestInventory;
+	private final int inventoryRows;
 	private static final String __OBFID = "CL_00000749";
 
 	public GuiChest(IInventory p_i1083_1_, IInventory p_i1083_2_) {
@@ -31,10 +31,10 @@ public class GuiChest extends GuiContainer {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_) {
 		fontRendererObj.drawString(lowerChestInventory.hasCustomInventoryName() ? lowerChestInventory.getInventoryName()
-				: I18n.format(lowerChestInventory.getInventoryName(), new Object[0]), 8, 6, 4210752);
+				: I18n.format(lowerChestInventory.getInventoryName()), 8, 6, 4210752);
 		fontRendererObj.drawString(
 				upperChestInventory.hasCustomInventoryName() ? upperChestInventory.getInventoryName()
-						: I18n.format(upperChestInventory.getInventoryName(), new Object[0]),
+						: I18n.format(upperChestInventory.getInventoryName()),
 				8, ySize - 96 + 2, 4210752);
 	}
 

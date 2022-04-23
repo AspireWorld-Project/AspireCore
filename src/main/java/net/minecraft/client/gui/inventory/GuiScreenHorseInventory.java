@@ -12,9 +12,9 @@ import org.lwjgl.opengl.GL11;
 @SideOnly(Side.CLIENT)
 public class GuiScreenHorseInventory extends GuiContainer {
 	private static final ResourceLocation horseGuiTextures = new ResourceLocation("textures/gui/container/horse.png");
-	private IInventory field_147030_v;
-	private IInventory field_147029_w;
-	private EntityHorse field_147034_x;
+	private final IInventory field_147030_v;
+	private final IInventory field_147029_w;
+	private final EntityHorse field_147034_x;
 	private float field_147033_y;
 	private float field_147032_z;
 	private static final String __OBFID = "CL_00000760";
@@ -30,9 +30,9 @@ public class GuiScreenHorseInventory extends GuiContainer {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_) {
 		fontRendererObj.drawString(field_147029_w.hasCustomInventoryName() ? field_147029_w.getInventoryName()
-				: I18n.format(field_147029_w.getInventoryName(), new Object[0]), 8, 6, 4210752);
+				: I18n.format(field_147029_w.getInventoryName()), 8, 6, 4210752);
 		fontRendererObj.drawString(field_147030_v.hasCustomInventoryName() ? field_147030_v.getInventoryName()
-				: I18n.format(field_147030_v.getInventoryName(), new Object[0]), 8, ySize - 96 + 2, 4210752);
+				: I18n.format(field_147030_v.getInventoryName()), 8, ySize - 96 + 2, 4210752);
 	}
 
 	@Override

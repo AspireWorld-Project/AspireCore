@@ -36,7 +36,7 @@ import java.util.*;
 public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback {
 	private static final Logger logger = LogManager.getLogger();
 	private static final Random rand = new Random();
-	private float updateCounter;
+	private final float updateCounter;
 	private String splashText;
 	private GuiButton buttonResetDemo;
 	private int panoramaTimer;
@@ -92,13 +92,11 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback {
 				} while (splashText.hashCode() == 125780783);
 			}
 		} catch (IOException ioexception1) {
-			;
 		} finally {
 			if (bufferedreader != null) {
 				try {
 					bufferedreader.close();
 				} catch (IOException ioexception) {
-					;
 				}
 			}
 		}
@@ -107,8 +105,8 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback {
 		field_92025_p = "";
 
 		if (!GLContext.getCapabilities().OpenGL20 && !OpenGlHelper.func_153193_b()) {
-			field_92025_p = I18n.format("title.oldgl1", new Object[0]);
-			field_146972_A = I18n.format("title.oldgl2", new Object[0]);
+			field_92025_p = I18n.format("title.oldgl1");
+			field_146972_A = I18n.format("title.oldgl2");
 			field_104024_v = "https://help.mojang.com/customer/portal/articles/325948?ref=game";
 		}
 	}
@@ -155,8 +153,8 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback {
 		}
 
 		buttonList.add(
-				new GuiButton(0, width / 2 - 100, i + 72 + 12, 98, 20, I18n.format("menu.options", new Object[0])));
-		buttonList.add(new GuiButton(4, width / 2 + 2, i + 72 + 12, 98, 20, I18n.format("menu.quit", new Object[0])));
+				new GuiButton(0, width / 2 - 100, i + 72 + 12, 98, 20, I18n.format("menu.options")));
+		buttonList.add(new GuiButton(4, width / 2 + 2, i + 72 + 12, 98, 20, I18n.format("menu.quit")));
 		buttonList.add(new GuiButtonLanguage(5, width / 2 - 124, i + 72 + 12));
 		synchronized (field_104025_t) {
 			field_92023_s = fontRendererObj.getStringWidth(field_92025_p);
@@ -170,11 +168,11 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback {
 	}
 
 	private void addSingleplayerMultiplayerButtons(int p_73969_1_, int p_73969_2_) {
-		buttonList.add(new GuiButton(1, width / 2 - 100, p_73969_1_, I18n.format("menu.singleplayer", new Object[0])));
+		buttonList.add(new GuiButton(1, width / 2 - 100, p_73969_1_, I18n.format("menu.singleplayer")));
 		buttonList.add(new GuiButton(2, width / 2 - 100, p_73969_1_ + p_73969_2_ * 1,
-				I18n.format("menu.multiplayer", new Object[0])));
+				I18n.format("menu.multiplayer")));
 		GuiButton realmsButton = new GuiButton(14, width / 2 - 100, p_73969_1_ + p_73969_2_ * 2,
-				I18n.format("menu.online", new Object[0]));
+				I18n.format("menu.online"));
 		GuiButton fmlModButton = new GuiButton(6, width / 2 - 100, p_73969_1_ + p_73969_2_ * 2, "Mods");
 		fmlModButton.xPosition = width / 2 + 2;
 		realmsButton.width = 98;
@@ -184,9 +182,9 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback {
 	}
 
 	private void addDemoButtons(int p_73972_1_, int p_73972_2_) {
-		buttonList.add(new GuiButton(11, width / 2 - 100, p_73972_1_, I18n.format("menu.playdemo", new Object[0])));
+		buttonList.add(new GuiButton(11, width / 2 - 100, p_73972_1_, I18n.format("menu.playdemo")));
 		buttonList.add(buttonResetDemo = new GuiButton(12, width / 2 - 100, p_73972_1_ + p_73972_2_ * 1,
-				I18n.format("menu.resetdemo", new Object[0])));
+				I18n.format("menu.resetdemo")));
 		ISaveFormat isaveformat = mc.getSaveLoader();
 		WorldInfo worldinfo = isaveformat.getWorldInfo("Demo_World");
 
@@ -256,11 +254,11 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback {
 			if (p_73878_1_) {
 				try {
 					Class oclass = Class.forName("java.awt.Desktop");
-					Object object = oclass.getMethod("getDesktop", new Class[0]).invoke((Object) null, new Object[0]);
+					Object object = oclass.getMethod("getDesktop", new Class[0]).invoke(null);
 					oclass.getMethod("browse", new Class[] { URI.class }).invoke(object,
-							new Object[] { new URI(field_104024_v) });
+							new URI(field_104024_v));
 				} catch (Throwable throwable) {
-					logger.error("Couldn\'t open link", throwable);
+					logger.error("Couldn't open link", throwable);
 				}
 			}
 

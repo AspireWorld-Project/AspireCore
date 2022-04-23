@@ -14,7 +14,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 public class ItemSword extends Item {
-	private float field_150934_a;
+	private final float field_150934_a;
 	private final Item.ToolMaterial field_150933_b;
 	private static final String __OBFID = "CL_00000072";
 

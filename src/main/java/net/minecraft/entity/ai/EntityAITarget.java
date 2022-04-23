@@ -17,7 +17,7 @@ import org.bukkit.event.entity.EntityTargetEvent;
 public abstract class EntityAITarget extends EntityAIBase {
 	protected EntityCreature taskOwner;
 	protected boolean shouldCheckSight;
-	private boolean nearbyOnly;
+	private final boolean nearbyOnly;
 	private int targetSearchStatus;
 	private int targetSearchDelay;
 	private int field_75298_g;
@@ -74,7 +74,7 @@ public abstract class EntityAITarget extends EntityAIBase {
 
 	@Override
 	public void resetTask() {
-		taskOwner.setAttackTarget((EntityLivingBase) null);
+		taskOwner.setAttackTarget(null);
 	}
 
 	protected boolean isSuitableTarget(EntityLivingBase p_75296_1_, boolean p_75296_2_) {

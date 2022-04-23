@@ -32,10 +32,10 @@ import java.util.Map;
 public class ModSorter {
 	private DirectedGraph<ModContainer> modGraph;
 
-	private ModContainer beforeAll = new DummyModContainer("BeforeAll");
-	private ModContainer afterAll = new DummyModContainer("AfterAll");
-	private ModContainer before = new DummyModContainer("Before");
-	private ModContainer after = new DummyModContainer("After");
+	private final ModContainer beforeAll = new DummyModContainer("BeforeAll");
+	private final ModContainer afterAll = new DummyModContainer("AfterAll");
+	private final ModContainer before = new DummyModContainer("Before");
+	private final ModContainer after = new DummyModContainer("After");
 
 	public ModSorter(List<ModContainer> modList, Map<String, ModContainer> nameLookup) {
 		HashMap<String, ModContainer> sortingNameLookup = Maps.newHashMap(nameLookup);
@@ -113,7 +113,7 @@ public class ModSorter {
 
 	public List<ModContainer> sort() {
 		List<ModContainer> sortedList = TopologicalSort.topologicalSort(modGraph);
-		sortedList.removeAll(Arrays.asList(new ModContainer[] { beforeAll, before, after, afterAll }));
+		sortedList.removeAll(Arrays.asList(beforeAll, before, after, afterAll));
 		return sortedList;
 	}
 }

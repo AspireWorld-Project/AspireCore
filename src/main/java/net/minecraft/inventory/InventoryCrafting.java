@@ -24,9 +24,9 @@ public class InventoryCrafting implements IInventory {
 		return inventoryOwner;
 	}
 
-	private ItemStack[] stackList;
-	private int inventoryWidth;
-	private Container eventHandler;
+	private final ItemStack[] stackList;
+	private final int inventoryWidth;
+	private final Container eventHandler;
 	private static final String __OBFID = "CL_00001743";
 
 	public InventoryCrafting(Container p_i1807_1_, int p_i1807_2_, int p_i1807_3_) {

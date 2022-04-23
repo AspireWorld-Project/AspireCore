@@ -6,9 +6,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class RecipesArmor {
-	private String[][] recipePatterns = new String[][] { { "XXX", "X X" }, { "X X", "XXX", "XXX" },
+	private final String[][] recipePatterns = new String[][] { { "XXX", "X X" }, { "X X", "XXX", "XXX" },
 			{ "XXX", "X X", "X X" }, { "X X", "X X" } };
-	private Object[][] recipeItems;
+	private final Object[][] recipeItems;
 	private static final String __OBFID = "CL_00000080";
 
 	public RecipesArmor() {
@@ -30,7 +30,7 @@ public class RecipesArmor {
 
 			for (int j = 0; j < recipeItems.length - 1; ++j) {
 				Item item = (Item) recipeItems[j + 1][i];
-				p_77609_1_.addRecipe(new ItemStack(item), new Object[] { recipePatterns[j], 'X', object });
+				p_77609_1_.addRecipe(new ItemStack(item), recipePatterns[j], 'X', object);
 			}
 		}
 	}

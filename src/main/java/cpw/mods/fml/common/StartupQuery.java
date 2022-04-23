@@ -117,9 +117,9 @@ public class StartupQuery {
 		}
 	}
 
-	private String text;
-	private AtomicBoolean result;
-	private CountDownLatch signal = new CountDownLatch(1);
+	private final String text;
+	private final AtomicBoolean result;
+	private final CountDownLatch signal = new CountDownLatch(1);
 	private volatile boolean synchronous;
 
 	/**

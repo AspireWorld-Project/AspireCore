@@ -25,7 +25,7 @@ public class GuiWinGame extends GuiScreen {
 	private int field_146581_h;
 	private List field_146582_i;
 	private int field_146579_r;
-	private float field_146578_s = 0.5F;
+	private final float field_146578_s = 0.5F;
 	private static final String __OBFID = "CL_00000719";
 
 	@Override
@@ -48,7 +48,7 @@ public class GuiWinGame extends GuiScreen {
 	private void func_146574_g() {
 		mc.thePlayer.sendQueue
 				.addToSendQueue(new C16PacketClientStatus(C16PacketClientStatus.EnumState.PERFORM_RESPAWN));
-		mc.displayGuiScreen((GuiScreen) null);
+		mc.displayGuiScreen(null);
 	}
 
 	@Override
@@ -105,7 +105,7 @@ public class GuiWinGame extends GuiScreen {
 
 				field_146579_r = field_146582_i.size() * 12;
 			} catch (Exception exception) {
-				logger.error("Couldn\'t load credits", exception);
+				logger.error("Couldn't load credits", exception);
 			}
 		}
 	}

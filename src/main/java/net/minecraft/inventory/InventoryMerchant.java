@@ -8,7 +8,7 @@ import net.minecraft.village.MerchantRecipeList;
 
 public class InventoryMerchant implements IInventory {
 	private final IMerchant theMerchant;
-	private ItemStack[] theInventory = new ItemStack[3];
+	private final ItemStack[] theInventory = new ItemStack[3];
 	private final EntityPlayer thePlayer;
 	private MerchantRecipe currentRecipe;
 	private int currentRecipeIndex;
@@ -144,7 +144,7 @@ public class InventoryMerchant implements IInventory {
 		}
 
 		if (itemstack == null) {
-			setInventorySlotContents(2, (ItemStack) null);
+			setInventorySlotContents(2, null);
 		} else {
 			MerchantRecipeList merchantrecipelist = theMerchant.getRecipes(thePlayer);
 
@@ -162,10 +162,10 @@ public class InventoryMerchant implements IInventory {
 						currentRecipe = merchantrecipe;
 						setInventorySlotContents(2, merchantrecipe.getItemToSell().copy());
 					} else {
-						setInventorySlotContents(2, (ItemStack) null);
+						setInventorySlotContents(2, null);
 					}
 				} else {
-					setInventorySlotContents(2, (ItemStack) null);
+					setInventorySlotContents(2, null);
 				}
 			}
 		}

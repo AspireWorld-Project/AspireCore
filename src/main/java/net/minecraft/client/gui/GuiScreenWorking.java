@@ -42,7 +42,7 @@ public class GuiScreenWorking extends GuiScreen implements IProgressUpdate {
 	@Override
 	public void drawScreen(int p_73863_1_, int p_73863_2_, float p_73863_3_) {
 		if (field_146592_h) {
-			mc.displayGuiScreen((GuiScreen) null);
+			mc.displayGuiScreen(null);
 		} else {
 			drawDefaultBackground();
 			drawCenteredString(fontRendererObj, field_146591_a, width / 2, 70, 16777215);

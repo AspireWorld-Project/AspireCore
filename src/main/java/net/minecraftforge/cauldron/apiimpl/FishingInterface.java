@@ -26,7 +26,7 @@ public class FishingInterface implements Fishing {
 	}
 
 	private static class PredicateProxy implements Predicate<net.minecraft.util.WeightedRandomFishable> {
-		private Predicate<WeightedRandomFishable> bukkitPredicate;
+		private final Predicate<WeightedRandomFishable> bukkitPredicate;
 
 		public PredicateProxy(Predicate<WeightedRandomFishable> predicate) {
 			bukkitPredicate = predicate;

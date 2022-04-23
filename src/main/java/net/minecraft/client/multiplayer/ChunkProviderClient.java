@@ -21,10 +21,10 @@ import java.util.List;
 @SideOnly(Side.CLIENT)
 public class ChunkProviderClient implements IChunkProvider {
 	private static final Logger logger = LogManager.getLogger();
-	private Chunk blankChunk;
-	private LongHashMap chunkMapping = new LongHashMap();
-	private List chunkListing = new ArrayList();
-	private World worldObj;
+	private final Chunk blankChunk;
+	private final LongHashMap chunkMapping = new LongHashMap();
+	private final List chunkListing = new ArrayList();
+	private final World worldObj;
 	private static final String __OBFID = "CL_00000880";
 
 	public ChunkProviderClient(World p_i1184_1_) {
@@ -95,7 +95,7 @@ public class ChunkProviderClient implements IChunkProvider {
 
 		if (System.currentTimeMillis() - i > 100L) {
 			logger.info("Warning: Clientside chunk ticking took {} ms",
-					new Object[] { Long.valueOf(System.currentTimeMillis() - i) });
+					Long.valueOf(System.currentTimeMillis() - i));
 		}
 
 		return false;

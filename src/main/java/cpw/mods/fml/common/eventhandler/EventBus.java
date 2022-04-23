@@ -21,8 +21,8 @@ import java.util.concurrent.ConcurrentHashMap;
 public class EventBus implements IEventExceptionHandler {
 	private static int maxID = 0;
 
-	private ConcurrentHashMap<Object, ArrayList<IEventListener>> listeners = new ConcurrentHashMap<>();
-	private Map<Object, ModContainer> listenerOwners = new MapMaker().weakKeys().weakValues().makeMap();
+	private final ConcurrentHashMap<Object, ArrayList<IEventListener>> listeners = new ConcurrentHashMap<>();
+	private final Map<Object, ModContainer> listenerOwners = new MapMaker().weakKeys().weakValues().makeMap();
 	private final int busID = maxID++;
 	private IEventExceptionHandler exceptionHandler;
 
@@ -72,8 +72,7 @@ public class EventBus implements IEventExceptionHandler {
 						break;
 					}
 				} catch (NoSuchMethodException e) {
-					;
-				}
+                }
 			}
 		}
 	}
@@ -117,7 +116,7 @@ public class EventBus implements IEventExceptionHandler {
 			exceptionHandler.handleException(this, event, listeners, index, throwable);
 			Throwables.propagate(throwable);
 		}
-		return event.isCancelable() ? event.isCanceled() : false;
+		return event.isCancelable() && event.isCanceled();
 	}
 
 	@Override
@@ -155,6 +154,6 @@ public class EventBus implements IEventExceptionHandler {
 			exceptionHandler.handleException(this, event, listeners, index, throwable);
 			Throwables.propagate(throwable);
 		}
-		return event.isCancelable() ? event.isCanceled() : false;
+		return event.isCancelable() && event.isCanceled();
 	}
 }

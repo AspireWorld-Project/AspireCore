@@ -18,7 +18,7 @@ import net.minecraftforge.event.ForgeEventFactory;
 import java.util.*;
 
 public final class SpawnerAnimals {
-	private HashMap eligibleChunksForSpawning = new HashMap();
+	private final HashMap eligibleChunksForSpawning = new HashMap();
 	private static final String __OBFID = "CL_00000152";
 
 	protected static ChunkPosition func_151350_a(World p_151350_0_, int p_151350_1_, int p_151350_2_) {

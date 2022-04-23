@@ -14,15 +14,15 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
 public class PathNavigate {
-	private EntityLiving theEntity;
-	private World worldObj;
+	private final EntityLiving theEntity;
+	private final World worldObj;
 	private PathEntity currentPath;
 	private double speed;
-	private IAttributeInstance pathSearchRange;
+	private final IAttributeInstance pathSearchRange;
 	private boolean noSunPathfind;
 	private int totalTicks;
 	private int ticksAtLastPos;
-	private Vec3 lastPosCheck = Vec3.createVectorHelper(0.0D, 0.0D, 0.0D);
+	private final Vec3 lastPosCheck = Vec3.createVectorHelper(0.0D, 0.0D, 0.0D);
 	private boolean canPassOpenWoodenDoors = true;
 	private boolean canPassClosedWoodenDoors;
 	private boolean avoidsWater;
@@ -92,7 +92,7 @@ public class PathNavigate {
 
 	public boolean tryMoveToEntityLiving(Entity p_75497_1_, double p_75497_2_) {
 		PathEntity pathentity = getPathToEntityLiving(p_75497_1_);
-		return pathentity != null ? setPath(pathentity, p_75497_2_) : false;
+		return pathentity != null && setPath(pathentity, p_75497_2_);
 	}
 
 	public boolean setPath(PathEntity p_75484_1_, double p_75484_2_) {

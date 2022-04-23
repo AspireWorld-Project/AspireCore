@@ -5,7 +5,7 @@ public enum WorldState {
 
 	private final boolean isLoaded;
 
-	private WorldState(boolean isLoaded) {
+	WorldState(boolean isLoaded) {
 		this.isLoaded = isLoaded;
 	}
 

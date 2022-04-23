@@ -16,7 +16,7 @@ public class LazyPlayerSet extends LazyHashSet<Player> {
 				.getConfigurationManager().playerEntityList;
 		HashSet<Player> reference = new HashSet<>(players.size());
 		for (net.minecraft.entity.player.EntityPlayerMP player : players) {
-			reference.add((Player) player.getBukkitEntity());
+			reference.add(player.getBukkitEntity());
 		}
 		return reference;
 	}

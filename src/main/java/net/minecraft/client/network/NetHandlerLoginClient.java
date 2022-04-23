@@ -60,34 +60,33 @@ public class NetHandlerLoginClient implements INetHandlerLoginClient {
 		} catch (AuthenticationUnavailableException authenticationunavailableexception) {
 			if (flag) {
 				field_147393_d.closeChannel(new ChatComponentTranslation("disconnect.loginFailedInfo",
-						new Object[] { new ChatComponentTranslation("disconnect.loginFailedInfo.serversUnavailable",
-								new Object[0]) }));
+						new ChatComponentTranslation("disconnect.loginFailedInfo.serversUnavailable"
+						)));
 				return;
 			}
 		} catch (InvalidCredentialsException invalidcredentialsexception) {
 			if (flag) {
-				field_147393_d.closeChannel(new ChatComponentTranslation("disconnect.loginFailedInfo", new Object[] {
-						new ChatComponentTranslation("disconnect.loginFailedInfo.invalidSession", new Object[0]) }));
+				field_147393_d.closeChannel(new ChatComponentTranslation("disconnect.loginFailedInfo", new ChatComponentTranslation("disconnect.loginFailedInfo.invalidSession")));
 				return;
 			}
 		} catch (AuthenticationException authenticationexception) {
 			if (flag) {
 				field_147393_d.closeChannel(new ChatComponentTranslation("disconnect.loginFailedInfo",
-						new Object[] { authenticationexception.getMessage() }));
+						authenticationexception.getMessage()));
 				return;
 			}
 		}
 
 		field_147393_d.scheduleOutboundPacket(
 				new C01PacketEncryptionResponse(secretkey, publickey, p_147389_1_.func_149607_e()),
-				new GenericFutureListener[] { new GenericFutureListener() {
+				new GenericFutureListener() {
 					private static final String __OBFID = "CL_00000877";
 
 					@Override
 					public void operationComplete(Future p_operationComplete_1_) {
 						field_147393_d.enableEncryption(secretkey);
 					}
-				} });
+				});
 	}
 
 	private MinecraftSessionService func_147391_c() {

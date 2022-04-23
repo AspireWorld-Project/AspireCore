@@ -1091,9 +1091,7 @@ public abstract class EntityMinecart extends Entity {
 	 * @return True if this cart can be ridden.
 	 */
 	public boolean canBeRidden() {
-		if (this instanceof EntityMinecartEmpty)
-			return true;
-		return false;
+		return this instanceof EntityMinecartEmpty;
 	}
 
 	/**

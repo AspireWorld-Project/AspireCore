@@ -125,7 +125,7 @@ public class BlockFluidClassic extends BlockFluidBase {
 			if (world.getBlock(x, y - densityDir, z) == this) {
 				flowMeta = 1;
 			}
-			boolean flowTo[] = getOptimalFlowDirections(world, x, y, z);
+			boolean[] flowTo = getOptimalFlowDirections(world, x, y, z);
 
 			if (flowTo[0]) {
 				flowIntoBlock(world, x - 1, y, z, flowMeta);
@@ -271,10 +271,7 @@ public class BlockFluidClassic extends BlockFluidBase {
 		if (density == Integer.MAX_VALUE)
 			return true;
 
-		if (this.density > density)
-			return true;
-		else
-			return false;
+		return this.density > density;
 	}
 
 	protected int getLargerQuanta(IBlockAccess world, int x, int y, int z, int compare) {

@@ -65,7 +65,7 @@ public class NBTTagIntArray extends NBTBase {
 
 	@Override
 	public boolean equals(Object p_equals_1_) {
-		return super.equals(p_equals_1_) ? Arrays.equals(intArray, ((NBTTagIntArray) p_equals_1_).intArray) : false;
+		return super.equals(p_equals_1_) && Arrays.equals(intArray, ((NBTTagIntArray) p_equals_1_).intArray);
 	}
 
 	@Override

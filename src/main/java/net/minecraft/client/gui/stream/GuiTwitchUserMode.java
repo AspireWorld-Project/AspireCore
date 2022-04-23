@@ -80,19 +80,19 @@ public class GuiTwitchUserMode extends GuiScreen {
 
 		if (p_152330_0_ == ChatUserSubscription.TTV_CHAT_USERSUB_SUBSCRIBER) {
 			if (p_152330_1_ == null) {
-				chatcomponenttranslation = new ChatComponentTranslation("stream.user.subscription.subscriber",
-						new Object[0]);
+				chatcomponenttranslation = new ChatComponentTranslation("stream.user.subscription.subscriber"
+				);
 			} else if (p_152330_2_) {
-				chatcomponenttranslation = new ChatComponentTranslation("stream.user.subscription.subscriber.self",
-						new Object[0]);
+				chatcomponenttranslation = new ChatComponentTranslation("stream.user.subscription.subscriber.self"
+				);
 			} else {
 				chatcomponenttranslation = new ChatComponentTranslation("stream.user.subscription.subscriber.other",
-						new Object[] { p_152330_1_ });
+						p_152330_1_);
 			}
 
 			chatcomponenttranslation.getChatStyle().setColor(field_152331_a);
 		} else if (p_152330_0_ == ChatUserSubscription.TTV_CHAT_USERSUB_TURBO) {
-			chatcomponenttranslation = new ChatComponentTranslation("stream.user.subscription.turbo", new Object[0]);
+			chatcomponenttranslation = new ChatComponentTranslation("stream.user.subscription.turbo");
 			chatcomponenttranslation.getChatStyle().setColor(field_152336_g);
 		}
 
@@ -103,45 +103,45 @@ public class GuiTwitchUserMode extends GuiScreen {
 		ChatComponentTranslation chatcomponenttranslation = null;
 
 		if (p_152329_0_ == ChatUserMode.TTV_CHAT_USERMODE_ADMINSTRATOR) {
-			chatcomponenttranslation = new ChatComponentTranslation("stream.user.mode.administrator", new Object[0]);
+			chatcomponenttranslation = new ChatComponentTranslation("stream.user.mode.administrator");
 			chatcomponenttranslation.getChatStyle().setColor(field_152336_g);
 		} else if (p_152329_0_ == ChatUserMode.TTV_CHAT_USERMODE_BANNED) {
 			if (p_152329_1_ == null) {
-				chatcomponenttranslation = new ChatComponentTranslation("stream.user.mode.banned", new Object[0]);
+				chatcomponenttranslation = new ChatComponentTranslation("stream.user.mode.banned");
 			} else if (p_152329_2_) {
-				chatcomponenttranslation = new ChatComponentTranslation("stream.user.mode.banned.self", new Object[0]);
+				chatcomponenttranslation = new ChatComponentTranslation("stream.user.mode.banned.self");
 			} else {
 				chatcomponenttranslation = new ChatComponentTranslation("stream.user.mode.banned.other",
-						new Object[] { p_152329_1_ });
+						p_152329_1_);
 			}
 
 			chatcomponenttranslation.getChatStyle().setColor(field_152335_f);
 		} else if (p_152329_0_ == ChatUserMode.TTV_CHAT_USERMODE_BROADCASTER) {
 			if (p_152329_1_ == null) {
-				chatcomponenttranslation = new ChatComponentTranslation("stream.user.mode.broadcaster", new Object[0]);
+				chatcomponenttranslation = new ChatComponentTranslation("stream.user.mode.broadcaster");
 			} else if (p_152329_2_) {
-				chatcomponenttranslation = new ChatComponentTranslation("stream.user.mode.broadcaster.self",
-						new Object[0]);
+				chatcomponenttranslation = new ChatComponentTranslation("stream.user.mode.broadcaster.self"
+				);
 			} else {
-				chatcomponenttranslation = new ChatComponentTranslation("stream.user.mode.broadcaster.other",
-						new Object[0]);
+				chatcomponenttranslation = new ChatComponentTranslation("stream.user.mode.broadcaster.other"
+				);
 			}
 
 			chatcomponenttranslation.getChatStyle().setColor(field_152331_a);
 		} else if (p_152329_0_ == ChatUserMode.TTV_CHAT_USERMODE_MODERATOR) {
 			if (p_152329_1_ == null) {
-				chatcomponenttranslation = new ChatComponentTranslation("stream.user.mode.moderator", new Object[0]);
+				chatcomponenttranslation = new ChatComponentTranslation("stream.user.mode.moderator");
 			} else if (p_152329_2_) {
-				chatcomponenttranslation = new ChatComponentTranslation("stream.user.mode.moderator.self",
-						new Object[0]);
+				chatcomponenttranslation = new ChatComponentTranslation("stream.user.mode.moderator.self"
+				);
 			} else {
 				chatcomponenttranslation = new ChatComponentTranslation("stream.user.mode.moderator.other",
-						new Object[] { p_152329_1_ });
+						p_152329_1_);
 			}
 
 			chatcomponenttranslation.getChatStyle().setColor(field_152331_a);
 		} else if (p_152329_0_ == ChatUserMode.TTV_CHAT_USERMODE_STAFF) {
-			chatcomponenttranslation = new ChatComponentTranslation("stream.user.mode.staff", new Object[0]);
+			chatcomponenttranslation = new ChatComponentTranslation("stream.user.mode.staff");
 			chatcomponenttranslation.getChatStyle().setColor(field_152336_g);
 		}
 
@@ -153,16 +153,16 @@ public class GuiTwitchUserMode extends GuiScreen {
 		int i = width / 3;
 		int j = i - 130;
 		buttonList.add(new GuiButton(1, i * 0 + j / 2, height - 70, 130, 20,
-				I18n.format("stream.userinfo.timeout", new Object[0])));
+				I18n.format("stream.userinfo.timeout")));
 		buttonList.add(new GuiButton(0, i * 1 + j / 2, height - 70, 130, 20,
-				I18n.format("stream.userinfo.ban", new Object[0])));
+				I18n.format("stream.userinfo.ban")));
 		buttonList.add(new GuiButton(2, i * 2 + j / 2, height - 70, 130, 20,
-				I18n.format("stream.userinfo.mod", new Object[0])));
-		buttonList.add(new GuiButton(5, i * 0 + j / 2, height - 45, 130, 20, I18n.format("gui.cancel", new Object[0])));
+				I18n.format("stream.userinfo.mod")));
+		buttonList.add(new GuiButton(5, i * 0 + j / 2, height - 45, 130, 20, I18n.format("gui.cancel")));
 		buttonList.add(new GuiButton(3, i * 1 + j / 2, height - 45, 130, 20,
-				I18n.format("stream.userinfo.unban", new Object[0])));
+				I18n.format("stream.userinfo.unban")));
 		buttonList.add(new GuiButton(4, i * 2 + j / 2, height - 45, 130, 20,
-				I18n.format("stream.userinfo.unmod", new Object[0])));
+				I18n.format("stream.userinfo.unmod")));
 		int k = 0;
 		IChatComponent ichatcomponent;
 
@@ -189,7 +189,7 @@ public class GuiTwitchUserMode extends GuiScreen {
 				field_152333_s.func_152917_b("/timeout " + field_152337_h.displayName);
 			}
 
-			mc.displayGuiScreen((GuiScreen) null);
+			mc.displayGuiScreen(null);
 		}
 	}
 

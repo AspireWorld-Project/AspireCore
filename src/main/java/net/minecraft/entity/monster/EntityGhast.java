@@ -138,13 +138,13 @@ public class EntityGhast extends EntityFlying implements IMob {
 
 			if (canEntityBeSeen(targetedEntity)) {
 				if (attackCounter == 10) {
-					worldObj.playAuxSFXAtEntity((EntityPlayer) null, 1007, (int) posX, (int) posY, (int) posZ, 0);
+					worldObj.playAuxSFXAtEntity(null, 1007, (int) posX, (int) posY, (int) posZ, 0);
 				}
 
 				++attackCounter;
 
 				if (attackCounter == 20) {
-					worldObj.playAuxSFXAtEntity((EntityPlayer) null, 1008, (int) posX, (int) posY, (int) posZ, 0);
+					worldObj.playAuxSFXAtEntity(null, 1008, (int) posX, (int) posY, (int) posZ, 0);
 					EntityLargeFireball entitylargefireball = new EntityLargeFireball(worldObj, this, d5, d6, d7);
 					entitylargefireball.field_92057_e = explosionStrength;
 					double d8 = 4.0D;

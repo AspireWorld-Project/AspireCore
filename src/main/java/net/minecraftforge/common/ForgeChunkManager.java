@@ -59,19 +59,19 @@ public class ForgeChunkManager {
 	private static int defaultMaxChunks;
 	private static boolean overridesEnabled;
 
-	private static Map<World, Multimap<String, Ticket>> tickets = new MapMaker().weakKeys().makeMap();
-	private static Map<String, Integer> ticketConstraints = Maps.newHashMap();
-	private static Map<String, Integer> chunkConstraints = Maps.newHashMap();
+	private static final Map<World, Multimap<String, Ticket>> tickets = new MapMaker().weakKeys().makeMap();
+	private static final Map<String, Integer> ticketConstraints = Maps.newHashMap();
+	private static final Map<String, Integer> chunkConstraints = Maps.newHashMap();
 
-	private static SetMultimap<String, Ticket> playerTickets = HashMultimap.create();
+	private static final SetMultimap<String, Ticket> playerTickets = HashMultimap.create();
 
-	private static Map<String, LoadingCallback> callbacks = Maps.newHashMap();
+	private static final Map<String, LoadingCallback> callbacks = Maps.newHashMap();
 
-	private static Map<World, ImmutableSetMultimap<ChunkCoordIntPair, Ticket>> forcedChunks = new MapMaker().weakKeys()
+	private static final Map<World, ImmutableSetMultimap<ChunkCoordIntPair, Ticket>> forcedChunks = new MapMaker().weakKeys()
 			.makeMap();
-	private static BiMap<UUID, Ticket> pendingEntities = HashBiMap.create();
+	private static final BiMap<UUID, Ticket> pendingEntities = HashBiMap.create();
 
-	private static Map<World, Cache<Long, Chunk>> dormantChunkCache = new MapMaker().weakKeys().makeMap();
+	private static final Map<World, Cache<Long, Chunk>> dormantChunkCache = new MapMaker().weakKeys().makeMap();
 
 	private static File cfgFile;
 	private static Configuration config;
@@ -80,7 +80,7 @@ public class ForgeChunkManager {
 
 	public static final List<String> MOD_PROP_ORDER = new ArrayList<>(2);
 
-	private static Set<String> warnedMods = Sets.newHashSet();
+	private static final Set<String> warnedMods = Sets.newHashSet();
 
 	static {
 		MOD_PROP_ORDER.add("maximumTicketCount");
@@ -108,7 +108,7 @@ public class ForgeChunkManager {
 		 * @param world
 		 *            the world
 		 */
-		public void ticketsLoaded(List<Ticket> tickets, World world);
+		void ticketsLoaded(List<Ticket> tickets, World world);
 	}
 
 	/**
@@ -141,7 +141,7 @@ public class ForgeChunkManager {
 		 *         will be truncated to "maxTicketCount" size after the call returns and
 		 *         then offered to the other callback method
 		 */
-		public List<Ticket> ticketsLoaded(List<Ticket> tickets, World world, int maxTicketCount);
+		List<Ticket> ticketsLoaded(List<Ticket> tickets, World world, int maxTicketCount);
 	}
 
 	public interface PlayerOrderedLoadingCallback extends LoadingCallback {
@@ -162,7 +162,7 @@ public class ForgeChunkManager {
 		 * @return A list of the tickets this mod wishes to use. This list will
 		 *         subsequently be offered to the main callback for action
 		 */
-		public ListMultimap<String, Ticket> playerTicketsLoaded(ListMultimap<String, Ticket> tickets, World world);
+		ListMultimap<String, Ticket> playerTicketsLoaded(ListMultimap<String, Ticket> tickets, World world);
 	}
 
 	public enum Type {
@@ -178,9 +178,9 @@ public class ForgeChunkManager {
 	}
 
 	public static class Ticket {
-		private String modId;
-		private Type ticketType;
-		private LinkedHashSet<ChunkCoordIntPair> requestedChunks;
+		private final String modId;
+		private final Type ticketType;
+		private final LinkedHashSet<ChunkCoordIntPair> requestedChunks;
 		private NBTTagCompound modData;
 		public final World world;
 		private int maxDepth;
@@ -355,7 +355,6 @@ public class ForgeChunkManager {
 		File chunkLoaderData = new File(chunkDir, "forcedchunks.dat");
 
 		if (chunkLoaderData.exists() && chunkLoaderData.isFile()) {
-			;
 			try {
 				NBTTagCompound forcedChunkData = CompressedStreamTools.read(chunkLoaderData);
 				return forcedChunkData.getTagList("TicketList", Constants.NBT.TAG_COMPOUND).tagCount() > 0;
@@ -366,21 +365,21 @@ public class ForgeChunkManager {
 	}
 
 	static void loadWorld(World world) {
-		ArrayListMultimap<String, Ticket> newTickets = ArrayListMultimap.<String, Ticket>create();
+		ArrayListMultimap<String, Ticket> newTickets = ArrayListMultimap.create();
 		tickets.put(world, newTickets);
 
-		forcedChunks.put(world, ImmutableSetMultimap.<ChunkCoordIntPair, Ticket>of());
+		forcedChunks.put(world, ImmutableSetMultimap.of());
 
 		if (!(world instanceof WorldServer))
 			return;
 
-		dormantChunkCache.put(world, CacheBuilder.newBuilder().maximumSize(dormantChunkCacheSize).<Long, Chunk>build());
+		dormantChunkCache.put(world, CacheBuilder.newBuilder().maximumSize(dormantChunkCacheSize).build());
 		WorldServer worldServer = (WorldServer) world;
 		File chunkDir = worldServer.getChunkSaveLocation();
 		File chunkLoaderData = new File(chunkDir, "forcedchunks.dat");
 
 		if (chunkLoaderData.exists() && chunkLoaderData.isFile()) {
-			ArrayListMultimap<String, Ticket> loadedTickets = ArrayListMultimap.<String, Ticket>create();
+			ArrayListMultimap<String, Ticket> loadedTickets = ArrayListMultimap.create();
 			Map<String, ListMultimap<String, Ticket>> playerLoadedTickets = Maps.newHashMap();
 			NBTTagCompound forcedChunkData;
 			try {
@@ -423,7 +422,7 @@ public class ForgeChunkManager {
 					if (ticket.hasKey("Player")) {
 						tick.player = ticket.getString("Player");
 						if (!playerLoadedTickets.containsKey(tick.modId)) {
-							playerLoadedTickets.put(modId, ArrayListMultimap.<String, Ticket>create());
+							playerLoadedTickets.put(modId, ArrayListMultimap.create());
 						}
 						playerLoadedTickets.get(tick.modId).put(tick.player, tick);
 					} else {
@@ -793,7 +792,7 @@ public class ForgeChunkManager {
 	 */
 	public static ImmutableSetMultimap<ChunkCoordIntPair, Ticket> getPersistentChunksFor(World world) {
 		return forcedChunks.containsKey(world) ? forcedChunks.get(world)
-				: ImmutableSetMultimap.<ChunkCoordIntPair, Ticket>of();
+				: ImmutableSetMultimap.of();
 	}
 
 	static void saveWorld(World world) {
@@ -874,7 +873,7 @@ public class ForgeChunkManager {
 			return null;
 		Chunk chunk = cache.getIfPresent(coords);
 		if (chunk != null) {
-			for (List<Entity> eList : (List<Entity>[]) chunk.entityLists) {
+			for (List<Entity> eList : chunk.entityLists) {
 				for (Entity e : eList) {
 					e.resetEntityId();
 				}

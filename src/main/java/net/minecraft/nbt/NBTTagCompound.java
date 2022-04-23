@@ -127,8 +127,7 @@ public class NBTTagCompound extends NBTBase {
 
 	public boolean hasKey(String p_150297_1_, int p_150297_2_) {
 		byte b0 = func_150299_b(p_150297_1_);
-		return b0 == p_150297_2_ ? true
-				: p_150297_2_ != 99 ? false : b0 == 1 || b0 == 2 || b0 == 3 || b0 == 4 || b0 == 5 || b0 == 6;
+		return b0 == p_150297_2_ || p_150297_2_ == 99 && (b0 == 1 || b0 == 2 || b0 == 3 || b0 == 4 || b0 == 5 || b0 == 6);
 	}
 
 	public byte getByte(String p_74771_1_) {

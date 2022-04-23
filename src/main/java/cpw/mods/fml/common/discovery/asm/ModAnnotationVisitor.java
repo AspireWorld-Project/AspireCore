@@ -16,7 +16,7 @@ import org.objectweb.asm.AnnotationVisitor;
 import org.objectweb.asm.Opcodes;
 
 public class ModAnnotationVisitor extends AnnotationVisitor {
-	private ASMModParser discoverer;
+	private final ASMModParser discoverer;
 	private boolean array;
 	@SuppressWarnings("unused")
 	private String name;

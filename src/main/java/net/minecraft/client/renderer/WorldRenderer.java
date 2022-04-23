@@ -53,7 +53,7 @@ public class WorldRenderer {
 	public boolean isChunkLit;
 	private boolean isInitialized;
 	public List tileEntityRenderers = new ArrayList();
-	private List tileEntities;
+	private final List tileEntities;
 	private int bytesDrawn;
 	private static final String __OBFID = "CL_00000942";
 
@@ -278,7 +278,7 @@ public class WorldRenderer {
 	}
 
 	public boolean skipAllRenderPasses() {
-		return !isInitialized ? false : skipRenderPass[0] && skipRenderPass[1];
+		return isInitialized && skipRenderPass[0] && skipRenderPass[1];
 	}
 
 	public void markDirty() {

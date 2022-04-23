@@ -106,10 +106,7 @@ public class BlockWall extends Block {
 
 	public boolean canConnectWallTo(IBlockAccess p_150091_1_, int p_150091_2_, int p_150091_3_, int p_150091_4_) {
 		Block block = p_150091_1_.getBlock(p_150091_2_, p_150091_3_, p_150091_4_);
-		return block != this && block != Blocks.fence_gate
-				? block.blockMaterial.isOpaque() && block.renderAsNormalBlock() ? block.blockMaterial != Material.gourd
-						: false
-				: true;
+		return block == this || block == Blocks.fence_gate || block.blockMaterial.isOpaque() && block.renderAsNormalBlock() && block.blockMaterial != Material.gourd;
 	}
 
 	@Override
@@ -128,9 +125,7 @@ public class BlockWall extends Block {
 	@SideOnly(Side.CLIENT)
 	public boolean shouldSideBeRendered(IBlockAccess p_149646_1_, int p_149646_2_, int p_149646_3_, int p_149646_4_,
 			int p_149646_5_) {
-		return p_149646_5_ == 0
-				? super.shouldSideBeRendered(p_149646_1_, p_149646_2_, p_149646_3_, p_149646_4_, p_149646_5_)
-				: true;
+		return p_149646_5_ != 0 || super.shouldSideBeRendered(p_149646_1_, p_149646_2_, p_149646_3_, p_149646_4_, p_149646_5_);
 	}
 
 	@Override

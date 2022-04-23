@@ -10,8 +10,8 @@ import net.minecraft.stats.Achievement;
 import java.util.*;
 
 public class AchievementPage {
-	private String name;
-	private LinkedList<Achievement> achievements;
+	private final String name;
+	private final LinkedList<Achievement> achievements;
 
 	public AchievementPage(String name, Achievement... achievements) {
 		this.name = name;
@@ -26,7 +26,7 @@ public class AchievementPage {
 		return achievements;
 	}
 
-	private static LinkedList<AchievementPage> achievementPages = new LinkedList<>();
+	private static final LinkedList<AchievementPage> achievementPages = new LinkedList<>();
 
 	/**
 	 * Registers an achievement page.

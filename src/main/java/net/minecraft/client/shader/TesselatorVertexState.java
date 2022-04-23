@@ -5,13 +5,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class TesselatorVertexState {
-	private int[] rawBuffer;
-	private int rawBufferIndex;
-	private int vertexCount;
-	private boolean hasTexture;
-	private boolean hasBrightness;
-	private boolean hasNormals;
-	private boolean hasColor;
+	private final int[] rawBuffer;
+	private final int rawBufferIndex;
+	private final int vertexCount;
+	private final boolean hasTexture;
+	private final boolean hasBrightness;
+	private final boolean hasNormals;
+	private final boolean hasColor;
 	private static final String __OBFID = "CL_00000961";
 
 	public TesselatorVertexState(int[] p_i45079_1_, int p_i45079_2_, int p_i45079_3_, boolean p_i45079_4_,

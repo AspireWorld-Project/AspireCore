@@ -5,10 +5,10 @@ import java.util.List;
 
 public class IntCache {
 	private static int intCacheSize = 256;
-	private static List freeSmallArrays = new ArrayList();
-	private static List inUseSmallArrays = new ArrayList();
-	private static List freeLargeArrays = new ArrayList();
-	private static List inUseLargeArrays = new ArrayList();
+	private static final List freeSmallArrays = new ArrayList();
+	private static final List inUseSmallArrays = new ArrayList();
+	private static final List freeLargeArrays = new ArrayList();
+	private static final List inUseLargeArrays = new ArrayList();
 	private static final String __OBFID = "CL_00000557";
 
 	public static synchronized int[] getIntCache(int p_76445_0_) {

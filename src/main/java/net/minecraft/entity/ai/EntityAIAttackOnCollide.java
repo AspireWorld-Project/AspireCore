@@ -68,12 +68,10 @@ public class EntityAIAttackOnCollide extends EntityAIBase {
 				|| attacker.getAttackTarget() != null && !attacker.getAttackTarget().isEntityAlive()) {
 			CraftEventFactory.callEntityTargetEvent(attacker, null, reason);
 		}
-		return entitylivingbase == null ? false
-				: !entitylivingbase.isEntityAlive() ? false
-						: !longMemory ? !attacker.getNavigator().noPath()
-								: attacker.isWithinHomeDistance(MathHelper.floor_double(entitylivingbase.posX),
-										MathHelper.floor_double(entitylivingbase.posY),
-										MathHelper.floor_double(entitylivingbase.posZ));
+		return entitylivingbase != null && entitylivingbase.isEntityAlive() && (!longMemory ? !attacker.getNavigator().noPath()
+                : attacker.isWithinHomeDistance(MathHelper.floor_double(entitylivingbase.posX),
+                MathHelper.floor_double(entitylivingbase.posY),
+                MathHelper.floor_double(entitylivingbase.posZ)));
 	}
 
 	@Override

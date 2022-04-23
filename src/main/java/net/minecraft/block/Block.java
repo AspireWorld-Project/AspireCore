@@ -682,16 +682,9 @@ public class Block {
 	public boolean shouldSideBeRendered(IBlockAccess p_149646_1_, int p_149646_2_, int p_149646_3_, int p_149646_4_,
 			int p_149646_5_) {
 		return p_149646_5_ == 0
-				&& minY > 0.0D
-						? true
-						: p_149646_5_ == 1 && maxY < 1.0D ? true
-								: p_149646_5_ == 2 && minZ > 0.0D ? true
-										: p_149646_5_ == 3 && maxZ < 1.0D ? true
-												: p_149646_5_ == 4 && minX > 0.0D ? true
-														: p_149646_5_ == 5 && maxX < 1.0D ? true
-																: !p_149646_1_
-																		.getBlock(p_149646_2_, p_149646_3_, p_149646_4_)
-																		.isOpaqueCube();
+                && minY > 0.0D || p_149646_5_ == 1 && maxY < 1.0D || p_149646_5_ == 2 && minZ > 0.0D || p_149646_5_ == 3 && maxZ < 1.0D || p_149646_5_ == 4 && minX > 0.0D || p_149646_5_ == 5 && maxX < 1.0D || !p_149646_1_
+                .getBlock(p_149646_2_, p_149646_3_, p_149646_4_)
+                .isOpaqueCube();
 	}
 
 	public boolean isBlockSolid(IBlockAccess p_149747_1_, int p_149747_2_, int p_149747_3_, int p_149747_4_,
@@ -959,21 +952,18 @@ public class Block {
 	}
 
 	private boolean isVecInsideYZBounds(Vec3 p_149654_1_) {
-		return p_149654_1_ == null ? false
-				: p_149654_1_.yCoord >= minY && p_149654_1_.yCoord <= maxY && p_149654_1_.zCoord >= minZ
-						&& p_149654_1_.zCoord <= maxZ;
+		return p_149654_1_ != null && p_149654_1_.yCoord >= minY && p_149654_1_.yCoord <= maxY && p_149654_1_.zCoord >= minZ
+                && p_149654_1_.zCoord <= maxZ;
 	}
 
 	private boolean isVecInsideXZBounds(Vec3 p_149687_1_) {
-		return p_149687_1_ == null ? false
-				: p_149687_1_.xCoord >= minX && p_149687_1_.xCoord <= maxX && p_149687_1_.zCoord >= minZ
-						&& p_149687_1_.zCoord <= maxZ;
+		return p_149687_1_ != null && p_149687_1_.xCoord >= minX && p_149687_1_.xCoord <= maxX && p_149687_1_.zCoord >= minZ
+                && p_149687_1_.zCoord <= maxZ;
 	}
 
 	private boolean isVecInsideXYBounds(Vec3 p_149661_1_) {
-		return p_149661_1_ == null ? false
-				: p_149661_1_.xCoord >= minX && p_149661_1_.xCoord <= maxX && p_149661_1_.yCoord >= minY
-						&& p_149661_1_.yCoord <= maxY;
+		return p_149661_1_ != null && p_149661_1_.xCoord >= minX && p_149661_1_.xCoord <= maxX && p_149661_1_.yCoord >= minY
+                && p_149661_1_.yCoord <= maxY;
 	}
 
 	public void onBlockDestroyedByExplosion(World p_149723_1_, int p_149723_2_, int p_149723_3_, int p_149723_4_,
@@ -1238,9 +1228,7 @@ public class Block {
 	}
 
 	public static boolean isEqualTo(Block p_149680_0_, Block p_149680_1_) {
-		return p_149680_0_ != null && p_149680_1_ != null
-				? p_149680_0_ == p_149680_1_ ? true : p_149680_0_.isAssociatedBlock(p_149680_1_)
-				: false;
+		return p_149680_0_ != null && p_149680_1_ != null && (p_149680_0_ == p_149680_1_ || p_149680_0_.isAssociatedBlock(p_149680_1_));
 	}
 
 	public boolean hasComparatorInputOverride() {
@@ -1283,7 +1271,7 @@ public class Block {
 	 */
 	// For ForgeInternal use Only!
 	protected ThreadLocal<EntityPlayer> harvesters = new ThreadLocal();
-	private ThreadLocal<Integer> silk_check_meta = new ThreadLocal();
+	private final ThreadLocal<Integer> silk_check_meta = new ThreadLocal();
 
 	/**
 	 * Get a light value for the block at the specified coordinates, normal ranges
@@ -1566,12 +1554,10 @@ public class Block {
 	public boolean isFireSource(World world, int x, int y, int z, ForgeDirection side) {
 		if (this == Blocks.netherrack && side == UP)
 			return true;
-		if (world.provider instanceof WorldProviderEnd && this == Blocks.bedrock && side == UP)
-			return true;
-		return false;
-	}
+        return world.provider instanceof WorldProviderEnd && this == Blocks.bedrock && side == UP;
+    }
 
-	private boolean isTileProvider = this instanceof ITileEntityProvider;
+	private final boolean isTileProvider = this instanceof ITileEntityProvider;
 
 	/**
 	 * Called throughout the code as a replacement for block instanceof
@@ -1672,8 +1658,7 @@ public class Block {
 	 */
 	public boolean canSilkHarvest(World world, EntityPlayer player, int x, int y, int z, int metadata) {
 		silk_check_meta.set(metadata);
-		;
-		boolean ret = this.canSilkHarvest();
+        boolean ret = this.canSilkHarvest();
 		silk_check_meta.set(null);
 		return ret;
 	}
@@ -2441,8 +2426,8 @@ public class Block {
 		return false;
 	}
 
-	private String[] harvestTool = new String[16];
-	private int[] harvestLevel = new int[] { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
+	private final String[] harvestTool = new String[16];
+	private final int[] harvestLevel = new int[] { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
 
 	/**
 	 * Sets or removes the tool and level required to harvest this block.

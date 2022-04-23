@@ -17,7 +17,7 @@ public interface MetadataStore<T> {
 	 * @throws IllegalArgumentException
 	 *             If value is null, or the owning plugin is null
 	 */
-	public void setMetadata(T subject, String metadataKey, MetadataValue newMetadataValue);
+    void setMetadata(T subject, String metadataKey, MetadataValue newMetadataValue);
 
 	/**
 	 * Returns all metadata values attached to an object. If multiple plugins have
@@ -30,7 +30,7 @@ public interface MetadataStore<T> {
 	 * @return A list of values, one for each plugin that has set the requested
 	 *         value.
 	 */
-	public List<MetadataValue> getMetadata(T subject, String metadataKey);
+    List<MetadataValue> getMetadata(T subject, String metadataKey);
 
 	/**
 	 * Tests to see if a metadata attribute has been set on an object.
@@ -41,7 +41,7 @@ public interface MetadataStore<T> {
 	 *            the unique metadata key being queried.
 	 * @return the existence of the metadataKey within subject.
 	 */
-	public boolean hasMetadata(T subject, String metadataKey);
+    boolean hasMetadata(T subject, String metadataKey);
 
 	/**
 	 * Removes a metadata item owned by a plugin from a subject.
@@ -55,7 +55,7 @@ public interface MetadataStore<T> {
 	 * @throws IllegalArgumentException
 	 *             If plugin is null
 	 */
-	public void removeMetadata(T subject, String metadataKey, Plugin owningPlugin);
+    void removeMetadata(T subject, String metadataKey, Plugin owningPlugin);
 
 	/**
 	 * Invalidates all metadata in the metadata store that originates from the given
@@ -67,5 +67,5 @@ public interface MetadataStore<T> {
 	 * @throws IllegalArgumentException
 	 *             If plugin is null
 	 */
-	public void invalidateAll(Plugin owningPlugin);
+    void invalidateAll(Plugin owningPlugin);
 }

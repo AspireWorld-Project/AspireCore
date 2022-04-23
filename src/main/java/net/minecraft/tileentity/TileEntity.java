@@ -26,8 +26,8 @@ import java.util.concurrent.Callable;
 
 public class TileEntity {
 	private static final Logger logger = LogManager.getLogger();
-	private static Map nameToClassMap = new HashMap();
-	private static Map classToNameMap = new HashMap();
+	private static final Map nameToClassMap = new HashMap();
+	private static final Map classToNameMap = new HashMap();
 	public World worldObj;
 	public int xCoord;
 	public int yCoord;
@@ -186,7 +186,7 @@ public class TileEntity {
 
 			@Override
 			public String call() {
-				return (String) TileEntity.classToNameMap.get(TileEntity.this.getClass()) + " // "
+				return TileEntity.classToNameMap.get(TileEntity.this.getClass()) + " // "
 						+ TileEntity.this.getClass().getCanonicalName();
 			}
 		});
@@ -200,8 +200,8 @@ public class TileEntity {
 
 				try {
 					return String.format("ID #%d (%s // %s)",
-							new Object[] { Integer.valueOf(i), Block.getBlockById(i).getUnlocalizedName(),
-									Block.getBlockById(i).getClass().getCanonicalName() });
+							Integer.valueOf(i), Block.getBlockById(i).getUnlocalizedName(),
+							Block.getBlockById(i).getClass().getCanonicalName());
 				} catch (Throwable throwable) {
 					return "ID #" + i;
 				}
@@ -218,7 +218,7 @@ public class TileEntity {
 					return "Unknown? (Got " + i + ")";
 				else {
 					String s = String.format("%4s", new Object[] { Integer.toBinaryString(i) }).replace(" ", "0");
-					return String.format("%1$d / 0x%1$X / 0b%2$s", new Object[] { Integer.valueOf(i), s });
+					return String.format("%1$d / 0x%1$X / 0b%2$s", Integer.valueOf(i), s);
 				}
 			}
 		});
@@ -277,7 +277,7 @@ public class TileEntity {
 	public void onChunkUnload() {
 	}
 
-	private boolean isVanilla = getClass().getName().startsWith("net.minecraft.tileentity");
+	private final boolean isVanilla = getClass().getName().startsWith("net.minecraft.tileentity");
 
 	/**
 	 * Called from Chunk.setBlockIDWithMetadata, determines if this tile entity

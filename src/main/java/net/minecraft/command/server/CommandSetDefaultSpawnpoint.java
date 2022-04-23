@@ -27,7 +27,7 @@ public class CommandSetDefaultSpawnpoint extends CommandBase {
 	public void processCommand(ICommandSender p_71515_1_, String[] p_71515_2_) {
 		if (p_71515_2_.length == 3) {
 			if (p_71515_1_.getEntityWorld() == null)
-				throw new WrongUsageException("commands.setworldspawn.usage", new Object[0]);
+				throw new WrongUsageException("commands.setworldspawn.usage");
 
 			byte b0 = 0;
 			int l = b0 + 1;
@@ -36,17 +36,17 @@ public class CommandSetDefaultSpawnpoint extends CommandBase {
 			int k = parseIntBounded(p_71515_1_, p_71515_2_[l++], -30000000, 30000000);
 			p_71515_1_.getEntityWorld().setSpawnLocation(i, j, k);
 			func_152373_a(p_71515_1_, this, "commands.setworldspawn.success",
-					new Object[] { Integer.valueOf(i), Integer.valueOf(j), Integer.valueOf(k) });
+					Integer.valueOf(i), Integer.valueOf(j), Integer.valueOf(k));
 		} else {
 			if (p_71515_2_.length != 0)
-				throw new WrongUsageException("commands.setworldspawn.usage", new Object[0]);
+				throw new WrongUsageException("commands.setworldspawn.usage");
 
 			ChunkCoordinates chunkcoordinates = getCommandSenderAsPlayer(p_71515_1_).getPlayerCoordinates();
 			p_71515_1_.getEntityWorld().setSpawnLocation(chunkcoordinates.posX, chunkcoordinates.posY,
 					chunkcoordinates.posZ);
 			func_152373_a(p_71515_1_, this, "commands.setworldspawn.success",
-					new Object[] { Integer.valueOf(chunkcoordinates.posX), Integer.valueOf(chunkcoordinates.posY),
-							Integer.valueOf(chunkcoordinates.posZ) });
+					Integer.valueOf(chunkcoordinates.posX), Integer.valueOf(chunkcoordinates.posY),
+					Integer.valueOf(chunkcoordinates.posZ));
 		}
 	}
 }

@@ -138,7 +138,7 @@ public abstract class EntityHanging extends Entity {
 				if (isDead || event.isCancelled() || paintingEvent != null && paintingEvent.isCancelled())
 					return;
 				setDead();
-				onBroken((Entity) null);
+				onBroken(null);
 			}
 		}
 	}
@@ -208,9 +208,7 @@ public abstract class EntityHanging extends Entity {
 
 	@Override
 	public boolean hitByEntity(Entity p_85031_1_) {
-		return p_85031_1_ instanceof EntityPlayer
-				? attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) p_85031_1_), 0.0F)
-				: false;
+		return p_85031_1_ instanceof EntityPlayer && attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) p_85031_1_), 0.0F);
 	}
 
 	@Override
@@ -268,7 +266,7 @@ public abstract class EntityHanging extends Entity {
 			Bukkit.getPluginManager().callEvent(event);
 			if (isDead || event.isCancelled())
 				return;
-			onBroken((Entity) null);
+			onBroken(null);
 		}
 	}
 
@@ -277,7 +275,7 @@ public abstract class EntityHanging extends Entity {
 		if (!worldObj.isRemote && !isDead
 				&& p_70024_1_ * p_70024_1_ + p_70024_3_ * p_70024_3_ + p_70024_5_ * p_70024_5_ > 0.0D) {
 			setDead();
-			onBroken((Entity) null);
+			onBroken(null);
 		}
 	}
 

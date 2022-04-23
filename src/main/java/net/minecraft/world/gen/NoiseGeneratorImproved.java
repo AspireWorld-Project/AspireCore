@@ -3,7 +3,7 @@ package net.minecraft.world.gen;
 import java.util.Random;
 
 public class NoiseGeneratorImproved extends NoiseGenerator {
-	private int[] permutations;
+	private final int[] permutations;
 	public double xCoord;
 	public double yCoord;
 	public double zCoord;
@@ -31,7 +31,6 @@ public class NoiseGeneratorImproved extends NoiseGenerator {
 		int i;
 
 		for (i = 0; i < 256; permutations[i] = i++) {
-			;
 		}
 
 		for (i = 0; i < 256; ++i) {

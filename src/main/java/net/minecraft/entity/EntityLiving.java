@@ -40,16 +40,16 @@ import java.util.UUID;
 public abstract class EntityLiving extends EntityLivingBase {
 	public int livingSoundTime;
 	protected int experienceValue;
-	private EntityLookHelper lookHelper;
-	private EntityMoveHelper moveHelper;
-	private EntityJumpHelper jumpHelper;
-	private EntityBodyHelper bodyHelper;
-	private PathNavigate navigator;
+	private final EntityLookHelper lookHelper;
+	private final EntityMoveHelper moveHelper;
+	private final EntityJumpHelper jumpHelper;
+	private final EntityBodyHelper bodyHelper;
+	private final PathNavigate navigator;
 	public final EntityAITasks tasks;
 	public final EntityAITasks targetTasks;
 	private EntityLivingBase attackTarget;
-	private EntitySenses senses;
-	private ItemStack[] equipment = new ItemStack[5];
+	private final EntitySenses senses;
+	private final ItemStack[] equipment = new ItemStack[5];
 	protected float[] equipmentDropChances = new float[5];
 	private boolean canPickUpLoot;
 	private boolean persistenceRequired;
@@ -848,7 +848,7 @@ public abstract class EntityLiving extends EntityLivingBase {
 				}
 			}
 
-			return interact(p_130002_1_) ? true : super.interactFirst(p_130002_1_);
+			return interact(p_130002_1_) || super.interactFirst(p_130002_1_);
 		}
 	}
 
@@ -881,7 +881,7 @@ public abstract class EntityLiving extends EntityLivingBase {
 
 			if (!worldObj.isRemote && p_110160_1_ && worldObj instanceof WorldServer) {
 				((WorldServer) worldObj).getEntityTracker().func_151247_a(this,
-						new S1BPacketEntityAttach(1, this, (Entity) null));
+						new S1BPacketEntityAttach(1, this, null));
 			}
 		}
 	}

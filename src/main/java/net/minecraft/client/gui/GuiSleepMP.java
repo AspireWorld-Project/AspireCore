@@ -14,7 +14,7 @@ public class GuiSleepMP extends GuiChat {
 	public void initGui() {
 		super.initGui();
 		buttonList.add(
-				new GuiButton(1, width / 2 - 100, height - 40, I18n.format("multiplayer.stopSleeping", new Object[0])));
+				new GuiButton(1, width / 2 - 100, height - 40, I18n.format("multiplayer.stopSleeping")));
 	}
 
 	@Override

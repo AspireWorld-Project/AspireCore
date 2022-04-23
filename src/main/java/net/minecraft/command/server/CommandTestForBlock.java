@@ -44,7 +44,7 @@ public class CommandTestForBlock extends CommandBase {
 			Block block = Block.getBlockFromName(p_71515_2_[3]);
 
 			if (block == null)
-				throw new NumberInvalidException("commands.setblock.notFound", new Object[] { p_71515_2_[3] });
+				throw new NumberInvalidException("commands.setblock.notFound", p_71515_2_[3]);
 			else {
 				int l = -1;
 
@@ -55,7 +55,7 @@ public class CommandTestForBlock extends CommandBase {
 				World world = p_71515_1_.getEntityWorld();
 
 				if (!world.blockExists(i, j, k))
-					throw new CommandException("commands.testforblock.outOfWorld", new Object[0]);
+					throw new CommandException("commands.testforblock.outOfWorld");
 				else {
 					NBTTagCompound nbttagcompound = new NBTTagCompound();
 					boolean flag = false;
@@ -68,13 +68,13 @@ public class CommandTestForBlock extends CommandBase {
 
 							if (!(nbtbase instanceof NBTTagCompound))
 								throw new CommandException("commands.setblock.tagError",
-										new Object[] { "Not a valid tag" });
+										"Not a valid tag");
 
 							nbttagcompound = (NBTTagCompound) nbtbase;
 							flag = true;
 						} catch (NBTException nbtexception) {
 							throw new CommandException("commands.setblock.tagError",
-									new Object[] { nbtexception.getMessage() });
+									nbtexception.getMessage());
 						}
 					}
 
@@ -82,16 +82,16 @@ public class CommandTestForBlock extends CommandBase {
 
 					if (block1 != block)
 						throw new CommandException("commands.testforblock.failed.tile",
-								new Object[] { Integer.valueOf(i), Integer.valueOf(j), Integer.valueOf(k),
-										block1.getLocalizedName(), block.getLocalizedName() });
+								Integer.valueOf(i), Integer.valueOf(j), Integer.valueOf(k),
+								block1.getLocalizedName(), block.getLocalizedName());
 					else {
 						if (l > -1) {
 							int i1 = world.getBlockMetadata(i, j, k);
 
 							if (i1 != l)
 								throw new CommandException("commands.testforblock.failed.data",
-										new Object[] { Integer.valueOf(i), Integer.valueOf(j), Integer.valueOf(k),
-												Integer.valueOf(i1), Integer.valueOf(l) });
+										Integer.valueOf(i), Integer.valueOf(j), Integer.valueOf(k),
+										Integer.valueOf(i1), Integer.valueOf(l));
 						}
 
 						if (flag) {
@@ -99,23 +99,23 @@ public class CommandTestForBlock extends CommandBase {
 
 							if (tileentity == null)
 								throw new CommandException("commands.testforblock.failed.tileEntity",
-										new Object[] { Integer.valueOf(i), Integer.valueOf(j), Integer.valueOf(k) });
+										Integer.valueOf(i), Integer.valueOf(j), Integer.valueOf(k));
 
 							NBTTagCompound nbttagcompound1 = new NBTTagCompound();
 							tileentity.writeToNBT(nbttagcompound1);
 
 							if (!func_147181_a(nbttagcompound, nbttagcompound1))
 								throw new CommandException("commands.testforblock.failed.nbt",
-										new Object[] { Integer.valueOf(i), Integer.valueOf(j), Integer.valueOf(k) });
+										Integer.valueOf(i), Integer.valueOf(j), Integer.valueOf(k));
 						}
 
 						p_71515_1_.addChatMessage(new ChatComponentTranslation("commands.testforblock.success",
-								new Object[] { Integer.valueOf(i), Integer.valueOf(j), Integer.valueOf(k) }));
+								Integer.valueOf(i), Integer.valueOf(j), Integer.valueOf(k)));
 					}
 				}
 			}
 		} else
-			throw new WrongUsageException("commands.testforblock.usage", new Object[0]);
+			throw new WrongUsageException("commands.testforblock.usage");
 	}
 
 	public boolean func_147181_a(NBTBase p_147181_1_, NBTBase p_147181_2_) {

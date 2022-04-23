@@ -3,7 +3,7 @@ package net.minecraft.world.gen;
 import net.minecraft.block.Block;
 
 public class FlatLayerInfo {
-	private Block field_151537_a;
+	private final Block field_151537_a;
 	private int layerCount;
 	private int layerFillBlockMeta;
 	private int layerMinimumY;

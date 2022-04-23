@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Random;
 
 public class MapGenNetherBridge extends MapGenStructure {
-	private List spawnList = new ArrayList();
+	private final List spawnList = new ArrayList();
 	private static final String __OBFID = "CL_00000451";
 
 	public MapGenNetherBridge() {
@@ -37,8 +37,7 @@ public class MapGenNetherBridge extends MapGenStructure {
 		int l = p_75047_2_ >> 4;
 		rand.setSeed(k ^ l << 4 ^ worldObj.getSeed());
 		rand.nextInt();
-		return rand.nextInt(3) != 0 ? false
-				: p_75047_1_ != (k << 4) + 4 + rand.nextInt(8) ? false : p_75047_2_ == (l << 4) + 4 + rand.nextInt(8);
+		return rand.nextInt(3) == 0 && p_75047_1_ == (k << 4) + 4 + rand.nextInt(8) && p_75047_2_ == (l << 4) + 4 + rand.nextInt(8);
 	}
 
 	@Override

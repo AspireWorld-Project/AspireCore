@@ -9,8 +9,8 @@ import java.util.List;
 
 @SideOnly(Side.CLIENT)
 public class DisconnectedOnlineScreen extends RealmsScreen {
-	private String title;
-	private IChatComponent reason;
+	private final String title;
+	private final IChatComponent reason;
 	private List lines;
 	private final RealmsScreen parent;
 	private static final String __OBFID = "CL_00001912";

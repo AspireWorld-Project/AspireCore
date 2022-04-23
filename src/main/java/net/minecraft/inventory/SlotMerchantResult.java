@@ -7,7 +7,7 @@ import net.minecraft.village.MerchantRecipe;
 
 public class SlotMerchantResult extends Slot {
 	private final InventoryMerchant theMerchantInventory;
-	private EntityPlayer thePlayer;
+	private final EntityPlayer thePlayer;
 	private int field_75231_g;
 	private final IMerchant theMerchant;
 	private static final String __OBFID = "CL_00001758";

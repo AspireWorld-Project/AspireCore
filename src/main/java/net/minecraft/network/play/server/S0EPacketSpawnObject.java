@@ -121,9 +121,9 @@ public class S0EPacketSpawnObject extends Packet {
 	@Override
 	public String serialize() {
 		return String.format("id=%d, type=%d, x=%.2f, y=%.2f, z=%.2f",
-				new Object[] { Integer.valueOf(field_149018_a), Integer.valueOf(field_149019_j),
-						Float.valueOf(field_149016_b / 32.0F), Float.valueOf(field_149017_c / 32.0F),
-						Float.valueOf(field_149014_d / 32.0F) });
+				Integer.valueOf(field_149018_a), Integer.valueOf(field_149019_j),
+				Float.valueOf(field_149016_b / 32.0F), Float.valueOf(field_149017_c / 32.0F),
+				Float.valueOf(field_149014_d / 32.0F));
 	}
 
 	@SideOnly(Side.CLIENT)

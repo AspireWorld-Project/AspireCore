@@ -178,7 +178,7 @@ public class GuiSelectStringEntries extends GuiListExtended {
 		}
 	}
 
-	public static interface IGuiSelectStringListEntry extends GuiListExtended.IGuiListEntry {
-		public Object getValue();
+	public interface IGuiSelectStringListEntry extends GuiListExtended.IGuiListEntry {
+		Object getValue();
 	}
 }

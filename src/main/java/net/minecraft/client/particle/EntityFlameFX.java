@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 
 @SideOnly(Side.CLIENT)
 public class EntityFlameFX extends EntityFX {
-	private float flameScale;
+	private final float flameScale;
 	private static final String __OBFID = "CL_00000907";
 
 	public EntityFlameFX(World p_i1209_1_, double p_i1209_2_, double p_i1209_4_, double p_i1209_6_, double p_i1209_8_,

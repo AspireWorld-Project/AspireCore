@@ -20,62 +20,62 @@ public class StatList {
 	public static List itemStats = new ArrayList();
 	public static List objectMineStats = new ArrayList();
 	public static StatBase leaveGameStat = new StatBasic("stat.leaveGame",
-			new ChatComponentTranslation("stat.leaveGame", new Object[0])).initIndependentStat().registerStat();
+			new ChatComponentTranslation("stat.leaveGame")).initIndependentStat().registerStat();
 	public static StatBase minutesPlayedStat = new StatBasic("stat.playOneMinute",
-			new ChatComponentTranslation("stat.playOneMinute", new Object[0]), StatBase.timeStatType)
+			new ChatComponentTranslation("stat.playOneMinute"), StatBase.timeStatType)
 					.initIndependentStat().registerStat();
 	public static StatBase distanceWalkedStat = new StatBasic("stat.walkOneCm",
-			new ChatComponentTranslation("stat.walkOneCm", new Object[0]), StatBase.distanceStatType)
+			new ChatComponentTranslation("stat.walkOneCm"), StatBase.distanceStatType)
 					.initIndependentStat().registerStat();
 	public static StatBase distanceSwumStat = new StatBasic("stat.swimOneCm",
-			new ChatComponentTranslation("stat.swimOneCm", new Object[0]), StatBase.distanceStatType)
+			new ChatComponentTranslation("stat.swimOneCm"), StatBase.distanceStatType)
 					.initIndependentStat().registerStat();
 	public static StatBase distanceFallenStat = new StatBasic("stat.fallOneCm",
-			new ChatComponentTranslation("stat.fallOneCm", new Object[0]), StatBase.distanceStatType)
+			new ChatComponentTranslation("stat.fallOneCm"), StatBase.distanceStatType)
 					.initIndependentStat().registerStat();
 	public static StatBase distanceClimbedStat = new StatBasic("stat.climbOneCm",
-			new ChatComponentTranslation("stat.climbOneCm", new Object[0]), StatBase.distanceStatType)
+			new ChatComponentTranslation("stat.climbOneCm"), StatBase.distanceStatType)
 					.initIndependentStat().registerStat();
 	public static StatBase distanceFlownStat = new StatBasic("stat.flyOneCm",
-			new ChatComponentTranslation("stat.flyOneCm", new Object[0]), StatBase.distanceStatType)
+			new ChatComponentTranslation("stat.flyOneCm"), StatBase.distanceStatType)
 					.initIndependentStat().registerStat();
 	public static StatBase distanceDoveStat = new StatBasic("stat.diveOneCm",
-			new ChatComponentTranslation("stat.diveOneCm", new Object[0]), StatBase.distanceStatType)
+			new ChatComponentTranslation("stat.diveOneCm"), StatBase.distanceStatType)
 					.initIndependentStat().registerStat();
 	public static StatBase distanceByMinecartStat = new StatBasic("stat.minecartOneCm",
-			new ChatComponentTranslation("stat.minecartOneCm", new Object[0]), StatBase.distanceStatType)
+			new ChatComponentTranslation("stat.minecartOneCm"), StatBase.distanceStatType)
 					.initIndependentStat().registerStat();
 	public static StatBase distanceByBoatStat = new StatBasic("stat.boatOneCm",
-			new ChatComponentTranslation("stat.boatOneCm", new Object[0]), StatBase.distanceStatType)
+			new ChatComponentTranslation("stat.boatOneCm"), StatBase.distanceStatType)
 					.initIndependentStat().registerStat();
 	public static StatBase distanceByPigStat = new StatBasic("stat.pigOneCm",
-			new ChatComponentTranslation("stat.pigOneCm", new Object[0]), StatBase.distanceStatType)
+			new ChatComponentTranslation("stat.pigOneCm"), StatBase.distanceStatType)
 					.initIndependentStat().registerStat();
 	public static StatBase field_151185_q = new StatBasic("stat.horseOneCm",
-			new ChatComponentTranslation("stat.horseOneCm", new Object[0]), StatBase.distanceStatType)
+			new ChatComponentTranslation("stat.horseOneCm"), StatBase.distanceStatType)
 					.initIndependentStat().registerStat();
 	public static StatBase jumpStat = new StatBasic("stat.jump",
-			new ChatComponentTranslation("stat.jump", new Object[0])).initIndependentStat().registerStat();
+			new ChatComponentTranslation("stat.jump")).initIndependentStat().registerStat();
 	public static StatBase dropStat = new StatBasic("stat.drop",
-			new ChatComponentTranslation("stat.drop", new Object[0])).initIndependentStat().registerStat();
+			new ChatComponentTranslation("stat.drop")).initIndependentStat().registerStat();
 	public static StatBase damageDealtStat = new StatBasic("stat.damageDealt",
-			new ChatComponentTranslation("stat.damageDealt", new Object[0]), StatBase.field_111202_k).registerStat();
+			new ChatComponentTranslation("stat.damageDealt"), StatBase.field_111202_k).registerStat();
 	public static StatBase damageTakenStat = new StatBasic("stat.damageTaken",
-			new ChatComponentTranslation("stat.damageTaken", new Object[0]), StatBase.field_111202_k).registerStat();
+			new ChatComponentTranslation("stat.damageTaken"), StatBase.field_111202_k).registerStat();
 	public static StatBase deathsStat = new StatBasic("stat.deaths",
-			new ChatComponentTranslation("stat.deaths", new Object[0])).registerStat();
+			new ChatComponentTranslation("stat.deaths")).registerStat();
 	public static StatBase mobKillsStat = new StatBasic("stat.mobKills",
-			new ChatComponentTranslation("stat.mobKills", new Object[0])).registerStat();
+			new ChatComponentTranslation("stat.mobKills")).registerStat();
 	public static StatBase field_151186_x = new StatBasic("stat.animalsBred",
-			new ChatComponentTranslation("stat.animalsBred", new Object[0])).registerStat();
+			new ChatComponentTranslation("stat.animalsBred")).registerStat();
 	public static StatBase playerKillsStat = new StatBasic("stat.playerKills",
-			new ChatComponentTranslation("stat.playerKills", new Object[0])).registerStat();
+			new ChatComponentTranslation("stat.playerKills")).registerStat();
 	public static StatBase fishCaughtStat = new StatBasic("stat.fishCaught",
-			new ChatComponentTranslation("stat.fishCaught", new Object[0])).registerStat();
+			new ChatComponentTranslation("stat.fishCaught")).registerStat();
 	public static StatBase field_151183_A = new StatBasic("stat.junkFished",
-			new ChatComponentTranslation("stat.junkFished", new Object[0])).registerStat();
+			new ChatComponentTranslation("stat.junkFished")).registerStat();
 	public static StatBase field_151184_B = new StatBasic("stat.treasureFished",
-			new ChatComponentTranslation("stat.treasureFished", new Object[0])).registerStat();
+			new ChatComponentTranslation("stat.treasureFished")).registerStat();
 	public static final StatBase[] mineBlockStatArray = new StatBase[4096];
 	public static final StatBase[] objectCraftStats = new StatBase[32000];
 	public static final StatBase[] objectUseStats = new StatBase[32000];
@@ -118,7 +118,7 @@ public class StatList {
 			if (item != null) {
 				int i = Item.getIdFromItem(item); // TODO: Hook FML's stat change event and re-assign these
 				objectCraftStats[i] = new StatCrafting("stat.craftItem." + i, new ChatComponentTranslation(
-						"stat.craftItem", new Object[] { new ItemStack(item).func_151000_E() }), item).registerStat();
+						"stat.craftItem", new ItemStack(item).func_151000_E()), item).registerStat();
 			}
 		}
 
@@ -137,7 +137,7 @@ public class StatList {
 				if (block.getEnableStats()) {
 					mineBlockStatArray[i] = new StatCrafting("stat.mineBlock." + i,
 							new ChatComponentTranslation("stat.mineBlock",
-									new Object[] { new ItemStack(block).func_151000_E() }),
+									new ItemStack(block).func_151000_E()),
 							Item.getItemFromBlock(block)).registerStat();
 					objectMineStats.add(mineBlockStatArray[i]);
 				}
@@ -156,7 +156,7 @@ public class StatList {
 			if (item != null) {
 				int i = Item.getIdFromItem(item); // TODO: Hook FML's stat change event and re-assign these
 				objectUseStats[i] = new StatCrafting("stat.useItem." + i, new ChatComponentTranslation("stat.useItem",
-						new Object[] { new ItemStack(item).func_151000_E() }), item).registerStat();
+						new ItemStack(item).func_151000_E()), item).registerStat();
 
 				if (!(item instanceof ItemBlock)) {
 					itemStats.add(objectUseStats[i]);
@@ -178,7 +178,7 @@ public class StatList {
 
 				if (item.isDamageable()) {
 					objectBreakStats[i] = new StatCrafting("stat.breakItem." + i, new ChatComponentTranslation(
-							"stat.breakItem", new Object[] { new ItemStack(item).func_151000_E() }), item)
+							"stat.breakItem", new ItemStack(item).func_151000_E()), item)
 									.registerStat();
 				}
 			}
@@ -223,7 +223,7 @@ public class StatList {
 		return s == null ? null
 				: new StatBase("stat.killEntity." + s,
 						new ChatComponentTranslation("stat.entityKill",
-								new Object[] { new ChatComponentTranslation("entity." + s + ".name", new Object[0]) }))
+								new ChatComponentTranslation("entity." + s + ".name")))
 										.registerStat();
 	}
 
@@ -232,7 +232,7 @@ public class StatList {
 		return s == null ? null
 				: new StatBase("stat.entityKilledBy." + s,
 						new ChatComponentTranslation("stat.entityKilledBy",
-								new Object[] { new ChatComponentTranslation("entity." + s + ".name", new Object[0]) }))
+								new ChatComponentTranslation("entity." + s + ".name")))
 										.registerStat();
 	}
 

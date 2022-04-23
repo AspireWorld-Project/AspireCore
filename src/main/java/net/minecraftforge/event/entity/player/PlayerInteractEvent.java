@@ -38,7 +38,7 @@ import static cpw.mods.fml.common.eventhandler.Event.Result.DENY;
  **/
 @Cancelable
 public class PlayerInteractEvent extends PlayerEvent {
-	public static enum Action {
+	public enum Action {
 		RIGHT_CLICK_AIR, RIGHT_CLICK_BLOCK, LEFT_CLICK_BLOCK
 	}
 

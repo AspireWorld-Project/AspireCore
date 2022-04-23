@@ -1,8 +1,8 @@
 package net.minecraft.util;
 
 public class Tuple {
-	private Object first;
-	private Object second;
+	private final Object first;
+	private final Object second;
 	private static final String __OBFID = "CL_00001502";
 
 	public Tuple(Object p_i1555_1_, Object p_i1555_2_) {

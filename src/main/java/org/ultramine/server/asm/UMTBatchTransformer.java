@@ -12,8 +12,8 @@ import java.util.*;
 public class UMTBatchTransformer implements IClassTransformer {
 	private static final boolean REPAIR_FRAMES = Boolean
 			.parseBoolean(System.getProperty("org.ultramine.core.asm.repairJavaClassFrames", "true"));
-	private List<IUMClassTransformer> globalTransformers = new ArrayList<>();
-	private Map<String, List<IUMClassTransformer>> specialTransformers = new HashMap<>();
+	private final List<IUMClassTransformer> globalTransformers = new ArrayList<>();
+	private final Map<String, List<IUMClassTransformer>> specialTransformers = new HashMap<>();
 
 	protected void registerGlobalTransformer(IUMClassTransformer transformer) {
 		globalTransformers.add(transformer);

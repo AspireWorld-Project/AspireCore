@@ -34,17 +34,17 @@ public class CommandGameMode extends CommandBase {
 			entityplayermp.setGameType(gametype);
 			entityplayermp.fallDistance = 0.0F;
 			ChatComponentTranslation chatcomponenttranslation = new ChatComponentTranslation(
-					"gameMode." + gametype.getName(), new Object[0]);
+					"gameMode." + gametype.getName());
 
 			if (entityplayermp != p_71515_1_) {
 				func_152374_a(p_71515_1_, this, 1, "commands.gamemode.success.other",
-						new Object[] { entityplayermp.getCommandSenderName(), chatcomponenttranslation });
+						entityplayermp.getCommandSenderName(), chatcomponenttranslation);
 			} else {
 				func_152374_a(p_71515_1_, this, 1, "commands.gamemode.success.self",
-						new Object[] { chatcomponenttranslation });
+						chatcomponenttranslation);
 			}
 		} else
-			throw new WrongUsageException("commands.gamemode.usage", new Object[0]);
+			throw new WrongUsageException("commands.gamemode.usage");
 	}
 
 	protected WorldSettings.GameType getGameModeFromCommand(ICommandSender p_71539_1_, String p_71539_2_) {
@@ -63,7 +63,7 @@ public class CommandGameMode extends CommandBase {
 	@Override
 	public List addTabCompletionOptions(ICommandSender p_71516_1_, String[] p_71516_2_) {
 		return p_71516_2_.length == 1
-				? getListOfStringsMatchingLastWord(p_71516_2_, new String[] { "survival", "creative", "adventure" })
+				? getListOfStringsMatchingLastWord(p_71516_2_, "survival", "creative", "adventure")
 				: p_71516_2_.length == 2 ? getListOfStringsMatchingLastWord(p_71516_2_, getListOfPlayerUsernames())
 						: null;
 	}

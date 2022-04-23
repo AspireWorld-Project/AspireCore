@@ -12,7 +12,7 @@ import org.lwjgl.opengl.GL12;
 @SideOnly(Side.CLIENT)
 public class RenderLeashKnot extends Render {
 	private static final ResourceLocation leashKnotTextures = new ResourceLocation("textures/entity/lead_knot.png");
-	private ModelLeashKnot leashKnotModel = new ModelLeashKnot();
+	private final ModelLeashKnot leashKnotModel = new ModelLeashKnot();
 	private static final String __OBFID = "CL_00001010";
 
 	public void doRender(EntityLeashKnot p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_,

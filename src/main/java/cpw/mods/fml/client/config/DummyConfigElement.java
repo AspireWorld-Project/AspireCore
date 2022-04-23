@@ -61,7 +61,7 @@ public class DummyConfigElement<T> implements IConfigElement<T> {
 	public static class DummyCategoryElement<T> extends DummyConfigElement<T> {
 		@SuppressWarnings("rawtypes")
 		public DummyCategoryElement(String name, String langKey, List<IConfigElement> childElements) {
-			this(name, langKey, childElements, (Class<? extends IConfigEntry>) null);
+			this(name, langKey, childElements, null);
 		}
 
 		@SuppressWarnings("rawtypes")
@@ -72,7 +72,7 @@ public class DummyConfigElement<T> implements IConfigElement<T> {
 		@SuppressWarnings("rawtypes")
 		public DummyCategoryElement(String name, String langKey, List<IConfigElement> childElements,
 				Class<? extends IConfigEntry> customListEntryClass) {
-			super(name, (T) null, ConfigGuiType.CONFIG_CATEGORY, langKey);
+			super(name, null, ConfigGuiType.CONFIG_CATEGORY, langKey);
 			this.childElements = childElements;
 			configEntryClass = customListEntryClass;
 			isProperty = false;
@@ -85,7 +85,7 @@ public class DummyConfigElement<T> implements IConfigElement<T> {
 	public static class DummyListElement<T> extends DummyConfigElement<T> {
 		public DummyListElement(String name, T[] defaultValues, ConfigGuiType type, String langKey,
 				boolean isListFixedLength, int maxListLength, Pattern validStringPattern, T minValue, T maxValue) {
-			super(name, (T) null, type, langKey, minValue, maxValue);
+			super(name, null, type, langKey, minValue, maxValue);
 			this.defaultValues = defaultValues;
 			values = defaultValues;
 			this.isListFixedLength = isListFixedLength;
@@ -95,52 +95,52 @@ public class DummyConfigElement<T> implements IConfigElement<T> {
 		}
 
 		public DummyListElement(String name, T[] defaultValues, ConfigGuiType type, String langKey) {
-			this(name, defaultValues, type, langKey, false, -1, (Pattern) null, (T) null, (T) null);
+			this(name, defaultValues, type, langKey, false, -1, null, null, null);
 		}
 
 		public DummyListElement(String name, T[] defaultValues, ConfigGuiType type, String langKey,
 				boolean isListFixedLength) {
-			this(name, defaultValues, type, langKey, isListFixedLength, -1, (Pattern) null, (T) null, (T) null);
+			this(name, defaultValues, type, langKey, isListFixedLength, -1, null, null, null);
 		}
 
 		public DummyListElement(String name, T[] defaultValues, ConfigGuiType type, String langKey, int maxListLength) {
-			this(name, defaultValues, type, langKey, false, maxListLength, (Pattern) null, (T) null, (T) null);
+			this(name, defaultValues, type, langKey, false, maxListLength, null, null, null);
 		}
 
 		public DummyListElement(String name, T[] defaultValues, ConfigGuiType type, String langKey, T minValue,
 				T maxValue) {
-			this(name, defaultValues, type, langKey, false, -1, (Pattern) null, minValue, maxValue);
+			this(name, defaultValues, type, langKey, false, -1, null, minValue, maxValue);
 		}
 
 		public DummyListElement(String name, T[] defaultValues, ConfigGuiType type, String langKey,
 				boolean isListFixedLength, T minValue, T maxValue) {
-			this(name, defaultValues, type, langKey, isListFixedLength, -1, (Pattern) null, minValue, maxValue);
+			this(name, defaultValues, type, langKey, isListFixedLength, -1, null, minValue, maxValue);
 		}
 
 		public DummyListElement(String name, T[] defaultValues, ConfigGuiType type, String langKey, int maxListLength,
 				T minValue, T maxValue) {
-			this(name, defaultValues, type, langKey, false, maxListLength, (Pattern) null, minValue, maxValue);
+			this(name, defaultValues, type, langKey, false, maxListLength, null, minValue, maxValue);
 		}
 
 		public DummyListElement(String name, T[] defaultValues, ConfigGuiType type, String langKey,
 				boolean isListFixedLength, int maxListLength, T minValue, T maxValue) {
-			this(name, defaultValues, type, langKey, isListFixedLength, maxListLength, (Pattern) null, minValue,
+			this(name, defaultValues, type, langKey, isListFixedLength, maxListLength, null, minValue,
 					maxValue);
 		}
 
 		public DummyListElement(String name, T[] defaultValues, ConfigGuiType type, String langKey,
 				Pattern validStringPattern) {
-			this(name, defaultValues, type, langKey, false, -1, validStringPattern, (T) null, (T) null);
+			this(name, defaultValues, type, langKey, false, -1, validStringPattern, null, null);
 		}
 
 		public DummyListElement(String name, T[] defaultValues, ConfigGuiType type, String langKey,
 				boolean isListFixedLength, Pattern validStringPattern) {
-			this(name, defaultValues, type, langKey, isListFixedLength, -1, validStringPattern, (T) null, (T) null);
+			this(name, defaultValues, type, langKey, isListFixedLength, -1, validStringPattern, null, null);
 		}
 
 		public DummyListElement(String name, T[] defaultValues, ConfigGuiType type, String langKey, int maxListLength,
 				Pattern validStringPattern) {
-			this(name, defaultValues, type, langKey, false, maxListLength, validStringPattern, (T) null, (T) null);
+			this(name, defaultValues, type, langKey, false, maxListLength, validStringPattern, null, null);
 		}
 
 		@SuppressWarnings("rawtypes")
@@ -187,19 +187,19 @@ public class DummyConfigElement<T> implements IConfigElement<T> {
 
 	public DummyConfigElement(String name, T defaultValue, ConfigGuiType type, String langKey,
 			Pattern validStringPattern) {
-		this(name, defaultValue, type, langKey, (String[]) null, validStringPattern, (T) null, (T) null);
+		this(name, defaultValue, type, langKey, null, validStringPattern, null, null);
 	}
 
 	public DummyConfigElement(String name, T defaultValue, ConfigGuiType type, String langKey, String[] validValues) {
-		this(name, defaultValue, type, langKey, validValues, (Pattern) null, (T) null, (T) null);
+		this(name, defaultValue, type, langKey, validValues, null, null, null);
 	}
 
 	public DummyConfigElement(String name, T defaultValue, ConfigGuiType type, String langKey) {
-		this(name, defaultValue, type, langKey, (String[]) null, (Pattern) null, (T) null, (T) null);
+		this(name, defaultValue, type, langKey, null, null, null, null);
 	}
 
 	public DummyConfigElement(String name, T defaultValue, ConfigGuiType type, String langKey, T minValue, T maxValue) {
-		this(name, defaultValue, type, langKey, (String[]) null, (Pattern) null, minValue, maxValue);
+		this(name, defaultValue, type, langKey, null, null, minValue, maxValue);
 	}
 
 	@SuppressWarnings("rawtypes")

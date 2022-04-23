@@ -99,7 +99,7 @@ public class GameSettings {
 	public boolean showInventoryAchievementHint;
 	public int mipmapLevels;
 	public int anisotropicFiltering;
-	private Map mapSoundLevels;
+	private final Map mapSoundLevels;
 	public float field_152400_J;
 	public float field_152401_K;
 	public float field_152402_L;
@@ -316,14 +316,13 @@ public class GameSettings {
 	}
 
 	public static String getKeyDisplayString(int p_74298_0_) {
-		return p_74298_0_ < 0 ? I18n.format("key.mouseButton", new Object[] { Integer.valueOf(p_74298_0_ + 101) })
+		return p_74298_0_ < 0 ? I18n.format("key.mouseButton", Integer.valueOf(p_74298_0_ + 101))
 				: Keyboard.getKeyName(p_74298_0_);
 	}
 
 	public static boolean isKeyDown(KeyBinding p_100015_0_) {
-		return p_100015_0_.getKeyCode() == 0 ? false
-				: p_100015_0_.getKeyCode() < 0 ? Mouse.isButtonDown(p_100015_0_.getKeyCode() + 100)
-						: Keyboard.isKeyDown(p_100015_0_.getKeyCode());
+		return p_100015_0_.getKeyCode() != 0 && (p_100015_0_.getKeyCode() < 0 ? Mouse.isButtonDown(p_100015_0_.getKeyCode() + 100)
+				: Keyboard.isKeyDown(p_100015_0_.getKeyCode()));
 	}
 
 	public void setOptionKeyBinding(KeyBinding p_151440_1_, int p_151440_2_) {
@@ -620,29 +619,29 @@ public class GameSettings {
 			p_74299_1_ = 0;
 		}
 
-		return I18n.format(p_74299_0_[p_74299_1_], new Object[0]);
+		return I18n.format(p_74299_0_[p_74299_1_]);
 	}
 
 	public String getKeyBinding(GameSettings.Options p_74297_1_) {
-		String s = I18n.format(p_74297_1_.getEnumString(), new Object[0]) + ": ";
+		String s = I18n.format(p_74297_1_.getEnumString()) + ": ";
 
 		if (p_74297_1_.getEnumFloat()) {
 			float f1 = getOptionFloatValue(p_74297_1_);
 			float f = p_74297_1_.normalizeValue(f1);
 			return p_74297_1_ == GameSettings.Options.SENSITIVITY
-					? f == 0.0F ? s + I18n.format("options.sensitivity.min", new Object[0])
-							: f == 1.0F ? s + I18n.format("options.sensitivity.max", new Object[0])
+					? f == 0.0F ? s + I18n.format("options.sensitivity.min")
+							: f == 1.0F ? s + I18n.format("options.sensitivity.max")
 									: s + (int) (f * 200.0F) + "%"
 					: p_74297_1_ == GameSettings.Options.FOV
-							? f1 == 70.0F ? s + I18n.format("options.fov.min", new Object[0])
-									: f1 == 110.0F ? s + I18n.format("options.fov.max", new Object[0]) : s + (int) f1
+							? f1 == 70.0F ? s + I18n.format("options.fov.min")
+									: f1 == 110.0F ? s + I18n.format("options.fov.max") : s + (int) f1
 							: p_74297_1_ == GameSettings.Options.FRAMERATE_LIMIT
 									? f1 == p_74297_1_.valueMax
-											? s + I18n.format("options.framerateLimit.max", new Object[0])
+											? s + I18n.format("options.framerateLimit.max")
 											: s + (int) f1 + " fps"
 									: p_74297_1_ == GameSettings.Options.GAMMA
-											? f == 0.0F ? s + I18n.format("options.gamma.min", new Object[0])
-													: f == 1.0F ? s + I18n.format("options.gamma.max", new Object[0])
+											? f == 0.0F ? s + I18n.format("options.gamma.min")
+													: f == 1.0F ? s + I18n.format("options.gamma.max")
 															: s + "+" + (int) (f * 100.0F) + "%"
 											: p_74297_1_ == GameSettings.Options.SATURATION
 													? s + (int) (f * 400.0F) + "%"
@@ -660,14 +659,14 @@ public class GameSettings {
 																							: p_74297_1_ == GameSettings.Options.ANISOTROPIC_FILTERING
 																									? f1 == 1.0F ? s
 																											+ I18n.format(
-																													"options.off",
-																													new Object[0])
+																													"options.off"
+			)
 																											: s + (int) f1
 																									: p_74297_1_ == GameSettings.Options.MIPMAP_LEVELS
 																											? f1 == 0.0F
 																													? s + I18n
-																															.format("options.off",
-																																	new Object[0])
+																															.format("options.off"
+																															)
 																													: s + (int) f1
 																											: p_74297_1_ == GameSettings.Options.STREAM_FPS
 																													? s + TwitchStream
@@ -682,27 +681,26 @@ public class GameSettings {
 																															: p_74297_1_ == GameSettings.Options.STREAM_BYTES_PER_PIXEL
 																																	? s + String
 																																			.format("%.3f bpp",
-																																					new Object[] {
-																																							Float.valueOf(
-																																									TwitchStream
-																																											.func_152947_c(
-																																													f)) })
+																																					Float.valueOf(
+																																							TwitchStream
+																																									.func_152947_c(
+																																											f)))
 																																	: f == 0.0F
 																																			? s + I18n
-																																					.format("options.off",
-																																							new Object[0])
+																																					.format("options.off"
+																																					)
 																																			: s + (int) (f
 																																					* 100.0F)
 																																					+ "%";
 		} else if (p_74297_1_.getEnumBoolean()) {
 			boolean flag = getOptionOrdinalValue(p_74297_1_);
-			return flag ? s + I18n.format("options.on", new Object[0]) : s + I18n.format("options.off", new Object[0]);
+			return flag ? s + I18n.format("options.on") : s + I18n.format("options.off");
 		} else if (p_74297_1_ == GameSettings.Options.DIFFICULTY)
-			return s + I18n.format(difficulty.getDifficultyResourceKey(), new Object[0]);
+			return s + I18n.format(difficulty.getDifficultyResourceKey());
 		else if (p_74297_1_ == GameSettings.Options.GUI_SCALE)
 			return s + getTranslation(GUISCALES, guiScale);
 		else if (p_74297_1_ == GameSettings.Options.CHAT_VISIBILITY)
-			return s + I18n.format(chatVisibility.getResourceKey(), new Object[0]);
+			return s + I18n.format(chatVisibility.getResourceKey());
 		else if (p_74297_1_ == GameSettings.Options.PARTICLES)
 			return s + getTranslation(PARTICLES, particleSetting);
 		else if (p_74297_1_ == GameSettings.Options.AMBIENT_OCCLUSION)
@@ -717,9 +715,9 @@ public class GameSettings {
 			return s + getTranslation(field_152394_aV, field_152410_T);
 		else if (p_74297_1_ == GameSettings.Options.GRAPHICS) {
 			if (fancyGraphics)
-				return s + I18n.format("options.graphics.fancy", new Object[0]);
+				return s + I18n.format("options.graphics.fancy");
 			else
-				return s + I18n.format("options.graphics.fast", new Object[0]);
+				return s + I18n.format("options.graphics.fast");
 		} else
 			return s;
 	}
@@ -816,7 +814,7 @@ public class GameSettings {
 					}
 
 					if (astring[0].equals("resourcePacks")) {
-						resourcePacks = (List) gson.fromJson(s.substring(s.indexOf(58) + 1), typeListString);
+						resourcePacks = gson.fromJson(s.substring(s.indexOf(58) + 1), typeListString);
 
 						if (resourcePacks == null) {
 							resourcePacks = new ArrayList();
@@ -1117,7 +1115,7 @@ public class GameSettings {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static enum Options {
+	public enum Options {
 		INVERT_MOUSE("options.invertMouse", false, true), SENSITIVITY("options.sensitivity", true, false), FOV(
 				"options.fov", true, false, 30.0F, 110.0F,
 				1.0F), GAMMA("options.gamma", true, false), SATURATION("options.saturation", true,
@@ -1216,7 +1214,7 @@ public class GameSettings {
 		private final boolean enumBoolean;
 		private final String enumString;
 		private final float valueStep;
-		private float valueMin;
+		private final float valueMin;
 		private float valueMax;
 
 		private static final String __OBFID = "CL_00000653";
@@ -1235,11 +1233,11 @@ public class GameSettings {
 			return null;
 		}
 
-		private Options(String p_i1015_3_, boolean p_i1015_4_, boolean p_i1015_5_) {
+		Options(String p_i1015_3_, boolean p_i1015_4_, boolean p_i1015_5_) {
 			this(p_i1015_3_, p_i1015_4_, p_i1015_5_, 0.0F, 1.0F, 0.0F);
 		}
 
-		private Options(String p_i45004_3_, boolean p_i45004_4_, boolean p_i45004_5_, float p_i45004_6_,
+		Options(String p_i45004_3_, boolean p_i45004_4_, boolean p_i45004_5_, float p_i45004_6_,
 				float p_i45004_7_, float p_i45004_8_) {
 			enumString = p_i45004_3_;
 			enumFloat = p_i45004_4_;
@@ -1311,97 +1309,81 @@ public class GameSettings {
 			try {
 				optionIds[GameSettings.Options.INVERT_MOUSE.ordinal()] = 1;
 			} catch (NoSuchFieldError var16) {
-				;
 			}
 
 			try {
 				optionIds[GameSettings.Options.VIEW_BOBBING.ordinal()] = 2;
 			} catch (NoSuchFieldError var15) {
-				;
 			}
 
 			try {
 				optionIds[GameSettings.Options.ANAGLYPH.ordinal()] = 3;
 			} catch (NoSuchFieldError var14) {
-				;
 			}
 
 			try {
 				optionIds[GameSettings.Options.ADVANCED_OPENGL.ordinal()] = 4;
 			} catch (NoSuchFieldError var13) {
-				;
 			}
 
 			try {
 				optionIds[GameSettings.Options.FBO_ENABLE.ordinal()] = 5;
 			} catch (NoSuchFieldError var12) {
-				;
 			}
 
 			try {
 				optionIds[GameSettings.Options.RENDER_CLOUDS.ordinal()] = 6;
 			} catch (NoSuchFieldError var11) {
-				;
 			}
 
 			try {
 				optionIds[GameSettings.Options.CHAT_COLOR.ordinal()] = 7;
 			} catch (NoSuchFieldError var10) {
-				;
 			}
 
 			try {
 				optionIds[GameSettings.Options.CHAT_LINKS.ordinal()] = 8;
 			} catch (NoSuchFieldError var9) {
-				;
 			}
 
 			try {
 				optionIds[GameSettings.Options.CHAT_LINKS_PROMPT.ordinal()] = 9;
 			} catch (NoSuchFieldError var8) {
-				;
 			}
 
 			try {
 				optionIds[GameSettings.Options.SNOOPER_ENABLED.ordinal()] = 10;
 			} catch (NoSuchFieldError var7) {
-				;
 			}
 
 			try {
 				optionIds[GameSettings.Options.USE_FULLSCREEN.ordinal()] = 11;
 			} catch (NoSuchFieldError var6) {
-				;
 			}
 
 			try {
 				optionIds[GameSettings.Options.ENABLE_VSYNC.ordinal()] = 12;
 			} catch (NoSuchFieldError var5) {
-				;
 			}
 
 			try {
 				optionIds[GameSettings.Options.SHOW_CAPE.ordinal()] = 13;
 			} catch (NoSuchFieldError var4) {
-				;
 			}
 
 			try {
 				optionIds[GameSettings.Options.TOUCHSCREEN.ordinal()] = 14;
 			} catch (NoSuchFieldError var3) {
-				;
 			}
 
 			try {
 				optionIds[GameSettings.Options.STREAM_SEND_METADATA.ordinal()] = 15;
 			} catch (NoSuchFieldError var2) {
-				;
 			}
 
 			try {
 				optionIds[GameSettings.Options.FORCE_UNICODE_FONT.ordinal()] = 16;
 			} catch (NoSuchFieldError var1) {
-				;
 			}
 		}
 	}

@@ -249,10 +249,9 @@ public class GuiIngame extends Gui {
 			s2 = "";
 
 			if (mc.theWorld.getTotalWorldTime() >= 120500L) {
-				s2 = I18n.format("demo.demoExpired", new Object[0]);
+				s2 = I18n.format("demo.demoExpired");
 			} else {
-				s2 = I18n.format("demo.remainingTime", new Object[] {
-						StringUtils.ticksToElapsedTime((int) (120500L - mc.theWorld.getTotalWorldTime())) });
+				s2 = I18n.format("demo.remainingTime", StringUtils.ticksToElapsedTime((int) (120500L - mc.theWorld.getTotalWorldTime())));
 			}
 
 			k1 = fontrenderer.getStringWidth(s2);
@@ -290,15 +289,15 @@ public class GuiIngame extends Gui {
 			k3 = MathHelper.floor_double(mc.thePlayer.posY);
 			int l3 = MathHelper.floor_double(mc.thePlayer.posZ);
 			drawString(fontrenderer,
-					String.format("x: %.5f (%d) // c: %d (%d)", new Object[] { Double.valueOf(mc.thePlayer.posX),
-							Integer.valueOf(j3), Integer.valueOf(j3 >> 4), Integer.valueOf(j3 & 15) }),
+					String.format("x: %.5f (%d) // c: %d (%d)", Double.valueOf(mc.thePlayer.posX),
+							Integer.valueOf(j3), Integer.valueOf(j3 >> 4), Integer.valueOf(j3 & 15)),
 					2, 64, 14737632);
 			drawString(fontrenderer, String.format("y: %.3f (feet pos, %.3f eyes pos)",
-					new Object[] { Double.valueOf(mc.thePlayer.boundingBox.minY), Double.valueOf(mc.thePlayer.posY) }),
+							Double.valueOf(mc.thePlayer.boundingBox.minY), Double.valueOf(mc.thePlayer.posY)),
 					2, 72, 14737632);
 			drawString(fontrenderer,
-					String.format("z: %.5f (%d) // c: %d (%d)", new Object[] { Double.valueOf(mc.thePlayer.posZ),
-							Integer.valueOf(l3), Integer.valueOf(l3 >> 4), Integer.valueOf(l3 & 15) }),
+					String.format("z: %.5f (%d) // c: %d (%d)", Double.valueOf(mc.thePlayer.posZ),
+							Integer.valueOf(l3), Integer.valueOf(l3 >> 4), Integer.valueOf(l3 & 15)),
 					2, 80, 14737632);
 			int i4 = MathHelper.floor_double(mc.thePlayer.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 			drawString(fontrenderer, "f: " + i4 + " (" + Direction.directions[i4] + ") / "
@@ -318,16 +317,16 @@ public class GuiIngame extends Gui {
 
 			drawString(fontrenderer,
 					String.format("ws: %.3f, fs: %.3f, g: %b, fl: %d",
-							new Object[] { Float.valueOf(mc.thePlayer.capabilities.getWalkSpeed()),
-									Float.valueOf(mc.thePlayer.capabilities.getFlySpeed()),
-									Boolean.valueOf(mc.thePlayer.onGround),
-									Integer.valueOf(mc.theWorld.getHeightValue(j3, l3)) }),
+							Float.valueOf(mc.thePlayer.capabilities.getWalkSpeed()),
+							Float.valueOf(mc.thePlayer.capabilities.getFlySpeed()),
+							Boolean.valueOf(mc.thePlayer.onGround),
+							Integer.valueOf(mc.theWorld.getHeightValue(j3, l3))),
 					2, 104, 14737632);
 
 			if (mc.entityRenderer != null && mc.entityRenderer.isShaderActive()) {
 				drawString(fontrenderer,
 						String.format("shader: %s",
-								new Object[] { mc.entityRenderer.getShaderGroup().getShaderGroupName() }),
+								mc.entityRenderer.getShaderGroup().getShaderGroupName()),
 						2, 112, 14737632);
 			}
 
@@ -896,7 +895,7 @@ public class GuiIngame extends Gui {
 	}
 
 	public void setRecordPlayingMessage(String p_73833_1_) {
-		func_110326_a(I18n.format("record.nowPlaying", new Object[] { p_73833_1_ }), true);
+		func_110326_a(I18n.format("record.nowPlaying", p_73833_1_), true);
 	}
 
 	public void func_110326_a(String p_110326_1_, boolean p_110326_2_) {

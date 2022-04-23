@@ -24,7 +24,7 @@ import java.util.logging.Logger;
 public class ConfigurationSerialization {
 	public static final String SERIALIZED_TYPE_KEY = "==";
 	private final Class<? extends ConfigurationSerializable> clazz;
-	private static Map<String, Class<? extends ConfigurationSerializable>> aliases = new HashMap<>();
+	private static final Map<String, Class<? extends ConfigurationSerializable>> aliases = new HashMap<>();
 
 	static {
 		registerClass(Vector.class);
@@ -72,7 +72,7 @@ public class ConfigurationSerialization {
 
 			if (result == null) {
 				Logger.getLogger(ConfigurationSerialization.class.getName()).log(Level.SEVERE, "Could not call method '"
-						+ method.toString() + "' of " + clazz + " for deserialization: method returned null");
+						+ method + "' of " + clazz + " for deserialization: method returned null");
 			} else
 				return result;
 		} catch (Throwable ex) {
@@ -235,7 +235,6 @@ public class ConfigurationSerialization {
 	 */
 	public static void unregisterClass(Class<? extends ConfigurationSerializable> clazz) {
 		while (aliases.values().remove(clazz)) {
-			;
 		}
 	}
 

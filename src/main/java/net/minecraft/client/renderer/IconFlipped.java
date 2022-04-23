@@ -45,7 +45,7 @@ public class IconFlipped implements IIcon {
 
 	@Override
 	public float getMinV() {
-		return flipV ? baseIcon.getMinV() : baseIcon.getMinV();
+		return baseIcon.getMinV();
 	}
 
 	@Override

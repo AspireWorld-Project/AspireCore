@@ -19,7 +19,7 @@ import net.minecraft.client.gui.GuiErrorScreen;
 
 public class GuiModsMissing extends GuiErrorScreen {
 
-	private MissingModsException modsMissing;
+	private final MissingModsException modsMissing;
 
 	public GuiModsMissing(MissingModsException modsMissing) {
 		super(null, null);

@@ -97,7 +97,7 @@ public abstract class FMLHandshakeMessage {
 			}
 		}
 
-		private Map<String, String> modTags = Maps.newHashMap();
+		private final Map<String, String> modTags = Maps.newHashMap();
 
 		@Override
 		public void toBytes(ByteBuf buffer) {

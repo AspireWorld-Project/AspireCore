@@ -109,23 +109,23 @@ public final class CraftServer implements Server {
 	private final EntityMetadataStore entityMetadata = new EntityMetadataStore();
 	private final PlayerMetadataStore playerMetadata = new PlayerMetadataStore();
 	private final WorldMetadataStore worldMetadata = new WorldMetadataStore();
-	private int monsterSpawn = -1;
-	private int animalSpawn = -1;
-	private int waterAnimalSpawn = -1;
-	private int ambientSpawn = -1;
+	private final int monsterSpawn = -1;
+	private final int animalSpawn = -1;
+	private final int waterAnimalSpawn = -1;
+	private final int ambientSpawn = -1;
 	public boolean chunkGCEnabled = false; // Cauldron
 	public int chunkGCPeriod = -1;
 	public int chunkGCLoadThresh = 0;
 	@SuppressWarnings("unused")
 	private File container;
-	private WarningState warningState = WarningState.DEFAULT;
+	private final WarningState warningState = WarningState.DEFAULT;
 	private final BooleanWrapper online = new BooleanWrapper();
 	public CraftScoreboardManager scoreboardManager;
 	public boolean playerCommandState;
 	private boolean printSaveWarning;
 	private CraftIconCache icon;
 	@SuppressWarnings("unused")
-	private boolean overrideAllCommandBlockCommands = false;
+	private final boolean overrideAllCommandBlockCommands = false;
 	private final Pattern validUserPattern = Pattern.compile("^[a-zA-Z0-9_]{2,16}$");
 	private final UUID invalidUserUUID = UUID.nameUUIDFromBytes("InvalidUsername".getBytes(Charsets.UTF_8));
 	private final List<CraftPlayer> playerView;
@@ -435,7 +435,7 @@ public final class CraftServer implements Server {
 	public Player getPlayerExact(String name) {
 		Validate.notNull(name, "Name cannot be null");
 		EntityPlayerMP player = playerList.getPlayerByUsername(name);
-		return player == null ? null : (Player) player.getBukkitEntity();
+		return player == null ? null : player.getBukkitEntity();
 	}
 
 	@Override
@@ -454,7 +454,7 @@ public final class CraftServer implements Server {
 	}
 
 	public Player getPlayer(final net.minecraft.entity.player.EntityPlayerMP entity) {
-		return (Player) entity.getBukkitEntity();
+		return entity.getBukkitEntity();
 	}
 
 	@Override
@@ -1647,7 +1647,7 @@ public final class CraftServer implements Server {
 		if (!(sender instanceof net.minecraft.entity.player.EntityPlayerMP))
 			return ImmutableList.of();
 
-		Player player = (Player) ((net.minecraft.entity.player.EntityPlayerMP) sender).getBukkitEntity();
+		Player player = ((EntityPlayerMP) sender).getBukkitEntity();
 		if (message.startsWith("/"))
 			return tabCompleteCommand(player, message);
 		else

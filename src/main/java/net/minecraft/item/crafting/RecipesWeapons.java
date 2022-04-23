@@ -6,8 +6,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class RecipesWeapons {
-	private String[][] recipePatterns = new String[][] { { "X", "X", "#" } };
-	private Object[][] recipeItems;
+	private final String[][] recipePatterns = new String[][] { { "X", "X", "#" } };
+	private final Object[][] recipeItems;
 	private static final String __OBFID = "CL_00000097";
 
 	public RecipesWeapons() {
@@ -23,13 +23,13 @@ public class RecipesWeapons {
 			for (int j = 0; j < recipeItems.length - 1; ++j) {
 				Item item = (Item) recipeItems[j + 1][i];
 				p_77583_1_.addRecipe(new ItemStack(item),
-						new Object[] { recipePatterns[j], '#', Items.stick, 'X', object });
+                        recipePatterns[j], '#', Items.stick, 'X', object);
 			}
 		}
 
 		p_77583_1_.addRecipe(new ItemStack(Items.bow, 1),
-				new Object[] { " #X", "# X", " #X", 'X', Items.string, '#', Items.stick });
+                " #X", "# X", " #X", 'X', Items.string, '#', Items.stick);
 		p_77583_1_.addRecipe(new ItemStack(Items.arrow, 4),
-				new Object[] { "X", "#", "Y", 'Y', Items.feather, 'X', Items.flint, '#', Items.stick });
+                "X", "#", "Y", 'Y', Items.feather, 'X', Items.flint, '#', Items.stick);
 	}
 }

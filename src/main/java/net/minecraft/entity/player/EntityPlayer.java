@@ -428,7 +428,7 @@ public abstract class EntityPlayer extends EntityLivingBase implements ICommandS
 	@Override
 	public void updateRidden() {
 		if (!worldObj.isRemote && isSneaking()) {
-			mountEntity((Entity) null);
+			mountEntity(null);
 			setSneaking(false);
 		} else {
 			double d0 = posX;
@@ -974,7 +974,7 @@ public abstract class EntityPlayer extends EntityLivingBase implements ICommandS
 	public boolean canAttackPlayer(EntityPlayer p_96122_1_) {
 		Team team = getTeam();
 		Team team1 = p_96122_1_.getTeam();
-		return team == null ? true : !team.isSameTeam(team1) ? true : team.getAllowFriendlyFire();
+		return team == null || !team.isSameTeam(team1) || team.getAllowFriendlyFire();
 	}
 
 	@Override
@@ -1073,7 +1073,7 @@ public abstract class EntityPlayer extends EntityLivingBase implements ICommandS
 
 	public void destroyCurrentEquippedItem() {
 		ItemStack orig = getCurrentEquippedItem();
-		inventory.setInventorySlotContents(inventory.currentItem, (ItemStack) null);
+		inventory.setInventorySlotContents(inventory.currentItem, null);
 		MinecraftForge.EVENT_BUS.post(new PlayerDestroyItemEvent(this, orig));
 	}
 
@@ -1249,7 +1249,7 @@ public abstract class EntityPlayer extends EntityLivingBase implements ICommandS
 		}
 
 		if (isRiding()) {
-			mountEntity((Entity) null);
+			mountEntity(null);
 			if (getBukkitEntity() instanceof Player) {
 				org.bukkit.block.Block bedBlock = worldObj.getWorld().getBlockAt(p_71018_1_, p_71018_2_, p_71018_3_);
 				PlayerBedEnterEvent tevent = new PlayerBedEnterEvent((Player) getBukkitEntity(), bedBlock);
@@ -1766,8 +1766,7 @@ public abstract class EntityPlayer extends EntityLivingBase implements ICommandS
 				if (getCurrentEquippedItem() != null) {
 					ItemStack itemstack = getCurrentEquippedItem();
 
-					if (itemstack.func_150998_b(block) || itemstack.func_150997_a(block) > 1.0F)
-						return true;
+					return itemstack.func_150998_b(block) || itemstack.func_150997_a(block) > 1.0F;
 				}
 			}
 
@@ -1776,7 +1775,7 @@ public abstract class EntityPlayer extends EntityLivingBase implements ICommandS
 	}
 
 	public boolean canPlayerEdit(int p_82247_1_, int p_82247_2_, int p_82247_3_, int p_82247_4_, ItemStack p_82247_5_) {
-		return capabilities.allowEdit ? true : p_82247_5_ != null ? p_82247_5_.canEditBlocks() : false;
+		return capabilities.allowEdit || p_82247_5_ != null && p_82247_5_.canEditBlocks();
 	}
 
 	@Override
@@ -1950,7 +1949,7 @@ public abstract class EntityPlayer extends EntityLivingBase implements ICommandS
 		return uuid;
 	}
 
-	public static enum EnumChatVisibility {
+	public enum EnumChatVisibility {
 		FULL(0, "options.chat.visibility.full"), SYSTEM(1, "options.chat.visibility.system"), HIDDEN(2,
 				"options.chat.visibility.hidden");
 		private static final EntityPlayer.EnumChatVisibility[] field_151432_d = new EntityPlayer.EnumChatVisibility[values().length];
@@ -1959,7 +1958,7 @@ public abstract class EntityPlayer extends EntityLivingBase implements ICommandS
 
 		private static final String __OBFID = "CL_00001714";
 
-		private EnumChatVisibility(int p_i45323_3_, String p_i45323_4_) {
+		EnumChatVisibility(int p_i45323_3_, String p_i45323_4_) {
 			chatVisibility = p_i45323_3_;
 			resourceKey = p_i45323_4_;
 		}
@@ -2034,7 +2033,7 @@ public abstract class EntityPlayer extends EntityLivingBase implements ICommandS
 		if (dimension == 0)
 			return spawnForced;
 		Boolean forced = spawnForcedMap.get(dimension);
-		return forced == null ? false : forced;
+		return forced != null && forced;
 	}
 
 	/**
@@ -2107,7 +2106,7 @@ public abstract class EntityPlayer extends EntityLivingBase implements ICommandS
 	 * =====================================
 	 */
 
-	public static enum EnumStatus {
+	public enum EnumStatus {
 		OK, NOT_POSSIBLE_HERE, NOT_POSSIBLE_NOW, TOO_FAR_AWAY, OTHER_PROBLEM, NOT_SAFE;
 
 		private static final String __OBFID = "CL_00001712";

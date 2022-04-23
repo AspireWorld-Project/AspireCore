@@ -35,11 +35,11 @@ public class ItemRenderer {
 			"textures/misc/enchanted_item_glint.png");
 	private static final ResourceLocation RES_MAP_BACKGROUND = new ResourceLocation("textures/map/map_background.png");
 	private static final ResourceLocation RES_UNDERWATER_OVERLAY = new ResourceLocation("textures/misc/underwater.png");
-	private Minecraft mc;
+	private final Minecraft mc;
 	private ItemStack itemToRender;
 	private float equippedProgress;
 	private float prevEquippedProgress;
-	private RenderBlocks renderBlocksIr = new RenderBlocks();
+	private final RenderBlocks renderBlocksIr = new RenderBlocks();
 	private int equippedItemSlot = -1;
 	private static final String __OBFID = "CL_00000953";
 

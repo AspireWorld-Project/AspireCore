@@ -10,7 +10,7 @@ import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
  * packetLogin);
  */
 public class AnonymousLoginEventFireThread extends Thread {
-	private NetHandlerLoginServer netHandlerLoginServer;
+	private final NetHandlerLoginServer netHandlerLoginServer;
 
 	public AnonymousLoginEventFireThread(NetHandlerLoginServer netHandlerLoginServer) {
 		this.netHandlerLoginServer = netHandlerLoginServer;
@@ -21,17 +21,17 @@ public class AnonymousLoginEventFireThread extends Thread {
 		if (!netHandlerLoginServer.getNetworkManager().isChannelOpen())
 			return;
 		AsyncPlayerPreLoginEvent asyncPlayerPreLoginEvent = new AsyncPlayerPreLoginEvent(
-				netHandlerLoginServer.getGameProfile().getName(),
+				NetHandlerLoginServer.getGameProfile().getName(),
 				((java.net.InetSocketAddress) netHandlerLoginServer.getNetworkManager().getSocketAddress())
 						.getAddress(),
-				netHandlerLoginServer.getGameProfile().getId());
+				NetHandlerLoginServer.getGameProfile().getId());
 		Bukkit.getPluginManager().callEvent(asyncPlayerPreLoginEvent);
 		if (asyncPlayerPreLoginEvent.getLoginResult() != AsyncPlayerPreLoginEvent.Result.ALLOWED) {
 			netHandlerLoginServer.func_147322_a(asyncPlayerPreLoginEvent.getKickMessage());
 			return;
 		}
-		netHandlerLoginServer.getLogger().info("UUID of player " + netHandlerLoginServer.getGameProfile().getName()
-				+ " is " + netHandlerLoginServer.getGameProfile().getId());
-		netHandlerLoginServer.setLoginState(NetHandlerLoginServer.LoginState.READY_TO_ACCEPT);
+		NetHandlerLoginServer.getLogger().info("UUID of player " + NetHandlerLoginServer.getGameProfile().getName()
+				+ " is " + NetHandlerLoginServer.getGameProfile().getId());
+		NetHandlerLoginServer.setLoginState(NetHandlerLoginServer.LoginState.READY_TO_ACCEPT);
 	}
 }

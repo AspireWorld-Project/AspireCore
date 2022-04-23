@@ -12,7 +12,7 @@ import java.util.Map;
 
 @SideOnly(Side.SERVER)
 public class Databases {
-	private static Map<String, DataSource> databases = new HashMap<>();
+	private static final Map<String, DataSource> databases = new HashMap<>();
 
 	public static void init() {
 		for (Map.Entry<String, UltramineServerConfig.DatabaseConf> ent : ConfigurationHandler

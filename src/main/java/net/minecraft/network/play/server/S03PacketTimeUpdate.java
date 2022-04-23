@@ -49,7 +49,7 @@ public class S03PacketTimeUpdate extends Packet {
 	@Override
 	public String serialize() {
 		return String.format("time=%d,dtime=%d",
-				new Object[] { Long.valueOf(field_149369_a), Long.valueOf(field_149368_b) });
+				Long.valueOf(field_149369_a), Long.valueOf(field_149368_b));
 	}
 
 	@SideOnly(Side.CLIENT)

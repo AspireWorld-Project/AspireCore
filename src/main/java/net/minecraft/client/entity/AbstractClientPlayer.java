@@ -55,9 +55,9 @@ public abstract class AbstractClientPlayer extends EntityPlayer implements SkinM
 		Object object = texturemanager.getTexture(p_110304_0_);
 
 		if (object == null) {
-			object = new ThreadDownloadImageData((File) null,
+			object = new ThreadDownloadImageData(null,
 					String.format("http://skins.minecraft.net/MinecraftSkins/%s.png",
-							new Object[] { StringUtils.stripControlCodes(p_110304_1_) }),
+							StringUtils.stripControlCodes(p_110304_1_)),
 					locationStevePng, new ImageBufferDownload());
 			texturemanager.loadTexture(p_110304_0_, (ITextureObject) object);
 		}
@@ -90,13 +90,11 @@ public abstract class AbstractClientPlayer extends EntityPlayer implements SkinM
 			try {
 				field_152630_a[Type.SKIN.ordinal()] = 1;
 			} catch (NoSuchFieldError var2) {
-				;
 			}
 
 			try {
 				field_152630_a[Type.CAPE.ordinal()] = 2;
 			} catch (NoSuchFieldError var1) {
-				;
 			}
 		}
 	}

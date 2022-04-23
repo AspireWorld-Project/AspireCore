@@ -6,7 +6,7 @@ import net.minecraft.util.AxisAlignedBB;
 
 @SideOnly(Side.CLIENT)
 public class Frustrum implements ICamera {
-	private ClippingHelper clippingHelper = ClippingHelperImpl.getInstance();
+	private final ClippingHelper clippingHelper = ClippingHelperImpl.getInstance();
 	private double xPosition;
 	private double yPosition;
 	private double zPosition;

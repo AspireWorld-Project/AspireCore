@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Random;
 
 public class BlockBrewingStand extends BlockContainer {
-	private Random field_149961_a = new Random();
+	private final Random field_149961_a = new Random();
 	@SideOnly(Side.CLIENT)
 	private IIcon iconBrewingStandBase;
 	private static final String __OBFID = "CL_00000207";

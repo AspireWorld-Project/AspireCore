@@ -15,7 +15,7 @@ public class AchievementList {
 	public static int maxDisplayRow;
 	public static List achievementList = new ArrayList();
 	public static Achievement openInventory = new Achievement("achievement.openInventory", "openInventory", 0, 0,
-			Items.book, (Achievement) null).initIndependentStat().registerStat();
+			Items.book, null).initIndependentStat().registerStat();
 	public static Achievement mineWood = new Achievement("achievement.mineWood", "mineWood", 2, 1, Blocks.log,
 			openInventory).registerStat();
 	public static Achievement buildWorkBench = new Achievement("achievement.buildWorkBench", "buildWorkBench", 4, -1,

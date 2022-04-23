@@ -23,7 +23,7 @@ public class RecipeIterator implements Iterator<Recipe> {
 		// this.smeltingVanilla =
 		// net.minecraft.item.crafting.FurnaceRecipes.smelting().smeltingList.keySet().iterator();
 		// TODO
-		smeltingCustom = Collections.<net.minecraft.item.ItemStack>emptyList().iterator();
+		smeltingCustom = Collections.emptyIterator();
 		smeltingVanilla = net.minecraft.item.crafting.FurnaceRecipes.smelting().getSmeltingList().keySet().iterator();
 	}
 

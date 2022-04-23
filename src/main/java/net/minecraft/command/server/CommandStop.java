@@ -20,7 +20,7 @@ public class CommandStop extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender p_71515_1_, String[] p_71515_2_) {
 		if (MinecraftServer.getServer().worldServers != null) {
-			func_152373_a(p_71515_1_, this, "commands.stop.start", new Object[0]);
+			func_152373_a(p_71515_1_, this, "commands.stop.start");
 		}
 
 		MinecraftServer.getServer().initiateShutdown();

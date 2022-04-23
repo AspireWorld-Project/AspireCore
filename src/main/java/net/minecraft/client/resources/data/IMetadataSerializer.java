@@ -33,7 +33,7 @@ public class IMetadataSerializer {
 		else if (!p_110503_2_.has(p_110503_1_))
 			return null;
 		else if (!p_110503_2_.get(p_110503_1_).isJsonObject())
-			throw new IllegalArgumentException("Invalid metadata for \'" + p_110503_1_ + "\' - expected object, found "
+			throw new IllegalArgumentException("Invalid metadata for '" + p_110503_1_ + "' - expected object, found "
 					+ p_110503_2_.get(p_110503_1_));
 		else {
 			IMetadataSerializer.Registration registration = (IMetadataSerializer.Registration) metadataSectionSerializerRegistry
@@ -41,7 +41,7 @@ public class IMetadataSerializer {
 
 			if (registration == null)
 				throw new IllegalArgumentException(
-						"Don\'t know how to handle metadata section \'" + p_110503_1_ + "\'");
+						"Don't know how to handle metadata section '" + p_110503_1_ + "'");
 			else
 				return (IMetadataSection) getGson().fromJson(p_110503_2_.getAsJsonObject(p_110503_1_),
 						registration.field_110500_b);

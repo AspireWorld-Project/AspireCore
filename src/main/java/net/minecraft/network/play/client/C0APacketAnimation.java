@@ -43,7 +43,7 @@ public class C0APacketAnimation extends Packet {
 	@Override
 	public String serialize() {
 		return String.format("id=%d, type=%d",
-				new Object[] { Integer.valueOf(field_149424_a), Integer.valueOf(field_149423_b) });
+				Integer.valueOf(field_149424_a), Integer.valueOf(field_149423_b));
 	}
 
 	public int func_149421_d() {

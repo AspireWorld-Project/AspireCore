@@ -135,7 +135,7 @@ public class HttpUtil {
 
 					if (p_151223_5_ != null) {
 						p_151223_5_.resetProgresAndWorkingMessage(String.format("Downloading file (%.2f MB)...",
-								new Object[] { Float.valueOf(f1 / 1000.0F / 1000.0F) }));
+                                Float.valueOf(f1 / 1000.0F / 1000.0F)));
 					}
 
 					if (p_151223_0_.exists()) {
@@ -203,16 +203,14 @@ public class HttpUtil {
 							inputstream.close();
 						}
 					} catch (IOException ioexception1) {
-						;
-					}
+                    }
 
 					try {
 						if (dataoutputstream != null) {
 							dataoutputstream.close();
 						}
 					} catch (IOException ioexception) {
-						;
-					}
+                    }
 				}
 			}
 		}, "File Downloader #" + downloadThreadsStarted.incrementAndGet());
@@ -234,8 +232,7 @@ public class HttpUtil {
 					serversocket.close();
 				}
 			} catch (IOException ioexception) {
-				;
-			}
+            }
 		}
 
 		return i;

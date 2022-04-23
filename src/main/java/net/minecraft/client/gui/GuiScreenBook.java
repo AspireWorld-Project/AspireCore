@@ -32,8 +32,8 @@ public class GuiScreenBook extends GuiScreen {
 	private boolean field_146481_r;
 	private boolean field_146480_s;
 	private int updateCount;
-	private int bookImageWidth = 192;
-	private int bookImageHeight = 192;
+	private final int bookImageWidth = 192;
+	private final int bookImageHeight = 192;
 	private int bookTotalPages = 1;
 	private int currPage;
 	private NBTTagList bookPages;
@@ -85,16 +85,16 @@ public class GuiScreenBook extends GuiScreen {
 
 		if (bookIsUnsigned) {
 			buttonList.add(buttonSign = new GuiButton(3, width / 2 - 100, 4 + bookImageHeight, 98, 20,
-					I18n.format("book.signButton", new Object[0])));
+					I18n.format("book.signButton")));
 			buttonList.add(buttonDone = new GuiButton(0, width / 2 + 2, 4 + bookImageHeight, 98, 20,
-					I18n.format("gui.done", new Object[0])));
+					I18n.format("gui.done")));
 			buttonList.add(buttonFinalize = new GuiButton(5, width / 2 - 100, 4 + bookImageHeight, 98, 20,
-					I18n.format("book.finalizeButton", new Object[0])));
+					I18n.format("book.finalizeButton")));
 			buttonList.add(buttonCancel = new GuiButton(4, width / 2 + 2, 4 + bookImageHeight, 98, 20,
-					I18n.format("gui.cancel", new Object[0])));
+					I18n.format("gui.cancel")));
 		} else {
 			buttonList.add(buttonDone = new GuiButton(0, width / 2 - 100, 4 + bookImageHeight, 200, 20,
-					I18n.format("gui.done", new Object[0])));
+					I18n.format("gui.done")));
 		}
 
 		int i = (width - bookImageWidth) / 2;
@@ -159,7 +159,7 @@ public class GuiScreenBook extends GuiScreen {
 					new PacketBuffer(bytebuf).writeItemStackToBuffer(bookObj);
 					mc.getNetHandler().addToSendQueue(new C17PacketCustomPayload(s, bytebuf));
 				} catch (Exception exception) {
-					logger.error("Couldn\'t send book info", exception);
+					logger.error("Couldn't send book info", exception);
 				} finally {
 					bytebuf.release();
 				}
@@ -171,7 +171,7 @@ public class GuiScreenBook extends GuiScreen {
 	protected void actionPerformed(GuiButton p_146284_1_) {
 		if (p_146284_1_.enabled) {
 			if (p_146284_1_.id == 0) {
-				mc.displayGuiScreen((GuiScreen) null);
+				mc.displayGuiScreen(null);
 				sendBookToServer(false);
 			} else if (p_146284_1_.id == 3 && bookIsUnsigned) {
 				field_146480_s = true;
@@ -191,7 +191,7 @@ public class GuiScreenBook extends GuiScreen {
 				}
 			} else if (p_146284_1_.id == 5 && field_146480_s) {
 				sendBookToServer(true);
-				mc.displayGuiScreen((GuiScreen) null);
+				mc.displayGuiScreen(null);
 			} else if (p_146284_1_.id == 4 && field_146480_s) {
 				field_146480_s = false;
 			}
@@ -261,13 +261,13 @@ public class GuiScreenBook extends GuiScreen {
 		case 156:
 			if (!bookTitle.isEmpty()) {
 				sendBookToServer(true);
-				mc.displayGuiScreen((GuiScreen) null);
+				mc.displayGuiScreen(null);
 			}
 
 			return;
 		default:
 			if (bookTitle.length() < 16 && ChatAllowedCharacters.isAllowedCharacter(p_146460_1_)) {
-				bookTitle = bookTitle + Character.toString(p_146460_1_);
+				bookTitle = bookTitle + p_146460_1_;
 				updateButtons();
 				field_146481_r = true;
 			}
@@ -319,19 +319,19 @@ public class GuiScreenBook extends GuiScreen {
 				}
 			}
 
-			s1 = I18n.format("book.editTitle", new Object[0]);
+			s1 = I18n.format("book.editTitle");
 			l = fontRendererObj.getStringWidth(s1);
 			fontRendererObj.drawString(s1, k + 36 + (116 - l) / 2, b0 + 16 + 16, 0);
 			int i1 = fontRendererObj.getStringWidth(s);
 			fontRendererObj.drawString(s, k + 36 + (116 - i1) / 2, b0 + 48, 0);
-			String s2 = I18n.format("book.byAuthor", new Object[] { editingPlayer.getCommandSenderName() });
+			String s2 = I18n.format("book.byAuthor", editingPlayer.getCommandSenderName());
 			int j1 = fontRendererObj.getStringWidth(s2);
 			fontRendererObj.drawString(EnumChatFormatting.DARK_GRAY + s2, k + 36 + (116 - j1) / 2, b0 + 48 + 10, 0);
-			String s3 = I18n.format("book.finalizeWarning", new Object[0]);
+			String s3 = I18n.format("book.finalizeWarning");
 			fontRendererObj.drawSplitString(s3, k + 36, b0 + 80, 116, 0);
 		} else {
 			s = I18n.format("book.pageIndicator",
-					new Object[] { Integer.valueOf(currPage + 1), Integer.valueOf(bookTotalPages) });
+					Integer.valueOf(currPage + 1), Integer.valueOf(bookTotalPages));
 			s1 = "";
 
 			if (bookPages != null && currPage >= 0 && currPage < bookPages.tagCount()) {

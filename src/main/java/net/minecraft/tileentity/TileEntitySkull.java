@@ -44,7 +44,7 @@ public class TileEntitySkull extends TileEntity {
 				field_152110_j = NBTUtil.func_152459_a(p_145839_1_.getCompoundTag("Owner"));
 			} else if (p_145839_1_.hasKey("ExtraType", 8)
 					&& !StringUtils.isNullOrEmpty(p_145839_1_.getString("ExtraType"))) {
-				field_152110_j = new GameProfile((UUID) null, p_145839_1_.getString("ExtraType"));
+				field_152110_j = new GameProfile(null, p_145839_1_.getString("ExtraType"));
 				func_152109_d();
 			}
 		}

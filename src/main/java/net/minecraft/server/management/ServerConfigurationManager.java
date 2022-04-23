@@ -60,7 +60,7 @@ public abstract class ServerConfigurationManager {
 	public static File field_152615_c = MinecraftServer.getServer().getVanillaFile("ops.json");
 	public static File field_152616_d = MinecraftServer.getServer().getVanillaFile("whitelist.json");
 	private static final Logger logger = LogManager.getLogger();
-	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd \'at\' HH:mm:ss z");
+	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
 	private final MinecraftServer mcServer;
 	public final List playerEntityList = new ArrayList();
 	private final UserListBans bannedPlayers;
@@ -128,7 +128,7 @@ public abstract class ServerConfigurationManager {
 						+ " at (" + p_72355_2_.posX + ", " + p_72355_2_.posY + ", " + p_72355_2_.posZ + ")");
 		WorldServer worldserver = mcServer.worldServerForDimension(p_72355_2_.dimension);
 		ChunkCoordinates chunkcoordinates = worldserver.getSpawnPoint();
-		func_72381_a(p_72355_2_, (EntityPlayerMP) null, worldserver);
+		func_72381_a(p_72355_2_, null, worldserver);
 		p_72355_2_.playerNetServerHandler = nethandlerplayserver;
 		boolean isLongDimId = p_72355_2_.dimension != (byte) p_72355_2_.dimension;
 		nethandlerplayserver.sendPacket(new S01PacketJoinGame(p_72355_2_.getEntityId(),
@@ -153,10 +153,10 @@ public abstract class ServerConfigurationManager {
 
 		if (!p_72355_2_.getCommandSenderName().equalsIgnoreCase(s)) {
 			chatcomponenttranslation = new ChatComponentTranslation("multiplayer.player.joined.renamed",
-					new Object[] { p_72355_2_.func_145748_c_(), s });
+					p_72355_2_.func_145748_c_(), s);
 		} else {
 			chatcomponenttranslation = new ChatComponentTranslation("multiplayer.player.joined",
-					new Object[] { p_72355_2_.func_145748_c_() });
+					p_72355_2_.func_145748_c_());
 		}
 
 		chatcomponenttranslation.getChatStyle().setColor(EnumChatFormatting.YELLOW);
@@ -799,7 +799,7 @@ public abstract class ServerConfigurationManager {
 
 	public void sendToAllNear(double p_148541_1_, double p_148541_3_, double p_148541_5_, double p_148541_7_,
 			int p_148541_9_, Packet p_148541_10_) {
-		sendToAllNearExcept((EntityPlayer) null, p_148541_1_, p_148541_3_, p_148541_5_, p_148541_7_, p_148541_9_,
+		sendToAllNearExcept(null, p_148541_1_, p_148541_3_, p_148541_5_, p_148541_7_, p_148541_9_,
 				p_148541_10_);
 	}
 
@@ -1346,7 +1346,7 @@ public abstract class ServerConfigurationManager {
 			agent = org.bukkit.craftbukkit.CraftTravelAgent.DEFAULT; // return arbitrary TA to compensate for
 		}
 		// implementation dependent plugins
-		PlayerPortalEvent event = new PlayerPortalEvent((Player) par1EntityPlayerMP.getBukkitEntity(), enter, exit,
+		PlayerPortalEvent event = new PlayerPortalEvent(par1EntityPlayerMP.getBukkitEntity(), enter, exit,
 				agent, cause);
 		event.useTravelAgent(useTravelAgent);
 		Bukkit.getServer().getPluginManager().callEvent(event);

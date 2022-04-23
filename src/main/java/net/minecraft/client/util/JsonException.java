@@ -37,7 +37,7 @@ public class JsonException extends IOException {
 
 	@Override
 	public String getMessage() {
-		return "Invalid " + ((JsonException.Entry) field_151383_a.get(field_151383_a.size() - 1)).toString() + ": "
+		return "Invalid " + field_151383_a.get(field_151383_a.size() - 1).toString() + ": "
 				+ field_151382_b;
 	}
 

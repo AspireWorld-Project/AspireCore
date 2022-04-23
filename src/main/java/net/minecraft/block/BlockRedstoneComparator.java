@@ -99,7 +99,7 @@ public class BlockRedstoneComparator extends BlockRedstoneDiode implements ITile
 			return false;
 		else {
 			int j1 = func_149902_h(p_149900_1_, p_149900_2_, p_149900_3_, p_149900_4_, p_149900_5_);
-			return j1 == 0 ? true : i1 >= j1;
+			return j1 == 0 || i1 >= j1;
 		}
 	}
 
@@ -217,7 +217,7 @@ public class BlockRedstoneComparator extends BlockRedstoneDiode implements ITile
 			int p_149696_5_, int p_149696_6_) {
 		super.onBlockEventReceived(p_149696_1_, p_149696_2_, p_149696_3_, p_149696_4_, p_149696_5_, p_149696_6_);
 		TileEntity tileentity = p_149696_1_.getTileEntity(p_149696_2_, p_149696_3_, p_149696_4_);
-		return tileentity != null ? tileentity.receiveClientEvent(p_149696_5_, p_149696_6_) : false;
+		return tileentity != null && tileentity.receiveClientEvent(p_149696_5_, p_149696_6_);
 	}
 
 	@Override

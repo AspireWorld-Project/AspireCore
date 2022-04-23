@@ -7,10 +7,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class EntityAIBeg extends EntityAIBase {
-	private EntityWolf theWolf;
+	private final EntityWolf theWolf;
 	private EntityPlayer thePlayer;
-	private World worldObject;
-	private float minPlayerDistance;
+	private final World worldObject;
+	private final float minPlayerDistance;
 	private int field_75384_e;
 	private static final String __OBFID = "CL_00001576";
 
@@ -24,14 +24,12 @@ public class EntityAIBeg extends EntityAIBase {
 	@Override
 	public boolean shouldExecute() {
 		thePlayer = worldObject.getClosestPlayerToEntity(theWolf, minPlayerDistance);
-		return thePlayer == null ? false : hasPlayerGotBoneInHand(thePlayer);
+		return thePlayer != null && hasPlayerGotBoneInHand(thePlayer);
 	}
 
 	@Override
 	public boolean continueExecuting() {
-		return !thePlayer.isEntityAlive() ? false
-				: theWolf.getDistanceSqToEntity(thePlayer) > minPlayerDistance * minPlayerDistance ? false
-						: field_75384_e > 0 && hasPlayerGotBoneInHand(thePlayer);
+		return thePlayer.isEntityAlive() && !(theWolf.getDistanceSqToEntity(thePlayer) > minPlayerDistance * minPlayerDistance) && field_75384_e > 0 && hasPlayerGotBoneInHand(thePlayer);
 	}
 
 	@Override
@@ -55,7 +53,6 @@ public class EntityAIBeg extends EntityAIBase {
 
 	private boolean hasPlayerGotBoneInHand(EntityPlayer p_75382_1_) {
 		ItemStack itemstack = p_75382_1_.inventory.getCurrentItem();
-		return itemstack == null ? false
-				: !theWolf.isTamed() && itemstack.getItem() == Items.bone ? true : theWolf.isBreedingItem(itemstack);
+		return itemstack != null && (!theWolf.isTamed() && itemstack.getItem() == Items.bone || theWolf.isBreedingItem(itemstack));
 	}
 }

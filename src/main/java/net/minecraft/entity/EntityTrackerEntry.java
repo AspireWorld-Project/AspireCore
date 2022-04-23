@@ -46,7 +46,7 @@ public class EntityTrackerEntry {
 	private double posY;
 	private double posZ;
 	private boolean isDataInitialized;
-	private boolean sendVelocityUpdates;
+	private final boolean sendVelocityUpdates;
 	private int ticksSinceLastForcedTeleport;
 	private Entity field_85178_v;
 	private boolean ridingEntity;
@@ -69,9 +69,7 @@ public class EntityTrackerEntry {
 
 	@Override
 	public boolean equals(Object p_equals_1_) {
-		return p_equals_1_ instanceof EntityTrackerEntry
-				? ((EntityTrackerEntry) p_equals_1_).myEntity.getEntityId() == myEntity.getEntityId()
-				: false;
+		return p_equals_1_ instanceof EntityTrackerEntry && ((EntityTrackerEntry) p_equals_1_).myEntity.getEntityId() == myEntity.getEntityId();
 	}
 
 	@Override
@@ -506,7 +504,7 @@ public class EntityTrackerEntry {
 				} else if (myEntity instanceof EntityXPOrb)
 					return new S11PacketSpawnExperienceOrb((EntityXPOrb) myEntity);
 				else
-					throw new IllegalArgumentException("Don\'t know how to add " + myEntity.getClass() + "!");
+					throw new IllegalArgumentException("Don't know how to add " + myEntity.getClass() + "!");
 			}
 		} else {
 			lastHeadMotion = MathHelper.floor_float(myEntity.getRotationYawHead() * 256.0F / 360.0F);

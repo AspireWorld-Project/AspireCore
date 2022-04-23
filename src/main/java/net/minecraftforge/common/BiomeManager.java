@@ -111,9 +111,7 @@ public class BiomeManager {
 	}
 
 	public static void removeSpawnBiome(BiomeGenBase biome) {
-		if (WorldChunkManager.allowedBiomes.contains(biome)) {
-			WorldChunkManager.allowedBiomes.remove(biome);
-		}
+        WorldChunkManager.allowedBiomes.remove(biome);
 	}
 
 	public static void addBiome(BiomeType type, BiomeEntry entry) {
@@ -132,7 +130,7 @@ public class BiomeManager {
 		int idx = type.ordinal();
 		List<BiomeEntry> list = idx > biomes.length ? null : biomes[idx];
 
-		if (list != null && list.contains(entry)) {
+		if (list != null) {
 			list.remove(entry);
 		}
 	}
@@ -154,7 +152,7 @@ public class BiomeManager {
 		return false;
 	}
 
-	public static enum BiomeType {
+	public enum BiomeType {
 		DESERT, WARM, COOL, ICY;
 
 		public static BiomeType getType(String name) {

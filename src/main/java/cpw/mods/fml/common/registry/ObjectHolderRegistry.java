@@ -22,7 +22,7 @@ import java.util.Set;
  */
 public enum ObjectHolderRegistry {
 	INSTANCE;
-	private List<ObjectHolderRef> objectHolders = Lists.newArrayList();
+	private final List<ObjectHolderRef> objectHolders = Lists.newArrayList();
 
 	public void findObjectHolders(ASMDataTable table) {
 		FMLLog.info("Processing ObjectHolder annotations");

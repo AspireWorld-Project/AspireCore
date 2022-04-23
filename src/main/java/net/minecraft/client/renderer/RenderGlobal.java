@@ -53,21 +53,21 @@ public class RenderGlobal implements IWorldAccess {
 	public List tileEntities = new ArrayList();
 	private WorldClient theWorld;
 	private final TextureManager renderEngine;
-	private List worldRenderersToUpdate = new ArrayList();
+	private final List worldRenderersToUpdate = new ArrayList();
 	private WorldRenderer[] sortedWorldRenderers;
 	private WorldRenderer[] worldRenderers;
 	private int renderChunksWide;
 	private int renderChunksTall;
 	private int renderChunksDeep;
-	private int glRenderListBase;
-	private Minecraft mc;
+	private final int glRenderListBase;
+	private final Minecraft mc;
 	private RenderBlocks renderBlocksRg;
 	private IntBuffer glOcclusionQueryBase;
-	private boolean occlusionEnabled;
+	private final boolean occlusionEnabled;
 	private int cloudTickCounter;
-	private int starGLCallList;
-	private int glSkyList;
-	private int glSkyList2;
+	private final int starGLCallList;
+	private final int glSkyList;
+	private final int glSkyList2;
 	private int minBlockX;
 	private int minBlockY;
 	private int minBlockZ;
@@ -78,7 +78,7 @@ public class RenderGlobal implements IWorldAccess {
 	private final Map mapSoundPositions = Maps.newHashMap();
 	private IIcon[] destroyBlockIcons;
 	private boolean displayListEntitiesDirty;
-	private int displayListEntities;
+	private final int displayListEntities;
 	private int renderDistanceChunks = -1;
 	private int renderEntitiesStartupCounter = 2;
 	private int countEntitiesTotal;
@@ -92,8 +92,8 @@ public class RenderGlobal implements IWorldAccess {
 	private int renderersSkippingRenderPass;
 	private int dummyRenderInt;
 	private int worldRenderersCheckIndex;
-	private List glRenderLists = new ArrayList();
-	private RenderList[] allRenderLists = new RenderList[] { new RenderList(), new RenderList(), new RenderList(),
+	private final List glRenderLists = new ArrayList();
+	private final RenderList[] allRenderLists = new RenderList[] { new RenderList(), new RenderList(), new RenderList(),
 			new RenderList() };
 	double prevSortX = -9999.0D;
 	double prevSortY = -9999.0D;
@@ -1334,7 +1334,6 @@ public class RenderGlobal implements IWorldAccess {
 					if (worldrenderer.distanceToEntitySquared(p_72716_1_) > 272.0F) {
 						for (l = 0; l < b0 && (aworldrenderer[l] == null
 								|| rendersorter.compare(aworldrenderer[l], worldrenderer) <= 0); ++l) {
-							;
 						}
 
 						--l;
@@ -1366,7 +1365,7 @@ public class RenderGlobal implements IWorldAccess {
 
 				++j;
 				arraylist.add(worldrenderer);
-				worldRenderersToUpdate.set(k, (Object) null);
+				worldRenderersToUpdate.set(k, null);
 			}
 		}
 
@@ -1980,7 +1979,7 @@ public class RenderGlobal implements IWorldAccess {
 				theWorld.playRecord("records." + ((ItemRecord) Item.getItemById(p_72706_6_)).recordName, p_72706_3_,
 						p_72706_4_, p_72706_5_);
 			} else {
-				theWorld.playRecord((String) null, p_72706_3_, p_72706_4_, p_72706_5_);
+				theWorld.playRecord(null, p_72706_3_, p_72706_4_, p_72706_5_);
 			}
 
 			break;

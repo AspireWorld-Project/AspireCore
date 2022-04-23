@@ -27,7 +27,7 @@ public interface ServicesManager {
 	 * @param priority
 	 *            priority of the provider
 	 */
-	public <T> void register(Class<T> service, T provider, Plugin plugin, ServicePriority priority);
+    <T> void register(Class<T> service, T provider, Plugin plugin, ServicePriority priority);
 
 	/**
 	 * Unregister all the providers registered by a particular plugin.
@@ -35,7 +35,7 @@ public interface ServicesManager {
 	 * @param plugin
 	 *            The plugin
 	 */
-	public void unregisterAll(Plugin plugin);
+    void unregisterAll(Plugin plugin);
 
 	/**
 	 * Unregister a particular provider for a particular service.
@@ -45,7 +45,7 @@ public interface ServicesManager {
 	 * @param provider
 	 *            The service provider implementation
 	 */
-	public void unregister(Class<?> service, Object provider);
+    void unregister(Class<?> service, Object provider);
 
 	/**
 	 * Unregister a particular provider.
@@ -53,7 +53,7 @@ public interface ServicesManager {
 	 * @param provider
 	 *            The service provider implementation
 	 */
-	public void unregister(Object provider);
+    void unregister(Object provider);
 
 	/**
 	 * Queries for a provider. This may return if no provider has been registered
@@ -65,7 +65,7 @@ public interface ServicesManager {
 	 *            The service interface
 	 * @return provider or null
 	 */
-	public <T> T load(Class<T> service);
+    <T> T load(Class<T> service);
 
 	/**
 	 * Queries for a provider registration. This may return if no provider has been
@@ -77,7 +77,7 @@ public interface ServicesManager {
 	 *            The service interface
 	 * @return provider registration or null
 	 */
-	public <T> RegisteredServiceProvider<T> getRegistration(Class<T> service);
+    <T> RegisteredServiceProvider<T> getRegistration(Class<T> service);
 
 	/**
 	 * Get registrations of providers for a plugin.
@@ -86,7 +86,7 @@ public interface ServicesManager {
 	 *            The plugin
 	 * @return provider registration or null
 	 */
-	public List<RegisteredServiceProvider<?>> getRegistrations(Plugin plugin);
+    List<RegisteredServiceProvider<?>> getRegistrations(Plugin plugin);
 
 	/**
 	 * Get registrations of providers for a service. The returned list is
@@ -98,7 +98,7 @@ public interface ServicesManager {
 	 *            The service interface
 	 * @return list of registrations
 	 */
-	public <T> Collection<RegisteredServiceProvider<T>> getRegistrations(Class<T> service);
+    <T> Collection<RegisteredServiceProvider<T>> getRegistrations(Class<T> service);
 
 	/**
 	 * Get a list of known services. A service is known if it has registered
@@ -106,7 +106,7 @@ public interface ServicesManager {
 	 *
 	 * @return list of known services
 	 */
-	public Collection<Class<?>> getKnownServices();
+    Collection<Class<?>> getKnownServices();
 
 	/**
 	 * Returns whether a provider has been registered for a service. Do not check
@@ -119,6 +119,6 @@ public interface ServicesManager {
 	 *            service to check
 	 * @return whether there has been a registered provider
 	 */
-	public <T> boolean isProvidedFor(Class<T> service);
+    <T> boolean isProvidedFor(Class<T> service);
 
 }

@@ -203,7 +203,7 @@ public class Potion {
 	 */
 	public Collection<PotionEffect> getEffects() {
 		if (type == null)
-			return ImmutableList.<PotionEffect>of();
+			return ImmutableList.of();
 		return getBrewer().getEffectsFromDamage(toDamageValue());
 	}
 
@@ -368,7 +368,7 @@ public class Potion {
 	public enum Tier {
 		ONE(0), TWO(0x20);
 
-		private int damageBit;
+		private final int damageBit;
 
 		Tier(int bit) {
 			damageBit = bit;

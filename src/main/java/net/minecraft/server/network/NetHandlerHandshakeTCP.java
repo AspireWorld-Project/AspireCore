@@ -26,8 +26,8 @@ public class NetHandlerHandshakeTCP implements INetHandlerHandshakeServer {
 		if (!FMLCommonHandler.instance().shouldAllowPlayerLogins()) {
 			ChatComponentText chatcomponenttext = new ChatComponentText(
 					"Server is still starting! Please wait before reconnecting.");
-			field_147386_b.scheduleOutboundPacket(new S00PacketDisconnect(chatcomponenttext),
-					new GenericFutureListener[0]);
+			field_147386_b.scheduleOutboundPacket(new S00PacketDisconnect(chatcomponenttext)
+			);
 			field_147386_b.closeChannel(chatcomponenttext);
 			return;
 		}
@@ -39,14 +39,14 @@ public class NetHandlerHandshakeTCP implements INetHandlerHandshakeServer {
 			ChatComponentText chatcomponenttext;
 
 			if (p_147383_1_.func_149595_d() > 5) {
-				chatcomponenttext = new ChatComponentText("Outdated server! I\'m still on 1.7.10");
-				field_147386_b.scheduleOutboundPacket(new S00PacketDisconnect(chatcomponenttext),
-						new GenericFutureListener[0]);
+				chatcomponenttext = new ChatComponentText("Outdated server! I'm still on 1.7.10");
+				field_147386_b.scheduleOutboundPacket(new S00PacketDisconnect(chatcomponenttext)
+				);
 				field_147386_b.closeChannel(chatcomponenttext);
 			} else if (p_147383_1_.func_149595_d() < 5) {
 				chatcomponenttext = new ChatComponentText("Outdated client! Please use 1.7.10");
-				field_147386_b.scheduleOutboundPacket(new S00PacketDisconnect(chatcomponenttext),
-						new GenericFutureListener[0]);
+				field_147386_b.scheduleOutboundPacket(new S00PacketDisconnect(chatcomponenttext)
+				);
 				field_147386_b.closeChannel(chatcomponenttext);
 			} else {
 				field_147386_b.setNetHandler(new NetHandlerLoginServer(field_147387_a, field_147386_b));
@@ -84,13 +84,11 @@ public class NetHandlerHandshakeTCP implements INetHandlerHandshakeServer {
 			try {
 				field_151291_a[EnumConnectionState.LOGIN.ordinal()] = 1;
 			} catch (NoSuchFieldError var2) {
-				;
 			}
 
 			try {
 				field_151291_a[EnumConnectionState.STATUS.ordinal()] = 2;
 			} catch (NoSuchFieldError var1) {
-				;
 			}
 		}
 	}

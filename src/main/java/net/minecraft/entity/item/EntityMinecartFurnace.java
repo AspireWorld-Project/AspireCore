@@ -116,7 +116,7 @@ public class EntityMinecartFurnace extends EntityMinecart {
 
 		if (itemstack != null && itemstack.getItem() == Items.coal) {
 			if (!p_130002_1_.capabilities.isCreativeMode && --itemstack.stackSize == 0) {
-				p_130002_1_.inventory.setInventorySlotContents(p_130002_1_.inventory.currentItem, (ItemStack) null);
+				p_130002_1_.inventory.setInventorySlotContents(p_130002_1_.inventory.currentItem, null);
 			}
 
 			fuel += 3600;

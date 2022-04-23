@@ -9,14 +9,14 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 
 public class PathFinder {
-	private IBlockAccess worldMap;
-	private Path path = new Path();
-	private IntHashMap pointMap = new IntHashMap();
-	private PathPoint[] pathOptions = new PathPoint[32];
-	private boolean isWoddenDoorAllowed;
-	private boolean isMovementBlockAllowed;
+	private final IBlockAccess worldMap;
+	private final Path path = new Path();
+	private final IntHashMap pointMap = new IntHashMap();
+	private final PathPoint[] pathOptions = new PathPoint[32];
+	private final boolean isWoddenDoorAllowed;
+	private final boolean isMovementBlockAllowed;
 	private boolean isPathingInWater;
-	private boolean canEntityDrown;
+	private final boolean canEntityDrown;
 	private static final String __OBFID = "CL_00000576";
 
 	public PathFinder(IBlockAccess p_i2137_1_, boolean p_i2137_2_, boolean p_i2137_3_, boolean p_i2137_4_,

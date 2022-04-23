@@ -27,8 +27,8 @@ import java.util.regex.Pattern;
 
 public class ModContainerFactory {
 	public static Map<Type, Constructor<? extends ModContainer>> modTypes = Maps.newHashMap();
-	private static Pattern modClass = Pattern.compile(".*(\\.|)(mod\\_[^\\s$]+)$");
-	private static ModContainerFactory INSTANCE = new ModContainerFactory();
+	private static final Pattern modClass = Pattern.compile(".*(\\.|)(mod\\_[^\\s$]+)$");
+	private static final ModContainerFactory INSTANCE = new ModContainerFactory();
 
 	private ModContainerFactory() {
 		// We always know about Mod type
@@ -42,7 +42,7 @@ public class ModContainerFactory {
 	public void registerContainerType(Type type, Class<? extends ModContainer> container) {
 		try {
 			Constructor<? extends ModContainer> constructor = container
-					.getConstructor(new Class<?>[] { String.class, ModCandidate.class, Map.class });
+					.getConstructor(String.class, ModCandidate.class, Map.class);
 			modTypes.put(type, constructor);
 		} catch (Exception e) {
 			FMLLog.log(Level.ERROR, e,

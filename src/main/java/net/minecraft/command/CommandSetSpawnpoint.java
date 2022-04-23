@@ -39,18 +39,18 @@ public class CommandSetSpawnpoint extends CommandBase {
 				int l = parseIntBounded(p_71515_1_, p_71515_2_[i1++], -i, i);
 				entityplayermp.setSpawnChunk(new ChunkCoordinates(j, k, l), true);
 				func_152373_a(p_71515_1_, this, "commands.spawnpoint.success",
-						new Object[] { entityplayermp.getCommandSenderName(), Integer.valueOf(j), Integer.valueOf(k),
-								Integer.valueOf(l) });
+						entityplayermp.getCommandSenderName(), Integer.valueOf(j), Integer.valueOf(k),
+						Integer.valueOf(l));
 			}
 		} else {
 			if (p_71515_2_.length > 1)
-				throw new WrongUsageException("commands.spawnpoint.usage", new Object[0]);
+				throw new WrongUsageException("commands.spawnpoint.usage");
 
 			ChunkCoordinates chunkcoordinates = entityplayermp.getPlayerCoordinates();
 			entityplayermp.setSpawnChunk(chunkcoordinates, true);
 			func_152373_a(p_71515_1_, this, "commands.spawnpoint.success",
-					new Object[] { entityplayermp.getCommandSenderName(), Integer.valueOf(chunkcoordinates.posX),
-							Integer.valueOf(chunkcoordinates.posY), Integer.valueOf(chunkcoordinates.posZ) });
+					entityplayermp.getCommandSenderName(), Integer.valueOf(chunkcoordinates.posX),
+					Integer.valueOf(chunkcoordinates.posY), Integer.valueOf(chunkcoordinates.posZ));
 		}
 	}
 

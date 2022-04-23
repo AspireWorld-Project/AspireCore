@@ -7,10 +7,10 @@ import net.minecraft.world.World;
 
 @SideOnly(Side.CLIENT)
 public class EntityPortalFX extends EntityFX {
-	private float portalParticleScale;
-	private double portalPosX;
-	private double portalPosY;
-	private double portalPosZ;
+	private final float portalParticleScale;
+	private final double portalPosX;
+	private final double portalPosY;
+	private final double portalPosZ;
 	private static final String __OBFID = "CL_00000921";
 
 	public EntityPortalFX(World p_i1222_1_, double p_i1222_2_, double p_i1222_4_, double p_i1222_6_, double p_i1222_8_,

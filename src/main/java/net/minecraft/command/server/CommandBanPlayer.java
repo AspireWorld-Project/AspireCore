@@ -43,7 +43,7 @@ public class CommandBanPlayer extends CommandBase {
 			GameProfile gameprofile = minecraftserver.func_152358_ax().func_152655_a(p_71515_2_[0]);
 
 			if (gameprofile == null)
-				throw new CommandException("commands.ban.failed", new Object[] { p_71515_2_[0] });
+				throw new CommandException("commands.ban.failed", p_71515_2_[0]);
 			else {
 				String s = null;
 
@@ -51,8 +51,8 @@ public class CommandBanPlayer extends CommandBase {
 					s = func_147178_a(p_71515_1_, p_71515_2_, 1).getUnformattedText();
 				}
 
-				UserListBansEntry userlistbansentry = new UserListBansEntry(gameprofile, (Date) null,
-						p_71515_1_.getCommandSenderName(), (Date) null, s);
+				UserListBansEntry userlistbansentry = new UserListBansEntry(gameprofile, null,
+						p_71515_1_.getCommandSenderName(), null, s);
 				minecraftserver.getConfigurationManager().func_152608_h().func_152687_a(userlistbansentry);
 				EntityPlayerMP entityplayermp = minecraftserver.getConfigurationManager().func_152612_a(p_71515_2_[0]);
 
@@ -60,10 +60,10 @@ public class CommandBanPlayer extends CommandBase {
 					entityplayermp.playerNetServerHandler.kickPlayerFromServer("You are banned from this server.");
 				}
 
-				func_152373_a(p_71515_1_, this, "commands.ban.success", new Object[] { p_71515_2_[0] });
+				func_152373_a(p_71515_1_, this, "commands.ban.success", p_71515_2_[0]);
 			}
 		} else
-			throw new WrongUsageException("commands.ban.usage", new Object[0]);
+			throw new WrongUsageException("commands.ban.usage");
 	}
 
 	@Override

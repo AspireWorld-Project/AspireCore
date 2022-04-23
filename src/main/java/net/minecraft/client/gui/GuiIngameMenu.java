@@ -20,24 +20,24 @@ public class GuiIngameMenu extends GuiScreen {
 		buttonList.clear();
 		byte b0 = -16;
 		buttonList.add(new GuiButton(1, width / 2 - 100, height / 4 + 120 + b0,
-				I18n.format("menu.returnToMenu", new Object[0])));
+				I18n.format("menu.returnToMenu")));
 
 		if (!mc.isIntegratedServerRunning()) {
-			((GuiButton) buttonList.get(0)).displayString = I18n.format("menu.disconnect", new Object[0]);
+			((GuiButton) buttonList.get(0)).displayString = I18n.format("menu.disconnect");
 		}
 
 		buttonList.add(new GuiButton(4, width / 2 - 100, height / 4 + 24 + b0,
-				I18n.format("menu.returnToGame", new Object[0])));
+				I18n.format("menu.returnToGame")));
 		buttonList.add(new GuiButton(0, width / 2 - 100, height / 4 + 96 + b0, 98, 20,
-				I18n.format("menu.options", new Object[0])));
+				I18n.format("menu.options")));
 		buttonList.add(new GuiButton(12, width / 2 + 2, height / 4 + 96 + b0, 98, 20, "Mod Options..."));
 		GuiButton guibutton;
 		buttonList.add(guibutton = new GuiButton(7, width / 2 - 100, height / 4 + 72 + b0, 200, 20,
-				I18n.format("menu.shareToLan", new Object[0])));
+				I18n.format("menu.shareToLan")));
 		buttonList.add(new GuiButton(5, width / 2 - 100, height / 4 + 48 + b0, 98, 20,
-				I18n.format("gui.achievements", new Object[0])));
+				I18n.format("gui.achievements")));
 		buttonList.add(
-				new GuiButton(6, width / 2 + 2, height / 4 + 48 + b0, 98, 20, I18n.format("gui.stats", new Object[0])));
+				new GuiButton(6, width / 2 + 2, height / 4 + 48 + b0, 98, 20, I18n.format("gui.stats")));
 		guibutton.enabled = mc.isSingleplayer() && !mc.getIntegratedServer().getPublic();
 	}
 
@@ -50,14 +50,14 @@ public class GuiIngameMenu extends GuiScreen {
 		case 1:
 			p_146284_1_.enabled = false;
 			mc.theWorld.sendQuittingDisconnectingPacket();
-			mc.loadWorld((WorldClient) null);
+			mc.loadWorld(null);
 			mc.displayGuiScreen(new GuiMainMenu());
 		case 2:
 		case 3:
 		default:
 			break;
 		case 4:
-			mc.displayGuiScreen((GuiScreen) null);
+			mc.displayGuiScreen(null);
 			mc.setIngameFocus();
 			break;
 		case 5:
@@ -88,7 +88,7 @@ public class GuiIngameMenu extends GuiScreen {
 	@Override
 	public void drawScreen(int p_73863_1_, int p_73863_2_, float p_73863_3_) {
 		drawDefaultBackground();
-		drawCenteredString(fontRendererObj, I18n.format("menu.game", new Object[0]), width / 2, 40, 16777215);
+		drawCenteredString(fontRendererObj, I18n.format("menu.game"), width / 2, 40, 16777215);
 		super.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
 	}
 }

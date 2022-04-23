@@ -85,7 +85,7 @@ public class WorldServer extends World {
 	private int updateEntityTick;
 	public Teleporter worldTeleporter;
 	private final SpawnerAnimals animalSpawner = new SpawnerAnimals();
-	private WorldServer.ServerBlockEventList[] field_147490_S = new WorldServer.ServerBlockEventList[] {
+	private final WorldServer.ServerBlockEventList[] field_147490_S = new WorldServer.ServerBlockEventList[] {
 			new WorldServer.ServerBlockEventList(null), new WorldServer.ServerBlockEventList(null) };
 	private int blockEventCacheIndex;
 	public static final WeightedRandomChestContent[] bonusChestContent = new WeightedRandomChestContent[] {
@@ -99,7 +99,7 @@ public class WorldServer extends World {
 			new WeightedRandomChestContent(Items.apple, 0, 2, 3, 5),
 			new WeightedRandomChestContent(Items.bread, 0, 2, 3, 3),
 			new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.log2), 0, 1, 3, 10) };
-	private List pendingTickListEntriesThisTick = new ArrayList();
+	private final List pendingTickListEntriesThisTick = new ArrayList();
 	private IntHashMap entityIdMap;
 	private static final String __OBFID = "CL_00001437";
 
@@ -887,10 +887,8 @@ public class WorldServer extends World {
 	private boolean func_147485_a(BlockEventData p_147485_1_) {
 		Block block = getBlockIfExists(p_147485_1_.func_151340_a(), p_147485_1_.func_151342_b(),
 				p_147485_1_.func_151341_c());
-		return block == p_147485_1_.getBlock()
-				? block.onBlockEventReceived(this, p_147485_1_.func_151340_a(), p_147485_1_.func_151342_b(),
-						p_147485_1_.func_151341_c(), p_147485_1_.getEventID(), p_147485_1_.getEventParameter())
-				: false;
+		return block == p_147485_1_.getBlock() && block.onBlockEventReceived(this, p_147485_1_.func_151340_a(), p_147485_1_.func_151342_b(),
+				p_147485_1_.func_151341_c(), p_147485_1_.getEventID(), p_147485_1_.getEventParameter());
 	}
 
 	public void flush() {

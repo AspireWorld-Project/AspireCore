@@ -28,10 +28,10 @@ public class EntityDamageSource extends DamageSource {
 		String s1 = s + ".item";
 		return itemstack != null && itemstack.hasDisplayName() && StatCollector.canTranslate(s1)
 				? new ChatComponentTranslation(s1,
-						new Object[] { p_151519_1_.func_145748_c_(), damageSourceEntity.func_145748_c_(),
-								itemstack.func_151000_E() })
+                p_151519_1_.func_145748_c_(), damageSourceEntity.func_145748_c_(),
+                itemstack.func_151000_E())
 				: new ChatComponentTranslation(s,
-						new Object[] { p_151519_1_.func_145748_c_(), damageSourceEntity.func_145748_c_() });
+                p_151519_1_.func_145748_c_(), damageSourceEntity.func_145748_c_());
 	}
 
 	@Override

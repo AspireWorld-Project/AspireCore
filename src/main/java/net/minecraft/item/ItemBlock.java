@@ -135,7 +135,7 @@ public class ItemBlock extends Item {
 		}
 
 		return p_150936_1_.canPlaceEntityOnSide(field_150939_a, p_150936_2_, p_150936_3_, p_150936_4_, false,
-				p_150936_5_, (Entity) null, p_150936_7_);
+				p_150936_5_, null, p_150936_7_);
 	}
 
 	@Override

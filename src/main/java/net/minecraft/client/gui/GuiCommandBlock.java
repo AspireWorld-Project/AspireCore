@@ -35,9 +35,9 @@ public class GuiCommandBlock extends GuiScreen {
 		Keyboard.enableRepeatEvents(true);
 		buttonList.clear();
 		buttonList.add(doneBtn = new GuiButton(0, width / 2 - 4 - 150, height / 4 + 120 + 12, 150, 20,
-				I18n.format("gui.done", new Object[0])));
+				I18n.format("gui.done")));
 		buttonList.add(cancelBtn = new GuiButton(1, width / 2 + 4, height / 4 + 120 + 12, 150, 20,
-				I18n.format("gui.cancel", new Object[0])));
+				I18n.format("gui.cancel")));
 		commandTextField = new GuiTextField(fontRendererObj, width / 2 - 150, 50, 300, 20);
 		commandTextField.setMaxStringLength(32767);
 		commandTextField.setFocused(true);
@@ -63,7 +63,7 @@ public class GuiCommandBlock extends GuiScreen {
 	protected void actionPerformed(GuiButton p_146284_1_) {
 		if (p_146284_1_.enabled) {
 			if (p_146284_1_.id == 1) {
-				mc.displayGuiScreen((GuiScreen) null);
+				mc.displayGuiScreen(null);
 			} else if (p_146284_1_.id == 0) {
 				PacketBuffer packetbuffer = new PacketBuffer(Unpooled.buffer());
 
@@ -73,12 +73,12 @@ public class GuiCommandBlock extends GuiScreen {
 					packetbuffer.writeStringToBuffer(commandTextField.getText());
 					mc.getNetHandler().addToSendQueue(new C17PacketCustomPayload("MC|AdvCdm", packetbuffer));
 				} catch (Exception exception) {
-					field_146488_a.error("Couldn\'t send command block info", exception);
+					field_146488_a.error("Couldn't send command block info", exception);
 				} finally {
 					packetbuffer.release();
 				}
 
-				mc.displayGuiScreen((GuiScreen) null);
+				mc.displayGuiScreen(null);
 			}
 		}
 	}
@@ -108,24 +108,24 @@ public class GuiCommandBlock extends GuiScreen {
 	@Override
 	public void drawScreen(int p_73863_1_, int p_73863_2_, float p_73863_3_) {
 		drawDefaultBackground();
-		drawCenteredString(fontRendererObj, I18n.format("advMode.setCommand", new Object[0]), width / 2, 20, 16777215);
-		drawString(fontRendererObj, I18n.format("advMode.command", new Object[0]), width / 2 - 150, 37, 10526880);
+		drawCenteredString(fontRendererObj, I18n.format("advMode.setCommand"), width / 2, 20, 16777215);
+		drawString(fontRendererObj, I18n.format("advMode.command"), width / 2 - 150, 37, 10526880);
 		commandTextField.drawTextBox();
 		byte b0 = 75;
 		byte b1 = 0;
 		FontRenderer fontrenderer = fontRendererObj;
-		String s = I18n.format("advMode.nearestPlayer", new Object[0]);
+		String s = I18n.format("advMode.nearestPlayer");
 		int i1 = width / 2 - 150;
 		int l = b1 + 1;
 		drawString(fontrenderer, s, i1, b0 + b1 * fontRendererObj.FONT_HEIGHT, 10526880);
-		drawString(fontRendererObj, I18n.format("advMode.randomPlayer", new Object[0]), width / 2 - 150,
+		drawString(fontRendererObj, I18n.format("advMode.randomPlayer"), width / 2 - 150,
 				b0 + l++ * fontRendererObj.FONT_HEIGHT, 10526880);
-		drawString(fontRendererObj, I18n.format("advMode.allPlayers", new Object[0]), width / 2 - 150,
+		drawString(fontRendererObj, I18n.format("advMode.allPlayers"), width / 2 - 150,
 				b0 + l++ * fontRendererObj.FONT_HEIGHT, 10526880);
 
 		if (field_146486_g.getText().length() > 0) {
 			int k = b0 + l * fontRendererObj.FONT_HEIGHT + 20;
-			drawString(fontRendererObj, I18n.format("advMode.previousOutput", new Object[0]), width / 2 - 150, k,
+			drawString(fontRendererObj, I18n.format("advMode.previousOutput"), width / 2 - 150, k,
 					10526880);
 			field_146486_g.drawTextBox();
 		}

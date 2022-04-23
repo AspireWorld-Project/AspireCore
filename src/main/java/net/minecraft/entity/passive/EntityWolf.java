@@ -295,7 +295,7 @@ public class EntityWolf extends EntityTameable {
 
 						if (itemstack.stackSize <= 0) {
 							p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem,
-									(ItemStack) null);
+									null);
 						}
 
 						return true;
@@ -308,7 +308,7 @@ public class EntityWolf extends EntityTameable {
 
 						if (!p_70085_1_.capabilities.isCreativeMode && --itemstack.stackSize <= 0) {
 							p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem,
-									(ItemStack) null);
+									null);
 						}
 
 						return true;
@@ -319,9 +319,9 @@ public class EntityWolf extends EntityTameable {
 			if (func_152114_e(p_70085_1_) && !worldObj.isRemote && !isBreedingItem(itemstack)) {
 				aiSit.setSitting(!isSitting());
 				isJumping = false;
-				setPathToEntity((PathEntity) null);
-				setTarget((Entity) null);
-				setAttackTarget((EntityLivingBase) null);
+				setPathToEntity(null);
+				setTarget(null);
+				setAttackTarget(null);
 			}
 		} else if (itemstack != null && itemstack.getItem() == Items.bone && !isAngry()) {
 			if (!p_70085_1_.capabilities.isCreativeMode) {
@@ -329,14 +329,14 @@ public class EntityWolf extends EntityTameable {
 			}
 
 			if (itemstack.stackSize <= 0) {
-				p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, (ItemStack) null);
+				p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, null);
 			}
 
 			if (!worldObj.isRemote) {
 				if (rand.nextInt(3) == 0) {
 					setTamed(true);
-					setPathToEntity((PathEntity) null);
-					setAttackTarget((EntityLivingBase) null);
+					setPathToEntity(null);
+					setAttackTarget(null);
 					aiSit.setSitting(true);
 					setHealth(20.0F);
 					func_152115_b(p_70085_1_.getUniqueID().toString());
@@ -375,9 +375,7 @@ public class EntityWolf extends EntityTameable {
 
 	@Override
 	public boolean isBreedingItem(ItemStack p_70877_1_) {
-		return p_70877_1_ == null ? false
-				: !(p_70877_1_.getItem() instanceof ItemFood) ? false
-						: ((ItemFood) p_70877_1_.getItem()).isWolfsFavoriteMeat();
+		return p_70877_1_ != null && p_70877_1_.getItem() instanceof ItemFood && ((ItemFood) p_70877_1_.getItem()).isWolfsFavoriteMeat();
 	}
 
 	@Override
@@ -438,7 +436,7 @@ public class EntityWolf extends EntityTameable {
 			return false;
 		else {
 			EntityWolf entitywolf = (EntityWolf) p_70878_1_;
-			return !entitywolf.isTamed() ? false : entitywolf.isSitting() ? false : isInLove() && entitywolf.isInLove();
+			return entitywolf.isTamed() && !entitywolf.isSitting() && isInLove() && entitywolf.isInLove();
 		}
 	}
 
@@ -461,9 +459,8 @@ public class EntityWolf extends EntityTameable {
 					return false;
 			}
 
-			return p_142018_1_ instanceof EntityPlayer && p_142018_2_ instanceof EntityPlayer
-					&& !((EntityPlayer) p_142018_2_).canAttackPlayer((EntityPlayer) p_142018_1_) ? false
-							: !(p_142018_1_ instanceof EntityHorse) || !((EntityHorse) p_142018_1_).isTame();
+			return (!(p_142018_1_ instanceof EntityPlayer) || !(p_142018_2_ instanceof EntityPlayer)
+					|| ((EntityPlayer) p_142018_2_).canAttackPlayer((EntityPlayer) p_142018_1_)) && (!(p_142018_1_ instanceof EntityHorse) || !((EntityHorse) p_142018_1_).isTame());
 		} else
 			return false;
 	}

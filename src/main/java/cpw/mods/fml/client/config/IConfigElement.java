@@ -28,7 +28,7 @@ public interface IConfigElement<T> {
 	/**
 	 * [Property, Category] Is this object a property object?
 	 */
-	public boolean isProperty();
+    boolean isProperty();
 
 	/**
 	 * This method returns a class that implements {@code IConfigEntry} or null.
@@ -36,7 +36,7 @@ public interface IConfigElement<T> {
 	 * {@code GuiConfig}, {@code GuiConfigEntries}, {@code IConfigElement}
 	 */
 	@SuppressWarnings("rawtypes")
-	public Class<? extends IConfigEntry> getConfigEntryClass();
+    Class<? extends IConfigEntry> getConfigEntryClass();
 
 	/**
 	 * This method returns a class that implements {@code IArrayEntry}. This class
@@ -44,18 +44,18 @@ public interface IConfigElement<T> {
 	 * {@code GuiEditArray}, {@code GuiEditArrayEntries}, {@code IConfigElement},
 	 * {@code Object}
 	 */
-	public Class<? extends IArrayEntry> getArrayEntryClass();
+    Class<? extends IArrayEntry> getArrayEntryClass();
 
 	/**
 	 * [Property, Category] Gets the name of this object.
 	 */
-	public String getName();
+    String getName();
 
 	/**
 	 * [Category] Gets the qualified name of this object. This is typically only
 	 * used for category objects.
 	 */
-	public String getQualifiedName();
+    String getQualifiedName();
 
 	/**
 	 * [Property, Category] Gets a language key for localization of config GUI entry
@@ -63,123 +63,123 @@ public interface IConfigElement<T> {
 	 * key will return a localized tooltip when the mouse hovers over the property
 	 * label/category button.
 	 */
-	public String getLanguageKey();
+    String getLanguageKey();
 
 	/**
 	 * [Property, Category] Gets the comment for this object. Used for the tooltip
 	 * if getLanguageKey() + ".tooltip" is not defined in the .lang file.
 	 */
-	public String getComment();
+    String getComment();
 
 	/**
 	 * [Category] Gets this category's child categories/properties.
 	 */
 	@SuppressWarnings("rawtypes")
-	public List<IConfigElement> getChildElements();
+    List<IConfigElement> getChildElements();
 
 	/**
 	 * [Property, Category] Gets the ConfigGuiType value corresponding to the type
 	 * of this property object, or CONFIG_CATEGORY if this is a category object.
 	 */
-	public ConfigGuiType getType();
+    ConfigGuiType getType();
 
 	/**
 	 * [Property] Is this property object a list?
 	 */
-	public boolean isList();
+    boolean isList();
 
 	/**
 	 * [Property] Does this list property have to remain a fixed length?
 	 */
-	public boolean isListLengthFixed();
+    boolean isListLengthFixed();
 
 	/**
 	 * [Property] Gets the max length of this list property, or -1 if the length is
 	 * unlimited.
 	 */
-	public int getMaxListLength();
+    int getMaxListLength();
 
 	/**
 	 * [Property] Is this property value equal to the default value?
 	 */
-	public boolean isDefault();
+    boolean isDefault();
 
 	/**
 	 * [Property] Gets this property's default value. If this element is an array,
 	 * this method should return a String representation of that array using
 	 * Arrays.toString()
 	 */
-	public Object getDefault();
+    Object getDefault();
 
 	/**
 	 * [Property] Gets this property's default values.
 	 */
-	public Object[] getDefaults();
+    Object[] getDefaults();
 
 	/**
 	 * [Property] Sets this property's value to the default value.
 	 */
-	public void setToDefault();
+    void setToDefault();
 
 	/**
 	 * [Property, Category] Whether or not this element is safe to modify while a
 	 * world is running. For Categories return false if ANY properties in the
 	 * category are modifiable while a world is running, true if all are not.
 	 */
-	public boolean requiresWorldRestart();
+    boolean requiresWorldRestart();
 
 	/**
 	 * [Property, Category] Whether or not this element should be allowed to show on
 	 * config GUIs.
 	 */
-	public boolean showInGui();
+    boolean showInGui();
 
 	/**
 	 * [Property, Category] Whether or not this element requires Minecraft to be
 	 * restarted when changed.
 	 */
-	public boolean requiresMcRestart();
+    boolean requiresMcRestart();
 
 	/**
 	 * [Property] Gets this property value.
 	 */
-	public Object get();
+    Object get();
 
 	/**
 	 * [Property] Gets this property value as a list. Generally you should be sure
 	 * of whether the property is a list before calling this.
 	 */
-	public Object[] getList();
+    Object[] getList();
 
 	/**
 	 * [Property] Sets this property's value.
 	 */
-	public void set(T value);
+    void set(T value);
 
 	/**
 	 * [Property] Sets this property's value to the specified array.
 	 */
-	public void set(T[] aVal);
+    void set(T[] aVal);
 
 	/**
 	 * [Property] Gets a String array of valid values for this property. This is
 	 * generally used for String properties to allow the user to select a value from
 	 * a list of valid values.
 	 */
-	public String[] getValidValues();
+    String[] getValidValues();
 
 	/**
 	 * [Property] Gets this property's minimum value.
 	 */
-	public T getMinValue();
+    T getMinValue();
 
 	/**
 	 * [Property] Gets this property's maximum value.
 	 */
-	public T getMaxValue();
+    T getMaxValue();
 
 	/**
 	 * [Property] Gets a Pattern object used in String property input validation.
 	 */
-	public Pattern getValidationPattern();
+    Pattern getValidationPattern();
 }

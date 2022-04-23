@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PotionEffect {
-	private int potionID;
+	private final int potionID;
 	private int duration;
 	private int amplifier;
 	private boolean isSplashPotion;

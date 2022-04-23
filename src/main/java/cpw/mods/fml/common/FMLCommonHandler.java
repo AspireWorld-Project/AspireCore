@@ -77,10 +77,10 @@ public class FMLCommonHandler {
 	private boolean noForge;
 	private List<String> brandings;
 	private List<String> brandingsNoMC;
-	private List<ICrashCallable> crashCallables = Lists.newArrayList(Loader.instance().getCallableCrashInformation());
-	private Set<SaveHandler> handlerSet = Sets.newSetFromMap(new MapMaker().weakKeys().<SaveHandler, Boolean>makeMap());
+	private final List<ICrashCallable> crashCallables = Lists.newArrayList(Loader.instance().getCallableCrashInformation());
+	private final Set<SaveHandler> handlerSet = Sets.newSetFromMap(new MapMaker().weakKeys().makeMap());
 	private WeakReference<SaveHandler> handlerToCheck;
-	private EventBus eventBus = new EventBus();
+	private final EventBus eventBus = new EventBus();
 	private volatile CountDownLatch exitLatch = null;
 	private Profiler profiler;
 
@@ -182,7 +182,7 @@ public class FMLCommonHandler {
 
 	public void computeBranding() {
 		if (brandings == null) {
-			Builder<String> brd = ImmutableList.<String>builder();
+			Builder<String> brd = ImmutableList.builder();
 			brd.add(Loader.instance().getMCVersionString());
 			brd.add(Loader.instance().getMCPVersionString());
 			brd.add("FML v" + Loader.instance().getFMLVersionString());
@@ -431,11 +431,7 @@ public class FMLCommonHandler {
 			exitLatch = null;
 		}
 		// s5a4ed1sa7 code start
-		if (Restarter.restart) {
-		Restarter.restart(false);
-		} else {
-		Restarter.restart(true);
-		}
+        Restarter.restart(!Restarter.restart);
 		// s5a4ed1sa7 code end
 	}
 

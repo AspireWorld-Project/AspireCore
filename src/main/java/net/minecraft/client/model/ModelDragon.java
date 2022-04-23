@@ -9,18 +9,18 @@ import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
 public class ModelDragon extends ModelBase {
-	private ModelRenderer head;
-	private ModelRenderer spine;
-	private ModelRenderer jaw;
-	private ModelRenderer body;
-	private ModelRenderer rearLeg;
-	private ModelRenderer frontLeg;
-	private ModelRenderer rearLegTip;
-	private ModelRenderer frontLegTip;
-	private ModelRenderer rearFoot;
-	private ModelRenderer frontFoot;
-	private ModelRenderer wing;
-	private ModelRenderer wingTip;
+	private final ModelRenderer head;
+	private final ModelRenderer spine;
+	private final ModelRenderer jaw;
+	private final ModelRenderer body;
+	private final ModelRenderer rearLeg;
+	private final ModelRenderer frontLeg;
+	private final ModelRenderer rearLegTip;
+	private final ModelRenderer frontLegTip;
+	private final ModelRenderer rearFoot;
+	private final ModelRenderer frontFoot;
+	private final ModelRenderer wing;
+	private final ModelRenderer wingTip;
 	private float partialTicks;
 	private static final String __OBFID = "CL_00000870";
 

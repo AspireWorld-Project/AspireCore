@@ -13,7 +13,7 @@ import java.util.List;
 
 @SideOnly(Side.CLIENT)
 public class GuiScreenRealmsProxy extends GuiScreen {
-	private RealmsScreen field_154330_a;
+	private final RealmsScreen field_154330_a;
 	private static final String __OBFID = "CL_00001847";
 
 	public GuiScreenRealmsProxy(RealmsScreen p_i1087_1_) {

@@ -24,7 +24,7 @@ public class EntityAINearestAttackableTarget extends EntityAITarget {
 
 	public EntityAINearestAttackableTarget(EntityCreature p_i1664_1_, Class p_i1664_2_, int p_i1664_3_,
 			boolean p_i1664_4_, boolean p_i1664_5_) {
-		this(p_i1664_1_, p_i1664_2_, p_i1664_3_, p_i1664_4_, p_i1664_5_, (IEntitySelector) null);
+		this(p_i1664_1_, p_i1664_2_, p_i1664_3_, p_i1664_4_, p_i1664_5_, null);
 	}
 
 	public EntityAINearestAttackableTarget(EntityCreature p_i1665_1_, Class p_i1665_2_, int p_i1665_3_,
@@ -39,10 +39,8 @@ public class EntityAINearestAttackableTarget extends EntityAITarget {
 
 			@Override
 			public boolean isEntityApplicable(Entity p_82704_1_) {
-				return !(p_82704_1_ instanceof EntityLivingBase) ? false
-						: p_i1665_6_ != null && !p_i1665_6_.isEntityApplicable(p_82704_1_) ? false
-								: EntityAINearestAttackableTarget.this.isSuitableTarget((EntityLivingBase) p_82704_1_,
-										false);
+				return p_82704_1_ instanceof EntityLivingBase && (p_i1665_6_ == null || p_i1665_6_.isEntityApplicable(p_82704_1_)) && EntityAINearestAttackableTarget.this.isSuitableTarget((EntityLivingBase) p_82704_1_,
+						false);
 			}
 		};
 	}

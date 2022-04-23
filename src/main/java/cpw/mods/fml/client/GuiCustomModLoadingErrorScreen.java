@@ -15,7 +15,7 @@ package cpw.mods.fml.client;
 import net.minecraft.client.gui.GuiErrorScreen;
 
 public class GuiCustomModLoadingErrorScreen extends GuiErrorScreen {
-	private CustomModLoadingErrorDisplayException customException;
+	private final CustomModLoadingErrorDisplayException customException;
 
 	public GuiCustomModLoadingErrorScreen(CustomModLoadingErrorDisplayException customException) {
 		super(null, null);

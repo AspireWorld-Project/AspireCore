@@ -4,7 +4,7 @@ import net.minecraft.client.renderer.Tessellator;
 
 public class GuiModOptionList extends GuiScrollingList {
 
-	private GuiIngameModOptions parent;
+	private final GuiIngameModOptions parent;
 
 	public GuiModOptionList(GuiIngameModOptions parent) {
 		super(parent.mc, 150, parent.height, 32, parent.height - 65 + 4, 10, 35);

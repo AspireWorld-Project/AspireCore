@@ -16,7 +16,7 @@ public abstract class Packet {
 			Class oclass = (Class) p_148839_0_.get(Integer.valueOf(p_148839_1_));
 			return oclass == null ? null : (Packet) oclass.newInstance();
 		} catch (Exception exception) {
-			logger.error("Couldn\'t create packet " + p_148839_1_, exception);
+			logger.error("Couldn't create packet " + p_148839_1_, exception);
 			return null;
 		}
 	}

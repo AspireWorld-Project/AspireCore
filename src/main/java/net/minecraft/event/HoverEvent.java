@@ -34,20 +34,16 @@ public class HoverEvent {
 				return false;
 			else {
 				if (value != null) {
-					if (!value.equals(hoverevent.value))
-						return false;
-				} else if (hoverevent.value != null)
-					return false;
-
-				return true;
-			}
+                    return value.equals(hoverevent.value);
+				} else return hoverevent.value == null;
+            }
 		} else
 			return false;
 	}
 
 	@Override
 	public String toString() {
-		return "HoverEvent{action=" + action + ", value=\'" + value + '\'' + '}';
+		return "HoverEvent{action=" + action + ", value='" + value + '\'' + '}';
 	}
 
 	@Override
@@ -57,7 +53,7 @@ public class HoverEvent {
 		return i;
 	}
 
-	public static enum Action {
+	public enum Action {
 		SHOW_TEXT("show_text", true), SHOW_ACHIEVEMENT("show_achievement", true), SHOW_ITEM("show_item", true);
 		private static final Map nameMapping = Maps.newHashMap();
 		private final boolean allowedInChat;
@@ -65,7 +61,7 @@ public class HoverEvent {
 
 		private static final String __OBFID = "CL_00001265";
 
-		private Action(String p_i45157_3_, boolean p_i45157_4_) {
+		Action(String p_i45157_3_, boolean p_i45157_4_) {
 			canonicalName = p_i45157_3_;
 			allowedInChat = p_i45157_4_;
 		}

@@ -275,7 +275,7 @@ public abstract class EntityAnimal extends EntityAgeable implements IAnimals {
 				--itemstack.stackSize;
 
 				if (itemstack.stackSize <= 0) {
-					p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, (ItemStack) null);
+					p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, null);
 				}
 			}
 
@@ -305,8 +305,7 @@ public abstract class EntityAnimal extends EntityAgeable implements IAnimals {
 	}
 
 	public boolean canMateWith(EntityAnimal p_70878_1_) {
-		return p_70878_1_ == this ? false
-				: p_70878_1_.getClass() != this.getClass() ? false : isInLove() && p_70878_1_.isInLove();
+		return p_70878_1_ != this && p_70878_1_.getClass() == this.getClass() && isInLove() && p_70878_1_.isInLove();
 	}
 
 	@Override

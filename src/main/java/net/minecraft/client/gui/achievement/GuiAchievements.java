@@ -50,13 +50,13 @@ public class GuiAchievements extends GuiScreen implements IProgressMeter {
 	protected double field_146565_w;
 	protected double field_146573_x;
 	private int field_146554_D;
-	private StatFileWriter field_146556_E;
+	private final StatFileWriter field_146556_E;
 	private boolean field_146558_F = true;
 	private static final String __OBFID = "CL_00000722";
 
 	private int currentPage = -1;
 	private GuiButton button;
-	private LinkedList<Achievement> minecraftAchievements = new LinkedList<>();
+	private final LinkedList<Achievement> minecraftAchievements = new LinkedList<>();
 
 	public GuiAchievements(GuiScreen p_i45026_1_, StatFileWriter p_i45026_2_) {
 		field_146562_a = p_i45026_1_;
@@ -79,7 +79,7 @@ public class GuiAchievements extends GuiScreen implements IProgressMeter {
 		mc.getNetHandler().addToSendQueue(new C16PacketClientStatus(C16PacketClientStatus.EnumState.REQUEST_STATS));
 		buttonList.clear();
 		buttonList.add(new GuiOptionButton(1, width / 2 + 24, height / 2 + 74, 80, 20,
-				I18n.format("gui.done", new Object[0])));
+				I18n.format("gui.done")));
 		buttonList.add(button = new GuiButton(2, (width - field_146555_f) / 2 + 24, height / 2 + 74, 125, 20,
 				AchievementPage.getTitle(currentPage)));
 	}
@@ -104,7 +104,7 @@ public class GuiAchievements extends GuiScreen implements IProgressMeter {
 	@Override
 	protected void keyTyped(char p_73869_1_, int p_73869_2_) {
 		if (p_73869_2_ == mc.gameSettings.keyBindInventory.getKeyCode()) {
-			mc.displayGuiScreen((GuiScreen) null);
+			mc.displayGuiScreen(null);
 			mc.setIngameFocus();
 		} else {
 			super.keyTyped(p_73869_1_, p_73869_2_);
@@ -115,7 +115,7 @@ public class GuiAchievements extends GuiScreen implements IProgressMeter {
 	public void drawScreen(int p_73863_1_, int p_73863_2_, float p_73863_3_) {
 		if (field_146558_F) {
 			drawDefaultBackground();
-			drawCenteredString(fontRendererObj, I18n.format("multiplayer.downloadingStats", new Object[0]), width / 2,
+			drawCenteredString(fontRendererObj, I18n.format("multiplayer.downloadingStats"), width / 2,
 					height / 2, 16777215);
 			drawCenteredString(fontRendererObj,
 					field_146510_b_[(int) (Minecraft.getSystemTime() / 150L % field_146510_b_.length)], width / 2,
@@ -223,7 +223,7 @@ public class GuiAchievements extends GuiScreen implements IProgressMeter {
 	protected void func_146553_h() {
 		int i = (width - field_146555_f) / 2;
 		int j = (height - field_146557_g) / 2;
-		fontRendererObj.drawString(I18n.format("gui.achievements", new Object[0]), i + 15, j + 5, 4210752);
+		fontRendererObj.drawString(I18n.format("gui.achievements"), i + 15, j + 5, 4210752);
 	}
 
 	protected void func_146552_b(int p_146552_1_, int p_146552_2_, float p_146552_3_) {
@@ -454,17 +454,17 @@ public class GuiAchievements extends GuiScreen implements IProgressMeter {
 				int k4;
 
 				if (i4 == 3) {
-					s1 = I18n.format("achievement.unknown", new Object[0]);
+					s1 = I18n.format("achievement.unknown");
 					j4 = Math.max(fontRendererObj.getStringWidth(s1), 120);
 					s = new ChatComponentTranslation("achievement.requires",
-							new Object[] { achievement.parentAchievement.func_150951_e() }).getUnformattedText();
+							achievement.parentAchievement.func_150951_e()).getUnformattedText();
 					k4 = fontRendererObj.splitStringWidth(s, j4);
 					drawGradientRect(i5 - 3, j5 - 3, i5 + j4 + 3, j5 + k4 + 12 + 3, -1073741824, -1073741824);
 					fontRendererObj.drawSplitString(s, i5, j5 + 12, j4, -9416624);
 				} else if (i4 < 3) {
 					j4 = Math.max(fontRendererObj.getStringWidth(s1), 120);
 					s = new ChatComponentTranslation("achievement.requires",
-							new Object[] { achievement.parentAchievement.func_150951_e() }).getUnformattedText();
+							achievement.parentAchievement.func_150951_e()).getUnformattedText();
 					k4 = fontRendererObj.splitStringWidth(s, j4);
 					drawGradientRect(i5 - 3, j5 - 3, i5 + j4 + 3, j5 + k4 + 12 + 3, -1073741824, -1073741824);
 					fontRendererObj.drawSplitString(s, i5, j5 + 12, j4, -9416624);
@@ -483,7 +483,7 @@ public class GuiAchievements extends GuiScreen implements IProgressMeter {
 				fontRendererObj.drawSplitString(s2, i5, j5 + 12, j4, -6250336);
 
 				if (field_146556_E.hasAchievementUnlocked(achievement)) {
-					fontRendererObj.drawStringWithShadow(I18n.format("achievement.taken", new Object[0]), i5,
+					fontRendererObj.drawStringWithShadow(I18n.format("achievement.taken"), i5,
 							j5 + k5 + 4, -7302913);
 				}
 			}

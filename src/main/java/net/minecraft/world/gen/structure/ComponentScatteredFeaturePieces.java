@@ -25,7 +25,7 @@ public class ComponentScatteredFeaturePieces {
 	}
 
 	public static class DesertPyramid extends ComponentScatteredFeaturePieces.Feature {
-		private boolean[] field_74940_h = new boolean[4];
+		private final boolean[] field_74940_h = new boolean[4];
 		public static final WeightedRandomChestContent[] itemsToGenerateInTemple = new WeightedRandomChestContent[] {
 				new WeightedRandomChestContent(Items.diamond, 0, 1, 3, 3),
 				new WeightedRandomChestContent(Items.iron_ingot, 0, 1, 5, 10),
@@ -389,7 +389,7 @@ public class ComponentScatteredFeaturePieces {
 				new WeightedRandomChestContent(Items.diamond_horse_armor, 0, 1, 1, 1) };
 		public static final WeightedRandomChestContent[] junglePyramidsDispenserContents = new WeightedRandomChestContent[] {
 				new WeightedRandomChestContent(Items.arrow, 0, 2, 7, 30) };
-		private static ComponentScatteredFeaturePieces.JunglePyramid.Stones junglePyramidsRandomScatteredStones = new ComponentScatteredFeaturePieces.JunglePyramid.Stones(
+		private static final ComponentScatteredFeaturePieces.JunglePyramid.Stones junglePyramidsRandomScatteredStones = new ComponentScatteredFeaturePieces.JunglePyramid.Stones(
 				null);
 		private static final String __OBFID = "CL_00000477";
 
@@ -770,7 +770,7 @@ public class ComponentScatteredFeaturePieces {
 						hasWitch = true;
 						EntityWitch entitywitch = new EntityWitch(p_74875_1_);
 						entitywitch.setLocationAndAngles(i1 + 0.5D, j1, k1 + 0.5D, 0.0F, 0.0F);
-						entitywitch.onSpawnWithEgg((IEntityLivingData) null);
+						entitywitch.onSpawnWithEgg(null);
 						p_74875_1_.spawnEntityInWorld(entitywitch);
 					}
 				}

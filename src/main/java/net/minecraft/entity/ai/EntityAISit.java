@@ -4,7 +4,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityTameable;
 
 public class EntityAISit extends EntityAIBase {
-	private EntityTameable theEntity;
+	private final EntityTameable theEntity;
 	private boolean isSitting;
 	private static final String __OBFID = "CL_00001613";
 
@@ -23,9 +23,8 @@ public class EntityAISit extends EntityAIBase {
 			return false;
 		else {
 			EntityLivingBase entitylivingbase = theEntity.getOwner();
-			return entitylivingbase == null ? true
-					: theEntity.getDistanceSqToEntity(entitylivingbase) < 144.0D
-							&& entitylivingbase.getAITarget() != null ? false : isSitting;
+			return entitylivingbase == null || (!(theEntity.getDistanceSqToEntity(entitylivingbase) < 144.0D)
+                    || entitylivingbase.getAITarget() == null) && isSitting;
 		}
 	}
 

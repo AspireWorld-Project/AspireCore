@@ -90,8 +90,8 @@ import java.util.EnumMap;
  *
  */
 public class SimpleNetworkWrapper {
-	private EnumMap<Side, FMLEmbeddedChannel> channels;
-	private SimpleIndexedCodec packetCodec;
+	private final EnumMap<Side, FMLEmbeddedChannel> channels;
+	private final SimpleIndexedCodec packetCodec;
 
 	public SimpleNetworkWrapper(String channelName) {
 		packetCodec = new SimpleIndexedCodec();

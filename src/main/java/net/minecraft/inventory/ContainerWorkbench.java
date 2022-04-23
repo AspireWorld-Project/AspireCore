@@ -10,10 +10,10 @@ import net.minecraft.world.World;
 public class ContainerWorkbench extends Container {
 	public InventoryCrafting craftMatrix = new InventoryCrafting(this, 3, 3);
 	public IInventory craftResult = new InventoryCraftResult();
-	private World worldObj;
-	private int posX;
-	private int posY;
-	private int posZ;
+	private final World worldObj;
+	private final int posX;
+	private final int posY;
+	private final int posZ;
 	private static final String __OBFID = "CL_00001744";
 
 	public ContainerWorkbench(InventoryPlayer p_i1808_1_, World p_i1808_2_, int p_i1808_3_, int p_i1808_4_,
@@ -69,8 +69,7 @@ public class ContainerWorkbench extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer p_75145_1_) {
-		return worldObj.getBlock(posX, posY, posZ) != Blocks.crafting_table ? false
-				: p_75145_1_.getDistanceSq(posX + 0.5D, posY + 0.5D, posZ + 0.5D) <= 64.0D;
+		return worldObj.getBlock(posX, posY, posZ) == Blocks.crafting_table && p_75145_1_.getDistanceSq(posX + 0.5D, posY + 0.5D, posZ + 0.5D) <= 64.0D;
 	}
 
 	@Override
@@ -97,7 +96,7 @@ public class ContainerWorkbench extends Container {
 				return null;
 
 			if (itemstack1.stackSize == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(null);
 			} else {
 				slot.onSlotChanged();
 			}

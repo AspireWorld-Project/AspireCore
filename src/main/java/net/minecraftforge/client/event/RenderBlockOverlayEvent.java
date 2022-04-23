@@ -12,7 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 @Cancelable
 public class RenderBlockOverlayEvent extends Event {
 
-	public static enum OverlayType {
+	public enum OverlayType {
 		FIRE, BLOCK, WATER
 	}
 

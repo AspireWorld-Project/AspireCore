@@ -20,7 +20,7 @@ import java.lang.reflect.Modifier;
  */
 class ObjectHolderRef {
 	private Field field;
-	private String injectedObject;
+	private final String injectedObject;
 	private boolean isBlock;
 	private boolean isItem;
 

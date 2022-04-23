@@ -72,7 +72,7 @@ public class ChatComponentTranslation extends ChatComponentStyle {
 
 				if (k > j) {
 					ChatComponentText chatcomponenttext = new ChatComponentText(
-							String.format(p_150269_1_.substring(j, k), new Object[0]));
+							String.format(p_150269_1_.substring(j, k)));
 					chatcomponenttext.getChatStyle().setParentStyle(getChatStyle());
 					children.add(chatcomponenttext);
 				}
@@ -86,7 +86,7 @@ public class ChatComponentTranslation extends ChatComponentStyle {
 					children.add(chatcomponenttext2);
 				} else {
 					if (!"s".equals(s3))
-						throw new ChatComponentTranslationFormatException(this, "Unsupported format: \'" + s1 + "\'");
+						throw new ChatComponentTranslationFormatException(this, "Unsupported format: '" + s1 + "'");
 
 					String s2 = matcher.group(1);
 					int i1 = s2 != null ? Integer.parseInt(s2) - 1 : i++;
@@ -96,7 +96,7 @@ public class ChatComponentTranslation extends ChatComponentStyle {
 
 			if (j < p_150269_1_.length()) {
 				ChatComponentText chatcomponenttext1 = new ChatComponentText(
-						String.format(p_150269_1_.substring(j), new Object[0]));
+						String.format(p_150269_1_.substring(j)));
 				chatcomponenttext1.getChatStyle().setParentStyle(getChatStyle());
 				children.add(chatcomponenttext1);
 			}
@@ -216,7 +216,7 @@ public class ChatComponentTranslation extends ChatComponentStyle {
 
 	@Override
 	public String toString() {
-		return "TranslatableComponent{key=\'" + key + '\'' + ", args=" + Arrays.toString(formatArgs) + ", siblings="
+		return "TranslatableComponent{key='" + key + '\'' + ", args=" + Arrays.toString(formatArgs) + ", siblings="
 				+ siblings + ", style=" + getChatStyle() + '}';
 	}
 

@@ -65,15 +65,13 @@ public abstract class FluidContainerRegistry {
 				return false;
 			if (stack == null && ck.stack == null)
 				return true;
-			if (stack.getFluid() != ck.stack.getFluid())
-				return false;
-			return true;
+			return stack.getFluid() == ck.stack.getFluid();
 		}
 	}
 
-	private static Map<ContainerKey, FluidContainerData> containerFluidMap = Maps.newHashMap();
-	private static Map<ContainerKey, FluidContainerData> filledContainerMap = Maps.newHashMap();
-	private static Set<ContainerKey> emptyContainers = Sets.newHashSet();
+	private static final Map<ContainerKey, FluidContainerData> containerFluidMap = Maps.newHashMap();
+	private static final Map<ContainerKey, FluidContainerData> filledContainerMap = Maps.newHashMap();
+	private static final Set<ContainerKey> emptyContainers = Sets.newHashSet();
 
 	public static final int BUCKET_VOLUME = 1000;
 	public static final ItemStack EMPTY_BUCKET = new ItemStack(Items.bucket);
@@ -294,7 +292,7 @@ public abstract class FluidContainerRegistry {
 			return false;
 
 		FluidContainerData data = containerFluidMap.get(new ContainerKey(container));
-		return data == null ? false : data.fluid.containsFluid(fluid);
+		return data != null && data.fluid.containsFluid(fluid);
 	}
 
 	public static boolean isBucket(ItemStack container) {

@@ -88,12 +88,10 @@ public class WorldBorder {
 
 				if (X < definiteSquare && Z < definiteSquare)
 					return true; // Definitely inside
-				else if (X >= radius || Z >= radius)
+				else // Apparently outside, then
+					if (X >= radius || Z >= radius)
 					return false; // Definitely outside
-				else if (X * X + Z * Z < radiusSquared)
-					return true; // After further calculation, inside
-				else
-					return false; // Apparently outside, then
+				else return X * X + Z * Z < radiusSquared; // After further calculation, inside
 			}
 		}
 

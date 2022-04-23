@@ -114,7 +114,7 @@ public class ChunkGC {
 	}
 
 	private static class ChunkComparator implements Comparator<Chunk> {
-		private int curTime;
+		private final int curTime;
 
 		public ChunkComparator(int curTime) {
 			this.curTime = curTime;
@@ -128,5 +128,5 @@ public class ChunkGC {
 							/ (float) Math.max(curTime - c2.getUnbindTime(), 1);
 			return c == 0 ? 0 : c < 0 ? -1 : 1;
 		}
-	};
+	}
 }

@@ -40,8 +40,7 @@ public class BlockPortal extends BlockBreakable {
 
 			for (l = p_149674_3_; !World.doesBlockHaveSolidTopSurface(p_149674_1_, p_149674_2_, l, p_149674_4_)
 					&& l > 0; --l) {
-				;
-			}
+            }
 
 			if (l > 0 && !p_149674_1_.getBlock(p_149674_2_, l + 1, p_149674_4_).isNormalCube()) {
 				Entity entity = ItemMonsterPlacer.spawnCreature(p_149674_1_, 57, p_149674_2_ + 0.5D, l + 1.1D,
@@ -157,8 +156,7 @@ public class BlockPortal extends BlockBreakable {
 				&& p_149646_1_.getBlock(p_149646_2_, p_149646_3_, p_149646_4_ + 2) != this;
 		boolean flag4 = flag || flag1 || i1 == 1;
 		boolean flag5 = flag2 || flag3 || i1 == 2;
-		return flag4 && p_149646_5_ == 4 ? true
-				: flag4 && p_149646_5_ == 5 ? true : flag5 && p_149646_5_ == 2 ? true : flag5 && p_149646_5_ == 3;
+		return flag4 && p_149646_5_ == 4 || flag4 && p_149646_5_ == 5 || flag5 && p_149646_5_ == 2 || flag5 && p_149646_5_ == 3;
 	}
 
 	@Override
@@ -238,7 +236,7 @@ public class BlockPortal extends BlockBreakable {
 		private int field_150868_h;
 		private static final String __OBFID = "CL_00000285";
 
-		private List<org.bukkit.block.Block> frameBlocks = new ArrayList<>();
+		private final List<org.bukkit.block.Block> frameBlocks = new ArrayList<>();
 
 		public Size(World p_i45415_1_, int p_i45415_2_, int p_i45415_3_, int p_i45415_4_, int p_i45415_5_) {
 			field_150867_a = p_i45415_1_;
@@ -248,8 +246,7 @@ public class BlockPortal extends BlockBreakable {
 
 			for (int i1 = p_i45415_3_; p_i45415_3_ > i1 - 21 && p_i45415_3_ > 0
 					&& func_150857_a(p_i45415_1_.getBlock(p_i45415_2_, p_i45415_3_ - 1, p_i45415_4_)); --p_i45415_3_) {
-				;
-			}
+            }
 
 			int j1 = func_150853_a(p_i45415_2_, p_i45415_3_, p_i45415_4_, field_150863_d) - 1;
 

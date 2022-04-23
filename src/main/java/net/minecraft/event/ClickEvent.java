@@ -33,20 +33,16 @@ public class ClickEvent {
 				return false;
 			else {
 				if (value != null) {
-					if (!value.equals(clickevent.value))
-						return false;
-				} else if (clickevent.value != null)
-					return false;
-
-				return true;
-			}
+                    return value.equals(clickevent.value);
+				} else return clickevent.value == null;
+            }
 		} else
 			return false;
 	}
 
 	@Override
 	public String toString() {
-		return "ClickEvent{action=" + action + ", value=\'" + value + '\'' + '}';
+		return "ClickEvent{action=" + action + ", value='" + value + '\'' + '}';
 	}
 
 	@Override
@@ -56,7 +52,7 @@ public class ClickEvent {
 		return i;
 	}
 
-	public static enum Action {
+	public enum Action {
 		OPEN_URL("open_url", true), OPEN_FILE("open_file", false), RUN_COMMAND("run_command",
 				true), TWITCH_USER_INFO("twitch_user_info", false), SUGGEST_COMMAND("suggest_command", true);
 		private static final Map nameMapping = Maps.newHashMap();
@@ -65,7 +61,7 @@ public class ClickEvent {
 
 		private static final String __OBFID = "CL_00001261";
 
-		private Action(String p_i45155_3_, boolean p_i45155_4_) {
+		Action(String p_i45155_3_, boolean p_i45155_4_) {
 			canonicalName = p_i45155_3_;
 			allowedInChat = p_i45155_4_;
 		}

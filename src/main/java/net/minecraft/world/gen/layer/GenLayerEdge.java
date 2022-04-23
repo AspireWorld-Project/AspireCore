@@ -108,7 +108,7 @@ public class GenLayerEdge extends GenLayer {
 		return aint1;
 	}
 
-	public static enum Mode {
+	public enum Mode {
 		COOL_WARM, HEAT_ICE, SPECIAL;
 
 		private static final String __OBFID = "CL_00000549";
@@ -122,20 +122,17 @@ public class GenLayerEdge extends GenLayer {
 			try {
 				field_151642_a[GenLayerEdge.Mode.COOL_WARM.ordinal()] = 1;
 			} catch (NoSuchFieldError var3) {
-				;
-			}
+            }
 
 			try {
 				field_151642_a[GenLayerEdge.Mode.HEAT_ICE.ordinal()] = 2;
 			} catch (NoSuchFieldError var2) {
-				;
-			}
+            }
 
 			try {
 				field_151642_a[GenLayerEdge.Mode.SPECIAL.ordinal()] = 3;
 			} catch (NoSuchFieldError var1) {
-				;
-			}
+            }
 		}
 	}
 }

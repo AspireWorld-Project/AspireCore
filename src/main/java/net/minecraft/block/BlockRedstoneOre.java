@@ -20,7 +20,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import java.util.Random;
 
 public class BlockRedstoneOre extends Block {
-	private boolean field_150187_a;
+	private final boolean field_150187_a;
 	private static final String __OBFID = "CL_00000294";
 
 	public BlockRedstoneOre(boolean p_i45420_1_) {
@@ -110,7 +110,7 @@ public class BlockRedstoneOre extends Block {
 				p_149690_7_);
 	}
 
-	private Random rand = new Random();
+	private final Random rand = new Random();
 
 	@Override // World, meta, fortune
 	public int getExpDrop(IBlockAccess p_149690_1_, int p_149690_5_, int p_149690_7_) {

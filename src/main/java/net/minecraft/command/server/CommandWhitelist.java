@@ -36,20 +36,19 @@ public class CommandWhitelist extends CommandBase {
 
 			if (p_71515_2_[0].equals("on")) {
 				minecraftserver.getConfigurationManager().setWhiteListEnabled(true);
-				func_152373_a(p_71515_1_, this, "commands.whitelist.enabled", new Object[0]);
+				func_152373_a(p_71515_1_, this, "commands.whitelist.enabled");
 				return;
 			}
 
 			if (p_71515_2_[0].equals("off")) {
 				minecraftserver.getConfigurationManager().setWhiteListEnabled(false);
-				func_152373_a(p_71515_1_, this, "commands.whitelist.disabled", new Object[0]);
+				func_152373_a(p_71515_1_, this, "commands.whitelist.disabled");
 				return;
 			}
 
 			if (p_71515_2_[0].equals("list")) {
-				p_71515_1_.addChatMessage(new ChatComponentTranslation("commands.whitelist.list", new Object[] {
-						Integer.valueOf(minecraftserver.getConfigurationManager().func_152598_l().length),
-						Integer.valueOf(minecraftserver.getConfigurationManager().getAvailablePlayerDat().length) }));
+				p_71515_1_.addChatMessage(new ChatComponentTranslation("commands.whitelist.list", Integer.valueOf(minecraftserver.getConfigurationManager().func_152598_l().length),
+						Integer.valueOf(minecraftserver.getConfigurationManager().getAvailablePlayerDat().length)));
 				String[] astring1 = minecraftserver.getConfigurationManager().func_152598_l();
 				p_71515_1_.addChatMessage(new ChatComponentText(joinNiceString(astring1)));
 				return;
@@ -59,47 +58,47 @@ public class CommandWhitelist extends CommandBase {
 
 			if (p_71515_2_[0].equals("add")) {
 				if (p_71515_2_.length < 2)
-					throw new WrongUsageException("commands.whitelist.add.usage", new Object[0]);
+					throw new WrongUsageException("commands.whitelist.add.usage");
 
 				gameprofile = minecraftserver.func_152358_ax().func_152655_a(p_71515_2_[1]);
 
 				if (gameprofile == null)
-					throw new CommandException("commands.whitelist.add.failed", new Object[] { p_71515_2_[1] });
+					throw new CommandException("commands.whitelist.add.failed", p_71515_2_[1]);
 
 				minecraftserver.getConfigurationManager().func_152601_d(gameprofile);
-				func_152373_a(p_71515_1_, this, "commands.whitelist.add.success", new Object[] { p_71515_2_[1] });
+				func_152373_a(p_71515_1_, this, "commands.whitelist.add.success", p_71515_2_[1]);
 				return;
 			}
 
 			if (p_71515_2_[0].equals("remove")) {
 				if (p_71515_2_.length < 2)
-					throw new WrongUsageException("commands.whitelist.remove.usage", new Object[0]);
+					throw new WrongUsageException("commands.whitelist.remove.usage");
 
 				gameprofile = minecraftserver.getConfigurationManager().func_152599_k().func_152706_a(p_71515_2_[1]);
 
 				if (gameprofile == null)
-					throw new CommandException("commands.whitelist.remove.failed", new Object[] { p_71515_2_[1] });
+					throw new CommandException("commands.whitelist.remove.failed", p_71515_2_[1]);
 
 				minecraftserver.getConfigurationManager().func_152597_c(gameprofile);
-				func_152373_a(p_71515_1_, this, "commands.whitelist.remove.success", new Object[] { p_71515_2_[1] });
+				func_152373_a(p_71515_1_, this, "commands.whitelist.remove.success", p_71515_2_[1]);
 				return;
 			}
 
 			if (p_71515_2_[0].equals("reload")) {
 				minecraftserver.getConfigurationManager().loadWhiteList();
-				func_152373_a(p_71515_1_, this, "commands.whitelist.reloaded", new Object[0]);
+				func_152373_a(p_71515_1_, this, "commands.whitelist.reloaded");
 				return;
 			}
 		}
 
-		throw new WrongUsageException("commands.whitelist.usage", new Object[0]);
+		throw new WrongUsageException("commands.whitelist.usage");
 	}
 
 	@Override
 	public List addTabCompletionOptions(ICommandSender p_71516_1_, String[] p_71516_2_) {
 		if (p_71516_2_.length == 1)
 			return getListOfStringsMatchingLastWord(p_71516_2_,
-					new String[] { "on", "off", "list", "add", "remove", "reload" });
+					"on", "off", "list", "add", "remove", "reload");
 		else {
 			if (p_71516_2_.length == 2) {
 				if (p_71516_2_[0].equals("remove"))

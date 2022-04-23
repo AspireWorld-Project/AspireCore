@@ -35,7 +35,7 @@ public class GuiConnecting extends GuiScreen {
 		mc = p_i1181_2_;
 		field_146374_i = p_i1181_1_;
 		ServerAddress serveraddress = ServerAddress.func_78860_a(p_i1181_3_.serverIP);
-		p_i1181_2_.loadWorld((WorldClient) null);
+		p_i1181_2_.loadWorld(null);
 		p_i1181_2_.setServerData(p_i1181_3_);
 		func_146367_a(serveraddress.getIP(), serveraddress.getPort());
 	}
@@ -43,7 +43,7 @@ public class GuiConnecting extends GuiScreen {
 	public GuiConnecting(GuiScreen p_i1182_1_, Minecraft p_i1182_2_, String p_i1182_3_, int p_i1182_4_) {
 		mc = p_i1182_2_;
 		field_146374_i = p_i1182_1_;
-		p_i1182_2_.loadWorld((WorldClient) null);
+		p_i1182_2_.loadWorld(null);
 		func_146367_a(p_i1182_3_, p_i1182_4_);
 	}
 
@@ -65,32 +65,32 @@ public class GuiConnecting extends GuiScreen {
 					field_146371_g.setNetHandler(
 							new NetHandlerLoginClient(field_146371_g, GuiConnecting.this.mc, field_146374_i));
 					field_146371_g.scheduleOutboundPacket(
-							new C00Handshake(5, p_146367_1_, p_146367_2_, EnumConnectionState.LOGIN),
-							new GenericFutureListener[0]);
+							new C00Handshake(5, p_146367_1_, p_146367_2_, EnumConnectionState.LOGIN)
+					);
 					field_146371_g.scheduleOutboundPacket(
-							new C00PacketLoginStart(GuiConnecting.this.mc.getSession().func_148256_e()),
-							new GenericFutureListener[0]);
+							new C00PacketLoginStart(GuiConnecting.this.mc.getSession().func_148256_e())
+					);
 				} catch (UnknownHostException unknownhostexception) {
 					if (field_146373_h)
 						return;
 
-					GuiConnecting.logger.error("Couldn\'t connect to server", unknownhostexception);
+					GuiConnecting.logger.error("Couldn't connect to server", unknownhostexception);
 					GuiConnecting.this.mc.displayGuiScreen(new GuiDisconnected(field_146374_i, "connect.failed",
-							new ChatComponentTranslation("disconnect.genericReason", new Object[] { "Unknown host" })));
+							new ChatComponentTranslation("disconnect.genericReason", "Unknown host")));
 				} catch (Exception exception) {
 					if (field_146373_h)
 						return;
 
-					GuiConnecting.logger.error("Couldn\'t connect to server", exception);
+					GuiConnecting.logger.error("Couldn't connect to server", exception);
 					String s = exception.toString();
 
 					if (inetaddress != null) {
-						String s1 = inetaddress.toString() + ":" + p_146367_2_;
+						String s1 = inetaddress + ":" + p_146367_2_;
 						s = s.replaceAll(s1, "");
 					}
 
 					GuiConnecting.this.mc.displayGuiScreen(new GuiDisconnected(field_146374_i, "connect.failed",
-							new ChatComponentTranslation("disconnect.genericReason", new Object[] { s })));
+							new ChatComponentTranslation("disconnect.genericReason", s)));
 				}
 			}
 		}.start();
@@ -114,7 +114,7 @@ public class GuiConnecting extends GuiScreen {
 	@Override
 	public void initGui() {
 		buttonList.clear();
-		buttonList.add(new GuiButton(0, width / 2 - 100, height / 2 + 50, I18n.format("gui.cancel", new Object[0])));
+		buttonList.add(new GuiButton(0, width / 2 - 100, height / 2 + 50, I18n.format("gui.cancel")));
 	}
 
 	@Override
@@ -135,10 +135,10 @@ public class GuiConnecting extends GuiScreen {
 		drawDefaultBackground();
 
 		if (field_146371_g == null) {
-			drawCenteredString(fontRendererObj, I18n.format("connect.connecting", new Object[0]), width / 2,
+			drawCenteredString(fontRendererObj, I18n.format("connect.connecting"), width / 2,
 					height / 2 - 50, 16777215);
 		} else {
-			drawCenteredString(fontRendererObj, I18n.format("connect.authorizing", new Object[0]), width / 2,
+			drawCenteredString(fontRendererObj, I18n.format("connect.authorizing"), width / 2,
 					height / 2 - 50, 16777215);
 		}
 

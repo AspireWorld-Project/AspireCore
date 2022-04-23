@@ -65,8 +65,8 @@ public class BlockJukebox extends BlockContainer {
 
 				if (itemstack != null) {
 					p_149925_1_.playAuxSFX(1005, p_149925_2_, p_149925_3_, p_149925_4_, 0);
-					p_149925_1_.playRecord((String) null, p_149925_2_, p_149925_3_, p_149925_4_);
-					tileentityjukebox.func_145857_a((ItemStack) null);
+					p_149925_1_.playRecord(null, p_149925_2_, p_149925_3_, p_149925_4_);
+					tileentityjukebox.func_145857_a(null);
 					p_149925_1_.setBlockMetadataWithNotify(p_149925_2_, p_149925_3_, p_149925_4_, 0, 2);
 					float f = 0.7F;
 					double d0 = p_149925_1_.rand.nextFloat() * f + (1.0F - f) * 0.5D;

@@ -27,7 +27,7 @@ public interface IChatComponent extends Iterable {
 
 	IChatComponent createCopy();
 
-	public static class Serializer implements JsonDeserializer, JsonSerializer {
+	class Serializer implements JsonDeserializer, JsonSerializer {
 		private static final Gson field_150700_a;
 		private static final String __OBFID = "CL_00001263";
 
@@ -57,7 +57,7 @@ public interface IChatComponent extends Iterable {
 					return ichatcomponent;
 				} else
 					throw new JsonParseException(
-							"Don\'t know how to turn " + p_deserialize_1_.toString() + " into a Component");
+                            "Don't know how to turn " + p_deserialize_1_ + " into a Component");
 			} else {
 				JsonObject jsonobject = p_deserialize_1_.getAsJsonObject();
 				Object object;
@@ -67,7 +67,7 @@ public interface IChatComponent extends Iterable {
 				} else {
 					if (!jsonobject.has("translate"))
 						throw new JsonParseException(
-								"Don\'t know how to turn " + p_deserialize_1_.toString() + " into a Component");
+                                "Don't know how to turn " + p_deserialize_1_ + " into a Component");
 
 					String s = jsonobject.get("translate").getAsString();
 
@@ -90,7 +90,7 @@ public interface IChatComponent extends Iterable {
 
 						object = new ChatComponentTranslation(s, aobject);
 					} else {
-						object = new ChatComponentTranslation(s, new Object[0]);
+						object = new ChatComponentTranslation(s);
 					}
 				}
 
@@ -107,7 +107,7 @@ public interface IChatComponent extends Iterable {
 				}
 
 				((IChatComponent) object)
-						.setChatStyle((ChatStyle) p_deserialize_3_.deserialize(p_deserialize_1_, ChatStyle.class));
+						.setChatStyle(p_deserialize_3_.deserialize(p_deserialize_1_, ChatStyle.class));
 				return (IChatComponent) object;
 			}
 		}
@@ -157,7 +157,7 @@ public interface IChatComponent extends Iterable {
 				} else {
 					if (!(p_serialize_1_ instanceof ChatComponentTranslation))
 						throw new IllegalArgumentException(
-								"Don\'t know how to serialize " + p_serialize_1_ + " as a Component");
+                                "Don't know how to serialize " + p_serialize_1_ + " as a Component");
 
 					ChatComponentTranslation chatcomponenttranslation = (ChatComponentTranslation) p_serialize_1_;
 					jsonobject.addProperty("translate", chatcomponenttranslation.getKey());

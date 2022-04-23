@@ -46,7 +46,7 @@ public class GuiInventory extends InventoryEffectRenderer {
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_) {
-		fontRendererObj.drawString(I18n.format("container.crafting", new Object[0]), 86, 16, 4210752);
+		fontRendererObj.drawString(I18n.format("container.crafting"), 86, 16, 4210752);
 	}
 
 	@Override

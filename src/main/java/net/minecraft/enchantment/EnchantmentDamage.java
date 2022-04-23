@@ -55,7 +55,7 @@ public class EnchantmentDamage extends Enchantment {
 
 	@Override
 	public boolean canApply(ItemStack p_92089_1_) {
-		return p_92089_1_.getItem() instanceof ItemAxe ? true : super.canApply(p_92089_1_);
+		return p_92089_1_.getItem() instanceof ItemAxe || super.canApply(p_92089_1_);
 	}
 
 	@Override

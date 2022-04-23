@@ -8,7 +8,7 @@ public class IPBanEntry extends BanEntry {
 	private static final String __OBFID = "CL_00001883";
 
 	public IPBanEntry(String p_i1158_1_) {
-		this(p_i1158_1_, (Date) null, (String) null, (Date) null, (String) null);
+		this(p_i1158_1_, null, null, null, null);
 	}
 
 	public IPBanEntry(String p_i1159_1_, Date p_i1159_2_, String p_i1159_3_, Date p_i1159_4_, String p_i1159_5_) {

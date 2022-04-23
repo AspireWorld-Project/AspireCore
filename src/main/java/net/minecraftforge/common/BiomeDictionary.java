@@ -55,9 +55,9 @@ public class BiomeDictionary {
 		/** Replaced by SNOWY **/
 		FROZEN(SNOWY);
 
-		private List<Type> subTags;
+		private final List<Type> subTags;
 
-		private Type(Type... subTags) {
+		Type(Type... subTags) {
 			this.subTags = Arrays.asList(subTags);
 		}
 
@@ -98,7 +98,7 @@ public class BiomeDictionary {
 	}
 
 	private static final int BIOME_LIST_SIZE = BiomeGenBase.getBiomeGenArray().length;
-	private static BiomeInfo[] biomeList = new BiomeInfo[BIOME_LIST_SIZE];
+	private static final BiomeInfo[] biomeList = new BiomeInfo[BIOME_LIST_SIZE];
 	@SuppressWarnings("unchecked")
 	private static ArrayList<BiomeGenBase>[] typeInfoList = new ArrayList[Type.values().length];
 

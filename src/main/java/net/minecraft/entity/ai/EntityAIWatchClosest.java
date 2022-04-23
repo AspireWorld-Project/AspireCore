@@ -5,12 +5,12 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class EntityAIWatchClosest extends EntityAIBase {
-	private EntityLiving theWatcher;
+	private final EntityLiving theWatcher;
 	protected Entity closestEntity;
-	private float maxDistanceForPlayer;
+	private final float maxDistanceForPlayer;
 	private int lookTime;
-	private float field_75331_e;
-	private Class watchedClass;
+	private final float field_75331_e;
+	private final Class watchedClass;
 	private static final String __OBFID = "CL_00001592";
 
 	public EntityAIWatchClosest(EntityLiving p_i1631_1_, Class p_i1631_2_, float p_i1631_3_) {
@@ -51,9 +51,7 @@ public class EntityAIWatchClosest extends EntityAIBase {
 
 	@Override
 	public boolean continueExecuting() {
-		return !closestEntity.isEntityAlive() ? false
-				: theWatcher.getDistanceSqToEntity(closestEntity) > maxDistanceForPlayer * maxDistanceForPlayer ? false
-						: lookTime > 0;
+		return closestEntity.isEntityAlive() && !(theWatcher.getDistanceSqToEntity(closestEntity) > maxDistanceForPlayer * maxDistanceForPlayer) && lookTime > 0;
 	}
 
 	@Override

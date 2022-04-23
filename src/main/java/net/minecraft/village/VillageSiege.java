@@ -14,7 +14,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class VillageSiege {
-	private World worldObj;
+	private final World worldObj;
 	private boolean field_75535_b;
 	private int field_75536_c = -1;
 	private int field_75533_d;
@@ -152,7 +152,7 @@ public class VillageSiege {
 
 			try {
 				entityzombie = new EntityZombie(worldObj);
-				entityzombie.onSpawnWithEgg((IEntityLivingData) null);
+				entityzombie.onSpawnWithEgg(null);
 				entityzombie.setVillager(false);
 			} catch (Exception exception) {
 				exception.printStackTrace();

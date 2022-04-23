@@ -39,9 +39,9 @@ public class EntityPlayerSP extends AbstractClientPlayer {
 	public float prevRenderArmPitch;
 	private int horseJumpPowerCounter;
 	private float horseJumpPower;
-	private MouseFilter field_71162_ch = new MouseFilter();
-	private MouseFilter field_71160_ci = new MouseFilter();
-	private MouseFilter field_71161_cj = new MouseFilter();
+	private final MouseFilter field_71162_ch = new MouseFilter();
+	private final MouseFilter field_71160_ci = new MouseFilter();
+	private final MouseFilter field_71161_cj = new MouseFilter();
 	public float timeInPortal;
 	public float prevTimeInPortal;
 	private static final String __OBFID = "CL_00000938";
@@ -90,7 +90,7 @@ public class EntityPlayerSP extends AbstractClientPlayer {
 
 			if (inPortal) {
 				if (mc.currentScreen != null) {
-					mc.displayGuiScreen((GuiScreen) null);
+					mc.displayGuiScreen(null);
 				}
 
 				if (timeInPortal == 0.0F) {
@@ -255,7 +255,7 @@ public class EntityPlayerSP extends AbstractClientPlayer {
 	@Override
 	public void closeScreen() {
 		super.closeScreen();
-		mc.displayGuiScreen((GuiScreen) null);
+		mc.displayGuiScreen(null);
 	}
 
 	@Override

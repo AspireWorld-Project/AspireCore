@@ -57,19 +57,19 @@ public class EntityRenderer implements IResourceManagerReloadListener {
 	private static final ResourceLocation locationSnowPng = new ResourceLocation("textures/environment/snow.png");
 	public static boolean anaglyphEnable;
 	public static int anaglyphField;
-	private Minecraft mc;
+	private final Minecraft mc;
 	private float farPlaneDistance;
 	public final ItemRenderer itemRenderer;
 	private final MapItemRenderer theMapItemRenderer;
 	private int rendererUpdateCount;
 	private Entity pointedEntity;
-	private MouseFilter mouseFilterXAxis = new MouseFilter();
-	private MouseFilter mouseFilterYAxis = new MouseFilter();
-	private MouseFilter mouseFilterDummy1 = new MouseFilter();
-	private MouseFilter mouseFilterDummy2 = new MouseFilter();
-	private MouseFilter mouseFilterDummy3 = new MouseFilter();
-	private MouseFilter mouseFilterDummy4 = new MouseFilter();
-	private float thirdPersonDistance = 4.0F;
+	private final MouseFilter mouseFilterXAxis = new MouseFilter();
+	private final MouseFilter mouseFilterYAxis = new MouseFilter();
+	private final MouseFilter mouseFilterDummy1 = new MouseFilter();
+	private final MouseFilter mouseFilterDummy2 = new MouseFilter();
+	private final MouseFilter mouseFilterDummy3 = new MouseFilter();
+	private final MouseFilter mouseFilterDummy4 = new MouseFilter();
+	private final float thirdPersonDistance = 4.0F;
 	private float thirdPersonDistanceTemp = 4.0F;
 	private float debugCamYaw;
 	private float prevDebugCamYaw;
@@ -110,7 +110,7 @@ public class EntityRenderer implements IResourceManagerReloadListener {
 			new ResourceLocation("shaders/post/antialias.json") };
 	public static final int shaderCount = shaderResourceLocations.length;
 	private int shaderIndex;
-	private double cameraZoom;
+	private final double cameraZoom;
 	private double cameraYaw;
 	private double cameraPitch;
 	private long prevFrameTime;
@@ -120,7 +120,7 @@ public class EntityRenderer implements IResourceManagerReloadListener {
 	float torchFlickerDX;
 	float torchFlickerY;
 	float torchFlickerDY;
-	private Random random;
+	private final Random random;
 	private int rainSoundCounter;
 	float[] rainXCoords;
 	float[] rainYCoords;
@@ -950,8 +950,8 @@ public class EntityRenderer implements IResourceManagerReloadListener {
 						@Override
 						public String call() {
 							return String.format("Scaled: (%d, %d). Absolute: (%d, %d)",
-									new Object[] { Integer.valueOf(k), Integer.valueOf(l),
-											Integer.valueOf(Mouse.getX()), Integer.valueOf(Mouse.getY()) });
+									Integer.valueOf(k), Integer.valueOf(l),
+									Integer.valueOf(Mouse.getX()), Integer.valueOf(Mouse.getY()));
 						}
 					});
 					crashreportcategory.addCrashSectionCallable("Screen size", new Callable() {
@@ -960,10 +960,10 @@ public class EntityRenderer implements IResourceManagerReloadListener {
 						@Override
 						public String call() {
 							return String.format("Scaled: (%d, %d). Absolute: (%d, %d). Scale factor of %d",
-									new Object[] { Integer.valueOf(scaledresolution.getScaledWidth()),
-											Integer.valueOf(scaledresolution.getScaledHeight()),
-											Integer.valueOf(mc.displayWidth), Integer.valueOf(mc.displayHeight),
-											Integer.valueOf(scaledresolution.getScaleFactor()) });
+									Integer.valueOf(scaledresolution.getScaledWidth()),
+									Integer.valueOf(scaledresolution.getScaledHeight()),
+									Integer.valueOf(mc.displayWidth), Integer.valueOf(mc.displayHeight),
+									Integer.valueOf(scaledresolution.getScaleFactor()));
 						}
 					});
 					throw new ReportedException(crashreport);

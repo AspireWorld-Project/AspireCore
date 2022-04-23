@@ -105,13 +105,9 @@ public class BlockTripWireHook extends Block {
 			if (func_150137_e(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_)) {
 				int l = p_149695_1_.getBlockMetadata(p_149695_2_, p_149695_3_, p_149695_4_);
 				int i1 = l & 3;
-				boolean flag = false;
+				boolean flag = !p_149695_1_.isSideSolid(p_149695_2_ - 1, p_149695_3_, p_149695_4_, EAST) && i1 == 3;
 
-				if (!p_149695_1_.isSideSolid(p_149695_2_ - 1, p_149695_3_, p_149695_4_, EAST) && i1 == 3) {
-					flag = true;
-				}
-
-				if (!p_149695_1_.isSideSolid(p_149695_2_ + 1, p_149695_3_, p_149695_4_, WEST) && i1 == 1) {
+                if (!p_149695_1_.isSideSolid(p_149695_2_ + 1, p_149695_3_, p_149695_4_, WEST) && i1 == 1) {
 					flag = true;
 				}
 

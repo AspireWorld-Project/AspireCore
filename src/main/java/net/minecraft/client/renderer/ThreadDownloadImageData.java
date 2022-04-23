@@ -74,7 +74,7 @@ public class ThreadDownloadImageData extends SimpleTexture {
 
 		if (imageThread == null) {
 			if (field_152434_e != null && field_152434_e.isFile()) {
-				logger.debug("Loading http texture from local cache ({})", new Object[] { field_152434_e });
+				logger.debug("Loading http texture from local cache ({})", field_152434_e);
 
 				try {
 					bufferedImage = ImageIO.read(field_152434_e);
@@ -83,7 +83,7 @@ public class ThreadDownloadImageData extends SimpleTexture {
 						setBufferedImage(imageBuffer.parseUserSkin(bufferedImage));
 					}
 				} catch (IOException ioexception) {
-					logger.error("Couldn\'t load skin " + field_152434_e, ioexception);
+					logger.error("Couldn't load skin " + field_152434_e, ioexception);
 					func_152433_a();
 				}
 			} else {
@@ -100,7 +100,7 @@ public class ThreadDownloadImageData extends SimpleTexture {
 			public void run() {
 				HttpURLConnection httpurlconnection = null;
 				ThreadDownloadImageData.logger.debug("Downloading http texture from {} to {}",
-						new Object[] { imageUrl, field_152434_e });
+						imageUrl, field_152434_e);
 
 				try {
 					httpurlconnection = (HttpURLConnection) new URL(imageUrl)
@@ -127,7 +127,7 @@ public class ThreadDownloadImageData extends SimpleTexture {
 						return;
 					}
 				} catch (Exception exception) {
-					ThreadDownloadImageData.logger.error("Couldn\'t download http texture", exception);
+					ThreadDownloadImageData.logger.error("Couldn't download http texture", exception);
 					return;
 				} finally {
 					if (httpurlconnection != null) {

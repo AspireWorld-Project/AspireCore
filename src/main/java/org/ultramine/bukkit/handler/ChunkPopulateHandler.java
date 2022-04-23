@@ -9,7 +9,7 @@ import org.bukkit.event.world.ChunkPopulateEvent;
 import java.util.Random;
 
 public class ChunkPopulateHandler implements IWorldGenerator {
-	private CraftServer server;
+	private final CraftServer server;
 
 	public ChunkPopulateHandler(CraftServer server) {
 		this.server = server;

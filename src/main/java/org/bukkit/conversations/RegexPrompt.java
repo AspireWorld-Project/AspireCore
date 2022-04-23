@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
  */
 public abstract class RegexPrompt extends ValidatingPrompt {
 
-	private Pattern pattern;
+	private final Pattern pattern;
 
 	public RegexPrompt(String regex) {
 		this(Pattern.compile(regex));

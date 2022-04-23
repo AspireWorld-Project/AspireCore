@@ -405,7 +405,7 @@ public class ChunkSendManager {
 				sending.remove(key);
 			}
 		}
-	};
+	}
 
 	private class CompressAndSendChunkTask implements Runnable {
 		private final ChunkIdStruct chunkId;

@@ -25,12 +25,12 @@ import java.util.Iterator;
 import java.util.List;
 
 public class EntityWither extends EntityMob implements IBossDisplayData, IRangedAttackMob {
-	private float[] field_82220_d = new float[2];
-	private float[] field_82221_e = new float[2];
-	private float[] field_82217_f = new float[2];
-	private float[] field_82218_g = new float[2];
-	private int[] field_82223_h = new int[2];
-	private int[] field_82224_i = new int[2];
+	private final float[] field_82220_d = new float[2];
+	private final float[] field_82221_e = new float[2];
+	private final float[] field_82217_f = new float[2];
+	private final float[] field_82218_g = new float[2];
+	private final int[] field_82223_h = new int[2];
+	private final int[] field_82224_i = new int[2];
 	private int field_82222_j;
 	private static final IEntitySelector attackEntitySelector = new IEntitySelector() {
 		private static final String __OBFID = "CL_00001662";
@@ -370,7 +370,7 @@ public class EntityWither extends EntityMob implements IBossDisplayData, IRanged
 
 	private void func_82209_a(int p_82209_1_, double p_82209_2_, double p_82209_4_, double p_82209_6_,
 			boolean p_82209_8_) {
-		worldObj.playAuxSFXAtEntity((EntityPlayer) null, 1014, (int) posX, (int) posY, (int) posZ, 0);
+		worldObj.playAuxSFXAtEntity(null, 1014, (int) posX, (int) posY, (int) posZ, 0);
 		double d3 = func_82214_u(p_82209_1_);
 		double d4 = func_82208_v(p_82209_1_);
 		double d5 = func_82213_w(p_82209_1_);

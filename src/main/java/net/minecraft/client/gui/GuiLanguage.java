@@ -32,14 +32,13 @@ public class GuiLanguage extends GuiScreen {
 	@Override
 	public void initGui() {
 		if (field_146455_i != null) {
-			;
 		}
 
 		buttonList.add(field_146455_i = new GuiOptionButton(100, width / 2 - 155, height - 38,
 				GameSettings.Options.FORCE_UNICODE_FONT,
 				field_146451_g.getKeyBinding(GameSettings.Options.FORCE_UNICODE_FONT)));
 		buttonList.add(field_146452_r = new GuiOptionButton(6, width / 2 - 155 + 160, height - 38,
-				I18n.format("gui.done", new Object[0])));
+				I18n.format("gui.done")));
 		field_146450_f = new GuiLanguage.List();
 		field_146450_f.registerScrollButtons(7, 8);
 	}
@@ -73,8 +72,8 @@ public class GuiLanguage extends GuiScreen {
 	@Override
 	public void drawScreen(int p_73863_1_, int p_73863_2_, float p_73863_3_) {
 		field_146450_f.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
-		drawCenteredString(fontRendererObj, I18n.format("options.language", new Object[0]), width / 2, 16, 16777215);
-		drawCenteredString(fontRendererObj, "(" + I18n.format("options.languageWarning", new Object[0]) + ")",
+		drawCenteredString(fontRendererObj, I18n.format("options.language"), width / 2, 16, 16777215);
+		drawCenteredString(fontRendererObj, "(" + I18n.format("options.languageWarning") + ")",
 				width / 2, height - 56, 8421504);
 		super.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
 	}
@@ -111,14 +110,14 @@ public class GuiLanguage extends GuiScreen {
 			GuiLanguage.this.fontRendererObj
 					.setUnicodeFlag(field_146454_h.isCurrentLocaleUnicode() || field_146451_g.forceUnicodeFont);
 			GuiLanguage.this.fontRendererObj.setBidiFlag(field_146454_h.isCurrentLanguageBidirectional());
-			field_146452_r.displayString = I18n.format("gui.done", new Object[0]);
+			field_146452_r.displayString = I18n.format("gui.done");
 			field_146455_i.displayString = field_146451_g.getKeyBinding(GameSettings.Options.FORCE_UNICODE_FONT);
 			field_146451_g.saveOptions();
 		}
 
 		@Override
 		protected boolean isSelected(int p_148131_1_) {
-			return ((String) field_148176_l.get(p_148131_1_))
+			return field_148176_l.get(p_148131_1_)
 					.equals(field_146454_h.getCurrentLanguage().getLanguageCode());
 		}
 
@@ -137,7 +136,7 @@ public class GuiLanguage extends GuiScreen {
 				Tessellator p_148126_5_, int p_148126_6_, int p_148126_7_) {
 			GuiLanguage.this.fontRendererObj.setBidiFlag(true);
 			drawCenteredString(GuiLanguage.this.fontRendererObj,
-					((Language) field_148177_m.get(field_148176_l.get(p_148126_1_))).toString(), width / 2,
+					field_148177_m.get(field_148176_l.get(p_148126_1_)).toString(), width / 2,
 					p_148126_3_ + 1, 16777215);
 			GuiLanguage.this.fontRendererObj.setBidiFlag(field_146454_h.getCurrentLanguage().isBidirectional());
 		}

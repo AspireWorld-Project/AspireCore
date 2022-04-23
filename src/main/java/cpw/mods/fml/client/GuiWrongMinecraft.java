@@ -17,7 +17,7 @@ import cpw.mods.fml.common.WrongMinecraftVersionException;
 import net.minecraft.client.gui.GuiErrorScreen;
 
 public class GuiWrongMinecraft extends GuiErrorScreen {
-	private WrongMinecraftVersionException wrongMC;
+	private final WrongMinecraftVersionException wrongMC;
 
 	public GuiWrongMinecraft(WrongMinecraftVersionException wrongMC) {
 		super(null, null);

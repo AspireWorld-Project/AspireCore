@@ -36,7 +36,7 @@ public class ResourceIndex {
 				bufferedreader = Files.newReader(file3, Charsets.UTF_8);
 				JsonObject jsonobject = new JsonParser().parse(bufferedreader).getAsJsonObject();
 				JsonObject jsonobject1 = JsonUtils.getJsonObjectFieldOrDefault(jsonobject, "objects",
-						(JsonObject) null);
+						null);
 
 				if (jsonobject1 != null) {
 					Iterator iterator = jsonobject1.entrySet().iterator();
@@ -55,7 +55,7 @@ public class ResourceIndex {
 			} catch (JsonParseException jsonparseexception) {
 				field_152783_a.error("Unable to parse resource index file: " + file3);
 			} catch (FileNotFoundException filenotfoundexception) {
-				field_152783_a.error("Can\'t find the resource index file: " + file3);
+				field_152783_a.error("Can't find the resource index file: " + file3);
 			} finally {
 				IOUtils.closeQuietly(bufferedreader);
 			}

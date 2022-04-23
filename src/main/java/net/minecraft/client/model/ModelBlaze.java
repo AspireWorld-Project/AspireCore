@@ -7,8 +7,8 @@ import net.minecraft.util.MathHelper;
 
 @SideOnly(Side.CLIENT)
 public class ModelBlaze extends ModelBase {
-	private ModelRenderer[] blazeSticks = new ModelRenderer[12];
-	private ModelRenderer blazeHead;
+	private final ModelRenderer[] blazeSticks = new ModelRenderer[12];
+	private final ModelRenderer blazeHead;
 	private static final String __OBFID = "CL_00000831";
 
 	public ModelBlaze() {

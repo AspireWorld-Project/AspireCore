@@ -24,7 +24,7 @@ public class TextureCompass extends TextureAtlasSprite {
 			updateCompass(minecraft.theWorld, minecraft.thePlayer.posX, minecraft.thePlayer.posZ,
 					minecraft.thePlayer.rotationYaw, false, false);
 		} else {
-			updateCompass((World) null, 0.0D, 0.0D, 0.0D, true, false);
+			updateCompass(null, 0.0D, 0.0D, 0.0D, true, false);
 		}
 	}
 
@@ -51,7 +51,6 @@ public class TextureCompass extends TextureAtlasSprite {
 				double d6;
 
 				for (d6 = d3 - currentAngle; d6 < -Math.PI; d6 += Math.PI * 2D) {
-					;
 				}
 
 				while (d6 >= Math.PI) {
@@ -75,7 +74,6 @@ public class TextureCompass extends TextureAtlasSprite {
 
 			for (i = (int) ((currentAngle / (Math.PI * 2D) + 1.0D) * framesTextureData.size())
 					% framesTextureData.size(); i < 0; i = (i + framesTextureData.size()) % framesTextureData.size()) {
-				;
 			}
 
 			if (i != frameCounter) {

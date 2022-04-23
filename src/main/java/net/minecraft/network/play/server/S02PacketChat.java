@@ -59,7 +59,7 @@ public class S02PacketChat extends Packet
 
 	public String serialize()
 	{
-		return String.format("message=\'%s\'", new Object[] {this.field_148919_a});
+		return String.format("message='%s'", this.field_148919_a);
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -19,7 +19,7 @@ public class GuiIngameModOptions extends GuiScreen {
 	public void initGui() {
 		optionList = new GuiModOptionList(this);
 		optionList.registerScrollButtons(buttonList, 7, 8);
-		buttonList.add(new GuiButton(200, width / 2 - 100, height / 6 + 168, I18n.format("gui.done", new Object[0])));
+		buttonList.add(new GuiButton(200, width / 2 - 100, height / 6 + 168, I18n.format("gui.done")));
 	}
 
 	@Override

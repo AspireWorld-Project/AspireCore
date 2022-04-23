@@ -13,7 +13,7 @@ import org.lwjgl.opengl.GL11;
 public class GuiBrewingStand extends GuiContainer {
 	private static final ResourceLocation brewingStandGuiTextures = new ResourceLocation(
 			"textures/gui/container/brewing_stand.png");
-	private TileEntityBrewingStand tileBrewingStand;
+	private final TileEntityBrewingStand tileBrewingStand;
 	private static final String __OBFID = "CL_00000746";
 
 	public GuiBrewingStand(InventoryPlayer p_i1081_1_, TileEntityBrewingStand p_i1081_2_) {
@@ -24,9 +24,9 @@ public class GuiBrewingStand extends GuiContainer {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_) {
 		String s = tileBrewingStand.hasCustomInventoryName() ? tileBrewingStand.getInventoryName()
-				: I18n.format(tileBrewingStand.getInventoryName(), new Object[0]);
+				: I18n.format(tileBrewingStand.getInventoryName());
 		fontRendererObj.drawString(s, xSize / 2 - fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
-		fontRendererObj.drawString(I18n.format("container.inventory", new Object[0]), 8, ySize - 96 + 2, 4210752);
+		fontRendererObj.drawString(I18n.format("container.inventory"), 8, ySize - 96 + 2, 4210752);
 	}
 
 	@Override

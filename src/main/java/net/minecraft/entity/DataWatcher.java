@@ -25,7 +25,7 @@ public class DataWatcher {
 	private static final HashMap dataTypes = new HashMap();
 	private final WatchableObject[] watchedObjects = new WatchableObject[32];
 	private boolean objectChanged;
-	private ReadWriteLock lock = new ReentrantReadWriteLock();
+	private final ReadWriteLock lock = new ReentrantReadWriteLock();
 	private static final String __OBFID = "CL_00001559";
 
 	public DataWatcher(Entity p_i45313_1_) {
@@ -53,7 +53,7 @@ public class DataWatcher {
 
 	public void addObjectByDataType(int p_82709_1_, int p_82709_2_) {
 		DataWatcher.WatchableObject watchableobject = new DataWatcher.WatchableObject(p_82709_2_, p_82709_1_,
-				(Object) null);
+				null);
 		lock.writeLock().lock();
 		watchedObjects[p_82709_1_] = watchableobject;
 		lock.writeLock().unlock();

@@ -15,7 +15,7 @@ import org.lwjgl.opengl.GL11;
 public class RenderEnchantmentTable extends TileEntitySpecialRenderer {
 	private static final ResourceLocation field_147540_b = new ResourceLocation(
 			"textures/entity/enchanting_table_book.png");
-	private ModelBook field_147541_c = new ModelBook();
+	private final ModelBook field_147541_c = new ModelBook();
 	private static final String __OBFID = "CL_00000966";
 
 	public void renderTileEntityAt(TileEntityEnchantmentTable p_147500_1_, double p_147500_2_, double p_147500_4_,
@@ -28,7 +28,6 @@ public class RenderEnchantmentTable extends TileEntitySpecialRenderer {
 
 		for (f2 = p_147500_1_.field_145928_o - p_147500_1_.field_145925_p; f2 >= (float) Math.PI; f2 -= (float) Math.PI
 				* 2F) {
-			;
 		}
 
 		while (f2 < -(float) Math.PI) {
@@ -64,7 +63,7 @@ public class RenderEnchantmentTable extends TileEntitySpecialRenderer {
 
 		float f6 = p_147500_1_.field_145927_n + (p_147500_1_.field_145930_m - p_147500_1_.field_145927_n) * p_147500_8_;
 		GL11.glEnable(GL11.GL_CULL_FACE);
-		field_147541_c.render((Entity) null, f1, f4, f5, f6, 0.0F, 0.0625F);
+		field_147541_c.render(null, f1, f4, f5, f6, 0.0F, 0.0625F);
 		GL11.glPopMatrix();
 	}
 

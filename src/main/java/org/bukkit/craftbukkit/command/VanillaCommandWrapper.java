@@ -64,8 +64,8 @@ public final class VanillaCommandWrapper extends VanillaCommand {
 		} catch (net.minecraft.command.WrongUsageException exceptionusage) {
 			net.minecraft.util.ChatComponentTranslation chatmessage = new net.minecraft.util.ChatComponentTranslation(
 					"commands.generic.usage",
-					new Object[] { new net.minecraft.util.ChatComponentTranslation(exceptionusage.getMessage(),
-							exceptionusage.getErrorOjbects()) });
+					new net.minecraft.util.ChatComponentTranslation(exceptionusage.getMessage(),
+							exceptionusage.getErrorOjbects()));
 			chatmessage.getChatStyle().setColor(net.minecraft.util.EnumChatFormatting.RED);
 			icommandlistener.addChatMessage(chatmessage);
 		} catch (net.minecraft.command.CommandException commandexception) {
@@ -95,7 +95,7 @@ public final class VanillaCommandWrapper extends VanillaCommand {
 		if (s.startsWith("/")) {
 			s = s.substring(1);
 		}
-		String as[] = s.split(" ");
+		String[] as = s.split(" ");
 		as = dropFirstArgument(as);
 		int i = getPlayerListSize(as);
 		int j = 0;
@@ -108,10 +108,10 @@ public final class VanillaCommandWrapper extends VanillaCommand {
 		try {
 			if (vanillaCommand.canCommandSenderUseCommand(icommandlistener)) {
 				if (i > -1) {
-					net.minecraft.entity.player.EntityPlayerMP aentityplayer[] = net.minecraft.command.PlayerSelector
+					net.minecraft.entity.player.EntityPlayerMP[] aentityplayer = net.minecraft.command.PlayerSelector
 							.matchPlayers(icommandlistener, as[i]);
 					String s2 = as[i];
-					net.minecraft.entity.player.EntityPlayerMP aentityplayer1[] = aentityplayer;
+					net.minecraft.entity.player.EntityPlayerMP[] aentityplayer1 = aentityplayer;
 					int k = aentityplayer1.length;
 					for (int l = 0; l < k;) {
 						net.minecraft.entity.player.EntityPlayerMP entityplayer = aentityplayer1[l];
@@ -136,15 +136,15 @@ public final class VanillaCommandWrapper extends VanillaCommand {
 				}
 			} else {
 				net.minecraft.util.ChatComponentTranslation chatmessage = new net.minecraft.util.ChatComponentTranslation(
-						"commands.generic.permission", new Object[0]);
+						"commands.generic.permission");
 				chatmessage.getChatStyle().setColor(net.minecraft.util.EnumChatFormatting.RED);
 				icommandlistener.addChatMessage(chatmessage);
 			}
 		} catch (net.minecraft.command.WrongUsageException exceptionusage) {
 			net.minecraft.util.ChatComponentTranslation chatmessage1 = new net.minecraft.util.ChatComponentTranslation(
 					"commands.generic.usage",
-					new Object[] { new net.minecraft.util.ChatComponentTranslation(exceptionusage.getMessage(),
-							exceptionusage.getErrorOjbects()) });
+					new net.minecraft.util.ChatComponentTranslation(exceptionusage.getMessage(),
+							exceptionusage.getErrorOjbects()));
 			chatmessage1.getChatStyle().setColor(net.minecraft.util.EnumChatFormatting.RED);
 			icommandlistener.addChatMessage(chatmessage1);
 		} catch (net.minecraft.command.CommandException commandexception) {
@@ -154,7 +154,7 @@ public final class VanillaCommandWrapper extends VanillaCommand {
 			icommandlistener.addChatMessage(chatmessage2);
 		} catch (Throwable throwable) {
 			net.minecraft.util.ChatComponentTranslation chatmessage3 = new net.minecraft.util.ChatComponentTranslation(
-					"commands.generic.exception", new Object[0]);
+					"commands.generic.exception");
 			chatmessage3.getChatStyle().setColor(net.minecraft.util.EnumChatFormatting.RED);
 			icommandlistener.addChatMessage(chatmessage3);
 			log.log(Level.WARN,
@@ -183,7 +183,7 @@ public final class VanillaCommandWrapper extends VanillaCommand {
 		return null;
 	}
 
-	private int getPlayerListSize(String as[]) {
+	private int getPlayerListSize(String[] as) {
 		for (int i = 0; i < as.length; i++) {
 			if (vanillaCommand.isUsernameIndex(as, i)
 					&& net.minecraft.command.PlayerSelector.matchesMultiplePlayers(as[i]))
@@ -192,8 +192,8 @@ public final class VanillaCommandWrapper extends VanillaCommand {
 		return -1;
 	}
 
-	private String[] dropFirstArgument(String as[]) {
-		String as1[] = new String[as.length - 1];
+	private String[] dropFirstArgument(String[] as) {
+		String[] as1 = new String[as.length - 1];
 		for (int i = 1; i < as.length; i++) {
 			as1[i - 1] = as[i];
 		}

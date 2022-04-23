@@ -88,7 +88,7 @@ public class GenDiffSet {
 						target.getAbsolutePath()));
 				if (kill) {
 					targetFile.delete();
-					Logger.getLogger("GENDIFF").info(String.format("  Deleted target: %s", targetFile.toString()));
+					Logger.getLogger("GENDIFF").info(String.format("  Deleted target: %s", targetFile));
 				}
 			}
 		}

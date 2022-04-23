@@ -24,8 +24,8 @@ import java.util.ArrayList;
  *
  */
 public class GuiSlotModList extends GuiScrollingList {
-	private GuiModList parent;
-	private ArrayList<ModContainer> mods;
+	private final GuiModList parent;
+	private final ArrayList<ModContainer> mods;
 
 	public GuiSlotModList(GuiModList parent, ArrayList<ModContainer> mods, int listWidth) {
 		super(parent.getMinecraftInstance(), listWidth, parent.height, 32, parent.height - 66 + 4, 10, 35);

@@ -152,7 +152,7 @@ public abstract class GuiContainer extends GuiScreen {
 			int j2 = returningStackDestSlot.yDisplayPosition - field_147010_z;
 			int l1 = field_147011_y + (int) (k1 * f1);
 			int i2 = field_147010_z + (int) (j2 * f1);
-			drawItemStack(returningStack, l1, i2, (String) null);
+			drawItemStack(returningStack, l1, i2, null);
 		}
 
 		GL11.glPopMatrix();
@@ -319,7 +319,7 @@ public abstract class GuiContainer extends GuiScreen {
 			}
 
 			if (mc.gameSettings.touchscreen && flag1 && mc.thePlayer.inventory.getItemStack() == null) {
-				mc.displayGuiScreen((GuiScreen) null);
+				mc.displayGuiScreen(null);
 				return;
 			}
 
@@ -428,7 +428,7 @@ public abstract class GuiContainer extends GuiScreen {
 		Slot slot1;
 		Iterator iterator;
 
-		if (field_146993_M && slot != null && p_146286_3_ == 0 && inventorySlots.func_94530_a((ItemStack) null, slot)) {
+		if (field_146993_M && slot != null && p_146286_3_ == 0 && inventorySlots.func_94530_a(null, slot)) {
 			if (isShiftKeyDown()) {
 				if (slot != null && slot.inventory != null && field_146994_N != null) {
 					iterator = inventorySlots.inventorySlots.iterator();
@@ -498,7 +498,7 @@ public abstract class GuiContainer extends GuiScreen {
 					clickedSlot = null;
 				}
 			} else if (field_147007_t && !field_147008_s.isEmpty()) {
-				handleMouseClick((Slot) null, -999, Container.func_94534_d(0, field_146987_F), 5);
+				handleMouseClick(null, -999, Container.func_94534_d(0, field_146987_F), 5);
 				iterator = field_147008_s.iterator();
 
 				while (iterator.hasNext()) {
@@ -506,7 +506,7 @@ public abstract class GuiContainer extends GuiScreen {
 					handleMouseClick(slot1, slot1.slotNumber, Container.func_94534_d(1, field_146987_F), 5);
 				}
 
-				handleMouseClick((Slot) null, -999, Container.func_94534_d(2, field_146987_F), 5);
+				handleMouseClick(null, -999, Container.func_94534_d(2, field_146987_F), 5);
 			} else if (mc.thePlayer.inventory.getItemStack() != null) {
 				if (p_146286_3_ == mc.gameSettings.keyBindPickBlock.getKeyCode() + 100) {
 					handleMouseClick(slot, j1, p_146286_3_, 3);

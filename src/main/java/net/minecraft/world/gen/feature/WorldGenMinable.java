@@ -8,9 +8,9 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class WorldGenMinable extends WorldGenerator {
-	private Block field_150519_a;
-	private int numberOfBlocks;
-	private Block field_150518_c;
+	private final Block field_150519_a;
+	private final int numberOfBlocks;
+	private final Block field_150518_c;
 	private static final String __OBFID = "CL_00000426";
 	private int mineableBlockMeta;
 

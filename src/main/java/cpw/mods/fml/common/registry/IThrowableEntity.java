@@ -24,7 +24,7 @@ public interface IThrowableEntity {
 	 *
 	 * @return The owner instance, Null if none.
 	 */
-	public Entity getThrower();
+    Entity getThrower();
 
 	/**
 	 * Sets the entity that threw/created this entity.
@@ -32,5 +32,5 @@ public interface IThrowableEntity {
 	 * @param entity
 	 *            The new thrower/creator.
 	 */
-	public void setThrower(Entity entity);
+    void setThrower(Entity entity);
 }

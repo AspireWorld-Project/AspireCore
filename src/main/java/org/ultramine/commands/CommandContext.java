@@ -34,10 +34,10 @@ public class CommandContext {
 	@InjectService
 	private static Economy economy;
 	private static final Logger log = LogManager.getLogger();
-	private ICommandSender sender;
-	private String[] args;
-	private IExtendedCommand command;
-	private Map<String, Argument> argumentMap;
+	private final ICommandSender sender;
+	private final String[] args;
+	private final IExtendedCommand command;
+	private final Map<String, Argument> argumentMap;
 	private int lastArgumentNum;
 	private String actionName;
 	private ICommandHandler actionHandler;
@@ -240,7 +240,7 @@ public class CommandContext {
 			ChatComponentTranslation msg = new ChatComponentTranslation("commands.generic.exception");
 			msg.getChatStyle().setColor(EnumChatFormatting.RED);
 			sendMessage(msg);
-			log.error("Couldn\'t process command", throwable);
+			log.error("Couldn't process command", throwable);
 		}
 	}
 
@@ -268,9 +268,9 @@ public class CommandContext {
 	}
 
 	public class Argument {
-		private int num;
-		private boolean last;
-		private String value;
+		private final int num;
+		private final boolean last;
+		private final String value;
 
 		private Argument(int num) {
 			value = args[num];
@@ -444,7 +444,7 @@ public class CommandContext {
 	}
 
 	public static class Builder {
-		private CommandContext context;
+		private final CommandContext context;
 
 		public Builder(IExtendedCommand command, ICommandSender sender, String[] args) {
 			context = new CommandContext(command, sender, args);
@@ -463,7 +463,7 @@ public class CommandContext {
 				if (context.argumentMap.containsKey(name)) {
 					Integer count = nameCount.containsKey(name) ? nameCount.get(name) + 1 : 2;
 					nameCount.put(name, count);
-					name = name + count.toString();
+					name = name + count;
 				}
 
 				context.argumentMap.put(name, context.new Argument(i));

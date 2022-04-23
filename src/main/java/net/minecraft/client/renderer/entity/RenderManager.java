@@ -245,8 +245,7 @@ public class RenderManager {
 						}
 					}
 				}
-			} else if (renderEngine != null)
-				return false;
+			} else return renderEngine == null;
 
 			return true;
 		} catch (Throwable throwable3) {

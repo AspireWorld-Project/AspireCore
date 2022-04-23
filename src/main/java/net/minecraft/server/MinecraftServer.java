@@ -282,12 +282,12 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
 
 				if (worldserver != null) {
 					if (!p_71267_1_) {
-						logger.info("Saving chunks for level \'" + worldserver.getWorldInfo().getWorldName() + "\'/"
+						logger.info("Saving chunks for level '" + worldserver.getWorldInfo().getWorldName() + "'/"
 								+ worldserver.provider.getDimensionName());
 					}
 
 					try {
-						worldserver.saveAllChunks(true, (IProgressUpdate) null);
+						worldserver.saveAllChunks(true, null);
 					} catch (MinecraftException minecraftexception) {
 						logger.warn(minecraftexception.getMessage());
 					}
@@ -467,13 +467,13 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
 
 			try {
 				BufferedImage bufferedimage = ImageIO.read(file1);
-				Validate.validState(bufferedimage.getWidth() == 64, "Must be 64 pixels wide", new Object[0]);
-				Validate.validState(bufferedimage.getHeight() == 64, "Must be 64 pixels high", new Object[0]);
+				Validate.validState(bufferedimage.getWidth() == 64, "Must be 64 pixels wide");
+				Validate.validState(bufferedimage.getHeight() == 64, "Must be 64 pixels high");
 				ImageIO.write(bufferedimage, "PNG", new ByteBufOutputStream(bytebuf));
 				ByteBuf bytebuf1 = Base64.encode(bytebuf);
 				p_147138_1_.func_151320_a("data:image/png;base64," + bytebuf1.toString(Charsets.UTF_8));
 			} catch (Exception exception) {
-				logger.error("Couldn\'t load server icon", exception);
+				logger.error("Couldn't load server icon", exception);
 			} finally {
 				bytebuf.release();
 			}
@@ -1163,7 +1163,6 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
 						try {
 							i = Integer.parseInt(s4);
 						} catch (NumberFormatException numberformatexception) {
-							;
 						}
 					} else if (s3.equals("--singleplayer") && s4 != null) {
 						flag3 = true;

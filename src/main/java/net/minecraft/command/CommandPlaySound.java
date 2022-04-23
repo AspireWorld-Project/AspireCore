@@ -24,7 +24,7 @@ public class CommandPlaySound extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender p_71515_1_, String[] p_71515_2_) {
 		if (p_71515_2_.length < 2)
-			throw new WrongUsageException(getCommandUsage(p_71515_1_), new Object[0]);
+			throw new WrongUsageException(getCommandUsage(p_71515_1_));
 		else {
 			byte b0 = 0;
 			int i = b0 + 1;
@@ -67,7 +67,7 @@ public class CommandPlaySound extends CommandBase {
 			if (d7 > d6) {
 				if (d5 <= 0.0D)
 					throw new CommandException("commands.playsound.playerTooFar",
-							new Object[] { entityplayermp.getCommandSenderName() });
+							entityplayermp.getCommandSenderName());
 
 				double d8 = d0 - entityplayermp.posX;
 				double d9 = d1 - entityplayermp.posY;
@@ -91,7 +91,7 @@ public class CommandPlaySound extends CommandBase {
 			}
 
 			func_152373_a(p_71515_1_, this, "commands.playsound.success",
-					new Object[] { s, entityplayermp.getCommandSenderName() });
+					s, entityplayermp.getCommandSenderName());
 		}
 	}
 

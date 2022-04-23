@@ -21,10 +21,10 @@ public class ActiveRenderInfo {
 	public static float objectX;
 	public static float objectY;
 	public static float objectZ;
-	private static IntBuffer viewport = GLAllocation.createDirectIntBuffer(16);
-	private static FloatBuffer modelview = GLAllocation.createDirectFloatBuffer(16);
-	private static FloatBuffer projection = GLAllocation.createDirectFloatBuffer(16);
-	private static FloatBuffer objectCoords = GLAllocation.createDirectFloatBuffer(3);
+	private static final IntBuffer viewport = GLAllocation.createDirectIntBuffer(16);
+	private static final FloatBuffer modelview = GLAllocation.createDirectFloatBuffer(16);
+	private static final FloatBuffer projection = GLAllocation.createDirectFloatBuffer(16);
+	private static final FloatBuffer objectCoords = GLAllocation.createDirectFloatBuffer(3);
 	public static float rotationX;
 	public static float rotationXZ;
 	public static float rotationZ;

@@ -7,7 +7,7 @@ import net.minecraftforge.common.util.EnumHelper;
 
 public class EnumHelperClient extends EnumHelper {
 	@SuppressWarnings("rawtypes")
-	private static Class[][] clentTypes = { { GameType.class, int.class, String.class },
+	private static final Class[][] clentTypes = { { GameType.class, int.class, String.class },
 			{ Options.class, String.class, boolean.class, boolean.class }, { EnumOS.class } };
 
 	public static GameType addGameType(String name, int id, String displayName) {

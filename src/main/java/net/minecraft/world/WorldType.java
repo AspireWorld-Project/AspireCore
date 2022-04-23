@@ -159,7 +159,7 @@ public class WorldType {
 	 * newBiomesForWorld.toArray(new BiomeGenBase[0]); }
 	 */
 	public boolean handleSlimeSpawnReduction(Random random, World world) {
-		return this == FLAT ? random.nextInt(4) != 1 : false;
+		return this == FLAT && random.nextInt(4) != 1;
 	}
 
 	/*

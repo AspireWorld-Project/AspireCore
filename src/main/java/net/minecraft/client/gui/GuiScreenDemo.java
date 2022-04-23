@@ -22,9 +22,9 @@ public class GuiScreenDemo extends GuiScreen {
 		buttonList.clear();
 		byte b0 = -16;
 		buttonList.add(new GuiButton(1, width / 2 - 116, height / 2 + 62 + b0, 114, 20,
-				I18n.format("demo.help.buy", new Object[0])));
+				I18n.format("demo.help.buy")));
 		buttonList.add(new GuiButton(2, width / 2 + 2, height / 2 + 62 + b0, 114, 20,
-				I18n.format("demo.help.later", new Object[0])));
+				I18n.format("demo.help.later")));
 	}
 
 	@Override
@@ -35,16 +35,16 @@ public class GuiScreenDemo extends GuiScreen {
 
 			try {
 				Class oclass = Class.forName("java.awt.Desktop");
-				Object object = oclass.getMethod("getDesktop", new Class[0]).invoke((Object) null, new Object[0]);
+				Object object = oclass.getMethod("getDesktop", new Class[0]).invoke(null);
 				oclass.getMethod("browse", new Class[] { URI.class }).invoke(object,
-						new Object[] { new URI("http://www.minecraft.net/store?source=demo") });
+						new URI("http://www.minecraft.net/store?source=demo"));
 			} catch (Throwable throwable) {
-				logger.error("Couldn\'t open link", throwable);
+				logger.error("Couldn't open link", throwable);
 			}
 
 			break;
 		case 2:
-			mc.displayGuiScreen((GuiScreen) null);
+			mc.displayGuiScreen(null);
 			mc.setIngameFocus();
 		}
 	}
@@ -69,30 +69,28 @@ public class GuiScreenDemo extends GuiScreen {
 		drawDefaultBackground();
 		int k = (width - 248) / 2 + 10;
 		int l = (height - 166) / 2 + 8;
-		fontRendererObj.drawString(I18n.format("demo.help.title", new Object[0]), k, l, 2039583);
+		fontRendererObj.drawString(I18n.format("demo.help.title"), k, l, 2039583);
 		l += 12;
 		GameSettings gamesettings = mc.gameSettings;
 		fontRendererObj.drawString(
 				I18n.format("demo.help.movementShort",
-						new Object[] { GameSettings.getKeyDisplayString(gamesettings.keyBindForward.getKeyCode()),
-								GameSettings.getKeyDisplayString(gamesettings.keyBindLeft.getKeyCode()),
-								GameSettings.getKeyDisplayString(gamesettings.keyBindBack.getKeyCode()),
-								GameSettings.getKeyDisplayString(gamesettings.keyBindRight.getKeyCode()) }),
+						GameSettings.getKeyDisplayString(gamesettings.keyBindForward.getKeyCode()),
+						GameSettings.getKeyDisplayString(gamesettings.keyBindLeft.getKeyCode()),
+						GameSettings.getKeyDisplayString(gamesettings.keyBindBack.getKeyCode()),
+						GameSettings.getKeyDisplayString(gamesettings.keyBindRight.getKeyCode())),
 				k, l, 5197647);
-		fontRendererObj.drawString(I18n.format("demo.help.movementMouse", new Object[0]), k, l + 12, 5197647);
+		fontRendererObj.drawString(I18n.format("demo.help.movementMouse"), k, l + 12, 5197647);
 		fontRendererObj
 				.drawString(
 						I18n.format("demo.help.jump",
-								new Object[] {
-										GameSettings.getKeyDisplayString(gamesettings.keyBindJump.getKeyCode()) }),
+								GameSettings.getKeyDisplayString(gamesettings.keyBindJump.getKeyCode())),
 						k, l + 24, 5197647);
 		fontRendererObj
 				.drawString(
 						I18n.format("demo.help.inventory",
-								new Object[] {
-										GameSettings.getKeyDisplayString(gamesettings.keyBindInventory.getKeyCode()) }),
+								GameSettings.getKeyDisplayString(gamesettings.keyBindInventory.getKeyCode())),
 						k, l + 36, 5197647);
-		fontRendererObj.drawSplitString(I18n.format("demo.help.fullWrapped", new Object[0]), k, l + 68, 218, 2039583);
+		fontRendererObj.drawSplitString(I18n.format("demo.help.fullWrapped"), k, l + 68, 218, 2039583);
 		super.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
 	}
 }

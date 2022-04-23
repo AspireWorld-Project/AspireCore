@@ -9,7 +9,7 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.tileentity.TileEntityFurnace;
 
 public class ContainerFurnace extends Container {
-	private TileEntityFurnace tileFurnace;
+	private final TileEntityFurnace tileFurnace;
 	private int lastCookTime;
 	private int lastBurnTime;
 	private int lastItemBurnTime;
@@ -117,7 +117,7 @@ public class ContainerFurnace extends Container {
 				return null;
 
 			if (itemstack1.stackSize == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(null);
 			} else {
 				slot.onSlotChanged();
 			}

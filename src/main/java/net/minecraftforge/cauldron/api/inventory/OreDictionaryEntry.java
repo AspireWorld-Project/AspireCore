@@ -10,7 +10,7 @@ import java.util.List;
  * Dictionary. This class has reference equality.
  */
 public class OreDictionaryEntry {
-	private static List<OreDictionaryEntry> oreDictionaryEntries = new ArrayList<>();
+	private static final List<OreDictionaryEntry> oreDictionaryEntries = new ArrayList<>();
 
 	/**
 	 * Get an OreDictionaryEntry instance, using an instance cache to preserve
@@ -30,7 +30,7 @@ public class OreDictionaryEntry {
 		return oreDictionaryEntries.get(id);
 	}
 
-	private int id;
+	private final int id;
 
 	private OreDictionaryEntry(int id) {
 		this.id = id;

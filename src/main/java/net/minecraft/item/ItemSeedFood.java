@@ -9,8 +9,8 @@ import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class ItemSeedFood extends ItemFood implements IPlantable {
-	private Block field_150908_b;
-	private Block soilId;
+	private final Block field_150908_b;
+	private final Block soilId;
 	private static final String __OBFID = "CL_00000060";
 
 	public ItemSeedFood(int p_i45351_1_, float p_i45351_2_, Block p_i45351_3_, Block p_i45351_4_) {

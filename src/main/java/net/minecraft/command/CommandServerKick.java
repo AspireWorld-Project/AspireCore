@@ -43,14 +43,14 @@ public class CommandServerKick extends CommandBase {
 
 				if (flag) {
 					func_152373_a(p_71515_1_, this, "commands.kick.success.reason",
-							new Object[] { entityplayermp.getCommandSenderName(), s });
+							entityplayermp.getCommandSenderName(), s);
 				} else {
 					func_152373_a(p_71515_1_, this, "commands.kick.success",
-							new Object[] { entityplayermp.getCommandSenderName() });
+							entityplayermp.getCommandSenderName());
 				}
 			}
 		} else
-			throw new WrongUsageException("commands.kick.usage", new Object[0]);
+			throw new WrongUsageException("commands.kick.usage");
 	}
 
 	@Override

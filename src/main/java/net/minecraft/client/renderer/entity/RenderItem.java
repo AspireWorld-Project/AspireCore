@@ -35,8 +35,8 @@ import java.util.concurrent.Callable;
 public class RenderItem extends Render {
 	private static final ResourceLocation RES_ITEM_GLINT = new ResourceLocation(
 			"textures/misc/enchanted_item_glint.png");
-	private RenderBlocks renderBlocksRi = new RenderBlocks();
-	private Random random = new Random();
+	private final RenderBlocks renderBlocksRi = new RenderBlocks();
+	private final Random random = new Random();
 	public boolean renderWithColor = true;
 	public float zLevel;
 	public static boolean renderInFrame;
@@ -88,7 +88,6 @@ public class RenderItem extends Render {
 
 			if (ForgeHooksClient.renderEntityItem(p_76986_1_, itemstack, f2, f3, random, renderManager.renderEngine,
 					field_147909_c, b0)) {
-				;
 			} else // Code Style break here to prevent the patch from editing this line
 			if (itemstack.getItemSpriteNumber() == 0 && itemstack.getItem() instanceof ItemBlock
 					&& RenderBlocks.renderItemIn3d(Block.getBlockFromItem(itemstack.getItem()).getRenderType())) {
@@ -601,7 +600,7 @@ public class RenderItem extends Render {
 
 	public void renderItemOverlayIntoGUI(FontRenderer p_77021_1_, TextureManager p_77021_2_, ItemStack p_77021_3_,
 			int p_77021_4_, int p_77021_5_) {
-		this.renderItemOverlayIntoGUI(p_77021_1_, p_77021_2_, p_77021_3_, p_77021_4_, p_77021_5_, (String) null);
+		this.renderItemOverlayIntoGUI(p_77021_1_, p_77021_2_, p_77021_3_, p_77021_4_, p_77021_5_, null);
 	}
 
 	public void renderItemOverlayIntoGUI(FontRenderer p_94148_1_, TextureManager p_94148_2_, ItemStack p_94148_3_,

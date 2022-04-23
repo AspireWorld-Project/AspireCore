@@ -29,10 +29,9 @@ public class CommandDifficulty extends CommandBase {
 		if (p_71515_2_.length > 0) {
 			EnumDifficulty enumdifficulty = func_147201_h(p_71515_1_, p_71515_2_[0]);
 			MinecraftServer.getServer().func_147139_a(enumdifficulty);
-			func_152373_a(p_71515_1_, this, "commands.difficulty.success", new Object[] {
-					new ChatComponentTranslation(enumdifficulty.getDifficultyResourceKey(), new Object[0]) });
+			func_152373_a(p_71515_1_, this, "commands.difficulty.success", new ChatComponentTranslation(enumdifficulty.getDifficultyResourceKey()));
 		} else
-			throw new WrongUsageException("commands.difficulty.usage", new Object[0]);
+			throw new WrongUsageException("commands.difficulty.usage");
 	}
 
 	protected EnumDifficulty func_147201_h(ICommandSender p_147201_1_, String p_147201_2_) {
@@ -52,7 +51,7 @@ public class CommandDifficulty extends CommandBase {
 	@Override
 	public List addTabCompletionOptions(ICommandSender p_71516_1_, String[] p_71516_2_) {
 		return p_71516_2_.length == 1
-				? getListOfStringsMatchingLastWord(p_71516_2_, new String[] { "peaceful", "easy", "normal", "hard" })
+				? getListOfStringsMatchingLastWord(p_71516_2_, "peaceful", "easy", "normal", "hard")
 				: null;
 	}
 }

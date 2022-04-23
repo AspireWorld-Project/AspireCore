@@ -40,7 +40,7 @@ public class EntitySheep extends EntityAnimal implements IShearable {
 			{ 0.5F, 0.25F, 0.7F }, { 0.2F, 0.3F, 0.7F }, { 0.4F, 0.3F, 0.2F }, { 0.4F, 0.5F, 0.2F },
 			{ 0.6F, 0.2F, 0.2F }, { 0.1F, 0.1F, 0.1F } };
 	private int sheepTimer;
-	private EntityAIEatGrass field_146087_bs = new EntityAIEatGrass(this);
+	private final EntityAIEatGrass field_146087_bs = new EntityAIEatGrass(this);
 	private static final String __OBFID = "CL_00001648";
 
 	public EntitySheep(World p_i1691_1_) {
@@ -236,7 +236,7 @@ public class EntitySheep extends EntityAnimal implements IShearable {
 		field_90016_e.getStackInSlot(0).setItemDamage(i);
 		field_90016_e.getStackInSlot(1).setItemDamage(j);
 		ItemStack itemstack = CraftingManager.getInstance().findMatchingRecipe(field_90016_e,
-				((EntitySheep) p_90014_1_).worldObj);
+				p_90014_1_.worldObj);
 		int k;
 
 		if (itemstack != null && itemstack.getItem() == Items.dye) {

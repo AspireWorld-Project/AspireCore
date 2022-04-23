@@ -31,14 +31,12 @@ public abstract class BlockRedstoneDiode extends BlockDirectional {
 
 	@Override
 	public boolean canPlaceBlockAt(World p_149742_1_, int p_149742_2_, int p_149742_3_, int p_149742_4_) {
-		return !World.doesBlockHaveSolidTopSurface(p_149742_1_, p_149742_2_, p_149742_3_ - 1, p_149742_4_) ? false
-				: super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_);
+		return World.doesBlockHaveSolidTopSurface(p_149742_1_, p_149742_2_, p_149742_3_ - 1, p_149742_4_) && super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_);
 	}
 
 	@Override
 	public boolean canBlockStay(World p_149718_1_, int p_149718_2_, int p_149718_3_, int p_149718_4_) {
-		return !World.doesBlockHaveSolidTopSurface(p_149718_1_, p_149718_2_, p_149718_3_ - 1, p_149718_4_) ? false
-				: super.canBlockStay(p_149718_1_, p_149718_2_, p_149718_3_, p_149718_4_);
+		return World.doesBlockHaveSolidTopSurface(p_149718_1_, p_149718_2_, p_149718_3_ - 1, p_149718_4_) && super.canBlockStay(p_149718_1_, p_149718_2_, p_149718_3_, p_149718_4_);
 	}
 
 	@Override

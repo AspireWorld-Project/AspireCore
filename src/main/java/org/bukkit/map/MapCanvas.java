@@ -13,14 +13,14 @@ public interface MapCanvas {
 	 *
 	 * @return The MapView this canvas is attached to.
 	 */
-	public MapView getMapView();
+    MapView getMapView();
 
 	/**
 	 * Get the cursor collection associated with this canvas.
 	 *
 	 * @return The MapCursorCollection associated with this canvas.
 	 */
-	public MapCursorCollection getCursors();
+    MapCursorCollection getCursors();
 
 	/**
 	 * Set the cursor collection associated with this canvas. This does not usually
@@ -29,7 +29,7 @@ public interface MapCanvas {
 	 * @param cursors
 	 *            The MapCursorCollection to associate with this canvas.
 	 */
-	public void setCursors(MapCursorCollection cursors);
+    void setCursors(MapCursorCollection cursors);
 
 	/**
 	 * Draw a pixel to the canvas.
@@ -41,7 +41,7 @@ public interface MapCanvas {
 	 * @param color
 	 *            The color. See {@link MapPalette}.
 	 */
-	public void setPixel(int x, int y, byte color);
+    void setPixel(int x, int y, byte color);
 
 	/**
 	 * Get a pixel from the canvas.
@@ -52,7 +52,7 @@ public interface MapCanvas {
 	 *            The y coordinate, from 0 to 127.
 	 * @return The color. See {@link MapPalette}.
 	 */
-	public byte getPixel(int x, int y);
+    byte getPixel(int x, int y);
 
 	/**
 	 * Get a pixel from the layers below this canvas.
@@ -63,7 +63,7 @@ public interface MapCanvas {
 	 *            The y coordinate, from 0 to 127.
 	 * @return The color. See {@link MapPalette}.
 	 */
-	public byte getBasePixel(int x, int y);
+    byte getBasePixel(int x, int y);
 
 	/**
 	 * Draw an image to the map. The image will be clipped if necessary.
@@ -75,7 +75,7 @@ public interface MapCanvas {
 	 * @param image
 	 *            The Image to draw.
 	 */
-	public void drawImage(int x, int y, Image image);
+    void drawImage(int x, int y, Image image);
 
 	/**
 	 * Render text to the map using fancy formatting. Newline (\n) characters will
@@ -92,6 +92,6 @@ public interface MapCanvas {
 	 * @param text
 	 *            The formatted text to render.
 	 */
-	public void drawText(int x, int y, MapFont font, String text);
+    void drawText(int x, int y, MapFont font, String text);
 
 }

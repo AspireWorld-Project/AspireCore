@@ -19,7 +19,7 @@ public interface IExtendedEntityProperties {
 	 * @param compound
 	 *            The compound to save to.
 	 */
-	public void saveNBTData(NBTTagCompound compound);
+    void saveNBTData(NBTTagCompound compound);
 
 	/**
 	 * Called when the entity that this class is attached to is loaded. In order to
@@ -29,7 +29,7 @@ public interface IExtendedEntityProperties {
 	 * @param compound
 	 *            The compound to load from.
 	 */
-	public void loadNBTData(NBTTagCompound compound);
+    void loadNBTData(NBTTagCompound compound);
 
 	/**
 	 * Used to initialize the extended properties with the entity that this is
@@ -43,5 +43,5 @@ public interface IExtendedEntityProperties {
 	 * @param world
 	 *            The world in which the entity exists
 	 */
-	public void init(Entity entity, World world);
+    void init(Entity entity, World world);
 }

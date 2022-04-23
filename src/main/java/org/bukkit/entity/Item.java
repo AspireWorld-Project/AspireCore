@@ -12,7 +12,7 @@ public interface Item extends Entity {
 	 *
 	 * @return An item stack.
 	 */
-	public ItemStack getItemStack();
+    ItemStack getItemStack();
 
 	/**
 	 * Sets the item stack associated with this item drop.
@@ -20,14 +20,14 @@ public interface Item extends Entity {
 	 * @param stack
 	 *            An item stack.
 	 */
-	public void setItemStack(ItemStack stack);
+    void setItemStack(ItemStack stack);
 
 	/**
 	 * Gets the delay before this Item is available to be picked up by players
 	 *
 	 * @return Remaining delay
 	 */
-	public int getPickupDelay();
+    int getPickupDelay();
 
 	/**
 	 * Sets the delay before this Item is available to be picked up by players
@@ -35,5 +35,5 @@ public interface Item extends Entity {
 	 * @param delay
 	 *            New delay
 	 */
-	public void setPickupDelay(int delay);
+    void setPickupDelay(int delay);
 }

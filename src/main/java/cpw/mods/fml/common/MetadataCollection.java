@@ -30,7 +30,7 @@ public class MetadataCollection {
 	@SuppressWarnings("unused")
 	private String modListVersion;
 	private ModMetadata[] modList;
-	private Map<String, ModMetadata> metadatas = Maps.newHashMap();
+	private final Map<String, ModMetadata> metadatas = Maps.newHashMap();
 
 	public static MetadataCollection from(InputStream inputStream, String sourceName) {
 		if (inputStream == null)

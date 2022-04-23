@@ -9,8 +9,8 @@ import java.io.IOException;
 
 @SideOnly(Side.SERVER)
 public class RConOutputStream {
-	private ByteArrayOutputStream byteArrayOutput;
-	private DataOutputStream output;
+	private final ByteArrayOutputStream byteArrayOutput;
+	private final DataOutputStream output;
 	private static final String __OBFID = "CL_00001798";
 
 	public RConOutputStream(int p_i1533_1_) {

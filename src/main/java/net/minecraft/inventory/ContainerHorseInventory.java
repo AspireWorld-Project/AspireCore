@@ -8,8 +8,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 public class ContainerHorseInventory extends Container {
-	private IInventory field_111243_a;
-	private EntityHorse theHorse;
+	private final IInventory field_111243_a;
+	private final EntityHorse theHorse;
 	private static final String __OBFID = "CL_00001751";
 
 	public ContainerHorseInventory(IInventory p_i1817_1_, final IInventory p_i1817_2_, final EntityHorse p_i1817_3_) {
@@ -92,7 +92,7 @@ public class ContainerHorseInventory extends Container {
 				return null;
 
 			if (itemstack1.stackSize == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(null);
 			} else {
 				slot.onSlotChanged();
 			}

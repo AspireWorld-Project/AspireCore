@@ -56,7 +56,7 @@ public abstract class BanEntry extends UserListEntry {
 
 	@Override
 	boolean hasBanExpired() {
-		return banEndDate == null ? false : banEndDate.before(new Date());
+		return banEndDate != null && banEndDate.before(new Date());
 	}
 
 	@Override

@@ -43,7 +43,7 @@ public class S19PacketEntityHeadLook extends Packet {
 	@Override
 	public String serialize() {
 		return String.format("id=%d, rot=%d",
-				new Object[] { Integer.valueOf(field_149384_a), Byte.valueOf(field_149383_b) });
+				Integer.valueOf(field_149384_a), Byte.valueOf(field_149383_b));
 	}
 
 	@SideOnly(Side.CLIENT)

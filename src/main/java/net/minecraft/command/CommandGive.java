@@ -33,7 +33,7 @@ public class CommandGive extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender p_71515_1_, String[] p_71515_2_) {
 		if (p_71515_2_.length < 2)
-			throw new WrongUsageException("commands.give.usage", new Object[0]);
+			throw new WrongUsageException("commands.give.usage");
 		else {
 			EntityPlayerMP entityplayermp = getPlayer(p_71515_1_, p_71515_2_[0]);
 			Item item = getItemByText(p_71515_1_, p_71515_2_[1]);
@@ -57,14 +57,14 @@ public class CommandGive extends CommandBase {
 					NBTBase nbtbase = JsonToNBT.func_150315_a(s);
 
 					if (!(nbtbase instanceof NBTTagCompound)) {
-						func_152373_a(p_71515_1_, this, "commands.give.tagError", new Object[] { "Not a valid tag" });
+						func_152373_a(p_71515_1_, this, "commands.give.tagError", "Not a valid tag");
 						return;
 					}
 
 					itemstack.setTagCompound((NBTTagCompound) nbtbase);
 				} catch (NBTException nbtexception) {
 					func_152373_a(p_71515_1_, this, "commands.give.tagError",
-							new Object[] { nbtexception.getMessage() });
+							nbtexception.getMessage());
 					return;
 				}
 			}
@@ -72,8 +72,8 @@ public class CommandGive extends CommandBase {
 			EntityItem entityitem = entityplayermp.dropPlayerItemWithRandomChoice(itemstack, false);
 			entityitem.delayBeforeCanPickup = 0;
 			entityitem.func_145797_a(entityplayermp.getCommandSenderName());
-			func_152373_a(p_71515_1_, this, "commands.give.success", new Object[] { itemstack.func_151000_E(),
-					Integer.valueOf(i), entityplayermp.getCommandSenderName() });
+			func_152373_a(p_71515_1_, this, "commands.give.success", itemstack.func_151000_E(),
+					Integer.valueOf(i), entityplayermp.getCommandSenderName());
 		}
 	}
 

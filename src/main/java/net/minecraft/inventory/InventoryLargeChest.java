@@ -4,9 +4,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
 public class InventoryLargeChest implements IInventory {
-	private String name;
-	private IInventory upperChest;
-	private IInventory lowerChest;
+	private final String name;
+	private final IInventory upperChest;
+	private final IInventory lowerChest;
 	private static final String __OBFID = "CL_00001507";
 
 	public InventoryLargeChest(String p_i1559_1_, IInventory p_i1559_2_, IInventory p_i1559_3_) {

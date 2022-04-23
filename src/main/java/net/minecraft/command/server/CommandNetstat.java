@@ -75,10 +75,10 @@ public class CommandNetstat extends CommandBase {
 						}
 					} else if ("read-count".equals(p_71515_2_[0])) {
 						p_71515_1_.addChatMessage(new ChatComponentText(
-								"total-read-count" + String.valueOf(NetworkManager.field_152462_h.func_152472_c())));
+								"total-read-count" + NetworkManager.field_152462_h.func_152472_c()));
 					} else if ("write-count".equals(p_71515_2_[0])) {
 						p_71515_1_.addChatMessage(new ChatComponentText(
-								"total-write-count" + String.valueOf(NetworkManager.field_152462_h.func_152473_d())));
+								"total-write-count" + NetworkManager.field_152462_h.func_152473_d()));
 					} else {
 						p_71515_1_.addChatMessage(new ChatComponentText("Unrecognized: " + p_71515_2_[0]));
 					}

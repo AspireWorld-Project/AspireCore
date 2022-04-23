@@ -10,10 +10,10 @@ import java.util.Map.Entry;
 
 public class MapGenVillage extends MapGenStructure {
 	public static List villageSpawnBiomes = Arrays
-			.asList(new BiomeGenBase[] { BiomeGenBase.plains, BiomeGenBase.desert, BiomeGenBase.savanna });
+			.asList(BiomeGenBase.plains, BiomeGenBase.desert, BiomeGenBase.savanna);
 	private int terrainType;
 	private int field_82665_g;
-	private int field_82666_h;
+	private final int field_82666_h;
 	private static final String __OBFID = "CL_00000514";
 
 	public MapGenVillage() {
@@ -28,9 +28,9 @@ public class MapGenVillage extends MapGenStructure {
 		while (iterator.hasNext()) {
 			Entry entry = (Entry) iterator.next();
 
-			if (((String) entry.getKey()).equals("size")) {
+			if (entry.getKey().equals("size")) {
 				terrainType = MathHelper.parseIntWithDefaultAndMax((String) entry.getValue(), terrainType, 0);
-			} else if (((String) entry.getKey()).equals("distance")) {
+			} else if (entry.getKey().equals("distance")) {
 				field_82665_g = MathHelper.parseIntWithDefaultAndMax((String) entry.getValue(), field_82665_g,
 						field_82666_h + 1);
 			}
@@ -67,8 +67,7 @@ public class MapGenVillage extends MapGenStructure {
 			boolean flag = worldObj.getWorldChunkManager().areBiomesViable(k * 16 + 8, l * 16 + 8, 0,
 					villageSpawnBiomes);
 
-			if (flag)
-				return true;
+			return flag;
 		}
 
 		return false;

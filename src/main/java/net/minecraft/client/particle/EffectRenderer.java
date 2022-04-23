@@ -27,9 +27,9 @@ import java.util.concurrent.Callable;
 public class EffectRenderer {
 	private static final ResourceLocation particleTextures = new ResourceLocation("textures/particle/particles.png");
 	protected World worldObj;
-	private List[] fxLayers = new List[4];
-	private TextureManager renderer;
-	private Random rand = new Random();
+	private final List[] fxLayers = new List[4];
+	private final TextureManager renderer;
+	private final Random rand = new Random();
 	private static final String __OBFID = "CL_00000915";
 
 	public EffectRenderer(World p_i1220_1_, TextureManager p_i1220_2_) {

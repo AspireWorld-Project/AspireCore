@@ -10,15 +10,15 @@ import java.util.List;
 
 @SideOnly(Side.CLIENT)
 public class GuiDisconnected extends GuiScreen {
-	private String field_146306_a;
-	private IChatComponent field_146304_f;
+	private final String field_146306_a;
+	private final IChatComponent field_146304_f;
 	private List field_146305_g;
 	private final GuiScreen field_146307_h;
 	private static final String __OBFID = "CL_00000693";
 
 	public GuiDisconnected(GuiScreen p_i45020_1_, String p_i45020_2_, IChatComponent p_i45020_3_) {
 		field_146307_h = p_i45020_1_;
-		field_146306_a = I18n.format(p_i45020_2_, new Object[0]);
+		field_146306_a = I18n.format(p_i45020_2_);
 		field_146304_f = p_i45020_3_;
 	}
 
@@ -30,7 +30,7 @@ public class GuiDisconnected extends GuiScreen {
 	public void initGui() {
 		buttonList.clear();
 		buttonList.add(
-				new GuiButton(0, width / 2 - 100, height / 4 + 120 + 12, I18n.format("gui.toMenu", new Object[0])));
+				new GuiButton(0, width / 2 - 100, height / 4 + 120 + 12, I18n.format("gui.toMenu")));
 		field_146305_g = fontRendererObj.listFormattedStringToWidth(field_146304_f.getFormattedText(), width - 50);
 	}
 

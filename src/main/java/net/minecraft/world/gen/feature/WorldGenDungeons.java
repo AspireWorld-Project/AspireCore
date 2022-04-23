@@ -14,8 +14,6 @@ import java.util.Random;
 
 import static net.minecraftforge.common.ChestGenHooks.DUNGEON_CHEST;
 
-;
-
 public class WorldGenDungeons extends WorldGenerator {
 	public static final WeightedRandomChestContent[] field_111189_a = new WeightedRandomChestContent[] {
 			new WeightedRandomChestContent(Items.saddle, 0, 1, 1, 10),

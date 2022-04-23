@@ -173,7 +173,7 @@ public abstract class MobSpawnerBaseLogic {
 				entity1 = entity2;
 			}
 		} else if (p_98265_1_ instanceof EntityLivingBase && p_98265_1_.worldObj != null) {
-			((EntityLiving) p_98265_1_).onSpawnWithEgg((IEntityLivingData) null);
+			((EntityLiving) p_98265_1_).onSpawnWithEgg(null);
 			getSpawnerWorld().spawnEntityInWorld(p_98265_1_);
 		}
 
@@ -216,7 +216,7 @@ public abstract class MobSpawnerBaseLogic {
 			setRandomEntity(new MobSpawnerBaseLogic.WeightedRandomMinecart(p_98270_1_.getCompoundTag("SpawnData"),
 					entityTypeName));
 		} else {
-			setRandomEntity((MobSpawnerBaseLogic.WeightedRandomMinecart) null);
+			setRandomEntity(null);
 		}
 
 		if (p_98270_1_.hasKey("MinSpawnDelay", 99)) {
@@ -283,7 +283,7 @@ public abstract class MobSpawnerBaseLogic {
 	@SideOnly(Side.CLIENT)
 	public Entity func_98281_h() {
 		if (field_98291_j == null) {
-			Entity entity = EntityList.createEntityByName(getEntityNameToSpawn(), (World) null);
+			Entity entity = EntityList.createEntityByName(getEntityNameToSpawn(), null);
 			entity = func_98265_a(entity);
 			field_98291_j = entity;
 		}

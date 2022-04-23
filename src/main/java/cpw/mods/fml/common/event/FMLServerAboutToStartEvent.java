@@ -17,7 +17,7 @@ import net.minecraft.server.MinecraftServer;
 
 public class FMLServerAboutToStartEvent extends FMLStateEvent {
 
-	private MinecraftServer server;
+	private final MinecraftServer server;
 
 	public FMLServerAboutToStartEvent(Object... data) {
 		super(data);

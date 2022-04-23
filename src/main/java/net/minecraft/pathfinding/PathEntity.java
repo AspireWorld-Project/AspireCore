@@ -75,7 +75,6 @@ public class PathEntity {
 
 	public boolean isDestinationSame(Vec3 p_75880_1_) {
 		PathPoint pathpoint = getFinalPathPoint();
-		return pathpoint == null ? false
-				: pathpoint.xCoord == (int) p_75880_1_.xCoord && pathpoint.zCoord == (int) p_75880_1_.zCoord;
+		return pathpoint != null && pathpoint.xCoord == (int) p_75880_1_.xCoord && pathpoint.zCoord == (int) p_75880_1_.zCoord;
 	}
 }

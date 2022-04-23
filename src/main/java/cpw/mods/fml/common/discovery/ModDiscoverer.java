@@ -30,13 +30,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ModDiscoverer {
-	private static Pattern zipJar = Pattern.compile("(.+).(zip|jar)$");
+	private static final Pattern zipJar = Pattern.compile("(.+).(zip|jar)$");
 
-	private List<ModCandidate> candidates = Lists.newArrayList();
+	private final List<ModCandidate> candidates = Lists.newArrayList();
 
-	private ASMDataTable dataTable = new ASMDataTable();
+	private final ASMDataTable dataTable = new ASMDataTable();
 
-	private List<File> nonModLibs = Lists.newArrayList();
+	private final List<File> nonModLibs = Lists.newArrayList();
 
 	public void findClasspathMods(ModClassLoader modClassLoader) {
 		List<String> knownLibraries = ImmutableList.<String>builder()

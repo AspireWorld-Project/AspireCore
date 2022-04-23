@@ -20,14 +20,14 @@ public class EntityAIAvoidEntity extends EntityAIBase {
 			return p_82704_1_.isEntityAlive() && theEntity.getEntitySenses().canSee(p_82704_1_);
 		}
 	};
-	private EntityCreature theEntity;
-	private double farSpeed;
-	private double nearSpeed;
+	private final EntityCreature theEntity;
+	private final double farSpeed;
+	private final double nearSpeed;
 	private Entity closestLivingEntity;
-	private float distanceFromEntity;
+	private final float distanceFromEntity;
 	private PathEntity entityPathEntity;
-	private PathNavigate entityPathNavigate;
-	private Class targetEntityClass;
+	private final PathNavigate entityPathNavigate;
+	private final Class targetEntityClass;
 	private static final String __OBFID = "CL_00001574";
 
 	public EntityAIAvoidEntity(EntityCreature p_i1616_1_, Class p_i1616_2_, float p_i1616_3_, double p_i1616_4_,
@@ -71,7 +71,7 @@ public class EntityAIAvoidEntity extends EntityAIBase {
 			return false;
 		else {
 			entityPathEntity = entityPathNavigate.getPathToXYZ(vec3.xCoord, vec3.yCoord, vec3.zCoord);
-			return entityPathEntity == null ? false : entityPathEntity.isDestinationSame(vec3);
+			return entityPathEntity != null && entityPathEntity.isDestinationSame(vec3);
 		}
 	}
 

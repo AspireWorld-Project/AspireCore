@@ -253,7 +253,7 @@ public class SimpleServicesManager implements ServicesManager {
 	 */
 	@Override
 	public List<RegisteredServiceProvider<?>> getRegistrations(Plugin plugin) {
-		ImmutableList.Builder<RegisteredServiceProvider<?>> ret = ImmutableList.<RegisteredServiceProvider<?>>builder();
+		ImmutableList.Builder<RegisteredServiceProvider<?>> ret = ImmutableList.builder();
 		synchronized (providers) {
 			for (List<RegisteredServiceProvider<?>> registered : providers.values()) {
 				for (RegisteredServiceProvider<?> provider : registered) {
@@ -284,9 +284,9 @@ public class SimpleServicesManager implements ServicesManager {
 			List<RegisteredServiceProvider<?>> registered = providers.get(service);
 
 			if (registered == null)
-				return ImmutableList.<RegisteredServiceProvider<T>>of();
+				return ImmutableList.of();
 
-			ret = ImmutableList.<RegisteredServiceProvider<T>>builder();
+			ret = ImmutableList.builder();
 
 			for (RegisteredServiceProvider<?> provider : registered) {
 				ret.add((RegisteredServiceProvider<T>) provider);
@@ -305,7 +305,7 @@ public class SimpleServicesManager implements ServicesManager {
 	@Override
 	public Set<Class<?>> getKnownServices() {
 		synchronized (providers) {
-			return ImmutableSet.<Class<?>>copyOf(providers.keySet());
+			return ImmutableSet.copyOf(providers.keySet());
 		}
 	}
 

@@ -43,7 +43,7 @@ public class S34PacketMaps extends Packet {
 	@Override
 	public String serialize() {
 		return String.format("id=%d, length=%d",
-				new Object[] { Integer.valueOf(field_149191_a), Integer.valueOf(field_149190_b.length) });
+				Integer.valueOf(field_149191_a), Integer.valueOf(field_149190_b.length));
 	}
 
 	@SideOnly(Side.CLIENT)

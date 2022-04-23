@@ -52,8 +52,8 @@ public class GameData {
 	@Deprecated
 	public static final FMLControlledNamespacedRegistry<Item> itemRegistry = getItemRegistry();
 
-	private static Table<String, String, ItemStack> customItemStacks = HashBasedTable.create();
-	private static Map<UniqueIdentifier, ModContainer> customOwners = Maps.newHashMap();
+	private static final Table<String, String, ItemStack> customItemStacks = HashBasedTable.create();
+	private static final Map<UniqueIdentifier, ModContainer> customOwners = Maps.newHashMap();
 	private static GameData frozen;
 
 	// public api
@@ -466,7 +466,7 @@ public class GameData {
 							isBlock ? "block" : "item", itemName, newId, currId,
 							isBlock ? newData.iBlockRegistry.getRaw(newId) : newData.iItemRegistry.getRaw(newId),
 							newData.blockedIds.contains(newId),
-							isBlock ? false : getMain().iItemRegistry.getRaw(currId) instanceof ItemBlock));
+                            !isBlock && getMain().iItemRegistry.getRaw(currId) instanceof ItemBlock));
 			}
 		}
 
@@ -646,7 +646,7 @@ public class GameData {
 		}
 		// the id mapping has reverted, fire remap events for those that care about id
 		// changes
-		Loader.instance().fireRemapEvent(ImmutableMap.<String, Integer[]>of());
+		Loader.instance().fireRemapEvent(ImmutableMap.of());
 		// the id mapping has reverted, ensure we sync up the object holders
 		ObjectHolderRegistry.INSTANCE.applyObjectHolders();
 	}
@@ -925,8 +925,8 @@ public class GameData {
 		return new RegistryDelegate.Delegate<>(referant, type);
 	}
 
-	private BiMap<String, Item> itemSubstitutions = HashBiMap.create();
-	private BiMap<String, Block> blockSubstitutions = HashBiMap.create();
+	private final BiMap<String, Item> itemSubstitutions = HashBiMap.create();
+	private final BiMap<String, Block> blockSubstitutions = HashBiMap.create();
 
 	@SuppressWarnings("unchecked")
 	<T> BiMap<String, T> getPersistentSubstitutionMap(Class<T> type) {

@@ -129,7 +129,7 @@ public class CoreEventHandler {
 				&& entity instanceof EntityHorse;
 		boolean triggerLeashUpdate = itemInHand != null && itemInHand.getItem() == Items.lead
 				&& entity instanceof EntityLiving;
-		PlayerInteractEntityEvent event = new PlayerInteractEntityEvent((Player) playerEntity.getBukkitEntity(),
+		PlayerInteractEntityEvent event = new PlayerInteractEntityEvent(playerEntity.getBukkitEntity(),
 				entity.getBukkitEntity());
 		server.getPluginManager().callEvent(event);
 

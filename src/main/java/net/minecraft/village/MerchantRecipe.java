@@ -26,7 +26,7 @@ public class MerchantRecipe {
 	}
 
 	public MerchantRecipe(ItemStack p_i1942_1_, ItemStack p_i1942_2_) {
-		this(p_i1942_1_, (ItemStack) null, p_i1942_2_);
+		this(p_i1942_1_, null, p_i1942_2_);
 	}
 
 	public MerchantRecipe(ItemStack p_i1943_1_, Item p_i1943_2_) {
@@ -51,11 +51,9 @@ public class MerchantRecipe {
 
 	public boolean hasSameIDsAs(MerchantRecipe p_77393_1_) {
 		return itemToBuy.getItem() == p_77393_1_.itemToBuy.getItem()
-				&& itemToSell.getItem() == p_77393_1_.itemToSell.getItem()
-						? secondItemToBuy == null && p_77393_1_.secondItemToBuy == null
-								|| secondItemToBuy != null && p_77393_1_.secondItemToBuy != null
-										&& secondItemToBuy.getItem() == p_77393_1_.secondItemToBuy.getItem()
-						: false;
+				&& itemToSell.getItem() == p_77393_1_.itemToSell.getItem() && (secondItemToBuy == null && p_77393_1_.secondItemToBuy == null
+				|| secondItemToBuy != null && p_77393_1_.secondItemToBuy != null
+				&& secondItemToBuy.getItem() == p_77393_1_.secondItemToBuy.getItem());
 	}
 
 	public boolean hasSameItemsAs(MerchantRecipe p_77391_1_) {

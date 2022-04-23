@@ -9,8 +9,8 @@ import net.minecraft.util.MathHelper;
 
 @SideOnly(Side.CLIENT)
 public class ModelWither extends ModelBase {
-	private ModelRenderer[] field_82905_a;
-	private ModelRenderer[] field_82904_b;
+	private final ModelRenderer[] field_82905_a;
+	private final ModelRenderer[] field_82904_b;
 	private static final String __OBFID = "CL_00000867";
 
 	public ModelWither() {

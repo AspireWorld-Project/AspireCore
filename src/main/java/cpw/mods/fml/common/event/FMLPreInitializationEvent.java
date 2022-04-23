@@ -28,9 +28,9 @@ import java.util.Properties;
 public class FMLPreInitializationEvent extends FMLStateEvent {
 	private ModMetadata modMetadata;
 	private File sourceFile;
-	private File configurationDir;
+	private final File configurationDir;
 	private File suggestedConfigFile;
-	private ASMDataTable asmData;
+	private final ASMDataTable asmData;
 	private ModContainer modContainer;
 
 	public FMLPreInitializationEvent(Object... data) {

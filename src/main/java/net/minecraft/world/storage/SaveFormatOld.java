@@ -128,7 +128,7 @@ public class SaveFormatOld implements ISaveFormat {
 				file1.delete();
 				return true;
 			} catch (Throwable throwable) {
-				logger.warn("Couldn\'t make new level", throwable);
+				logger.warn("Couldn't make new level", throwable);
 				return false;
 			}
 		}
@@ -156,8 +156,7 @@ public class SaveFormatOld implements ISaveFormat {
 					try {
 						Thread.sleep(500L);
 					} catch (InterruptedException interruptedexception) {
-						;
-					}
+                    }
 				}
 			}
 
@@ -171,12 +170,12 @@ public class SaveFormatOld implements ISaveFormat {
 			logger.debug("Deleting " + file1);
 
 			if (file1.isDirectory() && !deleteFiles(file1.listFiles())) {
-				logger.warn("Couldn\'t delete directory " + file1);
+				logger.warn("Couldn't delete directory " + file1);
 				return false;
 			}
 
 			if (!file1.delete()) {
-				logger.warn("Couldn\'t delete file " + file1);
+				logger.warn("Couldn't delete file " + file1);
 				return false;
 			}
 		}

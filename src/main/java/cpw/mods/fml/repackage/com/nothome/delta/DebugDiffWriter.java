@@ -32,7 +32,7 @@ import java.io.IOException;
  */
 public class DebugDiffWriter implements DiffWriter {
 
-	private ByteArrayOutputStream os = new ByteArrayOutputStream();
+	private final ByteArrayOutputStream os = new ByteArrayOutputStream();
 
 	/**
 	 * Constructs a new DebugDiffWriter.
@@ -61,11 +61,11 @@ public class DebugDiffWriter implements DiffWriter {
 			if (ba[ix] == '\n') {
 				System.err.print("\\n");
 			} else {
-				System.err.print(String.valueOf((char) ba[ix]));
+				System.err.print((char) ba[ix]);
 				// System.err.print("0x" + Integer.toHexString(buf[ix]) + " "); // hex output
 			}
 		}
-		System.err.println("");
+		System.err.println();
 		os.reset();
 	}
 

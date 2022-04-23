@@ -8,17 +8,17 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public interface ILanguageAdapter {
-	public Object getNewInstance(FMLModContainer container, Class<?> objectClass, ClassLoader classLoader,
-			Method factoryMarkedAnnotation) throws Exception;
+	Object getNewInstance(FMLModContainer container, Class<?> objectClass, ClassLoader classLoader,
+                          Method factoryMarkedAnnotation) throws Exception;
 
-	public boolean supportsStatics();
+	boolean supportsStatics();
 
-	public void setProxy(Field target, Class<?> proxyTarget, Object proxy)
+	void setProxy(Field target, Class<?> proxyTarget, Object proxy)
 			throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException;
 
-	public void setInternalProxies(ModContainer mod, Side side, ClassLoader loader);
+	void setInternalProxies(ModContainer mod, Side side, ClassLoader loader);
 
-	public static class ScalaAdapter implements ILanguageAdapter {
+	class ScalaAdapter implements ILanguageAdapter {
 		@Override
 		public Object getNewInstance(FMLModContainer container, Class<?> scalaObjectClass, ClassLoader classLoader,
 				Method factoryMarkedAnnotation) throws Exception {
@@ -157,7 +157,7 @@ public interface ILanguageAdapter {
 		}
 	}
 
-	public static class JavaAdapter implements ILanguageAdapter {
+	class JavaAdapter implements ILanguageAdapter {
 		@Override
 		public Object getNewInstance(FMLModContainer container, Class<?> objectClass, ClassLoader classLoader,
 				Method factoryMarkedMethod) throws Exception {

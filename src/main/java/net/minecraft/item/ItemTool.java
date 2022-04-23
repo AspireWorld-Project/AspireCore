@@ -15,9 +15,9 @@ import net.minecraftforge.common.ForgeHooks;
 import java.util.Set;
 
 public class ItemTool extends Item {
-	private Set field_150914_c;
+	private final Set field_150914_c;
 	protected float efficiencyOnProperMaterial = 4.0F;
-	private float damageVsEntity;
+	private final float damageVsEntity;
 	protected Item.ToolMaterial toolMaterial;
 	private static final String __OBFID = "CL_00000019";
 

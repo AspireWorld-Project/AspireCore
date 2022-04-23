@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class InjectedModContainer implements ModContainer {
-	private File source;
+	private final File source;
 	public final ModContainer wrappedContainer;
 
 	public InjectedModContainer(ModContainer mc, File source) {

@@ -23,8 +23,8 @@ public class ModSortingException extends RuntimeException {
 			this.visitedNodes = visitedNodes;
 		}
 
-		private T firstBadNode;
-		private Set<T> visitedNodes;
+		private final T firstBadNode;
+		private final Set<T> visitedNodes;
 
 		public T getFirstBadNode() {
 			return firstBadNode;
@@ -35,7 +35,7 @@ public class ModSortingException extends RuntimeException {
 		}
 	}
 
-	private SortingExceptionData<?> sortingExceptionData;
+	private final SortingExceptionData<?> sortingExceptionData;
 
 	public <T> ModSortingException(String string, T node, Set<T> visitedNodes) {
 		super(string);

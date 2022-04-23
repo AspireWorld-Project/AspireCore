@@ -24,7 +24,7 @@ public class BlockNetherWart extends BlockBush {
 		setTickRandomly(true);
 		float f = 0.5F;
 		setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F, 0.5F + f);
-		setCreativeTab((CreativeTabs) null);
+		setCreativeTab(null);
 	}
 
 	@Override

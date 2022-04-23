@@ -32,13 +32,13 @@ import java.util.Map;
 
 public class EntityRegistry {
 	public class EntityRegistration {
-		private Class<? extends Entity> entityClass;
-		private ModContainer container;
-		private String entityName;
-		private int modId;
-		private int trackingRange;
-		private int updateFrequency;
-		private boolean sendsVelocityUpdates;
+		private final Class<? extends Entity> entityClass;
+		private final ModContainer container;
+		private final String entityName;
+		private final int modId;
+		private final int trackingRange;
+		private final int updateFrequency;
+		private final boolean sendsVelocityUpdates;
 		private Function<EntitySpawnMessage, Entity> customSpawnCallback;
 		private boolean usesVanillaSpawning;
 
@@ -101,10 +101,10 @@ public class EntityRegistry {
 
 	private static final EntityRegistry INSTANCE = new EntityRegistry();
 
-	private BitSet availableIndicies;
-	private ListMultimap<ModContainer, EntityRegistration> entityRegistrations = ArrayListMultimap.create();
-	private Map<String, ModContainer> entityNames = Maps.newHashMap();
-	private BiMap<Class<? extends Entity>, EntityRegistration> entityClassRegistrations = HashBiMap.create();
+	private final BitSet availableIndicies;
+	private final ListMultimap<ModContainer, EntityRegistration> entityRegistrations = ArrayListMultimap.create();
+	private final Map<String, ModContainer> entityNames = Maps.newHashMap();
+	private final BiMap<Class<? extends Entity>, EntityRegistration> entityClassRegistrations = HashBiMap.create();
 
 	public static EntityRegistry instance() {
 		return INSTANCE;
@@ -340,7 +340,7 @@ public class EntityRegistry {
 		// fixup bad entity names from mods
 		if (entityName.contains(".")) {
 			if (entityName.indexOf(".") + 1 < entityName.length()) {
-				entityName = entityName.substring(entityName.indexOf(".") + 1, entityName.length());
+				entityName = entityName.substring(entityName.indexOf(".") + 1);
 			}
 		}
 		entityName = entityName.replace("entity", "");
@@ -356,9 +356,9 @@ public class EntityRegistry {
 		entityClassMap.put(entityName, entityClass);
 	}
 
-	private static Map<Class<? extends Entity>, String> entityTypeMap = Maps.newHashMap(); // Cauldron - used by
+	private static final Map<Class<? extends Entity>, String> entityTypeMap = Maps.newHashMap(); // Cauldron - used by
 																							// CraftCustomEntity
-	private static Map<String, Class<? extends Entity>> entityClassMap = Maps.newHashMap(); // Cauldron - used by
+	private static final Map<String, Class<? extends Entity>> entityClassMap = Maps.newHashMap(); // Cauldron - used by
 																							// CraftWorld
 
 	// used by CraftCustomEntity

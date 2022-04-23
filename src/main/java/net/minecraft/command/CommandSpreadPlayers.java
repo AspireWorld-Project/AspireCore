@@ -36,7 +36,7 @@ public class CommandSpreadPlayers extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender p_71515_1_, String[] p_71515_2_) {
 		if (p_71515_2_.length < 6)
-			throw new WrongUsageException("commands.spreadplayers.usage", new Object[0]);
+			throw new WrongUsageException("commands.spreadplayers.usage");
 		else {
 			byte b0 = 0;
 			int i = b0 + 1;
@@ -74,8 +74,8 @@ public class CommandSpreadPlayers extends CommandBase {
 
 				p_71515_1_.addChatMessage(
 						new ChatComponentTranslation("commands.spreadplayers.spreading." + (flag ? "teams" : "players"),
-								new Object[] { Integer.valueOf(arraylist.size()), Double.valueOf(d3),
-										Double.valueOf(d0), Double.valueOf(d1), Double.valueOf(d2) }));
+								Integer.valueOf(arraylist.size()), Double.valueOf(d3),
+								Double.valueOf(d0), Double.valueOf(d1), Double.valueOf(d2)));
 				func_110669_a(p_71515_1_, arraylist, new CommandSpreadPlayers.Position(d0, d1), d2, d3,
 						((EntityLivingBase) arraylist.get(0)).worldObj, flag);
 				return;
@@ -95,13 +95,13 @@ public class CommandSpreadPlayers extends CommandBase {
 		int i = func_110668_a(p_110669_3_, p_110669_4_, p_110669_8_, random, d2, d3, d4, d5, aposition, p_110669_9_);
 		double d6 = func_110671_a(p_110669_2_, p_110669_8_, aposition, p_110669_9_);
 		func_152373_a(p_110669_1_, this, "commands.spreadplayers.success." + (p_110669_9_ ? "teams" : "players"),
-				new Object[] { Integer.valueOf(aposition.length), Double.valueOf(p_110669_3_.field_111101_a),
-						Double.valueOf(p_110669_3_.field_111100_b) });
+				Integer.valueOf(aposition.length), Double.valueOf(p_110669_3_.field_111101_a),
+				Double.valueOf(p_110669_3_.field_111100_b));
 
 		if (aposition.length > 1) {
 			p_110669_1_.addChatMessage(new ChatComponentTranslation(
 					"commands.spreadplayers.info." + (p_110669_9_ ? "teams" : "players"),
-					new Object[] { String.format("%.2f", new Object[] { Double.valueOf(d6) }), Integer.valueOf(i) }));
+					String.format("%.2f", Double.valueOf(d6)), Integer.valueOf(i)));
 		}
 	}
 
@@ -115,7 +115,7 @@ public class CommandSpreadPlayers extends CommandBase {
 			if (entitylivingbase instanceof EntityPlayer) {
 				hashset.add(entitylivingbase.getTeam());
 			} else {
-				hashset.add((Object) null);
+				hashset.add(null);
 			}
 		}
 
@@ -191,9 +191,9 @@ public class CommandSpreadPlayers extends CommandBase {
 
 		if (i >= 10000)
 			throw new CommandException("commands.spreadplayers.failure." + (p_110668_15_ ? "teams" : "players"),
-					new Object[] { Integer.valueOf(p_110668_14_.length), Double.valueOf(p_110668_1_.field_111101_a),
-							Double.valueOf(p_110668_1_.field_111100_b),
-							String.format("%.2f", new Object[] { Double.valueOf(d5) }) });
+					Integer.valueOf(p_110668_14_.length), Double.valueOf(p_110668_1_.field_111101_a),
+					Double.valueOf(p_110668_1_.field_111100_b),
+					String.format("%.2f", Double.valueOf(d5)));
 		else
 			return i;
 	}

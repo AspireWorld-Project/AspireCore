@@ -16,7 +16,7 @@ public class ZipFileChunkLoader extends ImportChunkLoader {
 	private final ZipFile zip;
 	private final String path;
 
-	public ZipFileChunkLoader(File tempDir, File file, String path) throws ZipException, IOException {
+	public ZipFileChunkLoader(File tempDir, File file, String path) throws IOException {
 		super(tempDir);
 		zip = new ZipFile(file);
 		checkZipFile(zip, path);

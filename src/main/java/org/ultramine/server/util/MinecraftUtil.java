@@ -118,9 +118,7 @@ public class MinecraftUtil {
 				return true;
 			if (recursivePathFind(x, y - 1, z, newDepth))
 				return true;
-			if (recursivePathFind(x, y, z - 1, newDepth))
-				return true;
-			return false;
+			return recursivePathFind(x, y, z - 1, newDepth);
 		}
 
 		private static int getVal(int x, int y, int z) {

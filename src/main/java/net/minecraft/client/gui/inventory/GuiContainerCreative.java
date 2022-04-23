@@ -39,7 +39,7 @@ import java.util.Map;
 public class GuiContainerCreative extends InventoryEffectRenderer {
 	private static final ResourceLocation field_147061_u = new ResourceLocation(
 			"textures/gui/container/creative_inventory/tabs.png");
-	private static InventoryBasic field_147060_v = new InventoryBasic("tmp", true, 45);
+	private static final InventoryBasic field_147060_v = new InventoryBasic("tmp", true, 45);
 	private static int selectedTabIndex = CreativeTabs.tabBlock.getTabIndex();
 	private float currentScroll;
 	private boolean isScrolling;
@@ -83,7 +83,7 @@ public class GuiContainerCreative extends InventoryEffectRenderer {
 				if (p_146984_3_ == 0) {
 					mc.thePlayer.dropPlayerItemWithRandomChoice(inventoryplayer.getItemStack(), true);
 					mc.playerController.sendPacketDropItem(inventoryplayer.getItemStack());
-					inventoryplayer.setItemStack((ItemStack) null);
+					inventoryplayer.setItemStack(null);
 				}
 
 				if (p_146984_3_ == 1) {
@@ -92,7 +92,7 @@ public class GuiContainerCreative extends InventoryEffectRenderer {
 					mc.playerController.sendPacketDropItem(itemstack1);
 
 					if (inventoryplayer.getItemStack().stackSize == 0) {
-						inventoryplayer.setItemStack((ItemStack) null);
+						inventoryplayer.setItemStack(null);
 					}
 				}
 			}
@@ -101,14 +101,14 @@ public class GuiContainerCreative extends InventoryEffectRenderer {
 
 			if (p_146984_1_ == field_147064_C && flag) {
 				for (l = 0; l < mc.thePlayer.inventoryContainer.getInventory().size(); ++l) {
-					mc.playerController.sendSlotPacket((ItemStack) null, l);
+					mc.playerController.sendSlotPacket(null, l);
 				}
 			} else {
 				ItemStack itemstack;
 
 				if (selectedTabIndex == CreativeTabs.tabInventory.getTabIndex()) {
 					if (p_146984_1_ == field_147064_C) {
-						mc.thePlayer.inventory.setItemStack((ItemStack) null);
+						mc.thePlayer.inventory.setItemStack(null);
 					} else if (p_146984_4_ == 4 && p_146984_1_ != null && p_146984_1_.getHasStack()) {
 						itemstack = p_146984_1_
 								.decrStackSize(p_146984_3_ == 0 ? 1 : p_146984_1_.getStack().getMaxStackSize());
@@ -117,7 +117,7 @@ public class GuiContainerCreative extends InventoryEffectRenderer {
 					} else if (p_146984_4_ == 4 && mc.thePlayer.inventory.getItemStack() != null) {
 						mc.thePlayer.dropPlayerItemWithRandomChoice(mc.thePlayer.inventory.getItemStack(), true);
 						mc.playerController.sendPacketDropItem(mc.thePlayer.inventory.getItemStack());
-						mc.thePlayer.inventory.setItemStack((ItemStack) null);
+						mc.thePlayer.inventory.setItemStack(null);
 					} else {
 						mc.thePlayer.inventoryContainer.slotClick(
 								p_146984_1_ == null ? p_146984_2_
@@ -175,7 +175,7 @@ public class GuiContainerCreative extends InventoryEffectRenderer {
 								++itemstack1.stackSize;
 							}
 						} else if (itemstack1.stackSize <= 1) {
-							inventoryplayer.setItemStack((ItemStack) null);
+							inventoryplayer.setItemStack(null);
 						} else {
 							--itemstack1.stackSize;
 						}
@@ -187,7 +187,7 @@ public class GuiContainerCreative extends InventoryEffectRenderer {
 							itemstack1.stackSize = itemstack1.getMaxStackSize();
 						}
 					} else {
-						inventoryplayer.setItemStack((ItemStack) null);
+						inventoryplayer.setItemStack(null);
 					}
 				} else {
 					inventorySlots.slotClick(p_146984_1_ == null ? p_146984_2_ : p_146984_1_.slotNumber, p_146984_3_,
@@ -286,7 +286,7 @@ public class GuiContainerCreative extends InventoryEffectRenderer {
 			Item item = (Item) iterator.next();
 
 			if (item != null && item.getCreativeTab() != null) {
-				item.getSubItems(item, (CreativeTabs) null, containercreative.itemList);
+				item.getSubItems(item, null, containercreative.itemList);
 			}
 		}
 		updateFilteredItems(containercreative);
@@ -346,7 +346,7 @@ public class GuiContainerCreative extends InventoryEffectRenderer {
 
 		if (creativetabs != null && creativetabs.drawInForegroundOfTab()) {
 			GL11.glDisable(GL11.GL_BLEND);
-			fontRendererObj.drawString(I18n.format(creativetabs.getTranslatedTabLabel(), new Object[0]), 8, 6, 4210752);
+			fontRendererObj.drawString(I18n.format(creativetabs.getTranslatedTabLabel()), 8, 6, 4210752);
 		}
 	}
 
@@ -566,7 +566,7 @@ public class GuiContainerCreative extends InventoryEffectRenderer {
 
 		if (field_147064_C != null && selectedTabIndex == CreativeTabs.tabInventory.getTabIndex() && func_146978_c(
 				field_147064_C.xDisplayPosition, field_147064_C.yDisplayPosition, 16, 16, p_73863_1_, p_73863_2_)) {
-			drawCreativeTabHoveringText(I18n.format("inventory.binSlot", new Object[0]), p_73863_1_, p_73863_2_);
+			drawCreativeTabHoveringText(I18n.format("inventory.binSlot"), p_73863_1_, p_73863_2_);
 		}
 
 		if (maxPages != 0) {
@@ -612,7 +612,7 @@ public class GuiContainerCreative extends InventoryEffectRenderer {
 
 			if (creativetabs != null) {
 				list.add(1, "" + EnumChatFormatting.BOLD + EnumChatFormatting.BLUE
-						+ I18n.format(creativetabs.getTranslatedTabLabel(), new Object[0]));
+						+ I18n.format(creativetabs.getTranslatedTabLabel()));
 			}
 
 			for (int i1 = 0; i1 < list.size(); ++i1) {
@@ -743,7 +743,7 @@ public class GuiContainerCreative extends InventoryEffectRenderer {
 		}
 
 		if (func_146978_c(l + 3, i1 + 3, 23, 27, p_147052_2_, p_147052_3_)) {
-			drawCreativeTabHoveringText(I18n.format(p_147052_1_.getTranslatedTabLabel(), new Object[0]), p_147052_2_,
+			drawCreativeTabHoveringText(I18n.format(p_147052_1_.getTranslatedTabLabel()), p_147052_2_,
 					p_147052_3_);
 			return true;
 		} else
@@ -860,7 +860,7 @@ public class GuiContainerCreative extends InventoryEffectRenderer {
 						GuiContainerCreative.field_147060_v.setInventorySlotContents(l + k * 9,
 								(ItemStack) itemList.get(i1));
 					} else {
-						GuiContainerCreative.field_147060_v.setInventorySlotContents(l + k * 9, (ItemStack) null);
+						GuiContainerCreative.field_147060_v.setInventorySlotContents(l + k * 9, null);
 					}
 				}
 			}
@@ -880,7 +880,7 @@ public class GuiContainerCreative extends InventoryEffectRenderer {
 				Slot slot = (Slot) inventorySlots.get(p_82846_2_);
 
 				if (slot != null && slot.getHasStack()) {
-					slot.putStack((ItemStack) null);
+					slot.putStack(null);
 				}
 			}
 

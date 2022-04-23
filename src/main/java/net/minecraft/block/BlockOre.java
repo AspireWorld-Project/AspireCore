@@ -54,7 +54,7 @@ public class BlockOre extends Block {
 				p_149690_7_);
 	}
 
-	private Random rand = new Random();
+	private final Random rand = new Random();
 
 	@Override
 	public int getExpDrop(IBlockAccess p_149690_1_, int p_149690_5_, int p_149690_7_) {

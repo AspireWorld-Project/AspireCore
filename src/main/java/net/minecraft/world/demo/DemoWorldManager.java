@@ -38,7 +38,7 @@ public class DemoWorldManager extends ItemInWorldManager {
 
 		if (i % 24000L == 500L) {
 			if (j <= 6L) {
-				thisPlayerMP.addChatMessage(new ChatComponentTranslation("demo.day." + j, new Object[0]));
+				thisPlayerMP.addChatMessage(new ChatComponentTranslation("demo.day." + j));
 			}
 		} else if (j == 1L) {
 			if (i == 100L) {
@@ -49,13 +49,13 @@ public class DemoWorldManager extends ItemInWorldManager {
 				thisPlayerMP.playerNetServerHandler.sendPacket(new S2BPacketChangeGameState(5, 103.0F));
 			}
 		} else if (j == 5L && i % 24000L == 22000L) {
-			thisPlayerMP.addChatMessage(new ChatComponentTranslation("demo.day.warning", new Object[0]));
+			thisPlayerMP.addChatMessage(new ChatComponentTranslation("demo.day.warning"));
 		}
 	}
 
 	private void sendDemoReminder() {
 		if (field_73104_e > 100) {
-			thisPlayerMP.addChatMessage(new ChatComponentTranslation("demo.reminder", new Object[0]));
+			thisPlayerMP.addChatMessage(new ChatComponentTranslation("demo.reminder"));
 			field_73104_e = 0;
 		}
 	}
@@ -78,7 +78,7 @@ public class DemoWorldManager extends ItemInWorldManager {
 
 	@Override
 	public boolean tryHarvestBlock(int p_73084_1_, int p_73084_2_, int p_73084_3_) {
-		return demoTimeExpired ? false : super.tryHarvestBlock(p_73084_1_, p_73084_2_, p_73084_3_);
+		return !demoTimeExpired && super.tryHarvestBlock(p_73084_1_, p_73084_2_, p_73084_3_);
 	}
 
 	@Override

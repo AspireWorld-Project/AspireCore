@@ -231,10 +231,8 @@ public class BlockSnapshot implements Serializable {
 			return false;
 		if (world != other.world && (world == null || !world.equals(other.world)))
 			return false;
-		if (blockIdentifier != other.blockIdentifier
-				&& (blockIdentifier == null || !blockIdentifier.equals(other.blockIdentifier)))
-			return false;
-		return true;
+		return blockIdentifier == other.blockIdentifier
+				|| (blockIdentifier != null && blockIdentifier.equals(other.blockIdentifier));
 	}
 
 	@Override

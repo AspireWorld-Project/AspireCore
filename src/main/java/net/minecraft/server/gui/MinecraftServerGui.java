@@ -22,21 +22,20 @@ import java.util.concurrent.CountDownLatch;
 public class MinecraftServerGui extends JComponent {
 	private static final Font field_164249_a = new Font("Monospaced", 0, 12);
 	private static final Logger field_164248_b = LogManager.getLogger();
-	private DedicatedServer field_120021_b;
+	private final DedicatedServer field_120021_b;
 	private static final String __OBFID = "CL_00001789";
 
 	public static void createServerGui(final DedicatedServer p_120016_0_) {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception exception) {
-			;
 		}
 
 		MinecraftServerGui minecraftservergui = new MinecraftServerGui(p_120016_0_);
 		JFrame jframe = new JFrame("Minecraft server");
 		jframe.add(minecraftservergui);
 		jframe.pack();
-		jframe.setLocationRelativeTo((Component) null);
+		jframe.setLocationRelativeTo(null);
 		jframe.setVisible(true);
 		jframe.addWindowListener(new WindowAdapter() {
 			private static final String __OBFID = "CL_00001791";
@@ -68,7 +67,7 @@ public class MinecraftServerGui extends JComponent {
 			this.add(getLogComponent(), "Center");
 			this.add(getStatsComponent(), "West");
 		} catch (Exception exception) {
-			field_164248_b.error("Couldn\'t build server GUI", exception);
+			field_164248_b.error("Couldn't build server GUI", exception);
 		}
 	}
 
@@ -135,7 +134,7 @@ public class MinecraftServerGui extends JComponent {
 		return jpanel;
 	}
 
-	private CountDownLatch latch = new CountDownLatch(1);
+	private final CountDownLatch latch = new CountDownLatch(1);
 
 	public void func_164247_a(final JTextArea p_164247_1_, final JScrollPane p_164247_2_, final String p_164247_3_) {
 		try {
@@ -162,9 +161,8 @@ public class MinecraftServerGui extends JComponent {
 			}
 
 			try {
-				document.insertString(document.getLength(), p_164247_3_, (AttributeSet) null);
+				document.insertString(document.getLength(), p_164247_3_, null);
 			} catch (BadLocationException badlocationexception) {
-				;
 			}
 
 			if (flag) {

@@ -44,8 +44,8 @@ public class S32PacketConfirmTransaction extends Packet {
 
 	@Override
 	public String serialize() {
-		return String.format("id=%d, uid=%d, accepted=%b", new Object[] { Integer.valueOf(field_148894_a),
-				Short.valueOf(field_148892_b), Boolean.valueOf(field_148893_c) });
+		return String.format("id=%d, uid=%d, accepted=%b", Integer.valueOf(field_148894_a),
+				Short.valueOf(field_148892_b), Boolean.valueOf(field_148893_c));
 	}
 
 	@SideOnly(Side.CLIENT)

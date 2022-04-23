@@ -49,8 +49,8 @@ public class RealmsServerStatusPinger {
 								.valueOf(serverstatusresponse.func_151318_b().func_151333_b());
 					}
 
-					networkmanager.scheduleOutboundPacket(new C01PacketPing(Realms.currentTimeMillis()),
-							new GenericFutureListener[0]);
+					networkmanager.scheduleOutboundPacket(new C01PacketPing(Realms.currentTimeMillis())
+					);
 					field_154345_e = true;
 				}
 
@@ -63,7 +63,7 @@ public class RealmsServerStatusPinger {
 				public void onDisconnect(IChatComponent p_147231_1_) {
 					if (!field_154345_e) {
 						RealmsServerStatusPinger.LOGGER
-								.error("Can\'t ping " + p_pingServer_1_ + ": " + p_147231_1_.getUnformattedText());
+								.error("Can't ping " + p_pingServer_1_ + ": " + p_147231_1_.getUnformattedText());
 					}
 				}
 
@@ -82,9 +82,9 @@ public class RealmsServerStatusPinger {
 			try {
 				networkmanager.scheduleOutboundPacket(
 						new C00Handshake(RealmsSharedConstants.NETWORK_PROTOCOL_VERSION, realmsserveraddress.getHost(),
-								realmsserveraddress.getPort(), EnumConnectionState.STATUS),
-						new GenericFutureListener[0]);
-				networkmanager.scheduleOutboundPacket(new C00PacketServerQuery(), new GenericFutureListener[0]);
+								realmsserveraddress.getPort(), EnumConnectionState.STATUS)
+				);
+				networkmanager.scheduleOutboundPacket(new C00PacketServerQuery());
 			} catch (Throwable throwable) {
 				LOGGER.error(throwable);
 			}

@@ -136,7 +136,7 @@ public class SchedulingPattern {
 	private static final IValueParser DAY_OF_WEEK_VALUE_PARSER = new DayOfWeekValueParser();
 
 	/** The pattern as a string. */
-	private String asString;
+	private final String asString;
 
 	protected ArrayList<ValueMatcherCollection> valueMatchers = new ArrayList<>();
 
@@ -415,7 +415,7 @@ public class SchedulingPattern {
 	/**
 	 * Definition for a value parser.
 	 */
-	private static interface IValueParser {
+	private interface IValueParser {
 		/**
 		 * Attempts to parse a value.
 		 *
@@ -553,7 +553,7 @@ public class SchedulingPattern {
 		/**
 		 * Months aliases.
 		 */
-		private static String[] ALIASES = { "jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov",
+		private static final String[] ALIASES = { "jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov",
 				"dec" };
 
 		/**
@@ -582,7 +582,7 @@ public class SchedulingPattern {
 		/**
 		 * Days of week aliases.
 		 */
-		private static String[] ALIASES = { "sun", "mon", "tue", "wed", "thu", "fri", "sat" };
+		private static final String[] ALIASES = { "sun", "mon", "tue", "wed", "thu", "fri", "sat" };
 
 		/**
 		 * Builds the months value parser.

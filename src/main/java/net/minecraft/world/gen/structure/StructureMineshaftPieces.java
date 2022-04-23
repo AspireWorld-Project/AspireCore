@@ -558,7 +558,7 @@ public class StructureMineshaftPieces {
 	}
 
 	public static class Room extends StructureComponent {
-		private List roomsLinkedToTheRoom = new LinkedList();
+		private final List roomsLinkedToTheRoom = new LinkedList();
 		private static final String __OBFID = "CL_00000447";
 
 		public Room() {

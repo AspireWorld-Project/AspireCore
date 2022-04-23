@@ -436,34 +436,34 @@ public enum Material {
 	private boolean isForgeBlock = false;
 	// Cauldron end
 
-	private Material(final int id) {
+	Material(final int id) {
 		this(id, 64);
 	}
 
 	// Cauldron start - constructor used to set if the Material is a block or not
-	private Material(final int id, boolean flag) {
+	Material(final int id, boolean flag) {
 		this(id, 64);
 		isForgeBlock = flag;
 	}
 	// Cauldron end
 
-	private Material(final int id, final int stack) {
+	Material(final int id, final int stack) {
 		this(id, stack, MaterialData.class);
 	}
 
-	private Material(final int id, final int stack, final int durability) {
+	Material(final int id, final int stack, final int durability) {
 		this(id, stack, durability, MaterialData.class);
 	}
 
-	private Material(final int id, final Class<? extends MaterialData> data) {
+	Material(final int id, final Class<? extends MaterialData> data) {
 		this(id, 64, data);
 	}
 
-	private Material(final int id, final int stack, final Class<? extends MaterialData> data) {
+	Material(final int id, final int stack, final Class<? extends MaterialData> data) {
 		this(id, stack, 0, data);
 	}
 
-	private Material(final int id, final int stack, final int durability, final Class<? extends MaterialData> data) {
+	Material(final int id, final int stack, final int durability, final Class<? extends MaterialData> data) {
 		this.id = id;
 		this.durability = (short) durability;
 		maxStack = stack;
@@ -675,7 +675,7 @@ public enum Material {
 	}
 
 	public static Material addMaterial(int id, boolean isBlock) {
-		return addMaterial(id, "X" + String.valueOf(id), isBlock);
+		return addMaterial(id, "X" + id, isBlock);
 	}
 
 	public static Material addMaterial(int id, String name, boolean isBlock) {
@@ -685,7 +685,7 @@ public enum Material {
 					new Class[] { Integer.TYPE, Boolean.TYPE }, new Object[] { Integer.valueOf(id), isBlock });
 			byId[id] = material;
 			BY_NAME.put(materialName, material);
-			BY_NAME.put("X" + String.valueOf(id), material);
+			BY_NAME.put("X" + id, material);
 			return material;
 		}
 		return null;
@@ -716,16 +716,16 @@ public enum Material {
 			return;
 		try {
 			Method getReflectionFactory = Class.forName("sun.reflect.ReflectionFactory")
-					.getDeclaredMethod("getReflectionFactory", new Class[0]);
-			reflectionFactory = getReflectionFactory.invoke(null, new Object[0]);
+					.getDeclaredMethod("getReflectionFactory");
+			reflectionFactory = getReflectionFactory.invoke(null);
 			newConstructorAccessor = Class.forName("sun.reflect.ReflectionFactory")
-					.getDeclaredMethod("newConstructorAccessor", new Class[] { Constructor.class });
+					.getDeclaredMethod("newConstructorAccessor", Constructor.class);
 			newInstance = Class.forName("sun.reflect.ConstructorAccessor").getDeclaredMethod("newInstance",
-					new Class[] { Object[].class });
+					Object[].class);
 			newFieldAccessor = Class.forName("sun.reflect.ReflectionFactory").getDeclaredMethod("newFieldAccessor",
-					new Class[] { Field.class, Boolean.TYPE });
+					Field.class, Boolean.TYPE);
 			fieldAccessorSet = Class.forName("sun.reflect.FieldAccessor").getDeclaredMethod("set",
-					new Class[] { Object.class, Object.class });
+					Object.class, Object.class);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -744,7 +744,7 @@ public enum Material {
 		System.arraycopy(additionalParameterTypes, 0, parameterTypes, 2, additionalParameterTypes.length);
 
 		return newConstructorAccessor.invoke(reflectionFactory,
-				new Object[] { enumClass.getDeclaredConstructor(parameterTypes) });
+				enumClass.getDeclaredConstructor(parameterTypes));
 	}
 
 	private static <T extends Enum<?>> T makeEnum(Class<T> enumClass, String value, int ordinal,
@@ -766,8 +766,8 @@ public enum Material {
 		modifiersField.setAccessible(true);
 		modifiersField.setInt(field, field.getModifiers() & 0xFFFFFFEF);
 		Object fieldAccessor = newFieldAccessor.invoke(reflectionFactory,
-				new Object[] { field, Boolean.valueOf(false) });
-		fieldAccessorSet.invoke(fieldAccessor, new Object[] { target, value });
+				field, Boolean.valueOf(false));
+		fieldAccessorSet.invoke(fieldAccessor, target, value);
 	}
 
 	private static void blankField(Class<?> enumClass, String fieldName) throws Exception {
@@ -793,7 +793,7 @@ public enum Material {
 		Field valuesField = null;
 		Field[] fields = enumType.getDeclaredFields();
 		int flags = 4122;
-		String valueType = String.format("[L%s;", new Object[] { enumType.getName() });
+		String valueType = String.format("[L%s;", enumType.getName());
 
 		for (Field field : fields) {
 			if ((field.getModifiers() & flags) != flags || !field.getType().getName().equals(valueType)) {

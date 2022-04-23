@@ -135,8 +135,7 @@ public class BlockCake extends Block {
 
 	@Override
 	public boolean canPlaceBlockAt(World p_149742_1_, int p_149742_2_, int p_149742_3_, int p_149742_4_) {
-		return !super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_) ? false
-				: canBlockStay(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_);
+		return super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_) && canBlockStay(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_);
 	}
 
 	@Override

@@ -15,7 +15,7 @@ import org.bukkit.event.block.BlockRedstoneEvent;
 import java.util.Random;
 
 public abstract class BlockBasePressurePlate extends Block {
-	private String field_150067_a;
+	private final String field_150067_a;
 	private static final String __OBFID = "CL_00000194";
 
 	protected BlockBasePressurePlate(String p_i45387_1_, Material p_i45387_2_) {
@@ -78,14 +78,10 @@ public abstract class BlockBasePressurePlate extends Block {
 	@Override
 	public void onNeighborBlockChange(World p_149695_1_, int p_149695_2_, int p_149695_3_, int p_149695_4_,
 			Block p_149695_5_) {
-		boolean flag = false;
+		boolean flag = !World.doesBlockHaveSolidTopSurface(p_149695_1_, p_149695_2_, p_149695_3_ - 1, p_149695_4_)
+                && !BlockFence.func_149825_a(p_149695_1_.getBlock(p_149695_2_, p_149695_3_ - 1, p_149695_4_));
 
-		if (!World.doesBlockHaveSolidTopSurface(p_149695_1_, p_149695_2_, p_149695_3_ - 1, p_149695_4_)
-				&& !BlockFence.func_149825_a(p_149695_1_.getBlock(p_149695_2_, p_149695_3_ - 1, p_149695_4_))) {
-			flag = true;
-		}
-
-		if (flag) {
+        if (flag) {
 			this.dropBlockAsItem(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_,
 					p_149695_1_.getBlockMetadata(p_149695_2_, p_149695_3_, p_149695_4_), 0);
 			p_149695_1_.setBlockToAir(p_149695_2_, p_149695_3_, p_149695_4_);

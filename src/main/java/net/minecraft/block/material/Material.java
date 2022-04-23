@@ -103,7 +103,7 @@ public class Material {
 	}
 
 	public boolean isOpaque() {
-		return isTranslucent ? false : blocksMovement();
+		return !isTranslucent && blocksMovement();
 	}
 
 	public boolean isToolNotRequired() {

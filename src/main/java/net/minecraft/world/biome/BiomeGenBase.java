@@ -301,7 +301,7 @@ public abstract class BiomeGenBase {
 	}
 
 	public boolean canSpawnLightningBolt() {
-		return func_150559_j() ? false : enableRain;
+		return !func_150559_j() && enableRain;
 	}
 
 	public boolean isHighHumidity() {
@@ -437,8 +437,7 @@ public abstract class BiomeGenBase {
 	}
 
 	public boolean isEqualTo(BiomeGenBase p_150569_1_) {
-		return p_150569_1_ == this ? true
-				: p_150569_1_ == null ? false : getBiomeClass() == p_150569_1_.getBiomeClass();
+		return p_150569_1_ == this || p_150569_1_ != null && getBiomeClass() == p_150569_1_.getBiomeClass();
 	}
 
 	public BiomeGenBase.TempCategory getTempCategory() {
@@ -618,7 +617,7 @@ public abstract class BiomeGenBase {
 		}
 	}
 
-	public static enum TempCategory {
+	public enum TempCategory {
 		OCEAN, COLD, MEDIUM, WARM;
 
 		private static final String __OBFID = "CL_00000160";

@@ -33,10 +33,10 @@ public class ClassPatchManager {
 			.parseBoolean(System.getProperty("fml.dumpPatchedClasses", "false"));
 	public static final boolean DEBUG = Boolean.parseBoolean(System.getProperty("fml.debugClassPatchManager", "false"));
 
-	private GDiffPatcher patcher = new GDiffPatcher();
+	private final GDiffPatcher patcher = new GDiffPatcher();
 	private ListMultimap<String, ClassPatch> patches;
 
-	private Map<String, byte[]> patchedClasses = Maps.newHashMap();
+	private final Map<String, byte[]> patchedClasses = Maps.newHashMap();
 	private File tempDir;
 
 	private ClassPatchManager() {

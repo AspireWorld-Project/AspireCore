@@ -4,7 +4,7 @@ public class SyntaxErrorException extends CommandException {
 	private static final String __OBFID = "CL_00001189";
 
 	public SyntaxErrorException() {
-		this("commands.generic.snytax", new Object[0]);
+		this("commands.generic.snytax");
 	}
 
 	public SyntaxErrorException(String p_i1361_1_, Object... p_i1361_2_) {

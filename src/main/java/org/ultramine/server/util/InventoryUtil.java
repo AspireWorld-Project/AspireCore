@@ -72,7 +72,7 @@ public class InventoryUtil {
 				ret.add(leftover);
 			}
 		}
-		return ret == null ? Collections.<ItemStack>emptyList() : ret;
+		return ret == null ? Collections.emptyList() : ret;
 	}
 
 	public static ItemStack removeItem(IInventory inv, ItemStack is) {
@@ -116,7 +116,7 @@ public class InventoryUtil {
 				ret.add(leftover);
 			}
 		}
-		return ret == null ? Collections.<ItemStack>emptyList() : ret;
+		return ret == null ? Collections.emptyList() : ret;
 	}
 
 	public static void addItem(EntityPlayer player, ItemStack item) {

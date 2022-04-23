@@ -179,7 +179,7 @@ public class BlockTripWire extends Block {
 		int l = p_150140_1_.getBlockMetadata(p_150140_2_, p_150140_3_, p_150140_4_);
 		boolean flag = (l & 1) == 1;
 		boolean flag1 = false;
-		List list = p_150140_1_.getEntitiesWithinAABBExcludingEntity((Entity) null,
+		List list = p_150140_1_.getEntitiesWithinAABBExcludingEntity(null,
 				AxisAlignedBB.getBoundingBox(p_150140_2_ + minX, p_150140_3_ + minY, p_150140_4_ + minZ,
 						p_150140_2_ + maxX, p_150140_3_ + maxY, p_150140_4_ + maxZ));
 

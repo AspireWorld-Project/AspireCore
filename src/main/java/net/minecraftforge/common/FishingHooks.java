@@ -14,9 +14,9 @@ import java.util.Iterator;
 import java.util.Random;
 
 public class FishingHooks {
-	private static ArrayList<WeightedRandomFishable> fish = new ArrayList<>();
-	private static ArrayList<WeightedRandomFishable> junk = new ArrayList<>();
-	private static ArrayList<WeightedRandomFishable> treasure = new ArrayList<>();
+	private static final ArrayList<WeightedRandomFishable> fish = new ArrayList<>();
+	private static final ArrayList<WeightedRandomFishable> junk = new ArrayList<>();
+	private static final ArrayList<WeightedRandomFishable> treasure = new ArrayList<>();
 
 	public static void addFish(WeightedRandomFishable item) {
 		fish.add(item);
@@ -99,7 +99,7 @@ public class FishingHooks {
 		treasure.addAll(EntityFishHook.field_146041_e);
 	}
 
-	public static enum FishableCategory {
+	public enum FishableCategory {
 		JUNK(StatList.field_151183_A), TREASURE(StatList.field_151184_B), FISH(StatList.fishCaughtStat);
 
 		public final StatBase stat;

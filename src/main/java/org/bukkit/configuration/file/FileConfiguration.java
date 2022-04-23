@@ -10,6 +10,7 @@ import org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder;
 
 import java.io.*;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * This is a base class for all File based implementations of
@@ -48,7 +49,7 @@ public abstract class FileConfiguration extends MemoryConfiguration {
 		final Charset defaultCharset = Charset.defaultCharset();
 		final String resultString = new String(testBytes, defaultCharset);
 		final boolean trueUTF = defaultCharset.name().contains("UTF");
-		UTF8_OVERRIDE = !testString.equals(resultString) || defaultCharset.equals(Charset.forName("US-ASCII"));
+		UTF8_OVERRIDE = !testString.equals(resultString) || defaultCharset.equals(StandardCharsets.US_ASCII);
 		SYSTEM_UTF = trueUTF || UTF8_OVERRIDE;
 		UTF_BIG = trueUTF && UTF8_OVERRIDE;
 	}

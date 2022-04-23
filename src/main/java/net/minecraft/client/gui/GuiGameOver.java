@@ -12,7 +12,7 @@ import java.util.Iterator;
 @SideOnly(Side.CLIENT)
 public class GuiGameOver extends GuiScreen implements GuiYesNoCallback {
 	private int field_146347_a;
-	private boolean field_146346_f = false;
+	private final boolean field_146346_f = false;
 	private static final String __OBFID = "CL_00000690";
 
 	@Override
@@ -22,16 +22,16 @@ public class GuiGameOver extends GuiScreen implements GuiYesNoCallback {
 		if (mc.theWorld.getWorldInfo().isHardcoreModeEnabled()) {
 			if (mc.isIntegratedServerRunning()) {
 				buttonList.add(new GuiButton(1, width / 2 - 100, height / 4 + 96,
-						I18n.format("deathScreen.deleteWorld", new Object[0])));
+						I18n.format("deathScreen.deleteWorld")));
 			} else {
 				buttonList.add(new GuiButton(1, width / 2 - 100, height / 4 + 96,
-						I18n.format("deathScreen.leaveServer", new Object[0])));
+						I18n.format("deathScreen.leaveServer")));
 			}
 		} else {
 			buttonList.add(new GuiButton(0, width / 2 - 100, height / 4 + 72,
-					I18n.format("deathScreen.respawn", new Object[0])));
+					I18n.format("deathScreen.respawn")));
 			buttonList.add(new GuiButton(1, width / 2 - 100, height / 4 + 96,
-					I18n.format("deathScreen.titleScreen", new Object[0])));
+					I18n.format("deathScreen.titleScreen")));
 
 			if (mc.getSession() == null) {
 				((GuiButton) buttonList.get(1)).enabled = false;
@@ -54,12 +54,12 @@ public class GuiGameOver extends GuiScreen implements GuiYesNoCallback {
 		switch (p_146284_1_.id) {
 		case 0:
 			mc.thePlayer.respawnPlayer();
-			mc.displayGuiScreen((GuiScreen) null);
+			mc.displayGuiScreen(null);
 			break;
 		case 1:
-			GuiYesNo guiyesno = new GuiYesNo(this, I18n.format("deathScreen.quit.confirm", new Object[0]), "",
-					I18n.format("deathScreen.titleScreen", new Object[0]),
-					I18n.format("deathScreen.respawn", new Object[0]), 0);
+			GuiYesNo guiyesno = new GuiYesNo(this, I18n.format("deathScreen.quit.confirm"), "",
+					I18n.format("deathScreen.titleScreen"),
+					I18n.format("deathScreen.respawn"), 0);
 			mc.displayGuiScreen(guiyesno);
 			guiyesno.func_146350_a(20);
 		}
@@ -69,11 +69,11 @@ public class GuiGameOver extends GuiScreen implements GuiYesNoCallback {
 	public void confirmClicked(boolean p_73878_1_, int p_73878_2_) {
 		if (p_73878_1_) {
 			mc.theWorld.sendQuittingDisconnectingPacket();
-			mc.loadWorld((WorldClient) null);
+			mc.loadWorld(null);
 			mc.displayGuiScreen(new GuiMainMenu());
 		} else {
 			mc.thePlayer.respawnPlayer();
-			mc.displayGuiScreen((GuiScreen) null);
+			mc.displayGuiScreen(null);
 		}
 	}
 
@@ -83,17 +83,17 @@ public class GuiGameOver extends GuiScreen implements GuiYesNoCallback {
 		GL11.glPushMatrix();
 		GL11.glScalef(2.0F, 2.0F, 2.0F);
 		boolean flag = mc.theWorld.getWorldInfo().isHardcoreModeEnabled();
-		String s = flag ? I18n.format("deathScreen.title.hardcore", new Object[0])
-				: I18n.format("deathScreen.title", new Object[0]);
+		String s = flag ? I18n.format("deathScreen.title.hardcore")
+				: I18n.format("deathScreen.title");
 		drawCenteredString(fontRendererObj, s, width / 2 / 2, 30, 16777215);
 		GL11.glPopMatrix();
 
 		if (flag) {
-			drawCenteredString(fontRendererObj, I18n.format("deathScreen.hardcoreInfo", new Object[0]), width / 2, 144,
+			drawCenteredString(fontRendererObj, I18n.format("deathScreen.hardcoreInfo"), width / 2, 144,
 					16777215);
 		}
 
-		drawCenteredString(fontRendererObj, I18n.format("deathScreen.score", new Object[0]) + ": "
+		drawCenteredString(fontRendererObj, I18n.format("deathScreen.score") + ": "
 				+ EnumChatFormatting.YELLOW + mc.thePlayer.getScore(), width / 2, 100, 16777215);
 		super.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
 	}

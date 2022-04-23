@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class TileEntityDispenser extends TileEntity implements IInventory {
 	private ItemStack[] field_146022_i = new ItemStack[9];
-	private Random field_146021_j = new Random();
+	private final Random field_146021_j = new Random();
 	protected String field_146020_a;
 	private static final String __OBFID = "CL_00000352";
 
@@ -155,8 +155,7 @@ public class TileEntityDispenser extends TileEntity implements IInventory {
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer p_70300_1_) {
-		return worldObj.getTileEntity(xCoord, yCoord, zCoord) != this ? false
-				: p_70300_1_.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 64.0D;
+		return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this && p_70300_1_.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 64.0D;
 	}
 
 	@Override

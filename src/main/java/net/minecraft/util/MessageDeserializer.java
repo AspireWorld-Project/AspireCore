@@ -51,8 +51,8 @@ public class MessageDeserializer extends ByteToMessageDecoder {
 
 					if (logger.isDebugEnabled()) {
 						logger.debug(field_150799_b, " IN: [{}:{}] {}[{}]",
-								new Object[] { p_decode_1_.channel().attr(NetworkManager.attrKeyConnectionState).get(),
-										Integer.valueOf(j), packet.getClass().getName(), packet.serialize() });
+                                p_decode_1_.channel().attr(NetworkManager.attrKeyConnectionState).get(),
+                                Integer.valueOf(j), packet.getClass().getName(), packet.serialize());
 					}
 				}
 			}

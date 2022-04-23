@@ -19,8 +19,8 @@ import net.minecraft.client.resources.I18n;
 import java.io.File;
 
 public class GuiBackupFailed extends GuiScreen {
-	private GuiScreen parent;
-	private File zipName;
+	private final GuiScreen parent;
+	private final File zipName;
 
 	public GuiBackupFailed(GuiScreen parent, File zipName) {
 		this.parent = parent;

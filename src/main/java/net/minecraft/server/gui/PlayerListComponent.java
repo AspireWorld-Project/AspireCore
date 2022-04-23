@@ -10,7 +10,7 @@ import java.util.Vector;
 
 @SideOnly(Side.SERVER)
 public class PlayerListComponent extends JList implements IUpdatePlayerListBox {
-	private MinecraftServer field_120015_a;
+	private final MinecraftServer field_120015_a;
 	private int field_120014_b;
 	private static final String __OBFID = "CL_00001795";
 

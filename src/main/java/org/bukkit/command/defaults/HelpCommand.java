@@ -22,7 +22,7 @@ public class HelpCommand extends VanillaCommand {
 		super("help");
 		description = "Shows the help menu";
 		usageMessage = "/help <pageNumber>\n/help <topic>\n/help <topic> <pageNumber>";
-		setAliases(Arrays.asList(new String[] { "?" }));
+		setAliases(Arrays.asList("?"));
 		setPermission("bukkit.command.help");
 	}
 

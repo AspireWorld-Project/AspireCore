@@ -128,7 +128,7 @@ public class BlockTrapDoor extends Block {
 
 		if (flag1 != p_150120_5_) {
 			p_150120_1_.setBlockMetadataWithNotify(p_150120_2_, p_150120_3_, p_150120_4_, l ^ 4, 2);
-			p_150120_1_.playAuxSFXAtEntity((EntityPlayer) null, 1003, p_150120_2_, p_150120_3_, p_150120_4_, 0);
+			p_150120_1_.playAuxSFXAtEntity(null, 1003, p_150120_2_, p_150120_3_, p_150120_4_, 0);
 		}
 	}
 

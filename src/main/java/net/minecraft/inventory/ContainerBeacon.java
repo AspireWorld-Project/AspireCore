@@ -8,11 +8,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityBeacon;
 
 public class ContainerBeacon extends Container {
-	private TileEntityBeacon tileBeacon;
+	private final TileEntityBeacon tileBeacon;
 	private final ContainerBeacon.BeaconSlot beaconSlot;
-	private int field_82865_g;
-	private int field_82867_h;
-	private int field_82868_i;
+	private final int field_82865_g;
+	private final int field_82867_h;
+	private final int field_82868_i;
 	private static final String __OBFID = "CL_00001735";
 
 	public ContainerBeacon(InventoryPlayer p_i1802_1_, TileEntityBeacon p_i1802_2_) {
@@ -97,7 +97,7 @@ public class ContainerBeacon extends Container {
 				return null;
 
 			if (itemstack1.stackSize == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(null);
 			} else {
 				slot.onSlotChanged();
 			}

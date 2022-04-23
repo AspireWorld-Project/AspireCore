@@ -59,13 +59,13 @@ public class CommandBanIp extends CommandBase {
 						.func_152612_a(p_71515_2_[0]);
 
 				if (entityplayermp == null)
-					throw new PlayerNotFoundException("commands.banip.invalid", new Object[0]);
+					throw new PlayerNotFoundException("commands.banip.invalid");
 
 				func_147210_a(p_71515_1_, entityplayermp.getPlayerIP(),
 						ichatcomponent == null ? null : ichatcomponent.getUnformattedText());
 			}
 		} else
-			throw new WrongUsageException("commands.banip.usage", new Object[0]);
+			throw new WrongUsageException("commands.banip.usage");
 	}
 
 	@Override
@@ -76,8 +76,8 @@ public class CommandBanIp extends CommandBase {
 	}
 
 	protected void func_147210_a(ICommandSender p_147210_1_, String p_147210_2_, String p_147210_3_) {
-		IPBanEntry ipbanentry = new IPBanEntry(p_147210_2_, (Date) null, p_147210_1_.getCommandSenderName(),
-				(Date) null, p_147210_3_);
+		IPBanEntry ipbanentry = new IPBanEntry(p_147210_2_, null, p_147210_1_.getCommandSenderName(),
+				null, p_147210_3_);
 		MinecraftServer.getServer().getConfigurationManager().getBannedIPs().func_152687_a(ipbanentry);
 		List list = MinecraftServer.getServer().getConfigurationManager().getPlayerList(p_147210_2_);
 		String[] astring = new String[list.size()];
@@ -91,10 +91,10 @@ public class CommandBanIp extends CommandBase {
 		}
 
 		if (list.isEmpty()) {
-			func_152373_a(p_147210_1_, this, "commands.banip.success", new Object[] { p_147210_2_ });
+			func_152373_a(p_147210_1_, this, "commands.banip.success", p_147210_2_);
 		} else {
 			func_152373_a(p_147210_1_, this, "commands.banip.success.players",
-					new Object[] { p_147210_2_, joinNiceString(astring) });
+					p_147210_2_, joinNiceString(astring));
 		}
 	}
 }

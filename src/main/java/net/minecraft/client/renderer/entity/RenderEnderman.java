@@ -22,8 +22,8 @@ public class RenderEnderman extends RenderLiving {
 			"textures/entity/enderman/enderman_eyes.png");
 	private static final ResourceLocation endermanTextures = new ResourceLocation(
 			"textures/entity/enderman/enderman.png");
-	private ModelEnderman endermanModel;
-	private Random rnd = new Random();
+	private final ModelEnderman endermanModel;
+	private final Random rnd = new Random();
 	private static final String __OBFID = "CL_00000989";
 
 	public RenderEnderman() {
@@ -85,11 +85,7 @@ public class RenderEnderman extends RenderLiving {
 			GL11.glBlendFunc(GL11.GL_ONE, GL11.GL_ONE);
 			GL11.glDisable(GL11.GL_LIGHTING);
 
-			if (p_77032_1_.isInvisible()) {
-				GL11.glDepthMask(false);
-			} else {
-				GL11.glDepthMask(true);
-			}
+			GL11.glDepthMask(!p_77032_1_.isInvisible());
 
 			char c0 = 61680;
 			int j = c0 % 65536;

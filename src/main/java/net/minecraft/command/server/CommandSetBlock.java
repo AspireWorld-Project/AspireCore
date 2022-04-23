@@ -52,7 +52,7 @@ public class CommandSetBlock extends CommandBase {
 			World world = p_71515_1_.getEntityWorld();
 
 			if (!world.blockExists(i, j, k))
-				throw new CommandException("commands.setblock.outOfWorld", new Object[0]);
+				throw new CommandException("commands.setblock.outOfWorld");
 			else {
 				NBTTagCompound nbttagcompound = new NBTTagCompound();
 				boolean flag = false;
@@ -65,13 +65,13 @@ public class CommandSetBlock extends CommandBase {
 
 						if (!(nbtbase instanceof NBTTagCompound))
 							throw new CommandException("commands.setblock.tagError",
-									new Object[] { "Not a valid tag" });
+									"Not a valid tag");
 
 						nbttagcompound = (NBTTagCompound) nbtbase;
 						flag = true;
 					} catch (NBTException nbtexception) {
 						throw new CommandException("commands.setblock.tagError",
-								new Object[] { nbtexception.getMessage() });
+								nbtexception.getMessage());
 					}
 				}
 
@@ -79,11 +79,11 @@ public class CommandSetBlock extends CommandBase {
 					if (p_71515_2_[5].equals("destroy")) {
 						world.func_147480_a(i, j, k, true);
 					} else if (p_71515_2_[5].equals("keep") && !world.isAirBlock(i, j, k))
-						throw new CommandException("commands.setblock.noChange", new Object[0]);
+						throw new CommandException("commands.setblock.noChange");
 				}
 
 				if (!world.setBlock(i, j, k, block, l, 3))
-					throw new CommandException("commands.setblock.noChange", new Object[0]);
+					throw new CommandException("commands.setblock.noChange");
 				else {
 					if (flag) {
 						TileEntity tileentity = world.getTileEntity(i, j, k);
@@ -96,11 +96,11 @@ public class CommandSetBlock extends CommandBase {
 						}
 					}
 
-					func_152373_a(p_71515_1_, this, "commands.setblock.success", new Object[0]);
+					func_152373_a(p_71515_1_, this, "commands.setblock.success");
 				}
 			}
 		} else
-			throw new WrongUsageException("commands.setblock.usage", new Object[0]);
+			throw new WrongUsageException("commands.setblock.usage");
 	}
 
 	@Override
@@ -108,7 +108,7 @@ public class CommandSetBlock extends CommandBase {
 		return p_71516_2_.length == 4
 				? getListOfStringsFromIterableMatchingLastWord(p_71516_2_, Block.blockRegistry.getKeys())
 				: p_71516_2_.length == 6
-						? getListOfStringsMatchingLastWord(p_71516_2_, new String[] { "replace", "destroy", "keep" })
+						? getListOfStringsMatchingLastWord(p_71516_2_, "replace", "destroy", "keep")
 						: null;
 	}
 }

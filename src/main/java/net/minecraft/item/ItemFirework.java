@@ -54,7 +54,7 @@ public class ItemFirework extends Item {
 
 						if (arraylist.size() > 0) {
 							for (int j = 1; j < arraylist.size(); ++j) {
-								arraylist.set(j, "  " + (String) arraylist.get(j));
+								arraylist.set(j, "  " + arraylist.get(j));
 							}
 
 							p_77624_3_.addAll(arraylist);

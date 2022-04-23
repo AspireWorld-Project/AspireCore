@@ -32,7 +32,7 @@ public class FMLMissingMappingsEvent extends FMLEvent {
 	 * @author cpw
 	 *
 	 */
-	public static enum Action {
+	public enum Action {
 		/**
 		 * Take the default action
 		 */
@@ -166,7 +166,7 @@ public class FMLMissingMappingsEvent extends FMLEvent {
 		}
 	}
 
-	private ListMultimap<String, MissingMapping> missing;
+	private final ListMultimap<String, MissingMapping> missing;
 	private ModContainer activeContainer;
 
 	public FMLMissingMappingsEvent(ListMultimap<String, MissingMapping> missingMappings) {

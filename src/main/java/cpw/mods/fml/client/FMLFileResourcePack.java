@@ -15,7 +15,7 @@ import java.io.InputStream;
 
 public class FMLFileResourcePack extends FileResourcePack implements FMLContainerHolder {
 
-	private ModContainer container;
+	private final ModContainer container;
 
 	public FMLFileResourcePack(ModContainer container) {
 		super(container.getSource());

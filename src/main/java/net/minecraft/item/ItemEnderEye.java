@@ -146,7 +146,7 @@ public class ItemEnderEye extends Item {
 					p_77659_2_.spawnEntityInWorld(entityendereye);
 					p_77659_2_.playSoundAtEntity(p_77659_3_, "random.bow", 0.5F,
 							0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
-					p_77659_2_.playAuxSFXAtEntity((EntityPlayer) null, 1002, (int) p_77659_3_.posX,
+					p_77659_2_.playAuxSFXAtEntity(null, 1002, (int) p_77659_3_.posX,
 							(int) p_77659_3_.posY, (int) p_77659_3_.posZ, 0);
 
 					if (!p_77659_3_.capabilities.isCreativeMode) {

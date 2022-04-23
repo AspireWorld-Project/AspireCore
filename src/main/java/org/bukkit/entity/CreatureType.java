@@ -31,9 +31,9 @@ public enum CreatureType {
 																					97), VILLAGER("Villager",
 																							Villager.class, 120);
 
-	private String name;
-	private Class<? extends Entity> clazz;
-	private short typeId;
+	private final String name;
+	private final Class<? extends Entity> clazz;
+	private final short typeId;
 
 	private static final Map<String, CreatureType> NAME_MAP = new HashMap<>();
 	private static final Map<Short, CreatureType> ID_MAP = new HashMap<>();
@@ -47,7 +47,7 @@ public enum CreatureType {
 		}
 	}
 
-	private CreatureType(String name, Class<? extends Entity> clazz, int typeId) {
+	CreatureType(String name, Class<? extends Entity> clazz, int typeId) {
 		this.name = name;
 		this.clazz = clazz;
 		this.typeId = (short) typeId;

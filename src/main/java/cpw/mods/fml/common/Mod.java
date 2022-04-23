@@ -223,7 +223,7 @@ public @interface Mod {
 	 */
 	@Retention(RetentionPolicy.RUNTIME)
 	@Target({})
-	public @interface CustomProperty {
+    @interface CustomProperty {
 		/**
 		 * A key. Should be unique.
 		 *
@@ -291,7 +291,7 @@ public @interface Mod {
 	 */
 	@Retention(RetentionPolicy.RUNTIME)
 	@Target(ElementType.METHOD)
-	public @interface EventHandler {
+    @interface EventHandler {
 	}
 
 	/**
@@ -303,7 +303,7 @@ public @interface Mod {
 	 */
 	@Retention(RetentionPolicy.RUNTIME)
 	@Target(ElementType.FIELD)
-	public @interface Instance {
+    @interface Instance {
 		/**
 		 * The mod object to inject into this field
 		 */
@@ -318,7 +318,7 @@ public @interface Mod {
 	 */
 	@Retention(RetentionPolicy.RUNTIME)
 	@Target(ElementType.FIELD)
-	public @interface Metadata {
+    @interface Metadata {
 		/**
 		 * The mod id specifying the metadata to load here
 		 */
@@ -334,6 +334,6 @@ public @interface Mod {
 	 */
 	@Retention(RetentionPolicy.RUNTIME)
 	@Target(ElementType.METHOD)
-	public @interface InstanceFactory {
+    @interface InstanceFactory {
 	}
 }

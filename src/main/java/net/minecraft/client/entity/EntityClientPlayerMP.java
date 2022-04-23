@@ -181,7 +181,7 @@ public class EntityClientPlayerMP extends EntityPlayerSP {
 	}
 
 	public void closeScreenNoPacket() {
-		inventory.setItemStack((ItemStack) null);
+		inventory.setItemStack(null);
 		super.closeScreen();
 	}
 

@@ -21,7 +21,7 @@ import java.util.Map.Entry;
 
 public class GuiDupesFound extends GuiErrorScreen {
 
-	private DuplicateModsFoundException dupes;
+	private final DuplicateModsFoundException dupes;
 
 	public GuiDupesFound(DuplicateModsFoundException dupes) {
 		super(null, null);

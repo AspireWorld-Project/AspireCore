@@ -15,7 +15,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class BlockPumpkin extends BlockDirectional {
-	private boolean field_149985_a;
+	private final boolean field_149985_a;
 	@SideOnly(Side.CLIENT)
 	private IIcon field_149984_b;
 	@SideOnly(Side.CLIENT)

@@ -43,7 +43,7 @@ public class ResourcePackRepository {
 	private IResourcePack field_148532_f;
 	private boolean field_148533_g;
 	private List repositoryEntriesAll = Lists.newArrayList();
-	private List repositoryEntries = Lists.newArrayList();
+	private final List repositoryEntries = Lists.newArrayList();
 	private static final String __OBFID = "CL_00001087";
 
 	public ResourcePackRepository(File p_i45101_1_, File p_i45101_2_, IResourcePack p_i45101_3_,
@@ -201,7 +201,6 @@ public class ResourcePackRepository {
 			try {
 				texturePackIcon = reResourcePack.getPackImage();
 			} catch (IOException ioexception) {
-				;
 			}
 
 			if (texturePackIcon == null) {
@@ -236,15 +235,13 @@ public class ResourcePackRepository {
 
 		public String getTexturePackDescription() {
 			return rePackMetadataSection == null
-					? EnumChatFormatting.RED + "Invalid pack.mcmeta (or missing \'pack\' section)"
+					? EnumChatFormatting.RED + "Invalid pack.mcmeta (or missing 'pack' section)"
 					: rePackMetadataSection.func_152805_a().getFormattedText();
 		}
 
 		@Override
 		public boolean equals(Object p_equals_1_) {
-			return this == p_equals_1_ ? true
-					: p_equals_1_ instanceof ResourcePackRepository.Entry ? toString().equals(p_equals_1_.toString())
-							: false;
+			return this == p_equals_1_ || p_equals_1_ instanceof Entry && toString().equals(p_equals_1_.toString());
 		}
 
 		@Override
@@ -254,8 +251,8 @@ public class ResourcePackRepository {
 
 		@Override
 		public String toString() {
-			return String.format("%s:%s:%d", new Object[] { resourcePackFile.getName(),
-					resourcePackFile.isDirectory() ? "folder" : "zip", Long.valueOf(resourcePackFile.lastModified()) });
+			return String.format("%s:%s:%d", resourcePackFile.getName(),
+					resourcePackFile.isDirectory() ? "folder" : "zip", Long.valueOf(resourcePackFile.lastModified()));
 		}
 
 		Entry(File p_i1296_2_, Object p_i1296_3_) {

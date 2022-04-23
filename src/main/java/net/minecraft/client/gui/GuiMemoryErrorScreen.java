@@ -12,9 +12,9 @@ public class GuiMemoryErrorScreen extends GuiScreen {
 	public void initGui() {
 		buttonList.clear();
 		buttonList.add(new GuiOptionButton(0, width / 2 - 155, height / 4 + 120 + 12,
-				I18n.format("gui.toMenu", new Object[0])));
+				I18n.format("gui.toMenu")));
 		buttonList.add(new GuiOptionButton(1, width / 2 - 155 + 160, height / 4 + 120 + 12,
-				I18n.format("menu.quit", new Object[0])));
+				I18n.format("menu.quit")));
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class GuiMemoryErrorScreen extends GuiScreen {
 		drawString(fontRendererObj, "memory.", width / 2 - 140, height / 4 - 60 + 60 + 36, 10526880);
 		drawString(fontRendererObj, "To prevent level corruption, the current game has quit.", width / 2 - 140,
 				height / 4 - 60 + 60 + 54, 10526880);
-		drawString(fontRendererObj, "We\'ve tried to free up enough memory to let you go back to", width / 2 - 140,
+		drawString(fontRendererObj, "We've tried to free up enough memory to let you go back to", width / 2 - 140,
 				height / 4 - 60 + 60 + 63, 10526880);
 		drawString(fontRendererObj, "the main menu and back to playing, but this may not have worked.", width / 2 - 140,
 				height / 4 - 60 + 60 + 72, 10526880);

@@ -106,7 +106,7 @@ public class Loader {
 	/**
 	 * The class loader we load the mods into.
 	 */
-	private ModClassLoader modClassLoader;
+	private final ModClassLoader modClassLoader;
 	/**
 	 * The sorted list of mods.
 	 */
@@ -125,8 +125,8 @@ public class Loader {
 	private File canonicalConfigDir;
 	private File canonicalModsDir;
 	private LoadController modController;
-	private MinecraftDummyContainer minecraft;
-	private MCPDummyContainer mcp;
+	private final MinecraftDummyContainer minecraft;
+	private final MCPDummyContainer mcp;
 
 	private static File minecraftDir;
 	private static List<String> injectedContainers;
@@ -224,7 +224,7 @@ public class Loader {
 
 			FMLLog.finer("All mod requirements are satisfied");
 
-			reverseDependencies = Multimaps.invertFrom(reqList, ArrayListMultimap.<String, String>create());
+			reverseDependencies = Multimaps.invertFrom(reqList, ArrayListMultimap.create());
 			ModSorter sorter = new ModSorter(getActiveModList(), namedMods);
 
 			try {
@@ -398,7 +398,7 @@ public class Loader {
 	}
 
 	public List<ModContainer> getModList() {
-		return instance().mods != null ? ImmutableList.copyOf(instance().mods) : ImmutableList.<ModContainer>of();
+		return instance().mods != null ? ImmutableList.copyOf(instance().mods) : ImmutableList.of();
 	}
 
 	/**
@@ -488,7 +488,7 @@ public class Loader {
 
 	private void disableRequestedMods() {
 		String forcedModList = System.getProperty("fml.modStates", "");
-		FMLLog.finer("Received a system property request \'%s\'", forcedModList);
+		FMLLog.finer("Received a system property request '%s'", forcedModList);
 		Map<String, String> sysPropertyStateList = Splitter.on(CharMatcher.anyOf(";:")).omitEmptyStrings().trimResults()
 				.withKeyValueSeparator("=").split(forcedModList);
 		FMLLog.finer("System property request managing the state of %d mods", sysPropertyStateList.size());
@@ -658,7 +658,7 @@ public class Loader {
 	}
 
 	public List<ModContainer> getActiveModList() {
-		return modController != null ? modController.getActiveModList() : ImmutableList.<ModContainer>of();
+		return modController != null ? modController.getActiveModList() : ImmutableList.of();
 	}
 
 	public ModState getModState(ModContainer selectedMod) {
@@ -711,7 +711,7 @@ public class Loader {
 	}
 
 	public boolean hasReachedState(LoaderState state) {
-		return modController != null ? modController.hasReachedState(state) : false;
+		return modController != null && modController.hasReachedState(state);
 	}
 
 	public String getMCPVersionString() {
@@ -873,8 +873,8 @@ public class Loader {
 		progressBar = null;
 	}
 
-	private ListMultimap<String, ArtifactVersion> injectedBefore = ArrayListMultimap.create();
-	private ListMultimap<String, ArtifactVersion> injectedAfter = ArrayListMultimap.create();
+	private final ListMultimap<String, ArtifactVersion> injectedBefore = ArrayListMultimap.create();
+	private final ListMultimap<String, ArtifactVersion> injectedAfter = ArrayListMultimap.create();
 
 	private void readInjectedDependencies() {
 		File injectedDepFile = new File(getConfigDir(), "injectedDependencies.json");

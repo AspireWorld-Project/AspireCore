@@ -25,7 +25,7 @@ public class HandlerList {
 	/**
 	 * List of all HandlerLists which have been created, for use in bakeAll()
 	 */
-	private static ArrayList<HandlerList> allLists = new ArrayList<>();
+	private static final ArrayList<HandlerList> allLists = new ArrayList<>();
 
 	/**
 	 * Bake all handler lists. Best used just after all normal event registration is

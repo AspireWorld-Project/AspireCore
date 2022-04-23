@@ -28,8 +28,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class EntityFishHook extends Entity {
-	public static final List field_146039_d = Arrays.asList(new WeightedRandomFishable[] {
-			new WeightedRandomFishable(new ItemStack(Items.leather_boots), 10).func_150709_a(0.9F),
+	public static final List field_146039_d = Arrays.asList(new WeightedRandomFishable(new ItemStack(Items.leather_boots), 10).func_150709_a(0.9F),
 			new WeightedRandomFishable(new ItemStack(Items.leather), 10),
 			new WeightedRandomFishable(new ItemStack(Items.bone), 10),
 			new WeightedRandomFishable(new ItemStack(Items.potionitem), 10),
@@ -39,22 +38,21 @@ public class EntityFishHook extends Entity {
 			new WeightedRandomFishable(new ItemStack(Items.stick), 5),
 			new WeightedRandomFishable(new ItemStack(Items.dye, 10, 0), 1),
 			new WeightedRandomFishable(new ItemStack(Blocks.tripwire_hook), 10),
-			new WeightedRandomFishable(new ItemStack(Items.rotten_flesh), 10) });
+			new WeightedRandomFishable(new ItemStack(Items.rotten_flesh), 10));
 	public static final List field_146041_e = Arrays
-			.asList(new WeightedRandomFishable[] { new WeightedRandomFishable(new ItemStack(Blocks.waterlily), 1),
+			.asList(new WeightedRandomFishable(new ItemStack(Blocks.waterlily), 1),
 					new WeightedRandomFishable(new ItemStack(Items.name_tag), 1),
 					new WeightedRandomFishable(new ItemStack(Items.saddle), 1),
 					new WeightedRandomFishable(new ItemStack(Items.bow), 1).func_150709_a(0.25F).func_150707_a(),
 					new WeightedRandomFishable(new ItemStack(Items.fishing_rod), 1).func_150709_a(0.25F)
 							.func_150707_a(),
-					new WeightedRandomFishable(new ItemStack(Items.book), 1).func_150707_a() });
-	public static final List field_146036_f = Arrays.asList(new WeightedRandomFishable[] {
-			new WeightedRandomFishable(new ItemStack(Items.fish, 1, ItemFishFood.FishType.COD.func_150976_a()), 60),
+					new WeightedRandomFishable(new ItemStack(Items.book), 1).func_150707_a());
+	public static final List field_146036_f = Arrays.asList(new WeightedRandomFishable(new ItemStack(Items.fish, 1, ItemFishFood.FishType.COD.func_150976_a()), 60),
 			new WeightedRandomFishable(new ItemStack(Items.fish, 1, ItemFishFood.FishType.SALMON.func_150976_a()), 25),
 			new WeightedRandomFishable(new ItemStack(Items.fish, 1, ItemFishFood.FishType.CLOWNFISH.func_150976_a()),
 					2),
 			new WeightedRandomFishable(new ItemStack(Items.fish, 1, ItemFishFood.FishType.PUFFERFISH.func_150976_a()),
-					13) });
+					13));
 	private int field_146037_g;
 	private int field_146048_h;
 	private int field_146050_i;
@@ -309,7 +307,6 @@ public class EntityFishHook extends Entity {
 
 				for (rotationPitch = (float) (Math.atan2(motionY, f5) * 180.0D / Math.PI); rotationPitch
 						- prevRotationPitch < -180.0F; prevRotationPitch -= 360.0F) {
-					;
 				}
 
 				while (rotationPitch - prevRotationPitch >= 180.0F) {

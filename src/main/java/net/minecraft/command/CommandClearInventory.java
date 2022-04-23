@@ -33,7 +33,7 @@ public class CommandClearInventory extends CommandBase {
 
 		if (p_71515_2_.length >= 2 && item == null)
 			throw new CommandException("commands.clear.failure",
-					new Object[] { entityplayermp.getCommandSenderName() });
+					entityplayermp.getCommandSenderName());
 		else {
 			int j = entityplayermp.inventory.clearInventory(item, i);
 			entityplayermp.inventoryContainer.detectAndSendChanges();
@@ -44,10 +44,10 @@ public class CommandClearInventory extends CommandBase {
 
 			if (j == 0)
 				throw new CommandException("commands.clear.failure",
-						new Object[] { entityplayermp.getCommandSenderName() });
+						entityplayermp.getCommandSenderName());
 			else {
 				func_152373_a(p_71515_1_, this, "commands.clear.success",
-						new Object[] { entityplayermp.getCommandSenderName(), Integer.valueOf(j) });
+						entityplayermp.getCommandSenderName(), Integer.valueOf(j));
 			}
 		}
 	}

@@ -40,11 +40,11 @@ public enum LoaderState {
 																							"Mod Loading errored",
 																							null);
 
-	private Class<? extends FMLStateEvent> eventClass;
+	private final Class<? extends FMLStateEvent> eventClass;
 	@SuppressWarnings("unused")
-	private String name;
+	private final String name;
 
-	private LoaderState(String name, Class<? extends FMLStateEvent> event) {
+	LoaderState(String name, Class<? extends FMLStateEvent> event) {
 		this.name = name;
 		eventClass = event;
 	}
@@ -81,10 +81,10 @@ public enum LoaderState {
 				"Pre-initialized", "H"), INITIALIZED("Initialized", "I"), POSTINITIALIZED("Post-initialized",
 						"J"), AVAILABLE("Available", "A"), DISABLED("Disabled", "D"), ERRORED("Errored", "E");
 
-		private String label;
-		private String marker;
+		private final String label;
+		private final String marker;
 
-		private ModState(String label, String marker) {
+		ModState(String label, String marker) {
 			this.label = label;
 			this.marker = marker;
 		}

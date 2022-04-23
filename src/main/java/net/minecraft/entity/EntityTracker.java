@@ -29,9 +29,9 @@ import java.util.concurrent.Callable;
 public class EntityTracker {
 	private static final Logger logger = LogManager.getLogger();
 	private final WorldServer theWorld;
-	private Set trackedEntities = new HashSet();
-	private IntHashMap trackedEntityIDs = new IntHashMap();
-	private int entityViewDistance;
+	private final Set trackedEntities = new HashSet();
+	private final IntHashMap trackedEntityIDs = new IntHashMap();
+	private final int entityViewDistance;
 	private static final String __OBFID = "CL_00001431";
 
 	public EntityTracker(WorldServer p_i1516_1_) {

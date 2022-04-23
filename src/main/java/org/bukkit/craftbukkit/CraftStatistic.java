@@ -24,8 +24,8 @@ public class CraftStatistic {
 				.put("achievement.theEnd", Achievement.END_PORTAL).put("achievement.theEnd2", Achievement.THE_END)
 				.put("achievement.blazeRod", Achievement.GET_BLAZE_ROD)
 				.put("achievement.potion", Achievement.BREW_POTION).build();
-		ImmutableBiMap.Builder<String, org.bukkit.Statistic> statisticBuilder = ImmutableBiMap.<String, org.bukkit.Statistic>builder();
-		ImmutableBiMap.Builder<String, org.bukkit.Achievement> achievementBuilder = ImmutableBiMap.<String, org.bukkit.Achievement>builder();
+		ImmutableBiMap.Builder<String, org.bukkit.Statistic> statisticBuilder = ImmutableBiMap.builder();
+		ImmutableBiMap.Builder<String, org.bukkit.Achievement> achievementBuilder = ImmutableBiMap.builder();
 		for (Statistic statistic : Statistic.values()) {
 			if (statistic == Statistic.PLAY_ONE_TICK) {
 				statisticBuilder.put("stat.playOneMinute", statistic);
@@ -35,7 +35,7 @@ public class CraftStatistic {
 			}
 		}
 		for (Achievement achievement : Achievement.values()) {
-			if (specialCases.values().contains(achievement)) {
+			if (specialCases.containsValue(achievement)) {
 				continue;
 			}
 			achievementBuilder.put(

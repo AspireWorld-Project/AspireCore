@@ -140,7 +140,7 @@ public class InventoryPlayer implements IInventory {
 				return j;
 
 			j += itemStack.stackSize;
-			setItemStack((ItemStack) null);
+			setItemStack(null);
 		}
 
 		return j;
@@ -157,7 +157,6 @@ public class InventoryPlayer implements IInventory {
 		}
 
 		for (currentItem -= p_70453_1_; currentItem < 0; currentItem += 9) {
-			;
 		}
 
 		while (currentItem >= 9) {
@@ -476,7 +475,7 @@ public class InventoryPlayer implements IInventory {
 			return true;
 		else {
 			ItemStack itemstack = getStackInSlot(currentItem);
-			return itemstack != null ? itemstack.func_150998_b(p_146025_1_) : false;
+			return itemstack != null && itemstack.func_150998_b(p_146025_1_);
 		}
 	}
 
@@ -548,7 +547,7 @@ public class InventoryPlayer implements IInventory {
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer p_70300_1_) {
-		return player.isDead ? false : p_70300_1_.getDistanceSqToEntity(player) <= 64.0D;
+		return !player.isDead && p_70300_1_.getDistanceSqToEntity(player) <= 64.0D;
 	}
 
 	public boolean hasItemStack(ItemStack p_70431_1_) {

@@ -31,7 +31,7 @@ public class Locale {
 
 		while (iterator.hasNext()) {
 			String s = (String) iterator.next();
-			String s1 = String.format("lang/%s.lang", new Object[] { s });
+			String s1 = String.format("lang/%s.lang", s);
 			Iterator iterator1 = p_135022_1_.getResourceDomains().iterator();
 
 			while (iterator1.hasNext()) {
@@ -40,7 +40,6 @@ public class Locale {
 				try {
 					this.loadLocaleData(p_135022_1_.getAllResources(new ResourceLocation(s2, s1)));
 				} catch (IOException ioexception) {
-					;
 				}
 			}
 		}

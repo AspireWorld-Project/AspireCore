@@ -568,7 +568,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, INpc {
 	@Override
 	public EntityVillager createChild(EntityAgeable p_90011_1_) {
 		EntityVillager entityvillager = new EntityVillager(worldObj);
-		entityvillager.onSpawnWithEgg((IEntityLivingData) null);
+		entityvillager.onSpawnWithEgg(null);
 		return entityvillager;
 	}
 

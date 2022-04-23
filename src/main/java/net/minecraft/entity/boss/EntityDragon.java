@@ -335,7 +335,7 @@ public class EntityDragon extends EntityLiving implements IBossDisplayData, IEnt
 		if (healingEnderCrystal != null) {
 			if (healingEnderCrystal.isDead) {
 				if (!worldObj.isRemote) {
-					attackEntityFromPart(dragonPartHead, DamageSource.setExplosionSource((Explosion) null), 10.0F);
+					attackEntityFromPart(dragonPartHead, DamageSource.setExplosionSource(null), 10.0F);
 				}
 
 				healingEnderCrystal = null;

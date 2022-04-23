@@ -271,7 +271,7 @@ public class EntityDamageEvent extends EntityEvent implements Cancellable {
 		/**
 		 * This represents the damage reduction caused by the absorption potion effect.
 		 */
-		ABSORPTION,;
+		ABSORPTION,
 	}
 
 	/**

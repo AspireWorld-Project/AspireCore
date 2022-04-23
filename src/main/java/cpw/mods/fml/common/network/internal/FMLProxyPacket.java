@@ -29,8 +29,8 @@ public class FMLProxyPacket extends Packet {
 	private final ByteBuf payload;
 	private INetHandler netHandler;
 	private NetworkDispatcher dispatcher;
-	private static Multiset<String> badPackets = ConcurrentHashMultiset.create();
-	private static int packetCountWarning = Integers.parseInt(System.getProperty("fml.badPacketCounter", "100"), 100);
+	private static final Multiset<String> badPackets = ConcurrentHashMultiset.create();
+	private static final int packetCountWarning = Integers.parseInt(System.getProperty("fml.badPacketCounter", "100"), 100);
 
 	private FMLProxyPacket(byte[] payload, String channel) {
 		this(Unpooled.wrappedBuffer(payload), channel);

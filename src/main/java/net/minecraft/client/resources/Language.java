@@ -28,14 +28,12 @@ public class Language implements Comparable {
 
 	@Override
 	public String toString() {
-		return String.format("%s (%s)", new Object[] { name, region });
+		return String.format("%s (%s)", name, region);
 	}
 
 	@Override
 	public boolean equals(Object p_equals_1_) {
-		return this == p_equals_1_ ? true
-				: !(p_equals_1_ instanceof Language) ? false
-						: languageCode.equals(((Language) p_equals_1_).languageCode);
+		return this == p_equals_1_ || p_equals_1_ instanceof Language && languageCode.equals(((Language) p_equals_1_).languageCode);
 	}
 
 	@Override

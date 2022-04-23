@@ -16,7 +16,7 @@ import java.util.Map.Entry;
 
 public class ShapelessOreRecipe implements IRecipe {
 	private ItemStack output = null;
-	private ArrayList<Object> input = new ArrayList<>();
+	private final ArrayList<Object> input = new ArrayList<>();
 
 	public ShapelessOreRecipe(Block result, Object... recipe) {
 		this(new ItemStack(result), recipe);

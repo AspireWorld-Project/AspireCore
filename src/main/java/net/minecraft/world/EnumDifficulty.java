@@ -9,7 +9,7 @@ public enum EnumDifficulty {
 
 	private static final String __OBFID = "CL_00001510";
 
-	private EnumDifficulty(int p_i45312_3_, String p_i45312_4_) {
+	EnumDifficulty(int p_i45312_3_, String p_i45312_4_) {
 		difficultyId = p_i45312_3_;
 		difficultyResourceKey = p_i45312_4_;
 	}

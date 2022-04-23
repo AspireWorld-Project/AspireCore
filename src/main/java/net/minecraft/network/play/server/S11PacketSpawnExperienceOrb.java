@@ -55,9 +55,9 @@ public class S11PacketSpawnExperienceOrb extends Packet {
 	@Override
 	public String serialize() {
 		return String.format("id=%d, value=%d, x=%.2f, y=%.2f, z=%.2f",
-				new Object[] { Integer.valueOf(field_148992_a), Integer.valueOf(field_148989_e),
-						Float.valueOf(field_148990_b / 32.0F), Float.valueOf(field_148991_c / 32.0F),
-						Float.valueOf(field_148988_d / 32.0F) });
+				Integer.valueOf(field_148992_a), Integer.valueOf(field_148989_e),
+				Float.valueOf(field_148990_b / 32.0F), Float.valueOf(field_148991_c / 32.0F),
+				Float.valueOf(field_148988_d / 32.0F));
 	}
 
 	@SideOnly(Side.CLIENT)

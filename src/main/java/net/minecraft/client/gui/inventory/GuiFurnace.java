@@ -13,7 +13,7 @@ import org.lwjgl.opengl.GL11;
 public class GuiFurnace extends GuiContainer {
 	private static final ResourceLocation furnaceGuiTextures = new ResourceLocation(
 			"textures/gui/container/furnace.png");
-	private TileEntityFurnace tileFurnace;
+	private final TileEntityFurnace tileFurnace;
 	private static final String __OBFID = "CL_00000758";
 
 	public GuiFurnace(InventoryPlayer p_i1091_1_, TileEntityFurnace p_i1091_2_) {
@@ -24,9 +24,9 @@ public class GuiFurnace extends GuiContainer {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_) {
 		String s = tileFurnace.hasCustomInventoryName() ? tileFurnace.getInventoryName()
-				: I18n.format(tileFurnace.getInventoryName(), new Object[0]);
+				: I18n.format(tileFurnace.getInventoryName());
 		fontRendererObj.drawString(s, xSize / 2 - fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
-		fontRendererObj.drawString(I18n.format("container.inventory", new Object[0]), 8, ySize - 96 + 2, 4210752);
+		fontRendererObj.drawString(I18n.format("container.inventory"), 8, ySize - 96 + 2, 4210752);
 	}
 
 	@Override

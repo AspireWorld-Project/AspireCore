@@ -77,7 +77,7 @@ public class EntityHorse extends EntityAnimal implements IInvBasic {
 	private float prevMouthOpenness;
 	private int field_110285_bP;
 	private String field_110286_bQ;
-	private String[] field_110280_bR = new String[3];
+	private final String[] field_110280_bR = new String[3];
 	public int maxDomestication = 100;
 	private static final String __OBFID = "CL_00001641";
 
@@ -104,7 +104,7 @@ public class EntityHorse extends EntityAnimal implements IInvBasic {
 		dataWatcher.addObject(16, Integer.valueOf(0));
 		dataWatcher.addObject(19, Byte.valueOf((byte) 0));
 		dataWatcher.addObject(20, Integer.valueOf(0));
-		dataWatcher.addObject(21, String.valueOf(""));
+		dataWatcher.addObject(21, "");
 		dataWatcher.addObject(22, Integer.valueOf(0));
 	}
 
@@ -293,8 +293,7 @@ public class EntityHorse extends EntityAnimal implements IInvBasic {
 	@Override
 	public boolean attackEntityFrom(DamageSource p_70097_1_, float p_70097_2_) {
 		Entity entity = p_70097_1_.getEntity();
-		return riddenByEntity != null && riddenByEntity.equals(entity) ? false
-				: super.attackEntityFrom(p_70097_1_, p_70097_2_);
+		return (riddenByEntity == null || !riddenByEntity.equals(entity)) && super.attackEntityFrom(p_70097_1_, p_70097_2_);
 	}
 
 	@Override
@@ -748,7 +747,7 @@ public class EntityHorse extends EntityAnimal implements IInvBasic {
 				if (flag) {
 					if (!p_70085_1_.capabilities.isCreativeMode && --itemstack.stackSize == 0) {
 						p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem,
-								(ItemStack) null);
+								null);
 					}
 
 					return true;
@@ -789,7 +788,7 @@ public class EntityHorse extends EntityAnimal implements IInvBasic {
 
 	@Override
 	protected boolean isMovementBlocked() {
-		return riddenByEntity != null && isHorseSaddled() ? true : isEatingHaystack() || isRearing();
+		return riddenByEntity != null && isHorseSaddled() || isEatingHaystack() || isRearing();
 	}
 
 	public boolean func_110256_cu() {

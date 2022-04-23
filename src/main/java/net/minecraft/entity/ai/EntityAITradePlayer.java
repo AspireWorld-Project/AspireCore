@@ -5,7 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 
 public class EntityAITradePlayer extends EntityAIBase {
-	private EntityVillager villager;
+	private final EntityVillager villager;
 	private static final String __OBFID = "CL_00001617";
 
 	public EntityAITradePlayer(EntityVillager p_i1658_1_) {
@@ -25,9 +25,7 @@ public class EntityAITradePlayer extends EntityAIBase {
 			return false;
 		else {
 			EntityPlayer entityplayer = villager.getCustomer();
-			return entityplayer == null ? false
-					: villager.getDistanceSqToEntity(entityplayer) > 16.0D ? false
-							: entityplayer.openContainer instanceof Container;
+			return entityplayer != null && !(villager.getDistanceSqToEntity(entityplayer) > 16.0D) && entityplayer.openContainer instanceof Container;
 		}
 	}
 
@@ -38,6 +36,6 @@ public class EntityAITradePlayer extends EntityAIBase {
 
 	@Override
 	public void resetTask() {
-		villager.setCustomer((EntityPlayer) null);
+		villager.setCustomer(null);
 	}
 }

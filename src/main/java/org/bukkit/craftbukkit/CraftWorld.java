@@ -1212,7 +1212,7 @@ public class CraftWorld implements World {
 
 		if (entity != null) {
 			if (entity instanceof EntityLiving) {
-				((EntityLiving) entity).onSpawnWithEgg((IEntityLivingData) null);
+				((EntityLiving) entity).onSpawnWithEgg(null);
 			}
 
 			world.addEntity(entity, reason);

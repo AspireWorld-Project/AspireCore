@@ -33,7 +33,7 @@ public interface IGuiHandler {
 	 *            Z Position
 	 * @return A GuiScreen/Container to be displayed to the user, null if none.
 	 */
-	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z);
+    Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z);
 
 	/**
 	 * Returns a Container to be displayed to the user. On the client side, this
@@ -54,5 +54,5 @@ public interface IGuiHandler {
 	 *            Z Position
 	 * @return A GuiScreen/Container to be displayed to the user, null if none.
 	 */
-	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z);
+    Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z);
 }

@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
 public class ConfigElement<T> implements IConfigElement<T> {
 	private Property prop;
 	private Property.Type type;
-	private boolean isProperty;
+	private final boolean isProperty;
 	private ConfigCategory ctgy;
 	private boolean categoriesFirst = true;
 
@@ -205,13 +205,13 @@ public class ConfigElement<T> implements IConfigElement<T> {
 			} else if (type == Property.Type.DOUBLE) {
 				Double[] da = new Double[aVal.length];
 				for (int i = 0; i < aVal.length; i++) {
-					da[i] = Double.valueOf(aVal[i].toString());
+					da[i] = Double.valueOf(aVal[i]);
 				}
 				return da;
 			} else if (type == Property.Type.INTEGER) {
 				Integer[] ia = new Integer[aVal.length];
 				for (int i = 0; i < aVal.length; i++) {
-					ia[i] = Integer.valueOf(aVal[i].toString());
+					ia[i] = Integer.valueOf(aVal[i]);
 				}
 				return ia;
 			} else
@@ -243,13 +243,13 @@ public class ConfigElement<T> implements IConfigElement<T> {
 			} else if (type == Property.Type.DOUBLE) {
 				Double[] da = new Double[aVal.length];
 				for (int i = 0; i < aVal.length; i++) {
-					da[i] = Double.valueOf(aVal[i].toString());
+					da[i] = Double.valueOf(aVal[i]);
 				}
 				return da;
 			} else if (type == Property.Type.INTEGER) {
 				Integer[] ia = new Integer[aVal.length];
 				for (int i = 0; i < aVal.length; i++) {
-					ia[i] = Integer.valueOf(aVal[i].toString());
+					ia[i] = Integer.valueOf(aVal[i]);
 				}
 				return ia;
 			} else

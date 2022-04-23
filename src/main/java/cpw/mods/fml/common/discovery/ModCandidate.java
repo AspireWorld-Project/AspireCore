@@ -23,16 +23,16 @@ import java.util.List;
 import java.util.Set;
 
 public class ModCandidate {
-	private File classPathRoot;
-	private File modContainer;
-	private ContainerType sourceType;
-	private boolean classpath;
-	private List<String> baseModTypes = Lists.newArrayList();
-	private boolean isMinecraft;
-	private List<ASMModParser> baseModCandidateTypes = Lists.newArrayListWithCapacity(1);
-	private Set<String> foundClasses = Sets.newHashSet();
+	private final File classPathRoot;
+	private final File modContainer;
+	private final ContainerType sourceType;
+	private final boolean classpath;
+	private final List<String> baseModTypes = Lists.newArrayList();
+	private final boolean isMinecraft;
+	private final List<ASMModParser> baseModCandidateTypes = Lists.newArrayListWithCapacity(1);
+	private final Set<String> foundClasses = Sets.newHashSet();
 	private List<ModContainer> mods;
-	private List<String> packages = Lists.newArrayList();
+	private final List<String> packages = Lists.newArrayList();
 	private ASMDataTable table;
 
 	public ModCandidate(File classPathRoot, File modContainer, ContainerType sourceType) {

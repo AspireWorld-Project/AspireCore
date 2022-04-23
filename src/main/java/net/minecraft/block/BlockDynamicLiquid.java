@@ -245,10 +245,8 @@ public class BlockDynamicLiquid extends BlockLiquid {
 
 	private boolean func_149807_p(World p_149807_1_, int p_149807_2_, int p_149807_3_, int p_149807_4_) {
 		Block block = p_149807_1_.getBlock(p_149807_2_, p_149807_3_, p_149807_4_);
-		return block != Blocks.wooden_door && block != Blocks.iron_door && block != Blocks.standing_sign
-				&& block != Blocks.ladder && block != Blocks.reeds
-						? block.blockMaterial == Material.portal ? true : block.blockMaterial.blocksMovement()
-						: true;
+		return block == Blocks.wooden_door || block == Blocks.iron_door || block == Blocks.standing_sign
+                || block == Blocks.ladder || block == Blocks.reeds || block.blockMaterial == Material.portal || block.blockMaterial.blocksMovement();
 	}
 
 	protected int func_149810_a(World p_149810_1_, int p_149810_2_, int p_149810_3_, int p_149810_4_, int p_149810_5_) {
@@ -271,9 +269,7 @@ public class BlockDynamicLiquid extends BlockLiquid {
 
 	private boolean func_149809_q(World p_149809_1_, int p_149809_2_, int p_149809_3_, int p_149809_4_) {
 		Material material = p_149809_1_.getBlock(p_149809_2_, p_149809_3_, p_149809_4_).getMaterial();
-		return material == blockMaterial ? false
-				: material == Material.lava ? false
-						: !func_149807_p(p_149809_1_, p_149809_2_, p_149809_3_, p_149809_4_);
+		return material != blockMaterial && material != Material.lava && !func_149807_p(p_149809_1_, p_149809_2_, p_149809_3_, p_149809_4_);
 	}
 
 	@Override

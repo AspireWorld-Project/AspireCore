@@ -20,8 +20,8 @@ import java.util.Map;
 
 public class ContainerRepair extends Container {
 	private static final Logger logger = LogManager.getLogger();
-	private IInventory outputSlot = new InventoryCraftResult();
-	private IInventory inputSlots = new InventoryBasic("Repair", true, 2) {
+	private final IInventory outputSlot = new InventoryCraftResult();
+	private final IInventory inputSlots = new InventoryBasic("Repair", true, 2) {
 		private static final String __OBFID = "CL_00001733";
 
 		@Override
@@ -30,10 +30,10 @@ public class ContainerRepair extends Container {
 			ContainerRepair.this.onCraftMatrixChanged(this);
 		}
 	};
-	private World theWorld;
-	private int field_82861_i;
-	private int field_82858_j;
-	private int field_82859_k;
+	private final World theWorld;
+	private final int field_82861_i;
+	private final int field_82858_j;
+	private final int field_82859_k;
 	public int maximumCost;
 	public int stackSizeToBeUsedInRepair;
 	private String repairedItemName;
@@ -72,7 +72,7 @@ public class ContainerRepair extends Container {
 				float breakChance = ForgeHooks.onAnvilRepair(p_82870_1_, p_82870_2_, inputSlots.getStackInSlot(0),
 						inputSlots.getStackInSlot(1));
 
-				inputSlots.setInventorySlotContents(0, (ItemStack) null);
+				inputSlots.setInventorySlotContents(0, null);
 
 				if (stackSizeToBeUsedInRepair > 0) {
 					ItemStack itemstack1 = inputSlots.getStackInSlot(1);
@@ -81,10 +81,10 @@ public class ContainerRepair extends Container {
 						itemstack1.stackSize -= stackSizeToBeUsedInRepair;
 						inputSlots.setInventorySlotContents(1, itemstack1);
 					} else {
-						inputSlots.setInventorySlotContents(1, (ItemStack) null);
+						inputSlots.setInventorySlotContents(1, null);
 					}
 				} else {
-					inputSlots.setInventorySlotContents(1, (ItemStack) null);
+					inputSlots.setInventorySlotContents(1, null);
 				}
 
 				maximumCost = 0;
@@ -139,7 +139,7 @@ public class ContainerRepair extends Container {
 		int j = 0;
 
 		if (itemstack == null) {
-			outputSlot.setInventorySlotContents(0, (ItemStack) null);
+			outputSlot.setInventorySlotContents(0, null);
 			maximumCost = 0;
 		} else {
 			ItemStack itemstack1 = itemstack.copy();
@@ -166,7 +166,7 @@ public class ContainerRepair extends Container {
 					k = Math.min(itemstack1.getItemDamageForDisplay(), itemstack1.getMaxDamage() / 4);
 
 					if (k <= 0) {
-						outputSlot.setInventorySlotContents(0, (ItemStack) null);
+						outputSlot.setInventorySlotContents(0, null);
 						maximumCost = 0;
 						return;
 					}
@@ -182,7 +182,7 @@ public class ContainerRepair extends Container {
 				} else {
 					if (!flag
 							&& (itemstack1.getItem() != itemstack2.getItem() || !itemstack1.isItemStackDamageable())) {
-						outputSlot.setInventorySlotContents(0, (ItemStack) null);
+						outputSlot.setInventorySlotContents(0, null);
 						maximumCost = 0;
 						return;
 					}
@@ -419,8 +419,7 @@ public class ContainerRepair extends Container {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer p_75145_1_) {
-		return theWorld.getBlock(field_82861_i, field_82858_j, field_82859_k) != Blocks.anvil ? false
-				: p_75145_1_.getDistanceSq(field_82861_i + 0.5D, field_82858_j + 0.5D, field_82859_k + 0.5D) <= 64.0D;
+		return theWorld.getBlock(field_82861_i, field_82858_j, field_82859_k) == Blocks.anvil && p_75145_1_.getDistanceSq(field_82861_i + 0.5D, field_82858_j + 0.5D, field_82859_k + 0.5D) <= 64.0D;
 	}
 
 	@Override
@@ -444,7 +443,7 @@ public class ContainerRepair extends Container {
 				return null;
 
 			if (itemstack1.stackSize == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(null);
 			} else {
 				slot.onSlotChanged();
 			}

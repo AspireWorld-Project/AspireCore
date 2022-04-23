@@ -189,8 +189,7 @@ public class BiomeDecorator {
 
 			for (i1 = nextInt(currentWorld.getHeightValue(k, l) * 2); i1 > 0
 					&& currentWorld.isAirBlock(k, i1 - 1, l); --i1) {
-				;
-			}
+            }
 
 			waterlilyGen.generate(currentWorld, randomGenerator, k, i1, l);
 		}

@@ -53,7 +53,7 @@ public class PluginClassLoader extends URLClassLoader {
 	private boolean debug; // classloader debugging
 	private int remapFlags = -1;
 
-	private static ConcurrentMap<Integer, JarMapping> jarMappings = new ConcurrentHashMap<>();
+	private static final ConcurrentMap<Integer, JarMapping> jarMappings = new ConcurrentHashMap<>();
 	private static final int F_GLOBAL_INHERIT = 1 << 1;
 	private static final int F_REMAP_OBCPRE = 1 << 2;
 	private static final int F_REMAP_NMS152 = 1 << 3;

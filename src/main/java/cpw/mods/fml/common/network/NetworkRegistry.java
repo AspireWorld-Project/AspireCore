@@ -46,10 +46,10 @@ import java.util.Set;
  */
 public enum NetworkRegistry {
 	INSTANCE;
-	private EnumMap<Side, Map<String, FMLEmbeddedChannel>> channels = Maps.newEnumMap(Side.class);
-	private Map<ModContainer, NetworkModHolder> registry = Maps.newHashMap();
-	private Map<ModContainer, IGuiHandler> serverGuiHandlers = Maps.newHashMap();
-	private Map<ModContainer, IGuiHandler> clientGuiHandlers = Maps.newHashMap();
+	private final EnumMap<Side, Map<String, FMLEmbeddedChannel>> channels = Maps.newEnumMap(Side.class);
+	private final Map<ModContainer, NetworkModHolder> registry = Maps.newHashMap();
+	private final Map<ModContainer, IGuiHandler> serverGuiHandlers = Maps.newHashMap();
+	private final Map<ModContainer, IGuiHandler> clientGuiHandlers = Maps.newHashMap();
 
 	/**
 	 * Set in the {@link ChannelHandlerContext}
@@ -64,9 +64,9 @@ public enum NetworkRegistry {
 	// logging in client
 	public static final byte FML_PROTOCOL = 2;
 
-	private NetworkRegistry() {
-		channels.put(Side.CLIENT, Maps.<String, FMLEmbeddedChannel>newConcurrentMap());
-		channels.put(Side.SERVER, Maps.<String, FMLEmbeddedChannel>newConcurrentMap());
+	NetworkRegistry() {
+		channels.put(Side.CLIENT, Maps.newConcurrentMap());
+		channels.put(Side.SERVER, Maps.newConcurrentMap());
 	}
 
 	/**

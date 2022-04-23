@@ -390,9 +390,9 @@ public class WorldInfo {
 			@Override
 			public String call() {
 				return String.format("ID %02d - %s, ver %d. Features enabled: %b",
-						new Object[] { Integer.valueOf(terrainType.getWorldTypeID()), terrainType.getWorldTypeName(),
-								Integer.valueOf(terrainType.getGeneratorVersion()),
-								Boolean.valueOf(mapFeaturesEnabled) });
+						Integer.valueOf(terrainType.getWorldTypeID()), terrainType.getWorldTypeName(),
+						Integer.valueOf(terrainType.getGeneratorVersion()),
+						Boolean.valueOf(mapFeaturesEnabled));
 			}
 		});
 		p_85118_1_.addCrashSectionCallable("Level generator options", new Callable() {
@@ -417,7 +417,7 @@ public class WorldInfo {
 			@Override
 			public String call() {
 				return String.format("%d game time, %d day time",
-						new Object[] { Long.valueOf(totalTime), Long.valueOf(worldTime) });
+						Long.valueOf(totalTime), Long.valueOf(worldTime));
 			}
 		});
 		p_85118_1_.addCrashSectionCallable("Level dimension", new Callable() {
@@ -444,10 +444,9 @@ public class WorldInfo {
 						s = "Anvil";
 					}
 				} catch (Throwable throwable) {
-					;
 				}
 
-				return String.format("0x%05X - %s", new Object[] { Integer.valueOf(saveVersion), s });
+				return String.format("0x%05X - %s", Integer.valueOf(saveVersion), s);
 			}
 		});
 		p_85118_1_.addCrashSectionCallable("Level weather", new Callable() {
@@ -456,8 +455,8 @@ public class WorldInfo {
 			@Override
 			public String call() {
 				return String.format("Rain time: %d (now: %b), thunder time: %d (now: %b)",
-						new Object[] { Integer.valueOf(rainTime), Boolean.valueOf(raining),
-								Integer.valueOf(thunderTime), Boolean.valueOf(thundering) });
+						Integer.valueOf(rainTime), Boolean.valueOf(raining),
+						Integer.valueOf(thunderTime), Boolean.valueOf(thundering));
 			}
 		});
 		p_85118_1_.addCrashSectionCallable("Level game mode", new Callable() {
@@ -466,8 +465,8 @@ public class WorldInfo {
 			@Override
 			public String call() {
 				return String.format("Game mode: %s (ID %d). Hardcore: %b. Cheats: %b",
-						new Object[] { theGameType.getName(), Integer.valueOf(theGameType.getID()),
-								Boolean.valueOf(hardcore), Boolean.valueOf(allowCommands) });
+						theGameType.getName(), Integer.valueOf(theGameType.getID()),
+						Boolean.valueOf(hardcore), Boolean.valueOf(allowCommands));
 			}
 		});
 	}

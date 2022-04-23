@@ -27,7 +27,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class SideTransformer implements IClassTransformer {
-	private static String SIDE = FMLLaunchHandler.side().name();
+	private static final String SIDE = FMLLaunchHandler.side().name();
 	private static final boolean DEBUG = false;
 
 	@Override

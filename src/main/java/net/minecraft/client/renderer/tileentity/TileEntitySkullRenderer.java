@@ -26,8 +26,8 @@ public class TileEntitySkullRenderer extends TileEntitySpecialRenderer {
 	private static final ResourceLocation field_147535_e = new ResourceLocation("textures/entity/zombie/zombie.png");
 	private static final ResourceLocation field_147532_f = new ResourceLocation("textures/entity/creeper/creeper.png");
 	public static TileEntitySkullRenderer field_147536_b;
-	private ModelSkeletonHead field_147533_g = new ModelSkeletonHead(0, 0, 64, 32);
-	private ModelSkeletonHead field_147538_h = new ModelSkeletonHead(0, 0, 64, 64);
+	private final ModelSkeletonHead field_147533_g = new ModelSkeletonHead(0, 0, 64, 32);
+	private final ModelSkeletonHead field_147538_h = new ModelSkeletonHead(0, 0, 64, 64);
 	private static final String __OBFID = "CL_00000971";
 
 	public void renderTileEntityAt(TileEntitySkull p_147500_1_, double p_147500_2_, double p_147500_4_,
@@ -106,7 +106,7 @@ public class TileEntitySkullRenderer extends TileEntitySpecialRenderer {
 		GL11.glEnable(GL12.GL_RESCALE_NORMAL);
 		GL11.glScalef(-1.0F, -1.0F, 1.0F);
 		GL11.glEnable(GL11.GL_ALPHA_TEST);
-		modelskeletonhead.render((Entity) null, 0.0F, 0.0F, 0.0F, p_152674_5_, 0.0F, f4);
+		modelskeletonhead.render(null, 0.0F, 0.0F, 0.0F, p_152674_5_, 0.0F, f4);
 		GL11.glPopMatrix();
 	}
 

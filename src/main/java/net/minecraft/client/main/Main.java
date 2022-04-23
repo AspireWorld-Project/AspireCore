@@ -71,9 +71,9 @@ public class Main {
 		optionparser.accepts("fullscreen");
 		ArgumentAcceptingOptionSpec argumentacceptingoptionspec = optionparser.accepts("server").withRequiredArg();
 		ArgumentAcceptingOptionSpec argumentacceptingoptionspec1 = optionparser.accepts("port").withRequiredArg()
-				.ofType(Integer.class).defaultsTo(Integer.valueOf(25565), new Integer[0]);
+				.ofType(Integer.class).defaultsTo(Integer.valueOf(25565));
 		ArgumentAcceptingOptionSpec argumentacceptingoptionspec2 = optionparser.accepts("gameDir").withRequiredArg()
-				.ofType(File.class).defaultsTo(new File("."), new File[0]);
+				.ofType(File.class).defaultsTo(new File("."));
 		ArgumentAcceptingOptionSpec argumentacceptingoptionspec3 = optionparser.accepts("assetsDir").withRequiredArg()
 				.ofType(File.class);
 		ArgumentAcceptingOptionSpec argumentacceptingoptionspec4 = optionparser.accepts("resourcePackDir")
@@ -84,22 +84,22 @@ public class Main {
 		ArgumentAcceptingOptionSpec argumentacceptingoptionspec7 = optionparser.accepts("proxyUser").withRequiredArg();
 		ArgumentAcceptingOptionSpec argumentacceptingoptionspec8 = optionparser.accepts("proxyPass").withRequiredArg();
 		ArgumentAcceptingOptionSpec argumentacceptingoptionspec9 = optionparser.accepts("username").withRequiredArg()
-				.defaultsTo("Player" + Minecraft.getSystemTime() % 1000L, new String[0]);
+				.defaultsTo("Player" + Minecraft.getSystemTime() % 1000L);
 		ArgumentAcceptingOptionSpec argumentacceptingoptionspec10 = optionparser.accepts("uuid").withRequiredArg();
 		ArgumentAcceptingOptionSpec argumentacceptingoptionspec11 = optionparser.accepts("accessToken")
 				.withRequiredArg().required();
 		ArgumentAcceptingOptionSpec argumentacceptingoptionspec12 = optionparser.accepts("version").withRequiredArg()
 				.required();
 		ArgumentAcceptingOptionSpec argumentacceptingoptionspec13 = optionparser.accepts("width").withRequiredArg()
-				.ofType(Integer.class).defaultsTo(Integer.valueOf(854), new Integer[0]);
+				.ofType(Integer.class).defaultsTo(Integer.valueOf(854));
 		ArgumentAcceptingOptionSpec argumentacceptingoptionspec14 = optionparser.accepts("height").withRequiredArg()
-				.ofType(Integer.class).defaultsTo(Integer.valueOf(480), new Integer[0]);
+				.ofType(Integer.class).defaultsTo(Integer.valueOf(480));
 		ArgumentAcceptingOptionSpec argumentacceptingoptionspec15 = optionparser.accepts("userProperties")
 				.withRequiredArg().required();
 		ArgumentAcceptingOptionSpec argumentacceptingoptionspec16 = optionparser.accepts("assetIndex")
 				.withRequiredArg();
 		ArgumentAcceptingOptionSpec argumentacceptingoptionspec17 = optionparser.accepts("userType").withRequiredArg()
-				.defaultsTo("legacy", new String[0]);
+				.defaultsTo("legacy");
 		NonOptionArgumentSpec nonoptionargumentspec = optionparser.nonOptions();
 		OptionSet optionset = optionparser.parse(p_main_0_);
 		List list = optionset.valuesOf(nonoptionargumentspec);
@@ -111,7 +111,6 @@ public class Main {
 				proxy = new Proxy(Type.SOCKS, new InetSocketAddress(s,
 						((Integer) optionset.valueOf(argumentacceptingoptionspec6)).intValue()));
 			} catch (Exception exception) {
-				;
 			}
 		}
 

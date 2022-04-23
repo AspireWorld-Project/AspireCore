@@ -113,8 +113,8 @@ public class IntegratedServer extends MinecraftServer {
 
 			if (mc.gameSettings.renderDistanceChunks != getConfigurationManager().getViewDistance()) {
 				logger.info("Changing view distance to {}, from {}",
-						new Object[] { Integer.valueOf(mc.gameSettings.renderDistanceChunks),
-								Integer.valueOf(getConfigurationManager().getViewDistance()) });
+						Integer.valueOf(mc.gameSettings.renderDistanceChunks),
+						Integer.valueOf(getConfigurationManager().getViewDistance()));
 				getConfigurationManager().func_152611_a(mc.gameSettings.renderDistanceChunks);
 			}
 		}
@@ -179,10 +179,10 @@ public class IntegratedServer extends MinecraftServer {
 				String s = ClientBrandRetriever.getClientModName();
 
 				if (!s.equals("vanilla"))
-					return "Definitely; Client brand changed to \'" + s + "\'";
+					return "Definitely; Client brand changed to '" + s + "'";
 				else {
 					s = IntegratedServer.this.getServerModName();
-					return !s.equals("vanilla") ? "Definitely; Server brand changed to \'" + s + "\'"
+					return !s.equals("vanilla") ? "Definitely; Server brand changed to '" + s + "'"
 							: Minecraft.class.getSigners() == null ? "Very likely; Jar signature invalidated"
 									: "Probably not. Jar signature remains and both client + server brands are untouched.";
 				}
@@ -210,14 +210,13 @@ public class IntegratedServer extends MinecraftServer {
 			try {
 				i = HttpUtil.func_76181_a();
 			} catch (IOException ioexception) {
-				;
 			}
 
 			if (i <= 0) {
 				i = 25564;
 			}
 
-			func_147137_ag().addLanEndpoint((InetAddress) null, i);
+			func_147137_ag().addLanEndpoint(null, i);
 			logger.info("Started on " + i);
 			isPublic = true;
 			lanServerPing = new ThreadLanServerPing(getMOTD(), i + "");

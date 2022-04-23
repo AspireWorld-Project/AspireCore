@@ -36,7 +36,7 @@ public class CurrencyImpl implements Currency {
 		for (int i = 0; i < fractionalDigits; i++) {
 			sb.append("#");
 		}
-		format = new DecimalFormat("#0." + sb.toString());
+		format = new DecimalFormat("#0." + sb);
 	}
 
 	@Nonnull

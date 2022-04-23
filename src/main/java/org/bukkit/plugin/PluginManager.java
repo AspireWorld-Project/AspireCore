@@ -22,7 +22,7 @@ public interface PluginManager {
 	 * @throws IllegalArgumentException
 	 *             Thrown when the given Class is not a valid PluginLoader
 	 */
-	public void registerInterface(Class<? extends PluginLoader> loader) throws IllegalArgumentException;
+    void registerInterface(Class<? extends PluginLoader> loader) throws IllegalArgumentException;
 
 	/**
 	 * Checks if the given plugin is loaded and returns it when applicable
@@ -33,14 +33,14 @@ public interface PluginManager {
 	 *            Name of the plugin to check
 	 * @return Plugin if it exists, otherwise null
 	 */
-	public Plugin getPlugin(String name);
+    Plugin getPlugin(String name);
 
 	/**
 	 * Gets a list of all currently loaded plugins
 	 *
 	 * @return Array of Plugins
 	 */
-	public Plugin[] getPlugins();
+    Plugin[] getPlugins();
 
 	/**
 	 * Checks if the given plugin is enabled or not
@@ -51,7 +51,7 @@ public interface PluginManager {
 	 *            Name of the plugin to check
 	 * @return true if the plugin is enabled, otherwise false
 	 */
-	public boolean isPluginEnabled(String name);
+    boolean isPluginEnabled(String name);
 
 	/**
 	 * Checks if the given plugin is enabled or not
@@ -60,7 +60,7 @@ public interface PluginManager {
 	 *            Plugin to check
 	 * @return true if the plugin is enabled, otherwise false
 	 */
-	public boolean isPluginEnabled(Plugin plugin);
+    boolean isPluginEnabled(Plugin plugin);
 
 	/**
 	 * Loads the plugin in the specified file
@@ -77,7 +77,7 @@ public interface PluginManager {
 	 * @throws UnknownDependencyException
 	 *             If a required dependency could not be resolved
 	 */
-	public Plugin loadPlugin(File file)
+    Plugin loadPlugin(File file)
 			throws InvalidPluginException, InvalidDescriptionException, UnknownDependencyException;
 
 	/**
@@ -87,17 +87,17 @@ public interface PluginManager {
 	 *            Directory to check for plugins
 	 * @return A list of all plugins loaded
 	 */
-	public Plugin[] loadPlugins(File directory);
+    Plugin[] loadPlugins(File directory);
 
 	/**
 	 * Disables all the loaded plugins
 	 */
-	public void disablePlugins();
+    void disablePlugins();
 
 	/**
 	 * Disables and removes all plugins
 	 */
-	public void clearPlugins();
+    void clearPlugins();
 
 	/**
 	 * Calls an event with the given details
@@ -111,7 +111,7 @@ public interface PluginManager {
 	 *             test synchronized state. This is an indicator for flawed flow
 	 *             logic.</i>
 	 */
-	public void callEvent(Event event) throws IllegalStateException;
+    void callEvent(Event event) throws IllegalStateException;
 
 	/**
 	 * Registers all the events in the given listener class
@@ -121,7 +121,7 @@ public interface PluginManager {
 	 * @param plugin
 	 *            Plugin to register
 	 */
-	public void registerEvents(Listener listener, Plugin plugin);
+    void registerEvents(Listener listener, Plugin plugin);
 
 	/**
 	 * Registers the specified executor to the given event class
@@ -137,8 +137,8 @@ public interface PluginManager {
 	 * @param plugin
 	 *            Plugin to register
 	 */
-	public void registerEvent(Class<? extends Event> event, Listener listener, EventPriority priority,
-			EventExecutor executor, Plugin plugin);
+    void registerEvent(Class<? extends Event> event, Listener listener, EventPriority priority,
+                       EventExecutor executor, Plugin plugin);
 
 	/**
 	 * Registers the specified executor to the given event class
@@ -156,8 +156,8 @@ public interface PluginManager {
 	 * @param ignoreCancelled
 	 *            Whether to pass cancelled events or not
 	 */
-	public void registerEvent(Class<? extends Event> event, Listener listener, EventPriority priority,
-			EventExecutor executor, Plugin plugin, boolean ignoreCancelled);
+    void registerEvent(Class<? extends Event> event, Listener listener, EventPriority priority,
+                       EventExecutor executor, Plugin plugin, boolean ignoreCancelled);
 
 	/**
 	 * Enables the specified plugin
@@ -167,7 +167,7 @@ public interface PluginManager {
 	 * @param plugin
 	 *            Plugin to enable
 	 */
-	public void enablePlugin(Plugin plugin);
+    void enablePlugin(Plugin plugin);
 
 	/**
 	 * Disables the specified plugin
@@ -177,7 +177,7 @@ public interface PluginManager {
 	 * @param plugin
 	 *            Plugin to disable
 	 */
-	public void disablePlugin(Plugin plugin);
+    void disablePlugin(Plugin plugin);
 
 	/**
 	 * Gets a {@link Permission} from its fully qualified name
@@ -186,7 +186,7 @@ public interface PluginManager {
 	 *            Name of the permission
 	 * @return Permission, or null if none
 	 */
-	public Permission getPermission(String name);
+    Permission getPermission(String name);
 
 	/**
 	 * Adds a {@link Permission} to this plugin manager.
@@ -199,7 +199,7 @@ public interface PluginManager {
 	 * @throws IllegalArgumentException
 	 *             Thrown when a permission with the same name already exists
 	 */
-	public void addPermission(Permission perm);
+    void addPermission(Permission perm);
 
 	/**
 	 * Removes a {@link Permission} registration from this plugin manager.
@@ -213,7 +213,7 @@ public interface PluginManager {
 	 * @param perm
 	 *            Permission to remove
 	 */
-	public void removePermission(Permission perm);
+    void removePermission(Permission perm);
 
 	/**
 	 * Removes a {@link Permission} registration from this plugin manager.
@@ -227,7 +227,7 @@ public interface PluginManager {
 	 * @param name
 	 *            Permission to remove
 	 */
-	public void removePermission(String name);
+    void removePermission(String name);
 
 	/**
 	 * Gets the default permissions for the given op status
@@ -236,7 +236,7 @@ public interface PluginManager {
 	 *            Which set of default permissions to get
 	 * @return The default permissions
 	 */
-	public Set<Permission> getDefaultPermissions(boolean op);
+    Set<Permission> getDefaultPermissions(boolean op);
 
 	/**
 	 * Recalculates the defaults for the given {@link Permission}.
@@ -246,7 +246,7 @@ public interface PluginManager {
 	 * @param perm
 	 *            Permission to recalculate
 	 */
-	public void recalculatePermissionDefaults(Permission perm);
+    void recalculatePermissionDefaults(Permission perm);
 
 	/**
 	 * Subscribes the given Permissible for information about the requested
@@ -260,7 +260,7 @@ public interface PluginManager {
 	 * @param permissible
 	 *            Permissible subscribing
 	 */
-	public void subscribeToPermission(String permission, Permissible permissible);
+    void subscribeToPermission(String permission, Permissible permissible);
 
 	/**
 	 * Unsubscribes the given Permissible for information about the requested
@@ -271,7 +271,7 @@ public interface PluginManager {
 	 * @param permissible
 	 *            Permissible subscribing
 	 */
-	public void unsubscribeFromPermission(String permission, Permissible permissible);
+    void unsubscribeFromPermission(String permission, Permissible permissible);
 
 	/**
 	 * Gets a set containing all subscribed {@link Permissible}s to the given
@@ -281,7 +281,7 @@ public interface PluginManager {
 	 *            Permission to query for
 	 * @return Set containing all subscribed permissions
 	 */
-	public Set<Permissible> getPermissionSubscriptions(String permission);
+    Set<Permissible> getPermissionSubscriptions(String permission);
 
 	/**
 	 * Subscribes to the given Default permissions by operator status
@@ -294,7 +294,7 @@ public interface PluginManager {
 	 * @param permissible
 	 *            Permissible subscribing
 	 */
-	public void subscribeToDefaultPerms(boolean op, Permissible permissible);
+    void subscribeToDefaultPerms(boolean op, Permissible permissible);
 
 	/**
 	 * Unsubscribes from the given Default permissions by operator status
@@ -304,7 +304,7 @@ public interface PluginManager {
 	 * @param permissible
 	 *            Permissible subscribing
 	 */
-	public void unsubscribeFromDefaultPerms(boolean op, Permissible permissible);
+    void unsubscribeFromDefaultPerms(boolean op, Permissible permissible);
 
 	/**
 	 * Gets a set containing all subscribed {@link Permissible}s to the given
@@ -314,7 +314,7 @@ public interface PluginManager {
 	 *            Default list to query for
 	 * @return Set containing all subscribed permissions
 	 */
-	public Set<Permissible> getDefaultPermSubscriptions(boolean op);
+    Set<Permissible> getDefaultPermSubscriptions(boolean op);
 
 	/**
 	 * Gets a set of all registered permissions.
@@ -323,12 +323,12 @@ public interface PluginManager {
 	 *
 	 * @return Set containing all current registered permissions
 	 */
-	public Set<Permission> getPermissions();
+    Set<Permission> getPermissions();
 
 	/**
 	 * Returns whether or not timing code should be used for event calls
 	 *
 	 * @return True if event timings are to be used
 	 */
-	public boolean useTimings();
+    boolean useTimings();
 }

@@ -14,7 +14,7 @@ import java.text.DecimalFormat;
 public class ForgeCommand extends CommandBase {
 
 	private static final DecimalFormat timeFormatter = new DecimalFormat("########0.000");
-	private WeakReference<MinecraftServer> server;
+	private final WeakReference<MinecraftServer> server;
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public ForgeCommand(MinecraftServer server) {

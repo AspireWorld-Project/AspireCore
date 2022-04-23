@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 
 @SideOnly(Side.CLIENT)
 public class EntityDropParticleFX extends EntityFX {
-	private Material materialType;
+	private final Material materialType;
 	private int bobTimer;
 	private static final String __OBFID = "CL_00000901";
 

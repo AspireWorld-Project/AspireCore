@@ -40,7 +40,7 @@ public class ListCommand extends VanillaCommand {
 		}
 
 		sender.sendMessage("There are " + players.size() + "/" + Bukkit.getMaxPlayers() + " players online:\n"
-				+ online.toString());
+				+ online);
 
 		return true;
 	}

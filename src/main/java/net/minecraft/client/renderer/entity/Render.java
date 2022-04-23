@@ -27,7 +27,7 @@ public abstract class Render {
 	protected RenderBlocks field_147909_c = new RenderBlocks();
 	protected float shadowSize;
 	protected float shadowOpaque = 1.0F;
-	private boolean staticEntity = false;
+	private final boolean staticEntity = false;
 	private static final String __OBFID = "CL_00000992";
 
 	public abstract void doRender(Entity p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_,

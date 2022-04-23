@@ -33,7 +33,7 @@ public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback {
 	private GuiSelectWorld.List field_146638_t;
 	private String field_146637_u;
 	private String field_146636_v;
-	private String[] field_146635_w = new String[3];
+	private final String[] field_146635_w = new String[3];
 	private boolean field_146643_x;
 	private GuiButton field_146642_y;
 	private GuiButton field_146641_z;
@@ -47,21 +47,21 @@ public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback {
 
 	@Override
 	public void initGui() {
-		field_146628_f = I18n.format("selectWorld.title", new Object[0]);
+		field_146628_f = I18n.format("selectWorld.title");
 
 		try {
 			func_146627_h();
 		} catch (AnvilConverterException anvilconverterexception) {
-			logger.error("Couldn\'t load level list", anvilconverterexception);
+			logger.error("Couldn't load level list", anvilconverterexception);
 			mc.displayGuiScreen(new GuiErrorScreen("Unable to load worlds", anvilconverterexception.getMessage()));
 			return;
 		}
 
-		field_146637_u = I18n.format("selectWorld.world", new Object[0]);
-		field_146636_v = I18n.format("selectWorld.conversion", new Object[0]);
-		field_146635_w[WorldSettings.GameType.SURVIVAL.getID()] = I18n.format("gameMode.survival", new Object[0]);
-		field_146635_w[WorldSettings.GameType.CREATIVE.getID()] = I18n.format("gameMode.creative", new Object[0]);
-		field_146635_w[WorldSettings.GameType.ADVENTURE.getID()] = I18n.format("gameMode.adventure", new Object[0]);
+		field_146637_u = I18n.format("selectWorld.world");
+		field_146636_v = I18n.format("selectWorld.conversion");
+		field_146635_w[WorldSettings.GameType.SURVIVAL.getID()] = I18n.format("gameMode.survival");
+		field_146635_w[WorldSettings.GameType.CREATIVE.getID()] = I18n.format("gameMode.creative");
+		field_146635_w[WorldSettings.GameType.ADVENTURE.getID()] = I18n.format("gameMode.adventure");
 		field_146638_t = new GuiSelectWorld.List();
 		field_146638_t.registerScrollButtons(4, 5);
 		func_146618_g();
@@ -82,7 +82,7 @@ public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback {
 		String s = ((SaveFormatComparator) field_146639_s.get(p_146614_1_)).getDisplayName();
 
 		if (s == null || MathHelper.stringNullOrLengthZero(s)) {
-			s = I18n.format("selectWorld.world", new Object[0]) + " " + (p_146614_1_ + 1);
+			s = I18n.format("selectWorld.world") + " " + (p_146614_1_ + 1);
 		}
 
 		return s;
@@ -90,16 +90,16 @@ public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback {
 
 	public void func_146618_g() {
 		buttonList.add(field_146641_z = new GuiButton(1, width / 2 - 154, height - 52, 150, 20,
-				I18n.format("selectWorld.select", new Object[0])));
+				I18n.format("selectWorld.select")));
 		buttonList.add(new GuiButton(3, width / 2 + 4, height - 52, 150, 20,
-				I18n.format("selectWorld.create", new Object[0])));
+				I18n.format("selectWorld.create")));
 		buttonList.add(field_146630_A = new GuiButton(6, width / 2 - 154, height - 28, 72, 20,
-				I18n.format("selectWorld.rename", new Object[0])));
+				I18n.format("selectWorld.rename")));
 		buttonList.add(field_146642_y = new GuiButton(2, width / 2 - 76, height - 28, 72, 20,
-				I18n.format("selectWorld.delete", new Object[0])));
+				I18n.format("selectWorld.delete")));
 		buttonList.add(field_146631_B = new GuiButton(7, width / 2 + 4, height - 28, 72, 20,
-				I18n.format("selectWorld.recreate", new Object[0])));
-		buttonList.add(new GuiButton(0, width / 2 + 82, height - 28, 72, 20, I18n.format("gui.cancel", new Object[0])));
+				I18n.format("selectWorld.recreate")));
+		buttonList.add(new GuiButton(0, width / 2 + 82, height - 28, 72, 20, I18n.format("gui.cancel")));
 		field_146641_z.enabled = false;
 		field_146642_y.enabled = false;
 		field_146630_A.enabled = false;
@@ -139,7 +139,7 @@ public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback {
 	}
 
 	public void func_146615_e(int p_146615_1_) {
-		mc.displayGuiScreen((GuiScreen) null);
+		mc.displayGuiScreen(null);
 
 		if (!field_146634_i) {
 			field_146634_i = true;
@@ -174,7 +174,7 @@ public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback {
 				try {
 					func_146627_h();
 				} catch (AnvilConverterException anvilconverterexception) {
-					logger.error("Couldn\'t load level list", anvilconverterexception);
+					logger.error("Couldn't load level list", anvilconverterexception);
 				}
 			}
 
@@ -190,10 +190,10 @@ public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback {
 	}
 
 	public static GuiYesNo func_152129_a(GuiYesNoCallback p_152129_0_, String p_152129_1_, int p_152129_2_) {
-		String s1 = I18n.format("selectWorld.deleteQuestion", new Object[0]);
-		String s2 = "\'" + p_152129_1_ + "\' " + I18n.format("selectWorld.deleteWarning", new Object[0]);
-		String s3 = I18n.format("selectWorld.deleteButton", new Object[0]);
-		String s4 = I18n.format("gui.cancel", new Object[0]);
+		String s1 = I18n.format("selectWorld.deleteQuestion");
+		String s2 = "'" + p_152129_1_ + "' " + I18n.format("selectWorld.deleteWarning");
+		String s3 = I18n.format("selectWorld.deleteButton");
+		String s4 = I18n.format("gui.cancel");
 		GuiYesNo guiyesno = new GuiYesNo(p_152129_0_, s1, s2, s3, s4, p_152129_2_);
 		return guiyesno;
 	}
@@ -267,7 +267,7 @@ public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback {
 				}
 
 				if (saveformatcomparator.getCheatsEnabled()) {
-					s2 = s2 + ", " + I18n.format("selectWorld.cheats", new Object[0]);
+					s2 = s2 + ", " + I18n.format("selectWorld.cheats");
 				}
 			}
 

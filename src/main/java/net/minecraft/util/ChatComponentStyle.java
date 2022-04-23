@@ -59,7 +59,7 @@ public abstract class ChatComponentStyle implements IChatComponent {
 
 	@Override
 	public Iterator iterator() {
-		return Iterators.concat(Iterators.forArray(new ChatComponentStyle[] { this }),
+		return Iterators.concat(Iterators.forArray(this),
 				createDeepCopyIterator(siblings));
 	}
 

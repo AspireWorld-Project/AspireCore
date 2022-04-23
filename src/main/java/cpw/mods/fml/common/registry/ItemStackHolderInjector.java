@@ -16,7 +16,7 @@ import java.util.Set;
 public enum ItemStackHolderInjector {
 	INSTANCE;
 
-	private List<ItemStackHolderRef> itemStackHolders = Lists.newArrayList();
+	private final List<ItemStackHolderRef> itemStackHolders = Lists.newArrayList();
 
 	public void inject() {
 		FMLLog.getLogger().log(Level.INFO, "Injecting itemstacks");

@@ -17,18 +17,18 @@ public enum EnumChatFormatting {
 	private static final Map formattingCodeMapping = new HashMap();
 	private static final Map nameMapping = new HashMap();
 	private static final Pattern formattingCodePattern = Pattern
-			.compile("(?i)" + String.valueOf('\u00a7') + "[0-9A-FK-OR]");
+			.compile("(?i)" + '\u00a7' + "[0-9A-FK-OR]");
 	private final char formattingCode;
 	private final boolean fancyStyling;
 	private final String controlString;
 
 	private static final String __OBFID = "CL_00000342";
 
-	private EnumChatFormatting(char p_i1336_3_) {
+	EnumChatFormatting(char p_i1336_3_) {
 		this(p_i1336_3_, false);
 	}
 
-	private EnumChatFormatting(char p_i1337_3_, boolean p_i1337_4_) {
+	EnumChatFormatting(char p_i1337_3_, boolean p_i1337_4_) {
 		formattingCode = p_i1337_3_;
 		fancyStyling = p_i1337_4_;
 		controlString = "\u00a7" + p_i1337_3_;

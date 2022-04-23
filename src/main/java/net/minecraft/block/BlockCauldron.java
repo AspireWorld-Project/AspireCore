@@ -152,7 +152,7 @@ public class BlockCauldron extends Block {
 
 								if (itemstack.stackSize <= 0) {
 									p_149727_5_.inventory.setInventorySlotContents(p_149727_5_.inventory.currentItem,
-											(ItemStack) null);
+                                            null);
 								}
 							}
 

@@ -67,7 +67,7 @@ public interface IStream {
 	IStream.AuthFailureReason func_152918_H();
 
 	@SideOnly(Side.CLIENT)
-	public static enum AuthFailureReason {
+    enum AuthFailureReason {
 		ERROR, INVALID_TOKEN;
 
 		private static final String __OBFID = "CL_00001813";

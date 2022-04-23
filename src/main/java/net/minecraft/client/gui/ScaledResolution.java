@@ -9,8 +9,8 @@ import net.minecraft.util.MathHelper;
 public class ScaledResolution {
 	private int scaledWidth;
 	private int scaledHeight;
-	private double scaledWidthD;
-	private double scaledHeightD;
+	private final double scaledWidthD;
+	private final double scaledHeightD;
 	private int scaleFactor;
 	private static final String __OBFID = "CL_00000666";
 

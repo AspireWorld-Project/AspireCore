@@ -21,7 +21,7 @@ public class LanguageManager implements IResourceManagerReloadListener {
 	private final IMetadataSerializer theMetadataSerializer;
 	private String currentLanguage;
 	protected static final Locale currentLocale = new Locale();
-	private Map languageMap = Maps.newHashMap();
+	private final Map languageMap = Maps.newHashMap();
 	private static final String __OBFID = "CL_00001096";
 
 	public LanguageManager(IMetadataSerializer p_i1304_1_, String p_i1304_2_) {
@@ -64,7 +64,7 @@ public class LanguageManager implements IResourceManagerReloadListener {
 
 	@Override
 	public void onResourceManagerReload(IResourceManager p_110549_1_) {
-		ArrayList arraylist = Lists.newArrayList(new String[] { "en_US" });
+		ArrayList arraylist = Lists.newArrayList("en_US");
 
 		if (!"en_US".equals(currentLanguage)) {
 			arraylist.add(currentLanguage);

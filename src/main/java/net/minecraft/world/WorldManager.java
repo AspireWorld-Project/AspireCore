@@ -11,8 +11,8 @@ import net.minecraft.server.MinecraftServer;
 import java.util.Iterator;
 
 public class WorldManager implements IWorldAccess {
-	private MinecraftServer mcServer;
-	private WorldServer theWorldServer;
+	private final MinecraftServer mcServer;
+	private final WorldServer theWorldServer;
 	private static final String __OBFID = "CL_00001433";
 
 	public WorldManager(MinecraftServer p_i1517_1_, WorldServer p_i1517_2_) {

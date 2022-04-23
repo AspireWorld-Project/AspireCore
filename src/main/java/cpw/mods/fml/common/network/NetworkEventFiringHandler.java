@@ -17,7 +17,7 @@ import org.apache.logging.log4j.Level;
  */
 @Sharable
 public class NetworkEventFiringHandler extends SimpleChannelInboundHandler<FMLProxyPacket> {
-	private FMLEventChannel eventChannel;
+	private final FMLEventChannel eventChannel;
 
 	NetworkEventFiringHandler(FMLEventChannel fmlEventChannel) {
 		eventChannel = fmlEventChannel;

@@ -23,8 +23,8 @@ public class ASMEventHandler implements IEventListener {
 
 	private final IEventListener handler;
 	private final SubscribeEvent subInfo;
-	private ModContainer owner;
-	private String readable;
+	private final ModContainer owner;
+	private final String readable;
 
 	public ASMEventHandler(Object target, Method method, ModContainer owner) throws Exception {
 		this.owner = owner;

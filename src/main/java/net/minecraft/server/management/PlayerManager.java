@@ -157,7 +157,7 @@ public class PlayerManager {
 	private boolean overlaps(int p_72684_1_, int p_72684_2_, int p_72684_3_, int p_72684_4_, int p_72684_5_) {
 		int j1 = p_72684_1_ - p_72684_3_;
 		int k1 = p_72684_2_ - p_72684_4_;
-		return j1 >= -p_72684_5_ && j1 <= p_72684_5_ ? k1 >= -p_72684_5_ && k1 <= p_72684_5_ : false;
+		return j1 >= -p_72684_5_ && j1 <= p_72684_5_ && k1 >= -p_72684_5_ && k1 <= p_72684_5_;
 	}
 
 	public void updatePlayerPertinentChunks(EntityPlayerMP par1EntityPlayerMP) {

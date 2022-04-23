@@ -41,11 +41,11 @@ import java.util.concurrent.Callable;
 
 @SideOnly(Side.CLIENT)
 public class WorldClient extends World {
-	private NetHandlerPlayClient sendQueue;
+	private final NetHandlerPlayClient sendQueue;
 	private ChunkProviderClient clientChunkProvider;
-	private IntHashMap entityHashSet = new IntHashMap();
-	private Set entityList = new HashSet();
-	private Set entitySpawnQueue = new HashSet();
+	private final IntHashMap entityHashSet = new IntHashMap();
+	private final Set entityList = new HashSet();
+	private final Set entitySpawnQueue = new HashSet();
 	private final Minecraft mc = Minecraft.getMinecraft();
 	private final HashIntSet previousActiveChunkSet = HashIntSets.newMutableSet();
 	private static final String __OBFID = "CL_00000882";
@@ -171,9 +171,7 @@ public class WorldClient extends World {
 	public void onEntityAdded(Entity p_72923_1_) {
 		super.onEntityAdded(p_72923_1_);
 
-		if (entitySpawnQueue.contains(p_72923_1_)) {
-			entitySpawnQueue.remove(p_72923_1_);
-		}
+		entitySpawnQueue.remove(p_72923_1_);
 	}
 
 	@Override
@@ -251,7 +249,6 @@ public class WorldClient extends World {
 	@Override
 	public void updateWeatherBody() {
 		if (!provider.hasNoSky) {
-			;
 		}
 	}
 
@@ -338,7 +335,7 @@ public class WorldClient extends World {
 
 			@Override
 			public String call() {
-				return entityList.size() + " total; " + entityList.toString();
+				return entityList.size() + " total; " + entityList;
 			}
 		});
 		crashreportcategory.addCrashSectionCallable("Retry entities", new Callable() {
@@ -346,7 +343,7 @@ public class WorldClient extends World {
 
 			@Override
 			public String call() {
-				return entitySpawnQueue.size() + " total; " + entitySpawnQueue.toString();
+				return entitySpawnQueue.size() + " total; " + entitySpawnQueue;
 			}
 		});
 		crashreportcategory.addCrashSectionCallable("Server brand", new Callable() {

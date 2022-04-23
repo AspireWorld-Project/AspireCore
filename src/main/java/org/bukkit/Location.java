@@ -524,9 +524,7 @@ public class Location implements Cloneable {
 			return false;
 		if (Float.floatToIntBits(pitch) != Float.floatToIntBits(other.pitch))
 			return false;
-		if (Float.floatToIntBits(yaw) != Float.floatToIntBits(other.yaw))
-			return false;
-		return true;
+		return Float.floatToIntBits(yaw) == Float.floatToIntBits(other.yaw);
 	}
 
 	@Override

@@ -25,8 +25,8 @@ public class WorldChunkManager {
 			Arrays.asList(forest, plains, taiga, taigaHills, forestHills, jungle, jungleHills));
 	private GenLayer genBiomes;
 	private GenLayer biomeIndexLayer;
-	private BiomeCache biomeCache;
-	private List biomesToSpawnIn;
+	private final BiomeCache biomeCache;
+	private final List biomesToSpawnIn;
 	private static final String __OBFID = "CL_00000166";
 
 	protected WorldChunkManager() {

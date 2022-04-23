@@ -28,9 +28,9 @@ public class GuiScreenServerList extends GuiScreen {
 		Keyboard.enableRepeatEvents(true);
 		buttonList.clear();
 		buttonList.add(new GuiButton(0, width / 2 - 100, height / 4 + 96 + 12,
-				I18n.format("selectServer.select", new Object[0])));
+				I18n.format("selectServer.select")));
 		buttonList.add(
-				new GuiButton(1, width / 2 - 100, height / 4 + 120 + 12, I18n.format("gui.cancel", new Object[0])));
+				new GuiButton(1, width / 2 - 100, height / 4 + 120 + 12, I18n.format("gui.cancel")));
 		field_146302_g = new GuiTextField(fontRendererObj, width / 2 - 100, 116, 200, 20);
 		field_146302_g.setMaxStringLength(128);
 		field_146302_g.setFocused(true);
@@ -77,8 +77,8 @@ public class GuiScreenServerList extends GuiScreen {
 	@Override
 	public void drawScreen(int p_73863_1_, int p_73863_2_, float p_73863_3_) {
 		drawDefaultBackground();
-		drawCenteredString(fontRendererObj, I18n.format("selectServer.direct", new Object[0]), width / 2, 20, 16777215);
-		drawString(fontRendererObj, I18n.format("addServer.enterIp", new Object[0]), width / 2 - 100, 100, 10526880);
+		drawCenteredString(fontRendererObj, I18n.format("selectServer.direct"), width / 2, 20, 16777215);
+		drawString(fontRendererObj, I18n.format("addServer.enterIp"), width / 2 - 100, 100, 10526880);
 		field_146302_g.drawTextBox();
 		super.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
 	}

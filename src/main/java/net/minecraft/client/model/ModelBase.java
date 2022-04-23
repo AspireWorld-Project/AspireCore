@@ -10,7 +10,7 @@ public abstract class ModelBase {
 	public boolean isRiding;
 	public List boxList = new ArrayList();
 	public boolean isChild = true;
-	private Map modelTextureMap = new HashMap();
+	private final Map modelTextureMap = new HashMap();
 	public int textureWidth = 64;
 	public int textureHeight = 32;
 	private static final String __OBFID = "CL_00000845";

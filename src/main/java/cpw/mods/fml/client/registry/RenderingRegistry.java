@@ -35,9 +35,9 @@ public class RenderingRegistry {
 
 	private int nextRenderId = 42;
 
-	private Map<Integer, ISimpleBlockRenderingHandler> blockRenderers = Maps.newHashMap();
+	private final Map<Integer, ISimpleBlockRenderingHandler> blockRenderers = Maps.newHashMap();
 
-	private List<EntityRendererInfo> entityRenderers = Lists.newArrayList();
+	private final List<EntityRendererInfo> entityRenderers = Lists.newArrayList();
 
 	/**
 	 * Add a new armour prefix to the RenderPlayer
@@ -99,8 +99,8 @@ public class RenderingRegistry {
 			this.renderer = renderer;
 		}
 
-		private Class<? extends Entity> target;
-		private Render renderer;
+		private final Class<? extends Entity> target;
+		private final Render renderer;
 	}
 
 	public boolean renderWorldBlock(RenderBlocks renderer, IBlockAccess world, int x, int y, int z, Block block,

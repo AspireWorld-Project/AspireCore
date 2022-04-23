@@ -6,8 +6,8 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 
 public class ContainerChest extends Container {
-	private IInventory lowerChestInventory;
-	private int numRows;
+	private final IInventory lowerChestInventory;
+	private final int numRows;
 	private static final String __OBFID = "CL_00001742";
 
 	private final boolean notifyInventory;
@@ -63,7 +63,7 @@ public class ContainerChest extends Container {
 				return null;
 
 			if (itemstack1.stackSize == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(null);
 			} else {
 				slot.onSlotChanged();
 			}

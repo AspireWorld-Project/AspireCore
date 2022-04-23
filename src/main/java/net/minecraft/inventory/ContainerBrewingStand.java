@@ -11,7 +11,7 @@ import net.minecraft.stats.AchievementList;
 import net.minecraft.tileentity.TileEntityBrewingStand;
 
 public class ContainerBrewingStand extends Container {
-	private TileEntityBrewingStand tileBrewingStand;
+	private final TileEntityBrewingStand tileBrewingStand;
 	private final Slot theSlot;
 	private int brewTime;
 	private static final String __OBFID = "CL_00001737";
@@ -101,7 +101,7 @@ public class ContainerBrewingStand extends Container {
 			}
 
 			if (itemstack1.stackSize == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(null);
 			} else {
 				slot.onSlotChanged();
 			}
@@ -124,7 +124,7 @@ public class ContainerBrewingStand extends Container {
 
 		@Override
 		public boolean isItemValid(ItemStack p_75214_1_) {
-			return p_75214_1_ != null ? p_75214_1_.getItem().isPotionIngredient(p_75214_1_) : false;
+			return p_75214_1_ != null && p_75214_1_.getItem().isPotionIngredient(p_75214_1_);
 		}
 
 		@Override
@@ -134,7 +134,7 @@ public class ContainerBrewingStand extends Container {
 	}
 
 	static class Potion extends Slot {
-		private EntityPlayer player;
+		private final EntityPlayer player;
 		private static final String __OBFID = "CL_00001740";
 
 		public Potion(EntityPlayer p_i1804_1_, IInventory p_i1804_2_, int p_i1804_3_, int p_i1804_4_, int p_i1804_5_) {

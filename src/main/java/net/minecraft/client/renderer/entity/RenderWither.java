@@ -56,11 +56,7 @@ public class RenderWither extends RenderLiving {
 
 	protected int shouldRenderPass(EntityWither p_77032_1_, int p_77032_2_, float p_77032_3_) {
 		if (p_77032_1_.isArmored()) {
-			if (p_77032_1_.isInvisible()) {
-				GL11.glDepthMask(false);
-			} else {
-				GL11.glDepthMask(true);
-			}
+			GL11.glDepthMask(!p_77032_1_.isInvisible());
 
 			if (p_77032_2_ == 1) {
 				float f1 = p_77032_1_.ticksExisted + p_77032_3_;

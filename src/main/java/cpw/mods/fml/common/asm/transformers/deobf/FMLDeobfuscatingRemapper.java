@@ -69,7 +69,7 @@ public class FMLDeobfuscatingRemapper extends Remapper {
 			List<String> srgList = srgSource.readLines();
 			rawMethodMaps = Maps.newHashMap();
 			rawFieldMaps = Maps.newHashMap();
-			Builder<String, String> builder = ImmutableBiMap.<String, String>builder();
+			Builder<String, String> builder = ImmutableBiMap.builder();
 			Splitter splitter = Splitter.on(CharMatcher.anyOf(": ")).omitEmptyStrings().trimResults();
 			for (String line : srgList) {
 				String[] parts = Iterables.toArray(splitter.split(line), String.class);
@@ -100,7 +100,7 @@ public class FMLDeobfuscatingRemapper extends Remapper {
 			List<String> srgList = srgSource.readLines();
 			rawMethodMaps = Maps.newHashMap();
 			rawFieldMaps = Maps.newHashMap();
-			Builder<String, String> builder = ImmutableBiMap.<String, String>builder();
+			Builder<String, String> builder = ImmutableBiMap.builder();
 			Splitter splitter = Splitter.on(CharMatcher.anyOf(": ")).omitEmptyStrings().trimResults();
 			for (String line : srgList) {
 				String[] parts = Iterables.toArray(splitter.split(line), String.class);
@@ -134,7 +134,7 @@ public class FMLDeobfuscatingRemapper extends Remapper {
 		int lastNew = newSrg.lastIndexOf('/');
 		String newName = newSrg.substring(lastNew + 1);
 		if (!rawFieldMaps.containsKey(cl)) {
-			rawFieldMaps.put(cl, Maps.<String, String>newHashMap());
+			rawFieldMaps.put(cl, Maps.newHashMap());
 		}
 		rawFieldMaps.get(cl).put(oldName + ":" + getFieldType(cl, oldName), newName);
 		rawFieldMaps.get(cl).put(oldName + ":null", newName);
@@ -144,12 +144,12 @@ public class FMLDeobfuscatingRemapper extends Remapper {
 	 * Cache the field descriptions for classes so we don't repeatedly reload the
 	 * same data again and again
 	 */
-	private Map<String, Map<String, String>> fieldDescriptions = Maps.newHashMap();
+	private final Map<String, Map<String, String>> fieldDescriptions = Maps.newHashMap();
 
 	// Cache null values so we don't waste time trying to recompute classes with no
 	// field or method maps
-	private Set<String> negativeCacheMethods = Sets.newHashSet();
-	private Set<String> negativeCacheFields = Sets.newHashSet();
+	private final Set<String> negativeCacheMethods = Sets.newHashSet();
+	private final Set<String> negativeCacheFields = Sets.newHashSet();
 
 	private String getFieldType(String owner, String name) {
 		if (fieldDescriptions.containsKey(owner))
@@ -190,7 +190,7 @@ public class FMLDeobfuscatingRemapper extends Remapper {
 		int lastNew = newSrg.lastIndexOf('/');
 		String newName = newSrg.substring(lastNew + 1);
 		if (!rawMethodMaps.containsKey(cl)) {
-			rawMethodMaps.put(cl, Maps.<String, String>newHashMap());
+			rawMethodMaps.put(cl, Maps.newHashMap());
 		}
 		rawMethodMaps.get(cl).put(oldName + sig, newName);
 	}
@@ -297,8 +297,8 @@ public class FMLDeobfuscatingRemapper extends Remapper {
 				findAndMergeSuperMaps(parentThing);
 			}
 		}
-		Map<String, String> methodMap = Maps.<String, String>newHashMap();
-		Map<String, String> fieldMap = Maps.<String, String>newHashMap();
+		Map<String, String> methodMap = Maps.newHashMap();
+		Map<String, String> fieldMap = Maps.newHashMap();
 		for (String parentThing : allParents) {
 			if (methodNameMaps.containsKey(parentThing)) {
 				methodMap.putAll(methodNameMaps.get(parentThing));

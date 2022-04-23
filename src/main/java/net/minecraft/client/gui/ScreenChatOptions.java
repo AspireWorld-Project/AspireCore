@@ -29,8 +29,8 @@ public class ScreenChatOptions extends GuiScreen {
 	@Override
 	public void initGui() {
 		int i = 0;
-		field_146401_i = I18n.format("options.chat.title", new Object[0]);
-		field_146398_r = I18n.format("options.multiplayer.title", new Object[0]);
+		field_146401_i = I18n.format("options.chat.title");
+		field_146398_r = I18n.format("options.multiplayer.title");
 		GameSettings.Options[] aoptions = field_146399_a;
 		int j = aoptions.length;
 		int k;
@@ -73,7 +73,7 @@ public class ScreenChatOptions extends GuiScreen {
 			++i;
 		}
 
-		buttonList.add(new GuiButton(200, width / 2 - 100, height / 6 + 168, I18n.format("gui.done", new Object[0])));
+		buttonList.add(new GuiButton(200, width / 2 - 100, height / 6 + 168, I18n.format("gui.done")));
 	}
 
 	@Override

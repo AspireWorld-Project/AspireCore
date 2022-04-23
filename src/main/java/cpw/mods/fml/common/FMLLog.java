@@ -18,7 +18,7 @@ import org.apache.logging.log4j.Logger;
 
 @SuppressWarnings("static-access")
 public class FMLLog {
-	private static cpw.mods.fml.relauncher.FMLRelaunchLog coreLog = cpw.mods.fml.relauncher.FMLRelaunchLog.log;
+	private static final cpw.mods.fml.relauncher.FMLRelaunchLog coreLog = cpw.mods.fml.relauncher.FMLRelaunchLog.log;
 
 	public static void log(String targetLog, Level level, String format, Object... data) {
 		FMLRelaunchLog.log(targetLog, level, format, data);

@@ -19,7 +19,7 @@ public interface PotionBrewer {
 	 *            The amplifier of the effect
 	 * @return The resulting potion effect
 	 */
-	public PotionEffect createEffect(PotionEffectType potion, int duration, int amplifier);
+    PotionEffect createEffect(PotionEffectType potion, int duration, int amplifier);
 
 	/**
 	 * Returns a collection of {@link PotionEffect} that would be applied from a
@@ -31,5 +31,5 @@ public interface PotionBrewer {
 	 * @deprecated Magic value
 	 */
 	@Deprecated
-	public Collection<PotionEffect> getEffectsFromDamage(int damage);
+    Collection<PotionEffect> getEffectsFromDamage(int damage);
 }

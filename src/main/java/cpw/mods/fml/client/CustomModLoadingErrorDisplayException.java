@@ -78,5 +78,5 @@ public abstract class CustomModLoadingErrorDisplayException extends EnhancedRunt
 
 	@Override
 	public void printStackTrace(EnhancedRuntimeException.WrappedPrintStream s) {
-	}; // Do Nothing unless the modder wants to.
+	} // Do Nothing unless the modder wants to.
 }

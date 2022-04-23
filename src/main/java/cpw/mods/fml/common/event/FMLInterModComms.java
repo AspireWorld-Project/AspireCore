@@ -27,8 +27,8 @@ import net.minecraft.nbt.NBTTagCompound;
  *
  */
 public class FMLInterModComms {
-	private static final ImmutableList<IMCMessage> emptyIMCList = ImmutableList.<IMCMessage>of();
-	private static ArrayListMultimap<String, IMCMessage> modMessages = ArrayListMultimap.create();
+	private static final ImmutableList<IMCMessage> emptyIMCList = ImmutableList.of();
+	private static final ArrayListMultimap<String, IMCMessage> modMessages = ArrayListMultimap.create();
 
 	/**
 	 * Subscribe to this event to receive your messages (they are sent between
@@ -76,7 +76,7 @@ public class FMLInterModComms {
 		/**
 		 * This field, and {@link #key} are both at the mod's discretion
 		 */
-		private Object value;
+		private final Object value;
 
 		private IMCMessage(String key, Object value) {
 			this.key = key;

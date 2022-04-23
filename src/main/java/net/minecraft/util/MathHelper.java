@@ -6,7 +6,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Random;
 
 public class MathHelper {
-	private static float[] SIN_TABLE = new float[65536];
+	private static final float[] SIN_TABLE = new float[65536];
 	private static final int[] multiplyDeBruijnBitPosition;
 	private static final String __OBFID = "CL_00001496";
 
@@ -168,8 +168,7 @@ public class MathHelper {
 		try {
 			j = Integer.parseInt(p_82715_0_);
 		} catch (Throwable throwable) {
-			;
-		}
+        }
 
 		return j;
 	}
@@ -180,8 +179,7 @@ public class MathHelper {
 		try {
 			k = Integer.parseInt(p_82714_0_);
 		} catch (Throwable throwable) {
-			;
-		}
+        }
 
 		if (k < p_82714_2_) {
 			k = p_82714_2_;
@@ -196,8 +194,7 @@ public class MathHelper {
 		try {
 			d1 = Double.parseDouble(p_82712_0_);
 		} catch (Throwable throwable) {
-			;
-		}
+        }
 
 		return d1;
 	}
@@ -208,8 +205,7 @@ public class MathHelper {
 		try {
 			d2 = Double.parseDouble(p_82713_0_);
 		} catch (Throwable throwable) {
-			;
-		}
+        }
 
 		if (d2 < p_82713_3_) {
 			d2 = p_82713_3_;

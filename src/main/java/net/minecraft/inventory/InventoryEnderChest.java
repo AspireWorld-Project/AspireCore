@@ -22,7 +22,7 @@ public class InventoryEnderChest extends InventoryBasic {
 		int i;
 
 		for (i = 0; i < getSizeInventory(); ++i) {
-			setInventorySlotContents(i, (ItemStack) null);
+			setInventorySlotContents(i, null);
 		}
 
 		for (i = 0; i < p_70486_1_.tagCount(); ++i) {
@@ -54,8 +54,7 @@ public class InventoryEnderChest extends InventoryBasic {
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer p_70300_1_) {
-		return associatedChest != null && !associatedChest.func_145971_a(p_70300_1_) ? false
-				: super.isUseableByPlayer(p_70300_1_);
+		return (associatedChest == null || associatedChest.func_145971_a(p_70300_1_)) && super.isUseableByPlayer(p_70300_1_);
 	}
 
 	@Override

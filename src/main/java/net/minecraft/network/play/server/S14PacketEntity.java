@@ -44,7 +44,7 @@ public class S14PacketEntity extends Packet {
 
 	@Override
 	public String serialize() {
-		return String.format("id=%d", new Object[] { Integer.valueOf(field_149074_a) });
+		return String.format("id=%d", Integer.valueOf(field_149074_a));
 	}
 
 	@Override
@@ -123,8 +123,7 @@ public class S14PacketEntity extends Packet {
 
 		@Override
 		public String serialize() {
-			return super.serialize() + String.format(", xa=%d, ya=%d, za=%d", new Object[] {
-					Byte.valueOf(field_149072_b), Byte.valueOf(field_149073_c), Byte.valueOf(field_149070_d) });
+			return super.serialize() + String.format(", xa=%d, ya=%d, za=%d", Byte.valueOf(field_149072_b), Byte.valueOf(field_149073_c), Byte.valueOf(field_149070_d));
 		}
 
 		@Override
@@ -164,7 +163,7 @@ public class S14PacketEntity extends Packet {
 		@Override
 		public String serialize() {
 			return super.serialize() + String.format(", yRot=%d, xRot=%d",
-					new Object[] { Byte.valueOf(field_149071_e), Byte.valueOf(field_149068_f) });
+					Byte.valueOf(field_149071_e), Byte.valueOf(field_149068_f));
 		}
 
 		@Override
@@ -214,8 +213,8 @@ public class S14PacketEntity extends Packet {
 		@Override
 		public String serialize() {
 			return super.serialize() + String.format(", xa=%d, ya=%d, za=%d, yRot=%d, xRot=%d",
-					new Object[] { Byte.valueOf(field_149072_b), Byte.valueOf(field_149073_c),
-							Byte.valueOf(field_149070_d), Byte.valueOf(field_149071_e), Byte.valueOf(field_149068_f) });
+					Byte.valueOf(field_149072_b), Byte.valueOf(field_149073_c),
+					Byte.valueOf(field_149070_d), Byte.valueOf(field_149071_e), Byte.valueOf(field_149068_f));
 		}
 
 		@Override

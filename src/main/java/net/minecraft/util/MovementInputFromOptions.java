@@ -6,7 +6,7 @@ import net.minecraft.client.settings.GameSettings;
 
 @SideOnly(Side.CLIENT)
 public class MovementInputFromOptions extends MovementInput {
-	private GameSettings gameSettings;
+	private final GameSettings gameSettings;
 	private static final String __OBFID = "CL_00000937";
 
 	public MovementInputFromOptions(GameSettings p_i1237_1_) {

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GenLayerBiome extends GenLayer {
-	private List<BiomeEntry>[] biomes = new ArrayList[BiomeManager.BiomeType.values().length];
+	private final List<BiomeEntry>[] biomes = new ArrayList[BiomeManager.BiomeType.values().length];
 
 	private static final String __OBFID = "CL_00000555";
 

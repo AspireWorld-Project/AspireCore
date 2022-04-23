@@ -12,7 +12,7 @@ public enum EnumFacing {
 
 	private static final String __OBFID = "CL_00001201";
 
-	private EnumFacing(int p_i1367_3_, int p_i1367_4_, int p_i1367_5_, int p_i1367_6_, int p_i1367_7_) {
+	EnumFacing(int p_i1367_3_, int p_i1367_4_, int p_i1367_5_, int p_i1367_6_, int p_i1367_7_) {
 		order_a = p_i1367_3_;
 		order_b = p_i1367_4_;
 		frontOffsetX = p_i1367_5_;

@@ -51,7 +51,6 @@ public abstract class RendererLivingEntity extends Render {
 		float f3;
 
 		for (f3 = p_77034_2_ - p_77034_1_; f3 < -180.0F; f3 += 360.0F) {
-			;
 		}
 
 		while (f3 >= 180.0F) {
@@ -245,7 +244,7 @@ public abstract class RendererLivingEntity extends Render {
 
 			GL11.glDisable(GL12.GL_RESCALE_NORMAL);
 		} catch (Exception exception) {
-			logger.error("Couldn\'t render entity", exception);
+			logger.error("Couldn't render entity", exception);
 		}
 
 		OpenGlHelper.setActiveTexture(OpenGlHelper.lightmapTexUnit);

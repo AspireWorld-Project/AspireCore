@@ -78,9 +78,7 @@ public final class PluginMessageListenerRegistration {
 			return false;
 		if (channel == null ? other.channel != null : !channel.equals(other.channel))
 			return false;
-		if (listener != other.listener && (listener == null || !listener.equals(other.listener)))
-			return false;
-		return true;
+		return listener == other.listener || (listener != null && listener.equals(other.listener));
 	}
 
 	@Override

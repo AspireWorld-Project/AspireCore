@@ -65,7 +65,7 @@ public final class CraftScoreboard implements org.bukkit.scoreboard.Scoreboard {
 
 	@Override
 	public ImmutableSet<Objective> getObjectives() {
-		return ImmutableSet.copyOf((Collection<? extends Objective>) objectives.values());
+		return ImmutableSet.copyOf(objectives.values());
 	}
 
 	@Override
@@ -131,7 +131,7 @@ public final class CraftScoreboard implements org.bukkit.scoreboard.Scoreboard {
 
 	@Override
 	public ImmutableSet<Team> getTeams() {
-		return ImmutableSet.copyOf((Collection<? extends Team>) teams.values());
+		return ImmutableSet.copyOf(teams.values());
 	}
 
 	@Override

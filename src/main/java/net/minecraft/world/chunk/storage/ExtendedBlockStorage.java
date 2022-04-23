@@ -14,7 +14,7 @@ import org.ultramine.server.chunk.alloc.MemSlot;
 public class ExtendedBlockStorage {
 	@InjectService
 	private static ChunkAllocService alloc;
-	private int yBase;
+	private final int yBase;
 	private int blockRefCount;
 	private int tickRefCount;
 	private volatile MemSlot slot; // volatile read is cheap on x86

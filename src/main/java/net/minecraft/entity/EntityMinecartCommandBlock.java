@@ -121,8 +121,7 @@ public class EntityMinecartCommandBlock extends EntityMinecart {
 				field_145824_a.func_145750_b(
 						IChatComponent.Serializer.func_150699_a(getDataWatcher().getWatchableObjectString(24)));
 			} catch (Throwable throwable) {
-				;
-			}
+            }
 		} else if (p_145781_1_ == 23) {
 			field_145824_a.func_145752_a(getDataWatcher().getWatchableObjectString(23));
 		}

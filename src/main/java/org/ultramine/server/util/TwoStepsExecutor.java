@@ -58,8 +58,8 @@ public final class TwoStepsExecutor {
 	}
 
 	private static class CallbackDataStruct<T> implements Runnable {
-		private Consumer<T> callback;
-		private T param;
+		private final Consumer<T> callback;
+		private final T param;
 
 		public CallbackDataStruct(Consumer<T> callback, T param) {
 			this.callback = callback;
@@ -73,8 +73,8 @@ public final class TwoStepsExecutor {
 	}
 
 	private static class OldCallbackDataStruct<T> implements Runnable {
-		private Function<T, Void> callback;
-		private T param;
+		private final Function<T, Void> callback;
+		private final T param;
 
 		public OldCallbackDataStruct(Function<T, Void> callback, T param) {
 			this.callback = callback;

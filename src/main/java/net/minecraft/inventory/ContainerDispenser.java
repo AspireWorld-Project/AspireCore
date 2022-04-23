@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityDispenser;
 
 public class ContainerDispenser extends Container {
-	private TileEntityDispenser tileDispenser;
+	private final TileEntityDispenser tileDispenser;
 	private static final String __OBFID = "CL_00001763";
 
 	public ContainerDispenser(IInventory p_i1825_1_, TileEntityDispenser p_i1825_2_) {
@@ -51,7 +51,7 @@ public class ContainerDispenser extends Container {
 				return null;
 
 			if (itemstack1.stackSize == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(null);
 			} else {
 				slot.onSlotChanged();
 			}

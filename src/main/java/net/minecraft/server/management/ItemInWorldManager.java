@@ -162,7 +162,7 @@ public class ItemInWorldManager {
 
 			// CraftBukkit end
 			if (isCreative()) {
-				if (!theWorld.extinguishFire((EntityPlayer) null, p_73074_1_, p_73074_2_, p_73074_3_, p_73074_4_)) {
+				if (!theWorld.extinguishFire(null, p_73074_1_, p_73074_2_, p_73074_3_, p_73074_4_)) {
 					tryHarvestBlock(p_73074_1_, p_73074_2_, p_73074_3_);
 				}
 			} else {
@@ -192,7 +192,7 @@ public class ItemInWorldManager {
 					f = block.getPlayerRelativeBlockHardness(thisPlayerMP, thisPlayerMP.worldObj, p_73074_1_,
 							p_73074_2_, p_73074_3_);
 					// Allow fire punching to be blocked
-					theWorld.extinguishFire((EntityPlayer) null, p_73074_1_, p_73074_2_, p_73074_3_, p_73074_4_);
+					theWorld.extinguishFire(null, p_73074_1_, p_73074_2_, p_73074_3_, p_73074_4_);
 				}
 				if (cbEvent.useItemInHand() == org.bukkit.event.Event.Result.DENY
 						|| event.useItem == cpw.mods.fml.common.eventhandler.Event.Result.DENY) // Forge

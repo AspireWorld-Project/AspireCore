@@ -24,7 +24,7 @@ import org.ultramine.commands.syntax.IArgumentValidationHandler;
 
 public class FMLServerStartingEvent extends FMLStateEvent {
 
-	private MinecraftServer server;
+	private final MinecraftServer server;
 
 	public FMLServerStartingEvent(Object... data) {
 		super(data);

@@ -8,7 +8,7 @@ import net.minecraft.network.play.client.C00PacketKeepAlive;
 
 @SideOnly(Side.CLIENT)
 public class GuiDownloadTerrain extends GuiScreen {
-	private NetHandlerPlayClient field_146594_a;
+	private final NetHandlerPlayClient field_146594_a;
 	private int field_146593_f;
 	private static final String __OBFID = "CL_00000708";
 
@@ -41,7 +41,7 @@ public class GuiDownloadTerrain extends GuiScreen {
 	@Override
 	public void drawScreen(int p_73863_1_, int p_73863_2_, float p_73863_3_) {
 		drawBackground(0);
-		drawCenteredString(fontRendererObj, I18n.format("multiplayer.downloadingTerrain", new Object[0]), width / 2,
+		drawCenteredString(fontRendererObj, I18n.format("multiplayer.downloadingTerrain"), width / 2,
 				height / 2 - 50, 16777215);
 		super.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
 	}

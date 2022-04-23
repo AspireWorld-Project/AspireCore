@@ -27,8 +27,8 @@ public class GuiEnchantment extends GuiContainer {
 	private static final ResourceLocation field_147070_D = new ResourceLocation(
 			"textures/entity/enchanting_table_book.png");
 	private static final ModelBook field_147072_E = new ModelBook();
-	private Random field_147074_F = new Random();
-	private ContainerEnchantment field_147075_G;
+	private final Random field_147074_F = new Random();
+	private final ContainerEnchantment field_147075_G;
 	public int field_147073_u;
 	public float field_147071_v;
 	public float field_147069_w;
@@ -37,7 +37,7 @@ public class GuiEnchantment extends GuiContainer {
 	public float field_147080_z;
 	public float field_147076_A;
 	ItemStack field_147077_B;
-	private String field_147079_H;
+	private final String field_147079_H;
 	private static final String __OBFID = "CL_00000757";
 
 	public GuiEnchantment(InventoryPlayer p_i1090_1_, World p_i1090_2_, int p_i1090_3_, int p_i1090_4_, int p_i1090_5_,
@@ -50,9 +50,9 @@ public class GuiEnchantment extends GuiContainer {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_) {
 		fontRendererObj.drawString(
-				field_147079_H == null ? I18n.format("container.enchant", new Object[0]) : field_147079_H, 12, 5,
+				field_147079_H == null ? I18n.format("container.enchant") : field_147079_H, 12, 5,
 				4210752);
-		fontRendererObj.drawString(I18n.format("container.inventory", new Object[0]), 8, ySize - 96 + 2, 4210752);
+		fontRendererObj.drawString(I18n.format("container.inventory"), 8, ySize - 96 + 2, 4210752);
 	}
 
 	@Override
@@ -131,7 +131,7 @@ public class GuiEnchantment extends GuiContainer {
 		}
 
 		GL11.glEnable(GL12.GL_RESCALE_NORMAL);
-		field_147072_E.render((Entity) null, 0.0F, f4, f5, f3, 0.0F, 0.0625F);
+		field_147072_E.render(null, 0.0F, f4, f5, f3, 0.0F, 0.0625F);
 		GL11.glDisable(GL12.GL_RESCALE_NORMAL);
 		RenderHelper.disableStandardItemLighting();
 		GL11.glMatrixMode(GL11.GL_PROJECTION);

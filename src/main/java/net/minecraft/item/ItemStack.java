@@ -171,8 +171,7 @@ public final class ItemStack {
 	}
 
 	public boolean isItemStackDamageable() {
-		return field_151002_e.getMaxDamage(this) <= 0 ? false
-				: !hasTagCompound() || !getTagCompound().getBoolean("Unbreakable");
+		return field_151002_e.getMaxDamage(this) > 0 && (!hasTagCompound() || !getTagCompound().getBoolean("Unbreakable"));
 	}
 
 	public boolean getHasSubtypes() {
@@ -292,27 +291,17 @@ public final class ItemStack {
 
 	public static boolean areItemStackTagsEqual(ItemStack p_77970_0_, ItemStack p_77970_1_) {
 		return p_77970_0_ == null
-				&& p_77970_1_ == null
-						? true
-						: p_77970_0_ != null && p_77970_1_ != null
-								? p_77970_0_.stackTagCompound == null && p_77970_1_.stackTagCompound != null ? false
-										: p_77970_0_.stackTagCompound == null
-												|| p_77970_0_.stackTagCompound.equals(p_77970_1_.stackTagCompound)
-								: false;
+                && p_77970_1_ == null || p_77970_0_ != null && p_77970_1_ != null && (p_77970_0_.stackTagCompound != null || p_77970_1_.stackTagCompound == null) && (p_77970_0_.stackTagCompound == null
+                || p_77970_0_.stackTagCompound.equals(p_77970_1_.stackTagCompound));
 	}
 
 	public static boolean areItemStacksEqual(ItemStack p_77989_0_, ItemStack p_77989_1_) {
-		return p_77989_0_ == null && p_77989_1_ == null ? true
-				: p_77989_0_ != null && p_77989_1_ != null ? p_77989_0_.isItemStackEqual(p_77989_1_) : false;
+		return p_77989_0_ == null && p_77989_1_ == null || p_77989_0_ != null && p_77989_1_ != null && p_77989_0_.isItemStackEqual(p_77989_1_);
 	}
 
 	private boolean isItemStackEqual(ItemStack p_77959_1_) {
-		return stackSize != p_77959_1_.stackSize ? false
-				: field_151002_e != p_77959_1_.field_151002_e ? false
-						: itemDamage != p_77959_1_.itemDamage ? false
-								: stackTagCompound == null && p_77959_1_.stackTagCompound != null ? false
-										: stackTagCompound == null
-												|| stackTagCompound.equals(p_77959_1_.stackTagCompound);
+		return stackSize == p_77959_1_.stackSize && field_151002_e == p_77959_1_.field_151002_e && itemDamage == p_77959_1_.itemDamage && (stackTagCompound != null || p_77959_1_.stackTagCompound == null) && (stackTagCompound == null
+                || stackTagCompound.equals(p_77959_1_.stackTagCompound));
 	}
 
 	public boolean isItemEqual(ItemStack p_77969_1_) {
@@ -410,7 +399,7 @@ public final class ItemStack {
 					stackTagCompound.removeTag("display");
 
 					if (stackTagCompound.hasNoTags()) {
-						setTagCompound((NBTTagCompound) null);
+						setTagCompound(null);
 					}
 				}
 			}
@@ -418,9 +407,7 @@ public final class ItemStack {
 	}
 
 	public boolean hasDisplayName() {
-		return stackTagCompound == null ? false
-				: !stackTagCompound.hasKey("display", 10) ? false
-						: stackTagCompound.getCompoundTag("display").hasKey("Name", 8);
+		return stackTagCompound != null && stackTagCompound.hasKey("display", 10) && stackTagCompound.getCompoundTag("display").hasKey("Name", 8);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -446,9 +433,9 @@ public final class ItemStack {
 
 			if (getHasSubtypes()) {
 				s = s + String.format("#%04d/%d%s",
-						new Object[] { Integer.valueOf(i), Integer.valueOf(itemDamage), s1 });
+                        Integer.valueOf(i), Integer.valueOf(itemDamage), s1);
 			} else {
-				s = s + String.format("#%04d%s", new Object[] { Integer.valueOf(i), s1 });
+				s = s + String.format("#%04d%s", Integer.valueOf(i), s1);
 			}
 		} else if (!hasDisplayName() && field_151002_e == Items.filled_map) {
 			s = s + " #" + itemDamage;
@@ -523,13 +510,13 @@ public final class ItemStack {
 					arraylist.add(EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted(
 							"attribute.modifier.plus." + attributemodifier.getOperation(),
 							new Object[] { field_111284_a.format(d1),
-									StatCollector.translateToLocal("attribute.name." + (String) entry.getKey()) }));
+									StatCollector.translateToLocal("attribute.name." + entry.getKey()) }));
 				} else if (d0 < 0.0D) {
 					d1 *= -1.0D;
 					arraylist.add(EnumChatFormatting.RED + StatCollector.translateToLocalFormatted(
 							"attribute.modifier.take." + attributemodifier.getOperation(),
 							new Object[] { field_111284_a.format(d1),
-									StatCollector.translateToLocal("attribute.name." + (String) entry.getKey()) }));
+									StatCollector.translateToLocal("attribute.name." + entry.getKey()) }));
 				}
 			}
 		}
@@ -562,7 +549,7 @@ public final class ItemStack {
 	}
 
 	public boolean isItemEnchantable() {
-		return !getItem().isItemTool(this) ? false : !isItemEnchanted();
+		return getItem().isItemTool(this) && !isItemEnchanted();
 	}
 
 	public void addEnchantment(Enchantment p_77966_1_, int p_77966_2_) {

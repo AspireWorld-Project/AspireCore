@@ -54,7 +54,7 @@ public class S13PacketDestroyEntities extends Packet {
 			stringbuilder.append(field_149100_a[i]);
 		}
 
-		return String.format("entities=%d[%s]", new Object[] { Integer.valueOf(field_149100_a.length), stringbuilder });
+		return String.format("entities=%d[%s]", Integer.valueOf(field_149100_a.length), stringbuilder);
 	}
 
 	@SideOnly(Side.CLIENT)

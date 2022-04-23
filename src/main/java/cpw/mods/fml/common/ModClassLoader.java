@@ -37,7 +37,7 @@ import java.util.Set;
 public class ModClassLoader extends URLClassLoader {
 	private static final List<String> STANDARD_LIBRARIES = ImmutableList.of("jinput.jar", "lwjgl.jar", "lwjgl_util.jar",
 			"rt.jar");
-	private LaunchClassLoader mainClassLoader;
+	private final LaunchClassLoader mainClassLoader;
 
 	public ModClassLoader(ClassLoader parent) {
 		super(new URL[0], null);

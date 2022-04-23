@@ -26,8 +26,8 @@ public class LanServerDetector {
 
 	@SideOnly(Side.CLIENT)
 	public static class LanServer {
-		private String lanServerMotd;
-		private String lanServerIpPort;
+		private final String lanServerMotd;
+		private final String lanServerIpPort;
 		private long timeLastSeen;
 		private static final String __OBFID = "CL_00001134";
 
@@ -52,7 +52,7 @@ public class LanServerDetector {
 
 	@SideOnly(Side.CLIENT)
 	public static class LanServerList {
-		private ArrayList listOfLanServers = new ArrayList();
+		private final ArrayList listOfLanServers = new ArrayList();
 		boolean wasUpdated;
 		private static final String __OBFID = "CL_00001136";
 
@@ -124,7 +124,7 @@ public class LanServerDetector {
 				} catch (SocketTimeoutException sockettimeoutexception) {
 					continue;
 				} catch (IOException ioexception1) {
-					LanServerDetector.logger.error("Couldn\'t ping server", ioexception1);
+					LanServerDetector.logger.error("Couldn't ping server", ioexception1);
 					break;
 				}
 
@@ -136,7 +136,6 @@ public class LanServerDetector {
 			try {
 				socket.leaveGroup(broadcastAddress);
 			} catch (IOException ioexception) {
-				;
 			}
 
 			socket.close();

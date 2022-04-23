@@ -53,7 +53,7 @@ public class S3APacketTabComplete extends Packet {
 
 	@Override
 	public String serialize() {
-		return String.format("candidates=\'%s\'", new Object[] { ArrayUtils.toString(field_149632_a) });
+		return String.format("candidates='%s'", ArrayUtils.toString(field_149632_a));
 	}
 
 	@Override

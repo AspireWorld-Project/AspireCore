@@ -358,7 +358,7 @@ public class LongHashSet implements Set<Long> {
 
 	@Override
 	public boolean contains(Object o) {
-		return o instanceof Long ? contains(((Long) o).longValue()) : false;
+		return o instanceof Long && contains(((Long) o).longValue());
 	}
 
 	@Override
@@ -371,7 +371,7 @@ public class LongHashSet implements Set<Long> {
 
 	@Override
 	public boolean remove(Object o) {
-		return o instanceof Long ? remove(((Long) o).longValue()) : false;
+		return o instanceof Long && remove(((Long) o).longValue());
 	}
 
 	@Override

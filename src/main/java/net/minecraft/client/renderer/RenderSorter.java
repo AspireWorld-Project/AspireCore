@@ -8,7 +8,7 @@ import java.util.Comparator;
 
 @SideOnly(Side.CLIENT)
 public class RenderSorter implements Comparator {
-	private EntityLivingBase baseEntity;
+	private final EntityLivingBase baseEntity;
 	private static final String __OBFID = "CL_00000943";
 
 	public RenderSorter(EntityLivingBase p_i1241_1_) {

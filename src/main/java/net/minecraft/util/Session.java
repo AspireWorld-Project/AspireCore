@@ -58,7 +58,7 @@ public class Session {
 			return new GameProfile(uuid, getUsername());
 		} catch (IllegalArgumentException illegalargumentexception) {
 			return new GameProfile(
-					net.minecraft.entity.player.EntityPlayer.func_146094_a(new GameProfile((UUID) null, getUsername())),
+					net.minecraft.entity.player.EntityPlayer.func_146094_a(new GameProfile(null, getUsername())),
 					getUsername());
 		}
 	}
@@ -68,14 +68,14 @@ public class Session {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static enum Type {
+	public enum Type {
 		LEGACY("legacy"), MOJANG("mojang");
 		private static final Map field_152425_c = Maps.newHashMap();
 		private final String field_152426_d;
 
 		private static final String __OBFID = "CL_00001851";
 
-		private Type(String p_i1096_3_) {
+		Type(String p_i1096_3_) {
 			field_152426_d = p_i1096_3_;
 		}
 

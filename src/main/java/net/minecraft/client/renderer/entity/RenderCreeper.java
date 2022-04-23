@@ -16,7 +16,7 @@ public class RenderCreeper extends RenderLiving {
 	private static final ResourceLocation armoredCreeperTextures = new ResourceLocation(
 			"textures/entity/creeper/creeper_armor.png");
 	private static final ResourceLocation creeperTextures = new ResourceLocation("textures/entity/creeper/creeper.png");
-	private ModelBase creeperModel = new ModelCreeper(2.0F);
+	private final ModelBase creeperModel = new ModelCreeper(2.0F);
 	private static final String __OBFID = "CL_00000985";
 
 	public RenderCreeper() {
@@ -67,11 +67,7 @@ public class RenderCreeper extends RenderLiving {
 
 	protected int shouldRenderPass(EntityCreeper p_77032_1_, int p_77032_2_, float p_77032_3_) {
 		if (p_77032_1_.getPowered()) {
-			if (p_77032_1_.isInvisible()) {
-				GL11.glDepthMask(false);
-			} else {
-				GL11.glDepthMask(true);
-			}
+			GL11.glDepthMask(!p_77032_1_.isInvisible());
 
 			if (p_77032_2_ == 1) {
 				float f1 = p_77032_1_.ticksExisted + p_77032_3_;

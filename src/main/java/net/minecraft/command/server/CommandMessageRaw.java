@@ -33,7 +33,7 @@ public class CommandMessageRaw extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender p_71515_1_, String[] p_71515_2_) {
 		if (p_71515_2_.length < 2)
-			throw new WrongUsageException("commands.tellraw.usage", new Object[0]);
+			throw new WrongUsageException("commands.tellraw.usage");
 		else {
 			EntityPlayerMP entityplayermp = getPlayer(p_71515_1_, p_71515_2_[0]);
 			String s = func_82360_a(p_71515_1_, p_71515_2_, 1);
@@ -44,7 +44,7 @@ public class CommandMessageRaw extends CommandBase {
 			} catch (JsonParseException jsonparseexception) {
 				Throwable throwable = ExceptionUtils.getRootCause(jsonparseexception);
 				throw new SyntaxErrorException("commands.tellraw.jsonException",
-						new Object[] { throwable == null ? "" : throwable.getMessage() });
+						throwable == null ? "" : throwable.getMessage());
 			}
 		}
 	}

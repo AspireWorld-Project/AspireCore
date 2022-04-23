@@ -216,10 +216,8 @@ public class MapGenCaves extends MapGenBase {
 			return true;
 		if (biome == BiomeGenBase.beach)
 			return true;
-		if (biome == BiomeGenBase.desert)
-			return true;
-		return false;
-	}
+        return biome == BiomeGenBase.desert;
+    }
 
 	// Determine if the block at the specified location is the top block for the
 	// biome, we take into account

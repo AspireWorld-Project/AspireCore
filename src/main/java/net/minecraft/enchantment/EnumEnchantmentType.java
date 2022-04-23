@@ -20,12 +20,12 @@ public enum EnumEnchantmentType {
 				return itemarmor.armorType == 0 ? this == armor_head
 						: itemarmor.armorType == 2 ? this == armor_legs
 								: itemarmor.armorType == 1 ? this == armor_torso
-										: itemarmor.armorType == 3 ? this == armor_feet : false;
+										: itemarmor.armorType == 3 && this == armor_feet;
 			}
 		} else
 			return p_77557_1_ instanceof ItemSword ? this == weapon
 					: p_77557_1_ instanceof ItemTool ? this == digger
 							: p_77557_1_ instanceof ItemBow ? this == bow
-									: p_77557_1_ instanceof ItemFishingRod ? this == fishing_rod : false;
+									: p_77557_1_ instanceof ItemFishingRod && this == fishing_rod;
 	}
 }

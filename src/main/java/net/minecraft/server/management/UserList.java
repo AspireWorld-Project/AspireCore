@@ -128,7 +128,7 @@ public class UserList {
 	}
 
 	protected UserListEntry func_152682_a(JsonObject p_152682_1_) {
-		return new UserListEntry((Object) null, p_152682_1_);
+		return new UserListEntry(null, p_152682_1_);
 	}
 
 	protected Map func_152688_e() {
@@ -163,7 +163,7 @@ public class UserList {
 
 		try {
 			bufferedreader = Files.newReader(field_152695_c, Charsets.UTF_8);
-			collection = (Collection) field_152694_b.fromJson(bufferedreader, field_152698_f);
+			collection = field_152694_b.fromJson(bufferedreader, field_152698_f);
 		} finally {
 			IOUtils.closeQuietly(bufferedreader);
 		}

@@ -10,7 +10,7 @@ public enum EnumRarity {
 
 	private static final String __OBFID = "CL_00000056";
 
-	private EnumRarity(EnumChatFormatting p_i45349_3_, String p_i45349_4_) {
+	EnumRarity(EnumChatFormatting p_i45349_3_, String p_i45349_4_) {
 		rarityColor = p_i45349_3_;
 		rarityName = p_i45349_4_;
 	}

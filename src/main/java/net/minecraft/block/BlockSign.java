@@ -18,8 +18,8 @@ import org.bukkit.event.block.BlockRedstoneEvent;
 import java.util.Random;
 
 public class BlockSign extends BlockContainer {
-	private Class field_149968_a;
-	private boolean field_149967_b;
+	private final Class field_149968_a;
+	private final boolean field_149967_b;
 	private static final String __OBFID = "CL_00000306";
 
 	protected BlockSign(Class p_i45426_1_, boolean p_i45426_2_) {
@@ -126,11 +126,8 @@ public class BlockSign extends BlockContainer {
 			}
 		} else {
 			int l = p_149695_1_.getBlockMetadata(p_149695_2_, p_149695_3_, p_149695_4_);
-			flag = true;
 
-			if (l == 2 && p_149695_1_.getBlock(p_149695_2_, p_149695_3_, p_149695_4_ + 1).getMaterial().isSolid()) {
-				flag = false;
-			}
+            flag = l != 2 || !p_149695_1_.getBlock(p_149695_2_, p_149695_3_, p_149695_4_ + 1).getMaterial().isSolid();
 
 			if (l == 3 && p_149695_1_.getBlock(p_149695_2_, p_149695_3_, p_149695_4_ - 1).getMaterial().isSolid()) {
 				flag = false;

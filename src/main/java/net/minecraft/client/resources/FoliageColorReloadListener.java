@@ -18,7 +18,6 @@ public class FoliageColorReloadListener implements IResourceManagerReloadListene
 		try {
 			ColorizerFoliage.setFoliageBiomeColorizer(TextureUtil.readImageData(p_110549_1_, field_130079_a));
 		} catch (IOException ioexception) {
-			;
-		}
+        }
 	}
 }

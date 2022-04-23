@@ -32,7 +32,7 @@ public class CommandHelp extends CommandBase {
 
 	@Override
 	public List getCommandAliases() {
-		return Arrays.asList(new String[] { "?" });
+		return Arrays.asList("?");
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class CommandHelp extends CommandBase {
 			ICommand icommand = (ICommand) map.get(p_71515_2_[0]);
 
 			if (icommand != null)
-				throw new WrongUsageException(icommand.getCommandUsage(p_71515_1_), new Object[0]);
+				throw new WrongUsageException(icommand.getCommandUsage(p_71515_1_));
 
 			if (MathHelper.parseIntWithDefault(p_71515_2_[0], -1) != -1)
 				throw numberinvalidexception;
@@ -59,22 +59,22 @@ public class CommandHelp extends CommandBase {
 
 		int j = Math.min((k + 1) * b0, list.size());
 		ChatComponentTranslation chatcomponenttranslation1 = new ChatComponentTranslation("commands.help.header",
-				new Object[] { Integer.valueOf(k + 1), Integer.valueOf(i + 1) });
+				Integer.valueOf(k + 1), Integer.valueOf(i + 1));
 		chatcomponenttranslation1.getChatStyle().setColor(EnumChatFormatting.DARK_GREEN);
 		p_71515_1_.addChatMessage(chatcomponenttranslation1);
 
 		for (int l = k * b0; l < j; ++l) {
 			ICommand icommand1 = (ICommand) list.get(l);
 			ChatComponentTranslation chatcomponenttranslation = new ChatComponentTranslation(
-					icommand1.getCommandUsage(p_71515_1_), new Object[0]);
+					icommand1.getCommandUsage(p_71515_1_));
 			chatcomponenttranslation.getChatStyle().setChatClickEvent(
 					new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/" + icommand1.getCommandName() + " "));
 			p_71515_1_.addChatMessage(chatcomponenttranslation);
 		}
 
 		if (k == 0 && p_71515_1_ instanceof EntityPlayer) {
-			ChatComponentTranslation chatcomponenttranslation2 = new ChatComponentTranslation("commands.help.footer",
-					new Object[0]);
+			ChatComponentTranslation chatcomponenttranslation2 = new ChatComponentTranslation("commands.help.footer"
+			);
 			chatcomponenttranslation2.getChatStyle().setColor(EnumChatFormatting.GREEN);
 			p_71515_1_.addChatMessage(chatcomponenttranslation2);
 		}

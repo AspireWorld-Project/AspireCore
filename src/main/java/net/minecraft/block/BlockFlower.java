@@ -21,7 +21,7 @@ public class BlockFlower extends BlockBush {
 	public static final String[] field_149858_b = new String[] { "dandelion" };
 	@SideOnly(Side.CLIENT)
 	private IIcon[] field_149861_N;
-	private int field_149862_O;
+	private final int field_149862_O;
 	private static final String __OBFID = "CL_00000246";
 
 	protected BlockFlower(int p_i2173_1_) {

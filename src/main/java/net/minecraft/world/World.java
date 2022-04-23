@@ -90,11 +90,11 @@ public abstract class World implements IBlockAccess {
 	public List loadedEntityList = new ArrayList();
 	protected List unloadedEntityList = new ArrayList();
 	public List loadedTileEntityList = new ArrayList();
-	private List addedTileEntityList = new ArrayList();
-	private Set field_147483_b = new HashSet();
+	private final List addedTileEntityList = new ArrayList();
+	private final Set field_147483_b = new HashSet();
 	public List playerEntities = new ArrayList();
 	public List weatherEffects = new ArrayList();
-	private long cloudColour = 16777215L;
+	private final long cloudColour = 16777215L;
 	public int skylightSubtracted;
 	protected int updateLCG = new Random().nextInt();
 	protected final int DIST_HASH_MAGIC = 1013904223;
@@ -124,7 +124,7 @@ public abstract class World implements IBlockAccess {
 	private int ambientTickCountdown;
 	protected boolean spawnHostileMobs;
 	protected boolean spawnPeacefulMobs;
-	private ArrayList collidingBoundingBoxes;
+	private final ArrayList collidingBoundingBoxes;
 	private boolean field_147481_N;
 	int[] lightUpdateBlockList;
 	private static final String __OBFID = "CL_00000140";
@@ -180,7 +180,7 @@ public abstract class World implements IBlockAccess {
 		theProfiler = p_i45368_5_;
 		worldInfo = new WorldInfo(p_i45368_4_, p_i45368_2_);
 		provider = p_i45368_3_;
-		perWorldStorage = new MapStorage((ISaveHandler) null);
+		perWorldStorage = new MapStorage(null);
 		chunkProfiler = ChunkProfiler.instance().getForWorld(provider.dimensionId);
 	}
 
@@ -268,7 +268,7 @@ public abstract class World implements IBlockAccess {
 		}
 		else
 		{
-			this.perWorldStorage = new MapStorage((ISaveHandler) null);
+			this.perWorldStorage = new MapStorage(null);
 		}
 
 		if (!this.worldInfo.isInitialized())
@@ -287,7 +287,6 @@ public abstract class World implements IBlockAccess {
 				}
 				catch (Throwable throwable)
 				{
-					;
 				}
 
 				throw new ReportedException(crashreport);
@@ -410,7 +409,7 @@ public abstract class World implements IBlockAccess {
 		if (this instanceof WorldServer) {
 			perWorldStorage = new MapStorage(new WorldSpecificSaveHandler((WorldServer) this, p_i45369_1_));
 		} else {
-			perWorldStorage = new MapStorage((ISaveHandler) null);
+			perWorldStorage = new MapStorage(null);
 		}
 
 		if (!worldInfo.isInitialized()) {
@@ -422,7 +421,6 @@ public abstract class World implements IBlockAccess {
 				try {
 					addWorldInfoToCrashReport(crashreport);
 				} catch (Throwable throwable) {
-					;
 				}
 
 				throw new ReportedException(crashreport);
@@ -479,7 +477,6 @@ public abstract class World implements IBlockAccess {
 		int k;
 
 		for (k = 63; !isAirBlock(p_147474_1_, k + 1, p_147474_2_); ++k) {
-			;
 		}
 
 		return getBlock(p_147474_1_, k, p_147474_2_);
@@ -521,7 +518,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public boolean blockExists(int p_72899_1_, int p_72899_2_, int p_72899_3_) {
-		return p_72899_2_ >= 0 && p_72899_2_ < 256 ? chunkExists(p_72899_1_ >> 4, p_72899_3_ >> 4) : false;
+		return p_72899_2_ >= 0 && p_72899_2_ < 256 && chunkExists(p_72899_1_ >> 4, p_72899_3_ >> 4);
 	}
 
 	public boolean doChunksNearChunkExist(int p_72873_1_, int p_72873_2_, int p_72873_3_, int p_72873_4_) {
@@ -844,8 +841,8 @@ public abstract class World implements IBlockAccess {
 					String s;
 					try {
 						s = String.format("ID #%d (%s // %s)",
-								new Object[] { Integer.valueOf(Block.getIdFromBlock(p_147460_4_)),
-										p_147460_4_.getUnlocalizedName(), p_147460_4_.getClass().getCanonicalName() });
+								Integer.valueOf(Block.getIdFromBlock(p_147460_4_)),
+								p_147460_4_.getUnlocalizedName(), p_147460_4_.getClass().getCanonicalName());
 					} catch (Throwable throwable2) {
 						s = "ID #" + Block.getIdFromBlock(p_147460_4_);
 					}
@@ -1358,11 +1355,11 @@ public abstract class World implements IBlockAccess {
 
 	public void removeEntity(Entity p_72900_1_) {
 		if (p_72900_1_.riddenByEntity != null) {
-			p_72900_1_.riddenByEntity.mountEntity((Entity) null);
+			p_72900_1_.riddenByEntity.mountEntity(null);
 		}
 
 		if (p_72900_1_.ridingEntity != null) {
-			p_72900_1_.mountEntity((Entity) null);
+			p_72900_1_.mountEntity(null);
 		}
 
 		p_72900_1_.setDead();
@@ -1468,7 +1465,7 @@ public abstract class World implements IBlockAccess {
 						}
 
 						block.addCollisionBoxesToList(this, k1, i2, l1, p_147461_1_, collidingBoundingBoxes,
-								(Entity) null);
+								null);
 					}
 				}
 			}
@@ -2095,11 +2092,11 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public boolean checkNoEntityCollision(AxisAlignedBB p_72855_1_) {
-		return this.checkNoEntityCollision(p_72855_1_, (Entity) null);
+		return this.checkNoEntityCollision(p_72855_1_, null);
 	}
 
 	public boolean checkNoEntityCollision(AxisAlignedBB p_72917_1_, Entity p_72917_2_) {
-		List list = this.getEntitiesWithinAABBExcludingEntity((Entity) null, p_72917_1_);
+		List list = this.getEntitiesWithinAABBExcludingEntity(null, p_72917_1_);
 
 		for (int i = 0; i < list.size(); ++i) {
 			Entity entity1 = (Entity) list.get(i);
@@ -2758,8 +2755,7 @@ public abstract class World implements IBlockAccess {
 						flag1 = false;
 					}
 
-					if (!flag1)
-						return true;
+					return !flag1;
 				}
 			}
 
@@ -2784,9 +2780,8 @@ public abstract class World implements IBlockAccess {
 					&& getSavedLightValue(EnumSkyBlock.Block, p_147478_1_, p_147478_2_, p_147478_3_) < 10) {
 				Block block = getBlock(p_147478_1_, p_147478_2_, p_147478_3_);
 
-				if (block.getMaterial() == Material.air
-						&& Blocks.snow_layer.canPlaceBlockAt(this, p_147478_1_, p_147478_2_, p_147478_3_))
-					return true;
+				return block.getMaterial() == Material.air
+						&& Blocks.snow_layer.canPlaceBlockAt(this, p_147478_1_, p_147478_2_, p_147478_3_);
 			}
 
 			return false;
@@ -2975,7 +2970,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public List getEntitiesWithinAABBExcludingEntity(Entity p_72839_1_, AxisAlignedBB p_72839_2_) {
-		return this.getEntitiesWithinAABBExcludingEntity(p_72839_1_, p_72839_2_, (IEntitySelector) null);
+		return this.getEntitiesWithinAABBExcludingEntity(p_72839_1_, p_72839_2_, null);
 	}
 
 	public List getEntitiesWithinAABBExcludingEntity(Entity p_94576_1_, AxisAlignedBB p_94576_2_,
@@ -2999,7 +2994,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public List getEntitiesWithinAABB(Class p_72872_1_, AxisAlignedBB p_72872_2_) {
-		return selectEntitiesWithinAABB(p_72872_1_, p_72872_2_, (IEntitySelector) null);
+		return selectEntitiesWithinAABB(p_72872_1_, p_72872_2_, null);
 	}
 
 	public List selectEntitiesWithinAABB(Class p_82733_1_, AxisAlignedBB p_82733_2_, IEntitySelector p_82733_3_) {
@@ -3092,11 +3087,8 @@ public abstract class World implements IBlockAccess {
 		AxisAlignedBB axisalignedbb = p_147472_5_ ? null
 				: p_147472_1_.getCollisionBoundingBoxFromPool(this, p_147472_2_, p_147472_3_, p_147472_4_);
 		// CraftBukkit start - store default return
-		boolean defaultReturn = axisalignedbb != null && !this.checkNoEntityCollision(axisalignedbb, p_147472_7_)
-				? false
-				: block1.getMaterial() == Material.circuits && p_147472_1_ == Blocks.anvil ? true
-						: block1.isReplaceable(this, p_147472_2_, p_147472_3_, p_147472_4_) && p_147472_1_
-								.canReplace(this, p_147472_2_, p_147472_3_, p_147472_4_, p_147472_6_, p_147472_8_);
+		boolean defaultReturn = (axisalignedbb == null || this.checkNoEntityCollision(axisalignedbb, p_147472_7_)) && (block1.getMaterial() == Material.circuits && p_147472_1_ == Blocks.anvil || block1.isReplaceable(this, p_147472_2_, p_147472_3_, p_147472_4_) && p_147472_1_
+				.canReplace(this, p_147472_2_, p_147472_3_, p_147472_4_, p_147472_6_, p_147472_8_));
 		BlockCanBuildEvent event = new BlockCanBuildEvent(getWorld().getBlockAt(p_147472_2_, p_147472_3_, p_147472_4_),
 				CraftMagicNumbers.getId(p_147472_1_), defaultReturn);
 		getServer().getPluginManager().callEvent(event);
@@ -3178,7 +3170,7 @@ public abstract class World implements IBlockAccess {
 							return l;
 						else {
 							l = Math.max(l, isBlockProvidingPowerTo(p_94577_1_ + 1, p_94577_2_, p_94577_3_, 5));
-							return l >= 15 ? l : l;
+							return l;
 						}
 					}
 				}
@@ -3198,13 +3190,8 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public boolean isBlockIndirectlyGettingPowered(int p_72864_1_, int p_72864_2_, int p_72864_3_) {
-		return getIndirectPowerLevelTo(p_72864_1_, p_72864_2_ - 1, p_72864_3_, 0) > 0 ? true
-				: getIndirectPowerLevelTo(p_72864_1_, p_72864_2_ + 1, p_72864_3_, 1) > 0 ? true
-						: getIndirectPowerLevelTo(p_72864_1_, p_72864_2_, p_72864_3_ - 1, 2) > 0 ? true
-								: getIndirectPowerLevelTo(p_72864_1_, p_72864_2_, p_72864_3_ + 1, 3) > 0 ? true
-										: getIndirectPowerLevelTo(p_72864_1_ - 1, p_72864_2_, p_72864_3_, 4) > 0 ? true
-												: getIndirectPowerLevelTo(p_72864_1_ + 1, p_72864_2_, p_72864_3_,
-														5) > 0;
+		return getIndirectPowerLevelTo(p_72864_1_, p_72864_2_ - 1, p_72864_3_, 0) > 0 || getIndirectPowerLevelTo(p_72864_1_, p_72864_2_ + 1, p_72864_3_, 1) > 0 || getIndirectPowerLevelTo(p_72864_1_, p_72864_2_, p_72864_3_ - 1, 2) > 0 || getIndirectPowerLevelTo(p_72864_1_, p_72864_2_, p_72864_3_ + 1, 3) > 0 || getIndirectPowerLevelTo(p_72864_1_ - 1, p_72864_2_, p_72864_3_, 4) > 0 || getIndirectPowerLevelTo(p_72864_1_ + 1, p_72864_2_, p_72864_3_,
+				5) > 0;
 	}
 
 	public int getStrongestIndirectPower(int p_94572_1_, int p_94572_2_, int p_94572_3_) {
@@ -3437,9 +3424,7 @@ public abstract class World implements IBlockAccess {
 			return false;
 		else {
 			BiomeGenBase biomegenbase = getBiomeGenForCoords(p_72951_1_, p_72951_3_);
-			return biomegenbase.getEnableSnow() ? false
-					: func_147478_e(p_72951_1_, p_72951_2_, p_72951_3_, false) ? false
-							: biomegenbase.canSpawnLightningBolt();
+			return !biomegenbase.getEnableSnow() && !func_147478_e(p_72951_1_, p_72951_2_, p_72951_3_, false) && biomegenbase.canSpawnLightningBolt();
 		}
 	}
 
@@ -3467,7 +3452,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public void playAuxSFX(int p_72926_1_, int p_72926_2_, int p_72926_3_, int p_72926_4_, int p_72926_5_) {
-		playAuxSFXAtEntity((EntityPlayer) null, p_72926_1_, p_72926_2_, p_72926_3_, p_72926_4_, p_72926_5_);
+		playAuxSFXAtEntity(null, p_72926_1_, p_72926_2_, p_72926_3_, p_72926_4_, p_72926_5_);
 	}
 
 	public void playAuxSFXAtEntity(EntityPlayer p_72889_1_, int p_72889_2_, int p_72889_3_, int p_72889_4_,
@@ -3527,7 +3512,7 @@ public abstract class World implements IBlockAccess {
 
 			@Override
 			public String call() {
-				return playerEntities.size() + " total; " + playerEntities.toString();
+				return playerEntities.size() + " total; " + playerEntities;
 			}
 		});
 		crashreportcategory.addCrashSectionCallable("Chunk stats", new Callable() {
@@ -3843,10 +3828,7 @@ public abstract class World implements IBlockAccess {
 					org.bukkit.craftbukkit.block.CraftBlockState.getBlockState(this, x, y, z, 3), x, y, z);
 		}
 
-		if (placeEvent != null && (placeEvent.isCancelled() || !placeEvent.canBuild()))
-			return false;
-
-		return true;
+		return placeEvent == null || (!placeEvent.isCancelled() && placeEvent.canBuild());
 	}
 
 	public CraftWorld getWorld() {

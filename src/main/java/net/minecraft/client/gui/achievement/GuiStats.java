@@ -29,14 +29,14 @@ import java.util.*;
 
 @SideOnly(Side.CLIENT)
 public class GuiStats extends GuiScreen implements IProgressMeter {
-	private static RenderItem field_146544_g = new RenderItem();
+	private static final RenderItem field_146544_g = new RenderItem();
 	protected GuiScreen field_146549_a;
 	protected String field_146542_f = "Select world";
 	private GuiStats.StatsGeneral field_146550_h;
 	private GuiStats.StatsItem field_146551_i;
 	private GuiStats.StatsBlock field_146548_r;
 	private GuiStats.StatsMobsList field_146547_s;
-	private StatFileWriter field_146546_t;
+	private final StatFileWriter field_146546_t;
 	private GuiSlot field_146545_u;
 	private boolean doesGuiPauseGame = true;
 	private static final String __OBFID = "CL_00000723";
@@ -48,23 +48,23 @@ public class GuiStats extends GuiScreen implements IProgressMeter {
 
 	@Override
 	public void initGui() {
-		field_146542_f = I18n.format("gui.stats", new Object[0]);
+		field_146542_f = I18n.format("gui.stats");
 		mc.getNetHandler().addToSendQueue(new C16PacketClientStatus(C16PacketClientStatus.EnumState.REQUEST_STATS));
 	}
 
 	public void func_146541_h() {
-		buttonList.add(new GuiButton(0, width / 2 + 4, height - 28, 150, 20, I18n.format("gui.done", new Object[0])));
+		buttonList.add(new GuiButton(0, width / 2 + 4, height - 28, 150, 20, I18n.format("gui.done")));
 		buttonList.add(new GuiButton(1, width / 2 - 160, height - 52, 80, 20,
-				I18n.format("stat.generalButton", new Object[0])));
+				I18n.format("stat.generalButton")));
 		GuiButton guibutton;
 		GuiButton guibutton1;
 		GuiButton guibutton2;
 		buttonList.add(guibutton = new GuiButton(2, width / 2 - 80, height - 52, 80, 20,
-				I18n.format("stat.blocksButton", new Object[0])));
+				I18n.format("stat.blocksButton")));
 		buttonList.add(guibutton1 = new GuiButton(3, width / 2, height - 52, 80, 20,
-				I18n.format("stat.itemsButton", new Object[0])));
+				I18n.format("stat.itemsButton")));
 		buttonList.add(guibutton2 = new GuiButton(4, width / 2 + 80, height - 52, 80, 20,
-				I18n.format("stat.mobsButton", new Object[0])));
+				I18n.format("stat.mobsButton")));
 
 		if (field_146548_r.getSize() == 0) {
 			guibutton.enabled = false;
@@ -102,7 +102,7 @@ public class GuiStats extends GuiScreen implements IProgressMeter {
 	public void drawScreen(int p_73863_1_, int p_73863_2_, float p_73863_3_) {
 		if (doesGuiPauseGame) {
 			drawDefaultBackground();
-			drawCenteredString(fontRendererObj, I18n.format("multiplayer.downloadingStats", new Object[0]), width / 2,
+			drawCenteredString(fontRendererObj, I18n.format("multiplayer.downloadingStats"), width / 2,
 					height / 2, 16777215);
 			drawCenteredString(fontRendererObj,
 					field_146510_b_[(int) (Minecraft.getSystemTime() / 150L % field_146510_b_.length)], width / 2,
@@ -309,7 +309,7 @@ public class GuiStats extends GuiScreen implements IProgressMeter {
 						s = func_148210_b(2);
 					}
 
-					s = ("" + I18n.format(s, new Object[0])).trim();
+					s = ("" + I18n.format(s)).trim();
 
 					if (s.length() > 0) {
 						int i1 = p_148142_1_ + 12;
@@ -325,7 +325,7 @@ public class GuiStats extends GuiScreen implements IProgressMeter {
 		protected void func_148213_a(StatCrafting p_148213_1_, int p_148213_2_, int p_148213_3_) {
 			if (p_148213_1_ != null) {
 				Item item = p_148213_1_.func_150959_a();
-				String s = ("" + I18n.format(item.getUnlocalizedName() + ".name", new Object[0])).trim();
+				String s = ("" + I18n.format(item.getUnlocalizedName() + ".name")).trim();
 
 				if (s.length() > 0) {
 					int k = p_148213_2_ + 12;
@@ -673,19 +673,19 @@ public class GuiStats extends GuiScreen implements IProgressMeter {
 		protected void drawSlot(int p_148126_1_, int p_148126_2_, int p_148126_3_, int p_148126_4_,
 				Tessellator p_148126_5_, int p_148126_6_, int p_148126_7_) {
 			EntityList.EntityEggInfo entityegginfo = (EntityList.EntityEggInfo) field_148222_l.get(p_148126_1_);
-			String s = I18n.format("entity." + EntityList.getStringFromID(entityegginfo.spawnedID) + ".name",
-					new Object[0]);
+			String s = I18n.format("entity." + EntityList.getStringFromID(entityegginfo.spawnedID) + ".name"
+			);
 			int k1 = field_146546_t.writeStat(entityegginfo.field_151512_d);
 			int l1 = field_146546_t.writeStat(entityegginfo.field_151513_e);
-			String s1 = I18n.format("stat.entityKills", new Object[] { Integer.valueOf(k1), s });
-			String s2 = I18n.format("stat.entityKilledBy", new Object[] { s, Integer.valueOf(l1) });
+			String s1 = I18n.format("stat.entityKills", Integer.valueOf(k1), s);
+			String s2 = I18n.format("stat.entityKilledBy", s, Integer.valueOf(l1));
 
 			if (k1 == 0) {
-				s1 = I18n.format("stat.entityKills.none", new Object[] { s });
+				s1 = I18n.format("stat.entityKills.none", s);
 			}
 
 			if (l1 == 0) {
-				s2 = I18n.format("stat.entityKilledBy.none", new Object[] { s });
+				s2 = I18n.format("stat.entityKilledBy.none", s);
 			}
 
 			drawString(GuiStats.this.fontRendererObj, s, p_148126_2_ + 2 - 10, p_148126_3_ + 1, 16777215);

@@ -20,7 +20,7 @@ public class MapData extends WorldSavedData {
 	public byte scale;
 	public byte[] colors = new byte[16384];
 	public List playersArrayList = new ArrayList();
-	private Map playersHashMap = new HashMap();
+	private final Map playersHashMap = new HashMap();
 	public Map playersVisibleOnMap = new LinkedHashMap();
 	private static final String __OBFID = "CL_00000577";
 

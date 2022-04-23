@@ -3,7 +3,7 @@ package net.minecraftforge.client;
 import net.minecraft.item.ItemStack;
 
 public interface IItemRenderer {
-	public enum ItemRenderType {
+	enum ItemRenderType {
 		/**
 		 * Called to render an in-world item, e.g. one that has been thrown or dropped.
 		 * The appropriate OpenGL transformations and scaling have already been applied,
@@ -61,7 +61,7 @@ public interface IItemRenderer {
 		FIRST_PERSON_MAP
 	}
 
-	public enum ItemRendererHelper {
+	enum ItemRendererHelper {
 		/**
 		 * Determines if a rotation effect should be used when rendering an EntityItem,
 		 * like most default blocks do.
@@ -103,7 +103,7 @@ public interface IItemRenderer {
 	 * @return true if this renderer should handle the given render type, otherwise
 	 *         false
 	 */
-	public boolean handleRenderType(ItemStack item, ItemRenderType type);
+    boolean handleRenderType(ItemStack item, ItemRenderType type);
 
 	/**
 	 * Checks if certain helper functionality should be executed for this renderer.
@@ -117,7 +117,7 @@ public interface IItemRenderer {
 	 *            The type of helper functionality to be ran
 	 * @return True to run the helper functionality, false to not.
 	 */
-	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper);
+    boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper);
 
 	/**
 	 * Called to do the actual rendering, see ItemRenderType for details on when
@@ -131,5 +131,5 @@ public interface IItemRenderer {
 	 * @param data
 	 *            Extra Type specific data
 	 */
-	public void renderItem(ItemRenderType type, ItemStack item, Object... data);
+    void renderItem(ItemRenderType type, ItemStack item, Object... data);
 }

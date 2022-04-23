@@ -20,7 +20,7 @@ import java.util.List;
 @SideOnly(Side.CLIENT)
 public class GuiScreenResourcePacks extends GuiScreen {
 	private static final Logger logger = LogManager.getLogger();
-	private GuiScreen field_146965_f;
+	private final GuiScreen field_146965_f;
 	private List field_146966_g;
 	private List field_146969_h;
 	private GuiResourcePackAvailable field_146970_i;
@@ -34,8 +34,8 @@ public class GuiScreenResourcePacks extends GuiScreen {
 	@Override
 	public void initGui() {
 		buttonList.add(new GuiOptionButton(2, width / 2 - 154, height - 48,
-				I18n.format("resourcePack.openFolder", new Object[0])));
-		buttonList.add(new GuiOptionButton(1, width / 2 + 4, height - 48, I18n.format("gui.done", new Object[0])));
+				I18n.format("resourcePack.openFolder")));
+		buttonList.add(new GuiOptionButton(1, width / 2 + 4, height - 48, I18n.format("gui.done")));
 		field_146966_g = new ArrayList();
 		field_146969_h = new ArrayList();
 		ResourcePackRepository resourcepackrepository = mc.getResourcePackRepository();
@@ -95,16 +95,16 @@ public class GuiScreenResourcePacks extends GuiScreen {
 						Runtime.getRuntime().exec(new String[] { "/usr/bin/open", s });
 						return;
 					} catch (IOException ioexception1) {
-						logger.error("Couldn\'t open file", ioexception1);
+						logger.error("Couldn't open file", ioexception1);
 					}
 				} else if (Util.getOSType() == Util.EnumOS.WINDOWS) {
-					String s1 = String.format("cmd.exe /C start \"Open file\" \"%s\"", new Object[] { s });
+					String s1 = String.format("cmd.exe /C start \"Open file\" \"%s\"", s);
 
 					try {
 						Runtime.getRuntime().exec(s1);
 						return;
 					} catch (IOException ioexception) {
-						logger.error("Couldn\'t open file", ioexception);
+						logger.error("Couldn't open file", ioexception);
 					}
 				}
 
@@ -112,11 +112,11 @@ public class GuiScreenResourcePacks extends GuiScreen {
 
 				try {
 					Class oclass = Class.forName("java.awt.Desktop");
-					Object object = oclass.getMethod("getDesktop", new Class[0]).invoke((Object) null, new Object[0]);
+					Object object = oclass.getMethod("getDesktop", new Class[0]).invoke(null);
 					oclass.getMethod("browse", new Class[] { URI.class }).invoke(object,
-							new Object[] { file1.toURI() });
+							file1.toURI());
 				} catch (Throwable throwable) {
-					logger.error("Couldn\'t open link", throwable);
+					logger.error("Couldn't open link", throwable);
 					flag = true;
 				}
 
@@ -170,8 +170,8 @@ public class GuiScreenResourcePacks extends GuiScreen {
 		drawBackground(0);
 		field_146970_i.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
 		field_146967_r.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
-		drawCenteredString(fontRendererObj, I18n.format("resourcePack.title", new Object[0]), width / 2, 16, 16777215);
-		drawCenteredString(fontRendererObj, I18n.format("resourcePack.folderInfo", new Object[0]), width / 2 - 77,
+		drawCenteredString(fontRendererObj, I18n.format("resourcePack.title"), width / 2, 16, 16777215);
+		drawCenteredString(fontRendererObj, I18n.format("resourcePack.folderInfo"), width / 2 - 77,
 				height - 26, 8421504);
 		super.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
 	}

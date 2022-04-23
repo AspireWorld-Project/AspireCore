@@ -29,7 +29,7 @@ public abstract class AbstractResourcePack implements IResourcePack {
 
 	private static String locationToName(ResourceLocation p_110592_0_) {
 		return String.format("%s/%s/%s",
-				new Object[] { "assets", p_110592_0_.getResourceDomain(), p_110592_0_.getResourcePath() });
+				"assets", p_110592_0_.getResourceDomain(), p_110592_0_.getResourcePath());
 	}
 
 	protected static String getRelativeName(File p_110595_0_, File p_110595_1_) {
@@ -52,7 +52,7 @@ public abstract class AbstractResourcePack implements IResourcePack {
 
 	protected void logNameNotLowercase(String p_110594_1_) {
 		resourceLog.warn("ResourcePack: ignored non-lowercase namespace: {} in {}",
-				new Object[] { p_110594_1_, resourcePackFile });
+				p_110594_1_, resourcePackFile);
 	}
 
 	@Override

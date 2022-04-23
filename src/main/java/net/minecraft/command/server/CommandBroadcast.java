@@ -37,7 +37,7 @@ public class CommandBroadcast extends CommandBase {
 			text.getChatStyle().setColor(EnumChatFormatting.DARK_PURPLE);
 			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(text);
 		} else
-			throw new WrongUsageException("commands.say.usage", new Object[0]);
+			throw new WrongUsageException("commands.say.usage");
 	}
 
 	@Override

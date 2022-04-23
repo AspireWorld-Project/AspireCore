@@ -51,7 +51,7 @@ public class S04PacketEntityEquipment extends Packet {
 	@Override
 	public String serialize() {
 		return String.format("entity=%d, slot=%d, item=%s",
-				new Object[] { Integer.valueOf(field_149394_a), Integer.valueOf(field_149392_b), field_149393_c });
+				Integer.valueOf(field_149394_a), Integer.valueOf(field_149392_b), field_149393_c);
 	}
 
 	@SideOnly(Side.CLIENT)

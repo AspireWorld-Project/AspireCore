@@ -17,7 +17,7 @@ public interface BukkitOreDictionary {
 	/**
 	 * If an item's damage is a wildcard, this will be returned for the item damage.
 	 */
-	public static final int WILDCARD_VALUE = Short.MAX_VALUE;
+    int WILDCARD_VALUE = Short.MAX_VALUE;
 
 	/**
 	 * Check the OreDictionaryEntry for a given name. The name can be later
@@ -28,7 +28,7 @@ public interface BukkitOreDictionary {
 	 *            name in the ore dictionary
 	 * @return ore dictionary entry, or null if name is not present
 	 */
-	public OreDictionaryEntry getOreEntry(String name);
+    OreDictionaryEntry getOreEntry(String name);
 
 	/**
 	 * Get the string name defined for the given OreDictionaryEntry.
@@ -39,7 +39,7 @@ public interface BukkitOreDictionary {
 	 *            ore dictionary entry
 	 * @return ore dictionary name
 	 */
-	public String getOreName(OreDictionaryEntry entry);
+    String getOreName(OreDictionaryEntry entry);
 
 	/**
 	 * Get all of the OreDictionaryEntry objects registered to the given ItemStack.
@@ -48,7 +48,7 @@ public interface BukkitOreDictionary {
 	 *            itemstack to check - amount is ignored
 	 * @return immutable list of ore dictionary entries
 	 */
-	public List<OreDictionaryEntry> getOreEntries(ItemStack itemStack);
+    List<OreDictionaryEntry> getOreEntries(ItemStack itemStack);
 
 	/**
 	 * Get all of the OreDictionaryEntry objects registered to the given material
@@ -58,7 +58,7 @@ public interface BukkitOreDictionary {
 	 *            material to check
 	 * @return immutable list of ore dictionary entries
 	 */
-	public List<OreDictionaryEntry> getOreEntries(Material material);
+    List<OreDictionaryEntry> getOreEntries(Material material);
 
 	/**
 	 * Get all of the ItemStacks registered to the given ore dictionary entry.
@@ -69,7 +69,7 @@ public interface BukkitOreDictionary {
 	 *            ore dictionary entry
 	 * @return immutable list of itemstacks
 	 */
-	public List<ItemStack> getDefinitions(OreDictionaryEntry entry);
+    List<ItemStack> getDefinitions(OreDictionaryEntry entry);
 
 	/**
 	 * Get all ore names in the dictionary. The returned list may contain multiple
@@ -77,5 +77,5 @@ public interface BukkitOreDictionary {
 	 *
 	 * @return all ore dictionary names
 	 */
-	public List<String> getAllOreNames();
+    List<String> getAllOreNames();
 }

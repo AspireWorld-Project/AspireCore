@@ -9,7 +9,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import java.util.Random;
 
 public class MapGenRavine extends MapGenBase {
-	private float[] field_75046_d = new float[1024];
+	private final float[] field_75046_d = new float[1024];
 	private static final String __OBFID = "CL_00000390";
 
 	protected void func_151540_a(long p_151540_1_, int p_151540_3_, int p_151540_4_, Block[] p_151540_5_,
@@ -190,10 +190,8 @@ public class MapGenRavine extends MapGenBase {
 			return true;
 		if (biome == BiomeGenBase.beach)
 			return true;
-		if (biome == BiomeGenBase.desert)
-			return true;
-		return false;
-	}
+        return biome == BiomeGenBase.desert;
+    }
 
 	// Determine if the block at the specified location is the top block for the
 	// biome, we take into account

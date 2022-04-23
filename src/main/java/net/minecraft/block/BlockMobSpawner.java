@@ -40,7 +40,7 @@ public class BlockMobSpawner extends BlockContainer {
 				p_149690_7_);
 	}
 
-	private Random rand = new Random();
+	private final Random rand = new Random();
 
 	@Override
 	public int getExpDrop(IBlockAccess world, int metadata, int fortune) {

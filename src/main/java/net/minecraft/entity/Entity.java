@@ -194,7 +194,7 @@ public abstract class Entity {
 
 	@Override
 	public boolean equals(Object p_equals_1_) {
-		return p_equals_1_ instanceof Entity ? ((Entity) p_equals_1_).entityId == entityId : false;
+		return p_equals_1_ instanceof Entity && ((Entity) p_equals_1_).entityId == entityId;
 	}
 
 	@Override
@@ -446,7 +446,7 @@ public abstract class Entity {
 	public boolean isOffsetPositionInLiquid(double p_70038_1_, double p_70038_3_, double p_70038_5_) {
 		AxisAlignedBB axisalignedbb = boundingBox.getOffsetBoundingBox(p_70038_1_, p_70038_3_, p_70038_5_);
 		List list = worldObj.getCollidingBoundingBoxes(this, axisalignedbb);
-		return !list.isEmpty() ? false : !worldObj.isAnyLiquid(axisalignedbb);
+		return list.isEmpty() && !worldObj.isAnyLiquid(axisalignedbb);
 	}
 
 	public void moveEntity(double p_70091_1_, double p_70091_3_, double p_70091_5_) {
@@ -1142,9 +1142,9 @@ public abstract class Entity {
 			if (owner != null) {
 				UMHooks.writeObjectOwner(p_70109_1_, owner);
 			}
-			p_70109_1_.setTag("Pos", newDoubleNBTList(new double[] { posX, posY + ySize, posZ }));
-			p_70109_1_.setTag("Motion", newDoubleNBTList(new double[] { motionX, motionY, motionZ }));
-			p_70109_1_.setTag("Rotation", newFloatNBTList(new float[] { rotationYaw, rotationPitch }));
+			p_70109_1_.setTag("Pos", newDoubleNBTList(posX, posY + ySize, posZ));
+			p_70109_1_.setTag("Motion", newDoubleNBTList(motionX, motionY, motionZ));
+			p_70109_1_.setTag("Rotation", newFloatNBTList(rotationYaw, rotationPitch));
 			p_70109_1_.setFloat("FallDistance", fallDistance);
 			p_70109_1_.setShort("Fire", (short) fire);
 			p_70109_1_.setShort("Air", (short) getAir());
@@ -1371,7 +1371,6 @@ public abstract class Entity {
 
 				for (entityRiderPitchDelta += ridingEntity.rotationPitch
 						- ridingEntity.prevRotationPitch; entityRiderYawDelta >= 180.0D; entityRiderYawDelta -= 360.0D) {
-					;
 				}
 
 				while (entityRiderYawDelta < -180.0D) {
@@ -1700,10 +1699,10 @@ public abstract class Entity {
 
 	@Override
 	public String toString() {
-		return String.format("%s[\'%s\'/%d, l=\'%s\', x=%.2f, y=%.2f, z=%.2f]",
-				new Object[] { this.getClass().getSimpleName(), getCommandSenderName(), Integer.valueOf(entityId),
-						worldObj == null ? "~NULL~" : worldObj.getWorldInfo().getWorldName(), Double.valueOf(posX),
-						Double.valueOf(posY), Double.valueOf(posZ) });
+		return String.format("%s['%s'/%d, l='%s', x=%.2f, y=%.2f, z=%.2f]",
+				this.getClass().getSimpleName(), getCommandSenderName(), Integer.valueOf(entityId),
+				worldObj == null ? "~NULL~" : worldObj.getWorldInfo().getWorldName(), Double.valueOf(posX),
+				Double.valueOf(posY), Double.valueOf(posZ));
 	}
 
 	public boolean isEntityInvulnerable() {
@@ -1804,12 +1803,12 @@ public abstract class Entity {
 				return Entity.this.getCommandSenderName();
 			}
 		});
-		p_85029_1_.addCrashSection("Entity\'s Exact location", String.format("%.2f, %.2f, %.2f",
-				new Object[] { Double.valueOf(posX), Double.valueOf(posY), Double.valueOf(posZ) }));
-		p_85029_1_.addCrashSection("Entity\'s Block location", CrashReportCategory.getLocationInfo(
+		p_85029_1_.addCrashSection("Entity's Exact location", String.format("%.2f, %.2f, %.2f",
+				Double.valueOf(posX), Double.valueOf(posY), Double.valueOf(posZ)));
+		p_85029_1_.addCrashSection("Entity's Block location", CrashReportCategory.getLocationInfo(
 				MathHelper.floor_double(posX), MathHelper.floor_double(posY), MathHelper.floor_double(posZ)));
-		p_85029_1_.addCrashSection("Entity\'s Momentum", String.format("%.2f, %.2f, %.2f",
-				new Object[] { Double.valueOf(motionX), Double.valueOf(motionY), Double.valueOf(motionZ) }));
+		p_85029_1_.addCrashSection("Entity's Momentum", String.format("%.2f, %.2f, %.2f",
+				Double.valueOf(motionX), Double.valueOf(motionY), Double.valueOf(motionZ)));
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -1997,7 +1996,7 @@ public abstract class Entity {
 	 * =====================================
 	 */
 
-	public static enum EnumEntitySize {
+	public enum EnumEntitySize {
 		SIZE_1, SIZE_2, SIZE_3, SIZE_4, SIZE_5, SIZE_6;
 
 		private static final String __OBFID = "CL_00001537";
@@ -2061,37 +2060,31 @@ public abstract class Entity {
 			try {
 				field_96565_a[Entity.EnumEntitySize.SIZE_1.ordinal()] = 1;
 			} catch (NoSuchFieldError var6) {
-				;
 			}
 
 			try {
 				field_96565_a[Entity.EnumEntitySize.SIZE_2.ordinal()] = 2;
 			} catch (NoSuchFieldError var5) {
-				;
 			}
 
 			try {
 				field_96565_a[Entity.EnumEntitySize.SIZE_3.ordinal()] = 3;
 			} catch (NoSuchFieldError var4) {
-				;
 			}
 
 			try {
 				field_96565_a[Entity.EnumEntitySize.SIZE_4.ordinal()] = 4;
 			} catch (NoSuchFieldError var3) {
-				;
 			}
 
 			try {
 				field_96565_a[Entity.EnumEntitySize.SIZE_5.ordinal()] = 5;
 			} catch (NoSuchFieldError var2) {
-				;
 			}
 
 			try {
 				field_96565_a[Entity.EnumEntitySize.SIZE_6.ordinal()] = 6;
 			} catch (NoSuchFieldError var1) {
-				;
 			}
 		}
 	}

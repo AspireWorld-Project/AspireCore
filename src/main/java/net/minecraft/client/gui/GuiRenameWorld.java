@@ -9,7 +9,7 @@ import org.lwjgl.input.Keyboard;
 
 @SideOnly(Side.CLIENT)
 public class GuiRenameWorld extends GuiScreen {
-	private GuiScreen field_146585_a;
+	private final GuiScreen field_146585_a;
 	private GuiTextField field_146583_f;
 	private final String field_146584_g;
 	private static final String __OBFID = "CL_00000709";
@@ -29,9 +29,9 @@ public class GuiRenameWorld extends GuiScreen {
 		Keyboard.enableRepeatEvents(true);
 		buttonList.clear();
 		buttonList.add(new GuiButton(0, width / 2 - 100, height / 4 + 96 + 12,
-				I18n.format("selectWorld.renameButton", new Object[0])));
+				I18n.format("selectWorld.renameButton")));
 		buttonList.add(
-				new GuiButton(1, width / 2 - 100, height / 4 + 120 + 12, I18n.format("gui.cancel", new Object[0])));
+				new GuiButton(1, width / 2 - 100, height / 4 + 120 + 12, I18n.format("gui.cancel")));
 		ISaveFormat isaveformat = mc.getSaveLoader();
 		WorldInfo worldinfo = isaveformat.getWorldInfo(field_146584_g);
 		String s = worldinfo.getWorldName();
@@ -77,9 +77,9 @@ public class GuiRenameWorld extends GuiScreen {
 	@Override
 	public void drawScreen(int p_73863_1_, int p_73863_2_, float p_73863_3_) {
 		drawDefaultBackground();
-		drawCenteredString(fontRendererObj, I18n.format("selectWorld.renameTitle", new Object[0]), width / 2, 20,
+		drawCenteredString(fontRendererObj, I18n.format("selectWorld.renameTitle"), width / 2, 20,
 				16777215);
-		drawString(fontRendererObj, I18n.format("selectWorld.enterName", new Object[0]), width / 2 - 100, 47, 10526880);
+		drawString(fontRendererObj, I18n.format("selectWorld.enterName"), width / 2 - 100, 47, 10526880);
 		field_146583_f.drawTextBox();
 		super.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);
 	}

@@ -77,7 +77,7 @@ public class TileEntityMobSpawner extends TileEntity {
 
 	@Override
 	public boolean receiveClientEvent(int p_145842_1_, int p_145842_2_) {
-		return field_145882_a.setDelayToMin(p_145842_1_) ? true : super.receiveClientEvent(p_145842_1_, p_145842_2_);
+		return field_145882_a.setDelayToMin(p_145842_1_) || super.receiveClientEvent(p_145842_1_, p_145842_2_);
 	}
 
 	public MobSpawnerBaseLogic func_145881_a() {

@@ -5,13 +5,13 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.Vec3;
 
 public class EntityAIMoveTowardsTarget extends EntityAIBase {
-	private EntityCreature theEntity;
+	private final EntityCreature theEntity;
 	private EntityLivingBase targetEntity;
 	private double movePosX;
 	private double movePosY;
 	private double movePosZ;
-	private double speed;
-	private float maxTargetDistance;
+	private final double speed;
+	private final float maxTargetDistance;
 	private static final String __OBFID = "CL_00001599";
 
 	public EntityAIMoveTowardsTarget(EntityCreature p_i1640_1_, double p_i1640_2_, float p_i1640_4_) {

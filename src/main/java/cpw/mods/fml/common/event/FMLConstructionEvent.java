@@ -18,9 +18,9 @@ import cpw.mods.fml.common.ModClassLoader;
 import cpw.mods.fml.common.discovery.ASMDataTable;
 
 public class FMLConstructionEvent extends FMLStateEvent {
-	private ModClassLoader modClassLoader;
-	private ASMDataTable asmData;
-	private ListMultimap<String, String> reverseDependencies;
+	private final ModClassLoader modClassLoader;
+	private final ASMDataTable asmData;
+	private final ListMultimap<String, String> reverseDependencies;
 
 	@SuppressWarnings("unchecked")
 	public FMLConstructionEvent(Object... eventData) {

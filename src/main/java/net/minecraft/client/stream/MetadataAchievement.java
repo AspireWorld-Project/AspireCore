@@ -13,6 +13,6 @@ public class MetadataAchievement extends Metadata {
 		func_152808_a("achievement_id", p_i1032_1_.statId);
 		func_152808_a("achievement_name", p_i1032_1_.func_150951_e().getUnformattedText());
 		func_152808_a("achievement_description", p_i1032_1_.getDescription());
-		func_152807_a("Achievement \'" + p_i1032_1_.func_150951_e().getUnformattedText() + "\' obtained!");
+		func_152807_a("Achievement '" + p_i1032_1_.func_150951_e().getUnformattedText() + "' obtained!");
 	}
 }

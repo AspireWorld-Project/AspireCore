@@ -42,7 +42,7 @@ public class EntityItemFrame extends EntityHanging {
 						p_70097_2_) || isDead)
 					return true;
 				func_146065_b(p_70097_1_.getEntity(), false);
-				setDisplayedItem((ItemStack) null);
+				setDisplayedItem(null);
 			}
 
 			return true;
@@ -103,7 +103,7 @@ public class EntityItemFrame extends EntityHanging {
 				mapdata.playersVisibleOnMap.remove("frame-" + getEntityId());
 			}
 
-			p_110131_1_.setItemFrame((EntityItemFrame) null);
+			p_110131_1_.setItemFrame(null);
 		}
 	}
 
@@ -166,7 +166,7 @@ public class EntityItemFrame extends EntityHanging {
 				setDisplayedItem(itemstack);
 
 				if (!p_130002_1_.capabilities.isCreativeMode && --itemstack.stackSize <= 0) {
-					p_130002_1_.inventory.setInventorySlotContents(p_130002_1_.inventory.currentItem, (ItemStack) null);
+					p_130002_1_.inventory.setInventorySlotContents(p_130002_1_.inventory.currentItem, null);
 				}
 			}
 		} else if (!worldObj.isRemote) {

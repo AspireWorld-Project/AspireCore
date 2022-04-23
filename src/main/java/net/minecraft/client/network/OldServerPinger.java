@@ -124,12 +124,12 @@ public class OldServerPinger {
 						OldServerPinger.logger.error("Invalid server icon (unknown format)");
 					}
 				} else {
-					p_147224_1_.func_147407_a((String) null);
+					p_147224_1_.func_147407_a(null);
 				}
 
 				FMLClientHandler.instance().bindServerListData(p_147224_1_, serverstatusresponse);
-				networkmanager.scheduleOutboundPacket(new C01PacketPing(Minecraft.getSystemTime()),
-						new GenericFutureListener[0]);
+				networkmanager.scheduleOutboundPacket(new C01PacketPing(Minecraft.getSystemTime())
+				);
 				field_147403_d = true;
 			}
 
@@ -145,8 +145,8 @@ public class OldServerPinger {
 			public void onDisconnect(IChatComponent p_147231_1_) {
 				if (!field_147403_d) {
 					OldServerPinger.logger
-							.error("Can\'t ping " + p_147224_1_.serverIP + ": " + p_147231_1_.getUnformattedText());
-					p_147224_1_.serverMOTD = EnumChatFormatting.DARK_RED + "Can\'t connect to server.";
+							.error("Can't ping " + p_147224_1_.serverIP + ": " + p_147231_1_.getUnformattedText());
+					p_147224_1_.serverMOTD = EnumChatFormatting.DARK_RED + "Can't connect to server.";
 					p_147224_1_.populationInfo = "";
 					OldServerPinger.this.func_147225_b(p_147224_1_);
 				}
@@ -165,9 +165,9 @@ public class OldServerPinger {
 
 		try {
 			networkmanager.scheduleOutboundPacket(
-					new C00Handshake(5, serveraddress.getIP(), serveraddress.getPort(), EnumConnectionState.STATUS),
-					new GenericFutureListener[0]);
-			networkmanager.scheduleOutboundPacket(new C00PacketServerQuery(), new GenericFutureListener[0]);
+					new C00Handshake(5, serveraddress.getIP(), serveraddress.getPort(), EnumConnectionState.STATUS)
+			);
+			networkmanager.scheduleOutboundPacket(new C00PacketServerQuery());
 		} catch (Throwable throwable) {
 			logger.error(throwable);
 		}
@@ -183,16 +183,14 @@ public class OldServerPinger {
 				try {
 					p_initChannel_1_.config().setOption(ChannelOption.IP_TOS, Integer.valueOf(24));
 				} catch (ChannelException channelexception1) {
-					;
 				}
 
 				try {
 					p_initChannel_1_.config().setOption(ChannelOption.TCP_NODELAY, Boolean.valueOf(false));
 				} catch (ChannelException channelexception) {
-					;
 				}
 
-				p_initChannel_1_.pipeline().addLast(new ChannelHandler[] { new SimpleChannelInboundHandler() {
+				p_initChannel_1_.pipeline().addLast(new SimpleChannelInboundHandler() {
 					private static final String __OBFID = "CL_00000895";
 
 					@Override
@@ -272,7 +270,7 @@ public class OldServerPinger {
 					protected void channelRead0(ChannelHandlerContext p_channelRead0_1_, Object p_channelRead0_2_) {
 						this.channelRead0(p_channelRead0_1_, (ByteBuf) p_channelRead0_2_);
 					}
-				} });
+				});
 			}
 		}).channel(NioSocketChannel.class).connect(serveraddress.getIP(), serveraddress.getPort());
 	}

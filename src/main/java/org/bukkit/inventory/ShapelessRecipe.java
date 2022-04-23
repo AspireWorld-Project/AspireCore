@@ -13,8 +13,8 @@ import java.util.List;
  * the crafting grid does not matter.
  */
 public class ShapelessRecipe implements Recipe {
-	private ItemStack output;
-	private List<ItemStack> ingredients = new ArrayList<>();
+	private final ItemStack output;
+	private final List<ItemStack> ingredients = new ArrayList<>();
 
 	/**
 	 * Create a shapeless recipe to craft the specified ItemStack. The constructor

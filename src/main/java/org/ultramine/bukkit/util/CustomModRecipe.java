@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
  */
 public class CustomModRecipe implements Recipe {
 	@Nullable
-	private IRecipe iRecipe;
+	private final IRecipe iRecipe;
 
 	public CustomModRecipe(IRecipe iRecipe) {
 		this.iRecipe = iRecipe;

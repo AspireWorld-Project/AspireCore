@@ -14,12 +14,12 @@ public interface Messenger {
 	/**
 	 * Represents the largest size that an individual Plugin Message may be.
 	 */
-	public static final int MAX_MESSAGE_SIZE = 32766;
+    int MAX_MESSAGE_SIZE = 32766;
 
 	/**
 	 * Represents the largest size that a Plugin Channel may be.
 	 */
-	public static final int MAX_CHANNEL_SIZE = 20; // Cauldron - Vanilla increased limit of C17PacketCustomPayload size
+    int MAX_CHANNEL_SIZE = 20; // Cauldron - Vanilla increased limit of C17PacketCustomPayload size
 													// from 16 -> 20 in 1.7
 
 	/**
@@ -31,7 +31,7 @@ public interface Messenger {
 	 * @throws IllegalArgumentException
 	 *             Thrown if channel is null.
 	 */
-	public boolean isReservedChannel(String channel);
+    boolean isReservedChannel(String channel);
 
 	/**
 	 * Registers the specific plugin to the requested outgoing plugin channel,
@@ -44,7 +44,7 @@ public interface Messenger {
 	 * @throws IllegalArgumentException
 	 *             Thrown if plugin or channel is null.
 	 */
-	public void registerOutgoingPluginChannel(Plugin plugin, String channel);
+    void registerOutgoingPluginChannel(Plugin plugin, String channel);
 
 	/**
 	 * Unregisters the specific plugin from the requested outgoing plugin channel,
@@ -57,7 +57,7 @@ public interface Messenger {
 	 * @throws IllegalArgumentException
 	 *             Thrown if plugin or channel is null.
 	 */
-	public void unregisterOutgoingPluginChannel(Plugin plugin, String channel);
+    void unregisterOutgoingPluginChannel(Plugin plugin, String channel);
 
 	/**
 	 * Unregisters the specific plugin from all outgoing plugin channels, no longer
@@ -68,7 +68,7 @@ public interface Messenger {
 	 * @throws IllegalArgumentException
 	 *             Thrown if plugin is null.
 	 */
-	public void unregisterOutgoingPluginChannel(Plugin plugin);
+    void unregisterOutgoingPluginChannel(Plugin plugin);
 
 	/**
 	 * Registers the specific plugin for listening on the requested incoming plugin
@@ -85,8 +85,8 @@ public interface Messenger {
 	 *             Thrown if plugin, channel or listener is null, or the listener is
 	 *             already registered for this channel.
 	 */
-	public PluginMessageListenerRegistration registerIncomingPluginChannel(Plugin plugin, String channel,
-			PluginMessageListener listener);
+    PluginMessageListenerRegistration registerIncomingPluginChannel(Plugin plugin, String channel,
+                                                                    PluginMessageListener listener);
 
 	/**
 	 * Unregisters the specific plugin's listener from listening on the requested
@@ -102,7 +102,7 @@ public interface Messenger {
 	 * @throws IllegalArgumentException
 	 *             Thrown if plugin, channel or listener is null.
 	 */
-	public void unregisterIncomingPluginChannel(Plugin plugin, String channel, PluginMessageListener listener);
+    void unregisterIncomingPluginChannel(Plugin plugin, String channel, PluginMessageListener listener);
 
 	/**
 	 * Unregisters the specific plugin from listening on the requested incoming
@@ -115,7 +115,7 @@ public interface Messenger {
 	 * @throws IllegalArgumentException
 	 *             Thrown if plugin or channel is null.
 	 */
-	public void unregisterIncomingPluginChannel(Plugin plugin, String channel);
+    void unregisterIncomingPluginChannel(Plugin plugin, String channel);
 
 	/**
 	 * Unregisters the specific plugin from listening on all plugin channels through
@@ -126,14 +126,14 @@ public interface Messenger {
 	 * @throws IllegalArgumentException
 	 *             Thrown if plugin is null.
 	 */
-	public void unregisterIncomingPluginChannel(Plugin plugin);
+    void unregisterIncomingPluginChannel(Plugin plugin);
 
 	/**
 	 * Gets a set containing all the outgoing plugin channels.
 	 *
 	 * @return List of all registered outgoing plugin channels.
 	 */
-	public Set<String> getOutgoingChannels();
+    Set<String> getOutgoingChannels();
 
 	/**
 	 * Gets a set containing all the outgoing plugin channels that the specified
@@ -146,14 +146,14 @@ public interface Messenger {
 	 * @throws IllegalArgumentException
 	 *             Thrown if plugin is null.
 	 */
-	public Set<String> getOutgoingChannels(Plugin plugin);
+    Set<String> getOutgoingChannels(Plugin plugin);
 
 	/**
 	 * Gets a set containing all the incoming plugin channels.
 	 *
 	 * @return List of all registered incoming plugin channels.
 	 */
-	public Set<String> getIncomingChannels();
+    Set<String> getIncomingChannels();
 
 	/**
 	 * Gets a set containing all the incoming plugin channels that the specified
@@ -166,7 +166,7 @@ public interface Messenger {
 	 * @throws IllegalArgumentException
 	 *             Thrown if plugin is null.
 	 */
-	public Set<String> getIncomingChannels(Plugin plugin);
+    Set<String> getIncomingChannels(Plugin plugin);
 
 	/**
 	 * Gets a set containing all the incoming plugin channel registrations that the
@@ -178,7 +178,7 @@ public interface Messenger {
 	 * @throws IllegalArgumentException
 	 *             Thrown if plugin is null.
 	 */
-	public Set<PluginMessageListenerRegistration> getIncomingChannelRegistrations(Plugin plugin);
+    Set<PluginMessageListenerRegistration> getIncomingChannelRegistrations(Plugin plugin);
 
 	/**
 	 * Gets a set containing all the incoming plugin channel registrations that are
@@ -190,7 +190,7 @@ public interface Messenger {
 	 * @throws IllegalArgumentException
 	 *             Thrown if channel is null.
 	 */
-	public Set<PluginMessageListenerRegistration> getIncomingChannelRegistrations(String channel);
+    Set<PluginMessageListenerRegistration> getIncomingChannelRegistrations(String channel);
 
 	/**
 	 * Gets a set containing all the incoming plugin channel registrations that the
@@ -204,7 +204,7 @@ public interface Messenger {
 	 * @throws IllegalArgumentException
 	 *             Thrown if plugin or channel is null.
 	 */
-	public Set<PluginMessageListenerRegistration> getIncomingChannelRegistrations(Plugin plugin, String channel);
+    Set<PluginMessageListenerRegistration> getIncomingChannelRegistrations(Plugin plugin, String channel);
 
 	/**
 	 * Checks if the specified plugin message listener registration is valid.
@@ -216,7 +216,7 @@ public interface Messenger {
 	 *            Registration to check.
 	 * @return True if the registration is valid, otherwise false.
 	 */
-	public boolean isRegistrationValid(PluginMessageListenerRegistration registration);
+    boolean isRegistrationValid(PluginMessageListenerRegistration registration);
 
 	/**
 	 * Checks if the specified plugin has registered to receive incoming messages
@@ -228,7 +228,7 @@ public interface Messenger {
 	 *            Channel to test for.
 	 * @return True if the channel is registered, else false.
 	 */
-	public boolean isIncomingChannelRegistered(Plugin plugin, String channel);
+    boolean isIncomingChannelRegistered(Plugin plugin, String channel);
 
 	/**
 	 * Checks if the specified plugin has registered to send outgoing messages
@@ -240,7 +240,7 @@ public interface Messenger {
 	 *            Channel to test for.
 	 * @return True if the channel is registered, else false.
 	 */
-	public boolean isOutgoingChannelRegistered(Plugin plugin, String channel);
+    boolean isOutgoingChannelRegistered(Plugin plugin, String channel);
 
 	/**
 	 * Dispatches the specified incoming message to any registered listeners.
@@ -252,5 +252,5 @@ public interface Messenger {
 	 * @param message
 	 *            Raw payload of the message.
 	 */
-	public void dispatchIncomingMessage(Player source, String channel, byte[] message);
+    void dispatchIncomingMessage(Player source, String channel, byte[] message);
 }

@@ -9,8 +9,8 @@ import java.util.EventObject;
 @SuppressWarnings("serial")
 public class ConversationAbandonedEvent extends EventObject {
 
-	private ConversationContext context;
-	private ConversationCanceller canceller;
+	private final ConversationContext context;
+	private final ConversationCanceller canceller;
 
 	public ConversationAbandonedEvent(Conversation conversation) {
 		this(conversation, null);

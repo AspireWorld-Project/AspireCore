@@ -13,10 +13,10 @@ import java.io.IOException;
 
 public class GuiOldSaveLoadConfirm extends GuiYesNo implements GuiYesNoCallback {
 
-	private String dirName;
-	private String saveName;
-	private File zip;
-	private GuiScreen parent;
+	private final String dirName;
+	private final String saveName;
+	private final File zip;
+	private final GuiScreen parent;
 
 	public GuiOldSaveLoadConfirm(String dirName, String saveName, GuiScreen parent) {
 		super(null, "", "", 0);
@@ -75,7 +75,7 @@ public class GuiOldSaveLoadConfirm extends GuiYesNo implements GuiYesNoCallback 
 			FMLClientHandler.instance().showGuiScreen(null);
 
 			try {
-				mc.launchIntegratedServer(dirName, saveName, (WorldSettings) null);
+				mc.launchIntegratedServer(dirName, saveName, null);
 			} catch (StartupQuery.AbortedException e) {
 				// ignore
 			}

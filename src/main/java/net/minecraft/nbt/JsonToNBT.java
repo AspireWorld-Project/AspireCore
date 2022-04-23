@@ -103,7 +103,7 @@ public class JsonToNBT {
 
 						if (c0 != 44 && c0 != 123 && c0 != 125 && c0 != 91 && c0 != 93)
 							throw new NBTException(
-									"Unexpected token \'" + c0 + "\' at: " + p_150316_1_.substring(s2.length()));
+                                    "Unexpected token '" + c0 + "' at: " + p_150316_1_.substring(s2.length()));
 
 						p_150316_1_ = p_150316_1_.substring(s2.length() + 1);
 					}
@@ -134,7 +134,7 @@ public class JsonToNBT {
 
 						if (c0 != 44 && c0 != 123 && c0 != 125 && c0 != 91 && c0 != 93)
 							throw new NBTException(
-									"Unexpected token \'" + c0 + "\' at: " + p_150316_1_.substring(s2.length()));
+                                    "Unexpected token '" + c0 + "' at: " + p_150316_1_.substring(s2.length()));
 
 						p_150316_1_ = p_150316_1_.substring(s2.length() + 1);
 					} else {
@@ -350,9 +350,9 @@ public class JsonToNBT {
 				else if (field_150493_b.matches("[-+]?[0-9]+[s|S]"))
 					return new NBTTagShort(Short.parseShort(field_150493_b.substring(0, field_150493_b.length() - 1)));
 				else if (field_150493_b.matches("[-+]?[0-9]+"))
-					return new NBTTagInt(Integer.parseInt(field_150493_b.substring(0, field_150493_b.length())));
+					return new NBTTagInt(Integer.parseInt(field_150493_b));
 				else if (field_150493_b.matches("[-+]?[0-9]*\\.?[0-9]+"))
-					return new NBTTagDouble(Double.parseDouble(field_150493_b.substring(0, field_150493_b.length())));
+					return new NBTTagDouble(Double.parseDouble(field_150493_b));
 				else if (!field_150493_b.equalsIgnoreCase("true") && !field_150493_b.equalsIgnoreCase("false")) {
 					if (field_150493_b.startsWith("[") && field_150493_b.endsWith("]")) {
 						if (field_150493_b.length() > 2) {

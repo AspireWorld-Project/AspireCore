@@ -92,7 +92,7 @@ public class EntityEnderCrystal extends Entity {
 					setDead();
 
 					if (!worldObj.isRemote) {
-						worldObj.createExplosion((Entity) null, posX, posY, posZ, 6.0F, true);
+						worldObj.createExplosion(null, posX, posY, posZ, 6.0F, true);
 					}
 				}
 			}

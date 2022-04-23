@@ -7,7 +7,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 public class ItemReed extends Item {
-	private Block field_150935_a;
+	private final Block field_150935_a;
 	private static final String __OBFID = "CL_00001773";
 
 	public ItemReed(Block p_i45329_1_) {
@@ -53,7 +53,7 @@ public class ItemReed extends Item {
 			return false;
 		else {
 			if (p_77648_3_.canPlaceEntityOnSide(field_150935_a, p_77648_4_, p_77648_5_, p_77648_6_, false, p_77648_7_,
-					(Entity) null, p_77648_1_)) {
+                    null, p_77648_1_)) {
 				int i1 = field_150935_a.onBlockPlaced(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_,
 						p_77648_8_, p_77648_9_, p_77648_10_, 0);
 

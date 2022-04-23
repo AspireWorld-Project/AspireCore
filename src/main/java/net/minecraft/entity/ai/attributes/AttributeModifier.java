@@ -22,7 +22,7 @@ public class AttributeModifier {
 		name = p_i1606_2_;
 		amount = p_i1606_3_;
 		operation = p_i1606_5_;
-		Validate.notEmpty(p_i1606_2_, "Modifier name cannot be empty", new Object[0]);
+		Validate.notEmpty(p_i1606_2_, "Modifier name cannot be empty");
 		Validate.inclusiveBetween(Integer.valueOf(0), Integer.valueOf(2), Integer.valueOf(p_i1606_5_),
 				"Invalid operation", new Object[0]);
 	}
@@ -60,12 +60,8 @@ public class AttributeModifier {
 			AttributeModifier attributemodifier = (AttributeModifier) p_equals_1_;
 
 			if (id != null) {
-				if (!id.equals(attributemodifier.id))
-					return false;
-			} else if (attributemodifier.id != null)
-				return false;
-
-			return true;
+				return id.equals(attributemodifier.id);
+			} else return attributemodifier.id == null;
 		} else
 			return false;
 	}
@@ -77,7 +73,7 @@ public class AttributeModifier {
 
 	@Override
 	public String toString() {
-		return "AttributeModifier{amount=" + amount + ", operation=" + operation + ", name=\'" + name + '\'' + ", id="
+		return "AttributeModifier{amount=" + amount + ", operation=" + operation + ", name='" + name + '\'' + ", id="
 				+ id + ", serialize=" + isSaved + '}';
 	}
 }

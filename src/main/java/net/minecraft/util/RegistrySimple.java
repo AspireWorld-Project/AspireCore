@@ -25,7 +25,7 @@ public class RegistrySimple implements IRegistry {
 	@Override
 	public void putObject(Object p_82595_1_, Object p_82595_2_) {
 		if (registryObjects.containsKey(p_82595_1_)) {
-			logger.debug("Adding duplicate key \'" + p_82595_1_ + "\' to registry");
+			logger.debug("Adding duplicate key '" + p_82595_1_ + "' to registry");
 		}
 
 		registryObjects.put(p_82595_1_, p_82595_2_);

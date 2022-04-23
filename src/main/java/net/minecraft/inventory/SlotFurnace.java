@@ -14,7 +14,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.FurnaceExtractEvent;
 
 public class SlotFurnace extends Slot {
-	private EntityPlayer thePlayer;
+	private final EntityPlayer thePlayer;
 	private int field_75228_b;
 	private static final String __OBFID = "CL_00001749";
 

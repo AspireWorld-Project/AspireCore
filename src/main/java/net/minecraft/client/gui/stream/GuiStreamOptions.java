@@ -35,8 +35,8 @@ public class GuiStreamOptions extends GuiScreen {
 	@Override
 	public void initGui() {
 		int i = 0;
-		field_152319_i = I18n.format("options.stream.title", new Object[0]);
-		field_152313_r = I18n.format("options.stream.chat.title", new Object[0]);
+		field_152319_i = I18n.format("options.stream.title");
+		field_152313_r = I18n.format("options.stream.chat.title");
 		GameSettings.Options[] aoptions = field_152312_a;
 		int j = aoptions.length;
 		int k;
@@ -80,9 +80,9 @@ public class GuiStreamOptions extends GuiScreen {
 		}
 
 		buttonList.add(
-				new GuiButton(200, width / 2 - 155, height / 6 + 168, 150, 20, I18n.format("gui.done", new Object[0])));
+				new GuiButton(200, width / 2 - 155, height / 6 + 168, 150, 20, I18n.format("gui.done")));
 		GuiButton guibutton = new GuiButton(201, width / 2 + 5, height / 6 + 168, 150, 20,
-				I18n.format("options.stream.ingestSelection", new Object[0]));
+				I18n.format("options.stream.ingestSelection"));
 		guibutton.enabled = mc.func_152346_Z().func_152924_m() && mc.func_152346_Z().func_152925_v().length > 0
 				|| mc.func_152346_Z().func_152908_z();
 		buttonList.add(guibutton);

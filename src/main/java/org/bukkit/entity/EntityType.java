@@ -174,10 +174,11 @@ public enum EntityType {
 	 */
 	UNKNOWN(null, null, -1, false);
 
-	private String name;
-	private Class<? extends Entity> clazz;
-	private short typeId;
-	private boolean independent, living;
+	private final String name;
+	private final Class<? extends Entity> clazz;
+	private final short typeId;
+	private final boolean independent;
+	private boolean living;
 
 	private static final Map<String, EntityType> NAME_MAP = new HashMap<>();
 	private static final Map<Short, EntityType> ID_MAP = new HashMap<>();
@@ -193,11 +194,11 @@ public enum EntityType {
 		}
 	}
 
-	private EntityType(String name, Class<? extends Entity> clazz, int typeId) {
+	EntityType(String name, Class<? extends Entity> clazz, int typeId) {
 		this(name, clazz, typeId, true);
 	}
 
-	private EntityType(String name, Class<? extends Entity> clazz, int typeId, boolean independent) {
+	EntityType(String name, Class<? extends Entity> clazz, int typeId, boolean independent) {
 		this.name = name;
 		this.clazz = clazz;
 		this.typeId = (short) typeId;

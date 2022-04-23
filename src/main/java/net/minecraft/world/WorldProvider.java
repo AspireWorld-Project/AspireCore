@@ -29,7 +29,7 @@ public abstract class WorldProvider {
 	public boolean hasNoSky;
 	public float[] lightBrightnessTable = new float[16];
 	public int dimensionId;
-	private float[] colorsSunriseSunset = new float[4];
+	private final float[] colorsSunriseSunset = new float[4];
 	private static final String __OBFID = "CL_00000386";
 
 	public final void registerWorld(World p_76558_1_) {

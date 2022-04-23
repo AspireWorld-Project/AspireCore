@@ -37,9 +37,9 @@ import java.util.*;
 public class VillagerRegistry {
 	private static final VillagerRegistry INSTANCE = new VillagerRegistry();
 
-	private Multimap<Integer, IVillageTradeHandler> tradeHandlers = ArrayListMultimap.create();
-	private Map<Class<?>, IVillageCreationHandler> villageCreationHandlers = Maps.newHashMap();
-	private List<Integer> newVillagerIds = Lists.newArrayList();
+	private final Multimap<Integer, IVillageTradeHandler> tradeHandlers = ArrayListMultimap.create();
+	private final Map<Class<?>, IVillageCreationHandler> villageCreationHandlers = Maps.newHashMap();
+	private final List<Integer> newVillagerIds = Lists.newArrayList();
 	@SideOnly(Side.CLIENT)
 	private Map<Integer, ResourceLocation> newVillagers;
 

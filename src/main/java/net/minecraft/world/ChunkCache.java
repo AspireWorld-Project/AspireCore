@@ -10,11 +10,11 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class ChunkCache implements IBlockAccess {
-	private int chunkX;
-	private int chunkZ;
-	private Chunk[][] chunkArray;
+	private final int chunkX;
+	private final int chunkZ;
+	private final Chunk[][] chunkArray;
 	private boolean isEmpty;
-	private World worldObj;
+	private final World worldObj;
 	private static final String __OBFID = "CL_00000155";
 
 	public ChunkCache(World p_i1964_1_, int p_i1964_2_, int p_i1964_3_, int p_i1964_4_, int p_i1964_5_, int p_i1964_6_,

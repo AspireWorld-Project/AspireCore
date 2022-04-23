@@ -46,8 +46,8 @@ public class BackupManager {
 
 	private long lastBackupTime;
 	private boolean isBackuping;
-	private AtomicBoolean backupCompleted = new AtomicBoolean(false);
-	private AtomicReference<Runnable> backupApplied = new AtomicReference<>();
+	private final AtomicBoolean backupCompleted = new AtomicBoolean(false);
+	private final AtomicReference<Runnable> backupApplied = new AtomicReference<>();
 
 	public BackupManager(MinecraftServer server) {
 		this.server = server;

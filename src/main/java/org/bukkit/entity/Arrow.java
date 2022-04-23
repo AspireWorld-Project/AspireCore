@@ -12,7 +12,7 @@ public interface Arrow extends Projectile {
 	 *
 	 * @return the knockback strength value
 	 */
-	public int getKnockbackStrength();
+    int getKnockbackStrength();
 
 	/**
 	 * Sets the knockback strength for an arrow.
@@ -20,7 +20,7 @@ public interface Arrow extends Projectile {
 	 * @param knockbackStrength
 	 *            the knockback strength value
 	 */
-	public void setKnockbackStrength(int knockbackStrength);
+    void setKnockbackStrength(int knockbackStrength);
 
 	/**
 	 * Gets whether this arrow is critical.
@@ -32,7 +32,7 @@ public interface Arrow extends Projectile {
 	 *
 	 * @return true if it is critical
 	 */
-	public boolean isCritical();
+    boolean isCritical();
 
 	/**
 	 * Sets whether or not this arrow should be critical.
@@ -40,10 +40,10 @@ public interface Arrow extends Projectile {
 	 * @param critical
 	 *            whether or not it should be critical
 	 */
-	public void setCritical(boolean critical);
+    void setCritical(boolean critical);
 
 	// Spigot start
-	public class Spigot extends Entity.Spigot {
+    class Spigot extends Entity.Spigot {
 
 		public double getDamage() {
 			throw new UnsupportedOperationException("Not supported yet.");

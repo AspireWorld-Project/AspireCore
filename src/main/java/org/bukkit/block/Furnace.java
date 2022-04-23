@@ -12,7 +12,7 @@ public interface Furnace extends BlockState, ContainerBlock {
 	 *
 	 * @return Burn time
 	 */
-	public short getBurnTime();
+    short getBurnTime();
 
 	/**
 	 * Set burn time.
@@ -20,14 +20,14 @@ public interface Furnace extends BlockState, ContainerBlock {
 	 * @param burnTime
 	 *            Burn time
 	 */
-	public void setBurnTime(short burnTime);
+    void setBurnTime(short burnTime);
 
 	/**
 	 * Get cook time.
 	 *
 	 * @return Cook time
 	 */
-	public short getCookTime();
+    short getCookTime();
 
 	/**
 	 * Set cook time.
@@ -35,8 +35,8 @@ public interface Furnace extends BlockState, ContainerBlock {
 	 * @param cookTime
 	 *            Cook time
 	 */
-	public void setCookTime(short cookTime);
+    void setCookTime(short cookTime);
 
 	@Override
-	public FurnaceInventory getInventory();
+    FurnaceInventory getInventory();
 }

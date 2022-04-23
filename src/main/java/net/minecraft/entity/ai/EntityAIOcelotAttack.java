@@ -31,9 +31,7 @@ public class EntityAIOcelotAttack extends EntityAIBase {
 
 	@Override
 	public boolean continueExecuting() {
-		return !theVictim.isEntityAlive() ? false
-				: theEntity.getDistanceSqToEntity(theVictim) > 225.0D ? false
-						: !theEntity.getNavigator().noPath() || shouldExecute();
+		return theVictim.isEntityAlive() && !(theEntity.getDistanceSqToEntity(theVictim) > 225.0D) && (!theEntity.getNavigator().noPath() || shouldExecute());
 	}
 
 	@Override

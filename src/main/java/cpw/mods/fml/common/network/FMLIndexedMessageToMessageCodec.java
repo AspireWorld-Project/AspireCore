@@ -17,8 +17,8 @@ import java.util.List;
 
 @Sharable
 public abstract class FMLIndexedMessageToMessageCodec<A> extends MessageToMessageCodec<FMLProxyPacket, A> {
-	private TByteObjectHashMap<Class<? extends A>> discriminators = new TByteObjectHashMap<>();
-	private TObjectByteHashMap<Class<? extends A>> types = new TObjectByteHashMap<>();
+	private final TByteObjectHashMap<Class<? extends A>> discriminators = new TByteObjectHashMap<>();
+	private final TObjectByteHashMap<Class<? extends A>> types = new TObjectByteHashMap<>();
 
 	/**
 	 * Make this accessible to subclasses

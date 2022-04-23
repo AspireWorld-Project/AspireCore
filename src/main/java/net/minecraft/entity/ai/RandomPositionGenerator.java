@@ -7,11 +7,11 @@ import net.minecraft.util.Vec3;
 import java.util.Random;
 
 public class RandomPositionGenerator {
-	private static Vec3 staticVector = Vec3.createVectorHelper(0.0D, 0.0D, 0.0D);
+	private static final Vec3 staticVector = Vec3.createVectorHelper(0.0D, 0.0D, 0.0D);
 	private static final String __OBFID = "CL_00001629";
 
 	public static Vec3 findRandomTarget(EntityCreature p_75463_0_, int p_75463_1_, int p_75463_2_) {
-		return findRandomTargetBlock(p_75463_0_, p_75463_1_, p_75463_2_, (Vec3) null);
+		return findRandomTargetBlock(p_75463_0_, p_75463_1_, p_75463_2_, null);
 	}
 
 	public static Vec3 findRandomTargetBlockTowards(EntityCreature p_75464_0_, int p_75464_1_, int p_75464_2_,

@@ -21,7 +21,7 @@ import static net.minecraft.util.EnumChatFormatting.DARK_PURPLE;
 public class Restarter
 {
 	private static Restarter currentRestarter;
-	private ServerConfigurationManager mgr;
+	private final ServerConfigurationManager mgr;
 	private int toRestart;
 	private int ticks;
 	public static String osPrefix = isWindows() ? ".bat" : ".sh";

@@ -111,10 +111,7 @@ public class ItemArmor extends Item {
 	}
 
 	public boolean hasColor(ItemStack p_82816_1_) {
-		return material != ItemArmor.ArmorMaterial.CLOTH ? false
-				: !p_82816_1_.hasTagCompound() ? false
-						: !p_82816_1_.getTagCompound().hasKey("display", 10) ? false
-								: p_82816_1_.getTagCompound().getCompoundTag("display").hasKey("color", 3);
+		return material == ArmorMaterial.CLOTH && p_82816_1_.hasTagCompound() && p_82816_1_.getTagCompound().hasKey("display", 10) && p_82816_1_.getTagCompound().getCompoundTag("display").hasKey("color", 3);
 	}
 
 	public int getColor(ItemStack p_82814_1_) {
@@ -155,7 +152,7 @@ public class ItemArmor extends Item {
 
 	public void func_82813_b(ItemStack p_82813_1_, int p_82813_2_) {
 		if (material != ItemArmor.ArmorMaterial.CLOTH)
-			throw new UnsupportedOperationException("Can\'t dye non-leather!");
+			throw new UnsupportedOperationException("Can't dye non-leather!");
 		else {
 			NBTTagCompound nbttagcompound = p_82813_1_.getTagCompound();
 
@@ -176,7 +173,7 @@ public class ItemArmor extends Item {
 
 	@Override
 	public boolean getIsRepairable(ItemStack p_82789_1_, ItemStack p_82789_2_) {
-		return material.func_151685_b() == p_82789_2_.getItem() ? true : super.getIsRepairable(p_82789_1_, p_82789_2_);
+		return material.func_151685_b() == p_82789_2_.getItem() || super.getIsRepairable(p_82789_1_, p_82789_2_);
 	}
 
 	@Override
@@ -221,20 +218,20 @@ public class ItemArmor extends Item {
 		}
 	}
 
-	public static enum ArmorMaterial {
+	public enum ArmorMaterial {
 		CLOTH(5, new int[] { 1, 3, 2, 1 }, 15), CHAIN(15, new int[] { 2, 5, 4, 1 }, 12), IRON(15,
 				new int[] { 2, 6, 5, 2 },
 				9), GOLD(7, new int[] { 2, 5, 3, 1 }, 25), DIAMOND(33, new int[] { 3, 8, 6, 3 }, 10);
-		private int maxDamageFactor;
-		private int[] damageReductionAmountArray;
-		private int enchantability;
+		private final int maxDamageFactor;
+		private final int[] damageReductionAmountArray;
+		private final int enchantability;
 
 		private static final String __OBFID = "CL_00001768";
 
 		// Added by forge for custom Armor materials.
 		public Item customCraftingMaterial = null;
 
-		private ArmorMaterial(int p_i1827_3_, int[] p_i1827_4_, int p_i1827_5_) {
+		ArmorMaterial(int p_i1827_3_, int[] p_i1827_4_, int p_i1827_5_) {
 			maxDamageFactor = p_i1827_3_;
 			damageReductionAmountArray = p_i1827_4_;
 			enchantability = p_i1827_5_;

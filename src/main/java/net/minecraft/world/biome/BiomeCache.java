@@ -9,8 +9,8 @@ import java.util.List;
 public class BiomeCache {
 	private final WorldChunkManager chunkManager;
 	private long lastCleanupTime;
-	private LongHashMap cacheMap = new LongHashMap();
-	private List cache = new ArrayList();
+	private final LongHashMap cacheMap = new LongHashMap();
+	private final List cache = new ArrayList();
 	private static final String __OBFID = "CL_00000162";
 
 	public BiomeCache(WorldChunkManager p_i1973_1_) {

@@ -37,13 +37,13 @@ public abstract class Container {
 	private int field_94536_g;
 	private final Set field_94537_h = new HashSet();
 	protected List crafters = new ArrayList();
-	private Set playerList = new HashSet();
+	private final Set playerList = new HashSet();
 	private static final String __OBFID = "CL_00001730";
 
 	protected Slot addSlotToContainer(Slot p_75146_1_) {
 		p_75146_1_.slotNumber = inventorySlots.size();
 		inventorySlots.add(p_75146_1_);
-		inventoryItemStacks.add((Object) null);
+		inventoryItemStacks.add(null);
 		return p_75146_1_;
 	}
 
@@ -426,7 +426,7 @@ public abstract class Container {
 
 		if (inventoryplayer.getItemStack() != null) {
 			p_75134_1_.dropPlayerItemWithRandomChoice(inventoryplayer.getItemStack(), false);
-			inventoryplayer.setItemStack((ItemStack) null);
+			inventoryplayer.setItemStack(null);
 		}
 	}
 

@@ -11,7 +11,7 @@ import net.minecraftforge.event.entity.player.PlayerDestroyItemEvent;
 
 public class SlotCrafting extends Slot {
 	private final IInventory craftMatrix;
-	private EntityPlayer thePlayer;
+	private final EntityPlayer thePlayer;
 	private int amountCrafted;
 	private static final String __OBFID = "CL_00001761";
 

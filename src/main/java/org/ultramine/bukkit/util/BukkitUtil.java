@@ -63,12 +63,12 @@ public class BukkitUtil {
 				bukkitSender = new CraftMinecartCommand((CraftServer) Bukkit.getServer(),
 						(net.minecraft.entity.EntityMinecartCommandBlock) wuo.getEntity());
 			} else {
-				bukkitSender = ((CraftServer) Bukkit.getServer()).getConsoleSender();
+				bukkitSender = Bukkit.getServer().getConsoleSender();
 			}
 		} else if (sender instanceof RConConsoleSource) {
 			bukkitSender = CraftRemoteConsoleCommandSender.getInstance();
 		} else {
-			bukkitSender = ((CraftServer) Bukkit.getServer()).getConsoleSender();
+			bukkitSender = Bukkit.getServer().getConsoleSender();
 		}
 
 		return bukkitSender;

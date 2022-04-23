@@ -11,8 +11,8 @@ import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class ItemSeeds extends Item implements IPlantable {
-	private Block field_150925_a;
-	private Block soilBlockID;
+	private final Block field_150925_a;
+	private final Block soilBlockID;
 	private static final String __OBFID = "CL_00000061";
 
 	public ItemSeeds(Block p_i45352_1_, Block p_i45352_2_) {

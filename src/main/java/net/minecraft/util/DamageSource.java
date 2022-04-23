@@ -149,8 +149,8 @@ public class DamageSource {
 		String s1 = s + ".player";
 		return entitylivingbase1 != null && StatCollector.canTranslate(s1)
 				? new ChatComponentTranslation(s1,
-						new Object[] { p_151519_1_.func_145748_c_(), entitylivingbase1.func_145748_c_() })
-				: new ChatComponentTranslation(s, new Object[] { p_151519_1_.func_145748_c_() });
+                p_151519_1_.func_145748_c_(), entitylivingbase1.func_145748_c_())
+				: new ChatComponentTranslation(s, p_151519_1_.func_145748_c_());
 	}
 
 	public boolean isFireDamage() {

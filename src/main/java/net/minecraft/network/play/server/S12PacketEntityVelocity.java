@@ -80,8 +80,8 @@ public class S12PacketEntityVelocity extends Packet {
 	@Override
 	public String serialize() {
 		return String.format("id=%d, x=%.2f, y=%.2f, z=%.2f",
-				new Object[] { Integer.valueOf(field_149417_a), Float.valueOf(field_149415_b / 8000.0F),
-						Float.valueOf(field_149416_c / 8000.0F), Float.valueOf(field_149414_d / 8000.0F) });
+				Integer.valueOf(field_149417_a), Float.valueOf(field_149415_b / 8000.0F),
+				Float.valueOf(field_149416_c / 8000.0F), Float.valueOf(field_149414_d / 8000.0F));
 	}
 
 	@SideOnly(Side.CLIENT)

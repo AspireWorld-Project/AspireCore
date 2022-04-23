@@ -9,8 +9,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class ContainerMerchant extends Container {
-	private IMerchant theMerchant;
-	private InventoryMerchant merchantInventory;
+	private final IMerchant theMerchant;
+	private final InventoryMerchant merchantInventory;
 	private final World theWorld;
 	private static final String __OBFID = "CL_00001757";
 
@@ -92,7 +92,7 @@ public class ContainerMerchant extends Container {
 				return null;
 
 			if (itemstack1.stackSize == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(null);
 			} else {
 				slot.onSlotChanged();
 			}
@@ -109,7 +109,7 @@ public class ContainerMerchant extends Container {
 	@Override
 	public void onContainerClosed(EntityPlayer p_75134_1_) {
 		super.onContainerClosed(p_75134_1_);
-		theMerchant.setCustomer((EntityPlayer) null);
+		theMerchant.setCustomer(null);
 		super.onContainerClosed(p_75134_1_);
 
 		if (!theWorld.isRemote) {

@@ -47,10 +47,10 @@ import java.util.zip.ZipFile;
 
 public class FMLModContainer implements ModContainer {
 	private Object modInstance;
-	private File source;
+	private final File source;
 	private ModMetadata modMetadata;
-	private String className;
-	private Map<String, Object> descriptor;
+	private final String className;
+	private final Map<String, Object> descriptor;
 	private boolean enabled = true;
 	private String internalVersion;
 	private boolean overridesMetadata;
@@ -63,12 +63,12 @@ public class FMLModContainer implements ModContainer {
 	private boolean fingerprintNotPresent;
 	private Set<String> sourceFingerprints;
 	private Certificate certificate;
-	private String modLanguage;
-	private ILanguageAdapter languageAdapter;
+	private final String modLanguage;
+	private final ILanguageAdapter languageAdapter;
 	private Disableable disableability;
-	private ListMultimap<Class<? extends FMLEvent>, Method> eventMethods;
+	private final ListMultimap<Class<? extends FMLEvent>, Method> eventMethods;
 	private Map<String, String> customModProperties;
-	private ModCandidate candidate;
+	private final ModCandidate candidate;
 
 	public FMLModContainer(String className, ModCandidate container, Map<String, Object> modDescriptor) {
 		this.className = className;
@@ -378,7 +378,7 @@ public class FMLModContainer implements ModContainer {
 			if (certificates != null) {
 				len = certificates.length;
 			}
-			Builder<String> certBuilder = ImmutableList.<String>builder();
+			Builder<String> certBuilder = ImmutableList.builder();
 			for (int i = 0; i < len; i++) {
 				certBuilder.add(CertificateHelper.getFingerprint(certificates[i]));
 			}
@@ -409,7 +409,7 @@ public class FMLModContainer implements ModContainer {
 			List<Map<String, Object>> props = (List<Map<String, Object>>) descriptor.get("customProperties");
 			if (props != null) {
 				com.google.common.collect.ImmutableMap.Builder<String, String> builder = ImmutableMap
-						.<String, String>builder();
+						.builder();
 				for (Map<String, Object> p : props) {
 					builder.put((String) p.get("k"), (String) p.get("v"));
 				}

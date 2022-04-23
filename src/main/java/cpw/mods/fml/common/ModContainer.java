@@ -37,9 +37,9 @@ import java.util.Set;
  */
 
 public interface ModContainer {
-	public static enum Disableable {
-		YES, RESTART, NEVER, DEPENDENCIES;
-	}
+	enum Disableable {
+		YES, RESTART, NEVER, DEPENDENCIES
+    }
 
 	/**
 	 * The globally unique modid for this mod
@@ -132,11 +132,11 @@ public interface ModContainer {
 
 	Certificate getSigningCertificate();
 
-	public static final Map<String, String> EMPTY_PROPERTIES = ImmutableMap.of();
+	Map<String, String> EMPTY_PROPERTIES = ImmutableMap.of();
 
 	Map<String, String> getCustomModProperties();
 
-	public Class<?> getCustomResourcePackClass();
+	Class<?> getCustomResourcePackClass();
 
 	Map<String, String> getSharedModDescriptor();
 

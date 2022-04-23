@@ -26,18 +26,18 @@ import org.lwjgl.opengl.GL12;
 public class GuiMerchant extends GuiContainer {
 	private static final Logger logger = LogManager.getLogger();
 	private static final ResourceLocation field_147038_v = new ResourceLocation("textures/gui/container/villager.png");
-	private IMerchant field_147037_w;
+	private final IMerchant field_147037_w;
 	private GuiMerchant.MerchantButton field_147043_x;
 	private GuiMerchant.MerchantButton field_147042_y;
 	private int field_147041_z;
-	private String field_147040_A;
+	private final String field_147040_A;
 	private static final String __OBFID = "CL_00000762";
 
 	public GuiMerchant(InventoryPlayer p_i1096_1_, IMerchant p_i1096_2_, World p_i1096_3_, String p_i1096_4_) {
 		super(new ContainerMerchant(p_i1096_1_, p_i1096_2_, p_i1096_3_));
 		field_147037_w = p_i1096_2_;
 		field_147040_A = p_i1096_4_ != null && p_i1096_4_.length() >= 1 ? p_i1096_4_
-				: I18n.format("entity.Villager.name", new Object[0]);
+				: I18n.format("entity.Villager.name");
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public class GuiMerchant extends GuiContainer {
 	protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_) {
 		fontRendererObj.drawString(field_147040_A, xSize / 2 - fontRendererObj.getStringWidth(field_147040_A) / 2, 6,
 				4210752);
-		fontRendererObj.drawString(I18n.format("container.inventory", new Object[0]), 8, ySize - 96 + 2, 4210752);
+		fontRendererObj.drawString(I18n.format("container.inventory"), 8, ySize - 96 + 2, 4210752);
 	}
 
 	@Override
@@ -89,7 +89,7 @@ public class GuiMerchant extends GuiContainer {
 				bytebuf.writeInt(field_147041_z);
 				mc.getNetHandler().addToSendQueue(new C17PacketCustomPayload("MC|TrSel", bytebuf));
 			} catch (Exception exception) {
-				logger.error("Couldn\'t send trade info", exception);
+				logger.error("Couldn't send trade info", exception);
 			} finally {
 				bytebuf.release();
 			}

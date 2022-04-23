@@ -14,7 +14,7 @@ public class RenderList {
 	private double cameraX;
 	private double cameraY;
 	private double cameraZ;
-	private IntBuffer glLists = GLAllocation.createDirectIntBuffer(65536);
+	private final IntBuffer glLists = GLAllocation.createDirectIntBuffer(65536);
 	private boolean valid;
 	private boolean bufferFlipped;
 	private static final String __OBFID = "CL_00000957";
@@ -32,7 +32,7 @@ public class RenderList {
 	}
 
 	public boolean rendersChunk(int p_78418_1_, int p_78418_2_, int p_78418_3_) {
-		return !valid ? false : p_78418_1_ == renderChunkX && p_78418_2_ == renderChunkY && p_78418_3_ == renderChunkZ;
+		return valid && p_78418_1_ == renderChunkX && p_78418_2_ == renderChunkY && p_78418_3_ == renderChunkZ;
 	}
 
 	public void addGLRenderList(int p_78420_1_) {

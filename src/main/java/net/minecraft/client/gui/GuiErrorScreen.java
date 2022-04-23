@@ -6,8 +6,8 @@ import net.minecraft.client.resources.I18n;
 
 @SideOnly(Side.CLIENT)
 public class GuiErrorScreen extends GuiScreen {
-	private String field_146313_a;
-	private String field_146312_f;
+	private final String field_146313_a;
+	private final String field_146312_f;
 	private static final String __OBFID = "CL_00000696";
 
 	public GuiErrorScreen(String p_i1034_1_, String p_i1034_2_) {
@@ -18,7 +18,7 @@ public class GuiErrorScreen extends GuiScreen {
 	@Override
 	public void initGui() {
 		super.initGui();
-		buttonList.add(new GuiButton(0, width / 2 - 100, 140, I18n.format("gui.cancel", new Object[0])));
+		buttonList.add(new GuiButton(0, width / 2 - 100, 140, I18n.format("gui.cancel")));
 	}
 
 	@Override
@@ -35,6 +35,6 @@ public class GuiErrorScreen extends GuiScreen {
 
 	@Override
 	protected void actionPerformed(GuiButton p_146284_1_) {
-		mc.displayGuiScreen((GuiScreen) null);
+		mc.displayGuiScreen(null);
 	}
 }

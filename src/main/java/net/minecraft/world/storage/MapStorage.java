@@ -13,10 +13,10 @@ import java.io.*;
 import java.util.*;
 
 public class MapStorage {
-	private ISaveHandler saveHandler;
-	private Map loadedDataMap = new HashMap();
-	private List loadedDataList = new ArrayList();
-	private Map idCounts = new HashMap();
+	private final ISaveHandler saveHandler;
+	private final Map loadedDataMap = new HashMap();
+	private final List loadedDataList = new ArrayList();
+	private final Map idCounts = new HashMap();
 	private static final String __OBFID = "CL_00000604";
 
 	public MapStorage(ISaveHandler p_i2162_1_) {
@@ -68,7 +68,7 @@ public class MapStorage {
 
 	public void setData(String p_75745_1_, WorldSavedData p_75745_2_) {
 		if (p_75745_2_ == null)
-			throw new RuntimeException("Can\'t set null data");
+			throw new RuntimeException("Can't set null data");
 		else {
 			if (loadedDataMap.containsKey(p_75745_1_)) {
 				loadedDataList.remove(loadedDataMap.remove(p_75745_1_));

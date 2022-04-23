@@ -81,5 +81,5 @@ enum FMLHandshakeServerState implements IHandshakeState<FMLHandshakeServerState>
 		public FMLHandshakeServerState accept(ChannelHandlerContext ctx, FMLHandshakeMessage msg) {
 			return this;
 		}
-	};
+	}
 }

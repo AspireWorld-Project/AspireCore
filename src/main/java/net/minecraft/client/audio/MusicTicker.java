@@ -46,7 +46,7 @@ public class MusicTicker implements IUpdatePlayerListBox {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static enum MusicType {
+	public enum MusicType {
 		MENU(new ResourceLocation("minecraft:music.menu"), 20, 600), GAME(new ResourceLocation("minecraft:music.game"),
 				12000, 24000), CREATIVE(new ResourceLocation("minecraft:music.game.creative"), 1200, 3600), CREDITS(
 						new ResourceLocation("minecraft:music.game.end.credits"), Integer.MAX_VALUE,
@@ -59,7 +59,7 @@ public class MusicTicker implements IUpdatePlayerListBox {
 
 		private static final String __OBFID = "CL_00001139";
 
-		private MusicType(ResourceLocation p_i45111_3_, int p_i45111_4_, int p_i45111_5_) {
+		MusicType(ResourceLocation p_i45111_3_, int p_i45111_4_, int p_i45111_5_) {
 			field_148645_h = p_i45111_3_;
 			field_148646_i = p_i45111_4_;
 			field_148643_j = p_i45111_5_;

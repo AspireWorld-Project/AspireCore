@@ -72,9 +72,9 @@ public class S39PacketPlayerAbilities extends Packet {
 	@Override
 	public String serialize() {
 		return String.format("invuln=%b, flying=%b, canfly=%b, instabuild=%b, flyspeed=%.4f, walkspped=%.4f",
-				new Object[] { Boolean.valueOf(func_149112_c()), Boolean.valueOf(func_149106_d()),
-						Boolean.valueOf(func_149105_e()), Boolean.valueOf(func_149103_f()),
-						Float.valueOf(func_149101_g()), Float.valueOf(func_149107_h()) });
+				Boolean.valueOf(func_149112_c()), Boolean.valueOf(func_149106_d()),
+				Boolean.valueOf(func_149105_e()), Boolean.valueOf(func_149103_f()),
+				Float.valueOf(func_149101_g()), Float.valueOf(func_149107_h()));
 	}
 
 	public boolean func_149112_c() {

@@ -43,8 +43,8 @@ public interface ISpecialArmor {
 	 * @return A ArmorProperties instance holding information about how the armor
 	 *         effects damage.
 	 */
-	public ArmorProperties getProperties(EntityLivingBase player, ItemStack armor, DamageSource source, double damage,
-			int slot);
+	ArmorProperties getProperties(EntityLivingBase player, ItemStack armor, DamageSource source, double damage,
+								  int slot);
 
 	/**
 	 * Get the displayed effective armor.
@@ -57,7 +57,7 @@ public interface ISpecialArmor {
 	 *            The armor slot the item is in.
 	 * @return The number of armor points for display, 2 per shield.
 	 */
-	public abstract int getArmorDisplay(EntityPlayer player, ItemStack armor, int slot);
+	int getArmorDisplay(EntityPlayer player, ItemStack armor, int slot);
 
 	/**
 	 * Applies damage to the ItemStack. The mod is responsible for reducing the item
@@ -76,10 +76,10 @@ public interface ISpecialArmor {
 	 * @param slot
 	 *            The armor slot the item is in.
 	 */
-	public abstract void damageArmor(EntityLivingBase entity, ItemStack stack, DamageSource source, int damage,
-			int slot);
+	void damageArmor(EntityLivingBase entity, ItemStack stack, DamageSource source, int damage,
+					 int slot);
 
-	public static class ArmorProperties implements Comparable<ArmorProperties> {
+	class ArmorProperties implements Comparable<ArmorProperties> {
 		public int Priority = 0;
 		public int AbsorbMax = Integer.MAX_VALUE;
 		public double AbsorbRatio = 0;
@@ -155,7 +155,7 @@ public interface ISpecialArmor {
 							((ISpecialArmor) stack.getItem()).damageArmor(entity, stack, source, itemDamage, prop.Slot);
 						} else {
 							if (DEBUG) {
-								System.out.println("Item: " + stack.toString() + " Absorbed: " + absorb / 25D
+								System.out.println("Item: " + stack + " Absorbed: " + absorb / 25D
 										+ " Damaged: " + itemDamage);
 							}
 							stack.damageItem(itemDamage, entity);

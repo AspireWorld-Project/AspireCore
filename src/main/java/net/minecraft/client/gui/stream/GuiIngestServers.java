@@ -24,7 +24,7 @@ public class GuiIngestServers extends GuiScreen {
 
 	@Override
 	public void initGui() {
-		field_152310_f = I18n.format("options.stream.ingest.title", new Object[0]);
+		field_152310_f = I18n.format("options.stream.ingest.title");
 		field_152311_g = new GuiIngestServers.ServerList();
 
 		if (!mc.func_152346_Z().func_152908_z()) {
@@ -32,9 +32,9 @@ public class GuiIngestServers extends GuiScreen {
 		}
 
 		buttonList.add(
-				new GuiButton(1, width / 2 - 155, height - 24 - 6, 150, 20, I18n.format("gui.done", new Object[0])));
+				new GuiButton(1, width / 2 - 155, height - 24 - 6, 150, 20, I18n.format("gui.done")));
 		buttonList.add(new GuiButton(2, width / 2 + 5, height - 24 - 6, 150, 20,
-				I18n.format("options.stream.ingest.reset", new Object[0])));
+				I18n.format("options.stream.ingest.reset")));
 	}
 
 	@Override

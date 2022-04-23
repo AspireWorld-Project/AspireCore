@@ -30,7 +30,7 @@ import java.util.*;
 public class TopologicalSort {
 	public static class DirectedGraph<T> implements Iterable<T> {
 		private final Map<T, SortedSet<T>> graph = new HashMap<>();
-		private List<T> orderedNodes = new ArrayList<>();
+		private final List<T> orderedNodes = new ArrayList<>();
 
 		public boolean addNode(T node) {
 			// Ignore nodes already added

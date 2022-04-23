@@ -38,7 +38,7 @@ public class ServerListEntryNormal implements GuiListExtended.IGuiListEntry {
 	private long field_148298_f;
 	private String field_148299_g;
 	private DynamicTexture field_148305_h;
-	private ResourceLocation field_148306_i;
+	private final ResourceLocation field_148306_i;
 	private static final String __OBFID = "CL_00000817";
 
 	protected ServerListEntryNormal(GuiMultiplayer p_i45048_1_, ServerData p_i45048_2_) {
@@ -66,10 +66,10 @@ public class ServerListEntryNormal implements GuiListExtended.IGuiListEntry {
 						field_148303_c.func_146789_i().func_147224_a(field_148301_e);
 					} catch (UnknownHostException unknownhostexception) {
 						field_148301_e.pingToServer = -1L;
-						field_148301_e.serverMOTD = EnumChatFormatting.DARK_RED + "Can\'t resolve hostname";
+						field_148301_e.serverMOTD = EnumChatFormatting.DARK_RED + "Can't resolve hostname";
 					} catch (Exception exception) {
 						field_148301_e.pingToServer = -1L;
-						field_148301_e.serverMOTD = EnumChatFormatting.DARK_RED + "Can\'t connect to server.";
+						field_148301_e.serverMOTD = EnumChatFormatting.DARK_RED + "Can't connect to server.";
 					}
 				}
 			});
@@ -173,13 +173,13 @@ public class ServerListEntryNormal implements GuiListExtended.IGuiListEntry {
 			label74: {
 				try {
 					bufferedimage = ImageIO.read(new ByteBufInputStream(bytebuf1));
-					Validate.validState(bufferedimage.getWidth() == 64, "Must be 64 pixels wide", new Object[0]);
-					Validate.validState(bufferedimage.getHeight() == 64, "Must be 64 pixels high", new Object[0]);
+					Validate.validState(bufferedimage.getWidth() == 64, "Must be 64 pixels wide");
+					Validate.validState(bufferedimage.getHeight() == 64, "Must be 64 pixels high");
 					break label74;
 				} catch (Exception exception) {
 					logger.error("Invalid icon for server " + field_148301_e.serverName + " (" + field_148301_e.serverIP
 							+ ")", exception);
-					field_148301_e.func_147407_a((String) null);
+					field_148301_e.func_147407_a(null);
 				} finally {
 					bytebuf.release();
 					bytebuf1.release();

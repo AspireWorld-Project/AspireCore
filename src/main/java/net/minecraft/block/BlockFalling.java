@@ -84,7 +84,7 @@ public class BlockFalling extends Block {
 		else {
 			// TODO: King, take a look here when doing liquids!
 			Material material = block.blockMaterial;
-			return material == Material.water ? true : material == Material.lava;
+			return material == Material.water || material == Material.lava;
 		}
 	}
 

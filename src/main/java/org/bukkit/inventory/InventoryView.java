@@ -50,7 +50,7 @@ public abstract class InventoryView {
 		int id;
 		InventoryType style;
 
-		private Property(int id, InventoryType appliesTo) {
+		Property(int id, InventoryType appliesTo) {
 			this.id = id;
 			style = appliesTo;
 		}

@@ -32,7 +32,7 @@ import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.*;
 import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.*;
 
 public class ChunkProviderGenerate implements IChunkProvider {
-	private Random rand;
+	private final Random rand;
 	private NoiseGeneratorOctaves field_147431_j;
 	private NoiseGeneratorOctaves field_147432_k;
 	private NoiseGeneratorOctaves field_147429_l;
@@ -40,9 +40,9 @@ public class ChunkProviderGenerate implements IChunkProvider {
 	public NoiseGeneratorOctaves noiseGen5;
 	public NoiseGeneratorOctaves noiseGen6;
 	public NoiseGeneratorOctaves mobSpawnerNoise;
-	private World worldObj;
+	private final World worldObj;
 	private final boolean mapFeaturesEnabled;
-	private WorldType field_147435_p;
+	private final WorldType field_147435_p;
 	private final double[] field_147434_q;
 	private final float[] parabolicField;
 	private double[] stoneNoise = new double[256];
@@ -464,10 +464,10 @@ public class ChunkProviderGenerate implements IChunkProvider {
 	@Override
 	public void recreateStructures(int p_82695_1_, int p_82695_2_) {
 		if (mapFeaturesEnabled) {
-			mineshaftGenerator.func_151539_a(this, worldObj, p_82695_1_, p_82695_2_, (Block[]) null);
-			villageGenerator.func_151539_a(this, worldObj, p_82695_1_, p_82695_2_, (Block[]) null);
-			strongholdGenerator.func_151539_a(this, worldObj, p_82695_1_, p_82695_2_, (Block[]) null);
-			scatteredFeatureGenerator.func_151539_a(this, worldObj, p_82695_1_, p_82695_2_, (Block[]) null);
+			mineshaftGenerator.func_151539_a(this, worldObj, p_82695_1_, p_82695_2_, null);
+			villageGenerator.func_151539_a(this, worldObj, p_82695_1_, p_82695_2_, null);
+			strongholdGenerator.func_151539_a(this, worldObj, p_82695_1_, p_82695_2_, null);
+			scatteredFeatureGenerator.func_151539_a(this, worldObj, p_82695_1_, p_82695_2_, null);
 		}
 	}
 }

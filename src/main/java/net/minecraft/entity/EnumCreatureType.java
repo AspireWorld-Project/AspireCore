@@ -18,8 +18,8 @@ public enum EnumCreatureType {
 
 	private static final String __OBFID = "CL_00001551";
 
-	private EnumCreatureType(Class p_i1596_3_, int p_i1596_4_, Material p_i1596_5_, boolean p_i1596_6_,
-			boolean p_i1596_7_) {
+	EnumCreatureType(Class p_i1596_3_, int p_i1596_4_, Material p_i1596_5_, boolean p_i1596_6_,
+                     boolean p_i1596_7_) {
 		creatureClass = p_i1596_3_;
 		maxNumberOfCreature = p_i1596_4_;
 		creatureMaterial = p_i1596_5_;

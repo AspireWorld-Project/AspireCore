@@ -14,7 +14,7 @@ import java.util.BitSet;
 import java.util.IdentityHashMap;
 
 public class MinecraftForgeClient {
-	private static IdentityHashMap<Item, IItemRenderer> customItemRenderers = Maps.newIdentityHashMap();
+	private static final IdentityHashMap<Item, IItemRenderer> customItemRenderers = Maps.newIdentityHashMap();
 
 	/**
 	 * Register a custom renderer for a specific item. This can be used to render
@@ -45,7 +45,7 @@ public class MinecraftForgeClient {
 		return ForgeHooksClient.stencilBits;
 	}
 
-	private static BitSet stencilBits = new BitSet(getStencilBits());
+	private static final BitSet stencilBits = new BitSet(getStencilBits());
 	static {
 		stencilBits.set(0, getStencilBits());
 	}

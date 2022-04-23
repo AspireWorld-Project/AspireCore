@@ -19,7 +19,7 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 
 public class GuiModsMissingForServer extends GuiScreen {
-	private MissingModsException modsMissing;
+	private final MissingModsException modsMissing;
 
 	public GuiModsMissingForServer(MissingModsException modsMissing) {
 		this.modsMissing = modsMissing;

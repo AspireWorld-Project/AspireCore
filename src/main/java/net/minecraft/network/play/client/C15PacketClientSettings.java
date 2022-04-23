@@ -84,9 +84,9 @@ public class C15PacketClientSettings extends Packet {
 
 	@Override
 	public String serialize() {
-		return String.format("lang=\'%s\', view=%d, chat=%s, col=%b, difficulty=%s, cape=%b",
-				new Object[] { field_149530_a, Integer.valueOf(field_149528_b), field_149529_c,
-						Boolean.valueOf(field_149526_d), field_149527_e, Boolean.valueOf(field_149525_f) });
+		return String.format("lang='%s', view=%d, chat=%s, col=%b, difficulty=%s, cape=%b",
+				field_149530_a, Integer.valueOf(field_149528_b), field_149529_c,
+				Boolean.valueOf(field_149526_d), field_149527_e, Boolean.valueOf(field_149525_f));
 	}
 
 	@Override

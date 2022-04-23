@@ -13,14 +13,14 @@ import java.util.*;
 public class HandlerBasedCommand implements IExtendedCommand {
 	@InjectService
 	private static Permissions perms;
-	private String name;
-	private String usage;
-	private String group;
-	private String description;
+	private final String name;
+	private final String usage;
+	private final String group;
+	private final String description;
 
-	private ICommandHandler handler;
-	private List<ArgumentsPattern> argumentsPatterns;
-	private Map<String, ICommandHandler> actionHandlers;
+	private final ICommandHandler handler;
+	private final List<ArgumentsPattern> argumentsPatterns;
+	private final Map<String, ICommandHandler> actionHandlers;
 
 	private List<String> aliases;
 	private String[] permissions;
@@ -165,7 +165,7 @@ public class HandlerBasedCommand implements IExtendedCommand {
 	}
 
 	public static class Builder {
-		private HandlerBasedCommand command;
+		private final HandlerBasedCommand command;
 
 		public Builder(String name, String group, ICommandHandler handler) {
 			command = new HandlerBasedCommand(name, group, handler);

@@ -38,26 +38,26 @@ public class CommandTime extends CommandBase {
 				}
 
 				setTime(p_71515_1_, i);
-				func_152373_a(p_71515_1_, this, "commands.time.set", new Object[] { Integer.valueOf(i) });
+				func_152373_a(p_71515_1_, this, "commands.time.set", Integer.valueOf(i));
 				return;
 			}
 
 			if (p_71515_2_[0].equals("add")) {
 				i = parseIntWithMin(p_71515_1_, p_71515_2_[1], 0);
 				addTime(p_71515_1_, i);
-				func_152373_a(p_71515_1_, this, "commands.time.added", new Object[] { Integer.valueOf(i) });
+				func_152373_a(p_71515_1_, this, "commands.time.added", Integer.valueOf(i));
 				return;
 			}
 		}
 
-		throw new WrongUsageException("commands.time.usage", new Object[0]);
+		throw new WrongUsageException("commands.time.usage");
 	}
 
 	@Override
 	public List addTabCompletionOptions(ICommandSender p_71516_1_, String[] p_71516_2_) {
-		return p_71516_2_.length == 1 ? getListOfStringsMatchingLastWord(p_71516_2_, new String[] { "set", "add" })
+		return p_71516_2_.length == 1 ? getListOfStringsMatchingLastWord(p_71516_2_, "set", "add")
 				: p_71516_2_.length == 2 && p_71516_2_[0].equals("set")
-						? getListOfStringsMatchingLastWord(p_71516_2_, new String[] { "day", "night" })
+						? getListOfStringsMatchingLastWord(p_71516_2_, "day", "night")
 						: null;
 	}
 

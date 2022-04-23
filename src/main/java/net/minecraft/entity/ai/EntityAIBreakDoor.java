@@ -15,9 +15,7 @@ public class EntityAIBreakDoor extends EntityAIDoorInteract {
 
 	@Override
 	public boolean shouldExecute() {
-		return !super.shouldExecute() ? false
-				: !theEntity.worldObj.getGameRules().getGameRuleBooleanValue("mobGriefing") ? false
-						: !field_151504_e.func_150015_f(theEntity.worldObj, entityPosX, entityPosY, entityPosZ);
+		return super.shouldExecute() && theEntity.worldObj.getGameRules().getGameRuleBooleanValue("mobGriefing") && !field_151504_e.func_150015_f(theEntity.worldObj, entityPosX, entityPosY, entityPosZ);
 	}
 
 	@Override

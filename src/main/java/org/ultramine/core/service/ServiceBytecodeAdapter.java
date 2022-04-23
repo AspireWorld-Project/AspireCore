@@ -3,7 +3,7 @@ package org.ultramine.core.service;
 import org.ultramine.server.service.UMServiceManager;
 
 public class ServiceBytecodeAdapter {
-	private static ServiceManager manager = new UMServiceManager();
+	private static final ServiceManager manager = new UMServiceManager();
 
 	static {
 		manager.register(ServiceManager.class, manager, 0);

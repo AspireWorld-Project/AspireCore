@@ -55,7 +55,7 @@ public class Profiler {
 			}
 
 			if (k > 50000000L) {
-				logger.warn("Something\'s taking too long! \'" + profilingSection + "\' took aprox " + k / 1000000.0D
+				logger.warn("Something's taking too long! '" + profilingSection + "' took aprox " + k / 1000000.0D
 						+ " ms");
 			}
 

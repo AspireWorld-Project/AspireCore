@@ -62,7 +62,7 @@ public class DecorateBiomeEvent extends Event {
 		/**
 		 * Use CUSTOM to filter custom event types
 		 */
-		public static enum EventType {
+		public enum EventType {
 			BIG_SHROOM, CACTUS, CLAY, DEAD_BUSH, LILYPAD, FLOWERS, GRASS, LAKE, PUMPKIN, REED, SAND, SAND_PASS2, SHROOM, TREE, CUSTOM
 		}
 

@@ -31,11 +31,11 @@ public class GuiScreenAddServer extends GuiScreen {
 		Keyboard.enableRepeatEvents(true);
 		buttonList.clear();
 		buttonList.add(
-				new GuiButton(0, width / 2 - 100, height / 4 + 96 + 18, I18n.format("addServer.add", new Object[0])));
+				new GuiButton(0, width / 2 - 100, height / 4 + 96 + 18, I18n.format("addServer.add")));
 		buttonList.add(
-				new GuiButton(1, width / 2 - 100, height / 4 + 120 + 18, I18n.format("gui.cancel", new Object[0])));
+				new GuiButton(1, width / 2 - 100, height / 4 + 120 + 18, I18n.format("gui.cancel")));
 		buttonList.add(field_152176_i = new GuiButton(2, width / 2 - 100, height / 4 + 72,
-				I18n.format("addServer.resourcePack", new Object[0]) + ": "
+				I18n.format("addServer.resourcePack") + ": "
 						+ field_146311_h.func_152586_b().func_152589_a().getFormattedText()));
 		field_146309_g = new GuiTextField(fontRendererObj, width / 2 - 100, 66, 200, 20);
 		field_146309_g.setFocused(true);
@@ -59,7 +59,7 @@ public class GuiScreenAddServer extends GuiScreen {
 				field_146311_h.func_152584_a(
 						ServerData.ServerResourceMode.values()[(field_146311_h.func_152586_b().ordinal() + 1)
 								% ServerData.ServerResourceMode.values().length]);
-				field_152176_i.displayString = I18n.format("addServer.resourcePack", new Object[0]) + ": "
+				field_152176_i.displayString = I18n.format("addServer.resourcePack") + ": "
 						+ field_146311_h.func_152586_b().func_152589_a().getFormattedText();
 			} else if (p_146284_1_.id == 1) {
 				field_146310_a.confirmClicked(false, 0);
@@ -99,9 +99,9 @@ public class GuiScreenAddServer extends GuiScreen {
 	@Override
 	public void drawScreen(int p_73863_1_, int p_73863_2_, float p_73863_3_) {
 		drawDefaultBackground();
-		drawCenteredString(fontRendererObj, I18n.format("addServer.title", new Object[0]), width / 2, 17, 16777215);
-		drawString(fontRendererObj, I18n.format("addServer.enterName", new Object[0]), width / 2 - 100, 53, 10526880);
-		drawString(fontRendererObj, I18n.format("addServer.enterIp", new Object[0]), width / 2 - 100, 94, 10526880);
+		drawCenteredString(fontRendererObj, I18n.format("addServer.title"), width / 2, 17, 16777215);
+		drawString(fontRendererObj, I18n.format("addServer.enterName"), width / 2 - 100, 53, 10526880);
+		drawString(fontRendererObj, I18n.format("addServer.enterIp"), width / 2 - 100, 94, 10526880);
 		field_146309_g.drawTextBox();
 		field_146308_f.drawTextBox();
 		super.drawScreen(p_73863_1_, p_73863_2_, p_73863_3_);

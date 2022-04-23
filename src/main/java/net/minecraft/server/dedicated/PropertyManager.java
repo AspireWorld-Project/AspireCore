@@ -35,8 +35,7 @@ public class PropertyManager {
 					try {
 						fileinputstream.close();
 					} catch (IOException ioexception) {
-						;
-					}
+                    }
 				}
 			}
 		} else {
@@ -64,8 +63,7 @@ public class PropertyManager {
 				try {
 					fileoutputstream.close();
 				} catch (IOException ioexception) {
-					;
-				}
+                }
 			}
 		}
 	}

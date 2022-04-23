@@ -75,7 +75,7 @@ public class BlockBed extends BlockDirectional {
 
 					if (entityplayer1 != null) {
 						p_149727_5_.addChatComponentMessage(
-								new ChatComponentTranslation("tile.bed.occupied", new Object[0]));
+								new ChatComponentTranslation("tile.bed.occupied"));
 						return true;
 					}
 
@@ -90,10 +90,10 @@ public class BlockBed extends BlockDirectional {
 				} else {
 					if (enumstatus == EntityPlayer.EnumStatus.NOT_POSSIBLE_NOW) {
 						p_149727_5_.addChatComponentMessage(
-								new ChatComponentTranslation("tile.bed.noSleep", new Object[0]));
+								new ChatComponentTranslation("tile.bed.noSleep"));
 					} else if (enumstatus == EntityPlayer.EnumStatus.NOT_SAFE) {
 						p_149727_5_.addChatComponentMessage(
-								new ChatComponentTranslation("tile.bed.notSafe", new Object[0]));
+								new ChatComponentTranslation("tile.bed.notSafe"));
 					}
 
 					return true;
@@ -114,7 +114,7 @@ public class BlockBed extends BlockDirectional {
 					d1 = (d1 + p_149727_4_ + 0.5D) / 2.0D;
 				}
 
-				p_149727_1_.newExplosion((Entity) null, p_149727_2_ + 0.5F, p_149727_3_ + 0.5F, p_149727_4_ + 0.5F,
+				p_149727_1_.newExplosion(null, p_149727_2_ + 0.5F, p_149727_3_ + 0.5F, p_149727_4_ + 0.5F,
 						5.0F, true, true);
 				return true;
 			}

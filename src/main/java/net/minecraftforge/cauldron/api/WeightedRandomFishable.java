@@ -3,8 +3,8 @@ package net.minecraftforge.cauldron.api;
 import org.bukkit.inventory.ItemStack;
 
 public class WeightedRandomFishable {
-	private ItemStack itemStack;
-	private int weight;
+	private final ItemStack itemStack;
+	private final int weight;
 	private boolean hasRandomEnchantments;
 	private float damageFraction;
 

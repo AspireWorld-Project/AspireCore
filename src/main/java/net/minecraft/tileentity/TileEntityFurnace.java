@@ -340,8 +340,7 @@ public class TileEntityFurnace extends TileEntity implements ISidedInventory {
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer p_70300_1_) {
-		return worldObj.getTileEntity(xCoord, yCoord, zCoord) != this ? false
-				: p_70300_1_.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 64.0D;
+		return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this && p_70300_1_.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 64.0D;
 	}
 
 	@Override
@@ -354,7 +353,7 @@ public class TileEntityFurnace extends TileEntity implements ISidedInventory {
 
 	@Override
 	public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
-		return p_94041_1_ == 2 ? false : p_94041_1_ == 1 ? isItemFuel(p_94041_2_) : true;
+		return p_94041_1_ != 2 && (p_94041_1_ != 1 || isItemFuel(p_94041_2_));
 	}
 
 	@Override

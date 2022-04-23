@@ -55,9 +55,9 @@ public class S23PacketBlockChange extends Packet {
 	@Override
 	public String serialize() {
 		return String.format("type=%d, data=%d, x=%d, y=%d, z=%d",
-				new Object[] { Integer.valueOf(Block.getIdFromBlock(field_148883_d)), Integer.valueOf(field_148884_e),
-						Integer.valueOf(field_148887_a), Integer.valueOf(field_148885_b),
-						Integer.valueOf(field_148886_c) });
+				Integer.valueOf(Block.getIdFromBlock(field_148883_d)), Integer.valueOf(field_148884_e),
+				Integer.valueOf(field_148887_a), Integer.valueOf(field_148885_b),
+				Integer.valueOf(field_148886_c));
 	}
 
 	@SideOnly(Side.CLIENT)

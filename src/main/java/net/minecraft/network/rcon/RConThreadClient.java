@@ -11,6 +11,7 @@ import org.ultramine.server.util.GlobalExecutors;
 import java.io.*;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @SideOnly(Side.SERVER)
@@ -18,7 +19,7 @@ public class RConThreadClient extends RConThreadBase {
 	private static final Logger field_164005_h = LogManager.getLogger();
 	private boolean loggedIn;
 	private Socket clientSocket;
-	private byte[] buffer = new byte[4096];
+	private final byte[] buffer = new byte[4096];
 	private String rconPassword;
 	private static final String __OBFID = "CL_00001804";
 
@@ -84,7 +85,7 @@ public class RConThreadClient extends RConThreadBase {
 										GlobalExecutors.nextTick().await(new RConCommandRequest(s1)));
 							} catch (Exception exception) {
 								sendMultipacketResponse(k,
-										"Error executing: " + s1 + " (" + exception.toString() + ")");
+										"Error executing: " + s1 + " (" + exception + ")");
 							}
 
 							continue;
@@ -107,7 +108,7 @@ public class RConThreadClient extends RConThreadBase {
 						continue;
 					default:
 						sendMultipacketResponse(k,
-								String.format("Unknown request %s", new Object[] { Integer.toHexString(l) }));
+								String.format("Unknown request %s", Integer.toHexString(l)));
 						continue;
 					}
 				}
@@ -127,7 +128,7 @@ public class RConThreadClient extends RConThreadBase {
 	private void sendResponse(int p_72654_1_, int p_72654_2_, String p_72654_3_) throws IOException {
 		ByteArrayOutputStream bytearrayoutputstream = new ByteArrayOutputStream(1248);
 		DataOutputStream dataoutputstream = new DataOutputStream(bytearrayoutputstream);
-		byte[] abyte = p_72654_3_.getBytes("UTF-8");
+		byte[] abyte = p_72654_3_.getBytes(StandardCharsets.UTF_8);
 		dataoutputstream.writeInt(Integer.reverseBytes(abyte.length + 10));
 		dataoutputstream.writeInt(Integer.reverseBytes(p_72654_1_));
 		dataoutputstream.writeInt(Integer.reverseBytes(p_72654_2_));

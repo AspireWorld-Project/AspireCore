@@ -13,7 +13,7 @@ import org.ultramine.core.service.ServiceProviderLoader;
 import javax.annotation.Nullable;
 
 public class BukkitPermissionsServiceLoader implements ServiceProviderLoader<Permissions> {
-	private static SuperPermsReplacer superPermsReplacer = (SuperPermsReplacer) ServiceBytecodeAdapter
+	private static final SuperPermsReplacer superPermsReplacer = (SuperPermsReplacer) ServiceBytecodeAdapter
 			.provideService(SuperPermsReplacer.class);
 	private final Server server;
 	private boolean superPerms;

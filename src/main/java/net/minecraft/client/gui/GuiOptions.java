@@ -29,7 +29,7 @@ public class GuiOptions extends GuiScreen implements GuiYesNoCallback {
 	@Override
 	public void initGui() {
 		int i = 0;
-		field_146442_a = I18n.format("options.title", new Object[0]);
+		field_146442_a = I18n.format("options.title");
 		GameSettings.Options[] aoptions = field_146440_f;
 		int j = aoptions.length;
 
@@ -47,8 +47,8 @@ public class GuiOptions extends GuiScreen implements GuiYesNoCallback {
 				if (options == GameSettings.Options.DIFFICULTY && mc.theWorld != null
 						&& mc.theWorld.getWorldInfo().isHardcoreModeEnabled()) {
 					guioptionbutton.enabled = false;
-					guioptionbutton.displayString = I18n.format("options.difficulty", new Object[0]) + ": "
-							+ I18n.format("options.difficulty.hardcore", new Object[0]);
+					guioptionbutton.displayString = I18n.format("options.difficulty") + ": "
+							+ I18n.format("options.difficulty.hardcore");
 				}
 
 				buttonList.add(guioptionbutton);
@@ -63,8 +63,8 @@ public class GuiOptions extends GuiScreen implements GuiYesNoCallback {
 			@Override
 			public void func_146113_a(SoundHandler p_146113_1_) {
 				SoundEventAccessorComposite soundeventaccessorcomposite = p_146113_1_
-						.getRandomSoundFromCategories(new SoundCategory[] { SoundCategory.ANIMALS, SoundCategory.BLOCKS,
-								SoundCategory.MOBS, SoundCategory.PLAYERS, SoundCategory.WEATHER });
+						.getRandomSoundFromCategories(SoundCategory.ANIMALS, SoundCategory.BLOCKS,
+								SoundCategory.MOBS, SoundCategory.PLAYERS, SoundCategory.WEATHER);
 
 				if (soundeventaccessorcomposite != null) {
 					p_146113_1_.playSound(PositionedSoundRecord
@@ -73,22 +73,22 @@ public class GuiOptions extends GuiScreen implements GuiYesNoCallback {
 			}
 		});
 		buttonList.add(new GuiButton(106, width / 2 - 155, height / 6 + 72 - 6, 150, 20,
-				I18n.format("options.sounds", new Object[0])));
+				I18n.format("options.sounds")));
 		buttonList.add(new GuiButton(107, width / 2 + 5, height / 6 + 72 - 6, 150, 20,
-				I18n.format("options.stream", new Object[0])));
+				I18n.format("options.stream")));
 		buttonList.add(new GuiButton(101, width / 2 - 155, height / 6 + 96 - 6, 150, 20,
-				I18n.format("options.video", new Object[0])));
+				I18n.format("options.video")));
 		buttonList.add(new GuiButton(100, width / 2 + 5, height / 6 + 96 - 6, 150, 20,
-				I18n.format("options.controls", new Object[0])));
+				I18n.format("options.controls")));
 		buttonList.add(new GuiButton(102, width / 2 - 155, height / 6 + 120 - 6, 150, 20,
-				I18n.format("options.language", new Object[0])));
+				I18n.format("options.language")));
 		buttonList.add(new GuiButton(103, width / 2 + 5, height / 6 + 120 - 6, 150, 20,
-				I18n.format("options.multiplayer.title", new Object[0])));
+				I18n.format("options.multiplayer.title")));
 		buttonList.add(new GuiButton(105, width / 2 - 155, height / 6 + 144 - 6, 150, 20,
-				I18n.format("options.resourcepack", new Object[0])));
+				I18n.format("options.resourcepack")));
 		buttonList.add(new GuiButton(104, width / 2 + 5, height / 6 + 144 - 6, 150, 20,
-				I18n.format("options.snooper.view", new Object[0])));
-		buttonList.add(new GuiButton(200, width / 2 - 100, height / 6 + 168, I18n.format("gui.done", new Object[0])));
+				I18n.format("options.snooper.view")));
+		buttonList.add(new GuiButton(200, width / 2 - 100, height / 6 + 168, I18n.format("gui.done")));
 	}
 
 	@Override

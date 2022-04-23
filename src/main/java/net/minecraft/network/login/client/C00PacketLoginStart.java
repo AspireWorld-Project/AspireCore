@@ -22,7 +22,7 @@ public class C00PacketLoginStart extends Packet {
 
 	@Override
 	public void readPacketData(PacketBuffer p_148837_1_) throws IOException {
-		field_149305_a = new GameProfile((UUID) null, p_148837_1_.readStringFromBuffer(16));
+		field_149305_a = new GameProfile(null, p_148837_1_.readStringFromBuffer(16));
 	}
 
 	@Override

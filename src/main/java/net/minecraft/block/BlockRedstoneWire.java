@@ -23,7 +23,7 @@ import java.util.Set;
 
 public class BlockRedstoneWire extends Block {
 	private boolean field_150181_a = true;
-	private Set field_150179_b = new HashSet();
+	private final Set field_150179_b = new HashSet();
 	@SideOnly(Side.CLIENT)
 	private IIcon field_150182_M;
 	@SideOnly(Side.CLIENT)

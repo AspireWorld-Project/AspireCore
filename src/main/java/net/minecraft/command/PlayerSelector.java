@@ -172,7 +172,7 @@ public class PlayerSelector {
 	}
 
 	public static boolean hasArguments(String p_82378_0_) {
-		return hasTheseArguments(p_82378_0_, (String) null);
+		return hasTheseArguments(p_82378_0_, null);
 	}
 
 	private static final int getDefaultMinimumRange(String p_82384_0_) {

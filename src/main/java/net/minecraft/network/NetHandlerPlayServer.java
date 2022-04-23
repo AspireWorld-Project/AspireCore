@@ -89,10 +89,10 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 	private boolean field_147366_g;
 	private int field_147378_h;
 	private long field_147379_i;
-	private static Random field_147376_j = new Random();
+	private static final Random field_147376_j = new Random();
 	private long field_147377_k;
 	private int field_147375_m;
-	private IntHashMap field_147372_n = new IntHashMap();
+	private final IntHashMap field_147372_n = new IntHashMap();
 	private volatile int chatSpamThresholdCount; // Cauldron - set to volatile to fix multithreaded issues
 	private static final AtomicIntegerFieldUpdater chatSpamField = AtomicIntegerFieldUpdater.newUpdater(NetHandlerPlayServer.class, CauldronUtils.deobfuscatedEnvironment() ? "chatSpamThresholdCount" : "fiel" + "d_147374_l"); // CraftBukkit - multithreaded field
 	private double lastPosX;
@@ -123,7 +123,7 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 	}
 
 	public CraftPlayer getPlayerB() {
-		return playerEntity == null ? null : (CraftPlayer) playerEntity.getBukkitEntity();
+		return playerEntity == null ? null : playerEntity.getBukkitEntity();
 	}
 	private final org.bukkit.craftbukkit.CraftServer server;
 	// CraftBukkit start - Add "isDisconnected" method
@@ -533,11 +533,7 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 		} else if (p_147345_1_.func_149506_g() == 5) {
 			playerEntity.stopUsingItem();
 		} else {
-			boolean flag = false;
-
-			if (p_147345_1_.func_149506_g() == 0) {
-				flag = true;
-			}
+			boolean flag = p_147345_1_.func_149506_g() == 0;
 
 			if (p_147345_1_.func_149506_g() == 1) {
 				flag = true;
@@ -641,7 +637,7 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 		} else if (pct.func_149571_d() >= buildlimit - 1
 				&& (pct.func_149568_f() == 1 || pct.func_149571_d() >= buildlimit)) {
 			ChatComponentTranslation chatcomponenttranslation = new ChatComponentTranslation("build.tooHigh",
-					new Object[] { Integer.valueOf(buildlimit) });
+					Integer.valueOf(buildlimit));
 			chatcomponenttranslation.getChatStyle().setColor(EnumChatFormatting.RED);
 			playerEntity.playerNetServerHandler.sendPacket(new S02PacketChat(chatcomponenttranslation));
 			flag = true;
@@ -758,7 +754,7 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 		}
 
 		try {
-			netManager.scheduleOutboundPacket(p_147359_1_, new GenericFutureListener[0]);
+			netManager.scheduleOutboundPacket(p_147359_1_);
 		} catch (Throwable throwable) {
 			CrashReport crashreport = CrashReport.makeCrashReport(throwable, "Sending packet");
 			CrashReportCategory crashreportcategory = crashreport.makeCategory("Packet being sent");
@@ -801,7 +797,7 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 	{
 		if (this.playerEntity.isDead || this.playerEntity.func_147096_v() == EntityPlayer.EnumChatVisibility.HIDDEN) // CraftBukkit - dead men tell no tales
 		{
-			ChatComponentTranslation chatcomponenttranslation = new ChatComponentTranslation("chat.cannotSend", new Object[0]);
+			ChatComponentTranslation chatcomponenttranslation = new ChatComponentTranslation("chat.cannotSend");
 			chatcomponenttranslation.getChatStyle().setColor(EnumChatFormatting.RED);
 			this.sendPacket(new S02PacketChat(chatcomponenttranslation));
 		}
@@ -873,7 +869,7 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 			}
 			else if (this.playerEntity.func_147096_v() == EntityPlayer.EnumChatVisibility.SYSTEM) // Re-add "Command Only" flag check
 			{
-				ChatComponentTranslation chatcomponenttranslation = new ChatComponentTranslation("chat.cannotSend", new Object[0]);
+				ChatComponentTranslation chatcomponenttranslation = new ChatComponentTranslation("chat.cannotSend");
 				chatcomponenttranslation.getChatStyle().setColor(EnumChatFormatting.RED);
 				this.sendPacket(new S02PacketChat(chatcomponenttranslation));
 			}
@@ -1062,14 +1058,14 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 				if (serverController.isSinglePlayer()
 						&& playerEntity.getCommandSenderName().equals(serverController.getServerOwner())) {
 					playerEntity.playerNetServerHandler
-							.kickPlayerFromServer("You have died. Game over, man, it\'s game over!");
+							.kickPlayerFromServer("You have died. Game over, man, it's game over!");
 					serverController.deleteWorldAndStopServer();
 				} else {
 					UserListBansEntry userlistbansentry = new UserListBansEntry(playerEntity.getGameProfile(),
-							(Date) null, "(You just lost the game)", (Date) null, "Death in Hardcore");
+							null, "(You just lost the game)", null, "Death in Hardcore");
 					serverController.getConfigurationManager().func_152608_h().func_152687_a(userlistbansentry);
 					playerEntity.playerNetServerHandler
-							.kickPlayerFromServer("You have died. Game over, man, it\'s game over!");
+							.kickPlayerFromServer("You have died. Game over, man, it's game over!");
 				}
 			} else {
 				if (playerEntity.getHealth() > 0.0F)
@@ -1116,8 +1112,8 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 			// have a view at this point so we need to create one
 			if (inventory == null) {
 				inventory = new CraftInventoryView(
-						(HumanEntity) playerEntity.getBukkitEntity(), Bukkit.getServer()
-								.createInventory((InventoryHolder) playerEntity.getBukkitEntity(), InventoryType.CHEST),
+						playerEntity.getBukkitEntity(), Bukkit.getServer()
+								.createInventory(playerEntity.getBukkitEntity(), InventoryType.CHEST),
 						playerEntity.openContainer);
 				// this.playerEntity.openContainer.bukkitView = inventory;
 			}
@@ -1434,8 +1430,7 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 		else
 		{
 			// Cauldron start - handle Forge event
-			ChatComponentTranslation chatcomponenttranslation1 = new ChatComponentTranslation("chat.type.text", new Object[] {
-					this.playerEntity.func_145748_c_(), s });
+			ChatComponentTranslation chatcomponenttranslation1 = new ChatComponentTranslation("chat.type.text", this.playerEntity.func_145748_c_(), s);
 			chatcomponenttranslation1 = ForgeHooks.onServerChatEvent(this, s, chatcomponenttranslation1);
 
 			if (chatcomponenttranslation1 != null
@@ -1569,7 +1564,7 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 					playerEntity.inventoryContainer.getSlot(creativeActionPacket.func_149627_c()).getStack(),
 					creativeActionPacket.func_149625_d())) // Insist on valid slot
 			{
-				org.bukkit.entity.HumanEntity player = (HumanEntity) playerEntity.getBukkitEntity();
+				org.bukkit.entity.HumanEntity player = playerEntity.getBukkitEntity();
 				InventoryView inventory = new CraftInventoryView(player, player.getInventory(),
 						playerEntity.inventoryContainer);
 				org.bukkit.inventory.ItemStack item = CraftItemStack.asBukkitCopy(creativeActionPacket.func_149625_d()); // Should
@@ -1608,11 +1603,7 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 				}
 			}
 			if (flag1 && flag2 && flag3) {
-				if (itemstack == null) {
-					playerEntity.inventoryContainer.putStackInSlot(creativeActionPacket.func_149627_c(), null);
-				} else {
-					playerEntity.inventoryContainer.putStackInSlot(creativeActionPacket.func_149627_c(), itemstack);
-				}
+				playerEntity.inventoryContainer.putStackInSlot(creativeActionPacket.func_149627_c(), itemstack);
 				playerEntity.inventoryContainer.setPlayerIsPresent(playerEntity, true);
 			} else if (flag && flag2 && flag3 && field_147375_m < 200) {
 				field_147375_m += 20;
@@ -1953,19 +1944,16 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 			try {
 				field_151290_a[C16PacketClientStatus.EnumState.PERFORM_RESPAWN.ordinal()] = 1;
 			} catch (NoSuchFieldError var3) {
-				;
 			}
 
 			try {
 				field_151290_a[C16PacketClientStatus.EnumState.REQUEST_STATS.ordinal()] = 2;
 			} catch (NoSuchFieldError var2) {
-				;
 			}
 
 			try {
 				field_151290_a[C16PacketClientStatus.EnumState.OPEN_INVENTORY_ACHIEVEMENT.ordinal()] = 3;
 			} catch (NoSuchFieldError var1) {
-				;
 			}
 		}
 	}

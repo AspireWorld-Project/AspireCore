@@ -34,8 +34,7 @@ public class BlockReed extends Block implements IPlantable {
 				int l;
 
 				for (l = 1; p_149674_1_.getBlock(p_149674_2_, p_149674_3_ - l, p_149674_4_) == this; ++l) {
-					;
-				}
+                }
 
 				if (l < 3) {
 					int i1 = p_149674_1_.getBlockMetadata(p_149674_2_, p_149674_3_, p_149674_4_);

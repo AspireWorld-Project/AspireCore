@@ -27,7 +27,7 @@ import java.util.Iterator;
 public class GuiBeacon extends GuiContainer {
 	private static final Logger logger = LogManager.getLogger();
 	private static final ResourceLocation beaconGuiTextures = new ResourceLocation("textures/gui/container/beacon.png");
-	private TileEntityBeacon tileBeacon;
+	private final TileEntityBeacon tileBeacon;
 	private GuiBeacon.ConfirmButton beaconConfirmButton;
 	private boolean buttonsNotDrawn;
 	private static final String __OBFID = "CL_00000739";
@@ -114,7 +114,7 @@ public class GuiBeacon extends GuiContainer {
 	@Override
 	protected void actionPerformed(GuiButton p_146284_1_) {
 		if (p_146284_1_.id == -2) {
-			mc.displayGuiScreen((GuiScreen) null);
+			mc.displayGuiScreen(null);
 		} else if (p_146284_1_.id == -1) {
 			String s = "MC|Beacon";
 			ByteBuf bytebuf = Unpooled.buffer();
@@ -124,12 +124,12 @@ public class GuiBeacon extends GuiContainer {
 				bytebuf.writeInt(tileBeacon.getSecondaryEffect());
 				mc.getNetHandler().addToSendQueue(new C17PacketCustomPayload(s, bytebuf));
 			} catch (Exception exception) {
-				logger.error("Couldn\'t send beacon info", exception);
+				logger.error("Couldn't send beacon info", exception);
 			} finally {
 				bytebuf.release();
 			}
 
-			mc.displayGuiScreen((GuiScreen) null);
+			mc.displayGuiScreen(null);
 		} else if (p_146284_1_ instanceof GuiBeacon.PowerButton) {
 			if (((GuiBeacon.PowerButton) p_146284_1_).func_146141_c())
 				return;
@@ -153,8 +153,8 @@ public class GuiBeacon extends GuiContainer {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_) {
 		RenderHelper.disableStandardItemLighting();
-		drawCenteredString(fontRendererObj, I18n.format("tile.beacon.primary", new Object[0]), 62, 10, 14737632);
-		drawCenteredString(fontRendererObj, I18n.format("tile.beacon.secondary", new Object[0]), 169, 10, 14737632);
+		drawCenteredString(fontRendererObj, I18n.format("tile.beacon.primary"), 62, 10, 14737632);
+		drawCenteredString(fontRendererObj, I18n.format("tile.beacon.secondary"), 169, 10, 14737632);
 		Iterator iterator = buttonList.iterator();
 
 		while (iterator.hasNext()) {
@@ -251,7 +251,7 @@ public class GuiBeacon extends GuiContainer {
 
 		@Override
 		public void func_146111_b(int p_146111_1_, int p_146111_2_) {
-			drawCreativeTabHoveringText(I18n.format("gui.cancel", new Object[0]), p_146111_1_, p_146111_2_);
+			drawCreativeTabHoveringText(I18n.format("gui.cancel"), p_146111_1_, p_146111_2_);
 		}
 	}
 
@@ -265,7 +265,7 @@ public class GuiBeacon extends GuiContainer {
 
 		@Override
 		public void func_146111_b(int p_146111_1_, int p_146111_2_) {
-			drawCreativeTabHoveringText(I18n.format("gui.done", new Object[0]), p_146111_1_, p_146111_2_);
+			drawCreativeTabHoveringText(I18n.format("gui.done"), p_146111_1_, p_146111_2_);
 		}
 	}
 
@@ -285,7 +285,7 @@ public class GuiBeacon extends GuiContainer {
 
 		@Override
 		public void func_146111_b(int p_146111_1_, int p_146111_2_) {
-			String s = I18n.format(Potion.potionTypes[field_146149_p].getName(), new Object[0]);
+			String s = I18n.format(Potion.potionTypes[field_146149_p].getName());
 
 			if (field_146148_q >= 3 && field_146149_p != Potion.regeneration.id) {
 				s = s + " II";

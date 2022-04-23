@@ -15,7 +15,7 @@ import java.util.Random;
 
 @SideOnly(Side.CLIENT)
 public class GuiCreateWorld extends GuiScreen {
-	private GuiScreen field_146332_f;
+	private final GuiScreen field_146332_f;
 	private GuiTextField field_146333_g;
 	private GuiTextField field_146335_h;
 	private String field_146336_i;
@@ -48,7 +48,7 @@ public class GuiCreateWorld extends GuiScreen {
 	public GuiCreateWorld(GuiScreen p_i1030_1_) {
 		field_146332_f = p_i1030_1_;
 		field_146329_I = "";
-		field_146330_J = I18n.format("selectWorld.newWorld", new Object[0]);
+		field_146330_J = I18n.format("selectWorld.newWorld");
 	}
 
 	@Override
@@ -62,26 +62,26 @@ public class GuiCreateWorld extends GuiScreen {
 		Keyboard.enableRepeatEvents(true);
 		buttonList.clear();
 		buttonList.add(new GuiButton(0, width / 2 - 155, height - 28, 150, 20,
-				I18n.format("selectWorld.create", new Object[0])));
-		buttonList.add(new GuiButton(1, width / 2 + 5, height - 28, 150, 20, I18n.format("gui.cancel", new Object[0])));
+				I18n.format("selectWorld.create")));
+		buttonList.add(new GuiButton(1, width / 2 + 5, height - 28, 150, 20, I18n.format("gui.cancel")));
 		buttonList.add(field_146343_z = new GuiButton(2, width / 2 - 75, 115, 150, 20,
-				I18n.format("selectWorld.gameMode", new Object[0])));
+				I18n.format("selectWorld.gameMode")));
 		buttonList.add(field_146324_A = new GuiButton(3, width / 2 - 75, 187, 150, 20,
-				I18n.format("selectWorld.moreWorldOptions", new Object[0])));
+				I18n.format("selectWorld.moreWorldOptions")));
 		buttonList.add(field_146325_B = new GuiButton(4, width / 2 - 155, 100, 150, 20,
-				I18n.format("selectWorld.mapFeatures", new Object[0])));
+				I18n.format("selectWorld.mapFeatures")));
 		field_146325_B.visible = false;
 		buttonList.add(field_146326_C = new GuiButton(7, width / 2 + 5, 151, 150, 20,
-				I18n.format("selectWorld.bonusItems", new Object[0])));
+				I18n.format("selectWorld.bonusItems")));
 		field_146326_C.visible = false;
 		buttonList.add(field_146320_D = new GuiButton(5, width / 2 + 5, 100, 150, 20,
-				I18n.format("selectWorld.mapType", new Object[0])));
+				I18n.format("selectWorld.mapType")));
 		field_146320_D.visible = false;
 		buttonList.add(field_146321_E = new GuiButton(6, width / 2 - 155, 151, 150, 20,
-				I18n.format("selectWorld.allowCommands", new Object[0])));
+				I18n.format("selectWorld.allowCommands")));
 		field_146321_E.visible = false;
 		buttonList.add(field_146322_F = new GuiButton(8, width / 2 + 5, 120, 150, 20,
-				I18n.format("selectWorld.customizeType", new Object[0])));
+				I18n.format("selectWorld.customizeType")));
 		field_146322_F.visible = false;
 		field_146333_g = new GuiTextField(fontRendererObj, width / 2 - 100, 60, 200, 20);
 		field_146333_g.setFocused(true);
@@ -111,34 +111,34 @@ public class GuiCreateWorld extends GuiScreen {
 	}
 
 	private void func_146319_h() {
-		field_146343_z.displayString = I18n.format("selectWorld.gameMode", new Object[0]) + " "
-				+ I18n.format("selectWorld.gameMode." + field_146342_r, new Object[0]);
-		field_146323_G = I18n.format("selectWorld.gameMode." + field_146342_r + ".line1", new Object[0]);
-		field_146328_H = I18n.format("selectWorld.gameMode." + field_146342_r + ".line2", new Object[0]);
-		field_146325_B.displayString = I18n.format("selectWorld.mapFeatures", new Object[0]) + " ";
+		field_146343_z.displayString = I18n.format("selectWorld.gameMode") + " "
+				+ I18n.format("selectWorld.gameMode." + field_146342_r);
+		field_146323_G = I18n.format("selectWorld.gameMode." + field_146342_r + ".line1");
+		field_146328_H = I18n.format("selectWorld.gameMode." + field_146342_r + ".line2");
+		field_146325_B.displayString = I18n.format("selectWorld.mapFeatures") + " ";
 
 		if (field_146341_s) {
-			field_146325_B.displayString = field_146325_B.displayString + I18n.format("options.on", new Object[0]);
+			field_146325_B.displayString = field_146325_B.displayString + I18n.format("options.on");
 		} else {
-			field_146325_B.displayString = field_146325_B.displayString + I18n.format("options.off", new Object[0]);
+			field_146325_B.displayString = field_146325_B.displayString + I18n.format("options.off");
 		}
 
-		field_146326_C.displayString = I18n.format("selectWorld.bonusItems", new Object[0]) + " ";
+		field_146326_C.displayString = I18n.format("selectWorld.bonusItems") + " ";
 
 		if (field_146338_v && !field_146337_w) {
-			field_146326_C.displayString = field_146326_C.displayString + I18n.format("options.on", new Object[0]);
+			field_146326_C.displayString = field_146326_C.displayString + I18n.format("options.on");
 		} else {
-			field_146326_C.displayString = field_146326_C.displayString + I18n.format("options.off", new Object[0]);
+			field_146326_C.displayString = field_146326_C.displayString + I18n.format("options.off");
 		}
 
-		field_146320_D.displayString = I18n.format("selectWorld.mapType", new Object[0]) + " "
-				+ I18n.format(WorldType.worldTypes[field_146331_K].getTranslateName(), new Object[0]);
-		field_146321_E.displayString = I18n.format("selectWorld.allowCommands", new Object[0]) + " ";
+		field_146320_D.displayString = I18n.format("selectWorld.mapType") + " "
+				+ I18n.format(WorldType.worldTypes[field_146331_K].getTranslateName());
+		field_146321_E.displayString = I18n.format("selectWorld.allowCommands") + " ";
 
 		if (field_146340_t && !field_146337_w) {
-			field_146321_E.displayString = field_146321_E.displayString + I18n.format("options.on", new Object[0]);
+			field_146321_E.displayString = field_146321_E.displayString + I18n.format("options.on");
 		} else {
-			field_146321_E.displayString = field_146321_E.displayString + I18n.format("options.off", new Object[0]);
+			field_146321_E.displayString = field_146321_E.displayString + I18n.format("options.off");
 		}
 	}
 
@@ -173,7 +173,7 @@ public class GuiCreateWorld extends GuiScreen {
 			if (p_146284_1_.id == 1) {
 				mc.displayGuiScreen(field_146332_f);
 			} else if (p_146284_1_.id == 0) {
-				mc.displayGuiScreen((GuiScreen) null);
+				mc.displayGuiScreen(null);
 
 				if (field_146345_x)
 					return;
@@ -297,9 +297,9 @@ public class GuiCreateWorld extends GuiScreen {
 		field_146322_F.visible = field_146344_y && WorldType.worldTypes[field_146331_K].isCustomizable();
 
 		if (field_146344_y) {
-			field_146324_A.displayString = I18n.format("gui.done", new Object[0]);
+			field_146324_A.displayString = I18n.format("gui.done");
 		} else {
-			field_146324_A.displayString = I18n.format("selectWorld.moreWorldOptions", new Object[0]);
+			field_146324_A.displayString = I18n.format("selectWorld.moreWorldOptions");
 		}
 	}
 
@@ -335,29 +335,29 @@ public class GuiCreateWorld extends GuiScreen {
 	@Override
 	public void drawScreen(int p_73863_1_, int p_73863_2_, float p_73863_3_) {
 		drawDefaultBackground();
-		drawCenteredString(fontRendererObj, I18n.format("selectWorld.create", new Object[0]), width / 2, 20, -1);
+		drawCenteredString(fontRendererObj, I18n.format("selectWorld.create"), width / 2, 20, -1);
 
 		if (field_146344_y) {
-			drawString(fontRendererObj, I18n.format("selectWorld.enterSeed", new Object[0]), width / 2 - 100, 47,
+			drawString(fontRendererObj, I18n.format("selectWorld.enterSeed"), width / 2 - 100, 47,
 					-6250336);
-			drawString(fontRendererObj, I18n.format("selectWorld.seedInfo", new Object[0]), width / 2 - 100, 85,
+			drawString(fontRendererObj, I18n.format("selectWorld.seedInfo"), width / 2 - 100, 85,
 					-6250336);
-			drawString(fontRendererObj, I18n.format("selectWorld.mapFeatures.info", new Object[0]), width / 2 - 150,
+			drawString(fontRendererObj, I18n.format("selectWorld.mapFeatures.info"), width / 2 - 150,
 					122, -6250336);
-			drawString(fontRendererObj, I18n.format("selectWorld.allowCommands.info", new Object[0]), width / 2 - 150,
+			drawString(fontRendererObj, I18n.format("selectWorld.allowCommands.info"), width / 2 - 150,
 					172, -6250336);
 			field_146335_h.drawTextBox();
 
 			if (WorldType.worldTypes[field_146331_K].showWorldInfoNotice()) {
 				fontRendererObj.drawSplitString(
-						I18n.format(WorldType.worldTypes[field_146331_K].func_151359_c(), new Object[0]),
+						I18n.format(WorldType.worldTypes[field_146331_K].func_151359_c()),
 						field_146320_D.xPosition + 2, field_146320_D.yPosition + 22, field_146320_D.getButtonWidth(),
 						10526880);
 			}
 		} else {
-			drawString(fontRendererObj, I18n.format("selectWorld.enterName", new Object[0]), width / 2 - 100, 47,
+			drawString(fontRendererObj, I18n.format("selectWorld.enterName"), width / 2 - 100, 47,
 					-6250336);
-			drawString(fontRendererObj, I18n.format("selectWorld.resultFolder", new Object[0]) + " " + field_146336_i,
+			drawString(fontRendererObj, I18n.format("selectWorld.resultFolder") + " " + field_146336_i,
 					width / 2 - 100, 85, -6250336);
 			field_146333_g.drawTextBox();
 			drawString(fontRendererObj, field_146323_G, width / 2 - 100, 137, -6250336);
@@ -368,7 +368,7 @@ public class GuiCreateWorld extends GuiScreen {
 	}
 
 	public void func_146318_a(WorldInfo p_146318_1_) {
-		field_146330_J = I18n.format("selectWorld.newWorld.copyOf", new Object[] { p_146318_1_.getWorldName() });
+		field_146330_J = I18n.format("selectWorld.newWorld.copyOf", p_146318_1_.getWorldName());
 		field_146329_I = p_146318_1_.getSeed() + "";
 		field_146331_K = p_146318_1_.getTerrainType().getWorldTypeID();
 		field_146334_a = p_146318_1_.getGeneratorOptions();

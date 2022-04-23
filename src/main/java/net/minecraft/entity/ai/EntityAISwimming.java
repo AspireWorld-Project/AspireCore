@@ -3,7 +3,7 @@ package net.minecraft.entity.ai;
 import net.minecraft.entity.EntityLiving;
 
 public class EntityAISwimming extends EntityAIBase {
-	private EntityLiving theEntity;
+	private final EntityLiving theEntity;
 	private static final String __OBFID = "CL_00001584";
 
 	public EntityAISwimming(EntityLiving p_i1624_1_) {

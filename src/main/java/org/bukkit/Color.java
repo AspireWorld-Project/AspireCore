@@ -325,7 +325,7 @@ public final class Color implements ConfigurationSerializable {
 
 	@Override
 	public Map<String, Object> serialize() {
-		return ImmutableMap.<String, Object>of("RED", getRed(), "BLUE", getBlue(), "GREEN", getGreen());
+		return ImmutableMap.of("RED", getRed(), "BLUE", getBlue(), "GREEN", getGreen());
 	}
 
 	@SuppressWarnings("javadoc")

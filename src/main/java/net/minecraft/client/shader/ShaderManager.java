@@ -64,7 +64,7 @@ public class ShaderManager {
 			String s1 = JsonUtils.getJsonObjectStringFieldValue(jsonobject, "vertex");
 			String s2 = JsonUtils.getJsonObjectStringFieldValue(jsonobject, "fragment");
 			JsonArray jsonarray = JsonUtils.getJsonObjectJsonArrayFieldOrDefault(jsonobject, "samplers",
-					(JsonArray) null);
+					null);
 
 			if (jsonarray != null) {
 				int i = 0;
@@ -83,7 +83,7 @@ public class ShaderManager {
 			}
 
 			JsonArray jsonarray1 = JsonUtils.getJsonObjectJsonArrayFieldOrDefault(jsonobject, "attributes",
-					(JsonArray) null);
+					null);
 			Iterator iterator1;
 
 			if (jsonarray1 != null) {
@@ -108,7 +108,7 @@ public class ShaderManager {
 			}
 
 			JsonArray jsonarray2 = JsonUtils.getJsonObjectJsonArrayFieldOrDefault(jsonobject, "uniforms",
-					(JsonArray) null);
+					null);
 
 			if (jsonarray2 != null) {
 				int k = 0;
@@ -127,7 +127,7 @@ public class ShaderManager {
 			}
 
 			field_148016_p = JsonBlendingMode
-					.func_148110_a(JsonUtils.getJsonObjectFieldOrDefault(jsonobject, "blend", (JsonObject) null));
+					.func_148110_a(JsonUtils.getJsonObjectFieldOrDefault(jsonobject, "blend", null));
 			field_148004_n = JsonUtils.getJsonObjectBooleanFieldValueOrDefault(jsonobject, "cull", true);
 			field_148013_s = ShaderLoader.func_148057_a(p_i45087_1_, ShaderLoader.ShaderType.VERTEX, s1);
 			field_148012_t = ShaderLoader.func_148057_a(p_i45087_1_, ShaderLoader.ShaderType.FRAGMENT, s2);
@@ -281,7 +281,7 @@ public class ShaderManager {
 		String s = JsonUtils.getJsonObjectStringFieldValue(jsonobject, "name");
 
 		if (!JsonUtils.jsonObjectFieldTypeIsString(jsonobject, "file")) {
-			field_147997_f.put(s, (Object) null);
+			field_147997_f.put(s, null);
 			field_147998_g.add(s);
 		} else {
 			field_147998_g.add(s);
@@ -289,9 +289,7 @@ public class ShaderManager {
 	}
 
 	public void func_147992_a(String p_147992_1_, Object p_147992_2_) {
-		if (field_147997_f.containsKey(p_147992_1_)) {
-			field_147997_f.remove(p_147992_1_);
-		}
+		field_147997_f.remove(p_147992_1_);
 
 		field_147997_f.put(p_147992_1_, p_147992_2_);
 		func_147985_d();

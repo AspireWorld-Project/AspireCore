@@ -45,8 +45,8 @@ public class C0FPacketConfirmTransaction extends Packet {
 
 	@Override
 	public String serialize() {
-		return String.format("id=%d, uid=%d, accepted=%b", new Object[] { Integer.valueOf(field_149536_a),
-				Short.valueOf(field_149534_b), Boolean.valueOf(field_149535_c) });
+		return String.format("id=%d, uid=%d, accepted=%b", Integer.valueOf(field_149536_a),
+				Short.valueOf(field_149534_b), Boolean.valueOf(field_149535_c));
 	}
 
 	public int func_149532_c() {

@@ -163,13 +163,13 @@ public class Potion {
 
 		if (id == regeneration.id) {
 			k = 50 >> p_76397_2_;
-			return k > 0 ? p_76397_1_ % k == 0 : true;
+			return k <= 0 || p_76397_1_ % k == 0;
 		} else if (id == poison.id) {
 			k = 25 >> p_76397_2_;
-			return k > 0 ? p_76397_1_ % k == 0 : true;
+			return k <= 0 || p_76397_1_ % k == 0;
 		} else if (id == wither.id) {
 			k = 40 >> p_76397_2_;
-			return k > 0 ? p_76397_1_ % k == 0 : true;
+			return k <= 0 || p_76397_1_ % k == 0;
 		} else
 			return id == hunger.id;
 	}

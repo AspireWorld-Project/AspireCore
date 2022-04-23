@@ -11,11 +11,11 @@ import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
 public class EntityPickupFX extends EntityFX {
-	private Entity entityToPickUp;
-	private Entity entityPickingUp;
+	private final Entity entityToPickUp;
+	private final Entity entityPickingUp;
 	private int age;
-	private int maxAge;
-	private float yOffs;
+	private final int maxAge;
+	private final float yOffs;
 	private static final String __OBFID = "CL_00000930";
 
 	public EntityPickupFX(World p_i1233_1_, Entity p_i1233_2_, Entity p_i1233_3_, float p_i1233_4_) {

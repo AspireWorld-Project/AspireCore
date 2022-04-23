@@ -22,9 +22,9 @@ import java.io.File;
 public class FMLLaunchHandler {
 	private static FMLLaunchHandler INSTANCE;
 	static Side side;
-	private LaunchClassLoader classLoader;
-	private FMLTweaker tweaker;
-	private File minecraftHome;
+	private final LaunchClassLoader classLoader;
+	private final FMLTweaker tweaker;
+	private final File minecraftHome;
 
 	public static void configureForClientLaunch(LaunchClassLoader loader, FMLTweaker tweaker) {
 		instance(loader, tweaker).setupClient();

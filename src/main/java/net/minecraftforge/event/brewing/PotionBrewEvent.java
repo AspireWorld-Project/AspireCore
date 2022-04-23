@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 
 public class PotionBrewEvent extends Event {
-	private ItemStack[] stacks;
+	private final ItemStack[] stacks;
 
 	protected PotionBrewEvent(ItemStack[] stacks) {
 		this.stacks = stacks;

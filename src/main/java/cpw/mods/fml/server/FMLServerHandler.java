@@ -118,7 +118,7 @@ public class FMLServerHandler implements IFMLSidedHandler {
 	 */
 	@Override
 	public List<String> getAdditionalBrandingInformation() {
-		return ImmutableList.<String>of();
+		return ImmutableList.of();
 	}
 
 	/*

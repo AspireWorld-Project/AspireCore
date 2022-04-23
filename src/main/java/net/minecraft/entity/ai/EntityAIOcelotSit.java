@@ -99,16 +99,12 @@ public class EntityAIOcelotSit extends EntityAIBase {
 			TileEntityChest tileentitychest = (TileEntityChest) p_151486_1_.getTileEntity(p_151486_2_, p_151486_3_,
 					p_151486_4_);
 
-			if (tileentitychest.numPlayersUsing < 1)
-				return true;
+			return tileentitychest.numPlayersUsing < 1;
 		} else {
 			if (block == Blocks.lit_furnace)
 				return true;
 
-			if (block == Blocks.bed && !BlockBed.isBlockHeadOfBed(l))
-				return true;
+			return block == Blocks.bed && !BlockBed.isBlockHeadOfBed(l);
 		}
-
-		return false;
 	}
 }

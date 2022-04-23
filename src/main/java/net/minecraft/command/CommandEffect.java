@@ -29,18 +29,18 @@ public class CommandEffect extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender p_71515_1_, String[] p_71515_2_) {
 		if (p_71515_2_.length < 2)
-			throw new WrongUsageException("commands.effect.usage", new Object[0]);
+			throw new WrongUsageException("commands.effect.usage");
 		else {
 			EntityPlayerMP entityplayermp = getPlayer(p_71515_1_, p_71515_2_[0]);
 
 			if (p_71515_2_[1].equals("clear")) {
 				if (entityplayermp.getActivePotionEffects().isEmpty())
 					throw new CommandException("commands.effect.failure.notActive.all",
-							new Object[] { entityplayermp.getCommandSenderName() });
+							entityplayermp.getCommandSenderName());
 
 				entityplayermp.clearActivePotions();
 				func_152373_a(p_71515_1_, this, "commands.effect.success.removed.all",
-						new Object[] { entityplayermp.getCommandSenderName() });
+						entityplayermp.getCommandSenderName());
 			} else {
 				int i = parseIntWithMin(p_71515_1_, p_71515_2_[1], 1);
 				int j = 600;
@@ -48,7 +48,7 @@ public class CommandEffect extends CommandBase {
 				int l = 0;
 
 				if (i < 0 || i >= Potion.potionTypes.length || Potion.potionTypes[i] == null)
-					throw new NumberInvalidException("commands.effect.notFound", new Object[] { Integer.valueOf(i) });
+					throw new NumberInvalidException("commands.effect.notFound", Integer.valueOf(i));
 
 				if (p_71515_2_.length >= 3) {
 					k = parseIntBounded(p_71515_1_, p_71515_2_[2], 0, 1000000);
@@ -69,21 +69,20 @@ public class CommandEffect extends CommandBase {
 				if (k == 0) {
 					if (!entityplayermp.isPotionActive(i))
 						throw new CommandException("commands.effect.failure.notActive",
-								new Object[] {
-										new ChatComponentTranslation(Potion.potionTypes[i].getName(), new Object[0]),
-										entityplayermp.getCommandSenderName() });
+								new ChatComponentTranslation(Potion.potionTypes[i].getName()),
+								entityplayermp.getCommandSenderName());
 
 					entityplayermp.removePotionEffect(i);
 					func_152373_a(p_71515_1_, this, "commands.effect.success.removed",
-							new Object[] { new ChatComponentTranslation(Potion.potionTypes[i].getName(), new Object[0]),
-									entityplayermp.getCommandSenderName() });
+							new ChatComponentTranslation(Potion.potionTypes[i].getName()),
+							entityplayermp.getCommandSenderName());
 				} else {
 					PotionEffect potioneffect = new PotionEffect(i, j, l);
 					entityplayermp.addPotionEffect(potioneffect);
 					func_152373_a(p_71515_1_, this, "commands.effect.success",
-							new Object[] { new ChatComponentTranslation(potioneffect.getEffectName(), new Object[0]),
-									Integer.valueOf(i), Integer.valueOf(l), entityplayermp.getCommandSenderName(),
-									Integer.valueOf(k) });
+							new ChatComponentTranslation(potioneffect.getEffectName()),
+							Integer.valueOf(i), Integer.valueOf(l), entityplayermp.getCommandSenderName(),
+							Integer.valueOf(k));
 				}
 			}
 		}

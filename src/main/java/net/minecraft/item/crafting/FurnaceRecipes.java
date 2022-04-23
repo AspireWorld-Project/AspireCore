@@ -12,8 +12,8 @@ import java.util.Map;
 
 public class FurnaceRecipes {
 	private static final FurnaceRecipes smeltingBase = new FurnaceRecipes();
-	private Map smeltingList = new ItemStackHashMap<>();
-	private Map experienceList = new ItemStackHashMap<>();
+	private final Map smeltingList = new ItemStackHashMap<>();
+	private final Map experienceList = new ItemStackHashMap<>();
 	private static final String __OBFID = "CL_00000085";
 
 	public static FurnaceRecipes smelting() {

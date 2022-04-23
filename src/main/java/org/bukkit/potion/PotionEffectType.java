@@ -185,9 +185,7 @@ public abstract class PotionEffectType {
 		if (!(obj instanceof PotionEffectType))
 			return false;
 		final PotionEffectType other = (PotionEffectType) obj;
-		if (id != other.id)
-			return false;
-		return true;
+		return id == other.id;
 	}
 
 	@Override

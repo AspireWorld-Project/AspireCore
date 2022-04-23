@@ -44,12 +44,12 @@ import java.util.ArrayList;
  *
  */
 public class GuiModList extends GuiScreen {
-	private GuiScreen mainMenu;
+	private final GuiScreen mainMenu;
 	private GuiSlotModList modList;
 	private int selected = -1;
 	private ModContainer selectedMod;
 	private int listWidth;
-	private ArrayList<ModContainer> mods;
+	private final ArrayList<ModContainer> mods;
 	private GuiButton configModButton;
 	private GuiButton disableModButton;
 	private ResourceLocation cachedLogo;
@@ -181,8 +181,7 @@ public class GuiModList extends GuiScreen {
 							shifty += 65;
 						}
 					} catch (IOException e) {
-						;
-					}
+                    }
 				}
 				fontRendererObj.drawStringWithShadow(selectedMod.getMetadata().name, offset, shifty, 0xFFFFFF);
 				shifty += 12;

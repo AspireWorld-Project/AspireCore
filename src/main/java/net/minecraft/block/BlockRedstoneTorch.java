@@ -14,8 +14,8 @@ import org.bukkit.plugin.PluginManager;
 import java.util.*;
 
 public class BlockRedstoneTorch extends BlockTorch {
-	private boolean field_150113_a;
-	private static Map field_150112_b = new HashMap();
+	private final boolean field_150113_a;
+	private static final Map field_150112_b = new HashMap();
 	private static final String __OBFID = "CL_00000298";
 
 	private boolean func_150111_a(World p_150111_1_, int p_150111_2_, int p_150111_3_, int p_150111_4_,
@@ -51,7 +51,7 @@ public class BlockRedstoneTorch extends BlockTorch {
 	protected BlockRedstoneTorch(boolean p_i45423_1_) {
 		field_150113_a = p_i45423_1_;
 		setTickRandomly(true);
-		setCreativeTab((CreativeTabs) null);
+		setCreativeTab(null);
 	}
 
 	@Override
@@ -104,14 +104,9 @@ public class BlockRedstoneTorch extends BlockTorch {
 
 	private boolean func_150110_m(World p_150110_1_, int p_150110_2_, int p_150110_3_, int p_150110_4_) {
 		int l = p_150110_1_.getBlockMetadata(p_150110_2_, p_150110_3_, p_150110_4_);
-		return l == 5 && p_150110_1_.getIndirectPowerOutput(p_150110_2_, p_150110_3_ - 1, p_150110_4_, 0) ? true
-				: l == 3 && p_150110_1_.getIndirectPowerOutput(p_150110_2_, p_150110_3_, p_150110_4_ - 1, 2) ? true
-						: l == 4 && p_150110_1_.getIndirectPowerOutput(p_150110_2_, p_150110_3_, p_150110_4_ + 1, 3)
-								? true
-								: l == 1 && p_150110_1_.getIndirectPowerOutput(p_150110_2_ - 1, p_150110_3_,
-										p_150110_4_, 4) ? true
-												: l == 2 && p_150110_1_.getIndirectPowerOutput(p_150110_2_ + 1,
-														p_150110_3_, p_150110_4_, 5);
+		return l == 5 && p_150110_1_.getIndirectPowerOutput(p_150110_2_, p_150110_3_ - 1, p_150110_4_, 0) || l == 3 && p_150110_1_.getIndirectPowerOutput(p_150110_2_, p_150110_3_, p_150110_4_ - 1, 2) || l == 4 && p_150110_1_.getIndirectPowerOutput(p_150110_2_, p_150110_3_, p_150110_4_ + 1, 3) || l == 1 && p_150110_1_.getIndirectPowerOutput(p_150110_2_ - 1, p_150110_3_,
+				p_150110_4_, 4) || l == 2 && p_150110_1_.getIndirectPowerOutput(p_150110_2_ + 1,
+				p_150110_3_, p_150110_4_, 5);
 	}
 
 	@Override

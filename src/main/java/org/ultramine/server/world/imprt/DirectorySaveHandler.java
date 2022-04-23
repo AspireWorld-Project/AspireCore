@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class DirectorySaveHandler extends ImportSaveHandler {
-	private File fromDir;
+	private final File fromDir;
 
 	protected DirectorySaveHandler(boolean tempDirExists, boolean tempDirEmpty, String dirname, File fromDir) {
 		super(tempDirExists, tempDirEmpty, dirname);

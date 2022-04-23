@@ -93,7 +93,7 @@ public class ItemSkull extends Item {
 								gameprofile = NBTUtil.func_152459_a(nbttagcompound.getCompoundTag("SkullOwner"));
 							} else if (nbttagcompound.hasKey("SkullOwner", 8)
 									&& nbttagcompound.getString("SkullOwner").length() > 0) {
-								gameprofile = new GameProfile((UUID) null, nbttagcompound.getString("SkullOwner"));
+								gameprofile = new GameProfile(null, nbttagcompound.getString("SkullOwner"));
 							}
 						}
 
@@ -152,12 +152,11 @@ public class ItemSkull extends Item {
 	public String getItemStackDisplayName(ItemStack p_77653_1_) {
 		if (p_77653_1_.getItemDamage() == 3 && p_77653_1_.hasTagCompound()) {
 			if (p_77653_1_.getTagCompound().hasKey("SkullOwner", 10))
-				return StatCollector.translateToLocalFormatted("item.skull.player.name", new Object[] {
-						NBTUtil.func_152459_a(p_77653_1_.getTagCompound().getCompoundTag("SkullOwner")).getName() });
+				return StatCollector.translateToLocalFormatted("item.skull.player.name", NBTUtil.func_152459_a(p_77653_1_.getTagCompound().getCompoundTag("SkullOwner")).getName());
 
 			if (p_77653_1_.getTagCompound().hasKey("SkullOwner", 8))
 				return StatCollector.translateToLocalFormatted("item.skull.player.name",
-						new Object[] { p_77653_1_.getTagCompound().getString("SkullOwner") });
+                        p_77653_1_.getTagCompound().getString("SkullOwner"));
 		}
 
 		return super.getItemStackDisplayName(p_77653_1_);

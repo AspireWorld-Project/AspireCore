@@ -167,7 +167,7 @@ public class GuiSlider extends GuiButtonExt {
 		sliderValue = (d - minValue) / (maxValue - minValue);
 	}
 
-	public static interface ISlider {
+	public interface ISlider {
 		void onChangeSliderValue(GuiSlider slider);
 	}
 }

@@ -62,14 +62,14 @@ public class C0EPacketClickWindow extends Packet {
 	public String serialize() {
 		return field_149551_e != null
 				? String.format("id=%d, slot=%d, button=%d, type=%d, itemid=%d, itemcount=%d, itemaux=%d",
-						new Object[] { Integer.valueOf(field_149554_a), Integer.valueOf(field_149552_b),
-								Integer.valueOf(field_149553_c), Integer.valueOf(field_149549_f),
-								Integer.valueOf(Item.getIdFromItem(field_149551_e.getItem())),
-								Integer.valueOf(field_149551_e.stackSize),
-								Integer.valueOf(field_149551_e.getItemDamage()) })
+				Integer.valueOf(field_149554_a), Integer.valueOf(field_149552_b),
+				Integer.valueOf(field_149553_c), Integer.valueOf(field_149549_f),
+				Integer.valueOf(Item.getIdFromItem(field_149551_e.getItem())),
+				Integer.valueOf(field_149551_e.stackSize),
+				Integer.valueOf(field_149551_e.getItemDamage()))
 				: String.format("id=%d, slot=%d, button=%d, type=%d, itemid=-1",
-						new Object[] { Integer.valueOf(field_149554_a), Integer.valueOf(field_149552_b),
-								Integer.valueOf(field_149553_c), Integer.valueOf(field_149549_f) });
+				Integer.valueOf(field_149554_a), Integer.valueOf(field_149552_b),
+				Integer.valueOf(field_149553_c), Integer.valueOf(field_149549_f));
 	}
 
 	public int func_149548_c() {

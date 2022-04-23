@@ -358,7 +358,7 @@ public class ForgeHooks {
 		PlayerOpenContainerEvent event = new PlayerOpenContainerEvent(player, openContainer);
 		MinecraftForge.EVENT_BUS.post(event);
 		return event.getResult() == Event.Result.DEFAULT ? event.canInteractWith
-				: event.getResult() == Event.Result.ALLOW ? true : false;
+				: event.getResult() == Event.Result.ALLOW;
 	}
 
 	public static BlockEvent.BreakEvent onBlockBreakEvent(World world, GameType gameType, EntityPlayerMP entityPlayer,

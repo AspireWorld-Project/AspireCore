@@ -184,13 +184,13 @@ public class S26PacketMapChunkBulk extends Packet {
 			}
 
 			stringbuilder.append(String.format("{x=%d, z=%d, sections=%d, adds=%d, data=%d}",
-					new Object[] { Integer.valueOf(field_149266_a[i]), Integer.valueOf(field_149264_b[i]),
-							Integer.valueOf(field_149265_c[i]), Integer.valueOf(field_149262_d[i]),
-							Integer.valueOf(field_149260_f[i].length) }));
+					Integer.valueOf(field_149266_a[i]), Integer.valueOf(field_149264_b[i]),
+					Integer.valueOf(field_149265_c[i]), Integer.valueOf(field_149262_d[i]),
+					Integer.valueOf(field_149260_f[i].length)));
 		}
 
-		return String.format("size=%d, chunks=%d[%s]", new Object[] { Integer.valueOf(field_149261_g),
-				Integer.valueOf(field_149266_a.length), stringbuilder });
+		return String.format("size=%d, chunks=%d[%s]", Integer.valueOf(field_149261_g),
+				Integer.valueOf(field_149266_a.length), stringbuilder);
 	}
 
 	@SideOnly(Side.CLIENT)

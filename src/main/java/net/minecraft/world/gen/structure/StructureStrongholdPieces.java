@@ -1669,7 +1669,7 @@ public class StructureStrongholdPieces {
 			return p_74991_0_ != null && p_74991_0_.minY > 10;
 		}
 
-		public static enum Door {
+		public enum Door {
 			OPENING, WOOD_DOOR, GRATES, IRON_DOOR;
 
 			private static final String __OBFID = "CL_00000504";
@@ -1684,25 +1684,21 @@ public class StructureStrongholdPieces {
 			try {
 				doorEnum[StructureStrongholdPieces.Stronghold.Door.OPENING.ordinal()] = 1;
 			} catch (NoSuchFieldError var4) {
-				;
 			}
 
 			try {
 				doorEnum[StructureStrongholdPieces.Stronghold.Door.WOOD_DOOR.ordinal()] = 2;
 			} catch (NoSuchFieldError var3) {
-				;
 			}
 
 			try {
 				doorEnum[StructureStrongholdPieces.Stronghold.Door.GRATES.ordinal()] = 3;
 			} catch (NoSuchFieldError var2) {
-				;
 			}
 
 			try {
 				doorEnum[StructureStrongholdPieces.Stronghold.Door.IRON_DOOR.ordinal()] = 4;
 			} catch (NoSuchFieldError var1) {
-				;
 			}
 		}
 	}

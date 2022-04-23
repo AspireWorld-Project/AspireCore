@@ -38,7 +38,7 @@ import static cpw.mods.fml.client.config.GuiUtils.VALID;
  */
 @SuppressWarnings("rawtypes")
 public class GuiEditArrayEntries extends GuiListExtended {
-	private GuiEditArray owningGui;
+	private final GuiEditArray owningGui;
 	public Minecraft mc;
 	public IConfigElement configElement;
 	public List<IArrayEntry> listEntries;
@@ -303,12 +303,8 @@ public class GuiEditArrayEntries extends GuiListExtended {
 				if (!textFieldValue.getText().trim().isEmpty() && !textFieldValue.getText().trim().equals("-")) {
 					try {
 						double value = Double.parseDouble(textFieldValue.getText().trim());
-						if (value < Double.valueOf(configElement.getMinValue().toString())
-								|| value > Double.valueOf(configElement.getMaxValue().toString())) {
-							isValidValue = false;
-						} else {
-							isValidValue = true;
-						}
+                        isValidValue = !(value < Double.valueOf(configElement.getMinValue().toString()))
+                                && !(value > Double.valueOf(configElement.getMaxValue().toString()));
 					} catch (Throwable e) {
 						isValidValue = false;
 					}
@@ -352,12 +348,8 @@ public class GuiEditArrayEntries extends GuiListExtended {
 				if (!textFieldValue.getText().trim().isEmpty() && !textFieldValue.getText().trim().equals("-")) {
 					try {
 						long value = Long.parseLong(textFieldValue.getText().trim());
-						if (value < Integer.valueOf(configElement.getMinValue().toString())
-								|| value > Integer.valueOf(configElement.getMaxValue().toString())) {
-							isValidValue = false;
-						} else {
-							isValidValue = true;
-						}
+                        isValidValue = value >= Integer.valueOf(configElement.getMinValue().toString())
+                                && value <= Integer.valueOf(configElement.getMaxValue().toString());
 					} catch (Throwable e) {
 						isValidValue = false;
 					}
@@ -390,11 +382,7 @@ public class GuiEditArrayEntries extends GuiListExtended {
 			isValidated = configElement.getValidationPattern() != null;
 
 			if (configElement.getValidationPattern() != null) {
-				if (configElement.getValidationPattern().matcher(textFieldValue.getText().trim()).matches()) {
-					isValidValue = true;
-				} else {
-					isValidValue = false;
-				}
+                isValidValue = configElement.getValidationPattern().matcher(textFieldValue.getText().trim()).matches();
 			}
 		}
 
@@ -418,11 +406,7 @@ public class GuiEditArrayEntries extends GuiListExtended {
 				textFieldValue.textboxKeyTyped(owningScreen.enabled ? eventChar : Keyboard.CHAR_NONE, eventKey);
 
 				if (configElement.getValidationPattern() != null) {
-					if (configElement.getValidationPattern().matcher(textFieldValue.getText().trim()).matches()) {
-						isValidValue = true;
-					} else {
-						isValidValue = false;
-					}
+                    isValidValue = configElement.getValidationPattern().matcher(textFieldValue.getText().trim()).matches();
 				}
 			}
 		}
@@ -507,7 +491,8 @@ public class GuiEditArrayEntries extends GuiListExtended {
 		private final HoverChecker addNewEntryAboveHoverChecker;
 		protected final GuiButtonExt btnRemoveEntry;
 		private final HoverChecker removeEntryHoverChecker;
-		private List addNewToolTip, removeToolTip;
+		private final List addNewToolTip;
+        private final List removeToolTip;
 		protected boolean isValidValue = true;
 		protected boolean isValidated = false;
 
@@ -617,17 +602,17 @@ public class GuiEditArrayEntries extends GuiListExtended {
 		}
 	}
 
-	public static interface IArrayEntry extends GuiListExtended.IGuiListEntry {
-		public void keyTyped(char eventChar, int eventKey);
+	public interface IArrayEntry extends GuiListExtended.IGuiListEntry {
+		void keyTyped(char eventChar, int eventKey);
 
-		public void updateCursorCounter();
+		void updateCursorCounter();
 
-		public void mouseClicked(int x, int y, int mouseEvent);
+		void mouseClicked(int x, int y, int mouseEvent);
 
-		public void drawToolTip(int mouseX, int mouseY);
+		void drawToolTip(int mouseX, int mouseY);
 
-		public boolean isValueSavable();
+		boolean isValueSavable();
 
-		public Object getValue();
+		Object getValue();
 	}
 }

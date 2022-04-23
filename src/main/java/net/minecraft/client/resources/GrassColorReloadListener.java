@@ -18,7 +18,6 @@ public class GrassColorReloadListener implements IResourceManagerReloadListener 
 		try {
 			ColorizerGrass.setGrassBiomeColorizer(TextureUtil.readImageData(p_110549_1_, field_130078_a));
 		} catch (IOException ioexception) {
-			;
-		}
+        }
 	}
 }

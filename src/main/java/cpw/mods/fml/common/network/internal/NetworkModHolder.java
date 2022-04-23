@@ -84,10 +84,10 @@ public class NetworkModHolder {
 
 	private static int assignedIds = 1;
 
-	private int localId;
+	private final int localId;
 	private int networkId;
 
-	private ModContainer container;
+	private final ModContainer container;
 	private Method checkHandler;
 
 	private VersionRange acceptableRange;
@@ -208,8 +208,8 @@ public class NetworkModHolder {
 	}
 
 	public void testVanillaAcceptance() {
-		acceptsVanillaClient = check(ImmutableMap.<String, String>of(), Side.CLIENT);
-		acceptsVanillaServer = check(ImmutableMap.<String, String>of(), Side.SERVER);
+		acceptsVanillaClient = check(ImmutableMap.of(), Side.CLIENT);
+		acceptsVanillaServer = check(ImmutableMap.of(), Side.SERVER);
 	}
 
 	public boolean acceptsVanilla(Side from) {

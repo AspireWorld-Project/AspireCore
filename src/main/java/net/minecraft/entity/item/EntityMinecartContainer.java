@@ -106,7 +106,7 @@ public abstract class EntityMinecartContainer extends EntityMinecart implements 
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer p_70300_1_) {
-		return isDead ? false : p_70300_1_.getDistanceSqToEntity(this) <= 64.0D;
+		return !isDead && p_70300_1_.getDistanceSqToEntity(this) <= 64.0D;
 	}
 
 	@Override

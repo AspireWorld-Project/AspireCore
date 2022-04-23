@@ -99,8 +99,7 @@ public class IntHashMap {
 					Object object1 = getValue();
 					Object object2 = entry.getValue();
 
-					if (object1 == object2 || object1 != null && object1.equals(object2))
-						return true;
+                    return object1 == object2 || object1 != null && object1.equals(object2);
 				}
 
 				return false;

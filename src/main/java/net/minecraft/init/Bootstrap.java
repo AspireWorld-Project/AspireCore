@@ -565,7 +565,7 @@ public class Bootstrap {
 							}
 						}
 						EntityTNTPrimed entitytntprimed = new EntityTNTPrimed(world, event.getVelocity().getX(),
-								event.getVelocity().getY(), event.getVelocity().getZ(), (EntityLivingBase) null);
+								event.getVelocity().getY(), event.getVelocity().getZ(), null);
 						world.spawnEntityInWorld(entitytntprimed);
 						return itemStack;
 					}

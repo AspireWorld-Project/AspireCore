@@ -324,7 +324,7 @@ public abstract class FluidRegistry {
 	}
 
 	private static class FluidDelegate implements RegistryDelegate<Fluid> {
-		private String name;
+		private final String name;
 		private Fluid fluid;
 
 		FluidDelegate(Fluid fluid, String name) {

@@ -7,8 +7,8 @@ import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
 public class ModelEnderCrystal extends ModelBase {
-	private ModelRenderer cube;
-	private ModelRenderer glass = new ModelRenderer(this, "glass");
+	private final ModelRenderer cube;
+	private final ModelRenderer glass = new ModelRenderer(this, "glass");
 	private ModelRenderer base;
 	private static final String __OBFID = "CL_00000871";
 

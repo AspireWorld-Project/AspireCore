@@ -33,9 +33,9 @@ public class CommandEmote extends CommandBase {
 			IChatComponent ichatcomponent = func_147176_a(p_71515_1_, p_71515_2_, 0,
 					p_71515_1_.canCommandSenderUseCommand(1, "me"));
 			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation(
-					"chat.type.emote", new Object[] { p_71515_1_.func_145748_c_(), ichatcomponent }));
+					"chat.type.emote", p_71515_1_.func_145748_c_(), ichatcomponent));
 		} else
-			throw new WrongUsageException("commands.me.usage", new Object[0]);
+			throw new WrongUsageException("commands.me.usage");
 	}
 
 	@Override

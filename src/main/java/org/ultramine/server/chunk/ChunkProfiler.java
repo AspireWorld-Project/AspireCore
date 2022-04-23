@@ -14,7 +14,7 @@ public class ChunkProfiler {
 	private static final ChunkProfiler INSTANCE = new ChunkProfiler();
 
 	private boolean isChunkDebugEnabled = false;
-	private TLongObjectMap<ChunkData> chunkTimeMap = new TLongObjectHashMap<>(512);
+	private final TLongObjectMap<ChunkData> chunkTimeMap = new TLongObjectHashMap<>(512);
 
 	public static ChunkProfiler instance() {
 		return INSTANCE;

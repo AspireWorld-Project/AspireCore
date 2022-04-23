@@ -203,7 +203,7 @@ public class BasicTypeParser {
 		}
 
 		if (lastInd != str.length()) {
-			String s1 = str.substring(lastInd, str.length());
+			String s1 = str.substring(lastInd);
 			try {
 				time += Long.parseLong(s1);
 			} catch (NumberFormatException e) {

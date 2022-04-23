@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 public class FMLModIdMappingEvent extends FMLEvent {
-	public static enum RemapTarget {
+	public enum RemapTarget {
 		BLOCK, ITEM
 	}
 

@@ -9,6 +9,6 @@ public class GenLayerFuzzyZoom extends GenLayerZoom {
 
 	@Override
 	protected int selectModeOrRandom(int p_151617_1_, int p_151617_2_, int p_151617_3_, int p_151617_4_) {
-		return selectRandom(new int[] { p_151617_1_, p_151617_2_, p_151617_3_, p_151617_4_ });
+		return selectRandom(p_151617_1_, p_151617_2_, p_151617_3_, p_151617_4_);
 	}
 }

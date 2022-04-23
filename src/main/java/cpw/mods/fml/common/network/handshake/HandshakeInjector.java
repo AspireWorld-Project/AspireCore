@@ -7,7 +7,7 @@ import io.netty.channel.ChannelPromise;
 
 public class HandshakeInjector extends ChannelOutboundHandlerAdapter {
 
-	private NetworkDispatcher dispatcher;
+	private final NetworkDispatcher dispatcher;
 
 	public HandshakeInjector(NetworkDispatcher networkDispatcher) {
 		dispatcher = networkDispatcher;

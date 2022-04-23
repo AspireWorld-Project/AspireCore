@@ -15,8 +15,7 @@ public class RConUtils {
 		int l;
 
 		for (l = p_72661_1_ > k ? k : p_72661_1_; 0 != p_72661_0_[l] && l < k; ++l) {
-			;
-		}
+        }
 
 		return new String(p_72661_0_, p_72661_1_, l - p_72661_1_, Charsets.UTF_8);
 	}

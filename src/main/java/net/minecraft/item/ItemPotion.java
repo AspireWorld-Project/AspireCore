@@ -24,7 +24,7 @@ import java.util.*;
 import java.util.Map.Entry;
 
 public class ItemPotion extends Item {
-	private HashMap effectCache = new HashMap();
+	private final HashMap effectCache = new HashMap();
 	private static final Map field_77835_b = new LinkedHashMap();
 	@SideOnly(Side.CLIENT)
 	private IIcon field_94591_c;
@@ -295,13 +295,13 @@ public class ItemPotion extends Item {
 						p_77624_3_.add(EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted(
 								"attribute.modifier.plus." + attributemodifier2.getOperation(),
 								new Object[] { ItemStack.field_111284_a.format(d1), StatCollector
-										.translateToLocal("attribute.name." + (String) entry1.getKey()) }));
+										.translateToLocal("attribute.name." + entry1.getKey()) }));
 					} else if (d0 < 0.0D) {
 						d1 *= -1.0D;
 						p_77624_3_.add(EnumChatFormatting.RED + StatCollector.translateToLocalFormatted(
 								"attribute.modifier.take." + attributemodifier2.getOperation(),
 								new Object[] { ItemStack.field_111284_a.format(d1), StatCollector
-										.translateToLocal("attribute.name." + (String) entry1.getKey()) }));
+										.translateToLocal("attribute.name." + entry1.getKey()) }));
 					}
 				}
 			}

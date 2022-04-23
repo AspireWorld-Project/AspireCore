@@ -13,9 +13,9 @@ import java.text.DecimalFormat;
 @SideOnly(Side.SERVER)
 public class StatsComponent extends JComponent {
 	private static final DecimalFormat field_120040_a = new DecimalFormat("########0.000");
-	private int[] field_120038_b = new int[256];
+	private final int[] field_120038_b = new int[256];
 	private int field_120039_c;
-	private String[] field_120036_d = new String[11];
+	private final String[] field_120036_d = new String[11];
 	private final MinecraftServer field_120037_e;
 	private static final String __OBFID = "CL_00001796";
 

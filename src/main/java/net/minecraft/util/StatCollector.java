@@ -1,8 +1,8 @@
 package net.minecraft.util;
 
 public class StatCollector {
-	private static StringTranslate localizedName = StringTranslate.getInstance();
-	private static StringTranslate fallbackTranslator = new StringTranslate();
+	private static final StringTranslate localizedName = StringTranslate.getInstance();
+	private static final StringTranslate fallbackTranslator = new StringTranslate();
 	private static final String __OBFID = "CL_00001211";
 
 	public static String translateToLocal(String p_74838_0_) {

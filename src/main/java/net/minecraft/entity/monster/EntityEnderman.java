@@ -28,7 +28,7 @@ public class EntityEnderman extends EntityMob {
 	private static final AttributeModifier attackingSpeedBoostModifier = new AttributeModifier(
 			attackingSpeedBoostModifierUUID, "Attacking speed boost", 6.199999809265137D, 0).setSaved(false);
 	@Deprecated // DO NOT TOUCH THIS EVER
-	private static boolean[] carriableBlocks = new boolean[256];
+	private static final boolean[] carriableBlocks = new boolean[256];
 	private int teleportDelay;
 	private int stareTimer;
 	private Entity lastEntityToAttack;

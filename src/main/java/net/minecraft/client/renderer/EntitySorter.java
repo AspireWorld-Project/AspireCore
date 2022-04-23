@@ -8,9 +8,9 @@ import java.util.Comparator;
 
 @SideOnly(Side.CLIENT)
 public class EntitySorter implements Comparator {
-	private double entityPosX;
-	private double entityPosY;
-	private double entityPosZ;
+	private final double entityPosX;
+	private final double entityPosY;
+	private final double entityPosZ;
 	private static final String __OBFID = "CL_00000944";
 
 	public EntitySorter(Entity p_i1242_1_) {

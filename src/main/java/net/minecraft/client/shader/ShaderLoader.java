@@ -20,7 +20,7 @@ import java.util.Map;
 public class ShaderLoader {
 	private final ShaderLoader.ShaderType field_148061_a;
 	private final String field_148059_b;
-	private int field_148060_c;
+	private final int field_148060_c;
 	private int field_148058_d = 0;
 	private static final String __OBFID = "CL_00001043";
 
@@ -68,7 +68,7 @@ public class ShaderLoader {
 			if (OpenGlHelper.func_153157_c(i, OpenGlHelper.field_153208_p) == 0) {
 				String s1 = StringUtils.trim(OpenGlHelper.func_153158_d(i, 32768));
 				JsonException jsonexception = new JsonException(
-						"Couldn\'t compile " + p_148057_1_.func_148062_a() + " program: " + s1);
+						"Couldn't compile " + p_148057_1_.func_148062_a() + " program: " + s1);
 				jsonexception.func_151381_b(resourcelocation.getResourcePath());
 				throw jsonexception;
 			}
@@ -81,7 +81,7 @@ public class ShaderLoader {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static enum ShaderType {
+	public enum ShaderType {
 		VERTEX("vertex", ".vsh", OpenGlHelper.field_153209_q), FRAGMENT("fragment", ".fsh",
 				OpenGlHelper.field_153210_r);
 		private final String field_148072_c;
@@ -91,7 +91,7 @@ public class ShaderLoader {
 
 		private static final String __OBFID = "CL_00001044";
 
-		private ShaderType(String p_i45090_3_, String p_i45090_4_, int p_i45090_5_) {
+		ShaderType(String p_i45090_3_, String p_i45090_4_, int p_i45090_5_) {
 			field_148072_c = p_i45090_3_;
 			field_148069_d = p_i45090_4_;
 			field_148070_e = p_i45090_5_;

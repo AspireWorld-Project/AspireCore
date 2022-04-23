@@ -87,7 +87,7 @@ public class ContainerPlayer extends Container {
 			}
 		}
 
-		craftResult.setInventorySlotContents(0, (ItemStack) null);
+		craftResult.setInventorySlotContents(0, null);
 	}
 
 	@Override
@@ -131,7 +131,7 @@ public class ContainerPlayer extends Container {
 				return null;
 
 			if (itemstack1.stackSize == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(null);
 			} else {
 				slot.onSlotChanged();
 			}

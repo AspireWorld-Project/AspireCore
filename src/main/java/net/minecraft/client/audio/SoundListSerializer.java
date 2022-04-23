@@ -21,7 +21,7 @@ public class SoundListSerializer implements JsonDeserializer {
 		SoundCategory soundcategory = SoundCategory.func_147154_a(JsonUtils.getJsonObjectStringFieldValueOrDefault(
 				jsonobject, "category", SoundCategory.MASTER.getCategoryName()));
 		soundlist.setSoundCategory(soundcategory);
-		Validate.notNull(soundcategory, "Invalid category", new Object[0]);
+		Validate.notNull(soundcategory, "Invalid category");
 
 		if (jsonobject.has("sounds")) {
 			JsonArray jsonarray = JsonUtils.getJsonObjectJsonArrayField(jsonobject, "sounds");
@@ -39,7 +39,7 @@ public class SoundListSerializer implements JsonDeserializer {
 					if (jsonobject1.has("type")) {
 						SoundList.SoundEntry.Type type1 = SoundList.SoundEntry.Type
 								.getType(JsonUtils.getJsonObjectStringFieldValue(jsonobject1, "type"));
-						Validate.notNull(type1, "Invalid type", new Object[0]);
+						Validate.notNull(type1, "Invalid type");
 						soundentry.setSoundEntryType(type1);
 					}
 
@@ -47,19 +47,19 @@ public class SoundListSerializer implements JsonDeserializer {
 
 					if (jsonobject1.has("volume")) {
 						f = JsonUtils.getJsonObjectFloatFieldValue(jsonobject1, "volume");
-						Validate.isTrue(f > 0.0F, "Invalid volume", new Object[0]);
+						Validate.isTrue(f > 0.0F, "Invalid volume");
 						soundentry.setSoundEntryVolume(f);
 					}
 
 					if (jsonobject1.has("pitch")) {
 						f = JsonUtils.getJsonObjectFloatFieldValue(jsonobject1, "pitch");
-						Validate.isTrue(f > 0.0F, "Invalid pitch", new Object[0]);
+						Validate.isTrue(f > 0.0F, "Invalid pitch");
 						soundentry.setSoundEntryPitch(f);
 					}
 
 					if (jsonobject1.has("weight")) {
 						int j = JsonUtils.getJsonObjectIntegerFieldValue(jsonobject1, "weight");
-						Validate.isTrue(j > 0, "Invalid weight", new Object[0]);
+						Validate.isTrue(j > 0, "Invalid weight");
 						soundentry.setSoundEntryWeight(j);
 					}
 

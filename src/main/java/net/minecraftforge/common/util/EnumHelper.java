@@ -34,7 +34,7 @@ public class EnumHelper {
 
 	// Some enums are decompiled with extra arguments, so lets check for that
 	@SuppressWarnings("rawtypes")
-	private static Class[][] commonTypes = { { EnumAction.class },
+	private static final Class[][] commonTypes = { { EnumAction.class },
 			{ ArmorMaterial.class, int.class, int[].class, int.class },
 			{ EnumArt.class, String.class, int.class, int.class, int.class, int.class },
 			{ EnumCreatureAttribute.class },

@@ -30,11 +30,10 @@ public class EnchantmentDurability extends Enchantment {
 
 	@Override
 	public boolean canApply(ItemStack p_92089_1_) {
-		return p_92089_1_.isItemStackDamageable() ? true : super.canApply(p_92089_1_);
+		return p_92089_1_.isItemStackDamageable() || super.canApply(p_92089_1_);
 	}
 
 	public static boolean negateDamage(ItemStack p_92097_0_, int p_92097_1_, Random p_92097_2_) {
-		return p_92097_0_.getItem() instanceof ItemArmor && p_92097_2_.nextFloat() < 0.6F ? false
-				: p_92097_2_.nextInt(p_92097_1_ + 1) > 0;
+		return (!(p_92097_0_.getItem() instanceof ItemArmor) || !(p_92097_2_.nextFloat() < 0.6F)) && p_92097_2_.nextInt(p_92097_1_ + 1) > 0;
 	}
 }

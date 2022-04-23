@@ -1452,7 +1452,7 @@ public class StructureVillagePieces {
 
 		public Start(WorldChunkManager p_i2104_1_, int p_i2104_2_, Random p_i2104_3_, int p_i2104_4_, int p_i2104_5_,
 				List p_i2104_6_, int p_i2104_7_) {
-			super((StructureVillagePieces.Start) null, 0, p_i2104_3_, p_i2104_4_, p_i2104_5_);
+			super(null, 0, p_i2104_3_, p_i2104_4_, p_i2104_5_);
 			worldChunkMngr = p_i2104_1_;
 			structureVillageWeightedPieceList = p_i2104_6_;
 			terrainType = p_i2104_7_;

@@ -185,7 +185,7 @@ public class FMLContainer extends DummyModContainer implements WorldAccessContai
 					dataList.put(itemLabel, itemId);
 				}
 			}
-			failedElements = GameData.injectWorldIDMap(dataList, ImmutableSet.<String>of(), ImmutableSet.<String>of(),
+			failedElements = GameData.injectWorldIDMap(dataList, ImmutableSet.of(), ImmutableSet.of(),
 					true, true);
 
 		} else if (tag.hasKey("ItemData")) {

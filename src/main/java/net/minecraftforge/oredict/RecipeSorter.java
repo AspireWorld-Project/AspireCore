@@ -17,12 +17,12 @@ import static net.minecraftforge.oredict.RecipeSorter.Category.*;
 public class RecipeSorter implements Comparator<IRecipe> {
 	public enum Category {
 		UNKNOWN, SHAPELESS, SHAPED
-	};
+	}
 
 	private static class SortEntry {
-		private String name;
-		private Class<?> cls;
-		private Category cat;
+		private final String name;
+		private final Class<?> cls;
+		private final Category cat;
 		List<String> before = Lists.newArrayList();
 		List<String> after = Lists.newArrayList();
 
@@ -68,18 +68,18 @@ public class RecipeSorter implements Comparator<IRecipe> {
 		public int hashCode() {
 			return name.hashCode();
 		}
-	};
+	}
 
-	private static Map<Class, Category> categories = Maps.newHashMap();
+	private static final Map<Class, Category> categories = Maps.newHashMap();
 	// private static Map<String, Class> types = Maps.newHashMap();
-	private static Map<String, SortEntry> entries = Maps.newHashMap();
-	private static Map<Class, Integer> priorities = Maps.newHashMap();
+	private static final Map<String, SortEntry> entries = Maps.newHashMap();
+	private static final Map<Class, Integer> priorities = Maps.newHashMap();
 
 	public static RecipeSorter INSTANCE = new RecipeSorter();
 	private static boolean isDirty = true;
 
-	private static SortEntry before = new SortEntry("Before", null, UNKNOWN, "");
-	private static SortEntry after = new SortEntry("After", null, UNKNOWN, "");
+	private static final SortEntry before = new SortEntry("Before", null, UNKNOWN, "");
+	private static final SortEntry after = new SortEntry("After", null, UNKNOWN, "");
 
 	private RecipeSorter() {
 		register("minecraft:shaped", ShapedRecipes.class, SHAPED, "before:minecraft:shapeless");
@@ -110,7 +110,7 @@ public class RecipeSorter implements Comparator<IRecipe> {
 		return getPriority(r2) - getPriority(r1); // high priority value first!
 	}
 
-	private static Set<Class> warned = Sets.newHashSet();
+	private static final Set<Class> warned = Sets.newHashSet();
 
 	@SuppressWarnings("unchecked")
 	public static void sortCraftManager() {

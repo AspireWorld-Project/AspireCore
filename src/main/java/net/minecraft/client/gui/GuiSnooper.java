@@ -30,8 +30,8 @@ public class GuiSnooper extends GuiScreen {
 
 	@Override
 	public void initGui() {
-		field_146610_i = I18n.format("options.snooper.title", new Object[0]);
-		String s = I18n.format("options.snooper.desc", new Object[0]);
+		field_146610_i = I18n.format("options.snooper.title");
+		String s = I18n.format("options.snooper.desc");
 		ArrayList arraylist = new ArrayList();
 		Iterator iterator = fontRendererObj.listFormattedStringToWidth(s, width - 30).iterator();
 
@@ -45,14 +45,14 @@ public class GuiSnooper extends GuiScreen {
 		field_146609_h.clear();
 		buttonList.add(field_146605_t = new GuiButton(1, width / 2 - 152, height - 30, 150, 20,
 				field_146603_f.getKeyBinding(GameSettings.Options.SNOOPER_ENABLED)));
-		buttonList.add(new GuiButton(2, width / 2 + 2, height - 30, 150, 20, I18n.format("gui.done", new Object[0])));
+		buttonList.add(new GuiButton(2, width / 2 + 2, height - 30, 150, 20, I18n.format("gui.done")));
 		boolean flag = mc.getIntegratedServer() != null && mc.getIntegratedServer().getPlayerUsageSnooper() != null;
 		Iterator iterator1 = new TreeMap(mc.getPlayerUsageSnooper().getCurrentStats()).entrySet().iterator();
 		Entry entry;
 
 		while (iterator1.hasNext()) {
 			entry = (Entry) iterator1.next();
-			field_146604_g.add((flag ? "C " : "") + (String) entry.getKey());
+			field_146604_g.add((flag ? "C " : "") + entry.getKey());
 			field_146609_h.add(fontRendererObj.trimStringToWidth((String) entry.getValue(), width - 220));
 		}
 
@@ -62,7 +62,7 @@ public class GuiSnooper extends GuiScreen {
 
 			while (iterator1.hasNext()) {
 				entry = (Entry) iterator1.next();
-				field_146604_g.add("S " + (String) entry.getKey());
+				field_146604_g.add("S " + entry.getKey());
 				field_146609_h.add(fontRendererObj.trimStringToWidth((String) entry.getValue(), width - 220));
 			}
 		}

@@ -931,12 +931,8 @@ public class GuiConfigEntries extends GuiListExtended {
 				if (!textFieldValue.getText().trim().isEmpty() && !textFieldValue.getText().trim().equals("-")) {
 					try {
 						long value = Long.parseLong(textFieldValue.getText().trim());
-						if (value < Integer.valueOf(configElement.getMinValue().toString())
-								|| value > Integer.valueOf(configElement.getMaxValue().toString())) {
-							isValidValue = false;
-						} else {
-							isValidValue = true;
-						}
+						isValidValue = value >= Integer.valueOf(configElement.getMinValue().toString())
+								&& value <= Integer.valueOf(configElement.getMaxValue().toString());
 					} catch (Throwable e) {
 						isValidValue = false;
 					}
@@ -1028,12 +1024,8 @@ public class GuiConfigEntries extends GuiListExtended {
 				if (!textFieldValue.getText().trim().isEmpty() && !textFieldValue.getText().trim().equals("-")) {
 					try {
 						double value = Double.parseDouble(textFieldValue.getText().trim());
-						if (value < Double.valueOf(configElement.getMinValue().toString())
-								|| value > Double.valueOf(configElement.getMaxValue().toString())) {
-							isValidValue = false;
-						} else {
-							isValidValue = true;
-						}
+						isValidValue = !(value < Double.valueOf(configElement.getMinValue().toString()))
+								&& !(value > Double.valueOf(configElement.getMaxValue().toString()));
 					} catch (Throwable e) {
 						isValidValue = false;
 					}
@@ -1127,11 +1119,7 @@ public class GuiConfigEntries extends GuiListExtended {
 				textFieldValue.textboxKeyTyped(enabled() ? eventChar : Keyboard.CHAR_NONE, eventKey);
 
 				if (configElement.getValidationPattern() != null) {
-					if (configElement.getValidationPattern().matcher(textFieldValue.getText().trim()).matches()) {
-						isValidValue = true;
-					} else {
-						isValidValue = false;
-					}
+					isValidValue = configElement.getValidationPattern().matcher(textFieldValue.getText().trim()).matches();
 				}
 			}
 		}
@@ -1398,8 +1386,8 @@ public class GuiConfigEntries extends GuiListExtended {
 
 			undoHoverChecker = new HoverChecker(btnUndoChanges, 800);
 			defaultHoverChecker = new HoverChecker(btnDefault, 800);
-			undoToolTip = Arrays.asList(new String[] { I18n.format("fml.configgui.tooltip.undoChanges") });
-			defaultToolTip = Arrays.asList(new String[] { I18n.format("fml.configgui.tooltip.resetToDefault") });
+			undoToolTip = Arrays.asList(I18n.format("fml.configgui.tooltip.undoChanges"));
+			defaultToolTip = Arrays.asList(I18n.format("fml.configgui.tooltip.resetToDefault"));
 
 			drawLabel = true;
 
@@ -1532,9 +1520,7 @@ public class GuiConfigEntries extends GuiListExtended {
 
 		@Override
 		public boolean enabled() {
-			return owningScreen.isWorldRunning
-					? !owningScreen.allRequireWorldRestart && !configElement.requiresWorldRestart()
-					: true;
+			return !owningScreen.isWorldRunning || !owningScreen.allRequireWorldRestart && !configElement.requiresWorldRestart();
 		}
 
 		@Override
@@ -1571,55 +1557,55 @@ public class GuiConfigEntries extends GuiListExtended {
 	/**
 	 * Provides an interface for defining GuiPropertyList.listEntry objects.
 	 */
-	public static interface IConfigEntry<T> extends GuiListExtended.IGuiListEntry {
+	public interface IConfigEntry<T> extends GuiListExtended.IGuiListEntry {
 		/**
 		 * Gets the IConfigElement object owned by this entry.
 		 *
 		 * @return
 		 */
 		@SuppressWarnings("rawtypes")
-		public IConfigElement getConfigElement();
+		IConfigElement getConfigElement();
 
 		/**
 		 * Gets the name of the ConfigElement owned by this entry.
 		 */
-		public String getName();
+		String getName();
 
 		/**
 		 * Gets the current value of this entry as a String.
 		 */
-		public T getCurrentValue();
+		T getCurrentValue();
 
 		/**
 		 * Gets the current values of this list entry as a String[].
 		 */
-		public T[] getCurrentValues();
+		T[] getCurrentValues();
 
 		/**
 		 * Is this list entry enabled?
 		 *
 		 * @return true if this entry's controls should be enabled, false otherwise.
 		 */
-		public boolean enabled();
+		boolean enabled();
 
 		/**
 		 * Handles user keystrokes for any GuiTextField objects in this entry. Call
 		 * {@code GuiTextField.keyTyped()} for any GuiTextField objects that should
 		 * receive the input provided.
 		 */
-		public void keyTyped(char eventChar, int eventKey);
+		void keyTyped(char eventChar, int eventKey);
 
 		/**
 		 * Call {@code GuiTextField.updateCursorCounter()} for any GuiTextField objects
 		 * in this entry.
 		 */
-		public void updateCursorCounter();
+		void updateCursorCounter();
 
 		/**
 		 * Call {@code GuiTextField.mouseClicked()} for and GuiTextField objects in this
 		 * entry.
 		 */
-		public void mouseClicked(int x, int y, int mouseEvent);
+		void mouseClicked(int x, int y, int mouseEvent);
 
 		/**
 		 * Is this entry's value equal to the default value? Generally true should be
@@ -1627,17 +1613,17 @@ public class GuiConfigEntries extends GuiListExtended {
 		 *
 		 * @return true if this entry's value is equal to this entry's default value.
 		 */
-		public boolean isDefault();
+		boolean isDefault();
 
 		/**
 		 * Sets this entry's value to the default value.
 		 */
-		public void setToDefault();
+		void setToDefault();
 
 		/**
 		 * Handles reverting any changes that have occurred to this entry.
 		 */
-		public void undoChanges();
+		void undoChanges();
 
 		/**
 		 * Has the value of this entry changed?
@@ -1645,7 +1631,7 @@ public class GuiConfigEntries extends GuiListExtended {
 		 * @return true if changes have been made to this entry's value, false
 		 *         otherwise.
 		 */
-		public boolean isChanged();
+		boolean isChanged();
 
 		/**
 		 * Handles saving any changes that have been made to this entry back to the
@@ -1653,7 +1639,7 @@ public class GuiConfigEntries extends GuiListExtended {
 		 * performing the save action. This method should return true if the element has
 		 * changed AND REQUIRES A RESTART.
 		 */
-		public boolean saveConfigElement();
+		boolean saveConfigElement();
 
 		/**
 		 * Handles drawing any tooltips that apply to this entry. This method is called
@@ -1661,23 +1647,23 @@ public class GuiConfigEntries extends GuiListExtended {
 		 * be used to draw any GUI element that needs to be drawn after all entries have
 		 * had drawEntry() called.
 		 */
-		public void drawToolTip(int mouseX, int mouseY);
+		void drawToolTip(int mouseX, int mouseY);
 
 		/**
 		 * Gets this entry's label width.
 		 */
-		public int getLabelWidth();
+		int getLabelWidth();
 
 		/**
 		 * Gets this entry's right-hand x boundary. This value is used to control where
 		 * the scroll bar is placed.
 		 */
-		public int getEntryRightBound();
+		int getEntryRightBound();
 
 		/**
 		 * This method is called when the parent GUI is closed. Most handlers won't need
 		 * this; it is provided for special cases.
 		 */
-		public void onGuiClosed();
+		void onGuiClosed();
 	}
 }

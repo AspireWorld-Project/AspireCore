@@ -27,8 +27,8 @@ public class CommandListPlayers extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender p_71515_1_, String[] p_71515_2_) {
 		p_71515_1_.addChatMessage(new ChatComponentTranslation("commands.players.list",
-				new Object[] { Integer.valueOf(MinecraftServer.getServer().getCurrentPlayerCount()),
-						Integer.valueOf(MinecraftServer.getServer().getMaxPlayers()) }));
+				Integer.valueOf(MinecraftServer.getServer().getCurrentPlayerCount()),
+				Integer.valueOf(MinecraftServer.getServer().getMaxPlayers())));
 		p_71515_1_.addChatMessage(new ChatComponentText(MinecraftServer.getServer().getConfigurationManager()
 				.func_152609_b(p_71515_2_.length > 0 && "uuids".equalsIgnoreCase(p_71515_2_[0]))));
 	}

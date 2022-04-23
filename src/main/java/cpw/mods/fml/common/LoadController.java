@@ -31,16 +31,16 @@ import java.util.List;
 import java.util.Map.Entry;
 
 public class LoadController {
-	private Loader loader;
-	private EventBus masterChannel;
+	private final Loader loader;
+	private final EventBus masterChannel;
 	private ImmutableMap<String, EventBus> eventChannels;
 	private LoaderState state;
-	private Multimap<String, ModState> modStates = ArrayListMultimap.create();
-	private Multimap<String, Throwable> errors = ArrayListMultimap.create();
-	private List<ModContainer> activeModList = Lists.newArrayList();
+	private final Multimap<String, ModState> modStates = ArrayListMultimap.create();
+	private final Multimap<String, Throwable> errors = ArrayListMultimap.create();
+	private final List<ModContainer> activeModList = Lists.newArrayList();
 	private ModContainer activeContainer;
 	private BiMap<ModContainer, Object> modObjectList;
-	private ListMultimap<String, ModContainer> packageOwners;
+	private final ListMultimap<String, ModContainer> packageOwners;
 
 	public LoadController(Loader loader) {
 		this.loader = loader;
@@ -184,7 +184,7 @@ public class LoadController {
 	}
 
 	public ImmutableBiMap<ModContainer, Object> buildModObjectList() {
-		ImmutableBiMap.Builder<ModContainer, Object> builder = ImmutableBiMap.<ModContainer, Object>builder();
+		ImmutableBiMap.Builder<ModContainer, Object> builder = ImmutableBiMap.builder();
 		for (ModContainer mc : activeModList) {
 			if (!mc.isImmutable() && mc.getMod() != null
 					|| mc.getMod() instanceof org.ultramine.server.UltramineServerModContainer) {
@@ -207,7 +207,7 @@ public class LoadController {
 
 	public void errorOccurred(ModContainer modContainer, Throwable exception) {
 		if (exception instanceof InvocationTargetException) {
-			errors.put(modContainer.getModId(), ((InvocationTargetException) exception).getCause());
+			errors.put(modContainer.getModId(), exception.getCause());
 		} else {
 			errors.put(modContainer.getModId(), exception);
 		}
@@ -216,7 +216,7 @@ public class LoadController {
 	public void printModStates(StringBuilder ret) {
 		ret.append("\n\tStates:");
 		for (ModState state : ModState.values()) {
-			ret.append(" '").append(state.getMarker()).append("' = ").append(state.toString());
+			ret.append(" '").append(state.getMarker()).append("' = ").append(state);
 		}
 
 		for (ModContainer mc : loader.getModList()) {
@@ -283,7 +283,7 @@ public class LoadController {
 		return null;
 	}
 
-	private FMLSecurityManager accessibleManager = new FMLSecurityManager();
+	private final FMLSecurityManager accessibleManager = new FMLSecurityManager();
 
 	class FMLSecurityManager extends SecurityManager {
 		Class<?>[] getStackClasses() {

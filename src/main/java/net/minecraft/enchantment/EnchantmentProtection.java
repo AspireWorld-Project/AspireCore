@@ -61,8 +61,7 @@ public class EnchantmentProtection extends Enchantment {
 	public boolean canApplyTogether(Enchantment p_77326_1_) {
 		if (p_77326_1_ instanceof EnchantmentProtection) {
 			EnchantmentProtection enchantmentprotection = (EnchantmentProtection) p_77326_1_;
-			return enchantmentprotection.protectionType == protectionType ? false
-					: protectionType == 2 || enchantmentprotection.protectionType == 2;
+			return enchantmentprotection.protectionType != protectionType && (protectionType == 2 || enchantmentprotection.protectionType == 2);
 		} else
 			return super.canApplyTogether(p_77326_1_);
 	}

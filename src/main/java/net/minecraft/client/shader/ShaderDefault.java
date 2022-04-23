@@ -10,7 +10,7 @@ public class ShaderDefault extends ShaderUniform {
 	private static final String __OBFID = "CL_00001039";
 
 	public ShaderDefault() {
-		super("dummy", 4, 1, (ShaderManager) null);
+		super("dummy", 4, 1, null);
 	}
 
 	@Override

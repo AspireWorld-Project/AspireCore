@@ -8,15 +8,15 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface Command {
-	public String name();
+	String name();
 
-	public String group();
+	String group();
 
-	public String[] syntax() default {};
+	String[] syntax() default {};
 
-	public String[] aliases() default {};
+	String[] aliases() default {};
 
-	public String[] permissions() default {};
+	String[] permissions() default {};
 
-	public boolean isUsableFromServer() default true;
+	boolean isUsableFromServer() default true;
 }

@@ -6,7 +6,7 @@ import net.minecraft.village.Village;
 import net.minecraft.village.VillageDoorInfo;
 
 public class EntityAIRestrictOpenDoor extends EntityAIBase {
-	private EntityCreature entityObj;
+	private final EntityCreature entityObj;
 	private VillageDoorInfo frontDoor;
 	private static final String __OBFID = "CL_00001610";
 
@@ -28,19 +28,17 @@ public class EntityAIRestrictOpenDoor extends EntityAIBase {
 			else {
 				frontDoor = village.findNearestDoor(MathHelper.floor_double(entityObj.posX),
 						MathHelper.floor_double(entityObj.posY), MathHelper.floor_double(entityObj.posZ));
-				return frontDoor == null ? false
-						: frontDoor.getInsideDistanceSquare(MathHelper.floor_double(entityObj.posX),
-								MathHelper.floor_double(entityObj.posY),
-								MathHelper.floor_double(entityObj.posZ)) < 2.25D;
+				return frontDoor != null && frontDoor.getInsideDistanceSquare(MathHelper.floor_double(entityObj.posX),
+						MathHelper.floor_double(entityObj.posY),
+						MathHelper.floor_double(entityObj.posZ)) < 2.25D;
 			}
 		}
 	}
 
 	@Override
 	public boolean continueExecuting() {
-		return entityObj.worldObj.isDaytime() ? false
-				: !frontDoor.isDetachedFromVillageFlag && frontDoor.isInside(MathHelper.floor_double(entityObj.posX),
-						MathHelper.floor_double(entityObj.posZ));
+		return !entityObj.worldObj.isDaytime() && !frontDoor.isDetachedFromVillageFlag && frontDoor.isInside(MathHelper.floor_double(entityObj.posX),
+				MathHelper.floor_double(entityObj.posZ));
 	}
 
 	@Override

@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Random;
 
 public class WorldChunkManagerHell extends WorldChunkManager {
-	private BiomeGenBase biomeGenerator;
-	private float rainfall;
+	private final BiomeGenBase biomeGenerator;
+	private final float rainfall;
 	private static final String __OBFID = "CL_00000169";
 
 	public WorldChunkManagerHell(BiomeGenBase p_i45374_1_, float p_i45374_2_) {

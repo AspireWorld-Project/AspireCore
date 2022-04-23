@@ -83,7 +83,6 @@ public class EntityFireworkRocket extends Entity {
 
 		for (rotationPitch = (float) (Math.atan2(motionY, f) * 180.0D / Math.PI); rotationPitch
 				- prevRotationPitch < -180.0F; prevRotationPitch -= 360.0F) {
-			;
 		}
 
 		while (rotationPitch - prevRotationPitch >= 180.0F) {

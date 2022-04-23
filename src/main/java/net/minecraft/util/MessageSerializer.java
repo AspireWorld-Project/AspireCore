@@ -33,12 +33,12 @@ public class MessageSerializer extends MessageToByteEncoder {
 
 		if (logger.isDebugEnabled()) {
 			logger.debug(field_150797_b, "OUT: [{}:{}] {}[{}]",
-					new Object[] { p_encode_1_.channel().attr(NetworkManager.attrKeyConnectionState).get(), integer,
-							p_encode_2_.getClass().getName(), p_encode_2_.serialize() });
+                    p_encode_1_.channel().attr(NetworkManager.attrKeyConnectionState).get(), integer,
+                    p_encode_2_.getClass().getName(), p_encode_2_.serialize());
 		}
 
 		if (integer == null)
-			throw new IOException("Can\'t serialize unregistered packet");
+			throw new IOException("Can't serialize unregistered packet");
 		else {
 			PacketBuffer packetbuffer = new PacketBuffer(p_encode_3_);
 			packetbuffer.writeVarIntToBuffer(integer.intValue());

@@ -268,10 +268,8 @@ public class CraftBlockState implements BlockState {
 		if (data != other.data && (data == null || !data.equals(other.data)))
 			return false;
 		// Cauldron start
-		if (nbt != other.nbt && (nbt == null || !nbt.equals(other.nbt)))
-			return false;
+		return nbt == other.nbt || (nbt != null && nbt.equals(other.nbt));
 		// Cauldron end
-		return true;
 	}
 
 	@Override

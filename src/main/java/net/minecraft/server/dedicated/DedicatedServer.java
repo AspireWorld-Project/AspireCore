@@ -80,7 +80,6 @@ public class DedicatedServer extends MinecraftServer implements IServer {
 							Thread.sleep(2147483647L);
 						}
 					} catch (InterruptedException interruptedexception) {
-						;
 					}
 				}
 			}
@@ -162,7 +161,7 @@ public class DedicatedServer extends MinecraftServer implements IServer {
 			func_147137_ag().addLanEndpoint(inetaddress, getServerPort());
 		} catch (IOException ioexception) {
 			field_155771_h.warn("**** FAILED TO BIND TO PORT!");
-			field_155771_h.warn("The exception was: {}", new Object[] { ioexception.toString() });
+			field_155771_h.warn("The exception was: {}", ioexception.toString());
 			field_155771_h.warn("Perhaps a server is already running on that port?");
 			return false;
 		}
@@ -226,7 +225,7 @@ public class DedicatedServer extends MinecraftServer implements IServer {
 		field_155771_h.info("Preparing level \"" + getFolderName() + "\"");
 		loadAllWorlds(getFolderName(), getFolderName(), k, worldtype, s2);
 		long i1 = System.nanoTime() - j;
-		String s3 = String.format("%.3fs", new Object[] { Double.valueOf(i1 / 1.0E9D) });
+		String s3 = String.format("%.3fs", Double.valueOf(i1 / 1.0E9D));
 		field_155771_h.info("Done (" + s3 + ")! For help, type \"help\" or \"?\"");
 
 		if (settings.listen.query.enabled) {
@@ -277,8 +276,8 @@ public class DedicatedServer extends MinecraftServer implements IServer {
 			@Override
 			public String call() {
 				String s = DedicatedServer.this.getServerModName();
-				return !s.equals("vanilla") ? "Definitely; Server brand changed to \'" + s + "\'"
-						: "Unknown (can\'t tell)";
+				return !s.equals("vanilla") ? "Definitely; Server brand changed to '" + s + "'"
+						: "Unknown (can't tell)";
 			}
 		});
 		p_71230_1_.getCategory().addCrashSectionCallable("Type", new Callable() {

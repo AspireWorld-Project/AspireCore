@@ -26,7 +26,7 @@ public interface PluginLoader {
 	 * @throws UnknownDependencyException
 	 *             If a required dependency could not be found
 	 */
-	public Plugin loadPlugin(File file) throws InvalidPluginException, UnknownDependencyException;
+    Plugin loadPlugin(File file) throws InvalidPluginException, UnknownDependencyException;
 
 	/**
 	 * Loads a PluginDescriptionFile from the specified file
@@ -38,14 +38,14 @@ public interface PluginLoader {
 	 * @throws InvalidDescriptionException
 	 *             If the plugin description file could not be created
 	 */
-	public PluginDescriptionFile getPluginDescription(File file) throws InvalidDescriptionException;
+    PluginDescriptionFile getPluginDescription(File file) throws InvalidDescriptionException;
 
 	/**
 	 * Returns a list of all filename filters expected by this PluginLoader
 	 *
 	 * @return The filters
 	 */
-	public Pattern[] getPluginFileFilters();
+    Pattern[] getPluginFileFilters();
 
 	/**
 	 * Creates and returns registered listeners for the event classes used in this
@@ -57,8 +57,8 @@ public interface PluginLoader {
 	 *            The plugin to use when creating registered listeners
 	 * @return The registered listeners.
 	 */
-	public Map<Class<? extends Event>, Set<RegisteredListener>> createRegisteredListeners(Listener listener,
-			Plugin plugin);
+    Map<Class<? extends Event>, Set<RegisteredListener>> createRegisteredListeners(Listener listener,
+                                                                                   Plugin plugin);
 
 	/**
 	 * Enables the specified plugin
@@ -68,7 +68,7 @@ public interface PluginLoader {
 	 * @param plugin
 	 *            Plugin to enable
 	 */
-	public void enablePlugin(Plugin plugin);
+    void enablePlugin(Plugin plugin);
 
 	/**
 	 * Disables the specified plugin
@@ -78,5 +78,5 @@ public interface PluginLoader {
 	 * @param plugin
 	 *            Plugin to disable
 	 */
-	public void disablePlugin(Plugin plugin);
+    void disablePlugin(Plugin plugin);
 }

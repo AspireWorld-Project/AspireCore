@@ -18,8 +18,8 @@ import net.minecraft.client.multiplayer.ServerData;
 import net.minecraft.client.resources.I18n;
 
 public class GuiAccessDenied extends GuiScreen {
-	private GuiScreen parent;
-	private ServerData data;
+	private final GuiScreen parent;
+	private final ServerData data;
 
 	public GuiAccessDenied(GuiScreen parent, ServerData data) {
 		this.parent = parent;

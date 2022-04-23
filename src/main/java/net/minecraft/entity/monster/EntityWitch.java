@@ -92,7 +92,7 @@ public class EntityWitch extends EntityMob implements IRangedAttackMob {
 				if (witchAttackTimer-- <= 0) {
 					setAggressive(false);
 					ItemStack itemstack = getHeldItem();
-					setCurrentItemOrArmor(0, (ItemStack) null);
+					setCurrentItemOrArmor(0, null);
 
 					if (itemstack != null && itemstack.getItem() == Items.potionitem) {
 						List list = Items.potionitem.getEffects(itemstack);

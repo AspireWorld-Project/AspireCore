@@ -37,8 +37,7 @@ public class BlockCactus extends Block implements IPlantable {
 			int l;
 
 			for (l = 1; p_149674_1_.getBlock(p_149674_2_, p_149674_3_ - l, p_149674_4_) == this; ++l) {
-				;
-			}
+            }
 
 			if (l < 3) {
 				int i1 = p_149674_1_.getBlockMetadata(p_149674_2_, p_149674_3_, p_149674_4_);
@@ -95,8 +94,7 @@ public class BlockCactus extends Block implements IPlantable {
 
 	@Override
 	public boolean canPlaceBlockAt(World p_149742_1_, int p_149742_2_, int p_149742_3_, int p_149742_4_) {
-		return !super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_) ? false
-				: canBlockStay(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_);
+		return super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_) && canBlockStay(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_);
 	}
 
 	@Override

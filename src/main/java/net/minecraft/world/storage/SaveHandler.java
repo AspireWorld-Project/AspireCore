@@ -34,8 +34,6 @@ public class SaveHandler implements ISaveHandler, IPlayerFileData {
 	private final File mapDataDir;
 	private final long initializationTime = MinecraftServer.getSystemTimeMillis();
 	private final String saveDirectoryName;
-	private static final String __OBFID = "CL_00000585";
-
 	public SaveHandler(File p_i2146_1_, String p_i2146_2_, boolean p_i2146_3_) {
 		worldDirectory = new File(p_i2146_1_, p_i2146_2_);
 		worldDirectory.mkdirs();
@@ -288,16 +286,20 @@ public class SaveHandler implements ISaveHandler, IPlayerFileData {
 	}
 
 	public NBTTagCompound getPlayerNBT(EntityPlayerMP player) {
-		try {
-			File file1 = new File(playersDirectory, player.getUniqueID().toString() + ".dat");
+        try {
+            File file1 = new File(playersDirectory, player.getUniqueID().toString() + ".dat");
 
-			if (file1.exists() && file1.isFile())
-				return CompressedStreamTools.readCompressed(new FileInputStream(file1));
-		} catch (Exception exception) {
-			logger.warn("Failed to load player data for " + player.getCommandSenderName());
-		}
-		return null;
-	}
+            if (file1.exists() && file1.isFile()) {
+                FileInputStream input = new FileInputStream(file1);
+                NBTTagCompound compound = CompressedStreamTools.readCompressed(input);
+                input.close();
+                return compound;
+            }
+        } catch (Exception exception) {
+            logger.warn("Failed to load player data for " + player.getCommandSenderName());
+        }
+        return null;
+    }
 
 	public File getPlayerSaveDir() {
 		return playersDirectory;

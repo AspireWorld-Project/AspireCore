@@ -1,10 +1,10 @@
 package org.ultramine.bukkit.injected.internal.permissions.c2b;
 
-import javax.annotation.Nonnull;
-
 import org.bukkit.Server;
 import org.bukkit.entity.Player;
 import org.ultramine.core.permissions.Permissions;
+
+import javax.annotation.Nonnull;
 
 public class SuperPermsPermissionsServiceImpl implements Permissions {
 	private final Server server;

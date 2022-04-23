@@ -1,11 +1,8 @@
 package net.minecraft.item;
 
-import java.util.List;
-
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Multisets;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -20,6 +17,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.storage.MapData;
+
+import java.util.List;
 
 public class ItemMap extends ItemMapBase {
 	private static final String __OBFID = "CL_00000047";

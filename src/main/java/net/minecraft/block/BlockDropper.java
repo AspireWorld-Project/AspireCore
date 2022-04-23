@@ -1,9 +1,5 @@
 package net.minecraft.block;
 
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
-import org.bukkit.event.inventory.InventoryMoveItemEvent;
-import org.ultramine.bukkit.util.BukkitUtil;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -18,6 +14,9 @@ import net.minecraft.tileentity.TileEntityDropper;
 import net.minecraft.tileentity.TileEntityHopper;
 import net.minecraft.util.Facing;
 import net.minecraft.world.World;
+import org.bukkit.craftbukkit.inventory.CraftItemStack;
+import org.bukkit.event.inventory.InventoryMoveItemEvent;
+import org.ultramine.bukkit.util.BukkitUtil;
 
 public class BlockDropper extends BlockDispenser {
 	private final IBehaviorDispenseItem field_149947_P = new BehaviorDefaultDispenseItem();

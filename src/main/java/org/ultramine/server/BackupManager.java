@@ -1,28 +1,6 @@
 package org.ultramine.server;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicReference;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.ultramine.commands.CommandContext;
-import org.ultramine.server.UltramineServerConfig.ToolsConf.AutoBackupConf;
-import org.ultramine.server.data.ServerDataLoader;
-import org.ultramine.server.util.GlobalExecutors;
-import org.ultramine.server.util.ZipUtil;
-import org.ultramine.server.world.WorldDescriptor;
-
 import com.google.common.base.Function;
-
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.functions.GenericIterableFactory;
 import cpw.mods.fml.relauncher.Side;
@@ -44,6 +22,21 @@ import net.minecraft.world.storage.ThreadedFileIOBase;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.WorldEvent;
+import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.ultramine.commands.CommandContext;
+import org.ultramine.server.UltramineServerConfig.ToolsConf.AutoBackupConf;
+import org.ultramine.server.data.ServerDataLoader;
+import org.ultramine.server.util.GlobalExecutors;
+import org.ultramine.server.util.ZipUtil;
+import org.ultramine.server.world.WorldDescriptor;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
 
 @SideOnly(Side.SERVER)
 public class BackupManager {

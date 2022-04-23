@@ -1,18 +1,12 @@
 package net.minecraft.client.renderer.texture;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
 import com.google.common.collect.Lists;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.StitcherException;
 import net.minecraft.util.MathHelper;
+
+import java.util.*;
 
 @SideOnly(Side.CLIENT)
 public class Stitcher {

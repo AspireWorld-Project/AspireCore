@@ -1,11 +1,5 @@
 package net.minecraft.block;
 
-import java.util.Random;
-
-import org.bukkit.block.BlockState;
-import org.bukkit.event.block.BlockFadeEvent;
-import org.bukkit.event.block.BlockSpreadEvent;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -16,6 +10,11 @@ import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import org.bukkit.block.BlockState;
+import org.bukkit.event.block.BlockFadeEvent;
+import org.bukkit.event.block.BlockSpreadEvent;
+
+import java.util.Random;
 
 public class BlockMycelium extends Block {
 	@SideOnly(Side.CLIENT)

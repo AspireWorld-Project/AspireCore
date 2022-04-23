@@ -1,7 +1,7 @@
 package org.ultramine.bukkit.injected.internal.permissions.c2b;
 
-import javax.annotation.Nullable;
-
+import net.milkbowl.vault.chat.Chat;
+import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Server;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.ultramine.bukkit.integration.permissions.b2c.SuperPermsReplacer;
@@ -10,8 +10,7 @@ import org.ultramine.core.service.ServiceBytecodeAdapter;
 import org.ultramine.core.service.ServiceDelegate;
 import org.ultramine.core.service.ServiceProviderLoader;
 
-import net.milkbowl.vault.chat.Chat;
-import net.milkbowl.vault.permission.Permission;
+import javax.annotation.Nullable;
 
 public class BukkitPermissionsServiceLoader implements ServiceProviderLoader<Permissions> {
 	private static SuperPermsReplacer superPermsReplacer = (SuperPermsReplacer) ServiceBytecodeAdapter

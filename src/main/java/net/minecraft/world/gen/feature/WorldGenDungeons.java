@@ -1,9 +1,5 @@
 package net.minecraft.world.gen.feature;
 
-import static net.minecraftforge.common.ChestGenHooks.DUNGEON_CHEST;
-
-import java.util.Random;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -12,7 +8,13 @@ import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ChestGenHooks;
-import net.minecraftforge.common.DungeonHooks;;
+import net.minecraftforge.common.DungeonHooks;
+
+import java.util.Random;
+
+import static net.minecraftforge.common.ChestGenHooks.DUNGEON_CHEST;
+
+;
 
 public class WorldGenDungeons extends WorldGenerator {
 	public static final WeightedRandomChestContent[] field_111189_a = new WeightedRandomChestContent[] {

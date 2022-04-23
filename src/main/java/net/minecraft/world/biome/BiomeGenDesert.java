@@ -1,10 +1,10 @@
 package net.minecraft.world.biome;
 
-import java.util.Random;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenDesertWells;
+
+import java.util.Random;
 
 public class BiomeGenDesert extends BiomeGenBase {
 	private static final String __OBFID = "CL_00000167";

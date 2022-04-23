@@ -1,5 +1,16 @@
 package net.minecraft.nbt;
 
+import net.minecraft.crash.CrashReport;
+import net.minecraft.crash.CrashReportCategory;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.ReportedException;
+import net.openhft.koloboke.collect.hash.HashConfig;
+import net.openhft.koloboke.collect.map.hash.HashObjObjMapFactory;
+import net.openhft.koloboke.collect.map.hash.HashObjObjMaps;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.ultramine.server.internal.LambdaHolder;
+
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
@@ -8,18 +19,6 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Callable;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.ultramine.server.internal.LambdaHolder;
-
-import net.minecraft.crash.CrashReport;
-import net.minecraft.crash.CrashReportCategory;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.ReportedException;
-import net.openhft.koloboke.collect.hash.HashConfig;
-import net.openhft.koloboke.collect.map.hash.HashObjObjMapFactory;
-import net.openhft.koloboke.collect.map.hash.HashObjObjMaps;
 
 public class NBTTagCompound extends NBTBase {
 	private static final Logger logger = LogManager.getLogger();

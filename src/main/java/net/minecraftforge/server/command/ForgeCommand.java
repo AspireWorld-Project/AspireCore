@@ -1,8 +1,5 @@
 package net.minecraftforge.server.command;
 
-import java.lang.ref.WeakReference;
-import java.text.DecimalFormat;
-
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
@@ -10,6 +7,9 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.server.ForgeTimeTracker;
+
+import java.lang.ref.WeakReference;
+import java.text.DecimalFormat;
 
 public class ForgeCommand extends CommandBase {
 

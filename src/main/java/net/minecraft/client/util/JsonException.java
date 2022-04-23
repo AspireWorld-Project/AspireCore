@@ -1,15 +1,13 @@
 package net.minecraft.client.util;
 
+import com.google.common.collect.Lists;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
-
-import org.apache.commons.lang3.StringUtils;
-
-import com.google.common.collect.Lists;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class JsonException extends IOException {

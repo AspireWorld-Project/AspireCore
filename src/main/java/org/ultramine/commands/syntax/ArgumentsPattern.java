@@ -1,9 +1,9 @@
 package org.ultramine.commands.syntax;
 
+import net.minecraft.command.CommandBase;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import net.minecraft.command.CommandBase;
 
 public class ArgumentsPattern {
 	private final List<IArgument> arguments;

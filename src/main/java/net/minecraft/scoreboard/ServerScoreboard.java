@@ -1,12 +1,5 @@
 package net.minecraft.scoreboard;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S3BPacketScoreboardObjective;
@@ -14,6 +7,8 @@ import net.minecraft.network.play.server.S3CPacketUpdateScore;
 import net.minecraft.network.play.server.S3DPacketDisplayScoreboard;
 import net.minecraft.network.play.server.S3EPacketTeams;
 import net.minecraft.server.MinecraftServer;
+
+import java.util.*;
 
 public class ServerScoreboard extends Scoreboard {
 	private final MinecraftServer scoreboardMCServer;

@@ -1,16 +1,14 @@
 package cpw.mods.fml.common.registry;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
-
-import org.apache.logging.log4j.Level;
-
 import com.google.common.base.Throwables;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.registry.GameRegistry.ItemStackHolder;
 import net.minecraft.item.ItemStack;
+import org.apache.logging.log4j.Level;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 
 /**
  * Internal class used in tracking {@link ItemStackHolder} references

@@ -1,11 +1,10 @@
 package org.bukkit.craftbukkit.entity;
 
+import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.EntityLivingBase;
 import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.entity.Creature;
 import org.bukkit.entity.LivingEntity;
-
-import net.minecraft.entity.EntityCreature;
-import net.minecraft.entity.EntityLivingBase;
 
 public class CraftCreature extends CraftLivingEntity implements Creature {
 	public CraftCreature(CraftServer server, EntityCreature entity) {

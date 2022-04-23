@@ -1,5 +1,11 @@
 package cpw.mods.fml.common.asm.transformers;
 
+import com.google.common.base.Charsets;
+import com.google.common.collect.Maps;
+import com.google.common.io.ByteSource;
+import com.google.common.io.CharSource;
+import cpw.mods.fml.relauncher.FMLRelaunchLog;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
@@ -7,13 +13,6 @@ import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
-
-import com.google.common.base.Charsets;
-import com.google.common.collect.Maps;
-import com.google.common.io.ByteSource;
-import com.google.common.io.CharSource;
-
-import cpw.mods.fml.relauncher.FMLRelaunchLog;
 
 public class ModAccessTransformer extends AccessTransformer {
 	private static Map<String, String> embedded = Maps.newHashMap(); // Needs to be primitive so that both classloaders

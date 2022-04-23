@@ -1,7 +1,5 @@
 package net.minecraft.block;
 
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -14,6 +12,8 @@ import net.minecraft.item.ItemLead;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class BlockFence extends Block {
 	private final String field_149827_a;

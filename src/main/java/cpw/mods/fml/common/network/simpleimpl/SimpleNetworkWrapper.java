@@ -1,9 +1,6 @@
 package cpw.mods.fml.common.network.simpleimpl;
 
-import java.util.EnumMap;
-
 import com.google.common.base.Throwables;
-
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.FMLEmbeddedChannel;
@@ -16,6 +13,8 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.Packet;
 import net.minecraft.tileentity.TileEntity;
+
+import java.util.EnumMap;
 
 /**
  * This class is a simplified netty wrapper for those not wishing to deal with

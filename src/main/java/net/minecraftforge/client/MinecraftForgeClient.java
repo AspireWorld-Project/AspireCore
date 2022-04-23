@@ -5,14 +5,13 @@
 
 package net.minecraftforge.client;
 
-import java.util.BitSet;
-import java.util.IdentityHashMap;
-
 import com.google.common.collect.Maps;
-
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer.ItemRenderType;
+
+import java.util.BitSet;
+import java.util.IdentityHashMap;
 
 public class MinecraftForgeClient {
 	private static IdentityHashMap<Item, IItemRenderer> customItemRenderers = Maps.newIdentityHashMap();

@@ -1,9 +1,8 @@
 package org.ultramine.server.util;
 
-import org.ultramine.server.chunk.ChunkMap;
-
 import net.minecraft.util.LongHashMap;
 import net.minecraft.world.chunk.Chunk;
+import org.ultramine.server.chunk.ChunkMap;
 
 public class VanillaChunkHashMap extends LongHashMap {
 	private final ChunkMap chunkMap;

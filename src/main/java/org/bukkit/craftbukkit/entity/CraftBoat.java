@@ -1,10 +1,9 @@
 package org.bukkit.craftbukkit.entity;
 
+import net.minecraft.entity.item.EntityBoat;
 import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.entity.Boat;
 import org.bukkit.entity.EntityType;
-
-import net.minecraft.entity.item.EntityBoat;
 
 public class CraftBoat extends CraftVehicle implements Boat {
 

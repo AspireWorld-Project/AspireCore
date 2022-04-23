@@ -1,11 +1,5 @@
 package net.minecraft.block;
 
-import java.util.List;
-import java.util.Random;
-
-import org.bukkit.Bukkit;
-import org.bukkit.event.entity.EntityPortalEnterEvent;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.MapColor;
@@ -19,6 +13,11 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import org.bukkit.Bukkit;
+import org.bukkit.event.entity.EntityPortalEnterEvent;
+
+import java.util.List;
+import java.util.Random;
 
 public class BlockEndPortal extends BlockContainer {
 	public static boolean field_149948_a;

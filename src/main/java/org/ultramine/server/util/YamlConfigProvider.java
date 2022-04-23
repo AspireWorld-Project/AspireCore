@@ -1,15 +1,5 @@
 package org.ultramine.server.util;
 
-import java.beans.IntrospectionException;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.util.Collection;
-import java.util.LinkedHashSet;
-import java.util.Set;
-
 import org.apache.commons.io.Charsets;
 import org.apache.commons.io.IOUtils;
 import org.yaml.snakeyaml.DumperOptions;
@@ -19,6 +9,12 @@ import org.yaml.snakeyaml.introspector.BeanAccess;
 import org.yaml.snakeyaml.introspector.Property;
 import org.yaml.snakeyaml.introspector.PropertyUtils;
 import org.yaml.snakeyaml.representer.Representer;
+
+import java.beans.IntrospectionException;
+import java.io.*;
+import java.util.Collection;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class YamlConfigProvider {
 	private static final Yaml YAML;

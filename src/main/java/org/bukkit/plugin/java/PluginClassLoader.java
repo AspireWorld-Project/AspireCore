@@ -1,11 +1,19 @@
 package org.bukkit.plugin.java;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import net.md_5.specialsource.JarMapping;
+import net.md_5.specialsource.JarRemapper;
+import net.md_5.specialsource.RemapperProcessor;
+import net.md_5.specialsource.provider.ClassLoaderProvider;
+import net.md_5.specialsource.repo.RuntimeRepo;
+import net.md_5.specialsource.transformer.MavenShade;
+import net.minecraft.server.MinecraftServer;
+import org.apache.commons.lang.Validate;
+import org.bukkit.plugin.InvalidPluginException;
+import org.bukkit.plugin.PluginDescriptionFile;
+import org.ultramine.bukkit.util.PluginClassRemapper;
+import org.ultramine.server.UltraminePlugin;
+
+import java.io.*;
 import java.net.JarURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -18,22 +26,6 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
-import org.apache.commons.lang.Validate;
-import org.bukkit.plugin.InvalidPluginException;
-import org.bukkit.plugin.PluginDescriptionFile;
-import org.ultramine.bukkit.util.PluginClassRemapper;
-import org.ultramine.server.UltraminePlugin;
-
-// Cauldron start
-
-import net.md_5.specialsource.JarMapping;
-import net.md_5.specialsource.JarRemapper;
-import net.md_5.specialsource.RemapperProcessor;
-import net.md_5.specialsource.provider.ClassLoaderProvider;
-import net.md_5.specialsource.repo.RuntimeRepo;
-import net.md_5.specialsource.transformer.MavenShade;
-import net.minecraft.server.MinecraftServer;
-
 //import org.bouncycastle.util.io.Streams;
 // Cauldron end
 
@@ -41,6 +33,10 @@ import net.minecraft.server.MinecraftServer;
  * A ClassLoader for plugins, to allow shared classes across multiple plugins
  */
 public class PluginClassLoader extends URLClassLoader {
+	public JavaPlugin getPlugin() {
+		return plugin;
+	} // Spigot
+
 	private final JavaPluginLoader loader;
 	private final ConcurrentMap<String, Class<?>> classes = new ConcurrentHashMap<>(); // Cauldron -
 																						// Threadsafe

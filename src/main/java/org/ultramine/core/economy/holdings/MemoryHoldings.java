@@ -1,16 +1,15 @@
 package org.ultramine.core.economy.holdings;
 
-import java.util.concurrent.atomic.AtomicLongFieldUpdater;
-import java.util.function.DoubleUnaryOperator;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.concurrent.ThreadSafe;
-
 import org.ultramine.core.economy.Currency;
 import org.ultramine.core.economy.account.Account;
 import org.ultramine.core.economy.exception.InsufficientFundsException;
 import org.ultramine.core.economy.exception.NegativeAmountException;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.concurrent.ThreadSafe;
+import java.util.concurrent.atomic.AtomicLongFieldUpdater;
+import java.util.function.DoubleUnaryOperator;
 
 @ThreadSafe
 public class MemoryHoldings implements Holdings {

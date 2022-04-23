@@ -1,15 +1,9 @@
 package cpw.mods.fml.common.network.internal;
 
-import java.io.IOException;
-
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.core.helpers.Integers;
-
 import com.google.common.collect.ConcurrentHashMultiset;
 import com.google.common.collect.Multiset;
 import com.google.common.collect.Multiset.Entry;
 import com.google.common.collect.Multisets;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.FMLNetworkException;
 import cpw.mods.fml.common.network.NetworkRegistry;
@@ -24,6 +18,10 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.client.C17PacketCustomPayload;
 import net.minecraft.network.play.server.S3FPacketCustomPayload;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.core.helpers.Integers;
+
+import java.io.IOException;
 
 public class FMLProxyPacket extends Packet {
 	final String channel;

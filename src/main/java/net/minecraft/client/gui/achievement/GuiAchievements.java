@@ -1,13 +1,5 @@
 package net.minecraft.client.gui.achievement;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
-
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
@@ -29,6 +21,13 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.AchievementPage;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
 
 @SideOnly(Side.CLIENT)
 public class GuiAchievements extends GuiScreen implements IProgressMeter {

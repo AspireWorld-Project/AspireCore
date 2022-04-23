@@ -1,26 +1,16 @@
 package net.minecraft.client.stream;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import tv.twitch.AuthToken;
+import tv.twitch.ErrorCode;
+import tv.twitch.chat.*;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import tv.twitch.AuthToken;
-import tv.twitch.ErrorCode;
-import tv.twitch.chat.Chat;
-import tv.twitch.chat.ChatChannelInfo;
-import tv.twitch.chat.ChatEvent;
-import tv.twitch.chat.ChatMessage;
-import tv.twitch.chat.ChatMessageList;
-import tv.twitch.chat.ChatTokenizedMessage;
-import tv.twitch.chat.ChatUserInfo;
-import tv.twitch.chat.ChatUserList;
-import tv.twitch.chat.IChatCallbacks;
-import tv.twitch.chat.StandardChatAPI;
 
 @SideOnly(Side.CLIENT)
 public class ChatController implements IChatCallbacks {

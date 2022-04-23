@@ -1,11 +1,8 @@
 package cpw.mods.fml.common.network;
 
-import java.util.List;
-
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
-
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import cpw.mods.fml.common.network.handshake.NetworkDispatcher;
@@ -18,6 +15,8 @@ import io.netty.channel.embedded.EmbeddedChannel;
 import io.netty.util.AttributeKey;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.NetworkManager;
+
+import java.util.List;
 
 public class FMLOutboundHandler extends ChannelOutboundHandlerAdapter {
 	public static final AttributeKey<OutboundTarget> FML_MESSAGETARGET = new AttributeKey<>("fml:outboundTarget");

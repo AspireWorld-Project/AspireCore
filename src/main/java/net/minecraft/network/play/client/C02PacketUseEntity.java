@@ -1,7 +1,5 @@
 package net.minecraft.network.play.client;
 
-import java.io.IOException;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
@@ -10,6 +8,8 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.INetHandlerPlayServer;
 import net.minecraft.world.World;
+
+import java.io.IOException;
 
 public class C02PacketUseEntity extends Packet {
 	private int field_149567_a;

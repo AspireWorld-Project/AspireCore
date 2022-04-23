@@ -1,34 +1,12 @@
 package net.minecraft.item;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
-import java.util.UUID;
-
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
-
 import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockDirt;
-import net.minecraft.block.BlockDoublePlant;
-import net.minecraft.block.BlockFlower;
-import net.minecraft.block.BlockNewLog;
-import net.minecraft.block.BlockOldLog;
-import net.minecraft.block.BlockQuartz;
-import net.minecraft.block.BlockSand;
-import net.minecraft.block.BlockSandStone;
-import net.minecraft.block.BlockSapling;
-import net.minecraft.block.BlockSilverfish;
-import net.minecraft.block.BlockStoneBrick;
-import net.minecraft.block.BlockWall;
-import net.minecraft.block.BlockWood;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.ScaledResolution;
@@ -46,15 +24,11 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionHelper;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.RegistryNamespaced;
-import net.minecraft.util.StatCollector;
-import net.minecraft.util.Vec3;
-import net.minecraft.util.WeightedRandomChestContent;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ChestGenHooks;
+
+import java.util.*;
 
 public class Item {
 	public static final RegistryNamespaced itemRegistry = GameData.getItemRegistry();

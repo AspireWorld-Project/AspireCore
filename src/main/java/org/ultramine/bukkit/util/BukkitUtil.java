@@ -1,5 +1,16 @@
 package org.ultramine.bukkit.util;
 
+import jline.internal.Nullable;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.command.server.CommandBlockLogic;
+import net.minecraft.entity.EntityMinecartCommandBlock;
+import net.minecraft.entity.item.EntityMinecartContainer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.*;
+import net.minecraft.network.rcon.RConConsoleSource;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.tileentity.TileEntity;
 import org.bukkit.Bukkit;
 import org.bukkit.block.BlockState;
 import org.bukkit.command.CommandSender;
@@ -15,23 +26,6 @@ import org.bukkit.inventory.InventoryHolder;
 import org.ultramine.server.event.WorldEventProxy;
 import org.ultramine.server.event.WorldUpdateObject;
 import org.ultramine.server.event.WorldUpdateObjectType;
-
-import jline.internal.Nullable;
-import net.minecraft.command.ICommandSender;
-import net.minecraft.command.server.CommandBlockLogic;
-import net.minecraft.entity.EntityMinecartCommandBlock;
-import net.minecraft.entity.item.EntityMinecartContainer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.AnimalChest;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.InventoryBasic;
-import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.inventory.InventoryEnderChest;
-import net.minecraft.inventory.InventoryMerchant;
-import net.minecraft.network.rcon.RConConsoleSource;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.tileentity.TileEntity;
 
 public class BukkitUtil {
 	public static net.minecraft.item.ItemStack[] getVanillaContents(IInventory inv) {

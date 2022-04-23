@@ -1,7 +1,5 @@
 package net.minecraft.network.play.server;
 
-import java.io.IOException;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.network.INetHandler;
@@ -11,6 +9,8 @@ import net.minecraft.network.play.INetHandlerPlayClient;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.WorldSettings;
 import net.minecraft.world.WorldType;
+
+import java.io.IOException;
 
 public class S01PacketJoinGame extends Packet {
 	private int field_149206_a;

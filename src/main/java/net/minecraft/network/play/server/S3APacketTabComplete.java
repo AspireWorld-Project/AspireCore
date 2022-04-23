@@ -1,15 +1,14 @@
 package net.minecraft.network.play.server;
 
-import java.io.IOException;
-
-import org.apache.commons.lang3.ArrayUtils;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.INetHandlerPlayClient;
+import org.apache.commons.lang3.ArrayUtils;
+
+import java.io.IOException;
 
 public class S3APacketTabComplete extends Packet {
 	private String[] field_149632_a;

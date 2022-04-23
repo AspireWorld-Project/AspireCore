@@ -1,8 +1,8 @@
 package net.minecraft.inventory;
 
-import java.util.List;
-
 import net.minecraft.item.ItemStack;
+
+import java.util.List;
 
 public interface ICrafting {
 	void sendContainerAndContentsToPlayer(Container p_71110_1_, List p_71110_2_);

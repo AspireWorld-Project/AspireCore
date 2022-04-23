@@ -1,17 +1,12 @@
 package net.minecraft.client.resources.data;
 
-import java.lang.reflect.Type;
-
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
-
+import com.google.gson.*;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.util.JsonUtils;
+
+import java.lang.reflect.Type;
 
 @SideOnly(Side.CLIENT)
 public class PackMetadataSectionSerializer extends BaseMetadataSectionSerializer implements JsonSerializer {

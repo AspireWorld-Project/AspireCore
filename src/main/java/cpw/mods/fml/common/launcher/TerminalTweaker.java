@@ -1,10 +1,10 @@
 package cpw.mods.fml.common.launcher;
 
-import java.io.File;
-import java.util.List;
-
 import net.minecraft.launchwrapper.ITweaker;
 import net.minecraft.launchwrapper.LaunchClassLoader;
+
+import java.io.File;
+import java.util.List;
 
 public final class TerminalTweaker implements ITweaker {
 	@Override

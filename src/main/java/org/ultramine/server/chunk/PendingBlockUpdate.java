@@ -1,7 +1,6 @@
 package org.ultramine.server.chunk;
 
 import com.mojang.authlib.GameProfile;
-
 import net.minecraft.block.Block;
 
 public class PendingBlockUpdate implements Comparable<PendingBlockUpdate> {

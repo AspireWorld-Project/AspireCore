@@ -12,24 +12,18 @@
 
 package cpw.mods.fml.common.discovery;
 
+import com.google.common.base.Throwables;
+import com.google.common.collect.Lists;
+import cpw.mods.fml.common.*;
+import cpw.mods.fml.common.discovery.asm.ASMModParser;
+import org.apache.logging.log4j.Level;
+
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
-
-import org.apache.logging.log4j.Level;
-
-import com.google.common.base.Throwables;
-import com.google.common.collect.Lists;
-
-import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.LoaderException;
-import cpw.mods.fml.common.MetadataCollection;
-import cpw.mods.fml.common.ModContainer;
-import cpw.mods.fml.common.ModContainerFactory;
-import cpw.mods.fml.common.discovery.asm.ASMModParser;
 
 public class DirectoryDiscoverer implements ITypeDiscoverer {
 	private class ClassFilter implements FileFilter {

@@ -1,8 +1,5 @@
 package net.minecraft.world;
 
-import java.util.Arrays;
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
@@ -19,6 +16,9 @@ import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerBiome;
 import net.minecraft.world.gen.layer.GenLayerBiomeEdge;
 import net.minecraft.world.gen.layer.GenLayerZoom;
+
+import java.util.Arrays;
+import java.util.Random;
 
 public class WorldType {
 	public static WorldType[] worldTypes = new WorldType[16];

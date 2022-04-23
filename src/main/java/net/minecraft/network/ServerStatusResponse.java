@@ -1,21 +1,14 @@
 package net.minecraft.network;
 
-import java.lang.reflect.Type;
-import java.util.UUID;
-
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
+import com.google.gson.*;
 import com.mojang.authlib.GameProfile;
-
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.util.JsonUtils;
+
+import java.lang.reflect.Type;
+import java.util.UUID;
 
 public class ServerStatusResponse {
 	private IChatComponent field_151326_a;

@@ -1,11 +1,11 @@
 package net.minecraftforge.event.terraingen;
 
-import java.util.Random;
-
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.MinecraftForge;
+
+import java.util.Random;
 
 public class DeferredBiomeDecorator extends BiomeDecorator {
 	private BiomeDecorator wrapped;

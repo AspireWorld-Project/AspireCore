@@ -1,15 +1,5 @@
 package net.minecraft.tileentity;
 
-import java.util.List;
-
-import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
-import org.bukkit.event.inventory.InventoryMoveItemEvent;
-import org.bukkit.event.inventory.InventoryPickupItemEvent;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.InventoryHolder;
-import org.ultramine.bukkit.util.BukkitUtil;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
 import net.minecraft.block.BlockHopper;
@@ -27,6 +17,15 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Facing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import org.bukkit.Bukkit;
+import org.bukkit.craftbukkit.inventory.CraftItemStack;
+import org.bukkit.event.inventory.InventoryMoveItemEvent;
+import org.bukkit.event.inventory.InventoryPickupItemEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryHolder;
+import org.ultramine.bukkit.util.BukkitUtil;
+
+import java.util.List;
 
 public class TileEntityHopper extends TileEntity implements IHopper {
 	private ItemStack[] field_145900_a = new ItemStack[5];

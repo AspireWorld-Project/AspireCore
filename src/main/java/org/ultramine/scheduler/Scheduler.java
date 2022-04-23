@@ -1,17 +1,15 @@
 package org.ultramine.scheduler;
 
-import java.util.List;
-import java.util.Queue;
-import java.util.concurrent.CopyOnWriteArrayList;
-
-import org.ultramine.scheduler.pattern.SchedulingPattern;
-
 import com.google.common.collect.Queues;
-
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.Phase;
+import org.ultramine.scheduler.pattern.SchedulingPattern;
+
+import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Scheduler {
 	private final List<ScheduledTask> tasks = new CopyOnWriteArrayList<>();

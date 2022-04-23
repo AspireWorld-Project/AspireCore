@@ -1,12 +1,11 @@
 package org.ultramine.server.data.player;
 
+import com.mojang.authlib.GameProfile;
+import org.ultramine.server.data.ServerDataLoader;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.ultramine.server.data.ServerDataLoader;
-
-import com.mojang.authlib.GameProfile;
 
 public class PlayerData {
 	private final ServerDataLoader loader;

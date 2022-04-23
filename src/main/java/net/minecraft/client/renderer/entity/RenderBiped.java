@@ -1,13 +1,7 @@
 package net.minecraft.client.renderer.entity;
 
-import java.util.Map;
-import java.util.UUID;
-
-import org.lwjgl.opengl.GL11;
-
 import com.google.common.collect.Maps;
 import com.mojang.authlib.GameProfile;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -26,6 +20,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTUtil;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StringUtils;
+import org.lwjgl.opengl.GL11;
+
+import java.util.Map;
+import java.util.UUID;
 
 @SideOnly(Side.CLIENT)
 public class RenderBiped extends RenderLiving {

@@ -1,14 +1,13 @@
 package net.minecraft.server.integrated;
 
-import java.net.SocketAddress;
-
 import com.mojang.authlib.GameProfile;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.management.ServerConfigurationManager;
+
+import java.net.SocketAddress;
 
 @SideOnly(Side.CLIENT)
 public class IntegratedPlayerList extends ServerConfigurationManager {

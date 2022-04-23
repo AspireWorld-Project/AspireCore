@@ -1,7 +1,5 @@
 package net.minecraft.network.login.server;
 
-import java.io.IOException;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.network.INetHandler;
@@ -9,6 +7,8 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.login.INetHandlerLoginClient;
 import net.minecraft.util.IChatComponent;
+
+import java.io.IOException;
 
 public class S00PacketDisconnect extends Packet {
 	private IChatComponent field_149605_a;

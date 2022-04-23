@@ -1,11 +1,5 @@
 package net.minecraft.block;
 
-import java.util.List;
-
-import org.bukkit.craftbukkit.block.CraftBlock;
-import org.bukkit.event.block.BlockPistonExtendEvent;
-import org.bukkit.event.block.BlockPistonRetractEvent;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -24,6 +18,11 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import org.bukkit.craftbukkit.block.CraftBlock;
+import org.bukkit.event.block.BlockPistonExtendEvent;
+import org.bukkit.event.block.BlockPistonRetractEvent;
+
+import java.util.List;
 
 public class BlockPistonBase extends Block {
 	private final boolean isSticky;

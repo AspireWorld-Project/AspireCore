@@ -3,7 +3,6 @@ package org.ultramine.server.chunk.alloc.unsafe;
 import org.ultramine.server.chunk.alloc.ChunkAllocService;
 import org.ultramine.server.chunk.alloc.MemSlot;
 import org.ultramine.server.util.UnsafeUtil;
-
 import sun.misc.Unsafe;
 
 abstract class AbstractUnsafeMemSlot implements MemSlot {

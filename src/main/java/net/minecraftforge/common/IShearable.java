@@ -1,9 +1,9 @@
 package net.minecraftforge.common;
 
-import java.util.ArrayList;
-
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
+
+import java.util.ArrayList;
 
 /**
  *

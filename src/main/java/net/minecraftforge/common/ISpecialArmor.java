@@ -5,14 +5,14 @@
 
 package net.minecraftforge.common;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * This interface is to be implemented by ItemArmor classes. It will allow to

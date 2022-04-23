@@ -1,13 +1,12 @@
 package net.minecraft.server.management;
 
-import java.io.File;
-import java.util.Iterator;
-
 import com.google.gson.JsonObject;
 import com.mojang.authlib.GameProfile;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
+import java.io.File;
+import java.util.Iterator;
 
 public class UserListWhitelist extends UserList {
 	private static final String __OBFID = "CL_00001871";

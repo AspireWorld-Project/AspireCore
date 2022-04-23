@@ -1,27 +1,12 @@
 package org.bukkit.plugin.java;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
-import java.util.logging.Level;
-import java.util.regex.Pattern;
-
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
+import com.google.common.collect.ImmutableList;
+import net.md_5.specialsource.InheritanceMap;
+import net.md_5.specialsource.JarMapping;
+import net.md_5.specialsource.transformer.MavenShade;
+import net.minecraft.launchwrapper.LaunchClassLoader;
 import org.apache.commons.lang.Validate;
 import org.bukkit.Server;
 import org.bukkit.Warning;
@@ -34,28 +19,21 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.server.PluginDisableEvent;
 import org.bukkit.event.server.PluginEnableEvent;
-import org.bukkit.plugin.AuthorNagException;
-import org.bukkit.plugin.EventExecutor;
-import org.bukkit.plugin.InvalidDescriptionException;
-import org.bukkit.plugin.InvalidPluginException;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.PluginDescriptionFile;
-import org.bukkit.plugin.PluginLoader;
-import org.bukkit.plugin.RegisteredListener;
-import org.bukkit.plugin.UnknownDependencyException;
+import org.bukkit.plugin.*;
 import org.ultramine.bukkit.EventImplProgress;
 import org.ultramine.bukkit.InjectedPluginClassLoader;
 import org.ultramine.bukkit.util.ClassGenUtils;
 import org.yaml.snakeyaml.error.YAMLException;
 
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
-import com.google.common.collect.ImmutableList;
-
-import net.md_5.specialsource.InheritanceMap;
-import net.md_5.specialsource.JarMapping;
-import net.md_5.specialsource.transformer.MavenShade;
-import net.minecraft.launchwrapper.LaunchClassLoader;
+import java.io.*;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.util.*;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
+import java.util.logging.Level;
+import java.util.regex.Pattern;
 
 /**
  * Represents a Java plugin loader, allowing plugins in the form of .jar
@@ -276,7 +254,7 @@ public final class JavaPluginLoader implements PluginLoader {
 
 	@Override
 	public Map<Class<? extends Event>, Set<RegisteredListener>> createRegisteredListeners(Listener listener,
-			final Plugin plugin) {
+																						  final Plugin plugin) {
 		Validate.notNull(plugin, "Plugin can not be null");
 		Validate.notNull(listener, "Listener can not be null");
 
@@ -331,12 +309,12 @@ public final class JavaPluginLoader implements PluginLoader {
 						break;
 					}
 					plugin.getLogger().log(Level.WARNING, String.format(
-							"\"%s\" has registered a listener for %s on method \"%s\", but the event is Deprecated."
-									+ " \"%s\"; please notify the authors %s.",
-							plugin.getDescription().getFullName(), clazz.getName(), method.toGenericString(),
-							warning != null && warning.reason().length() != 0 ? warning.reason()
-									: "Server performance will be affected",
-							Arrays.toString(plugin.getDescription().getAuthors().toArray())),
+									"\"%s\" has registered a listener for %s on method \"%s\", but the event is Deprecated."
+											+ " \"%s\"; please notify the authors %s.",
+									plugin.getDescription().getFullName(), clazz.getName(), method.toGenericString(),
+									warning != null && warning.reason().length() != 0 ? warning.reason()
+											: "Server performance will be affected",
+									Arrays.toString(plugin.getDescription().getAuthors().toArray())),
 							warningState == WarningState.ON ? new AuthorNagException(null) : null);
 					break;
 				}

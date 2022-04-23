@@ -12,18 +12,13 @@
 
 package cpw.mods.fml.client.config;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Map.Entry;
-
 import cpw.mods.fml.client.config.GuiConfigEntries.SelectValueEntry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiListExtended;
 import net.minecraft.client.renderer.Tessellator;
+
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * This class implements the scrolling list functionality of the GuiSelectString

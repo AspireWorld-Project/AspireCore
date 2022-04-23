@@ -1,10 +1,9 @@
 package org.bukkit.craftbukkit.entity;
 
+import net.minecraft.entity.item.EntityEnderCrystal;
 import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.entity.EnderCrystal;
 import org.bukkit.entity.EntityType;
-
-import net.minecraft.entity.item.EntityEnderCrystal;
 
 public class CraftEnderCrystal extends CraftEntity implements EnderCrystal {
 	public CraftEnderCrystal(CraftServer server, EntityEnderCrystal entity) {

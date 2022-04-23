@@ -6,7 +6,6 @@ import org.ultramine.core.economy.Currency;
 import org.ultramine.core.economy.account.Account;
 import org.ultramine.core.economy.holdings.Holdings;
 import org.ultramine.core.economy.service.DefaultCurrencyService;
-import org.ultramine.core.economy.service.Economy;
 import org.ultramine.core.economy.service.EconomyRegistry;
 import org.ultramine.core.service.InjectService;
 import org.ultramine.server.util.GlobalExecutors;

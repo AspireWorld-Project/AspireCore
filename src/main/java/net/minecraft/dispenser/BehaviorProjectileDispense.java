@@ -1,10 +1,5 @@
 package net.minecraft.dispenser;
 
-import org.bukkit.Material;
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
-import org.bukkit.event.block.BlockDispenseEvent;
-import org.bukkit.util.Vector;
-
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.IProjectile;
@@ -12,6 +7,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityDispenser;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
+import org.bukkit.Material;
+import org.bukkit.craftbukkit.inventory.CraftItemStack;
+import org.bukkit.event.block.BlockDispenseEvent;
+import org.bukkit.util.Vector;
 
 public abstract class BehaviorProjectileDispense extends BehaviorDefaultDispenseItem {
 	private static final String __OBFID = "CL_00001394";

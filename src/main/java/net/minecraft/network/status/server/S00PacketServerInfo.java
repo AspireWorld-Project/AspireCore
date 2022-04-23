@@ -1,10 +1,7 @@
 package net.minecraft.network.status.server;
 
-import java.io.IOException;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.network.INetHandler;
@@ -15,6 +12,8 @@ import net.minecraft.network.status.INetHandlerStatusClient;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.EnumTypeAdapterFactory;
 import net.minecraft.util.IChatComponent;
+
+import java.io.IOException;
 
 public class S00PacketServerInfo extends Packet {
 	private static final Gson field_149297_a = new GsonBuilder()

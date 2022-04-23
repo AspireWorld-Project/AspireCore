@@ -1,12 +1,5 @@
 package net.minecraft.block;
 
-import java.util.Random;
-
-import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-import org.bukkit.event.Cancellable;
-import org.bukkit.event.entity.EntityInteractEvent;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -20,6 +13,12 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
+import org.bukkit.Bukkit;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+import org.bukkit.event.Cancellable;
+import org.bukkit.event.entity.EntityInteractEvent;
+
+import java.util.Random;
 
 public class BlockFarmland extends Block {
 	@SideOnly(Side.CLIENT)

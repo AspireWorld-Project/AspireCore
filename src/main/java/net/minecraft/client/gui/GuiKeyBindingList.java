@@ -1,9 +1,5 @@
 package net.minecraft.client.gui;
 
-import java.util.Arrays;
-
-import org.apache.commons.lang3.ArrayUtils;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
@@ -12,6 +8,9 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.util.EnumChatFormatting;
+import org.apache.commons.lang3.ArrayUtils;
+
+import java.util.Arrays;
 
 @SideOnly(Side.CLIENT)
 public class GuiKeyBindingList extends GuiListExtended {

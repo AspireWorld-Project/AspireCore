@@ -1,9 +1,9 @@
 package org.ultramine.bukkit.api;
 
-import java.util.List;
-
 import org.bukkit.craftbukkit.entity.CraftHumanEntity;
 import org.bukkit.entity.HumanEntity;
+
+import java.util.List;
 
 public interface IInventoryTransactionProvider {
 	void onOpen(CraftHumanEntity who);

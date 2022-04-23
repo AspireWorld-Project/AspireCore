@@ -1,14 +1,13 @@
 package net.minecraft.network.login.client;
 
-import java.io.IOException;
-import java.util.UUID;
-
 import com.mojang.authlib.GameProfile;
-
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.login.INetHandlerLoginServer;
+
+import java.io.IOException;
+import java.util.UUID;
 
 public class C00PacketLoginStart extends Packet {
 	private GameProfile field_149305_a;

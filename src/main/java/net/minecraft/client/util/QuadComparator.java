@@ -1,9 +1,9 @@
 package net.minecraft.client.util;
 
-import java.util.Comparator;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.Comparator;
 
 @SideOnly(Side.CLIENT)
 public class QuadComparator implements Comparator {

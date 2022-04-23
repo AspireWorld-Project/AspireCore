@@ -1,7 +1,5 @@
 package net.minecraft.entity.passive;
 
-import java.util.ArrayList;
-
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -10,6 +8,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
+
+import java.util.ArrayList;
 
 public class EntityMooshroom extends EntityCow implements IShearable {
 	private static final String __OBFID = "CL_00001645";

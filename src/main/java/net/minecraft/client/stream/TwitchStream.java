@@ -1,23 +1,8 @@
 package net.minecraft.client.stream;
 
-import java.io.IOException;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.Marker;
-import org.apache.logging.log4j.MarkerManager;
-import org.apache.logging.log4j.core.helpers.Strings;
-import org.lwjgl.opengl.GL11;
-
 import com.google.common.collect.Maps;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
@@ -28,27 +13,27 @@ import net.minecraft.client.settings.GameSettings;
 import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.event.ClickEvent;
 import net.minecraft.event.HoverEvent;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.HttpUtil;
-import net.minecraft.util.IChatComponent;
-import net.minecraft.util.JsonUtils;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.Util;
+import net.minecraft.util.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.Marker;
+import org.apache.logging.log4j.MarkerManager;
+import org.apache.logging.log4j.core.helpers.Strings;
+import org.lwjgl.opengl.GL11;
 import tv.twitch.AuthToken;
 import tv.twitch.ErrorCode;
-import tv.twitch.broadcast.EncodingCpuUsage;
-import tv.twitch.broadcast.FrameBuffer;
-import tv.twitch.broadcast.GameInfo;
-import tv.twitch.broadcast.IngestList;
-import tv.twitch.broadcast.IngestServer;
-import tv.twitch.broadcast.StreamInfo;
-import tv.twitch.broadcast.VideoParams;
+import tv.twitch.broadcast.*;
 import tv.twitch.chat.ChatMessage;
 import tv.twitch.chat.ChatUserInfo;
 import tv.twitch.chat.ChatUserMode;
 import tv.twitch.chat.ChatUserSubscription;
+
+import java.io.IOException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
 
 @SideOnly(Side.CLIENT)
 public class TwitchStream implements BroadcastController.BroadcastListener, ChatController.ChatListener,

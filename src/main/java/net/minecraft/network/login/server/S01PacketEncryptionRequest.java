@@ -1,8 +1,5 @@
 package net.minecraft.network.login.server;
 
-import java.io.IOException;
-import java.security.PublicKey;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.network.INetHandler;
@@ -10,6 +7,9 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.login.INetHandlerLoginClient;
 import net.minecraft.util.CryptManager;
+
+import java.io.IOException;
+import java.security.PublicKey;
 
 public class S01PacketEncryptionRequest extends Packet {
 	private String field_149612_a;

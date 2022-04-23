@@ -1,5 +1,7 @@
 package org.bukkit.craftbukkit.entity;
 
+import net.minecraft.entity.projectile.EntityFireball;
+import net.minecraft.util.MathHelper;
 import org.apache.commons.lang.Validate;
 import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.entity.EntityType;
@@ -7,9 +9,6 @@ import org.bukkit.entity.Fireball;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.projectiles.ProjectileSource;
 import org.bukkit.util.Vector;
-
-import net.minecraft.entity.projectile.EntityFireball;
-import net.minecraft.util.MathHelper;
 
 public class CraftFireball extends AbstractProjectile implements Fireball {
 	public CraftFireball(CraftServer server, EntityFireball entity) {

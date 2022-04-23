@@ -1,15 +1,5 @@
 package net.minecraft.inventory;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-
-import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
-import org.bukkit.entity.Player;
-import org.bukkit.event.enchantment.EnchantItemEvent;
-import org.bukkit.event.enchantment.PrepareItemEnchantEvent;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.enchantment.EnchantmentData;
@@ -21,6 +11,15 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
+import org.bukkit.Bukkit;
+import org.bukkit.craftbukkit.inventory.CraftItemStack;
+import org.bukkit.entity.Player;
+import org.bukkit.event.enchantment.EnchantItemEvent;
+import org.bukkit.event.enchantment.PrepareItemEnchantEvent;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 public class ContainerEnchantment extends Container {
 	public IInventory tableInventory = new InventoryBasic("Enchant", true, 1) {

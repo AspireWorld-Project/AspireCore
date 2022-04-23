@@ -1,16 +1,15 @@
 package net.minecraftforge.server;
 
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMap.Builder;
+import com.google.common.collect.MapMaker;
+import net.minecraft.entity.Entity;
+import net.minecraft.tileentity.TileEntity;
+
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Map.Entry;
-
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableMap.Builder;
-import com.google.common.collect.MapMaker;
-
-import net.minecraft.entity.Entity;
-import net.minecraft.tileentity.TileEntity;
 
 public class ForgeTimeTracker {
 	public static boolean tileEntityTracking;

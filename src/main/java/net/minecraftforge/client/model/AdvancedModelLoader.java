@@ -1,17 +1,16 @@
 package net.minecraftforge.client.model;
 // TODO: Move this package to net.minecraftforge.model in 1.8
 
-import java.util.Collection;
-import java.util.Map;
-
 import com.google.common.collect.Maps;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.obj.ObjModelLoader;
 import net.minecraftforge.client.model.techne.TechneModelLoader;
+
+import java.util.Collection;
+import java.util.Map;
 
 /**
  * Common interface for advanced model loading from files, based on file suffix

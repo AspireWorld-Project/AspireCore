@@ -1,10 +1,10 @@
 package cpw.mods.fml.common;
 
+import com.google.common.base.Joiner;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-
-import com.google.common.base.Joiner;
 
 /**
  * @deprecated not a stable API, will break, don't use this yet

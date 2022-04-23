@@ -12,16 +12,15 @@
 
 package cpw.mods.fml.common.event;
 
+import cpw.mods.fml.common.LoaderState.ModState;
+import net.minecraft.command.CommandHandler;
+import net.minecraft.command.ICommand;
+import net.minecraft.server.MinecraftServer;
 import org.ultramine.commands.CommandRegistry;
 import org.ultramine.commands.IExtendedCommand;
 import org.ultramine.commands.syntax.ArgumentsPatternParser;
 import org.ultramine.commands.syntax.IArgumentCompletionHandler;
 import org.ultramine.commands.syntax.IArgumentValidationHandler;
-
-import cpw.mods.fml.common.LoaderState.ModState;
-import net.minecraft.command.CommandHandler;
-import net.minecraft.command.ICommand;
-import net.minecraft.server.MinecraftServer;
 
 public class FMLServerStartingEvent extends FMLStateEvent {
 

@@ -12,11 +12,11 @@
 
 package cpw.mods.fml.client.config;
 
-import java.util.List;
-import java.util.regex.Pattern;
-
 import cpw.mods.fml.client.config.GuiConfigEntries.IConfigEntry;
 import cpw.mods.fml.client.config.GuiEditArrayEntries.IArrayEntry;
+
+import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * This interface provides the information needed by GuiConfig and

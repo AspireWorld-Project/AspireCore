@@ -1,13 +1,5 @@
 package net.minecraft.block;
 
-import java.util.Random;
-
-import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-import org.bukkit.event.block.Action;
-import org.bukkit.event.entity.EntityInteractEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -19,6 +11,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import org.bukkit.Bukkit;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.EntityInteractEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
+
+import java.util.Random;
 
 public class BlockRedstoneOre extends Block {
 	private boolean field_150187_a;

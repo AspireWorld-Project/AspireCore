@@ -1,12 +1,12 @@
 package org.ultramine.server.event;
 
-import java.util.List;
-
 import cpw.mods.fml.common.eventhandler.Cancelable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityPotion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.event.entity.EntityEvent;
+
+import java.util.List;
 
 @Cancelable
 public class EntityPotionApplyEffectEvent extends EntityEvent {

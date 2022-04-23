@@ -1,10 +1,9 @@
 package net.minecraft.util;
 
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.Display;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.Display;
 
 @SideOnly(Side.CLIENT)
 public class MouseHelper {

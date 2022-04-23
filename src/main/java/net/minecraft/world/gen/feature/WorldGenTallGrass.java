@@ -1,9 +1,9 @@
 package net.minecraft.world.gen.feature;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class WorldGenTallGrass extends WorldGenerator {
 	private Block field_150522_a;

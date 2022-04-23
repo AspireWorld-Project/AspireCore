@@ -12,11 +12,11 @@
 
 package cpw.mods.fml.client;
 
-import java.io.File;
-
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
+
+import java.io.File;
 
 public class GuiBackupFailed extends GuiScreen {
 	private GuiScreen parent;

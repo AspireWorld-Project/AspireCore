@@ -1,8 +1,5 @@
 package net.minecraft.block;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -15,6 +12,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityFlowerPot;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class BlockFlowerPot extends BlockContainer {
 	private static final String __OBFID = "CL_00000247";

@@ -1,7 +1,6 @@
 package org.ultramine.server.economy;
 
-import javax.annotation.Nonnull;
-
+import net.minecraft.server.MinecraftServer;
 import org.ultramine.core.economy.Currency;
 import org.ultramine.core.economy.account.Account;
 import org.ultramine.core.economy.account.PlayerAccount;
@@ -12,7 +11,7 @@ import org.ultramine.core.economy.service.EconomyRegistry;
 import org.ultramine.core.service.InjectService;
 import org.ultramine.server.data.player.PlayerData;
 
-import net.minecraft.server.MinecraftServer;
+import javax.annotation.Nonnull;
 
 public class UMIntegratedPlayerHoldingsFactory implements HoldingsFactory {
 	@InjectService

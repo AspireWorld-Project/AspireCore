@@ -1,10 +1,10 @@
 package org.ultramine.server.bootstrap;
 
-import java.io.IOException;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import jline.console.ConsoleReader;
+
+import java.io.IOException;
 
 public class UMBootstrap {
 	private static boolean isJLine;

@@ -1,8 +1,8 @@
 package net.minecraftforge.client.model;
 
-import static cpw.mods.fml.relauncher.Side.CLIENT;
-
 import cpw.mods.fml.relauncher.SideOnly;
+
+import static cpw.mods.fml.relauncher.Side.CLIENT;
 
 public interface IModelCustom {
 	String getType();

@@ -1,5 +1,9 @@
 package org.ultramine.server.world.imprt;
 
+import org.apache.commons.compress.utils.IOUtils;
+import org.apache.commons.io.FileUtils;
+import org.ultramine.server.util.ZipUtil;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,10 +11,6 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-
-import org.apache.commons.compress.utils.IOUtils;
-import org.apache.commons.io.FileUtils;
-import org.ultramine.server.util.ZipUtil;
 
 public class ZipFileChunkLoader extends ImportChunkLoader {
 	private final ZipFile zip;

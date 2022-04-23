@@ -1,12 +1,12 @@
 package net.minecraft.tileentity;
 
-import java.util.Random;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+
+import java.util.Random;
 
 public class TileEntityDispenser extends TileEntity implements IInventory {
 	private ItemStack[] field_146022_i = new ItemStack[9];

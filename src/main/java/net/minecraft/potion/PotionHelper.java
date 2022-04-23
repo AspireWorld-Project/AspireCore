@@ -1,13 +1,9 @@
 package net.minecraft.potion;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.*;
 
 public class PotionHelper {
 	public static final String field_77924_a = null;

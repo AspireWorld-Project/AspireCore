@@ -1,7 +1,5 @@
 package net.minecraftforge.event.world;
 
-import java.util.List;
-
 import cpw.mods.fml.common.eventhandler.Cancelable;
 import cpw.mods.fml.common.eventhandler.Event;
 import net.minecraft.entity.Entity;
@@ -9,6 +7,8 @@ import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
+
+import java.util.List;
 
 /**
  * ExplosionEvent triggers when an explosion happens in the world.<br>

@@ -1,28 +1,8 @@
 package org.ultramine.bukkit;
 
-import java.io.File;
-import java.util.List;
-import java.util.Map;
-
-import org.bukkit.craftbukkit.CraftServer;
-import org.bukkit.plugin.PluginDescriptionFile;
-import org.ultramine.bukkit.api.BukkitRegistry;
-import org.ultramine.bukkit.handler.ChunkPopulateHandler;
-import org.ultramine.bukkit.handler.CoreEventHandler;
-import org.ultramine.bukkit.handler.EntityEventHandler;
-import org.ultramine.bukkit.handler.InternalEventHandler;
-import org.ultramine.bukkit.handler.PlayerEventHandler;
-import org.ultramine.bukkit.handler.WorldEventHandler;
-import org.ultramine.bukkit.integration.permissions.b2c.SuperPermsReplacer;
-import org.ultramine.bukkit.integration.permissions.b2c.SuperPermsReplacerImpl;
-import org.ultramine.core.service.InjectService;
-import org.ultramine.core.service.ServiceManager;
-import org.ultramine.server.UltraminePlugin;
-
 import com.google.common.collect.ImmutableList;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
-
 import cpw.mods.fml.common.DummyModContainer;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.LoadController;
@@ -35,6 +15,19 @@ import cpw.mods.fml.common.network.NetworkCheckHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import net.minecraftforge.common.MinecraftForge;
+import org.bukkit.craftbukkit.CraftServer;
+import org.bukkit.plugin.PluginDescriptionFile;
+import org.ultramine.bukkit.api.BukkitRegistry;
+import org.ultramine.bukkit.handler.*;
+import org.ultramine.bukkit.integration.permissions.b2c.SuperPermsReplacer;
+import org.ultramine.bukkit.integration.permissions.b2c.SuperPermsReplacerImpl;
+import org.ultramine.core.service.InjectService;
+import org.ultramine.core.service.ServiceManager;
+import org.ultramine.server.UltraminePlugin;
+
+import java.io.File;
+import java.util.List;
+import java.util.Map;
 
 public class UMBukkitImplMod extends DummyModContainer {
 	@InjectService

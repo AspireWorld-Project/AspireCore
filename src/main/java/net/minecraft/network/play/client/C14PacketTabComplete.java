@@ -1,13 +1,12 @@
 package net.minecraft.network.play.client;
 
-import java.io.IOException;
-
-import org.apache.commons.lang3.StringUtils;
-
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.INetHandlerPlayServer;
+import org.apache.commons.lang3.StringUtils;
+
+import java.io.IOException;
 
 public class C14PacketTabComplete extends Packet {
 	private String field_149420_a;

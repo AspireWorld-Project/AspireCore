@@ -12,10 +12,9 @@
 
 package cpw.mods.fml.common;
 
+import cpw.mods.fml.relauncher.FMLRelaunchLog;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
-
-import cpw.mods.fml.relauncher.FMLRelaunchLog;
 
 @SuppressWarnings("static-access")
 public class FMLLog {

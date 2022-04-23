@@ -1,13 +1,13 @@
 package net.minecraft.command.server;
 
-import java.util.List;
-import java.util.regex.Matcher;
-
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.SyntaxErrorException;
 import net.minecraft.command.WrongUsageException;
 import net.minecraft.server.MinecraftServer;
+
+import java.util.List;
+import java.util.regex.Matcher;
 
 public class CommandPardonIp extends CommandBase {
 	private static final String __OBFID = "CL_00000720";

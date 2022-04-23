@@ -1,9 +1,9 @@
 package org.ultramine.server.economy;
 
-import javax.annotation.Nonnull;
-
 import org.ultramine.core.economy.Currency;
 import org.ultramine.core.economy.service.DefaultCurrencyService;
+
+import javax.annotation.Nonnull;
 
 public class DefaultCurrencyServiceProvider implements DefaultCurrencyService {
 	private final Currency currency;

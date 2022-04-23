@@ -1,13 +1,13 @@
 package net.minecraftforge.event.entity.player;
 
-import static cpw.mods.fml.common.eventhandler.Event.Result.DEFAULT;
-import static cpw.mods.fml.common.eventhandler.Event.Result.DENY;
-
 import cpw.mods.fml.common.eventhandler.Cancelable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.ForgeEventFactory;
+
+import static cpw.mods.fml.common.eventhandler.Event.Result.DEFAULT;
+import static cpw.mods.fml.common.eventhandler.Event.Result.DENY;
 
 /**
  * PlayerInteractEvent is fired when a player interacts in some way. <br>

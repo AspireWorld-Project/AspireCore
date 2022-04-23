@@ -1,21 +1,14 @@
 package org.ultramine.commands;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import net.minecraft.command.ICommandSender;
+import net.minecraft.command.WrongUsageException;
+import net.minecraft.entity.player.EntityPlayer;
 import org.apache.commons.lang3.ArrayUtils;
 import org.ultramine.commands.syntax.ArgumentsPattern;
 import org.ultramine.core.permissions.Permissions;
 import org.ultramine.core.service.InjectService;
 
-import net.minecraft.command.ICommandSender;
-import net.minecraft.command.WrongUsageException;
-import net.minecraft.entity.player.EntityPlayer;
+import java.util.*;
 
 public class HandlerBasedCommand implements IExtendedCommand {
 	@InjectService

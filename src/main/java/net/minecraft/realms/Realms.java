@@ -1,15 +1,14 @@
 package net.minecraft.realms;
 
-import java.net.Proxy;
-import java.util.UUID;
-
 import com.mojang.authlib.GameProfile;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.Session;
 import net.minecraft.world.WorldSettings;
+
+import java.net.Proxy;
+import java.util.UUID;
 
 @SideOnly(Side.CLIENT)
 public class Realms {

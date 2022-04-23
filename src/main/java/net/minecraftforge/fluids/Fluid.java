@@ -1,13 +1,13 @@
 package net.minecraftforge.fluids;
 
-import java.util.Locale;
-
 import cpw.mods.fml.common.FMLLog;
 import net.minecraft.block.Block;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+
+import java.util.Locale;
 
 /**
  * Minecraft Forge Fluid Implementation

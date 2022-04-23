@@ -1,12 +1,11 @@
 package net.minecraft.client.gui;
 
-import org.lwjgl.input.Keyboard;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.world.storage.ISaveFormat;
 import net.minecraft.world.storage.WorldInfo;
+import org.lwjgl.input.Keyboard;
 
 @SideOnly(Side.CLIENT)
 public class GuiRenameWorld extends GuiScreen {

@@ -1,14 +1,5 @@
 package net.minecraft.world.gen.structure;
 
-import static net.minecraftforge.common.ChestGenHooks.STRONGHOLD_CORRIDOR;
-import static net.minecraftforge.common.ChestGenHooks.STRONGHOLD_CROSSING;
-import static net.minecraftforge.common.ChestGenHooks.STRONGHOLD_LIBRARY;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.nbt.NBTTagCompound;
@@ -17,6 +8,13 @@ import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ChestGenHooks;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
+
+import static net.minecraftforge.common.ChestGenHooks.*;
 
 public class StructureStrongholdPieces {
 	private static final StructureStrongholdPieces.PieceWeight[] pieceWeightArray = new StructureStrongholdPieces.PieceWeight[] {

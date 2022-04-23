@@ -1,25 +1,22 @@
 package cpw.mods.fml.common.eventhandler;
 
+import com.google.common.base.Preconditions;
+import com.google.common.base.Throwables;
+import com.google.common.collect.MapMaker;
+import com.google.common.reflect.TypeToken;
+import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.ModContainer;
+import net.minecraft.profiler.Profiler;
+import org.apache.logging.log4j.Level;
+
+import javax.annotation.Nonnull;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-
-import javax.annotation.Nonnull;
-
-import org.apache.logging.log4j.Level;
-
-import com.google.common.base.Preconditions;
-import com.google.common.base.Throwables;
-import com.google.common.collect.MapMaker;
-import com.google.common.reflect.TypeToken;
-
-import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.ModContainer;
-import net.minecraft.profiler.Profiler;
 
 public class EventBus implements IEventExceptionHandler {
 	private static int maxID = 0;

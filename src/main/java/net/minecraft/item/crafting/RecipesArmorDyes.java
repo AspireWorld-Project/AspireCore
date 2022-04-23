@@ -1,7 +1,5 @@
 package net.minecraft.item.crafting;
 
-import java.util.ArrayList;
-
 import net.minecraft.block.BlockColored;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.init.Items;
@@ -9,6 +7,8 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
 
 public class RecipesArmorDyes implements IRecipe {
 	private static final String __OBFID = "CL_00000079";

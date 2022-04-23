@@ -1,11 +1,10 @@
 package org.ultramine.bukkit.asm;
 
+import net.minecraft.launchwrapper.IClassTransformer;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.Opcodes;
 import org.ultramine.bukkit.asm.transformers.InventoryClassTransformer;
-
-import net.minecraft.launchwrapper.IClassTransformer;
 
 public class ASMTransformer implements IClassTransformer {
 	@Override

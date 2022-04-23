@@ -1,7 +1,5 @@
 package net.minecraft.client.network;
 
-import org.apache.commons.lang3.Validate;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.network.EnumConnectionState;
@@ -11,6 +9,7 @@ import net.minecraft.network.handshake.client.C00Handshake;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.NetHandlerLoginServer;
 import net.minecraft.util.IChatComponent;
+import org.apache.commons.lang3.Validate;
 
 @SideOnly(Side.CLIENT)
 public class NetHandlerHandshakeMemory implements INetHandlerHandshakeServer {

@@ -1,13 +1,13 @@
 
 package net.minecraftforge.fluids;
 
-import java.util.Random;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 /**
  * This is a cellular-automata based finite fluid block implementation.

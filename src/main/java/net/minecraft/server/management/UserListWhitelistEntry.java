@@ -1,9 +1,9 @@
 package net.minecraft.server.management;
 
-import java.util.UUID;
-
 import com.google.gson.JsonObject;
 import com.mojang.authlib.GameProfile;
+
+import java.util.UUID;
 
 public class UserListWhitelistEntry extends UserListEntry {
 	private static final String __OBFID = "CL_00001870";

@@ -1,16 +1,5 @@
 package net.minecraft.block;
 
-import static net.minecraftforge.common.util.ForgeDirection.EAST;
-import static net.minecraftforge.common.util.ForgeDirection.NORTH;
-import static net.minecraftforge.common.util.ForgeDirection.SOUTH;
-import static net.minecraftforge.common.util.ForgeDirection.UP;
-import static net.minecraftforge.common.util.ForgeDirection.WEST;
-
-import java.util.Random;
-
-import org.bukkit.Bukkit;
-import org.bukkit.event.block.BlockRedstoneEvent;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -19,6 +8,12 @@ import net.minecraft.util.Direction;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+import org.bukkit.Bukkit;
+import org.bukkit.event.block.BlockRedstoneEvent;
+
+import java.util.Random;
+
+import static net.minecraftforge.common.util.ForgeDirection.*;
 
 public class BlockTripWireHook extends Block {
 	private static final String __OBFID = "CL_00000329";

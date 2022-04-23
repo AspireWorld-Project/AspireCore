@@ -1,12 +1,5 @@
 package net.minecraft.world;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -21,6 +14,8 @@ import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.event.ForgeEventFactory;
+
+import java.util.*;
 
 public final class SpawnerAnimals {
 	private HashMap eligibleChunksForSpawning = new HashMap();

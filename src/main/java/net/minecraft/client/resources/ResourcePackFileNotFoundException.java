@@ -1,10 +1,10 @@
 package net.minecraft.client.resources;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 
 @SideOnly(Side.CLIENT)
 public class ResourcePackFileNotFoundException extends FileNotFoundException {

@@ -1,7 +1,5 @@
 package net.minecraft.world;
 
-import java.util.Iterator;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -9,6 +7,8 @@ import net.minecraft.network.play.server.S25PacketBlockBreakAnim;
 import net.minecraft.network.play.server.S28PacketEffect;
 import net.minecraft.network.play.server.S29PacketSoundEffect;
 import net.minecraft.server.MinecraftServer;
+
+import java.util.Iterator;
 
 public class WorldManager implements IWorldAccess {
 	private MinecraftServer mcServer;

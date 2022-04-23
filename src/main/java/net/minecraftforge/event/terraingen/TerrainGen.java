@@ -1,7 +1,5 @@
 package net.minecraftforge.event.terraingen;
 
-import java.util.Random;
-
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -12,6 +10,8 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
 import net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate;
+
+import java.util.Random;
 
 public abstract class TerrainGen {
 	public static NoiseGenerator[] getModdedNoiseGenerators(World world, Random rand, NoiseGenerator[] original) {

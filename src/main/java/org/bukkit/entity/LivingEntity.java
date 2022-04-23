@@ -1,15 +1,15 @@
 package org.bukkit.entity;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.projectiles.ProjectileSource;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
 
 /**
  * Represents a living entity, such as a monster or player

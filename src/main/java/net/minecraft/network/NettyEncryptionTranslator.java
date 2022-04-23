@@ -1,10 +1,10 @@
 package net.minecraft.network;
 
-import javax.crypto.Cipher;
-import javax.crypto.ShortBufferException;
-
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
+
+import javax.crypto.Cipher;
+import javax.crypto.ShortBufferException;
 
 public class NettyEncryptionTranslator {
 	private final Cipher field_150507_a;

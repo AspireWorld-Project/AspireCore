@@ -1,13 +1,11 @@
 package net.minecraft.client.util;
 
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL14;
-
 import com.google.gson.JsonObject;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.util.JsonUtils;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL14;
 
 @SideOnly(Side.CLIENT)
 public class JsonBlendingMode {

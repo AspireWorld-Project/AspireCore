@@ -1,21 +1,19 @@
 package net.minecraft.util;
 
+import com.google.common.base.Splitter;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Maps;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import org.apache.commons.io.Charsets;
+import org.apache.commons.io.IOUtils;
+
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.IllegalFormatException;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.regex.Pattern;
-
-import org.apache.commons.io.Charsets;
-import org.apache.commons.io.IOUtils;
-
-import com.google.common.base.Splitter;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Maps;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class StringTranslate {
 	private static final Pattern numericVariablePattern = Pattern.compile("%(\\d+\\$)?[\\d\\.]*[df]");

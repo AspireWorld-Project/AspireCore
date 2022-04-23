@@ -7,11 +7,7 @@ import org.apache.logging.log4j.core.config.plugins.Plugin;
 import org.apache.logging.log4j.core.config.plugins.PluginConfiguration;
 import org.apache.logging.log4j.core.config.plugins.PluginFactory;
 import org.apache.logging.log4j.core.impl.Log4jLogEvent;
-import org.apache.logging.log4j.message.Message;
-import org.apache.logging.log4j.message.MessageFormatMessage;
-import org.apache.logging.log4j.message.ParameterizedMessage;
-import org.apache.logging.log4j.message.SimpleMessage;
-import org.apache.logging.log4j.message.StringFormattedMessage;
+import org.apache.logging.log4j.message.*;
 
 @Plugin(name = "UMStripColorsRewritePolicy", category = "Core", elementType = "rewritePolicy", printObject = false)
 public class UMStripColorsRewritePolicy implements RewritePolicy {

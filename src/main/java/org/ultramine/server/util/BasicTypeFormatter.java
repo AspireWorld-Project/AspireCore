@@ -1,12 +1,8 @@
 package org.ultramine.server.util;
 
-import java.time.Duration;
+import net.minecraft.util.*;
 
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.ChatStyle;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.IChatComponent;
+import java.time.Duration;
 
 public class BasicTypeFormatter {
 	public static IChatComponent formatTime(Duration duration) {

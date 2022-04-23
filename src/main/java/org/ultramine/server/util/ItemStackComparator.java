@@ -1,8 +1,8 @@
 package org.ultramine.server.util;
 
-import java.util.Comparator;
-
 import net.minecraft.item.ItemStack;
+
+import java.util.Comparator;
 
 public class ItemStackComparator implements Comparator<ItemStack> {
 	public static final ItemStackComparator INSTANCE = new ItemStackComparator();

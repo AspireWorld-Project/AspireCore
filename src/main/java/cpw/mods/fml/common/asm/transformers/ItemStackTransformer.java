@@ -1,18 +1,12 @@
 package cpw.mods.fml.common.asm.transformers;
 
-import java.util.ListIterator;
-
+import net.minecraft.launchwrapper.IClassTransformer;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
-import org.objectweb.asm.tree.AbstractInsnNode;
-import org.objectweb.asm.tree.ClassNode;
-import org.objectweb.asm.tree.FieldInsnNode;
-import org.objectweb.asm.tree.FieldNode;
-import org.objectweb.asm.tree.MethodInsnNode;
-import org.objectweb.asm.tree.MethodNode;
+import org.objectweb.asm.tree.*;
 
-import net.minecraft.launchwrapper.IClassTransformer;
+import java.util.ListIterator;
 
 public class ItemStackTransformer implements IClassTransformer {
 	private static final String ITEM_TYPE = "Lnet/minecraft/item/Item;";

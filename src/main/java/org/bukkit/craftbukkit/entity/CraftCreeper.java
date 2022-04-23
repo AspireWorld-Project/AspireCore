@@ -1,11 +1,10 @@
 package org.bukkit.craftbukkit.entity;
 
+import net.minecraft.entity.monster.EntityCreeper;
 import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.entity.Creeper;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.entity.CreeperPowerEvent;
-
-import net.minecraft.entity.monster.EntityCreeper;
 
 public class CraftCreeper extends CraftMonster implements Creeper {
 

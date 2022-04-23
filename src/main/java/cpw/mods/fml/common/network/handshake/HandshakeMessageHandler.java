@@ -1,11 +1,10 @@
 package cpw.mods.fml.common.network.handshake;
 
-import org.apache.logging.log4j.Level;
-
 import cpw.mods.fml.common.FMLLog;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.AttributeKey;
+import org.apache.logging.log4j.Level;
 
 public class HandshakeMessageHandler<S extends Enum<S> & IHandshakeState<S>>
 		extends SimpleChannelInboundHandler<FMLHandshakeMessage> {

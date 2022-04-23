@@ -1,15 +1,5 @@
 package net.minecraft.block;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-
-import org.bukkit.Bukkit;
-import org.bukkit.event.block.BlockRedstoneEvent;
-import org.bukkit.plugin.PluginManager;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
@@ -17,6 +7,11 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import org.bukkit.Bukkit;
+import org.bukkit.event.block.BlockRedstoneEvent;
+import org.bukkit.plugin.PluginManager;
+
+import java.util.*;
 
 public class BlockRedstoneTorch extends BlockTorch {
 	private boolean field_150113_a;

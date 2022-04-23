@@ -1,7 +1,5 @@
 package net.minecraft.entity.item;
 
-import java.util.ArrayList;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
@@ -11,6 +9,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
 
 public class EntityPainting extends EntityHanging {
 	public EntityPainting.EnumArt art;

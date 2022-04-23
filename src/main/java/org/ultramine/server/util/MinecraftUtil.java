@@ -1,13 +1,13 @@
 package org.ultramine.server.util;
 
-import java.util.Arrays;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+
+import java.util.Arrays;
 
 public class MinecraftUtil {
 	// from ItemBoat

@@ -12,6 +12,13 @@
 
 package cpw.mods.fml.common;
 
+import com.google.common.collect.ImmutableList;
+import cpw.mods.fml.common.asm.transformers.ModAPITransformer;
+import cpw.mods.fml.common.discovery.ASMDataTable;
+import net.minecraft.launchwrapper.IClassTransformer;
+import net.minecraft.launchwrapper.LaunchClassLoader;
+import org.apache.logging.log4j.Level;
+
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
@@ -19,15 +26,6 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.List;
 import java.util.Set;
-
-import org.apache.logging.log4j.Level;
-
-import com.google.common.collect.ImmutableList;
-
-import cpw.mods.fml.common.asm.transformers.ModAPITransformer;
-import cpw.mods.fml.common.discovery.ASMDataTable;
-import net.minecraft.launchwrapper.IClassTransformer;
-import net.minecraft.launchwrapper.LaunchClassLoader;
 
 /**
  * A simple delegating class loader used to load mods into the system

@@ -1,16 +1,14 @@
 package org.ultramine.core.permissions;
 
-import javax.annotation.Nonnull;
-
-import org.ultramine.core.service.Service;
-import org.ultramine.server.world.WorldDescriptor;
-
 import com.mojang.authlib.GameProfile;
-
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
+import org.ultramine.core.service.Service;
+import org.ultramine.server.world.WorldDescriptor;
+
+import javax.annotation.Nonnull;
 
 @Service
 public interface Permissions {

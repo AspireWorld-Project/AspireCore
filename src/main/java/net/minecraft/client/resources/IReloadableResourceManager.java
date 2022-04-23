@@ -1,9 +1,9 @@
 package net.minecraft.client.resources;
 
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 @SideOnly(Side.CLIENT)
 public interface IReloadableResourceManager extends IResourceManager {

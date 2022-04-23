@@ -1,12 +1,12 @@
 package net.minecraft.util;
 
-import java.util.Random;
-
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityDispenser;
 import net.minecraftforge.common.ChestGenHooks;
+
+import java.util.Random;
 
 public class WeightedRandomChestContent extends WeightedRandom.Item {
 	public ItemStack theItemId;

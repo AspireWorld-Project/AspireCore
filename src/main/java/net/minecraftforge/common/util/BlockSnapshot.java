@@ -1,7 +1,5 @@
 package net.minecraftforge.common.util;
 
-import java.io.Serializable;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.GameRegistry.UniqueIdentifier;
 import net.minecraft.block.Block;
@@ -9,6 +7,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.DimensionManager;
+
+import java.io.Serializable;
 
 /**
  * Represents a captured snapshot of a block which will not change

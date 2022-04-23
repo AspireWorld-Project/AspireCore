@@ -1,9 +1,9 @@
 package net.minecraft.entity.ai;
 
+import net.minecraft.entity.passive.EntityAnimal;
+
 import java.util.Iterator;
 import java.util.List;
-
-import net.minecraft.entity.passive.EntityAnimal;
 
 public class EntityAIFollowParent extends EntityAIBase {
 	EntityAnimal childAnimal;

@@ -1,14 +1,13 @@
 package org.bukkit.craftbukkit.inventory;
 
-import java.util.Collections;
-import java.util.Iterator;
-
-import org.bukkit.inventory.Recipe;
-import org.ultramine.bukkit.util.CustomModRecipe;
-
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
+import org.bukkit.inventory.Recipe;
+import org.ultramine.bukkit.util.CustomModRecipe;
+
+import java.util.Collections;
+import java.util.Iterator;
 
 public class RecipeIterator implements Iterator<Recipe> {
 	private final Iterator<net.minecraft.item.crafting.IRecipe> recipes;

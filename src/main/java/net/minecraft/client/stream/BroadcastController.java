@@ -1,45 +1,19 @@
 package net.minecraft.client.stream;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.crash.CrashReportCategory;
 import net.minecraft.util.ReportedException;
 import net.minecraft.util.ThreadSafeBoundList;
-import tv.twitch.AuthToken;
-import tv.twitch.Core;
-import tv.twitch.ErrorCode;
-import tv.twitch.MessageLevel;
-import tv.twitch.StandardCoreAPI;
-import tv.twitch.VideoEncoder;
-import tv.twitch.broadcast.ArchivingState;
-import tv.twitch.broadcast.AudioDeviceType;
-import tv.twitch.broadcast.AudioParams;
-import tv.twitch.broadcast.ChannelInfo;
-import tv.twitch.broadcast.DesktopStreamAPI;
-import tv.twitch.broadcast.EncodingCpuUsage;
-import tv.twitch.broadcast.FrameBuffer;
-import tv.twitch.broadcast.GameInfo;
-import tv.twitch.broadcast.GameInfoList;
-import tv.twitch.broadcast.IStatCallbacks;
-import tv.twitch.broadcast.IStreamCallbacks;
-import tv.twitch.broadcast.IngestList;
-import tv.twitch.broadcast.IngestServer;
-import tv.twitch.broadcast.PixelFormat;
-import tv.twitch.broadcast.StartFlags;
-import tv.twitch.broadcast.StatType;
-import tv.twitch.broadcast.Stream;
-import tv.twitch.broadcast.StreamInfo;
-import tv.twitch.broadcast.StreamInfoForSetting;
-import tv.twitch.broadcast.UserInfo;
-import tv.twitch.broadcast.VideoParams;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import tv.twitch.*;
+import tv.twitch.broadcast.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @SideOnly(Side.CLIENT)
 public class BroadcastController implements IStatCallbacks, IStreamCallbacks {

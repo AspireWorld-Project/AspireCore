@@ -1,14 +1,5 @@
 package net.minecraft.entity.projectile;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-
-import org.bukkit.craftbukkit.entity.CraftLivingEntity;
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.event.entity.PotionSplashEvent;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,6 +11,14 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import org.bukkit.craftbukkit.entity.CraftLivingEntity;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+import org.bukkit.entity.LivingEntity;
+import org.bukkit.event.entity.PotionSplashEvent;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 
 public class EntityPotion extends EntityThrowable {
 	private ItemStack potionDamage;

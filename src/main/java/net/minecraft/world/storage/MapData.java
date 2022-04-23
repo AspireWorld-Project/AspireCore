@@ -1,12 +1,5 @@
 package net.minecraft.world.storage;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,6 +10,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagInt;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldSavedData;
+
+import java.util.*;
 
 public class MapData extends WorldSavedData {
 	public int xCenter;

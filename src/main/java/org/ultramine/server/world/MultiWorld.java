@@ -1,17 +1,5 @@
 package org.ultramine.server.world;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.ultramine.server.ConfigurationHandler;
-import org.ultramine.server.WorldsConfig.WorldConfig;
-import org.ultramine.server.util.BasicTypeParser;
-import org.ultramine.server.util.ConfigUtil;
-
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -36,6 +24,12 @@ import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.network.ForgeMessage;
 import net.minecraftforge.event.world.WorldEvent;
+import org.ultramine.server.ConfigurationHandler;
+import org.ultramine.server.WorldsConfig.WorldConfig;
+import org.ultramine.server.util.BasicTypeParser;
+import org.ultramine.server.util.ConfigUtil;
+
+import java.util.*;
 
 public class MultiWorld {
 	private final MinecraftServer server;

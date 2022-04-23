@@ -1,11 +1,5 @@
 package net.minecraft.world.gen.structure;
 
-import java.io.IOException;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirectional;
 import net.minecraft.block.material.Material;
@@ -21,6 +15,12 @@ import net.minecraft.util.Facing;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
+
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 public abstract class StructureComponent {
 	protected StructureBoundingBox boundingBox;

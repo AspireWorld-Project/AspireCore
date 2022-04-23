@@ -1,47 +1,5 @@
 package org.ultramine.commands.basic;
 
-import static net.minecraft.util.EnumChatFormatting.DARK_GREEN;
-import static net.minecraft.util.EnumChatFormatting.DARK_RED;
-import static net.minecraft.util.EnumChatFormatting.GOLD;
-import static net.minecraft.util.EnumChatFormatting.RED;
-import static net.minecraft.util.EnumChatFormatting.WHITE;
-import static net.minecraft.util.EnumChatFormatting.YELLOW;
-import static org.ultramine.server.world.WorldState.AVAILABLE;
-import static org.ultramine.server.world.WorldState.HELD;
-import static org.ultramine.server.world.WorldState.LOADED;
-import static org.ultramine.server.world.WorldState.UNREGISTERED;
-
-import java.io.File;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.CompletableFuture;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.ultramine.advanced.Chunker;
-import org.ultramine.commands.Command;
-import org.ultramine.commands.CommandContext;
-import org.ultramine.core.service.InjectService;
-import org.ultramine.server.BackupManager;
-import org.ultramine.server.BackupManager.BackupDescriptor;
-import org.ultramine.server.ConfigurationHandler;
-import org.ultramine.server.Restarter;
-import org.ultramine.server.Teleporter;
-import org.ultramine.server.UltramineServerConfig;
-import org.ultramine.server.UltramineServerModContainer;
-import org.ultramine.server.WorldsConfig.WorldConfig;
-import org.ultramine.server.WorldsConfig.WorldConfig.ImportFrom;
-import org.ultramine.server.chunk.ChunkProfiler;
-import org.ultramine.server.chunk.alloc.ChunkAllocService;
-import org.ultramine.server.util.BasicTypeParser;
-import org.ultramine.server.world.MultiWorld;
-import org.ultramine.server.world.WorldDescriptor;
-import org.ultramine.server.world.WorldState;
-import org.ultramine.server.world.imprt.ZipFileChunkLoader;
-
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.functions.GenericIterableFactory;
@@ -63,6 +21,30 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.chunk.Chunk;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.ultramine.advanced.Chunker;
+import org.ultramine.commands.Command;
+import org.ultramine.commands.CommandContext;
+import org.ultramine.core.service.InjectService;
+import org.ultramine.server.*;
+import org.ultramine.server.BackupManager.BackupDescriptor;
+import org.ultramine.server.WorldsConfig.WorldConfig;
+import org.ultramine.server.WorldsConfig.WorldConfig.ImportFrom;
+import org.ultramine.server.chunk.ChunkProfiler;
+import org.ultramine.server.chunk.alloc.ChunkAllocService;
+import org.ultramine.server.util.BasicTypeParser;
+import org.ultramine.server.world.MultiWorld;
+import org.ultramine.server.world.WorldDescriptor;
+import org.ultramine.server.world.WorldState;
+import org.ultramine.server.world.imprt.ZipFileChunkLoader;
+
+import java.io.File;
+import java.util.*;
+import java.util.concurrent.CompletableFuture;
+
+import static net.minecraft.util.EnumChatFormatting.*;
+import static org.ultramine.server.world.WorldState.*;
 
 public class TechCommands {
 	private static final Logger log = LogManager.getLogger();

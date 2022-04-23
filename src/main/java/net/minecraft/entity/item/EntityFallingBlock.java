@@ -1,10 +1,5 @@
 package net.minecraft.entity.item;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -21,6 +16,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class EntityFallingBlock extends Entity {
 	private Block field_145811_e;

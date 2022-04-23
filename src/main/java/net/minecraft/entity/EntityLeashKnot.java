@@ -1,10 +1,5 @@
 package net.minecraft.entity;
 
-import java.util.Iterator;
-import java.util.List;
-
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,6 +10,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.S1BPacketEntityAttach;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+
+import java.util.Iterator;
+import java.util.List;
 
 public class EntityLeashKnot extends EntityHanging {
 	private static final String __OBFID = "CL_00001548";

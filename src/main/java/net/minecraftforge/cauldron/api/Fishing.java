@@ -1,10 +1,9 @@
 package net.minecraftforge.cauldron.api;
 
-import java.util.Random;
-
+import com.google.common.base.Predicate;
 import org.bukkit.inventory.ItemStack;
 
-import com.google.common.base.Predicate;
+import java.util.Random;
 
 /**
  * Bukkit interface to Forge's FishingHooks class.

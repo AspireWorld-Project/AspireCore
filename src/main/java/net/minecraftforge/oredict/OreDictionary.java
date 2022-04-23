@@ -1,18 +1,6 @@
 package net.minecraftforge.oredict;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Map;
-
-import org.apache.logging.log4j.Level;
-
 import com.google.common.collect.Lists;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.eventhandler.Event;
@@ -33,6 +21,9 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraftforge.common.MinecraftForge;
+import org.apache.logging.log4j.Level;
+
+import java.util.*;
 
 public class OreDictionary {
 	private static boolean hasInit = false;

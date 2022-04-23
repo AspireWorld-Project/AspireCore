@@ -1,19 +1,17 @@
 package net.minecraftforge.common.network;
 
-import java.util.Map;
-import java.util.Set;
-
-import org.apache.logging.log4j.Level;
-
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import com.google.common.collect.Sets;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.ByteBufUtils;
 import io.netty.buffer.ByteBuf;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
+import org.apache.logging.log4j.Level;
+
+import java.util.Map;
+import java.util.Set;
 
 public abstract class ForgeMessage {
 	public static class DimensionRegisterMessage extends ForgeMessage {

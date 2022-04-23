@@ -1,19 +1,13 @@
 package org.ultramine.server.asm;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Nonnull;
-
+import net.minecraft.launchwrapper.IClassTransformer;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.ClassNode;
 
-import net.minecraft.launchwrapper.IClassTransformer;
+import javax.annotation.Nonnull;
+import java.util.*;
 
 public class UMTBatchTransformer implements IClassTransformer {
 	private static final boolean REPAIR_FRAMES = Boolean

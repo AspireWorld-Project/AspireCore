@@ -1,15 +1,5 @@
 package org.ultramine.server;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.annotation.Nullable;
-
-import org.ultramine.server.util.CachedEntry;
-import org.ultramine.server.util.CollectionUtil;
-import org.ultramine.server.util.ModificationControlList;
-
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import net.minecraft.inventory.InventoryCrafting;
@@ -18,6 +8,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
+import org.ultramine.server.util.CachedEntry;
+import org.ultramine.server.util.CollectionUtil;
+import org.ultramine.server.util.ModificationControlList;
+
+import javax.annotation.Nullable;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RecipeCache {
 	private static final int CACHE_SIZE = 12287;

@@ -1,14 +1,5 @@
 package net.minecraft.block;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-import org.bukkit.Bukkit;
-import org.bukkit.event.entity.EntityPortalEnterEvent;
-import org.bukkit.event.world.PortalCreateEvent;
-import org.ultramine.bukkit.util.BlockPortalPos;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -21,6 +12,14 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.Direction;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import org.bukkit.Bukkit;
+import org.bukkit.event.entity.EntityPortalEnterEvent;
+import org.bukkit.event.world.PortalCreateEvent;
+import org.ultramine.bukkit.util.BlockPortalPos;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class BlockPortal extends BlockBreakable {
 	public static final int[][] field_150001_a = new int[][] { new int[0], { 3, 1 }, { 2, 0 } };

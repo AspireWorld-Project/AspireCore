@@ -1,12 +1,5 @@
 package net.minecraft.block;
 
-import static net.minecraftforge.common.util.ForgeDirection.UP;
-
-import java.util.ArrayList;
-import java.util.Random;
-
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -19,6 +12,12 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+import static net.minecraftforge.common.util.ForgeDirection.UP;
 
 public class BlockStem extends BlockBush implements IGrowable {
 	private final Block field_149877_a;

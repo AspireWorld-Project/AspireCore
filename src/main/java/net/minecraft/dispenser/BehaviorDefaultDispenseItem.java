@@ -1,16 +1,15 @@
 package net.minecraft.dispenser;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
-import org.bukkit.event.block.BlockDispenseEvent;
-
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.craftbukkit.inventory.CraftItemStack;
+import org.bukkit.event.block.BlockDispenseEvent;
 
 public class BehaviorDefaultDispenseItem implements IBehaviorDispenseItem {
 	private static final String __OBFID = "CL_00001195";

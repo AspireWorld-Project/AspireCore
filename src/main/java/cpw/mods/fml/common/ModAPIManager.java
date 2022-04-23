@@ -1,15 +1,9 @@
 package cpw.mods.fml.common;
 
-import java.io.File;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-
 import cpw.mods.fml.common.asm.transformers.ModAPITransformer;
 import cpw.mods.fml.common.discovery.ASMDataTable;
 import cpw.mods.fml.common.discovery.ASMDataTable.ASMData;
@@ -19,6 +13,11 @@ import cpw.mods.fml.common.functions.ModIdFunction;
 import cpw.mods.fml.common.versioning.ArtifactVersion;
 import cpw.mods.fml.common.versioning.DefaultArtifactVersion;
 import cpw.mods.fml.common.versioning.VersionParser;
+
+import java.io.File;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class ModAPIManager {
 	public static final ModAPIManager INSTANCE = new ModAPIManager();

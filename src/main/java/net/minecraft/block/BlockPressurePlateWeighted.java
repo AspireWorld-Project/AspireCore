@@ -1,16 +1,15 @@
 package net.minecraft.block;
 
-import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-import org.bukkit.event.Cancellable;
-import org.bukkit.event.block.Action;
-import org.bukkit.event.entity.EntityInteractEvent;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import org.bukkit.Bukkit;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+import org.bukkit.event.Cancellable;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.EntityInteractEvent;
 
 public class BlockPressurePlateWeighted extends BlockBasePressurePlate {
 	private final int field_150068_a;

@@ -1,12 +1,12 @@
 package cpw.mods.fml.common.launcher;
 
-import java.io.File;
-import java.util.List;
-
 import cpw.mods.fml.relauncher.CoreModManager;
 import net.minecraft.launchwrapper.ITweaker;
 import net.minecraft.launchwrapper.Launch;
 import net.minecraft.launchwrapper.LaunchClassLoader;
+
+import java.io.File;
+import java.util.List;
 
 /**
  * This class is to manage the injection of coremods as tweakers into the tweak

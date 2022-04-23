@@ -5,13 +5,9 @@
 
 package net.minecraftforge.common;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
-
 import net.minecraft.stats.Achievement;
+
+import java.util.*;
 
 public class AchievementPage {
 	private String name;

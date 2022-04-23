@@ -1,12 +1,12 @@
 package net.minecraft.enchantment;
 
-import java.util.Random;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+
+import java.util.Random;
 
 public class EnchantmentThorns extends Enchantment {
 	private static final String __OBFID = "CL_00000122";

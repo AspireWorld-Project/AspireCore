@@ -1,11 +1,5 @@
 package net.minecraft.network.login.client;
 
-import java.io.IOException;
-import java.security.PrivateKey;
-import java.security.PublicKey;
-
-import javax.crypto.SecretKey;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.network.INetHandler;
@@ -13,6 +7,11 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.login.INetHandlerLoginServer;
 import net.minecraft.util.CryptManager;
+
+import javax.crypto.SecretKey;
+import java.io.IOException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 
 public class C01PacketEncryptionResponse extends Packet {
 	private byte[] field_149302_a = new byte[0];

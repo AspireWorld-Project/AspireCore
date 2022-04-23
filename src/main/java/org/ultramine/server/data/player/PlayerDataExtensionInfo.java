@@ -1,8 +1,8 @@
 package org.ultramine.server.data.player;
 
-import java.lang.reflect.Constructor;
-
 import net.minecraft.nbt.NBTTagCompound;
+
+import java.lang.reflect.Constructor;
 
 public class PlayerDataExtensionInfo {
 	private final Class<? extends PlayerDataExtension> clazz;

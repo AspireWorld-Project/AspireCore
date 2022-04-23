@@ -13,7 +13,6 @@
 package cpw.mods.fml.common.event;
 
 import com.google.common.collect.ListMultimap;
-
 import cpw.mods.fml.common.LoaderState.ModState;
 import cpw.mods.fml.common.ModClassLoader;
 import cpw.mods.fml.common.discovery.ASMDataTable;

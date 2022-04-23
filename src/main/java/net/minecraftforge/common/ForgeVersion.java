@@ -5,25 +5,17 @@
 
 package net.minecraftforge.common;
 
-import static net.minecraftforge.common.ForgeVersion.Status.AHEAD;
-import static net.minecraftforge.common.ForgeVersion.Status.BETA;
-import static net.minecraftforge.common.ForgeVersion.Status.BETA_OUTDATED;
-import static net.minecraftforge.common.ForgeVersion.Status.FAILED;
-import static net.minecraftforge.common.ForgeVersion.Status.OUTDATED;
-import static net.minecraftforge.common.ForgeVersion.Status.PENDING;
-import static net.minecraftforge.common.ForgeVersion.Status.UP_TO_DATE;
+import com.google.common.io.ByteStreams;
+import com.google.gson.Gson;
+import cpw.mods.fml.common.versioning.ArtifactVersion;
+import cpw.mods.fml.common.versioning.DefaultArtifactVersion;
+import org.ultramine.server.UltramineServerConfig;
 
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Map;
 
-import org.ultramine.server.UltramineServerConfig;
-
-import com.google.common.io.ByteStreams;
-import com.google.gson.Gson;
-
-import cpw.mods.fml.common.versioning.ArtifactVersion;
-import cpw.mods.fml.common.versioning.DefaultArtifactVersion;
+import static net.minecraftforge.common.ForgeVersion.Status.*;
 
 public class ForgeVersion {
 	// This number is incremented every time we remove deprecated code/major API

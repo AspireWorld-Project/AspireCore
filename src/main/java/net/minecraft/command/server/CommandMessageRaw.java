@@ -1,11 +1,6 @@
 package net.minecraft.command.server;
 
-import java.util.List;
-
-import org.apache.commons.lang3.exception.ExceptionUtils;
-
 import com.google.gson.JsonParseException;
-
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.SyntaxErrorException;
@@ -13,6 +8,9 @@ import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.IChatComponent;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+
+import java.util.List;
 
 public class CommandMessageRaw extends CommandBase {
 	private static final String __OBFID = "CL_00000667";

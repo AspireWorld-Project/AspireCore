@@ -1,21 +1,9 @@
 package cpw.mods.fml.common.registry;
 
-import java.util.ArrayList;
-import java.util.BitSet;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import org.apache.logging.log4j.Level;
-
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterators;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.functions.GenericIterableFactory;
 import cpw.mods.fml.common.registry.RegistryDelegate.Delegate;
@@ -24,6 +12,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ObjectIntIdentityMap;
 import net.minecraft.util.RegistryNamespaced;
+import org.apache.logging.log4j.Level;
+
+import java.util.*;
 
 public class FMLControlledNamespacedRegistry<I> extends RegistryNamespaced {
 	public static final boolean DEBUG = Boolean.parseBoolean(System.getProperty("fml.debugRegistryEntries", "false"));

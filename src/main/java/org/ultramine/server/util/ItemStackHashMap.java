@@ -1,17 +1,16 @@
 package org.ultramine.server.util;
 
-import java.util.Collection;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-
-import org.ultramine.server.internal.UMInternalRegistry;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.openhft.koloboke.collect.map.IntObjMap;
 import net.openhft.koloboke.collect.map.hash.HashIntObjMaps;
+import org.ultramine.server.internal.UMInternalRegistry;
+
+import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 public class ItemStackHashMap<V> implements Map<ItemStack, V>, UMInternalRegistry.IRemapHandler {
 	private final Map<ItemStack, V> map = new TreeMap<>(ItemStackComparator.INSTANCE);

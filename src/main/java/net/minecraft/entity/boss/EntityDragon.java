@@ -1,22 +1,8 @@
 package net.minecraft.entity.boss;
 
-import java.util.Iterator;
-import java.util.List;
-
-import org.bukkit.Bukkit;
-import org.bukkit.block.BlockState;
-import org.bukkit.craftbukkit.util.BlockStateListPopulator;
-import org.bukkit.event.entity.EntityCreatePortalEvent;
-import org.bukkit.event.entity.EntityRegainHealthEvent;
-import org.bukkit.event.entity.EntityTargetEvent;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEndPortal;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IEntityMultiPart;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.*;
 import net.minecraft.entity.item.EntityEnderCrystal;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.monster.IMob;
@@ -30,6 +16,15 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
+import org.bukkit.Bukkit;
+import org.bukkit.block.BlockState;
+import org.bukkit.craftbukkit.util.BlockStateListPopulator;
+import org.bukkit.event.entity.EntityCreatePortalEvent;
+import org.bukkit.event.entity.EntityRegainHealthEvent;
+import org.bukkit.event.entity.EntityTargetEvent;
+
+import java.util.Iterator;
+import java.util.List;
 
 public class EntityDragon extends EntityLiving implements IBossDisplayData, IEntityMultiPart, IMob {
 	public double targetX;

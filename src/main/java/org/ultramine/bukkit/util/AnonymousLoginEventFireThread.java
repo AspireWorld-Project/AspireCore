@@ -1,9 +1,8 @@
 package org.ultramine.bukkit.util;
 
+import net.minecraft.server.network.NetHandlerLoginServer;
 import org.bukkit.Bukkit;
 import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
-
-import net.minecraft.server.network.NetHandlerLoginServer;
 
 /**
  * This is an anonymous runnable

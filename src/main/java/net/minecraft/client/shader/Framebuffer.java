@@ -1,14 +1,13 @@
 package net.minecraft.client.shader;
 
-import java.nio.ByteBuffer;
-
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureUtil;
+import org.lwjgl.opengl.GL11;
+
+import java.nio.ByteBuffer;
 
 @SideOnly(Side.CLIENT)
 public class Framebuffer {

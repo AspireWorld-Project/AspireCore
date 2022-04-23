@@ -1,7 +1,5 @@
 package net.minecraft.entity.item;
 
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
@@ -11,6 +9,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProviderEnd;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
 
 public class EntityEnderCrystal extends Entity {
 	public int innerRotation;

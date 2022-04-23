@@ -1,12 +1,11 @@
 package net.minecraft.item;
 
-import org.bukkit.event.block.BlockIgniteEvent;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import org.bukkit.event.block.BlockIgniteEvent;
 
 public class ItemFireball extends Item {
 	private static final String __OBFID = "CL_00000029";

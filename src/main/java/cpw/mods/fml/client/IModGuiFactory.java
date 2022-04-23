@@ -1,11 +1,11 @@
 package cpw.mods.fml.client;
 
-import java.util.List;
-import java.util.Set;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiScreen;
+
+import java.util.List;
+import java.util.Set;
 
 public interface IModGuiFactory {
 	/**

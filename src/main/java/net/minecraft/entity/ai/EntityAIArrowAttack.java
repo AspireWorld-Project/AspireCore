@@ -1,13 +1,12 @@
 package net.minecraft.entity.ai;
 
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-import org.bukkit.event.entity.EntityTargetEvent;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.util.MathHelper;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+import org.bukkit.event.entity.EntityTargetEvent;
 
 public class EntityAIArrowAttack extends EntityAIBase {
 	private final EntityLiving entityHost;

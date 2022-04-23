@@ -12,10 +12,10 @@
 
 package cpw.mods.fml.common;
 
+import com.google.common.collect.SetMultimap;
+
 import java.io.File;
 import java.util.Map.Entry;
-
-import com.google.common.collect.SetMultimap;
 
 public class DuplicateModsFoundException extends LoaderException {
 	private static final long serialVersionUID = 1L;

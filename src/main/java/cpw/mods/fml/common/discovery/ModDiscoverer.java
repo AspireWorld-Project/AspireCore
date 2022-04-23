@@ -12,24 +12,22 @@
 
 package cpw.mods.fml.common.discovery;
 
-import java.io.File;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.apache.logging.log4j.Level;
-
 import com.google.common.base.Throwables;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.common.collect.ObjectArrays;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.LoaderException;
 import cpw.mods.fml.common.ModClassLoader;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.relauncher.CoreModManager;
 import cpw.mods.fml.relauncher.FileListHelper;
+import org.apache.logging.log4j.Level;
+
+import java.io.File;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ModDiscoverer {
 	private static Pattern zipJar = Pattern.compile("(.+).(zip|jar)$");

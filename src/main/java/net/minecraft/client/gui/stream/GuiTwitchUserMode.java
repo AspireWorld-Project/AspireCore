@@ -1,12 +1,6 @@
 package net.minecraft.client.gui.stream;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
 import com.google.common.collect.Lists;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.GuiButton;
@@ -20,6 +14,11 @@ import net.minecraft.util.IChatComponent;
 import tv.twitch.chat.ChatUserInfo;
 import tv.twitch.chat.ChatUserMode;
 import tv.twitch.chat.ChatUserSubscription;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 @SideOnly(Side.CLIENT)
 public class GuiTwitchUserMode extends GuiScreen {

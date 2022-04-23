@@ -1,11 +1,11 @@
 package net.minecraft.scoreboard;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class ScorePlayerTeam extends Team {
 	private final Scoreboard theScoreboard;

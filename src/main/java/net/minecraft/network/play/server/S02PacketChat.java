@@ -1,7 +1,5 @@
 package net.minecraft.network.play.server;
 
-import java.io.IOException;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -11,6 +9,8 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.INetHandlerPlayClient;
 import net.minecraft.util.IChatComponent;
+
+import java.io.IOException;
 
 public class S02PacketChat extends Packet
 {

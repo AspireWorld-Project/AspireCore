@@ -1,13 +1,13 @@
 package net.minecraft.network.play.client;
 
-import java.io.IOException;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.INetHandlerPlayServer;
+
+import java.io.IOException;
 
 public class C00PacketKeepAlive extends Packet {
 	private int field_149461_a;

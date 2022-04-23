@@ -12,14 +12,13 @@
  */
 package cpw.mods.fml.common;
 
-import java.util.Arrays;
-
-import org.apache.logging.log4j.Level;
-
 import cpw.mods.fml.common.asm.transformers.deobf.FMLDeobfuscatingRemapper;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import cpw.mods.fml.relauncher.ReflectionHelper.UnableToAccessFieldException;
 import cpw.mods.fml.relauncher.ReflectionHelper.UnableToFindFieldException;
+import org.apache.logging.log4j.Level;
+
+import java.util.Arrays;
 
 /**
  * Some reflection helper code.

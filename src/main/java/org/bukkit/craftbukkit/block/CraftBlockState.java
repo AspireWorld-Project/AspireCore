@@ -1,7 +1,8 @@
 package org.bukkit.craftbukkit.block;
 
-import java.util.List;
-
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.common.util.BlockSnapshot;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -14,9 +15,7 @@ import org.bukkit.material.MaterialData;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.plugin.Plugin;
 
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.common.util.BlockSnapshot;
+import java.util.List;
 
 // Cauldron start
 // Cauldron end

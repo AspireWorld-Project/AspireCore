@@ -1,10 +1,9 @@
 package net.minecraft.event;
 
-import java.util.Map;
-
 import com.google.common.collect.Maps;
-
 import net.minecraft.util.IChatComponent;
+
+import java.util.Map;
 
 public class HoverEvent {
 	private final HoverEvent.Action action;

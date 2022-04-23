@@ -1,16 +1,15 @@
 package net.minecraft.command;
 
+import net.minecraft.profiler.Profiler;
+import net.minecraft.server.MinecraftServer;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import net.minecraft.profiler.Profiler;
-import net.minecraft.server.MinecraftServer;
 
 public class CommandDebug extends CommandBase {
 	private static final Logger logger = LogManager.getLogger();

@@ -1,12 +1,12 @@
 package net.minecraft.world.gen.feature;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.Random;
 
 public abstract class WorldGenHugeTrees extends WorldGenAbstractTree {
 	protected final int baseHeight;

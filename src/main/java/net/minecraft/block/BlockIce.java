@@ -1,10 +1,5 @@
 package net.minecraft.block;
 
-import java.util.ArrayList;
-import java.util.Random;
-
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -18,6 +13,10 @@ import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class BlockIce extends BlockBreakable {
 	private static final String __OBFID = "CL_00000259";

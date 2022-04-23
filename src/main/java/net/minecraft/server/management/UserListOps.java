@@ -1,10 +1,10 @@
 package net.minecraft.server.management;
 
-import java.io.File;
-import java.util.Iterator;
-
 import com.google.gson.JsonObject;
 import com.mojang.authlib.GameProfile;
+
+import java.io.File;
+import java.util.Iterator;
 
 public class UserListOps extends UserList {
 	private static final String __OBFID = "CL_00001879";

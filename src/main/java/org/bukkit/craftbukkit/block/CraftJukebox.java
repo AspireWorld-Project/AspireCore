@@ -1,16 +1,15 @@
 package org.bukkit.craftbukkit.block;
 
+import net.minecraft.block.BlockJukebox;
+import net.minecraft.block.BlockJukebox.TileEntityJukebox;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.Jukebox;
 import org.bukkit.craftbukkit.CraftWorld;
 import org.bukkit.craftbukkit.util.CraftMagicNumbers;
-
-import net.minecraft.block.BlockJukebox;
-import net.minecraft.block.BlockJukebox.TileEntityJukebox;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 
 public class CraftJukebox extends CraftBlockState implements Jukebox {
 	private final CraftWorld world;

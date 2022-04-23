@@ -1,14 +1,12 @@
 package org.ultramine.core.economy.service;
 
-import javax.annotation.Nonnull;
-import javax.annotation.concurrent.ThreadSafe;
-
+import com.mojang.authlib.GameProfile;
+import net.minecraft.entity.player.EntityPlayerMP;
 import org.ultramine.core.economy.account.PlayerAccount;
 import org.ultramine.core.service.Service;
 
-import com.mojang.authlib.GameProfile;
-
-import net.minecraft.entity.player.EntityPlayerMP;
+import javax.annotation.Nonnull;
+import javax.annotation.concurrent.ThreadSafe;
 
 @Service
 @ThreadSafe

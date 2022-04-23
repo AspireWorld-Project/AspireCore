@@ -1,7 +1,6 @@
 package net.minecraftforge.event.world;
 
 import com.google.common.base.Preconditions;
-
 import cpw.mods.fml.common.eventhandler.Cancelable;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;

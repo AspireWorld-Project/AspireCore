@@ -1,12 +1,6 @@
 package cpw.mods.fml.common.network.internal;
 
-import java.io.IOException;
-import java.util.List;
-
-import org.apache.logging.log4j.Level;
-
 import com.google.common.base.Throwables;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.network.ByteBufUtils;
@@ -21,6 +15,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.MathHelper;
+import org.apache.logging.log4j.Level;
+
+import java.io.IOException;
+import java.util.List;
 
 public abstract class FMLMessage {
 	public static class CompleteHandshake extends FMLMessage {

@@ -1,9 +1,6 @@
 package cpw.mods.fml.common.network.internal;
 
-import org.apache.logging.log4j.Level;
-
 import com.google.common.base.Throwables;
-
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
@@ -21,6 +18,7 @@ import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.world.World;
+import org.apache.logging.log4j.Level;
 
 public class EntitySpawnHandler extends SimpleChannelInboundHandler<FMLMessage.EntityMessage> {
 	@Override

@@ -1,10 +1,7 @@
 package org.ultramine.bukkit.injected.internal.economy;
 
-import java.util.function.DoubleUnaryOperator;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import net.milkbowl.vault.economy.Economy;
+import net.milkbowl.vault.economy.EconomyResponse;
 import org.bukkit.OfflinePlayer;
 import org.ultramine.core.economy.Currency;
 import org.ultramine.core.economy.account.Account;
@@ -14,8 +11,9 @@ import org.ultramine.core.economy.exception.InsufficientFundsException;
 import org.ultramine.core.economy.exception.NegativeAmountException;
 import org.ultramine.core.economy.holdings.Holdings;
 
-import net.milkbowl.vault.economy.Economy;
-import net.milkbowl.vault.economy.EconomyResponse;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.function.DoubleUnaryOperator;
 
 public class VaultEconomyPlayerHoldings implements Holdings {
 	private final Economy economy;

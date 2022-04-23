@@ -1,12 +1,11 @@
 package org.bukkit.craftbukkit.entity;
 
+import net.minecraft.entity.boss.EntityDragonPart;
 import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.entity.EnderDragon;
 import org.bukkit.entity.EnderDragonPart;
 import org.bukkit.entity.Entity;
 import org.bukkit.util.NumberConversions;
-
-import net.minecraft.entity.boss.EntityDragonPart;
 
 public class CraftEnderDragonPart extends CraftComplexPart implements EnderDragonPart {
 	public CraftEnderDragonPart(CraftServer server, EntityDragonPart entity) {

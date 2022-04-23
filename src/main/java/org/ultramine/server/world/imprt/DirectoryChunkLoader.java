@@ -1,9 +1,9 @@
 package org.ultramine.server.world.imprt;
 
+import org.apache.commons.io.FileUtils;
+
 import java.io.File;
 import java.io.IOException;
-
-import org.apache.commons.io.FileUtils;
 
 public class DirectoryChunkLoader extends ImportChunkLoader {
 	private final File fromDir;

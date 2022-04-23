@@ -1,10 +1,5 @@
 package net.minecraft.entity.effect;
 
-import java.util.List;
-
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-import org.ultramine.bukkit.util.LightningEffectSwitcher;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
@@ -14,6 +9,10 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+import org.ultramine.bukkit.util.LightningEffectSwitcher;
+
+import java.util.List;
 
 public class EntityLightningBolt extends EntityWeatherEffect {
 	private int lightningState;

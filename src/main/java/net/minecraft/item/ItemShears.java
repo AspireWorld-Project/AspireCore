@@ -1,12 +1,5 @@
 package net.minecraft.item;
 
-import java.util.ArrayList;
-import java.util.Random;
-
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerShearEntityEvent;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -19,6 +12,12 @@ import net.minecraft.init.Blocks;
 import net.minecraft.stats.StatList;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerShearEntityEvent;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class ItemShears extends Item {
 	private static final String __OBFID = "CL_00000062";

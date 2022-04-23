@@ -1,11 +1,5 @@
 package net.minecraft.world.gen.structure;
 
-import static net.minecraftforge.common.ChestGenHooks.PYRAMID_DESERT_CHEST;
-import static net.minecraftforge.common.ChestGenHooks.PYRAMID_JUNGLE_CHEST;
-import static net.minecraftforge.common.ChestGenHooks.PYRAMID_JUNGLE_DISPENSER;
-
-import java.util.Random;
-
 import net.minecraft.block.BlockLever;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.monster.EntityWitch;
@@ -16,6 +10,10 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ChestGenHooks;
+
+import java.util.Random;
+
+import static net.minecraftforge.common.ChestGenHooks.*;
 
 public class ComponentScatteredFeaturePieces {
 	private static final String __OBFID = "CL_00000473";

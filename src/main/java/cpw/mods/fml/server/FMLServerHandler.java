@@ -12,19 +12,8 @@
  */
 package cpw.mods.fml.server;
 
-import java.io.File;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
 import com.google.common.collect.ImmutableList;
-
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.IFMLSidedHandler;
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.ModContainer;
-import cpw.mods.fml.common.StartupQuery;
+import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.eventhandler.EventBus;
 import cpw.mods.fml.common.functions.GenericIterableFactory;
 import cpw.mods.fml.common.network.FMLNetworkEvent;
@@ -37,6 +26,11 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.dedicated.DedicatedServer;
 import net.minecraft.world.storage.SaveFormatOld;
+
+import java.io.File;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Handles primary communication from hooked code into the system

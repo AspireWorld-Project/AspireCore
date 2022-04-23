@@ -1,9 +1,5 @@
 package net.minecraft.block;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -12,6 +8,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
 
 public class BlockDeadBush extends BlockBush implements IShearable {
 	private static final String __OBFID = "CL_00000224";

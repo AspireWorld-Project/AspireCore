@@ -1,8 +1,5 @@
 package net.minecraft.entity.monster;
 
-import org.apache.commons.lang3.tuple.ImmutablePair;
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSilverfish;
 import net.minecraft.entity.Entity;
@@ -16,6 +13,8 @@ import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.Facing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
 
 public class EntitySilverfish extends EntityMob {
 	private int allySummonCooldown;

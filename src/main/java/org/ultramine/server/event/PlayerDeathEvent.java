@@ -1,11 +1,11 @@
 package org.ultramine.server.event;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IChatComponent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+
+import javax.annotation.Nullable;
 
 public class PlayerDeathEvent extends PlayerEvent {
 	public final DamageSource damageSource;

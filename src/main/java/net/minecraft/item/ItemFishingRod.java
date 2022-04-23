@@ -1,9 +1,5 @@
 package net.minecraft.item;
 
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Fish;
-import org.bukkit.event.player.PlayerFishEvent;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -12,6 +8,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityFishHook;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Fish;
+import org.bukkit.event.player.PlayerFishEvent;
 
 public class ItemFishingRod extends Item {
 	@SideOnly(Side.CLIENT)

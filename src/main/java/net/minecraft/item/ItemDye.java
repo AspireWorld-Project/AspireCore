@@ -1,9 +1,5 @@
 package net.minecraft.item;
 
-import java.util.List;
-
-import org.bukkit.event.entity.SheepDyeWoolEvent;
-
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -25,6 +21,9 @@ import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.event.entity.player.BonemealEvent;
+import org.bukkit.event.entity.SheepDyeWoolEvent;
+
+import java.util.List;
 
 public class ItemDye extends Item {
 	public static final String[] field_150923_a = new String[] { "black", "red", "green", "brown", "blue", "purple",

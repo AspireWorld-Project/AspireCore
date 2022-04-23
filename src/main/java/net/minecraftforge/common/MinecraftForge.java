@@ -1,9 +1,6 @@
 package net.minecraftforge.common;
 
-import java.util.concurrent.Callable;
-
 import com.google.common.collect.ObjectArrays;
-
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
@@ -14,6 +11,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.ForgeHooks.SeedEntry;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.concurrent.Callable;
 
 public class MinecraftForge {
 	/**

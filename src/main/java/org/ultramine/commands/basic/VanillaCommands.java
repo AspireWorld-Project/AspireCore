@@ -1,21 +1,5 @@
 package org.ultramine.commands.basic;
 
-import static net.minecraft.util.EnumChatFormatting.DARK_AQUA;
-import static net.minecraft.util.EnumChatFormatting.DARK_GRAY;
-import static net.minecraft.util.EnumChatFormatting.GOLD;
-import static net.minecraft.util.EnumChatFormatting.YELLOW;
-
-import java.util.List;
-
-import org.apache.commons.lang3.StringUtils;
-import org.ultramine.commands.Command;
-import org.ultramine.commands.CommandContext;
-import org.ultramine.commands.IExtendedCommand;
-import org.ultramine.core.permissions.Permissions;
-import org.ultramine.core.service.InjectService;
-import org.ultramine.server.Teleporter;
-import org.ultramine.server.util.BasicTypeParser;
-
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.event.ClickEvent;
@@ -29,6 +13,18 @@ import net.minecraft.world.GameRules;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.storage.WorldInfo;
 import net.minecraftforge.common.ForgeHooks;
+import org.apache.commons.lang3.StringUtils;
+import org.ultramine.commands.Command;
+import org.ultramine.commands.CommandContext;
+import org.ultramine.commands.IExtendedCommand;
+import org.ultramine.core.permissions.Permissions;
+import org.ultramine.core.service.InjectService;
+import org.ultramine.server.Teleporter;
+import org.ultramine.server.util.BasicTypeParser;
+
+import java.util.List;
+
+import static net.minecraft.util.EnumChatFormatting.*;
 
 public class VanillaCommands {
 	@InjectService

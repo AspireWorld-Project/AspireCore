@@ -1,8 +1,8 @@
 package org.bukkit.craftbukkit.map;
 
-import java.util.ArrayList;
-
 import org.bukkit.map.MapCursor;
+
+import java.util.ArrayList;
 
 public class RenderData {
 

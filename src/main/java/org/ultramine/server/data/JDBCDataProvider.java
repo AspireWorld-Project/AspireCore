@@ -1,20 +1,12 @@
 package org.ultramine.server.data;
 
-import java.io.ByteArrayInputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-
-import javax.sql.DataSource;
-
+import com.mojang.authlib.GameProfile;
+import gnu.trove.TCollections;
+import gnu.trove.map.TObjectIntMap;
+import gnu.trove.map.hash.TObjectIntHashMap;
+import net.minecraft.nbt.CompressedStreamTools;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.server.management.ServerConfigurationManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.ultramine.server.ConfigurationHandler;
@@ -24,14 +16,10 @@ import org.ultramine.server.data.player.PlayerDataExtensionInfo;
 import org.ultramine.server.util.GlobalExecutors;
 import org.ultramine.server.util.WarpLocation;
 
-import com.mojang.authlib.GameProfile;
-
-import gnu.trove.TCollections;
-import gnu.trove.map.TObjectIntMap;
-import gnu.trove.map.hash.TObjectIntHashMap;
-import net.minecraft.nbt.CompressedStreamTools;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.server.management.ServerConfigurationManager;
+import javax.sql.DataSource;
+import java.io.ByteArrayInputStream;
+import java.sql.*;
+import java.util.*;
 
 public class JDBCDataProvider implements IDataProvider {
 	private static final Logger log = LogManager.getLogger();

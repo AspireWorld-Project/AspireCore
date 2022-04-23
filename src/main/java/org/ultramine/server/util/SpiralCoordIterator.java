@@ -1,9 +1,9 @@
 package org.ultramine.server.util;
 
+import net.minecraft.world.ChunkCoordIntPair;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-
-import net.minecraft.world.ChunkCoordIntPair;
 
 public class SpiralCoordIterator implements Iterator<ChunkCoordIntPair> {
 	private final int baseX;

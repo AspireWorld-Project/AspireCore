@@ -1,13 +1,12 @@
 package org.ultramine.server.world.load;
 
-import org.ultramine.server.world.WorldDescriptor;
-
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.WorldSettings;
 import net.minecraft.world.storage.ISaveFormat;
 import net.minecraft.world.storage.ISaveHandler;
 import net.minecraft.world.storage.WorldInfo;
+import org.ultramine.server.world.WorldDescriptor;
 
 public class OverworldLoader extends AbstractWorldLoader {
 	public OverworldLoader(WorldDescriptor desc, MinecraftServer server) {

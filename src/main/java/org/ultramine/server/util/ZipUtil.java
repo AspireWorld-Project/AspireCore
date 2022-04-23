@@ -1,29 +1,14 @@
 package org.ultramine.server.util;
 
-import java.io.BufferedOutputStream;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import com.google.common.base.Function;
+import org.apache.commons.io.IOUtils;
+
+import java.io.*;
 import java.net.URI;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Deque;
-import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Set;
+import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
-
-import org.apache.commons.io.IOUtils;
-
-import com.google.common.base.Function;
 
 public class ZipUtil {
 	public static void zip(File zipfile, File directory) throws IOException {

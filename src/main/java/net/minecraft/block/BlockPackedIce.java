@@ -1,9 +1,9 @@
 package net.minecraft.block;
 
-import java.util.Random;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+
+import java.util.Random;
 
 public class BlockPackedIce extends Block {
 	private static final String __OBFID = "CL_00000283";

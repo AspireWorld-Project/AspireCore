@@ -1,13 +1,5 @@
 package org.ultramine.server.economy;
 
-import java.util.Collection;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.concurrent.ThreadSafe;
-
 import org.ultramine.core.economy.Currency;
 import org.ultramine.core.economy.holdings.HoldingsFactory;
 import org.ultramine.core.economy.service.DefaultCurrencyService;
@@ -16,6 +8,13 @@ import org.ultramine.core.service.InjectService;
 import org.ultramine.core.service.ServiceManager;
 import org.ultramine.core.util.Undoable;
 import org.ultramine.core.util.UndoableValue;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.concurrent.ThreadSafe;
+import java.util.Collection;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @ThreadSafe
 public class UMEconomyRegistry implements EconomyRegistry {

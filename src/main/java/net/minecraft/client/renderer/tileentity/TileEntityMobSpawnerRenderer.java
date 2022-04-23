@@ -1,7 +1,5 @@
 package net.minecraft.client.renderer.tileentity;
 
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -9,6 +7,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.MobSpawnerBaseLogic;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityMobSpawner;
+import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
 public class TileEntityMobSpawnerRenderer extends TileEntitySpecialRenderer {

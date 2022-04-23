@@ -1,12 +1,11 @@
 package net.minecraft.tileentity;
 
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-import org.bukkit.event.block.NotePlayEvent;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+import org.bukkit.event.block.NotePlayEvent;
 
 public class TileEntityNote extends TileEntity {
 	public byte note;

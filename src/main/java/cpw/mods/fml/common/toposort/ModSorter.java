@@ -12,19 +12,18 @@
  */
 package cpw.mods.fml.common.toposort;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.google.common.collect.Maps;
-
 import cpw.mods.fml.common.DummyModContainer;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModAPIManager;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.toposort.TopologicalSort.DirectedGraph;
 import cpw.mods.fml.common.versioning.ArtifactVersion;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author cpw

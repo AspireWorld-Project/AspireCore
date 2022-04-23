@@ -1,10 +1,5 @@
 package net.minecraft.client.renderer.tileentity;
 
-import java.util.Calendar;
-
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -15,6 +10,10 @@ import net.minecraft.client.model.ModelLargeChest;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
+
+import java.util.Calendar;
 
 @SideOnly(Side.CLIENT)
 public class TileEntityChestRenderer extends TileEntitySpecialRenderer {

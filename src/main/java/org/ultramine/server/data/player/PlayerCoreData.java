@@ -1,10 +1,8 @@
 package org.ultramine.server.data.player;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.annotation.Nullable;
-
+import net.minecraft.nbt.NBTBase;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import org.ultramine.core.economy.Currency;
 import org.ultramine.core.economy.account.PlayerAccount;
 import org.ultramine.core.economy.service.Economy;
@@ -15,9 +13,9 @@ import org.ultramine.server.economy.CurrencyImpl;
 import org.ultramine.server.economy.UMIntegratedPlayerHoldings;
 import org.ultramine.server.util.WarpLocation;
 
-import net.minecraft.nbt.NBTBase;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
+import javax.annotation.Nullable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PlayerCoreData extends PlayerDataExtension {
 	private long firstLoginTime = System.currentTimeMillis();

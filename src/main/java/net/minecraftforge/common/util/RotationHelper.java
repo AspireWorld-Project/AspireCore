@@ -1,52 +1,15 @@
 package net.minecraftforge.common.util;
 
-import static net.minecraftforge.common.util.ForgeDirection.DOWN;
-import static net.minecraftforge.common.util.ForgeDirection.EAST;
-import static net.minecraftforge.common.util.ForgeDirection.NORTH;
-import static net.minecraftforge.common.util.ForgeDirection.SOUTH;
-import static net.minecraftforge.common.util.ForgeDirection.UP;
-import static net.minecraftforge.common.util.ForgeDirection.VALID_DIRECTIONS;
-import static net.minecraftforge.common.util.ForgeDirection.WEST;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
+import net.minecraft.block.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
-
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockAnvil;
-import net.minecraft.block.BlockBed;
-import net.minecraft.block.BlockButton;
-import net.minecraft.block.BlockChest;
-import net.minecraft.block.BlockCocoa;
-import net.minecraft.block.BlockDispenser;
-import net.minecraft.block.BlockDoor;
-import net.minecraft.block.BlockEndPortalFrame;
-import net.minecraft.block.BlockEnderChest;
-import net.minecraft.block.BlockFenceGate;
-import net.minecraft.block.BlockFurnace;
-import net.minecraft.block.BlockHopper;
-import net.minecraft.block.BlockHugeMushroom;
-import net.minecraft.block.BlockLadder;
-import net.minecraft.block.BlockLever;
-import net.minecraft.block.BlockLog;
-import net.minecraft.block.BlockPistonBase;
-import net.minecraft.block.BlockPistonExtension;
-import net.minecraft.block.BlockPumpkin;
-import net.minecraft.block.BlockRail;
-import net.minecraft.block.BlockRailDetector;
-import net.minecraft.block.BlockRailPowered;
-import net.minecraft.block.BlockRedstoneComparator;
-import net.minecraft.block.BlockRedstoneRepeater;
-import net.minecraft.block.BlockSkull;
-import net.minecraft.block.BlockStairs;
-import net.minecraft.block.BlockTorch;
-import net.minecraft.block.BlockTrapDoor;
-import net.minecraft.block.BlockTripWireHook;
-import net.minecraft.block.BlockVine;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
+import static net.minecraftforge.common.util.ForgeDirection.*;
 
 /**
  * This class is a helper function for vanilla blocks, and should not be called

@@ -1,10 +1,10 @@
 package net.minecraft.client.resources;
 
-import java.io.InputStream;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.resources.data.IMetadataSection;
+
+import java.io.InputStream;
 
 @SideOnly(Side.CLIENT)
 public interface IResource {

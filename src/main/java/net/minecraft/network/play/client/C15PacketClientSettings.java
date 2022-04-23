@@ -1,7 +1,5 @@
 package net.minecraft.network.play.client;
 
-import java.io.IOException;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,6 +8,8 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.INetHandlerPlayServer;
 import net.minecraft.world.EnumDifficulty;
+
+import java.io.IOException;
 
 public class C15PacketClientSettings extends Packet {
 	private String field_149530_a;

@@ -1,13 +1,5 @@
 package net.minecraft.tileentity;
 
-import java.util.List;
-
-import org.bukkit.Bukkit;
-import org.bukkit.event.inventory.BrewEvent;
-import org.bukkit.inventory.BrewerInventory;
-import org.bukkit.inventory.InventoryHolder;
-import org.ultramine.bukkit.util.BukkitUtil;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,6 +11,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.potion.PotionHelper;
+import org.bukkit.Bukkit;
+import org.bukkit.event.inventory.BrewEvent;
+import org.bukkit.inventory.BrewerInventory;
+import org.bukkit.inventory.InventoryHolder;
+import org.ultramine.bukkit.util.BukkitUtil;
+
+import java.util.List;
 
 public class TileEntityBrewingStand extends TileEntity implements ISidedInventory {
 	private static final int[] field_145941_a = new int[] { 3 };

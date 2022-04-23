@@ -1,14 +1,13 @@
 package net.minecraft.client.gui;
 
-import java.util.List;
-
 import com.google.common.collect.Lists;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.settings.GameSettings;
+
+import java.util.List;
 
 @SideOnly(Side.CLIENT)
 public class GuiOptionsRowList extends GuiListExtended {

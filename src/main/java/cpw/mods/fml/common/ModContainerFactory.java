@@ -12,20 +12,18 @@
 
 package cpw.mods.fml.common;
 
+import com.google.common.base.Throwables;
+import com.google.common.collect.Maps;
+import cpw.mods.fml.common.discovery.ModCandidate;
+import cpw.mods.fml.common.discovery.asm.ASMModParser;
+import cpw.mods.fml.common.discovery.asm.ModAnnotation;
+import org.apache.logging.log4j.Level;
+import org.objectweb.asm.Type;
+
 import java.io.File;
 import java.lang.reflect.Constructor;
 import java.util.Map;
 import java.util.regex.Pattern;
-
-import org.apache.logging.log4j.Level;
-import org.objectweb.asm.Type;
-
-import com.google.common.base.Throwables;
-import com.google.common.collect.Maps;
-
-import cpw.mods.fml.common.discovery.ModCandidate;
-import cpw.mods.fml.common.discovery.asm.ASMModParser;
-import cpw.mods.fml.common.discovery.asm.ModAnnotation;
 
 public class ModContainerFactory {
 	public static Map<Type, Constructor<? extends ModContainer>> modTypes = Maps.newHashMap();

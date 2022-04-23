@@ -12,16 +12,15 @@
 
 package cpw.mods.fml.common.discovery;
 
-import java.io.File;
-import java.util.List;
-import java.util.Set;
-
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.discovery.asm.ASMModParser;
+
+import java.io.File;
+import java.util.List;
+import java.util.Set;
 
 public class ModCandidate {
 	private File classPathRoot;

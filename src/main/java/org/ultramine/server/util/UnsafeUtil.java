@@ -1,8 +1,8 @@
 package org.ultramine.server.util;
 
-import java.lang.reflect.Field;
-
 import sun.misc.Unsafe;
+
+import java.lang.reflect.Field;
 
 public class UnsafeUtil {
 	private static final Unsafe UNSAFE = createUnsafe();

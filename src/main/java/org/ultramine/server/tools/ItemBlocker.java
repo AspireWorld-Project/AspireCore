@@ -1,17 +1,5 @@
 package org.ultramine.server.tools;
 
-import java.io.File;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.ultramine.server.ConfigurationHandler;
-import org.ultramine.server.tools.ItemBlocker.ItemBlockerSettings.BlockingSettings;
-import org.ultramine.server.tools.ItemBlocker.ItemBlockerSettings.BlockingWorldList;
-import org.ultramine.server.util.BasicTypeParser;
-import org.ultramine.server.util.ItemStackHashMap;
-import org.ultramine.server.util.YamlConfigProvider;
-
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -34,6 +22,17 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import org.ultramine.server.ConfigurationHandler;
+import org.ultramine.server.tools.ItemBlocker.ItemBlockerSettings.BlockingSettings;
+import org.ultramine.server.tools.ItemBlocker.ItemBlockerSettings.BlockingWorldList;
+import org.ultramine.server.util.BasicTypeParser;
+import org.ultramine.server.util.ItemStackHashMap;
+import org.ultramine.server.util.YamlConfigProvider;
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @SideOnly(Side.SERVER)
 public class ItemBlocker {

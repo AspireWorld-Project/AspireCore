@@ -1,14 +1,9 @@
 package cpw.mods.fml.common.asm.transformers;
 
-import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.ClassVisitor;
-import org.objectweb.asm.ClassWriter;
-import org.objectweb.asm.MethodVisitor;
-import org.objectweb.asm.Opcodes;
-
 import cpw.mods.fml.relauncher.FMLRelaunchLog;
 import cpw.mods.fml.relauncher.FMLSecurityManager.ExitTrappedException;
 import net.minecraft.launchwrapper.IClassTransformer;
+import org.objectweb.asm.*;
 
 public class TerminalTransformer implements IClassTransformer {
 	@Override

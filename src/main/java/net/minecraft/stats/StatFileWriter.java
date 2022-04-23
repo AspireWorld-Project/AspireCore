@@ -1,17 +1,15 @@
 package net.minecraft.stats;
 
-import java.util.Map;
-
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-import org.bukkit.event.Cancellable;
-
 import com.google.common.collect.Maps;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.IJsonSerializable;
 import net.minecraft.util.TupleIntJsonSerializable;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+import org.bukkit.event.Cancellable;
+
+import java.util.Map;
 
 public class StatFileWriter {
 	protected final Map field_150875_a = Maps.newConcurrentMap();

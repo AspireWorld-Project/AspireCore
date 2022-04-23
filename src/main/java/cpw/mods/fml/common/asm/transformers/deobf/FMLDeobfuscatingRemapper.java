@@ -12,6 +12,22 @@
 
 package cpw.mods.fml.common.asm.transformers.deobf;
 
+import com.google.common.base.CharMatcher;
+import com.google.common.base.Charsets;
+import com.google.common.base.Splitter;
+import com.google.common.base.Strings;
+import com.google.common.collect.*;
+import com.google.common.collect.ImmutableBiMap.Builder;
+import com.google.common.io.CharSource;
+import cpw.mods.fml.common.patcher.ClassPatchManager;
+import cpw.mods.fml.relauncher.FMLRelaunchLog;
+import net.minecraft.launchwrapper.LaunchClassLoader;
+import org.apache.logging.log4j.Level;
+import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.commons.Remapper;
+import org.objectweb.asm.tree.ClassNode;
+import org.objectweb.asm.tree.FieldNode;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -20,31 +36,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import org.apache.logging.log4j.Level;
-import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.commons.Remapper;
-import org.objectweb.asm.tree.ClassNode;
-import org.objectweb.asm.tree.FieldNode;
-
-import com.google.common.base.CharMatcher;
-import com.google.common.base.Charsets;
-import com.google.common.base.Splitter;
-import com.google.common.base.Strings;
-import com.google.common.collect.BiMap;
-import com.google.common.collect.ImmutableBiMap;
-import com.google.common.collect.ImmutableBiMap.Builder;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
-import com.google.common.io.CharSource;
-
-import cpw.mods.fml.common.patcher.ClassPatchManager;
-import cpw.mods.fml.relauncher.FMLRelaunchLog;
-import net.minecraft.launchwrapper.LaunchClassLoader;
 
 public class FMLDeobfuscatingRemapper extends Remapper {
 	public static final FMLDeobfuscatingRemapper INSTANCE = new FMLDeobfuscatingRemapper();

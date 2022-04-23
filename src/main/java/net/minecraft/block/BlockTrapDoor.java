@@ -1,8 +1,5 @@
 package net.minecraft.block;
 
-import org.bukkit.Bukkit;
-import org.bukkit.event.block.BlockRedstoneEvent;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -15,6 +12,8 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+import org.bukkit.Bukkit;
+import org.bukkit.event.block.BlockRedstoneEvent;
 
 public class BlockTrapDoor extends Block {
 	/** Set this to allow trapdoors to remain free-floating */

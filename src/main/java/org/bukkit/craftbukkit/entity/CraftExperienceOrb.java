@@ -1,10 +1,9 @@
 package org.bukkit.craftbukkit.entity;
 
+import net.minecraft.entity.item.EntityXPOrb;
 import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.ExperienceOrb;
-
-import net.minecraft.entity.item.EntityXPOrb;
 
 public class CraftExperienceOrb extends CraftEntity implements ExperienceOrb {
 	public CraftExperienceOrb(CraftServer server, EntityXPOrb entity) {

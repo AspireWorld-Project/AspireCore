@@ -1,23 +1,17 @@
 package net.minecraft.client.resources;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Map;
-import java.util.Set;
-
-import javax.imageio.ImageIO;
-
 import com.google.common.collect.ImmutableSet;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.resources.data.IMetadataSection;
 import net.minecraft.client.resources.data.IMetadataSerializer;
 import net.minecraft.util.ResourceLocation;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
+import java.util.Map;
+import java.util.Set;
 
 @SideOnly(Side.CLIENT)
 public class DefaultResourcePack implements IResourcePack {

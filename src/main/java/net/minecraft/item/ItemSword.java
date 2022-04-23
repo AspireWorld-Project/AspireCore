@@ -1,7 +1,6 @@
 package net.minecraft.item;
 
 import com.google.common.collect.Multimap;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;

@@ -1,47 +1,8 @@
 package net.minecraft.client.renderer;
 
-import static net.minecraftforge.common.util.ForgeDirection.DOWN;
-import static net.minecraftforge.common.util.ForgeDirection.EAST;
-import static net.minecraftforge.common.util.ForgeDirection.NORTH;
-import static net.minecraftforge.common.util.ForgeDirection.SOUTH;
-import static net.minecraftforge.common.util.ForgeDirection.UP;
-import static net.minecraftforge.common.util.ForgeDirection.WEST;
-
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockAnvil;
-import net.minecraft.block.BlockBeacon;
-import net.minecraft.block.BlockBrewingStand;
-import net.minecraft.block.BlockCauldron;
-import net.minecraft.block.BlockCocoa;
-import net.minecraft.block.BlockDirectional;
-import net.minecraft.block.BlockDoublePlant;
-import net.minecraft.block.BlockDragonEgg;
-import net.minecraft.block.BlockEndPortalFrame;
-import net.minecraft.block.BlockFence;
-import net.minecraft.block.BlockFenceGate;
-import net.minecraft.block.BlockFire;
-import net.minecraft.block.BlockFlowerPot;
-import net.minecraft.block.BlockGrass;
-import net.minecraft.block.BlockHopper;
-import net.minecraft.block.BlockLiquid;
-import net.minecraft.block.BlockPane;
-import net.minecraft.block.BlockPistonBase;
-import net.minecraft.block.BlockPistonExtension;
-import net.minecraft.block.BlockRailBase;
-import net.minecraft.block.BlockRedstoneComparator;
-import net.minecraft.block.BlockRedstoneDiode;
-import net.minecraft.block.BlockRedstoneRepeater;
-import net.minecraft.block.BlockRedstoneWire;
-import net.minecraft.block.BlockStainedGlassPane;
-import net.minecraft.block.BlockStairs;
-import net.minecraft.block.BlockStem;
-import net.minecraft.block.BlockTripWire;
-import net.minecraft.block.BlockWall;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureMap;
@@ -58,6 +19,10 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
+
+import static net.minecraftforge.common.util.ForgeDirection.*;
 
 @SideOnly(Side.CLIENT)
 public class RenderBlocks {

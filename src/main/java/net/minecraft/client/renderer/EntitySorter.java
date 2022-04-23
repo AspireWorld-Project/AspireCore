@@ -1,10 +1,10 @@
 package net.minecraft.client.renderer;
 
-import java.util.Comparator;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
+
+import java.util.Comparator;
 
 @SideOnly(Side.CLIENT)
 public class EntitySorter implements Comparator {

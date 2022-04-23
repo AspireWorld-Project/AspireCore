@@ -1,14 +1,14 @@
 package org.bukkit.generator;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Biome;
 import org.bukkit.block.Block;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 /**
  * A chunk generator is responsible for the initial shaping of an entire chunk.

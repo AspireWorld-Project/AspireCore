@@ -1,14 +1,5 @@
 package net.minecraft.entity.projectile;
 
-import java.util.Arrays;
-import java.util.List;
-
-import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-import org.bukkit.entity.Fish;
-import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerFishEvent;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -24,15 +15,17 @@ import net.minecraft.item.ItemFishFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.stats.StatList;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.Vec3;
-import net.minecraft.util.WeightedRandom;
-import net.minecraft.util.WeightedRandomFishable;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import org.bukkit.Bukkit;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+import org.bukkit.entity.Fish;
+import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerFishEvent;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class EntityFishHook extends Entity {
 	public static final List field_146039_d = Arrays.asList(new WeightedRandomFishable[] {

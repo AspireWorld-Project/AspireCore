@@ -1,12 +1,11 @@
 package net.minecraft.client.util;
 
-import java.util.Comparator;
-
 import com.google.common.collect.ComparisonChain;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.RenderList;
+
+import java.util.Comparator;
 
 @SideOnly(Side.CLIENT)
 public class RenderDistanceSorter implements Comparator {

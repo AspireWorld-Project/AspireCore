@@ -1,12 +1,11 @@
 package net.minecraft.nbt;
 
-import java.util.Iterator;
-import java.util.UUID;
-
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
-
 import net.minecraft.util.StringUtils;
+
+import java.util.Iterator;
+import java.util.UUID;
 
 public final class NBTUtil {
 	private static final String __OBFID = "CL_00001901";

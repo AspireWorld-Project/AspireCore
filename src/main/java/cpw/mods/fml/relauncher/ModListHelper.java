@@ -1,21 +1,19 @@
 package cpw.mods.fml.relauncher;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import org.apache.logging.log4j.Level;
-
 import com.google.common.base.Charsets;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.common.io.Files;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
-
 import net.minecraft.launchwrapper.Launch;
+import org.apache.logging.log4j.Level;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class ModListHelper {
 	public static class JsonModList {

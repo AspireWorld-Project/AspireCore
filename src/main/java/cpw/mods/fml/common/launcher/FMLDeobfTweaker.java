@@ -1,15 +1,15 @@
 package cpw.mods.fml.common.launcher;
 
-import java.io.File;
-import java.lang.reflect.Method;
-import java.util.List;
-
 import cpw.mods.fml.relauncher.CoreModManager;
 import cpw.mods.fml.relauncher.FMLInjectionData;
 import cpw.mods.fml.relauncher.FMLRelaunchLog;
 import net.minecraft.launchwrapper.ITweaker;
 import net.minecraft.launchwrapper.Launch;
 import net.minecraft.launchwrapper.LaunchClassLoader;
+
+import java.io.File;
+import java.lang.reflect.Method;
+import java.util.List;
 
 public class FMLDeobfTweaker implements ITweaker {
 	@Override

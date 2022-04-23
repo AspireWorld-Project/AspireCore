@@ -1,13 +1,12 @@
 package org.ultramine.core.economy.holdings;
 
-import java.util.concurrent.CompletableFuture;
-import java.util.function.Supplier;
+import org.ultramine.core.economy.Currency;
+import org.ultramine.core.economy.account.Account;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import org.ultramine.core.economy.Currency;
-import org.ultramine.core.economy.account.Account;
+import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier;
 
 public abstract class AbstractAsyncHoldings implements AsyncHoldings {
 	private final Holdings holdings;

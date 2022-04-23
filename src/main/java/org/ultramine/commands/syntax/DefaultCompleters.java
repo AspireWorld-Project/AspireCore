@@ -1,18 +1,16 @@
 package org.ultramine.commands.syntax;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.ultramine.server.util.BasicTypeParser;
-
 import com.google.common.collect.Iterables;
-
 import cpw.mods.fml.common.registry.FMLControlledNamespacedRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.command.CommandBase;
 import net.minecraft.entity.EntityList;
 import net.minecraft.item.Item;
 import net.minecraft.server.MinecraftServer;
+import org.ultramine.server.util.BasicTypeParser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DefaultCompleters {
 	@ArgumentCompleter(value = "player", isUsername = true)

@@ -1,13 +1,9 @@
 package net.minecraft.client.model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+
+import java.util.*;
 
 public abstract class ModelBase {
 	public float onGround;

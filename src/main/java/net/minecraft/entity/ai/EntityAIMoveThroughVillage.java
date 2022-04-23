@@ -1,15 +1,15 @@
 package net.minecraft.entity.ai;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.pathfinding.PathEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.village.Village;
 import net.minecraft.village.VillageDoorInfo;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class EntityAIMoveThroughVillage extends EntityAIBase {
 	private EntityCreature theEntity;

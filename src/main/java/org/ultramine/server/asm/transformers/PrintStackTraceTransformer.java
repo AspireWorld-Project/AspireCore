@@ -1,11 +1,5 @@
 package org.ultramine.server.asm.transformers;
 
-import java.util.HashSet;
-import java.util.ListIterator;
-import java.util.Set;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.AbstractInsnNode;
@@ -16,6 +10,9 @@ import org.ultramine.server.asm.UMTBatchTransformer.IUMClassTransformer;
 import org.ultramine.server.asm.UMTBatchTransformer.TransformResult;
 
 import javax.annotation.Nonnull;
+import java.util.HashSet;
+import java.util.ListIterator;
+import java.util.Set;
 
 /**
  * This transformer redirects method invocations: <br />

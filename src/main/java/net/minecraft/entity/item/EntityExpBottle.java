@@ -1,12 +1,11 @@
 package net.minecraft.entity.item;
 
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-import org.bukkit.event.entity.ExpBottleEvent;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+import org.bukkit.event.entity.ExpBottleEvent;
 
 public class EntityExpBottle extends EntityThrowable {
 	private static final String __OBFID = "CL_00001726";

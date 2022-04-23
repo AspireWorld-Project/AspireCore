@@ -1,10 +1,5 @@
 package org.bukkit.craftbukkit.inventory;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.ListIterator;
-
 import org.apache.commons.lang.Validate;
 import org.bukkit.Material;
 import org.bukkit.entity.HumanEntity;
@@ -14,6 +9,11 @@ import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.ultramine.bukkit.api.IInventoryTransactionProvider;
 import org.ultramine.bukkit.util.BukkitUtil;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.ListIterator;
 
 public class CraftInventory implements Inventory {
 	protected net.minecraft.inventory.IInventory inventory;

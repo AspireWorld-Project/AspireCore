@@ -13,7 +13,6 @@
 package cpw.mods.fml.common.event;
 
 import com.google.common.base.Throwables;
-
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.LoaderState.ModState;
 

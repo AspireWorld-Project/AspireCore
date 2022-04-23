@@ -12,12 +12,12 @@
 
 package cpw.mods.fml.relauncher;
 
+import cpw.mods.fml.common.SidedProxy;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-
-import cpw.mods.fml.common.SidedProxy;
 
 /**
  * Marks the associated element as being only available on a certain

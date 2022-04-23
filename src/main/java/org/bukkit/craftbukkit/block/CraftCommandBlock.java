@@ -1,10 +1,9 @@
 package org.bukkit.craftbukkit.block;
 
+import net.minecraft.tileentity.TileEntityCommandBlock;
 import org.bukkit.block.Block;
 import org.bukkit.block.CommandBlock;
 import org.bukkit.craftbukkit.CraftWorld;
-
-import net.minecraft.tileentity.TileEntityCommandBlock;
 
 public class CraftCommandBlock extends CraftBlockState implements CommandBlock {
 	private final TileEntityCommandBlock commandBlock;

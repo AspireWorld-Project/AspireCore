@@ -1,9 +1,9 @@
 package org.ultramine.server.chunk.alloc;
 
+import org.ultramine.core.service.Service;
+
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.ThreadSafe;
-
-import org.ultramine.core.service.Service;
 
 @ThreadSafe
 @Service(singleProvider = true)

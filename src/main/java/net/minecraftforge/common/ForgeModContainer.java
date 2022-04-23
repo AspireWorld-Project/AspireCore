@@ -5,39 +5,14 @@
 
 package net.minecraftforge.common;
 
-import static net.minecraftforge.common.ForgeVersion.buildVersion;
-import static net.minecraftforge.common.ForgeVersion.majorVersion;
-import static net.minecraftforge.common.ForgeVersion.minorVersion;
-import static net.minecraftforge.common.ForgeVersion.revisionVersion;
-import static net.minecraftforge.common.config.Configuration.CATEGORY_GENERAL;
-
-import java.io.File;
-import java.security.cert.Certificate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-
 import com.google.common.collect.ImmutableList;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
-
 import cpw.mods.fml.client.FMLFileResourcePack;
 import cpw.mods.fml.client.FMLFolderResourcePack;
 import cpw.mods.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
-import cpw.mods.fml.common.DummyModContainer;
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.LoadController;
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.ModMetadata;
-import cpw.mods.fml.common.WorldAccessContainer;
-import cpw.mods.fml.common.event.FMLConstructionEvent;
-import cpw.mods.fml.common.event.FMLLoadCompleteEvent;
-import cpw.mods.fml.common.event.FMLModIdMappingEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import cpw.mods.fml.common.*;
+import cpw.mods.fml.common.event.*;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
@@ -54,6 +29,16 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.RecipeSorter;
 import net.minecraftforge.server.command.ForgeCommand;
+
+import java.io.File;
+import java.security.cert.Certificate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+import static net.minecraftforge.common.ForgeVersion.*;
+import static net.minecraftforge.common.config.Configuration.CATEGORY_GENERAL;
 
 public class ForgeModContainer extends DummyModContainer implements WorldAccessContainer {
 	public static int clumpingThreshold = 64;

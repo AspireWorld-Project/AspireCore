@@ -5,23 +5,13 @@
 
 package net.minecraftforge.client.gui;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-
 import cpw.mods.fml.client.IModGuiFactory;
-import cpw.mods.fml.client.config.ConfigGuiType;
-import cpw.mods.fml.client.config.DummyConfigElement;
+import cpw.mods.fml.client.config.*;
 import cpw.mods.fml.client.config.DummyConfigElement.DummyCategoryElement;
-import cpw.mods.fml.client.config.GuiConfig;
-import cpw.mods.fml.client.config.GuiConfigEntries;
 import cpw.mods.fml.client.config.GuiConfigEntries.BooleanEntry;
 import cpw.mods.fml.client.config.GuiConfigEntries.CategoryEntry;
 import cpw.mods.fml.client.config.GuiConfigEntries.IConfigEntry;
 import cpw.mods.fml.client.config.GuiConfigEntries.SelectValueEntry;
-import cpw.mods.fml.client.config.IConfigElement;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
 import net.minecraft.client.Minecraft;
@@ -33,6 +23,8 @@ import net.minecraftforge.common.config.ConfigCategory;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
+
+import java.util.*;
 
 /**
  * This is the base GuiConfig screen class that all the other Forge-specific

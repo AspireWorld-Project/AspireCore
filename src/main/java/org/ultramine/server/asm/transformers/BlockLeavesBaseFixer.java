@@ -1,9 +1,5 @@
 package org.ultramine.server.asm.transformers;
 
-import java.util.Iterator;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.MethodNode;
@@ -11,6 +7,7 @@ import org.ultramine.server.asm.UMTBatchTransformer.IUMClassTransformer;
 import org.ultramine.server.asm.UMTBatchTransformer.TransformResult;
 
 import javax.annotation.Nonnull;
+import java.util.Iterator;
 
 /**
  * Removing conflicting

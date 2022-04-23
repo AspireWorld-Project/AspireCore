@@ -1,9 +1,9 @@
 package org.ultramine.core.util;
 
+import com.google.common.base.Throwables;
+
 import java.util.Arrays;
 import java.util.Collection;
-
-import com.google.common.base.Throwables;
 
 public interface Undoable {
 	void undo();

@@ -1,8 +1,8 @@
 package cpw.mods.fml.relauncher;
 
-import java.lang.reflect.Method;
-
 import org.ultramine.server.bootstrap.UMBootstrap;
+
+import java.lang.reflect.Method;
 
 public class ServerLaunchWrapper {
 

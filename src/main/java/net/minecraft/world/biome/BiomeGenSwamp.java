@@ -1,7 +1,5 @@
 package net.minecraft.world.biome;
 
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -11,6 +9,8 @@ import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+
+import java.util.Random;
 
 public class BiomeGenSwamp extends BiomeGenBase {
 	private static final String __OBFID = "CL_00000185";

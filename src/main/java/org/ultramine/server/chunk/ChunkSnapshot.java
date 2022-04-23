@@ -1,11 +1,11 @@
 package org.ultramine.server.chunk;
 
-import java.util.Arrays;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
+
+import java.util.Arrays;
 
 public class ChunkSnapshot {
 	private final int x;

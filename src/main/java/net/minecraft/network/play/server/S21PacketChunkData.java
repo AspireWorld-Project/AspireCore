@@ -1,15 +1,5 @@
 package net.minecraft.network.play.server;
 
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.concurrent.Semaphore;
-import java.util.zip.DataFormatException;
-import java.util.zip.Deflater;
-import java.util.zip.Inflater;
-
-import org.ultramine.server.chunk.ChunkSnapshot;
-import org.ultramine.server.internal.UMHooks;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.network.INetHandler;
@@ -18,6 +8,15 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.INetHandlerPlayClient;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
+import org.ultramine.server.chunk.ChunkSnapshot;
+import org.ultramine.server.internal.UMHooks;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.concurrent.Semaphore;
+import java.util.zip.DataFormatException;
+import java.util.zip.Deflater;
+import java.util.zip.Inflater;
 
 public class S21PacketChunkData extends Packet {
 	private int field_149284_a;

@@ -1,10 +1,10 @@
+import net.minecraft.client.main.Main;
+
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Arrays;
-
-import net.minecraft.client.main.Main;
 
 public class Start {
 	public static void main(String[] args) throws Exception {

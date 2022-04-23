@@ -1,18 +1,14 @@
 package net.minecraft.world.gen.structure;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Random;
-
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager;
+
+import java.util.*;
+import java.util.Map.Entry;
 
 public class MapGenStronghold extends MapGenStructure {
 	public final List field_151546_e;

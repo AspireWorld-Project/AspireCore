@@ -1,13 +1,5 @@
 package net.minecraft.world.gen.structure;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.concurrent.Callable;
-
 import net.minecraft.block.Block;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.crash.CrashReportCategory;
@@ -18,6 +10,9 @@ import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.MapGenBase;
+
+import java.util.*;
+import java.util.concurrent.Callable;
 
 public abstract class MapGenStructure extends MapGenBase {
 	private MapGenStructureData field_143029_e;

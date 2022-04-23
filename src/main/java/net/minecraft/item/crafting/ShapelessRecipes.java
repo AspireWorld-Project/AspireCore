@@ -1,15 +1,14 @@
 package net.minecraft.item.crafting;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
-import org.bukkit.craftbukkit.inventory.CraftShapelessRecipe;
-
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import org.bukkit.craftbukkit.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.inventory.CraftShapelessRecipe;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class ShapelessRecipes implements IRecipe {
 	private final ItemStack recipeOutput;

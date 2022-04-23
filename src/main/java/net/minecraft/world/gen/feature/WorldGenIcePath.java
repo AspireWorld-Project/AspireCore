@@ -1,10 +1,10 @@
 package net.minecraft.world.gen.feature;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class WorldGenIcePath extends WorldGenerator {
 	private Block field_150555_a;

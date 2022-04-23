@@ -1,9 +1,5 @@
 package org.bukkit.craftbukkit.util;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 import org.bukkit.Achievement;
 import org.bukkit.Material;
 import org.bukkit.Statistic;
@@ -12,6 +8,10 @@ import org.bukkit.craftbukkit.CraftStatistic;
 import org.bukkit.craftbukkit.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.StringUtil;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public final class CraftMagicNumbers implements UnsafeValues {
 	public static final UnsafeValues INSTANCE = new CraftMagicNumbers();

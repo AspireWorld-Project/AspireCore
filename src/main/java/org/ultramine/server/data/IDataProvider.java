@@ -1,14 +1,12 @@
 package org.ultramine.server.data;
 
-import java.util.List;
-import java.util.Map;
-
+import com.mojang.authlib.GameProfile;
+import net.minecraft.nbt.NBTTagCompound;
 import org.ultramine.server.data.player.PlayerData;
 import org.ultramine.server.util.WarpLocation;
 
-import com.mojang.authlib.GameProfile;
-
-import net.minecraft.nbt.NBTTagCompound;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Все запросы на запись выполняются синхронно. На чтение могут быть выполнены

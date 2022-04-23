@@ -1,19 +1,14 @@
 package cpw.mods.fml.common;
 
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import com.google.common.io.Files;
+import org.apache.logging.log4j.Level;
+
+import java.io.*;
 import java.net.URI;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-
-import org.apache.logging.log4j.Level;
-
-import com.google.common.io.Files;
 
 /**
  * Copied from

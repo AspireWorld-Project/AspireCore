@@ -1,10 +1,9 @@
 package org.ultramine.server.event;
 
-import org.ultramine.server.util.WarpLocation;
-
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.Teleporter;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import org.ultramine.server.util.WarpLocation;
 
 public class PreDimChangeEvent extends PlayerEvent {
 	private final EntityPlayerMP player;

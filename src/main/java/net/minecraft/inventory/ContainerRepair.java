@@ -1,12 +1,5 @@
 package net.minecraft.inventory;
 
-import java.util.Iterator;
-import java.util.Map;
-
-import org.apache.commons.lang3.StringUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.enchantment.Enchantment;
@@ -18,6 +11,12 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.Iterator;
+import java.util.Map;
 
 public class ContainerRepair extends Container {
 	private static final Logger logger = LogManager.getLogger();

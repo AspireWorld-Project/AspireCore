@@ -1,9 +1,5 @@
 package net.minecraft.block;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -27,6 +23,10 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Random;
 
 public class BlockSkull extends BlockContainer {
 	private static final String __OBFID = "CL_00000307";

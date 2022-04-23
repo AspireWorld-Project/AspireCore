@@ -1,16 +1,15 @@
 package org.bukkit.craftbukkit.inventory;
 
-import java.util.Arrays;
-
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.ShapedRecipes;
+import net.minecraft.item.crafting.ShapelessRecipes;
 import org.bukkit.inventory.CraftingInventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Recipe;
 import org.ultramine.bukkit.util.BukkitUtil;
 import org.ultramine.bukkit.util.CustomModRecipe;
 
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.ShapedRecipes;
-import net.minecraft.item.crafting.ShapelessRecipes;
+import java.util.Arrays;
 
 public class CraftInventoryCrafting extends CraftInventory implements CraftingInventory {
 	private final net.minecraft.inventory.IInventory resultInventory;

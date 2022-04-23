@@ -1,12 +1,12 @@
 package net.minecraftforge.event.terraingen;
 
-import java.util.Random;
-
 import cpw.mods.fml.common.eventhandler.Cancelable;
 import cpw.mods.fml.common.eventhandler.Event;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.common.MinecraftForge;
+
+import java.util.Random;
 
 /**
  * PopulateChunkEvent is fired when an event involving chunk terrain feature

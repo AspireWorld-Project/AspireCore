@@ -1,16 +1,15 @@
 package org.ultramine.commands;
 
-import java.util.concurrent.CompletableFuture;
-import java.util.function.Consumer;
-
-import org.ultramine.server.data.player.PlayerData;
-import org.ultramine.server.util.BasicTypeFormatter;
-
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.ServerConfigurationManager;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.util.FakePlayer;
+import org.ultramine.server.data.player.PlayerData;
+import org.ultramine.server.util.BasicTypeFormatter;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
 
 public class OfflinePlayer {
 	private final ServerConfigurationManager mgr;

@@ -1,27 +1,5 @@
 package org.ultramine.server.world;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.CompletionException;
-import java.util.concurrent.atomic.AtomicBoolean;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.ultramine.server.Teleporter;
-import org.ultramine.server.WorldsConfig.WorldConfig;
-import org.ultramine.server.util.GlobalExecutors;
-import org.ultramine.server.util.WarpLocation;
-import org.ultramine.server.world.load.IWorldLoader;
-import org.ultramine.server.world.load.ImportWorldLoader;
-import org.ultramine.server.world.load.NotSplittedWorldLoader;
-import org.ultramine.server.world.load.OverworldLoader;
-import org.ultramine.server.world.load.SplittedWorldLoader;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -34,6 +12,23 @@ import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.WorldEvent;
+import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.ultramine.server.Teleporter;
+import org.ultramine.server.WorldsConfig.WorldConfig;
+import org.ultramine.server.util.GlobalExecutors;
+import org.ultramine.server.util.WarpLocation;
+import org.ultramine.server.world.load.*;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionException;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class WorldDescriptor {
 	private static final Logger log = LogManager.getLogger();

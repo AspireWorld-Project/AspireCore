@@ -1,17 +1,16 @@
 package net.minecraft.nbt;
 
+import io.netty.util.IllegalReferenceCountException;
+import io.netty.util.ReferenceCounted;
+import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
+import org.ultramine.server.chunk.alloc.MemSlot;
+import org.ultramine.server.internal.LambdaHolder;
+
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
-
-import org.ultramine.server.chunk.alloc.MemSlot;
-import org.ultramine.server.internal.LambdaHolder;
-
-import io.netty.util.IllegalReferenceCountException;
-import io.netty.util.ReferenceCounted;
-import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
 
 // Localed in net.minecraft.nbt package due to access issues
 public class EbsSaveFakeNbt extends NBTTagCompound implements ReferenceCounted {

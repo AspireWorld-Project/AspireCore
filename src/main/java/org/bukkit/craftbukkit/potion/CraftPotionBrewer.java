@@ -1,15 +1,14 @@
 package org.bukkit.craftbukkit.potion;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
+import com.google.common.collect.Maps;
 import org.bukkit.potion.PotionBrewer;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import com.google.common.collect.Maps;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 public class CraftPotionBrewer implements PotionBrewer {
 	private static final Map<Integer, Collection<PotionEffect>> cache = Maps.newHashMap();

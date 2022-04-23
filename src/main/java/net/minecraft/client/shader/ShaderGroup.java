@@ -1,16 +1,5 @@
 package net.minecraft.client.shader;
 
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import javax.vecmath.Matrix4f;
-
-import org.apache.commons.io.IOUtils;
-import org.lwjgl.opengl.GL11;
-
 import com.google.common.base.Charsets;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -18,7 +7,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.ITextureObject;
@@ -28,6 +16,15 @@ import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.util.JsonException;
 import net.minecraft.util.JsonUtils;
 import net.minecraft.util.ResourceLocation;
+import org.apache.commons.io.IOUtils;
+import org.lwjgl.opengl.GL11;
+
+import javax.vecmath.Matrix4f;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 @SideOnly(Side.CLIENT)
 public class ShaderGroup {

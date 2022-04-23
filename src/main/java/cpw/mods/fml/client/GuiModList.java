@@ -14,19 +14,7 @@
 
 package cpw.mods.fml.client;
 
-import java.awt.Dimension;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-
-import javax.imageio.ImageIO;
-
-import org.apache.logging.log4j.Level;
-import org.lwjgl.opengl.GL11;
-
 import com.google.common.base.Strings;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
@@ -41,6 +29,15 @@ import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.resources.IResourcePack;
 import net.minecraft.util.ResourceLocation;
+import org.apache.logging.log4j.Level;
+import org.lwjgl.opengl.GL11;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 
 /**
  * @author cpw

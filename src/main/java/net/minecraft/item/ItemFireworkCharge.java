@@ -1,7 +1,5 @@
 package net.minecraft.item;
 
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -11,6 +9,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagIntArray;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
+
+import java.util.List;
 
 public class ItemFireworkCharge extends Item {
 	@SideOnly(Side.CLIENT)

@@ -1,14 +1,13 @@
 package org.bukkit.craftbukkit.command;
 
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.IChatComponent;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.conversations.Conversation;
 import org.bukkit.conversations.ConversationAbandonedEvent;
 import org.bukkit.conversations.ManuallyAbandonedConversationCanceller;
 import org.bukkit.craftbukkit.conversations.ConversationTracker;
 import org.bukkit.craftbukkit.util.CraftChatMessage;
-
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.IChatComponent;
 
 /**
  * Represents CLI input from a console

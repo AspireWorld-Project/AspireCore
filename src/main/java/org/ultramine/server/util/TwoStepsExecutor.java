@@ -1,18 +1,17 @@
 package org.ultramine.server.util;
 
+import com.google.common.base.Function;
+import com.google.common.collect.Queues;
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.TickEvent;
+
 import java.util.Queue;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
-
-import com.google.common.base.Function;
-import com.google.common.collect.Queues;
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
-
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.TickEvent;
 
 public final class TwoStepsExecutor {
 	private final Executor exec;

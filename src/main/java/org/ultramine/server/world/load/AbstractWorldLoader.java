@@ -1,10 +1,5 @@
 package org.ultramine.server.world.load;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.ultramine.server.WorldsConfig.WorldConfig;
-import org.ultramine.server.world.WorldDescriptor;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.server.MinecraftServer;
@@ -12,6 +7,10 @@ import net.minecraft.world.WorldSettings;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.chunk.storage.RegionFileCache;
 import net.minecraft.world.storage.WorldInfo;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.ultramine.server.WorldsConfig.WorldConfig;
+import org.ultramine.server.world.WorldDescriptor;
 
 public abstract class AbstractWorldLoader implements IWorldLoader {
 	private static final Logger log = LogManager.getLogger();

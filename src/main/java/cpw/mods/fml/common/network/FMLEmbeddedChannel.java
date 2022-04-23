@@ -1,7 +1,5 @@
 package cpw.mods.fml.common.network;
 
-import java.util.Map.Entry;
-
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.network.FMLOutboundHandler.OutboundTarget;
@@ -10,6 +8,8 @@ import cpw.mods.fml.relauncher.Side;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.embedded.EmbeddedChannel;
 import net.minecraft.network.Packet;
+
+import java.util.Map.Entry;
 
 /**
  * Utility wrapper around {@link EmbeddedChannel}. Provides some convenience

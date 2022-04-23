@@ -1,8 +1,7 @@
 package cpw.mods.fml.client.config;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.Minecraft;
+import org.lwjgl.opengl.GL11;
 
 /**
  * This class is blatantly stolen from iChunUtils with permission.

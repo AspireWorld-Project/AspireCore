@@ -1,14 +1,13 @@
 package org.ultramine.bukkit.injected.internal.permissions.c2b;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import net.milkbowl.vault.chat.Chat;
+import net.milkbowl.vault.permission.Permission;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.Server;
 import org.ultramine.core.permissions.Permissions;
 
-import net.milkbowl.vault.chat.Chat;
-import net.milkbowl.vault.permission.Permission;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 public class VaultPermissionsServiceImpl implements Permissions {
 	private final Server server;

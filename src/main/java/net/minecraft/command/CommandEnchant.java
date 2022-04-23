@@ -1,12 +1,12 @@
 package net.minecraft.command;
 
-import java.util.List;
-
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.server.MinecraftServer;
+
+import java.util.List;
 
 public class CommandEnchant extends CommandBase {
 	private static final String __OBFID = "CL_00000377";

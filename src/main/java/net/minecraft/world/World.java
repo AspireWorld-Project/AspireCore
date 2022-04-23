@@ -1,45 +1,6 @@
 package net.minecraft.world;
 
-import static org.ultramine.server.WorldConstants.MAX_BLOCK_COORD;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
-import java.util.UUID;
-import java.util.concurrent.Callable;
-
-import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.CraftServer;
-import org.bukkit.craftbukkit.CraftWorld;
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-import org.bukkit.craftbukkit.util.CraftMagicNumbers;
-import org.bukkit.event.block.BlockCanBuildEvent;
-import org.bukkit.event.block.BlockPhysicsEvent;
-import org.bukkit.event.block.BlockPlaceEvent;
-import org.bukkit.event.entity.CreatureSpawnEvent;
-import org.bukkit.event.weather.ThunderChangeEvent;
-import org.bukkit.event.weather.WeatherChangeEvent;
-import org.bukkit.generator.ChunkGenerator;
-import org.ultramine.server.ServerLoadBalancer;
-import org.ultramine.server.WorldConstants;
-import org.ultramine.server.chunk.CallbackAddDependency;
-import org.ultramine.server.chunk.ChunkHash;
-import org.ultramine.server.chunk.ChunkProfiler;
-import org.ultramine.server.chunk.ChunkProfiler.WorldChunkProfiler;
-import org.ultramine.server.chunk.IChunkLoadCallback;
-import org.ultramine.server.event.WorldEventProxy;
-import org.ultramine.server.event.WorldUpdateObject;
-import org.ultramine.server.event.WorldUpdateObjectType;
-import org.ultramine.server.internal.LambdaHolder;
-import org.ultramine.server.util.VanillaChunkCoordIntPairSet;
-
 import com.google.common.collect.ImmutableSetMultimap;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -65,13 +26,7 @@ import net.minecraft.profiler.Profiler;
 import net.minecraft.scoreboard.Scoreboard;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.ChunkCoordinates;
-import net.minecraft.util.Facing;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.ReportedException;
-import net.minecraft.util.Vec3;
+import net.minecraft.util.*;
 import net.minecraft.village.VillageCollection;
 import net.minecraft.village.VillageSiege;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -84,17 +39,42 @@ import net.minecraft.world.storage.ISaveHandler;
 import net.minecraft.world.storage.MapStorage;
 import net.minecraft.world.storage.WorldInfo;
 import net.minecraftforge.client.ForgeHooksClient;
-import net.minecraftforge.common.DimensionManager;
-import net.minecraftforge.common.ForgeChunkManager;
+import net.minecraftforge.common.*;
 import net.minecraftforge.common.ForgeChunkManager.Ticket;
-import net.minecraftforge.common.ForgeModContainer;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.WorldSpecificSaveHandler;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.PlaySoundAtEntityEvent;
 import net.openhft.koloboke.collect.map.IntByteMap;
 import net.openhft.koloboke.collect.map.hash.HashIntByteMaps;
+import org.bukkit.Bukkit;
+import org.bukkit.craftbukkit.CraftServer;
+import org.bukkit.craftbukkit.CraftWorld;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+import org.bukkit.craftbukkit.util.CraftMagicNumbers;
+import org.bukkit.event.block.BlockCanBuildEvent;
+import org.bukkit.event.block.BlockPhysicsEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.CreatureSpawnEvent;
+import org.bukkit.event.weather.ThunderChangeEvent;
+import org.bukkit.event.weather.WeatherChangeEvent;
+import org.bukkit.generator.ChunkGenerator;
+import org.ultramine.server.ServerLoadBalancer;
+import org.ultramine.server.WorldConstants;
+import org.ultramine.server.chunk.CallbackAddDependency;
+import org.ultramine.server.chunk.ChunkHash;
+import org.ultramine.server.chunk.ChunkProfiler;
+import org.ultramine.server.chunk.ChunkProfiler.WorldChunkProfiler;
+import org.ultramine.server.chunk.IChunkLoadCallback;
+import org.ultramine.server.event.WorldEventProxy;
+import org.ultramine.server.event.WorldUpdateObject;
+import org.ultramine.server.event.WorldUpdateObjectType;
+import org.ultramine.server.internal.LambdaHolder;
+import org.ultramine.server.util.VanillaChunkCoordIntPairSet;
+
+import java.util.*;
+import java.util.concurrent.Callable;
+
+import static org.ultramine.server.WorldConstants.MAX_BLOCK_COORD;
 
 public abstract class World implements IBlockAccess {
 	/**

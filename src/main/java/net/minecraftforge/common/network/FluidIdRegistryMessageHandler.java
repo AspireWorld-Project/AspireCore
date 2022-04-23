@@ -1,11 +1,10 @@
 package net.minecraftforge.common.network;
 
-import org.apache.logging.log4j.Level;
-
 import cpw.mods.fml.common.FMLLog;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import net.minecraftforge.fluids.FluidRegistry;
+import org.apache.logging.log4j.Level;
 
 public class FluidIdRegistryMessageHandler extends SimpleChannelInboundHandler<ForgeMessage.FluidIdMapMessage> {
 	@Override

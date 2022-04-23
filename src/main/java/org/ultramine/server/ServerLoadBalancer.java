@@ -1,11 +1,5 @@
 package org.ultramine.server;
 
-import java.util.concurrent.ThreadLocalRandom;
-
-import org.ultramine.server.WorldsConfig.WorldConfig.LoadBalancer.Limits;
-import org.ultramine.server.WorldsConfig.WorldConfig.LoadBalancer.Limits.PerChunkEntityLimits;
-import org.ultramine.server.chunk.ChunkHash;
-
 import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
@@ -13,6 +7,11 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.chunk.Chunk;
 import net.openhft.koloboke.collect.map.IntByteMap;
+import org.ultramine.server.WorldsConfig.WorldConfig.LoadBalancer.Limits;
+import org.ultramine.server.WorldsConfig.WorldConfig.LoadBalancer.Limits.PerChunkEntityLimits;
+import org.ultramine.server.chunk.ChunkHash;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 public class ServerLoadBalancer {
 	private static final boolean isClient = FMLCommonHandler.instance().getSide().isClient();

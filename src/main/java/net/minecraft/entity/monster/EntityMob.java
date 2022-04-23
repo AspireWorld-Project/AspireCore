@@ -1,9 +1,5 @@
 package net.minecraft.entity.monster;
 
-import org.bukkit.craftbukkit.entity.CraftEntity;
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-import org.bukkit.event.entity.EntityTargetEvent;
-
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
@@ -15,6 +11,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
+import org.bukkit.craftbukkit.entity.CraftEntity;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+import org.bukkit.event.entity.EntityTargetEvent;
 
 public abstract class EntityMob extends EntityCreature implements IMob {
 	private static final String __OBFID = "CL_00001692";

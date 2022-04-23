@@ -1,11 +1,10 @@
 package org.ultramine.server;
 
-import org.ultramine.server.WorldsConfig.WorldConfig.Border;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.ChunkPosition;
+import org.ultramine.server.WorldsConfig.WorldConfig.Border;
 
 @SideOnly(Side.SERVER)
 public class WorldBorder {

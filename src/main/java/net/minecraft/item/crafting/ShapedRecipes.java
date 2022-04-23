@@ -1,12 +1,11 @@
 package net.minecraft.item.crafting;
 
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
-import org.bukkit.craftbukkit.inventory.CraftShapedRecipe;
-
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
+import org.bukkit.craftbukkit.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.inventory.CraftShapedRecipe;
 
 public class ShapedRecipes implements IRecipe {
 	public final int recipeWidth;

@@ -1,13 +1,12 @@
 package org.ultramine.bukkit;
 
-import java.io.IOException;
-
+import net.minecraft.launchwrapper.LaunchClassLoader;
 import org.bukkit.plugin.InvalidPluginException;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPluginLoader;
 import org.bukkit.plugin.java.PluginClassLoader;
 
-import net.minecraft.launchwrapper.LaunchClassLoader;
+import java.io.IOException;
 
 public class InjectedPluginClassLoader extends PluginClassLoader {
 	private final LaunchClassLoader lcs;

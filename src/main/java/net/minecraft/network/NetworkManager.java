@@ -1,35 +1,13 @@
 package net.minecraft.network;
 
-import java.net.InetAddress;
-import java.net.SocketAddress;
-import java.util.Queue;
-import java.util.UUID;
-
-import javax.crypto.SecretKey;
-
-import com.mojang.authlib.properties.Property;
-import org.apache.commons.lang3.Validate;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.Marker;
-import org.apache.logging.log4j.MarkerManager;
-import org.ultramine.server.UltramineServerConfig;
-import org.ultramine.server.event.WorldUpdateObjectType;
-
 import com.google.common.collect.Queues;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-
+import com.mojang.authlib.properties.Property;
 import cpw.mods.fml.common.network.internal.FMLProxyPacket;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelException;
-import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.channel.*;
 import io.netty.channel.local.LocalChannel;
 import io.netty.channel.local.LocalServerChannel;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -40,13 +18,20 @@ import io.netty.util.AttributeKey;
 import io.netty.util.concurrent.GenericFutureListener;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.play.client.C0EPacketClickWindow;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.CryptManager;
-import net.minecraft.util.IChatComponent;
-import net.minecraft.util.MessageDeserializer;
-import net.minecraft.util.MessageDeserializer2;
-import net.minecraft.util.MessageSerializer;
-import net.minecraft.util.MessageSerializer2;
+import net.minecraft.util.*;
+import org.apache.commons.lang3.Validate;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.Marker;
+import org.apache.logging.log4j.MarkerManager;
+import org.ultramine.server.UltramineServerConfig;
+import org.ultramine.server.event.WorldUpdateObjectType;
+
+import javax.crypto.SecretKey;
+import java.net.InetAddress;
+import java.net.SocketAddress;
+import java.util.Queue;
+import java.util.UUID;
 
 public class NetworkManager extends SimpleChannelInboundHandler {
 	private static final Logger logger = LogManager.getLogger();

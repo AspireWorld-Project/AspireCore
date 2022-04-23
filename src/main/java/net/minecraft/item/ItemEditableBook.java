@@ -1,7 +1,5 @@
 package net.minecraft.item;
 
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,6 +8,8 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class ItemEditableBook extends Item {
 	private static final String __OBFID = "CL_00000077";

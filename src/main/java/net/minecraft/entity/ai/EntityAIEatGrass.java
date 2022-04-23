@@ -1,13 +1,12 @@
 package net.minecraft.entity.ai;
 
-import org.bukkit.Material;
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import org.bukkit.Material;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
 
 public class EntityAIEatGrass extends EntityAIBase {
 	private EntityLiving field_151500_b;

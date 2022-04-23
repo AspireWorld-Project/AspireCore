@@ -1,10 +1,5 @@
 package net.minecraft.entity.monster;
 
-import org.bukkit.craftbukkit.entity.CraftEntity;
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-import org.bukkit.event.entity.EntityTargetEvent;
-import org.bukkit.event.entity.SlimeSplitEvent;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -18,6 +13,10 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
+import org.bukkit.craftbukkit.entity.CraftEntity;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+import org.bukkit.event.entity.EntityTargetEvent;
+import org.bukkit.event.entity.SlimeSplitEvent;
 
 public class EntitySlime extends EntityLiving implements IMob {
 	public float squishAmount;

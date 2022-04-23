@@ -1,16 +1,6 @@
 package net.minecraft.tileentity;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.Callable;
-
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.ultramine.server.internal.UMHooks;
-
 import com.mojang.authlib.GameProfile;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -25,12 +15,20 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.ultramine.server.internal.UMHooks;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.Callable;
 
 public class TileEntity {
 	private static final Logger logger = LogManager.getLogger();
 	private static Map nameToClassMap = new HashMap();
 	private static Map classToNameMap = new HashMap();
-	protected World worldObj;
+	public World worldObj;
 	public int xCoord;
 	public int yCoord;
 	public int zCoord;

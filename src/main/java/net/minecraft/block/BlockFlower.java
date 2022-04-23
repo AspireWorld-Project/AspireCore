@@ -1,7 +1,5 @@
 package net.minecraft.block;
 
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -11,6 +9,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+
+import java.util.List;
 
 public class BlockFlower extends BlockBush {
 	private static final String[][] field_149860_M = new String[][] { { "flower_dandelion" },

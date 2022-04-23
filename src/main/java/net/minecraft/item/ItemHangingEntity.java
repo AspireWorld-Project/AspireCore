@@ -1,12 +1,5 @@
 package net.minecraft.item;
 
-import org.bukkit.Bukkit;
-import org.bukkit.block.Block;
-import org.bukkit.block.BlockFace;
-import org.bukkit.entity.Player;
-import org.bukkit.event.hanging.HangingPlaceEvent;
-import org.bukkit.event.painting.PaintingPlaceEvent;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityHanging;
 import net.minecraft.entity.item.EntityItemFrame;
@@ -14,6 +7,12 @@ import net.minecraft.entity.item.EntityPainting;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Direction;
 import net.minecraft.world.World;
+import org.bukkit.Bukkit;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
+import org.bukkit.entity.Player;
+import org.bukkit.event.hanging.HangingPlaceEvent;
+import org.bukkit.event.painting.PaintingPlaceEvent;
 
 public class ItemHangingEntity extends Item {
 	private final Class hangingEntityClass;

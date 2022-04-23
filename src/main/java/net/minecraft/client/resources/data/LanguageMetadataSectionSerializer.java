@@ -1,20 +1,19 @@
 package net.minecraft.client.resources.data;
 
-import java.lang.reflect.Type;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map.Entry;
-
 import com.google.common.collect.Sets;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.resources.Language;
 import net.minecraft.util.JsonUtils;
+
+import java.lang.reflect.Type;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map.Entry;
 
 @SideOnly(Side.CLIENT)
 public class LanguageMetadataSectionSerializer extends BaseMetadataSectionSerializer {

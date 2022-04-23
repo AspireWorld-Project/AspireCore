@@ -1,12 +1,11 @@
 package cpw.mods.fml.common;
 
+import cpw.mods.fml.relauncher.Side;
+import org.apache.logging.log4j.Level;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
-import org.apache.logging.log4j.Level;
-
-import cpw.mods.fml.relauncher.Side;
 
 public interface ILanguageAdapter {
 	public Object getNewInstance(FMLModContainer container, Class<?> objectClass, ClassLoader classLoader,

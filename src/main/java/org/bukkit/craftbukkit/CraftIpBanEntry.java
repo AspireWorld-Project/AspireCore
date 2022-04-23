@@ -1,13 +1,12 @@
 package org.bukkit.craftbukkit;
 
-import java.io.IOException;
-import java.util.Date;
-
+import net.minecraft.server.management.BanList;
+import net.minecraft.server.management.IPBanEntry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.minecraft.server.management.BanList;
-import net.minecraft.server.management.IPBanEntry;
+import java.io.IOException;
+import java.util.Date;
 
 public final class CraftIpBanEntry implements org.bukkit.BanEntry {
 	private static final Logger log = LogManager.getLogger();

@@ -1,8 +1,5 @@
 package net.minecraft.world.storage;
 
-import java.util.Map;
-import java.util.concurrent.Callable;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.crash.CrashReportCategory;
@@ -12,6 +9,9 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.WorldSettings;
 import net.minecraft.world.WorldType;
+
+import java.util.Map;
+import java.util.concurrent.Callable;
 
 public class WorldInfo {
 	private long randomSeed;

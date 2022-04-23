@@ -1,10 +1,10 @@
 package net.minecraft.world.biome;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.LongHashMap;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BiomeCache {
 	private final WorldChunkManager chunkManager;

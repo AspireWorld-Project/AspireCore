@@ -1,7 +1,6 @@
 package net.minecraft.network.rcon;
 
 import com.google.common.base.Charsets;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

@@ -1,15 +1,14 @@
 package cpw.mods.fml.common.launcher;
 
-import java.net.Proxy;
-import java.util.Map;
-
-import org.apache.logging.log4j.LogManager;
-
 import com.google.common.base.Throwables;
 import com.mojang.authlib.Agent;
 import com.mojang.authlib.exceptions.AuthenticationException;
 import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
 import com.mojang.authlib.yggdrasil.YggdrasilUserAuthentication;
+import org.apache.logging.log4j.LogManager;
+
+import java.net.Proxy;
+import java.util.Map;
 
 /**
  * Basic implementation of Mojang's 'Yggdrasil' login system, purely intended as

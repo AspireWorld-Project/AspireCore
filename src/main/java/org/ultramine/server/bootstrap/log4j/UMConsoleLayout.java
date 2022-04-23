@@ -1,13 +1,5 @@
 package org.ultramine.server.bootstrap.log4j;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.nio.charset.Charset;
-import java.text.SimpleDateFormat;
-import java.util.Collections;
-import java.util.Map;
-
-import org.apache.commons.lang.Validate;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.core.LogEvent;
 import org.apache.logging.log4j.core.config.plugins.Plugin;
@@ -18,6 +10,13 @@ import org.apache.logging.log4j.core.helpers.Constants;
 import org.apache.logging.log4j.core.layout.AbstractStringLayout;
 import org.fusesource.jansi.Ansi;
 import org.ultramine.server.bootstrap.UMBootstrap;
+
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.nio.charset.Charset;
+import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.Map;
 
 @Plugin(name = "UMConsoleLayout", category = "Core", elementType = "layout", printObject = false)
 public class UMConsoleLayout extends AbstractStringLayout {

@@ -1,27 +1,16 @@
 package cpw.mods.fml.common.eventhandler;
 
-import static org.objectweb.asm.Opcodes.ACC_PUBLIC;
-import static org.objectweb.asm.Opcodes.ACC_SUPER;
-import static org.objectweb.asm.Opcodes.ALOAD;
-import static org.objectweb.asm.Opcodes.CHECKCAST;
-import static org.objectweb.asm.Opcodes.GETFIELD;
-import static org.objectweb.asm.Opcodes.INVOKESPECIAL;
-import static org.objectweb.asm.Opcodes.INVOKEVIRTUAL;
-import static org.objectweb.asm.Opcodes.PUTFIELD;
-import static org.objectweb.asm.Opcodes.RETURN;
-import static org.objectweb.asm.Opcodes.V1_6;
-
-import java.lang.reflect.Method;
-import java.util.HashMap;
-
+import com.google.common.collect.Maps;
+import cpw.mods.fml.common.ModContainer;
 import org.apache.logging.log4j.ThreadContext;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Type;
 
-import com.google.common.collect.Maps;
+import java.lang.reflect.Method;
+import java.util.HashMap;
 
-import cpw.mods.fml.common.ModContainer;
+import static org.objectweb.asm.Opcodes.*;
 
 public class ASMEventHandler implements IEventListener {
 	private static int IDs = 0;

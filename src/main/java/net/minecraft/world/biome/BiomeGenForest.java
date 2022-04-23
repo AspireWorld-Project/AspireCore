@@ -1,7 +1,5 @@
 package net.minecraft.world.biome;
 
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockFlower;
@@ -13,6 +11,8 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenBigMushroom;
 import net.minecraft.world.gen.feature.WorldGenCanopyTree;
 import net.minecraft.world.gen.feature.WorldGenForest;
+
+import java.util.Random;
 
 public class BiomeGenForest extends BiomeGenBase {
 	private int field_150632_aF;

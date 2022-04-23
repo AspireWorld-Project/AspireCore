@@ -1,14 +1,14 @@
 package net.minecraft.village;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.PacketBuffer;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class MerchantRecipeList extends ArrayList {
 	private static final String __OBFID = "CL_00000127";

@@ -1,17 +1,12 @@
 package org.ultramine.scheduler.pattern;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.StringTokenizer;
-import java.util.TimeZone;
-
-import org.apache.commons.lang3.StringUtils;
-
 import gnu.trove.list.TIntList;
 import gnu.trove.list.array.TIntArrayList;
 import gnu.trove.set.TIntSet;
 import gnu.trove.set.hash.TIntHashSet;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.*;
 
 /**
  * <p>

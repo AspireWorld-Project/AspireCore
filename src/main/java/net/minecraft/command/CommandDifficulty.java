@@ -1,10 +1,10 @@
 package net.minecraft.command;
 
-import java.util.List;
-
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.world.EnumDifficulty;
+
+import java.util.List;
 
 public class CommandDifficulty extends CommandBase {
 	private static final String __OBFID = "CL_00000422";

@@ -1,9 +1,9 @@
 package net.minecraft.world.gen.structure;
 
-import java.util.Map;
-
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.WorldSavedData;
+
+import java.util.Map;
 
 public class MapGenStructureData extends WorldSavedData {
 	private NBTTagCompound field_143044_a = new NBTTagCompound();

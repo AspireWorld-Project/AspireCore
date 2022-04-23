@@ -1,10 +1,5 @@
 package net.minecraft.entity.monster;
 
-import java.util.Random;
-
-import org.bukkit.Bukkit;
-import org.bukkit.event.entity.EntityTargetEvent;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -17,6 +12,10 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
+import org.bukkit.Bukkit;
+import org.bukkit.event.entity.EntityTargetEvent;
+
+import java.util.Random;
 
 public class EntitySpider extends EntityMob {
 	private static final String __OBFID = "CL_00001699";

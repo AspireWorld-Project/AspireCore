@@ -1,10 +1,6 @@
 package net.minecraft.command.server;
 
-import java.util.Date;
-import java.util.List;
-
 import com.mojang.authlib.GameProfile;
-
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
@@ -12,6 +8,9 @@ import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.UserListBansEntry;
+
+import java.util.Date;
+import java.util.List;
 
 public class CommandBanPlayer extends CommandBase {
 	private static final String __OBFID = "CL_00000165";

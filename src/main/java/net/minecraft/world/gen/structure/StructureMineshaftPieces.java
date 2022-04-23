@@ -1,12 +1,5 @@
 package net.minecraft.world.gen.structure;
 
-import static net.minecraftforge.common.ChestGenHooks.MINESHAFT_CORRIDOR;
-
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.EntityMinecartChest;
@@ -19,6 +12,13 @@ import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ChestGenHooks;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
+
+import static net.minecraftforge.common.ChestGenHooks.MINESHAFT_CORRIDOR;
 
 public class StructureMineshaftPieces {
 	public static final WeightedRandomChestContent[] mineshaftChestContents = new WeightedRandomChestContent[] {

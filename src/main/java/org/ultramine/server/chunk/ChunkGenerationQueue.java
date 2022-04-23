@@ -1,11 +1,6 @@
 package org.ultramine.server.chunk;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Queue;
-
 import com.google.common.collect.Queues;
-
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
@@ -13,6 +8,10 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.ChunkProviderServer;
 import net.openhft.koloboke.collect.map.IntObjMap;
 import net.openhft.koloboke.collect.map.hash.HashIntObjMaps;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
 
 public class ChunkGenerationQueue {
 	private static final ChunkGenerationQueue INSTANCE = new ChunkGenerationQueue();

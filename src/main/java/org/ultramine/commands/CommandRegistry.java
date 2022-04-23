@@ -1,30 +1,20 @@
 package org.ultramine.commands;
 
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
-
-import org.ultramine.commands.syntax.ArgumentsPatternParser;
-import org.ultramine.server.util.MapWrapper;
-import org.ultramine.server.util.SetWrapper;
-import org.ultramine.server.util.TranslitTable;
-
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Maps;
-
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
+import org.ultramine.commands.syntax.ArgumentsPatternParser;
+import org.ultramine.server.util.MapWrapper;
+import org.ultramine.server.util.SetWrapper;
+import org.ultramine.server.util.TranslitTable;
+
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.util.*;
 
 public class CommandRegistry {
 	private final Map<String, NameInfo> nameInfos = new HashMap<>();

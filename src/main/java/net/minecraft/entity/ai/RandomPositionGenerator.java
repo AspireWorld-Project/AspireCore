@@ -1,10 +1,10 @@
 package net.minecraft.entity.ai;
 
-import java.util.Random;
-
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
+
+import java.util.Random;
 
 public class RandomPositionGenerator {
 	private static Vec3 staticVector = Vec3.createVectorHelper(0.0D, 0.0D, 0.0D);

@@ -1,10 +1,7 @@
 package net.minecraft.client.entity;
 
-import java.io.File;
-
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.minecraft.MinecraftProfileTexture.Type;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
@@ -17,6 +14,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
+
+import java.io.File;
 
 @SideOnly(Side.CLIENT)
 public abstract class AbstractClientPlayer extends EntityPlayer implements SkinManager.SkinAvailableCallback {

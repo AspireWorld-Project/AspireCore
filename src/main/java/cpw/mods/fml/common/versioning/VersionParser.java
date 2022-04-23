@@ -12,16 +12,14 @@
 
 package cpw.mods.fml.common.versioning;
 
-import java.util.List;
-
-import org.apache.logging.log4j.Level;
-
 import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.LoaderException;
+import org.apache.logging.log4j.Level;
+
+import java.util.List;
 
 /**
  * Parses version strings according to the specification here:

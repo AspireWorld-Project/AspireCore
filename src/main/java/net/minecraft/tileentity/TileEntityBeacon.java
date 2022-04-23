@@ -1,8 +1,5 @@
 package net.minecraft.tileentity;
 
-import java.util.Iterator;
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -16,6 +13,9 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.stats.AchievementList;
 import net.minecraft.util.AxisAlignedBB;
+
+import java.util.Iterator;
+import java.util.List;
 
 public class TileEntityBeacon extends TileEntity implements IInventory {
 	public static final Potion[][] effectsList = new Potion[][] { { Potion.moveSpeed, Potion.digSpeed },

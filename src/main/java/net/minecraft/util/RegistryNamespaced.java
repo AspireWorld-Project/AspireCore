@@ -1,10 +1,10 @@
 package net.minecraft.util;
 
-import java.util.Iterator;
-import java.util.Map;
-
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
+
+import java.util.Iterator;
+import java.util.Map;
 
 public class RegistryNamespaced extends RegistrySimple implements IObjectIntIterable {
 	protected ObjectIntIdentityMap underlyingIntegerMap = new ObjectIntIdentityMap();

@@ -1,12 +1,11 @@
 package net.minecraft.client.multiplayer;
 
-import java.util.Hashtable;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 import javax.naming.directory.Attributes;
 import javax.naming.directory.InitialDirContext;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.Hashtable;
 
 @SideOnly(Side.CLIENT)
 public class ServerAddress {

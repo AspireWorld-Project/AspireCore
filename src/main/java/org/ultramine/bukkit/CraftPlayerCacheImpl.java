@@ -1,18 +1,16 @@
 package org.ultramine.bukkit;
 
-import java.lang.ref.WeakReference;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
-
+import com.google.common.base.Function;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraftforge.common.MinecraftForge;
 import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.craftbukkit.entity.CraftPlayer;
 import org.ultramine.bukkit.api.CraftPlayerCreationForgeEvent;
 
-import com.google.common.base.Function;
-
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraftforge.common.MinecraftForge;
+import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public class CraftPlayerCacheImpl implements CraftPlayerCache {
 	private final Map<UUID, WeakReference<CraftPlayer>> cache = new HashMap<>();

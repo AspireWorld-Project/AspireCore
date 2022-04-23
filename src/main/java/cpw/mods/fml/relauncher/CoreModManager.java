@@ -12,6 +12,24 @@
 
 package cpw.mods.fml.relauncher;
 
+import com.google.common.base.Strings;
+import com.google.common.base.Throwables;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import com.google.common.collect.ObjectArrays;
+import com.google.common.primitives.Ints;
+import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.asm.transformers.ModAccessTransformer;
+import cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker;
+import cpw.mods.fml.common.launcher.FMLTweaker;
+import cpw.mods.fml.common.toposort.TopologicalSort;
+import cpw.mods.fml.relauncher.IFMLLoadingPlugin.*;
+import net.minecraft.launchwrapper.ITweaker;
+import net.minecraft.launchwrapper.Launch;
+import net.minecraft.launchwrapper.LaunchClassLoader;
+import org.apache.logging.log4j.Level;
+
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FilenameFilter;
@@ -20,39 +38,9 @@ import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.jar.Attributes;
 import java.util.jar.JarFile;
-
-import org.apache.logging.log4j.Level;
-
-import com.google.common.base.Strings;
-import com.google.common.base.Throwables;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-import com.google.common.collect.ObjectArrays;
-import com.google.common.primitives.Ints;
-
-import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.asm.transformers.ModAccessTransformer;
-import cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker;
-import cpw.mods.fml.common.launcher.FMLTweaker;
-import cpw.mods.fml.common.toposort.TopologicalSort;
-import cpw.mods.fml.relauncher.IFMLLoadingPlugin.DependsOn;
-import cpw.mods.fml.relauncher.IFMLLoadingPlugin.MCVersion;
-import cpw.mods.fml.relauncher.IFMLLoadingPlugin.Name;
-import cpw.mods.fml.relauncher.IFMLLoadingPlugin.SortingIndex;
-import cpw.mods.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
-import net.minecraft.launchwrapper.ITweaker;
-import net.minecraft.launchwrapper.Launch;
-import net.minecraft.launchwrapper.LaunchClassLoader;
 
 public class CoreModManager {
 	private static final Attributes.Name COREMODCONTAINSFMLMOD = new Attributes.Name("FMLCorePluginContainsFMLMod");

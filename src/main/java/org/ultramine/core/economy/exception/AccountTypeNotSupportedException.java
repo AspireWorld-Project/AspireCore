@@ -1,9 +1,9 @@
 package org.ultramine.core.economy.exception;
 
-import javax.annotation.Nonnull;
-
 import org.ultramine.core.economy.Currency;
 import org.ultramine.core.economy.account.Account;
+
+import javax.annotation.Nonnull;
 
 @SuppressWarnings("serial")
 public class AccountTypeNotSupportedException extends EconomyException {

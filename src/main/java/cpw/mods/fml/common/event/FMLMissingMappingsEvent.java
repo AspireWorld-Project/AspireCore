@@ -1,15 +1,14 @@
 package cpw.mods.fml.common.event;
 
-import java.util.List;
-
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ListMultimap;
-
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+
+import java.util.List;
 
 /**
  * This event is fired if a world is loaded that has block and item mappings

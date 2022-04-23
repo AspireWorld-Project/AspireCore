@@ -1,10 +1,8 @@
 package org.ultramine.bukkit;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
+import net.minecraft.command.CommandHandler;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.server.MinecraftServer;
 import org.bukkit.Server;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandException;
@@ -13,9 +11,10 @@ import org.bukkit.command.SimpleCommandMap;
 import org.ultramine.bukkit.util.BukkitUtil;
 import org.ultramine.commands.IExtendedCommand;
 
-import net.minecraft.command.CommandHandler;
-import net.minecraft.command.ICommandSender;
-import net.minecraft.server.MinecraftServer;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class UMCommandMap extends SimpleCommandMap {
 	private final Set<Command> registeredBukkitCommands = new HashSet<>();

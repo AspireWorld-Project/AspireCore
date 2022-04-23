@@ -1,7 +1,5 @@
 package net.minecraftforge.common;
 
-import java.io.File;
-
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.MinecraftException;
 import net.minecraft.world.WorldProvider;
@@ -10,6 +8,8 @@ import net.minecraft.world.chunk.storage.IChunkLoader;
 import net.minecraft.world.storage.IPlayerFileData;
 import net.minecraft.world.storage.ISaveHandler;
 import net.minecraft.world.storage.WorldInfo;
+
+import java.io.File;
 
 //Class used internally to provide the world specific data directories.
 

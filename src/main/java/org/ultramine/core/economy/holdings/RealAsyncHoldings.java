@@ -1,11 +1,10 @@
 package org.ultramine.core.economy.holdings;
 
-import java.util.concurrent.CompletableFuture;
-import java.util.function.Supplier;
+import org.ultramine.server.util.GlobalExecutors;
 
 import javax.annotation.Nonnull;
-
-import org.ultramine.server.util.GlobalExecutors;
+import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier;
 
 public class RealAsyncHoldings extends AbstractAsyncHoldings {
 	public RealAsyncHoldings(Holdings holdings) {

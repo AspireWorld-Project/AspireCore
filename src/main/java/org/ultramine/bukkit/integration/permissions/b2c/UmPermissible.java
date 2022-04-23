@@ -2,7 +2,6 @@ package org.ultramine.bukkit.integration.permissions.b2c;
 
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissibleBase;
-import org.bukkit.permissions.Permission;
 import org.ultramine.core.permissions.Permissions;
 import org.ultramine.core.service.InjectService;
 

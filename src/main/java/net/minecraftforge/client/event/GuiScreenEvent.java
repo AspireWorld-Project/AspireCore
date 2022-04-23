@@ -1,14 +1,14 @@
 package net.minecraftforge.client.event;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import cpw.mods.fml.common.eventhandler.Cancelable;
 import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Event classes for GuiScreen events.

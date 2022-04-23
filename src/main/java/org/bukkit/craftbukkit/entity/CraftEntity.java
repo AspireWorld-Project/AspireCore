@@ -1,9 +1,10 @@
 package org.bukkit.craftbukkit.entity;
 
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-
+import cpw.mods.fml.common.registry.EntityRegistry;
+import net.minecraft.entity.Entity;
+import net.minecraftforge.cauldron.entity.CraftCustomEntity;
+import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.util.FakePlayerFactory;
 import org.bukkit.EntityEffect;
 import org.bukkit.Location;
 import org.bukkit.Server;
@@ -19,11 +20,9 @@ import org.ultramine.bukkit.CraftPlayerCache;
 import org.ultramine.bukkit.util.BukkitEnumHelper;
 import org.ultramine.core.service.InjectService;
 
-import cpw.mods.fml.common.registry.EntityRegistry;
-import net.minecraft.entity.Entity;
-import net.minecraftforge.cauldron.entity.CraftCustomEntity;
-import net.minecraftforge.common.DimensionManager;
-import net.minecraftforge.common.util.FakePlayerFactory;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 // Cauldron start
 // Cauldron end

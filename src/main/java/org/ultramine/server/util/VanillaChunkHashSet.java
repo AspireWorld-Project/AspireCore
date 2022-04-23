@@ -1,16 +1,14 @@
 package org.ultramine.server.util;
 
+import com.google.common.collect.Iterators;
+import net.minecraft.world.ChunkCoordIntPair;
+import net.openhft.koloboke.collect.set.IntSet;
+import org.ultramine.server.chunk.ChunkHash;
+
 import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
-
-import org.ultramine.server.chunk.ChunkHash;
-
-import com.google.common.collect.Iterators;
-
-import net.minecraft.world.ChunkCoordIntPair;
-import net.openhft.koloboke.collect.set.IntSet;
 
 public class VanillaChunkHashSet implements Set<Long> {
 	private final IntSet intset;

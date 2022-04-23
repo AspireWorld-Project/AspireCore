@@ -1,17 +1,10 @@
 package org.ultramine.server.util;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import net.minecraft.server.MinecraftServer;
 import org.ultramine.server.internal.SyncServerExecutorImpl;
 
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
-
-import net.minecraft.server.MinecraftServer;
+import java.util.concurrent.*;
 
 public class GlobalExecutors {
 	private static final ExecutorService writing = Executors.newSingleThreadExecutor(

@@ -1,17 +1,16 @@
 package net.minecraftforge.common;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-
 import com.google.common.collect.ImmutableList;
-
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.gen.structure.MapGenVillage;
 import net.minecraftforge.common.util.EnumHelper;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 
 public class BiomeManager {
 	private static TrackedList<BiomeEntry>[] biomes = setupBiomes();

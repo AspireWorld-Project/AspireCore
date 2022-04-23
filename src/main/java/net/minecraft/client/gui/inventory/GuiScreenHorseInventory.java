@@ -1,7 +1,5 @@
 package net.minecraft.client.gui.inventory;
 
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.resources.I18n;
@@ -9,6 +7,7 @@ import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.inventory.ContainerHorseInventory;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
 public class GuiScreenHorseInventory extends GuiContainer {

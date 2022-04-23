@@ -1,10 +1,5 @@
 package net.minecraft.block;
 
-import java.util.ArrayList;
-import java.util.Random;
-
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -20,6 +15,10 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class BlockCocoa extends BlockDirectional implements IGrowable {
 	@SideOnly(Side.CLIENT)

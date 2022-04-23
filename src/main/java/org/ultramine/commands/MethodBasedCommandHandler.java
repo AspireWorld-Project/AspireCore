@@ -1,13 +1,12 @@
 package org.ultramine.commands;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
+import net.minecraft.command.CommandException;
+import net.minecraft.command.CommandNotFoundException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.minecraft.command.CommandException;
-import net.minecraft.command.CommandNotFoundException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class MethodBasedCommandHandler implements ICommandHandler {
 	private static final Logger logger = LogManager.getLogger();

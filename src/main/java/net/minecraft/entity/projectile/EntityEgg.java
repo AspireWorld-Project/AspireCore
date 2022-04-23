@@ -1,18 +1,17 @@
 package net.minecraft.entity.projectile;
 
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Ageable;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Player;
-import org.bukkit.event.entity.CreatureSpawnEvent;
-import org.bukkit.event.player.PlayerEggThrowEvent;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Ageable;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
+import org.bukkit.event.entity.CreatureSpawnEvent;
+import org.bukkit.event.player.PlayerEggThrowEvent;
 
 public class EntityEgg extends EntityThrowable {
 	private static final String __OBFID = "CL_00001724";

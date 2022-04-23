@@ -1,14 +1,5 @@
 package net.minecraft.block;
 
-import static net.minecraftforge.common.EnumPlantType.Cave;
-import static net.minecraftforge.common.EnumPlantType.Crop;
-import static net.minecraftforge.common.EnumPlantType.Desert;
-import static net.minecraftforge.common.EnumPlantType.Nether;
-import static net.minecraftforge.common.EnumPlantType.Plains;
-import static net.minecraftforge.common.EnumPlantType.Water;
-
-import java.util.Random;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -18,6 +9,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.Random;
+
+import static net.minecraftforge.common.EnumPlantType.*;
 
 public class BlockBush extends Block implements IPlantable {
 	private static final String __OBFID = "CL_00000208";

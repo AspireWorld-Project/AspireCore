@@ -1,9 +1,6 @@
 package org.ultramine.server.event;
 
-import org.ultramine.server.chunk.ChunkHash;
-
 import com.mojang.authlib.GameProfile;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gnu.trove.list.TLongList;
@@ -16,6 +13,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.MinecraftForge;
+import org.ultramine.server.chunk.ChunkHash;
 
 @SideOnly(Side.SERVER)
 public class ServerWorldEventProxy extends WorldEventProxy {

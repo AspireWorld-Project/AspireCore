@@ -12,14 +12,14 @@
 
 package cpw.mods.fml.client.config;
 
+import cpw.mods.fml.client.config.GuiConfigEntries.IConfigEntry;
+import cpw.mods.fml.client.config.GuiEditArrayEntries.IArrayEntry;
+import net.minecraft.client.resources.I18n;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
-
-import cpw.mods.fml.client.config.GuiConfigEntries.IConfigEntry;
-import cpw.mods.fml.client.config.GuiEditArrayEntries.IArrayEntry;
-import net.minecraft.client.resources.I18n;
 
 /**
  * This class's main purpose is to provide the necessary objects for a sample

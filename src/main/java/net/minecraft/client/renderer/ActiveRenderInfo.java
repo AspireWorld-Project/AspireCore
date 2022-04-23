@@ -1,11 +1,5 @@
 package net.minecraft.client.renderer;
 
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
-
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.glu.GLU;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -16,6 +10,11 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.util.glu.GLU;
+
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
 
 @SideOnly(Side.CLIENT)
 public class ActiveRenderInfo {

@@ -11,17 +11,6 @@
  */
 package cpw.mods.fml.client.config;
 
-import static cpw.mods.fml.client.config.GuiUtils.RESET_CHAR;
-import static cpw.mods.fml.client.config.GuiUtils.UNDO_CHAR;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-
-import org.lwjgl.input.Keyboard;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
@@ -32,6 +21,12 @@ import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.EnumChatFormatting;
+import org.lwjgl.input.Keyboard;
+
+import java.util.*;
+
+import static cpw.mods.fml.client.config.GuiUtils.RESET_CHAR;
+import static cpw.mods.fml.client.config.GuiUtils.UNDO_CHAR;
 
 /**
  * This class implements the scrolling list functionality of the config GUI

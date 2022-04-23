@@ -1,13 +1,12 @@
 package cpw.mods.fml.common.network.internal;
 
-import org.apache.logging.log4j.Level;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.handshake.NetworkDispatcher;
 import cpw.mods.fml.common.network.internal.FMLMessage.CompleteHandshake;
 import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import org.apache.logging.log4j.Level;
 
 @Sharable
 public class HandshakeCompletionHandler extends SimpleChannelInboundHandler<FMLMessage.CompleteHandshake> {

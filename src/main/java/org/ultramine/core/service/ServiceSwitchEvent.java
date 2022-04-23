@@ -1,8 +1,8 @@
 package org.ultramine.core.service;
 
-import javax.annotation.Nonnull;
-
 import cpw.mods.fml.common.eventhandler.Event;
+
+import javax.annotation.Nonnull;
 
 public abstract class ServiceSwitchEvent extends Event {
 	private final Class<?> serviceClass;

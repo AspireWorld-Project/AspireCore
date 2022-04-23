@@ -12,9 +12,9 @@
 
 package cpw.mods.fml.common;
 
-import java.util.Set;
-
 import cpw.mods.fml.common.versioning.ArtifactVersion;
+
+import java.util.Set;
 
 public class MissingModsException extends EnhancedRuntimeException {
 	private static final long serialVersionUID = 1L;

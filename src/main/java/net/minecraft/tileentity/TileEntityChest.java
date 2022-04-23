@@ -1,8 +1,5 @@
 package net.minecraft.tileentity;
 
-import java.util.Iterator;
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -15,6 +12,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.AxisAlignedBB;
+
+import java.util.Iterator;
+import java.util.List;
 
 public class TileEntityChest extends TileEntity implements IInventory {
 	private ItemStack[] chestContents = new ItemStack[36];

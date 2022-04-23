@@ -1,10 +1,6 @@
 package net.minecraftforge.fluids;
 
-import java.util.Map;
-import java.util.Random;
-
 import com.google.common.collect.Maps;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -14,6 +10,9 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
+import java.util.Map;
+import java.util.Random;
 
 /**
  * This is a base implementation for Fluid blocks.

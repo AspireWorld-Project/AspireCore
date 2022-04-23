@@ -1,12 +1,11 @@
 package org.bukkit.craftbukkit.block;
 
+import net.minecraft.tileentity.TileEntityMobSpawner;
 import org.bukkit.block.Block;
 import org.bukkit.block.CreatureSpawner;
 import org.bukkit.craftbukkit.CraftWorld;
 import org.bukkit.entity.CreatureType;
 import org.bukkit.entity.EntityType;
-
-import net.minecraft.tileentity.TileEntityMobSpawner;
 
 public class CraftCreatureSpawner extends CraftBlockState implements CreatureSpawner {
 	private final TileEntityMobSpawner spawner;

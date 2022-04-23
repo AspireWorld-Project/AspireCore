@@ -1,17 +1,16 @@
 package org.ultramine.core.economy.service;
 
-import java.util.Collection;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.concurrent.ThreadSafe;
-
 import org.ultramine.core.economy.Currency;
 import org.ultramine.core.economy.exception.CurrencyNotFoundException;
 import org.ultramine.core.economy.holdings.HoldingsFactory;
 import org.ultramine.core.service.Service;
 import org.ultramine.core.util.Undoable;
 import org.ultramine.core.util.UndoableValue;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.concurrent.ThreadSafe;
+import java.util.Collection;
 
 @Service
 @ThreadSafe

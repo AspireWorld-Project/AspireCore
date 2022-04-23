@@ -1,9 +1,5 @@
 package net.minecraft.entity.projectile;
 
-import java.util.List;
-
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -18,6 +14,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+
+import java.util.List;
 
 public abstract class EntityThrowable extends Entity implements IProjectile {
 	private int field_145788_c = -1;

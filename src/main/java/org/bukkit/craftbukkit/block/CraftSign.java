@@ -1,10 +1,9 @@
 package org.bukkit.craftbukkit.block;
 
+import net.minecraft.tileentity.TileEntitySign;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
 import org.bukkit.craftbukkit.CraftWorld;
-
-import net.minecraft.tileentity.TileEntitySign;
 
 public class CraftSign extends CraftBlockState implements Sign {
 	private final TileEntitySign sign;

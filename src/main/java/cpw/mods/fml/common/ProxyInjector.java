@@ -12,17 +12,15 @@
 
 package cpw.mods.fml.common;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.util.Set;
-
-import org.apache.logging.log4j.Level;
-
 import com.google.common.base.Strings;
-
 import cpw.mods.fml.common.discovery.ASMDataTable;
 import cpw.mods.fml.common.discovery.ASMDataTable.ASMData;
 import cpw.mods.fml.relauncher.Side;
+import org.apache.logging.log4j.Level;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.Set;
 
 /**
  * @author cpw

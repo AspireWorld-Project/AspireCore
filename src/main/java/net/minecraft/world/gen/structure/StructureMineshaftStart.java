@@ -1,8 +1,8 @@
 package net.minecraft.world.gen.structure;
 
-import java.util.Random;
-
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class StructureMineshaftStart extends StructureStart {
 	private static final String __OBFID = "CL_00000450";

@@ -1,16 +1,14 @@
 package org.ultramine.server.data;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.sql.DataSource;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.ultramine.server.ConfigurationHandler;
 import org.ultramine.server.UltramineServerConfig;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import javax.sql.DataSource;
+import java.util.HashMap;
+import java.util.Map;
 
 @SideOnly(Side.SERVER)
 public class Databases {

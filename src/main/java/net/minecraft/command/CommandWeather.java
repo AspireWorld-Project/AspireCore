@@ -1,11 +1,11 @@
 package net.minecraft.command;
 
-import java.util.List;
-import java.util.Random;
-
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.storage.WorldInfo;
+
+import java.util.List;
+import java.util.Random;
 
 public class CommandWeather extends CommandBase {
 	private static final String __OBFID = "CL_00001185";

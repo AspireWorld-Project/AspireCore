@@ -1,7 +1,5 @@
 package net.minecraft.network.handshake.client;
 
-import java.io.IOException;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.network.EnumConnectionState;
@@ -9,6 +7,8 @@ import net.minecraft.network.INetHandler;
 import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.handshake.INetHandlerHandshakeServer;
+
+import java.io.IOException;
 
 public class C00Handshake extends Packet {
 	private int field_149600_a;

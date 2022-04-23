@@ -1,8 +1,5 @@
 package net.minecraft.network.play.server;
 
-import java.io.IOException;
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.DataWatcher;
@@ -13,6 +10,9 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.INetHandlerPlayClient;
 import net.minecraft.util.MathHelper;
+
+import java.io.IOException;
+import java.util.List;
 
 public class S0FPacketSpawnMob extends Packet {
 	private int field_149042_a;

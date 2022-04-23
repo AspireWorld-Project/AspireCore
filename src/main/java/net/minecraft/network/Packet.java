@@ -1,13 +1,11 @@
 package net.minecraft.network;
 
-import java.io.IOException;
-
+import com.google.common.collect.BiMap;
+import io.netty.buffer.ByteBuf;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.google.common.collect.BiMap;
-
-import io.netty.buffer.ByteBuf;
+import java.io.IOException;
 
 public abstract class Packet {
 	private static final Logger logger = LogManager.getLogger();

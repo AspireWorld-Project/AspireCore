@@ -1,10 +1,10 @@
 package net.minecraft.server.management;
 
-import java.util.Date;
-import java.util.UUID;
-
 import com.google.gson.JsonObject;
 import com.mojang.authlib.GameProfile;
+
+import java.util.Date;
+import java.util.UUID;
 
 public class UserListBansEntry extends BanEntry {
 	private static final String __OBFID = "CL_00001872";

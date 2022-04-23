@@ -1,12 +1,11 @@
 package org.bukkit.craftbukkit.entity;
 
+import net.minecraft.entity.EntityLivingBase;
 import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Projectile;
 import org.bukkit.projectiles.ProjectileSource;
-
-import net.minecraft.entity.EntityLivingBase;
 
 public class CraftProjectile extends AbstractProjectile implements Projectile { // Cauldron - concrete
 	public CraftProjectile(CraftServer server, net.minecraft.entity.Entity entity) {

@@ -1,7 +1,5 @@
 package net.minecraft.item;
 
-import java.util.List;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityBoat;
@@ -14,6 +12,8 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import org.bukkit.craftbukkit.event.CraftEventFactory;
 import org.bukkit.event.player.PlayerInteractEvent;
+
+import java.util.List;
 
 public class ItemBoat extends Item {
 	private static final String __OBFID = "CL_00001774";

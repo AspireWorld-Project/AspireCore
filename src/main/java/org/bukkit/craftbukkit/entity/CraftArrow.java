@@ -1,13 +1,12 @@
 package org.bukkit.craftbukkit.entity;
 
+import net.minecraft.entity.projectile.EntityArrow;
 import org.apache.commons.lang.Validate;
 import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.projectiles.ProjectileSource;
-
-import net.minecraft.entity.projectile.EntityArrow;
 
 public class CraftArrow extends AbstractProjectile implements Arrow {
 

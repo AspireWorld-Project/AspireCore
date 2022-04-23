@@ -1,12 +1,11 @@
 package org.ultramine.server.mobspawn;
 
-import org.ultramine.server.WorldsConfig.WorldConfig;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.world.WorldProviderEnd;
 import net.minecraft.world.WorldProviderHell;
 import net.minecraft.world.WorldServer;
+import org.ultramine.server.WorldsConfig.WorldConfig;
 
 @SideOnly(Side.SERVER)
 public class MobSpawnManager {

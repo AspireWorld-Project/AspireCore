@@ -1,14 +1,13 @@
 package net.minecraftforge.common.util;
 
+import com.google.common.collect.Maps;
+import com.mojang.authlib.GameProfile;
+import net.minecraft.world.WorldServer;
+
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.UUID;
-
-import com.google.common.collect.Maps;
-import com.mojang.authlib.GameProfile;
-
-import net.minecraft.world.WorldServer;
 
 //To be expanded for generic Mod fake players?
 public class FakePlayerFactory {

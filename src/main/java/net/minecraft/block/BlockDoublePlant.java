@@ -1,9 +1,5 @@
 package net.minecraft.block;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -21,6 +17,10 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class BlockDoublePlant extends BlockBush implements IGrowable, IShearable {
 	public static final String[] field_149892_a = new String[] { "sunflower", "syringa", "grass", "fern", "rose",

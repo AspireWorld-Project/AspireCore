@@ -1,15 +1,14 @@
 package net.minecraft.item.crafting;
 
-import java.util.Map;
-
-import org.ultramine.server.util.ItemStackHashMap;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFishFood;
 import net.minecraft.item.ItemStack;
+import org.ultramine.server.util.ItemStackHashMap;
+
+import java.util.Map;
 
 public class FurnaceRecipes {
 	private static final FurnaceRecipes smeltingBase = new FurnaceRecipes();

@@ -1,10 +1,5 @@
 package net.minecraftforge.common;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Random;
-
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -20,6 +15,11 @@ import net.minecraft.world.gen.structure.StructureStrongholdPieces.Library;
 import net.minecraft.world.gen.structure.StructureStrongholdPieces.RoomCrossing;
 import net.minecraft.world.gen.structure.StructureVillagePieces.House2;
 import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Random;
 
 public class ChestGenHooks {
 	// Currently implemented categories for chests/dispensers, Dungeon loot is still

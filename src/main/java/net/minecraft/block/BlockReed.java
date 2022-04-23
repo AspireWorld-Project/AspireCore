@@ -1,9 +1,5 @@
 package net.minecraft.block;
 
-import java.util.Random;
-
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -16,6 +12,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+
+import java.util.Random;
 
 public class BlockReed extends Block implements IPlantable {
 	private static final String __OBFID = "CL_00000300";

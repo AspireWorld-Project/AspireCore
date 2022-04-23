@@ -12,26 +12,10 @@
 
 package cpw.mods.fml.common;
 
-import java.io.File;
-import java.lang.ref.WeakReference;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
-
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.Logger;
-import org.ultramine.server.Restarter;
 import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
-import com.google.common.collect.ImmutableList;
+import com.google.common.collect.*;
 import com.google.common.collect.ImmutableList.Builder;
-import com.google.common.collect.Lists;
-import com.google.common.collect.MapMaker;
-import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
-
 import cpw.mods.fml.common.eventhandler.EventBus;
 import cpw.mods.fml.common.gameevent.InputEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
@@ -54,6 +38,17 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.SaveHandler;
 import net.minecraft.world.storage.WorldInfo;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.Logger;
+import org.ultramine.server.Restarter;
+
+import java.io.File;
+import java.lang.ref.WeakReference;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 /**
  * The main class for non-obfuscated hook handling code

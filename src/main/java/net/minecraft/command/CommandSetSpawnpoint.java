@@ -1,10 +1,10 @@
 package net.minecraft.command;
 
-import java.util.List;
-
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChunkCoordinates;
+
+import java.util.List;
 
 public class CommandSetSpawnpoint extends CommandBase {
 	private static final String __OBFID = "CL_00001026";

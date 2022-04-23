@@ -1,9 +1,9 @@
 package org.ultramine.core.service;
 
+import org.ultramine.core.util.Undoable;
+
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.ThreadSafe;
-
-import org.ultramine.core.util.Undoable;
 
 @Service(singleProvider = true)
 @ThreadSafe

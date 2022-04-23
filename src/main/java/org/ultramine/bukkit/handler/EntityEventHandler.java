@@ -1,16 +1,15 @@
 package org.ultramine.bukkit.handler;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.bukkit.craftbukkit.CraftServer;
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
-
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import org.bukkit.craftbukkit.CraftServer;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+import org.bukkit.craftbukkit.inventory.CraftItemStack;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EntityEventHandler {
 	@SuppressWarnings("unused")

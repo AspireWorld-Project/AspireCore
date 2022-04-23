@@ -1,7 +1,7 @@
 package org.bukkit.command.defaults;
 
-import java.util.List;
-
+import com.google.common.collect.ImmutableList;
+import net.minecraft.server.dedicated.DedicatedServer;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.Validate;
 import org.bukkit.Bukkit;
@@ -9,9 +9,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import com.google.common.collect.ImmutableList;
-
-import net.minecraft.server.dedicated.DedicatedServer;
+import java.util.List;
 
 public class StopCommand extends VanillaCommand {
 	public StopCommand() {

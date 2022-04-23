@@ -1,10 +1,10 @@
 package net.minecraft.entity.ai.attributes;
 
-import java.util.Collection;
-import java.util.UUID;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.Collection;
+import java.util.UUID;
 
 public interface IAttributeInstance {
 	IAttribute getAttribute();

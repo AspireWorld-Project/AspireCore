@@ -1,7 +1,5 @@
 package net.minecraft.entity.item;
 
-import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,6 +10,8 @@ import net.minecraft.tileentity.IHopper;
 import net.minecraft.tileentity.TileEntityHopper;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class EntityMinecartHopper extends EntityMinecartContainer implements IHopper {
 	private boolean isBlocked = true;

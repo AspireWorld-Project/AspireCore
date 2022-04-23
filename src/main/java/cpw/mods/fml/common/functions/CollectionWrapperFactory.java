@@ -1,10 +1,10 @@
 package cpw.mods.fml.common.functions;
 
-import java.util.Collection;
-import java.util.List;
-
 import com.google.common.collect.Collections2;
 import com.google.common.collect.Lists;
+
+import java.util.Collection;
+import java.util.List;
 
 public class CollectionWrapperFactory {
 	/**

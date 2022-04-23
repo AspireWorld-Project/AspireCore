@@ -1,7 +1,5 @@
 package cpw.mods.fml.common.network;
 
-import java.util.EnumMap;
-
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.EventBus;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -12,6 +10,8 @@ import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.NetHandlerPlayServer;
+
+import java.util.EnumMap;
 
 /**
  * An event driven network channel, using

@@ -1,14 +1,7 @@
 package net.minecraft.command.server;
 
-import java.util.Iterator;
-import java.util.List;
-
 import net.minecraft.block.Block;
-import net.minecraft.command.CommandBase;
-import net.minecraft.command.CommandException;
-import net.minecraft.command.ICommandSender;
-import net.minecraft.command.NumberInvalidException;
-import net.minecraft.command.WrongUsageException;
+import net.minecraft.command.*;
 import net.minecraft.nbt.JsonToNBT;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTException;
@@ -17,6 +10,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Iterator;
+import java.util.List;
 
 public class CommandTestForBlock extends CommandBase {
 	private static final String __OBFID = "CL_00001181";

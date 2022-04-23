@@ -1,19 +1,17 @@
 package org.bukkit.craftbukkit;
 
-import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.util.Date;
-import java.util.Set;
-
+import com.google.common.collect.ImmutableSet;
+import net.minecraft.server.management.BanList;
+import net.minecraft.server.management.IPBanEntry;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.Validate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.google.common.collect.ImmutableSet;
-
-import net.minecraft.server.management.BanList;
-import net.minecraft.server.management.IPBanEntry;
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.util.Date;
+import java.util.Set;
 
 public class CraftIpBanList implements org.bukkit.BanList {
 	private static final Logger log = LogManager.getLogger();

@@ -1,13 +1,13 @@
 package net.minecraft.world.gen.layer;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GenLayerBiome extends GenLayer {
 	private List<BiomeEntry>[] biomes = new ArrayList[BiomeManager.BiomeType.values().length];

@@ -1,12 +1,5 @@
 package net.minecraft.entity.monster;
 
-import java.util.List;
-import java.util.UUID;
-
-import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.entity.CraftEntity;
-import org.bukkit.event.entity.EntityTargetEvent;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -19,6 +12,12 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
+import org.bukkit.Bukkit;
+import org.bukkit.craftbukkit.entity.CraftEntity;
+import org.bukkit.event.entity.EntityTargetEvent;
+
+import java.util.List;
+import java.util.UUID;
 
 public class EntityPigZombie extends EntityZombie {
 	private static final UUID field_110189_bq = UUID.fromString("49455A49-7EC5-45BA-B886-3B90B23A1718");

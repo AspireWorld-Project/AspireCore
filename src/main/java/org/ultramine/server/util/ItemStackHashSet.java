@@ -1,18 +1,13 @@
 package org.ultramine.server.util;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
-import org.ultramine.server.internal.UMInternalRegistry;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.openhft.koloboke.collect.set.IntSet;
 import net.openhft.koloboke.collect.set.hash.HashIntSets;
+import org.ultramine.server.internal.UMInternalRegistry;
+
+import java.util.*;
 
 public class ItemStackHashSet implements Set<ItemStack>, UMInternalRegistry.IRemapHandler {
 	private final List<ItemStack> list = new ArrayList<>();

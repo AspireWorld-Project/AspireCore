@@ -1,11 +1,5 @@
 package net.minecraft.block;
 
-import java.util.List;
-import java.util.Random;
-
-import org.bukkit.Bukkit;
-import org.bukkit.event.block.BlockRedstoneEvent;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -19,6 +13,11 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import org.bukkit.Bukkit;
+import org.bukkit.event.block.BlockRedstoneEvent;
+
+import java.util.List;
+import java.util.Random;
 
 public class BlockRailDetector extends BlockRailBase {
 	@SideOnly(Side.CLIENT)

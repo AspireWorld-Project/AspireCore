@@ -1,9 +1,5 @@
 package net.minecraft.stats;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.Locale;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.event.HoverEvent;
@@ -11,6 +7,10 @@ import net.minecraft.scoreboard.IScoreObjectiveCriteria;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
+
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class StatBase {
 	public final String statId;

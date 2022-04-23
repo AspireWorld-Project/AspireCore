@@ -1,10 +1,10 @@
 package net.minecraftforge.client.event;
 
-import java.util.ArrayList;
-
 import cpw.mods.fml.common.eventhandler.Cancelable;
 import cpw.mods.fml.common.eventhandler.Event;
 import net.minecraft.client.gui.ScaledResolution;
+
+import java.util.ArrayList;
 
 @Cancelable
 public class RenderGameOverlayEvent extends Event {

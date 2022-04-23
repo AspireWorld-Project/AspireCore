@@ -1,12 +1,6 @@
 package cpw.mods.fml.client;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.regex.Pattern;
-
 import com.google.common.collect.ImmutableSet;
-
 import cpw.mods.fml.client.config.ConfigGuiType;
 import cpw.mods.fml.client.config.DummyConfigElement;
 import cpw.mods.fml.client.config.DummyConfigElement.DummyCategoryElement;
@@ -19,6 +13,11 @@ import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.regex.Pattern;
 
 public class FMLConfigGuiFactory implements IModGuiFactory {
 	public static class FMLConfigGuiScreen extends GuiConfig {

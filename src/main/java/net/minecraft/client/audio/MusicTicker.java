@@ -1,13 +1,13 @@
 package net.minecraft.client.audio;
 
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.server.gui.IUpdatePlayerListBox;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
+
+import java.util.Random;
 
 @SideOnly(Side.CLIENT)
 public class MusicTicker implements IUpdatePlayerListBox {

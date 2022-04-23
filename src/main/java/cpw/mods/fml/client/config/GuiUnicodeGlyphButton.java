@@ -12,9 +12,8 @@
 
 package cpw.mods.fml.client.config;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.Minecraft;
+import org.lwjgl.opengl.GL11;
 
 /**
  * This class provides a button that shows a string glyph at the beginning. The

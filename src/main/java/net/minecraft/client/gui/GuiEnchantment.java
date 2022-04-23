@@ -1,11 +1,5 @@
 package net.minecraft.client.gui;
 
-import java.util.Random;
-
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-import org.lwjgl.util.glu.Project;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -20,6 +14,11 @@ import net.minecraft.util.EnchantmentNameParts;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
+import org.lwjgl.util.glu.Project;
+
+import java.util.Random;
 
 @SideOnly(Side.CLIENT)
 public class GuiEnchantment extends GuiContainer {

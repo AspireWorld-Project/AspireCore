@@ -1,13 +1,13 @@
 package net.minecraft.enchantment;
 
-import java.util.ArrayList;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.StatCollector;
+
+import java.util.ArrayList;
 
 public abstract class Enchantment {
 	public static final Enchantment[] enchantmentsList = new Enchantment[256];

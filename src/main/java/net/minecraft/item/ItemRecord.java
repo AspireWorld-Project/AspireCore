@@ -1,9 +1,5 @@
 package net.minecraft.item;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockJukebox;
@@ -14,6 +10,10 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ItemRecord extends Item {
 	private static final Map field_150928_b = new HashMap();

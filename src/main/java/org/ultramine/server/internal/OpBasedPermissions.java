@@ -1,15 +1,12 @@
 package org.ultramine.server.internal;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.annotation.Nonnull;
-
+import com.mojang.authlib.GameProfile;
+import net.minecraft.server.MinecraftServer;
 import org.ultramine.core.permissions.Permissions;
 
-import com.mojang.authlib.GameProfile;
-
-import net.minecraft.server.MinecraftServer;
+import javax.annotation.Nonnull;
+import java.util.HashSet;
+import java.util.Set;
 
 public class OpBasedPermissions implements Permissions {
 	private final Set<String> defaultPermissions = new HashSet<>();

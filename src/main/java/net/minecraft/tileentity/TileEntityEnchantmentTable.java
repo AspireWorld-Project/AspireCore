@@ -1,9 +1,9 @@
 package net.minecraft.tileentity;
 
-import java.util.Random;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+
+import java.util.Random;
 
 public class TileEntityEnchantmentTable extends TileEntity {
 	public int field_145926_a;

@@ -1,11 +1,11 @@
 package cpw.mods.fml.common.network;
 
+import cpw.mods.fml.relauncher.Side;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-
-import cpw.mods.fml.relauncher.Side;
 
 /**
  * A method annotated with this will be called when a remote network connection

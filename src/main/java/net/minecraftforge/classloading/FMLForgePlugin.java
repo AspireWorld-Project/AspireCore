@@ -1,9 +1,9 @@
 package net.minecraftforge.classloading;
 
+import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
+
 import java.io.File;
 import java.util.Map;
-
-import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 
 public class FMLForgePlugin implements IFMLLoadingPlugin {
 	public static boolean RUNTIME_DEOBF = false;

@@ -1,9 +1,8 @@
 package org.bukkit.craftbukkit.entity;
 
+import net.minecraft.entity.monster.EntityGolem;
 import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.entity.Golem;
-
-import net.minecraft.entity.monster.EntityGolem;
 
 public class CraftGolem extends CraftCreature implements Golem {
 	public CraftGolem(CraftServer server, EntityGolem entity) {

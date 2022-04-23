@@ -1,24 +1,14 @@
 package org.ultramine.bukkit.util;
 
-import static org.objectweb.asm.Opcodes.ACC_PUBLIC;
-import static org.objectweb.asm.Opcodes.ACC_SUPER;
-import static org.objectweb.asm.Opcodes.ALOAD;
-import static org.objectweb.asm.Opcodes.CHECKCAST;
-import static org.objectweb.asm.Opcodes.GETFIELD;
-import static org.objectweb.asm.Opcodes.INVOKESPECIAL;
-import static org.objectweb.asm.Opcodes.INVOKEVIRTUAL;
-import static org.objectweb.asm.Opcodes.PUTFIELD;
-import static org.objectweb.asm.Opcodes.RETURN;
-import static org.objectweb.asm.Opcodes.V1_6;
-
-import java.lang.reflect.Method;
-
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Type;
 import org.ultramine.server.util.UnsafeUtil;
-
 import sun.misc.Unsafe;
+
+import java.lang.reflect.Method;
+
+import static org.objectweb.asm.Opcodes.*;
 
 public class ClassGenUtils {
 	private static final Unsafe U = UnsafeUtil.getUnsafe();

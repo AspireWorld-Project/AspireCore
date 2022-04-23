@@ -1,21 +1,15 @@
 package cpw.mods.fml.client;
 
-import java.io.File;
-import java.io.IOException;
-
-import org.apache.logging.log4j.Level;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.StartupQuery;
 import cpw.mods.fml.common.ZipperUtil;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiLabel;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.gui.GuiSelectWorld;
-import net.minecraft.client.gui.GuiYesNo;
-import net.minecraft.client.gui.GuiYesNoCallback;
+import net.minecraft.client.gui.*;
 import net.minecraft.world.WorldSettings;
+import org.apache.logging.log4j.Level;
+
+import java.io.File;
+import java.io.IOException;
 
 public class GuiOldSaveLoadConfirm extends GuiYesNo implements GuiYesNoCallback {
 

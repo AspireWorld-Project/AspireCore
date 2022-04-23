@@ -1,10 +1,10 @@
 package net.minecraft.client.resources.data;
 
-import java.util.Collections;
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.Collections;
+import java.util.List;
 
 @SideOnly(Side.CLIENT)
 public class TextureMetadataSection implements IMetadataSection {

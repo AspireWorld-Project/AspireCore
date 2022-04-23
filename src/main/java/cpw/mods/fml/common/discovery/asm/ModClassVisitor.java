@@ -12,11 +12,7 @@
 
 package cpw.mods.fml.common.discovery.asm;
 
-import org.objectweb.asm.AnnotationVisitor;
-import org.objectweb.asm.ClassVisitor;
-import org.objectweb.asm.FieldVisitor;
-import org.objectweb.asm.MethodVisitor;
-import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.*;
 
 public class ModClassVisitor extends ClassVisitor {
 	private ASMModParser discoverer;

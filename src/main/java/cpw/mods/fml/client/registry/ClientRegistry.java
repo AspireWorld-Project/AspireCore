@@ -12,14 +12,13 @@
 
 package cpw.mods.fml.client.registry;
 
-import org.apache.commons.lang3.ArrayUtils;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.tileentity.TileEntity;
+import org.apache.commons.lang3.ArrayUtils;
 
 public class ClientRegistry {
 	/**

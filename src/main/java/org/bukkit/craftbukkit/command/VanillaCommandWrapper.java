@@ -1,7 +1,6 @@
 package org.bukkit.craftbukkit.command;
 
-import java.util.List;
-
+import net.minecraft.server.MinecraftServer;
 import org.apache.commons.lang.Validate;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -18,7 +17,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.entity.minecart.CommandMinecart;
 import org.ultramine.commands.IExtendedCommand;
 
-import net.minecraft.server.MinecraftServer;
+import java.util.List;
 
 public final class VanillaCommandWrapper extends VanillaCommand {
 	private static final Logger log = LogManager.getLogger();

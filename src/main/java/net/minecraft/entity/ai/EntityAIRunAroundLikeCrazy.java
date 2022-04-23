@@ -1,10 +1,9 @@
 package net.minecraft.entity.ai;
 
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Vec3;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
 
 public class EntityAIRunAroundLikeCrazy extends EntityAIBase {
 	private EntityHorse horseHost;

@@ -12,16 +12,15 @@
 
 package cpw.mods.fml.common;
 
-import java.util.List;
-import java.util.Set;
-
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.google.gson.annotations.SerializedName;
-
 import cpw.mods.fml.common.functions.ModNameFunction;
 import cpw.mods.fml.common.versioning.ArtifactVersion;
+
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author cpw

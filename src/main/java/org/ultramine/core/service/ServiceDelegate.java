@@ -1,8 +1,8 @@
 package org.ultramine.core.service;
 
-import javax.annotation.Nonnull;
-
 import org.ultramine.server.service.NotResolvedServiceProvider;
+
+import javax.annotation.Nonnull;
 
 public interface ServiceDelegate<T> {
 	void setProvider(@Nonnull T obj);

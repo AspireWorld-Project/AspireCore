@@ -1,18 +1,5 @@
 package net.minecraft.world.biome;
 
-import static net.minecraft.world.biome.BiomeGenBase.forest;
-import static net.minecraft.world.biome.BiomeGenBase.forestHills;
-import static net.minecraft.world.biome.BiomeGenBase.jungle;
-import static net.minecraft.world.biome.BiomeGenBase.jungleHills;
-import static net.minecraft.world.biome.BiomeGenBase.plains;
-import static net.minecraft.world.biome.BiomeGenBase.taiga;
-import static net.minecraft.world.biome.BiomeGenBase.taigaHills;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.crash.CrashReport;
@@ -25,6 +12,13 @@ import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.WorldTypeEvent;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
+import static net.minecraft.world.biome.BiomeGenBase.*;
 
 public class WorldChunkManager {
 	public static ArrayList<BiomeGenBase> allowedBiomes = new ArrayList<>(

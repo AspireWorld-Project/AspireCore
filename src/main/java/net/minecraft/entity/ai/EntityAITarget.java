@@ -1,9 +1,5 @@
 package net.minecraft.entity.ai;
 
-import org.apache.commons.lang3.StringUtils;
-import org.bukkit.craftbukkit.entity.CraftEntity;
-import org.bukkit.event.entity.EntityTargetEvent;
-
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityOwnable;
@@ -14,6 +10,9 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.pathfinding.PathEntity;
 import net.minecraft.pathfinding.PathPoint;
 import net.minecraft.util.MathHelper;
+import org.apache.commons.lang3.StringUtils;
+import org.bukkit.craftbukkit.entity.CraftEntity;
+import org.bukkit.event.entity.EntityTargetEvent;
 
 public abstract class EntityAITarget extends EntityAIBase {
 	protected EntityCreature taskOwner;

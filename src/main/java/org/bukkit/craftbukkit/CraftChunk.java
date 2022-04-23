@@ -1,8 +1,6 @@
 package org.bukkit.craftbukkit;
 
-import java.lang.ref.WeakReference;
-import java.util.Arrays;
-
+import net.minecraft.world.WorldServer;
 import org.bukkit.Chunk;
 import org.bukkit.ChunkSnapshot;
 import org.bukkit.World;
@@ -11,7 +9,8 @@ import org.bukkit.block.BlockState;
 import org.bukkit.craftbukkit.block.CraftBlock;
 import org.bukkit.entity.Entity;
 
-import net.minecraft.world.WorldServer;
+import java.lang.ref.WeakReference;
+import java.util.Arrays;
 
 public class CraftChunk implements Chunk {
 	private WeakReference<net.minecraft.world.chunk.Chunk> weakChunk;

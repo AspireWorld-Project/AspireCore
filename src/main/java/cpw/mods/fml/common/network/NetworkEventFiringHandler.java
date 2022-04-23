@@ -1,12 +1,11 @@
 package cpw.mods.fml.common.network;
 
-import org.apache.logging.log4j.Level;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.internal.FMLProxyPacket;
 import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import org.apache.logging.log4j.Level;
 
 /**
  * Use this handler as the only thing in your channel, to receive network events

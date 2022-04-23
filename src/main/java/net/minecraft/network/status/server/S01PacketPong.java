@@ -1,13 +1,13 @@
 package net.minecraft.network.status.server;
 
-import java.io.IOException;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.status.INetHandlerStatusClient;
+
+import java.io.IOException;
 
 public class S01PacketPong extends Packet {
 	private long field_149293_a;

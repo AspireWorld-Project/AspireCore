@@ -1,9 +1,9 @@
 package org.ultramine.server.chunk.alloc.unsafe;
 
+import sun.misc.Unsafe;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import sun.misc.Unsafe;
 
 public final class Unsafe8MemSlot extends AbstractUnsafeMemSlot {
 	private static final long BYTE_ARRAY_OFFSET = Unsafe.ARRAY_BYTE_BASE_OFFSET;

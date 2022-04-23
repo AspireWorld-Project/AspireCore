@@ -1,12 +1,11 @@
 package org.ultramine.server.economy;
 
-import java.text.DecimalFormat;
+import org.ultramine.core.economy.Currency;
+import org.ultramine.core.economy.holdings.HoldingsFactory;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import org.ultramine.core.economy.Currency;
-import org.ultramine.core.economy.holdings.HoldingsFactory;
+import java.text.DecimalFormat;
 
 public class CurrencyImpl implements Currency {
 	@Nullable

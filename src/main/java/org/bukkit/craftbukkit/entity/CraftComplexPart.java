@@ -1,13 +1,12 @@
 package org.bukkit.craftbukkit.entity;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.boss.EntityDragonPart;
 import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.entity.ComplexEntityPart;
 import org.bukkit.entity.ComplexLivingEntity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.entity.EntityDamageEvent;
-
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.boss.EntityDragonPart;
 
 public class CraftComplexPart extends CraftEntity implements ComplexEntityPart {
 	public CraftComplexPart(CraftServer server, EntityDragonPart entity) {

@@ -1,11 +1,11 @@
 package org.ultramine.bukkit.asm;
 
+import cpw.mods.fml.relauncher.CoreModManager;
+import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
+
 import java.io.File;
 import java.net.URISyntaxException;
 import java.util.Map;
-
-import cpw.mods.fml.relauncher.CoreModManager;
-import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 
 @IFMLLoadingPlugin.MCVersion("1.7.10")
 @IFMLLoadingPlugin.TransformerExclusions({ "org.ultramine.bukkit.asm.", "net.md_5.specialsource.",

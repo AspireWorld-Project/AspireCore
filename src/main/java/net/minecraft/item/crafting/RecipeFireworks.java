@@ -1,7 +1,5 @@
 package net.minecraft.item.crafting;
 
-import java.util.ArrayList;
-
 import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemDye;
@@ -9,6 +7,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
 
 public class RecipeFireworks implements IRecipe {
 	private ItemStack field_92102_a;

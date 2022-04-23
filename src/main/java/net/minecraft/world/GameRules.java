@@ -1,10 +1,10 @@
 package net.minecraft.world;
 
+import net.minecraft.nbt.NBTTagCompound;
+
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeMap;
-
-import net.minecraft.nbt.NBTTagCompound;
 
 public class GameRules {
 	private TreeMap theGameRules = new TreeMap();

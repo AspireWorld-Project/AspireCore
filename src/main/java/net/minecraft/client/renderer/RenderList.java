@@ -1,11 +1,10 @@
 package net.minecraft.client.renderer;
 
-import java.nio.IntBuffer;
-
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import org.lwjgl.opengl.GL11;
+
+import java.nio.IntBuffer;
 
 @SideOnly(Side.CLIENT)
 public class RenderList {

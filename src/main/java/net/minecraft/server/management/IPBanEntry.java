@@ -1,8 +1,8 @@
 package net.minecraft.server.management;
 
-import java.util.Date;
-
 import com.google.gson.JsonObject;
+
+import java.util.Date;
 
 public class IPBanEntry extends BanEntry {
 	private static final String __OBFID = "CL_00001883";

@@ -1,18 +1,13 @@
 package net.minecraft.client.resources.data;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-
 import com.google.common.collect.Lists;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-
+import com.google.gson.*;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.util.JsonUtils;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 @SideOnly(Side.CLIENT)
 public class TextureMetadataSectionSerializer extends BaseMetadataSectionSerializer {

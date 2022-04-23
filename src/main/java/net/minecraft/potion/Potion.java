@@ -1,16 +1,6 @@
 package net.minecraft.potion;
 
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.UUID;
-
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-import org.bukkit.craftbukkit.potion.CraftPotionEffectType;
-import org.bukkit.event.entity.EntityRegainHealthEvent;
-
 import com.google.common.collect.Maps;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.EntityLivingBase;
@@ -23,7 +13,15 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityPotion;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.StringUtils;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+import org.bukkit.craftbukkit.potion.CraftPotionEffectType;
+import org.bukkit.event.entity.EntityRegainHealthEvent;
 import org.bukkit.potion.PotionEffectType;
+
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.UUID;
 
 public class Potion {
 	public static final Potion[] potionTypes = new Potion[32];

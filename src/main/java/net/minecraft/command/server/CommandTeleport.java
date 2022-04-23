@@ -1,7 +1,5 @@
 package net.minecraft.command.server;
 
-import java.util.List;
-
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.PlayerNotFoundException;
@@ -9,6 +7,8 @@ import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
+
+import java.util.List;
 
 public class CommandTeleport extends CommandBase {
 	private static final String __OBFID = "CL_00001180";

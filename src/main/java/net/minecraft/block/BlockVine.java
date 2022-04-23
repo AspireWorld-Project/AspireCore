@@ -1,10 +1,5 @@
 package net.minecraft.block;
 
-import java.util.ArrayList;
-import java.util.Random;
-
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -19,6 +14,10 @@ import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class BlockVine extends Block implements IShearable {
 	private static final String __OBFID = "CL_00000330";

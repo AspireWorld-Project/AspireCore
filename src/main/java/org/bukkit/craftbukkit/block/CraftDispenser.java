@@ -1,5 +1,8 @@
 package org.bukkit.craftbukkit.block;
 
+import net.minecraft.block.BlockDispenser;
+import net.minecraft.init.Blocks;
+import net.minecraft.tileentity.TileEntityDispenser;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.Dispenser;
@@ -8,10 +11,6 @@ import org.bukkit.craftbukkit.inventory.CraftInventory;
 import org.bukkit.craftbukkit.projectiles.CraftBlockProjectileSource;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.projectiles.BlockProjectileSource;
-
-import net.minecraft.block.BlockDispenser;
-import net.minecraft.init.Blocks;
-import net.minecraft.tileentity.TileEntityDispenser;
 
 public class CraftDispenser extends CraftBlockState implements Dispenser {
 	private final CraftWorld world;

@@ -1,10 +1,9 @@
 package org.bukkit.craftbukkit.entity;
 
+import net.minecraft.entity.passive.EntityChicken;
 import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.entity.Chicken;
 import org.bukkit.entity.EntityType;
-
-import net.minecraft.entity.passive.EntityChicken;
 
 public class CraftChicken extends CraftAnimals implements Chicken {
 

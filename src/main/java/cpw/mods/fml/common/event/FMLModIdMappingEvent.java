@@ -1,13 +1,13 @@
 package cpw.mods.fml.common.event;
 
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
 
 public class FMLModIdMappingEvent extends FMLEvent {
 	public static enum RemapTarget {

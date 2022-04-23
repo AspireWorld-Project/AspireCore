@@ -1,7 +1,6 @@
 package org.ultramine.bukkit.injected.internal;
 
-import javax.annotation.Nonnull;
-
+import net.milkbowl.vault.economy.Economy;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.ultramine.bukkit.injected.internal.economy.VaultEconomyPlayerHoldings;
@@ -17,7 +16,7 @@ import org.ultramine.core.permissions.Permissions;
 import org.ultramine.core.service.ServiceBytecodeAdapter;
 import org.ultramine.core.service.ServiceManager;
 
-import net.milkbowl.vault.economy.Economy;
+import javax.annotation.Nonnull;
 
 public class InjectedUltramineCorePlugin extends JavaPlugin {
 	// @InjectService is not working in plugin environment

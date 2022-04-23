@@ -1,17 +1,5 @@
 package net.minecraft.entity.item;
 
-import java.util.List;
-
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.craftbukkit.entity.CraftEntity;
-import org.bukkit.entity.Vehicle;
-import org.bukkit.event.vehicle.VehicleCreateEvent;
-import org.bukkit.event.vehicle.VehicleDamageEvent;
-import org.bukkit.event.vehicle.VehicleDestroyEvent;
-import org.bukkit.event.vehicle.VehicleMoveEvent;
-import org.bukkit.event.vehicle.VehicleUpdateEvent;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -38,6 +26,13 @@ import net.minecraftforge.common.IMinecartCollisionHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.minecart.MinecartCollisionEvent;
 import net.minecraftforge.event.entity.minecart.MinecartUpdateEvent;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.craftbukkit.entity.CraftEntity;
+import org.bukkit.entity.Vehicle;
+import org.bukkit.event.vehicle.*;
+
+import java.util.List;
 
 public abstract class EntityMinecart extends Entity {
 	private boolean isInReverse;

@@ -12,16 +12,8 @@
 
 package cpw.mods.fml.common.network;
 
-import java.util.EnumMap;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
-import org.apache.logging.log4j.Level;
-
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.ModContainer;
@@ -41,6 +33,12 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.Container;
 import net.minecraft.network.INetHandler;
 import net.minecraft.world.World;
+import org.apache.logging.log4j.Level;
+
+import java.util.EnumMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 /**
  * @author cpw

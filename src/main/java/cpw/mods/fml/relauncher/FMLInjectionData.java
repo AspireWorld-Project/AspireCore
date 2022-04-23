@@ -12,16 +12,15 @@
 
 package cpw.mods.fml.relauncher;
 
+import net.minecraft.launchwrapper.LaunchClassLoader;
+import org.apache.logging.log4j.Level;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-
-import org.apache.logging.log4j.Level;
-
-import net.minecraft.launchwrapper.LaunchClassLoader;
 
 public class FMLInjectionData {
 	static File minecraftHome;

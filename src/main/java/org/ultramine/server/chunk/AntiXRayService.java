@@ -1,8 +1,7 @@
 package org.ultramine.server.chunk;
 
-import org.ultramine.core.service.Service;
-
 import net.minecraft.world.chunk.Chunk;
+import org.ultramine.core.service.Service;
 
 @Service
 public interface AntiXRayService<T> {

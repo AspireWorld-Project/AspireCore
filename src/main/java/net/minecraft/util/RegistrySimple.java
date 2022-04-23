@@ -1,13 +1,12 @@
 package net.minecraft.util;
 
-import java.util.Collections;
-import java.util.Map;
-import java.util.Set;
-
+import com.google.common.collect.Maps;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.google.common.collect.Maps;
+import java.util.Collections;
+import java.util.Map;
+import java.util.Set;
 
 public class RegistrySimple implements IRegistry {
 	private static final Logger logger = LogManager.getLogger();

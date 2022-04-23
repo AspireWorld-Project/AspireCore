@@ -1,7 +1,5 @@
 package net.minecraft.item;
 
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockDispenser;
@@ -20,6 +18,8 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class ItemArmor extends Item {
 	private static final int[] maxDamageArray = new int[] { 11, 16, 15, 13 };

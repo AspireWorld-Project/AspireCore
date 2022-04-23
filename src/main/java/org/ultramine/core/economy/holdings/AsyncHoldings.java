@@ -1,13 +1,12 @@
 package org.ultramine.core.economy.holdings;
 
-import java.util.concurrent.CompletableFuture;
+import org.ultramine.core.economy.Currency;
+import org.ultramine.core.economy.account.Account;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
-
-import org.ultramine.core.economy.Currency;
-import org.ultramine.core.economy.account.Account;
+import java.util.concurrent.CompletableFuture;
 
 @ThreadSafe
 public interface AsyncHoldings {

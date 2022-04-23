@@ -1,13 +1,5 @@
 package net.minecraft.block;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
-
-import org.bukkit.Bukkit;
-import org.bukkit.event.block.BlockRedstoneEvent;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -21,6 +13,13 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import org.bukkit.Bukkit;
+import org.bukkit.event.block.BlockRedstoneEvent;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
 
 public class BlockRedstoneWire extends Block {
 	private boolean field_150181_a = true;

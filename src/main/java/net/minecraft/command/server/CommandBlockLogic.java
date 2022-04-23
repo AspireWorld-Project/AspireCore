@@ -1,8 +1,5 @@
 package net.minecraft.command.server;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
@@ -13,6 +10,9 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public abstract class CommandBlockLogic implements ICommandSender {
 	private static final SimpleDateFormat field_145766_a = new SimpleDateFormat("HH:mm:ss");

@@ -1,19 +1,18 @@
 package org.ultramine.commands.basic;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.world.WorldServer;
 import org.ultramine.commands.Command;
 import org.ultramine.commands.CommandContext;
 import org.ultramine.server.WorldConstants;
 import org.ultramine.server.WorldsConfig;
 import org.ultramine.server.util.SpiralCoordIterator;
 
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.MathHelper;
-import net.minecraft.world.ChunkCoordIntPair;
-import net.minecraft.world.WorldServer;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GenWorldCommand {
 	private static final List<WorldGenerator> generators = new ArrayList<>();

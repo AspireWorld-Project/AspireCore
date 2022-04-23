@@ -1,11 +1,11 @@
 package net.minecraft.network.play.client;
 
-import java.io.IOException;
-
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.INetHandlerPlayServer;
+
+import java.io.IOException;
 
 public class C16PacketClientStatus extends Packet {
 	private C16PacketClientStatus.EnumState field_149437_a;

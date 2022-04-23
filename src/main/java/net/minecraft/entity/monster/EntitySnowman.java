@@ -1,20 +1,11 @@
 package net.minecraft.entity.monster;
 
-import org.bukkit.block.BlockState;
-import org.bukkit.craftbukkit.event.CraftEventFactory;
-import org.bukkit.craftbukkit.util.CraftMagicNumbers;
-import org.bukkit.event.block.EntityBlockFormEvent;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIArrowAttack;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntitySnowball;
 import net.minecraft.init.Blocks;
@@ -23,6 +14,10 @@ import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import org.bukkit.block.BlockState;
+import org.bukkit.craftbukkit.event.CraftEventFactory;
+import org.bukkit.craftbukkit.util.CraftMagicNumbers;
+import org.bukkit.event.block.EntityBlockFormEvent;
 
 public class EntitySnowman extends EntityGolem implements IRangedAttackMob {
 	private static final String __OBFID = "CL_00001650";

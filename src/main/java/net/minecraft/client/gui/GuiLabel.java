@@ -1,13 +1,12 @@
 package net.minecraft.client.gui;
 
-import java.util.ArrayList;
-
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.OpenGlHelper;
+import org.lwjgl.opengl.GL11;
+
+import java.util.ArrayList;
 
 @SideOnly(Side.CLIENT)
 public class GuiLabel extends Gui {

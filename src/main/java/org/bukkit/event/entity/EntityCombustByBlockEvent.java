@@ -1,9 +1,9 @@
 package org.bukkit.event.entity;
 
-import javax.annotation.Nullable;
-
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
+
+import javax.annotation.Nullable;
 
 /**
  * Called when a block causes an entity to combust.

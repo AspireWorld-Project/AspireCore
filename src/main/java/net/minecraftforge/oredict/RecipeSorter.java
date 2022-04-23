@@ -1,32 +1,17 @@
 package net.minecraftforge.oredict;
 
-import static net.minecraftforge.oredict.RecipeSorter.Category.SHAPED;
-import static net.minecraftforge.oredict.RecipeSorter.Category.SHAPELESS;
-import static net.minecraftforge.oredict.RecipeSorter.Category.UNKNOWN;
-
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.toposort.TopologicalSort;
 import cpw.mods.fml.common.toposort.TopologicalSort.DirectedGraph;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.RecipeBookCloning;
-import net.minecraft.item.crafting.RecipeFireworks;
-import net.minecraft.item.crafting.RecipesArmorDyes;
-import net.minecraft.item.crafting.RecipesMapCloning;
-import net.minecraft.item.crafting.RecipesMapExtending;
-import net.minecraft.item.crafting.ShapedRecipes;
-import net.minecraft.item.crafting.ShapelessRecipes;
+import net.minecraft.item.crafting.*;
+
+import java.util.*;
+
+import static net.minecraftforge.oredict.RecipeSorter.Category.*;
 
 @SuppressWarnings("rawtypes")
 public class RecipeSorter implements Comparator<IRecipe> {

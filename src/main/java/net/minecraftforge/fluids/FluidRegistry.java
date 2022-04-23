@@ -1,18 +1,7 @@
 package net.minecraftforge.fluids;
 
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
-import org.apache.logging.log4j.Level;
-
 import com.google.common.base.Strings;
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
-
+import com.google.common.collect.*;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
@@ -25,6 +14,11 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.MinecraftForge;
+import org.apache.logging.log4j.Level;
+
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 /**
  * Handles Fluid registrations. Fluids MUST be registered in order to function.

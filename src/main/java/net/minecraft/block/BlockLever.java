@@ -1,15 +1,5 @@
 package net.minecraft.block;
 
-import static net.minecraftforge.common.util.ForgeDirection.DOWN;
-import static net.minecraftforge.common.util.ForgeDirection.EAST;
-import static net.minecraftforge.common.util.ForgeDirection.NORTH;
-import static net.minecraftforge.common.util.ForgeDirection.SOUTH;
-import static net.minecraftforge.common.util.ForgeDirection.UP;
-import static net.minecraftforge.common.util.ForgeDirection.WEST;
-
-import org.bukkit.Bukkit;
-import org.bukkit.event.block.BlockRedstoneEvent;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,6 +10,10 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+import org.bukkit.Bukkit;
+import org.bukkit.event.block.BlockRedstoneEvent;
+
+import static net.minecraftforge.common.util.ForgeDirection.*;
 
 public class BlockLever extends Block {
 	private static final String __OBFID = "CL_00000264";

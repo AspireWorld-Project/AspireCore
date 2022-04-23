@@ -1,13 +1,5 @@
 package net.minecraft.block;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-
-import org.bukkit.Bukkit;
-import org.bukkit.event.Cancellable;
-import org.bukkit.event.entity.EntityInteractEvent;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -20,6 +12,13 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Direction;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import org.bukkit.Bukkit;
+import org.bukkit.event.Cancellable;
+import org.bukkit.event.entity.EntityInteractEvent;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
 
 public class BlockTripWire extends Block {
 	private static final String __OBFID = "CL_00000328";

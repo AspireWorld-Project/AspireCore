@@ -1,19 +1,18 @@
 package org.ultramine.server.internal;
 
-import java.io.IOException;
-import java.util.List;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.ultramine.server.bootstrap.UMBootstrap;
-import org.ultramine.server.util.GlobalExecutors;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import jline.console.ConsoleReader;
 import jline.console.completer.Completer;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.dedicated.DedicatedServer;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.ultramine.server.bootstrap.UMBootstrap;
+import org.ultramine.server.util.GlobalExecutors;
+
+import java.io.IOException;
+import java.util.List;
 
 @SideOnly(Side.SERVER)
 public class JLineSupport {

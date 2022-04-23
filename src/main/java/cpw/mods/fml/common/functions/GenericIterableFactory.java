@@ -1,9 +1,9 @@
 package cpw.mods.fml.common.functions;
 
-import java.util.Iterator;
-
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Iterators;
+
+import java.util.Iterator;
 
 public class GenericIterableFactory {
 	public static <T> Iterable<T> newCastingIterable(final Iterator<?> input, final Class<T> type) {

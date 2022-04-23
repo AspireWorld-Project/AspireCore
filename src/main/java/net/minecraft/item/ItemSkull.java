@@ -1,10 +1,6 @@
 package net.minecraft.item;
 
-import java.util.List;
-import java.util.UUID;
-
 import com.mojang.authlib.GameProfile;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockSkull;
@@ -20,6 +16,9 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+
+import java.util.List;
+import java.util.UUID;
 
 public class ItemSkull extends Item {
 	private static final String[] skullTypes = new String[] { "skeleton", "wither", "zombie", "char", "creeper" };

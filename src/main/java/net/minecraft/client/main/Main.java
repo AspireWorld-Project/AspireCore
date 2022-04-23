@@ -1,5 +1,16 @@
 package net.minecraft.client.main;
 
+import com.google.common.collect.HashMultimap;
+import com.google.gson.Gson;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import joptsimple.ArgumentAcceptingOptionSpec;
+import joptsimple.NonOptionArgumentSpec;
+import joptsimple.OptionParser;
+import joptsimple.OptionSet;
+import net.minecraft.client.Minecraft;
+import net.minecraft.util.Session;
+
 import java.io.File;
 import java.lang.reflect.ParameterizedType;
 import java.net.Authenticator;
@@ -12,18 +23,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
-import com.google.common.collect.HashMultimap;
-import com.google.gson.Gson;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import joptsimple.ArgumentAcceptingOptionSpec;
-import joptsimple.NonOptionArgumentSpec;
-import joptsimple.OptionParser;
-import joptsimple.OptionSet;
-import net.minecraft.client.Minecraft;
-import net.minecraft.util.Session;
 
 @SideOnly(Side.CLIENT)
 public class Main {

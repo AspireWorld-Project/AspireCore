@@ -12,10 +12,10 @@
 
 package cpw.mods.fml.common.event;
 
+import com.google.common.collect.ImmutableSet;
+
 import java.io.File;
 import java.util.Set;
-
-import com.google.common.collect.ImmutableSet;
 
 public class FMLFingerprintViolationEvent extends FMLEvent {
 

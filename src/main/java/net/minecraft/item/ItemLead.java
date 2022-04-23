@@ -1,13 +1,5 @@
 package net.minecraft.item;
 
-import java.util.List;
-
-import org.bukkit.Bukkit;
-import org.bukkit.block.BlockFace;
-import org.bukkit.entity.Hanging;
-import org.bukkit.entity.Player;
-import org.bukkit.event.hanging.HangingPlaceEvent;
-
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLeashKnot;
@@ -15,6 +7,13 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
+import org.bukkit.Bukkit;
+import org.bukkit.block.BlockFace;
+import org.bukkit.entity.Hanging;
+import org.bukkit.entity.Player;
+import org.bukkit.event.hanging.HangingPlaceEvent;
+
+import java.util.List;
 
 public class ItemLead extends Item {
 	private static final String __OBFID = "CL_00000045";

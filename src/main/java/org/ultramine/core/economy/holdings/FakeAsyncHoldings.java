@@ -1,9 +1,8 @@
 package org.ultramine.core.economy.holdings;
 
+import javax.annotation.Nonnull;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
-
-import javax.annotation.Nonnull;
 
 public class FakeAsyncHoldings extends AbstractAsyncHoldings {
 	public FakeAsyncHoldings(Holdings holdings) {

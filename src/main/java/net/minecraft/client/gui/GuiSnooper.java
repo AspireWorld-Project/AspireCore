@@ -1,15 +1,15 @@
 package net.minecraft.client.gui;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map.Entry;
-import java.util.TreeMap;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.settings.GameSettings;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.TreeMap;
 
 @SideOnly(Side.CLIENT)
 public class GuiSnooper extends GuiScreen {

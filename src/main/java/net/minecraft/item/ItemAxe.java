@@ -1,12 +1,11 @@
 package net.minecraft.item;
 
-import java.util.Set;
-
 import com.google.common.collect.Sets;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
+
+import java.util.Set;
 
 public class ItemAxe extends ItemTool {
 	private static final Set field_150917_c = Sets.newHashSet(new Block[] { Blocks.planks, Blocks.bookshelf, Blocks.log,

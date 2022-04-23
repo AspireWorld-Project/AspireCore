@@ -1,5 +1,6 @@
 package org.bukkit.craftbukkit.block;
 
+import net.minecraft.tileentity.TileEntityNote;
 import org.bukkit.Instrument;
 import org.bukkit.Material;
 import org.bukkit.Note;
@@ -7,8 +8,6 @@ import org.bukkit.block.Block;
 import org.bukkit.block.NoteBlock;
 import org.bukkit.craftbukkit.CraftWorld;
 import org.bukkit.craftbukkit.util.CraftMagicNumbers;
-
-import net.minecraft.tileentity.TileEntityNote;
 
 public class CraftNoteBlock extends CraftBlockState implements NoteBlock {
 	private final CraftWorld world;

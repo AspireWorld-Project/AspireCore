@@ -1,14 +1,14 @@
 package org.ultramine.bukkit.util;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.ISpecialArmor;
 import net.minecraftforge.common.ISpecialArmor.ArmorProperties;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ArmorPropertiesUM {
 	public static float ApplyArmor(EntityLivingBase entity, ItemStack[] inventory, DamageSource source, double damage,

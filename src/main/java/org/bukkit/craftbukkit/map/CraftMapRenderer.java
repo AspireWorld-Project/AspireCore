@@ -1,7 +1,6 @@
 package org.bukkit.craftbukkit.map;
 
-import java.util.Map;
-
+import net.minecraft.world.storage.MapData;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.map.MapCanvas;
@@ -9,7 +8,7 @@ import org.bukkit.map.MapCursorCollection;
 import org.bukkit.map.MapRenderer;
 import org.bukkit.map.MapView;
 
-import net.minecraft.world.storage.MapData;
+import java.util.Map;
 
 public class CraftMapRenderer extends MapRenderer {
 

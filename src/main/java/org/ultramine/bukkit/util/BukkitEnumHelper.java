@@ -1,14 +1,13 @@
 package org.ultramine.bukkit.util;
 
-import java.util.Map;
-
+import cpw.mods.fml.relauncher.ReflectionHelper;
+import net.minecraftforge.common.util.EnumHelper;
 import org.bukkit.World;
 import org.bukkit.WorldType;
 import org.bukkit.block.Biome;
 import org.bukkit.entity.EntityType;
 
-import cpw.mods.fml.relauncher.ReflectionHelper;
-import net.minecraftforge.common.util.EnumHelper;
+import java.util.Map;
 
 public class BukkitEnumHelper {
 	public static Biome addBukkitBiome(String name) {

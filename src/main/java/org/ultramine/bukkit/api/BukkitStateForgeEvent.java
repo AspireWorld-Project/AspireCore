@@ -1,9 +1,8 @@
 package org.ultramine.bukkit.api;
 
+import cpw.mods.fml.common.eventhandler.Event;
 import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.plugin.PluginLoadOrder;
-
-import cpw.mods.fml.common.eventhandler.Event;
 
 public abstract class BukkitStateForgeEvent extends Event {
 	private final CraftServer server;

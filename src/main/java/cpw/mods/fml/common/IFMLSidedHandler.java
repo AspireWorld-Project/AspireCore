@@ -12,15 +12,15 @@
 
 package cpw.mods.fml.common;
 
-import java.io.File;
-import java.util.List;
-import java.util.Set;
-
 import cpw.mods.fml.common.eventhandler.EventBus;
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.server.MinecraftServer;
+
+import java.io.File;
+import java.util.List;
+import java.util.Set;
 
 public interface IFMLSidedHandler {
 	List<String> getAdditionalBrandingInformation();

@@ -1,13 +1,12 @@
 package org.ultramine.commands;
 
-import java.util.List;
-
-import org.ultramine.core.permissions.Permissions;
-import org.ultramine.core.service.InjectService;
-
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
+import org.ultramine.core.permissions.Permissions;
+import org.ultramine.core.service.InjectService;
+
+import java.util.List;
 
 public class VanillaCommandWrapper implements IExtendedCommand {
 	@InjectService

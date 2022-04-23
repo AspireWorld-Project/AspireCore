@@ -1,10 +1,9 @@
 package org.bukkit.craftbukkit.command;
 
-import org.bukkit.block.Block;
-import org.bukkit.command.BlockCommandSender;
-
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.server.CommandBlockLogic;
+import org.bukkit.block.Block;
+import org.bukkit.command.BlockCommandSender;
 
 /**
  * Represents input from a command block

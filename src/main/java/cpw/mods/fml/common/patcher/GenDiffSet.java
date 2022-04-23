@@ -1,5 +1,14 @@
 package cpw.mods.fml.common.patcher;
 
+import com.google.common.hash.Hashing;
+import com.google.common.io.ByteArrayDataOutput;
+import com.google.common.io.ByteStreams;
+import com.google.common.io.Files;
+import cpw.mods.fml.common.asm.transformers.deobf.FMLDeobfuscatingRemapper;
+import cpw.mods.fml.repackage.com.nothome.delta.Delta;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
@@ -8,17 +17,6 @@ import java.util.Locale;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.logging.Logger;
-
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-
-import com.google.common.hash.Hashing;
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
-import com.google.common.io.Files;
-
-import cpw.mods.fml.common.asm.transformers.deobf.FMLDeobfuscatingRemapper;
-import cpw.mods.fml.repackage.com.nothome.delta.Delta;
 
 public class GenDiffSet {
 

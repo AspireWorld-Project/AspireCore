@@ -1,12 +1,5 @@
 package net.minecraft.network.play.server;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.UUID;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -15,6 +8,9 @@ import net.minecraft.network.INetHandler;
 import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.INetHandlerPlayClient;
+
+import java.io.IOException;
+import java.util.*;
 
 public class S20PacketEntityProperties extends Packet {
 	private int field_149445_a;

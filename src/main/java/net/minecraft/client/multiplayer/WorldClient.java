@@ -1,12 +1,5 @@
 package net.minecraft.client.multiplayer;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
-import java.util.concurrent.Callable;
-
-import org.ultramine.server.chunk.ChunkHash;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -39,6 +32,12 @@ import net.minecraftforge.event.world.WorldEvent;
 import net.openhft.koloboke.collect.IntCursor;
 import net.openhft.koloboke.collect.set.hash.HashIntSet;
 import net.openhft.koloboke.collect.set.hash.HashIntSets;
+import org.ultramine.server.chunk.ChunkHash;
+
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+import java.util.concurrent.Callable;
 
 @SideOnly(Side.CLIENT)
 public class WorldClient extends World {

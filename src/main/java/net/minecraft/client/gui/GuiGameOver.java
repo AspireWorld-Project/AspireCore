@@ -1,14 +1,13 @@
 package net.minecraft.client.gui;
 
-import java.util.Iterator;
-
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.EnumChatFormatting;
+import org.lwjgl.opengl.GL11;
+
+import java.util.Iterator;
 
 @SideOnly(Side.CLIENT)
 public class GuiGameOver extends GuiScreen implements GuiYesNoCallback {

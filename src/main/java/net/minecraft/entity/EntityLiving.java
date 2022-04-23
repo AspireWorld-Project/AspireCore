@@ -1,21 +1,10 @@
 package net.minecraft.entity;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.UUID;
-
-import org.bukkit.Bukkit;
-import org.bukkit.event.entity.EntityUnleashEvent;
-
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.ai.EntityAITasks;
-import net.minecraft.entity.ai.EntityJumpHelper;
-import net.minecraft.entity.ai.EntityLookHelper;
-import net.minecraft.entity.ai.EntityMoveHelper;
-import net.minecraft.entity.ai.EntitySenses;
+import net.minecraft.entity.ai.*;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityCreeper;
@@ -41,6 +30,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.event.ForgeEventFactory;
+import org.bukkit.Bukkit;
+import org.bukkit.event.entity.EntityUnleashEvent;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.UUID;
 
 public abstract class EntityLiving extends EntityLivingBase {
 	public int livingSoundTime;

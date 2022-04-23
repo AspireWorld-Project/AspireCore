@@ -1,15 +1,14 @@
 package net.minecraft.world.gen.structure;
 
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.world.World;
+import org.ultramine.server.util.ListAsLinkedList;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Random;
-
-import org.ultramine.server.util.ListAsLinkedList;
-
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.world.World;
 
 public abstract class StructureStart {
 	protected ArrayList<StructureComponent> componentsUm = new ArrayList<>();

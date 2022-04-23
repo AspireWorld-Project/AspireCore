@@ -1,15 +1,5 @@
 package net.minecraft.entity;
 
-import java.util.Iterator;
-import java.util.List;
-
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Hanging;
-import org.bukkit.entity.Painting;
-import org.bukkit.event.hanging.HangingBreakEvent;
-import org.bukkit.event.painting.PaintingBreakEvent;
-import org.ultramine.server.internal.UMEventFactory;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.EntityPainting;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,6 +8,15 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.Direction;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Hanging;
+import org.bukkit.entity.Painting;
+import org.bukkit.event.hanging.HangingBreakEvent;
+import org.bukkit.event.painting.PaintingBreakEvent;
+import org.ultramine.server.internal.UMEventFactory;
+
+import java.util.Iterator;
+import java.util.List;
 
 public abstract class EntityHanging extends Entity {
 	private int tickCounter1;

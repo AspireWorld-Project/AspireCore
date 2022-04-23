@@ -1,11 +1,11 @@
 package net.minecraft.world.gen.feature;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class WorldGenGlowStone1 extends WorldGenerator {
 	private static final String __OBFID = "CL_00000419";

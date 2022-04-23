@@ -1,13 +1,5 @@
 package net.minecraft.client.gui.inventory;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
@@ -24,6 +16,13 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 @SideOnly(Side.CLIENT)
 public abstract class GuiContainer extends GuiScreen {

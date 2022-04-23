@@ -1,12 +1,12 @@
 package net.minecraft.command.server;
 
-import java.util.List;
-
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
+
+import java.util.List;
 
 public class CommandListBans extends CommandBase {
 	private static final String __OBFID = "CL_00000596";

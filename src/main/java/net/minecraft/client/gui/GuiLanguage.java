@@ -1,11 +1,7 @@
 package net.minecraft.client.gui;
 
-import java.util.Iterator;
-import java.util.Map;
-
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.Tessellator;
@@ -13,6 +9,9 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.client.resources.Language;
 import net.minecraft.client.resources.LanguageManager;
 import net.minecraft.client.settings.GameSettings;
+
+import java.util.Iterator;
+import java.util.Map;
 
 @SideOnly(Side.CLIENT)
 public class GuiLanguage extends GuiScreen {

@@ -1,16 +1,15 @@
 package org.ultramine.commands.basic;
 
-import java.util.Collections;
-import java.util.List;
-
+import net.minecraft.command.ICommandSender;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.server.MinecraftServer;
 import org.ultramine.commands.IExtendedCommand;
 import org.ultramine.core.permissions.Permissions;
 import org.ultramine.core.service.InjectService;
 import org.ultramine.server.Teleporter;
 
-import net.minecraft.command.ICommandSender;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.server.MinecraftServer;
+import java.util.Collections;
+import java.util.List;
 
 public class FastWarpCommand implements IExtendedCommand {
 	@InjectService

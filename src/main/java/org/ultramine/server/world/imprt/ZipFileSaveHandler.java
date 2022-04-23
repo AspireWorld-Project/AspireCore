@@ -1,14 +1,12 @@
 package org.ultramine.server.world.imprt;
 
-import java.io.File;
-import java.io.IOException;
-
+import com.google.common.base.Function;
+import net.minecraft.server.MinecraftServer;
 import org.apache.commons.io.FileUtils;
 import org.ultramine.server.util.ZipUtil;
 
-import com.google.common.base.Function;
-
-import net.minecraft.server.MinecraftServer;
+import java.io.File;
+import java.io.IOException;
 
 public class ZipFileSaveHandler extends ImportSaveHandler {
 	private final File file;

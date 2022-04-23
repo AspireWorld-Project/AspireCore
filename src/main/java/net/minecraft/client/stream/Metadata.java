@@ -1,13 +1,12 @@
 package net.minecraft.client.stream;
 
-import java.util.Map;
-
 import com.google.common.base.Objects;
 import com.google.common.collect.Maps;
 import com.google.gson.Gson;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.Map;
 
 @SideOnly(Side.CLIENT)
 public class Metadata {

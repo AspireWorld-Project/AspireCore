@@ -1,10 +1,10 @@
 package net.minecraft.client.renderer.texture;
 
-import java.io.IOException;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.resources.IResourceManager;
+
+import java.io.IOException;
 
 @SideOnly(Side.CLIENT)
 public interface ITextureObject {

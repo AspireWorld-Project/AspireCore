@@ -1,11 +1,10 @@
 package net.minecraft.client.gui;
 
-import org.lwjgl.input.Keyboard;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.multiplayer.ServerData;
 import net.minecraft.client.resources.I18n;
+import org.lwjgl.input.Keyboard;
 
 @SideOnly(Side.CLIENT)
 public class GuiScreenAddServer extends GuiScreen {

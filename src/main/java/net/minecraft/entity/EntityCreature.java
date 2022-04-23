@@ -1,12 +1,5 @@
 package net.minecraft.entity;
 
-import java.util.UUID;
-
-import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.entity.CraftEntity;
-import org.bukkit.event.entity.EntityTargetEvent;
-import org.bukkit.event.entity.EntityUnleashEvent;
-
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -19,6 +12,12 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+import org.bukkit.Bukkit;
+import org.bukkit.craftbukkit.entity.CraftEntity;
+import org.bukkit.event.entity.EntityTargetEvent;
+import org.bukkit.event.entity.EntityUnleashEvent;
+
+import java.util.UUID;
 
 public abstract class EntityCreature extends EntityLiving {
 	public static final UUID field_110179_h = UUID.fromString("E199AD21-BA8A-4C53-8D13-6182D5C69D3A");

@@ -1,7 +1,8 @@
 package org.ultramine.bukkit.integration.permissions.b2c;
 
-import javax.annotation.Nullable;
-
+import com.google.common.base.Function;
+import cpw.mods.fml.common.eventhandler.EventPriority;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import org.bukkit.craftbukkit.entity.CraftPlayer;
 import org.bukkit.permissions.PermissibleBase;
 import org.ultramine.bukkit.CraftPlayerCache;
@@ -9,10 +10,7 @@ import org.ultramine.bukkit.api.CraftPlayerCreationForgeEvent;
 import org.ultramine.core.service.EventBusRegisteredService;
 import org.ultramine.core.service.InjectService;
 
-import com.google.common.base.Function;
-
-import cpw.mods.fml.common.eventhandler.EventPriority;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import javax.annotation.Nullable;
 
 public class SuperPermsReplacerImpl extends EventBusRegisteredService implements SuperPermsReplacer {
     @InjectService

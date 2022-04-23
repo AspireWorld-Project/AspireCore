@@ -16,11 +16,7 @@
 
 package org.bukkit.craftbukkit.util;
 
-import java.util.Collection;
-import java.util.ConcurrentModificationException;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-import java.util.Set;
+import java.util.*;
 
 public class LongHashSet implements Set<Long> {
 	private final static int INITIAL_SIZE = 3;

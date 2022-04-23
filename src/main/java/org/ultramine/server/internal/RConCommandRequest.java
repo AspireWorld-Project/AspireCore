@@ -1,8 +1,8 @@
 package org.ultramine.server.internal;
 
-import java.util.function.Supplier;
-
 import net.minecraft.server.MinecraftServer;
+
+import java.util.function.Supplier;
 
 public class RConCommandRequest implements Supplier<String> {
 	private final String command;

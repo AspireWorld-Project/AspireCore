@@ -1,10 +1,5 @@
 package org.ultramine.server;
 
-import static net.minecraft.util.EnumChatFormatting.DARK_PURPLE;
-
-import java.io.File;
-import org.ultramine.server.util.BasicTypeFormatter;
-
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.functions.GenericIterableFactory;
@@ -16,6 +11,11 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.ServerConfigurationManager;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.ChatStyle;
+import org.ultramine.server.util.BasicTypeFormatter;
+
+import java.io.File;
+
+import static net.minecraft.util.EnumChatFormatting.DARK_PURPLE;
 
 @SideOnly(Side.SERVER)
 public class Restarter

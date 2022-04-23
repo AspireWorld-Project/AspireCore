@@ -1,12 +1,11 @@
 package net.minecraft.client.audio;
 
-import java.util.Map;
-
 import com.google.common.collect.Maps;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.util.RegistrySimple;
+
+import java.util.Map;
 
 @SideOnly(Side.CLIENT)
 public class SoundRegistry extends RegistrySimple {

@@ -1,9 +1,9 @@
 package cpw.mods.fml.common.eventhandler;
 
+import com.google.common.collect.ImmutableList;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.google.common.collect.ImmutableList;
 
 public class ListenerList {
 	private static ImmutableList<ListenerList> allLists = ImmutableList.of();

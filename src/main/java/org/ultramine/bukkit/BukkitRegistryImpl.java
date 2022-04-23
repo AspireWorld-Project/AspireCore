@@ -1,17 +1,15 @@
 package org.ultramine.bukkit;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.annotation.Nullable;
-
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.SimplePluginManager;
 import org.ultramine.bukkit.api.BukkitRegistry;
 import org.ultramine.bukkit.api.BukkitStateForgeEvent;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BukkitRegistryImpl implements BukkitRegistry {
 	private final List<InjectedPluginRegistration> injectedPlugins = new ArrayList<>();

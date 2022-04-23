@@ -1,12 +1,11 @@
 package org.bukkit.craftbukkit.entity;
 
+import net.minecraft.entity.monster.EntityEnderman;
 import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.craftbukkit.util.CraftMagicNumbers;
 import org.bukkit.entity.Enderman;
 import org.bukkit.entity.EntityType;
 import org.bukkit.material.MaterialData;
-
-import net.minecraft.entity.monster.EntityEnderman;
 
 public class CraftEnderman extends CraftMonster implements Enderman {
 	public CraftEnderman(CraftServer server, EntityEnderman entity) {

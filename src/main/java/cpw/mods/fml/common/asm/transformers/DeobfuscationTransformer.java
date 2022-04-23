@@ -12,14 +12,13 @@
 
 package cpw.mods.fml.common.asm.transformers;
 
-import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.ClassWriter;
-import org.objectweb.asm.commons.RemappingClassAdapter;
-
 import cpw.mods.fml.common.asm.transformers.deobf.FMLDeobfuscatingRemapper;
 import cpw.mods.fml.common.asm.transformers.deobf.FMLRemappingAdapter;
 import net.minecraft.launchwrapper.IClassNameTransformer;
 import net.minecraft.launchwrapper.IClassTransformer;
+import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.commons.RemappingClassAdapter;
 
 public class DeobfuscationTransformer implements IClassTransformer, IClassNameTransformer {
 

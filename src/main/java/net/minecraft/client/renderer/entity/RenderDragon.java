@@ -1,9 +1,5 @@
 package net.minecraft.client.renderer.entity;
 
-import java.util.Random;
-
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelDragon;
@@ -17,6 +13,9 @@ import net.minecraft.entity.boss.BossStatus;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
+
+import java.util.Random;
 
 @SideOnly(Side.CLIENT)
 public class RenderDragon extends RenderLiving {

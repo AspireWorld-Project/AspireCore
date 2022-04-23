@@ -1,13 +1,13 @@
 package net.minecraft.world.biome;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class BiomeGenMutated extends BiomeGenBase {
 	protected BiomeGenBase baseBiome;

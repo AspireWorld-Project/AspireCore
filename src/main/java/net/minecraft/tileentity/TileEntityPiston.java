@@ -1,9 +1,5 @@
 package net.minecraft.tileentity;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -12,6 +8,10 @@ import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Facing;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class TileEntityPiston extends TileEntity {
 	private Block storedBlock;

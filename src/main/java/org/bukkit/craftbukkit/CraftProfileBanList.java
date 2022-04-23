@@ -1,21 +1,19 @@
 package org.bukkit.craftbukkit;
 
-import java.io.IOException;
-import java.util.Date;
-import java.util.Set;
-
+import com.google.common.collect.ImmutableSet;
+import com.mojang.authlib.GameProfile;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.management.UserListBans;
+import net.minecraft.server.management.UserListBansEntry;
+import net.minecraft.server.management.UserListEntry;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.Validate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.google.common.collect.ImmutableSet;
-import com.mojang.authlib.GameProfile;
-
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.management.UserListBans;
-import net.minecraft.server.management.UserListBansEntry;
-import net.minecraft.server.management.UserListEntry;
+import java.io.IOException;
+import java.util.Date;
+import java.util.Set;
 
 public class CraftProfileBanList implements org.bukkit.BanList {
 	private static final Logger log = LogManager.getLogger();

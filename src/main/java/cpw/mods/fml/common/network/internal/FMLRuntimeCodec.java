@@ -1,7 +1,6 @@
 package cpw.mods.fml.common.network.internal;
 
 import com.google.common.base.Splitter;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.ByteBufUtils;
 import cpw.mods.fml.common.network.FMLIndexedMessageToMessageCodec;

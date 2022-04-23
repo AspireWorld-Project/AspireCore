@@ -1,12 +1,6 @@
 package org.ultramine.server.economy;
 
-import java.util.Collection;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
-import javax.annotation.Nonnull;
-import javax.annotation.concurrent.ThreadSafe;
-
+import com.mojang.authlib.GameProfile;
 import org.ultramine.core.economy.Currency;
 import org.ultramine.core.economy.account.PlayerAccount;
 import org.ultramine.core.economy.exception.CurrencyNotFoundException;
@@ -18,7 +12,11 @@ import org.ultramine.core.economy.service.DefaultHoldingsProvider;
 import org.ultramine.core.economy.service.EconomyRegistry;
 import org.ultramine.core.service.InjectService;
 
-import com.mojang.authlib.GameProfile;
+import javax.annotation.Nonnull;
+import javax.annotation.concurrent.ThreadSafe;
+import java.util.Collection;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @ThreadSafe
 public class PlayerAccountImpl implements PlayerAccount {

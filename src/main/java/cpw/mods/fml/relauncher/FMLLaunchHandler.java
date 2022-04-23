@@ -12,14 +12,12 @@
 
 package cpw.mods.fml.relauncher;
 
-import java.io.File;
-
-import org.apache.logging.log4j.Level;
-
 import com.google.common.base.Throwables;
-
 import cpw.mods.fml.common.launcher.FMLTweaker;
 import net.minecraft.launchwrapper.LaunchClassLoader;
+import org.apache.logging.log4j.Level;
+
+import java.io.File;
 
 public class FMLLaunchHandler {
 	private static FMLLaunchHandler INSTANCE;

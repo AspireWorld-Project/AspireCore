@@ -1,10 +1,9 @@
 package org.ultramine.bukkit;
 
+import net.minecraftforge.common.MinecraftForge;
 import org.ultramine.bukkit.api.BukkitRegistry;
 import org.ultramine.core.service.ServiceDelegate;
 import org.ultramine.core.service.ServiceProviderLoader;
-
-import net.minecraftforge.common.MinecraftForge;
 
 public class BukkitRegistryLoader implements ServiceProviderLoader<BukkitRegistry> {
 	private BukkitRegistry instance;

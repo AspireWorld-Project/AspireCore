@@ -1,10 +1,9 @@
 package org.ultramine.server.internal;
 
-import org.apache.logging.log4j.message.Message;
-import org.ultramine.server.bootstrap.log4j.IUnformattedMessage;
-
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.IChatComponent;
+import org.apache.logging.log4j.message.Message;
+import org.ultramine.server.bootstrap.log4j.IUnformattedMessage;
 
 @SuppressWarnings("serial")
 public class ChatComponentLogMessage implements Message, IUnformattedMessage {

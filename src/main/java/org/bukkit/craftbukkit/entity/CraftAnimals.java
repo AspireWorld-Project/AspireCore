@@ -1,9 +1,8 @@
 package org.bukkit.craftbukkit.entity;
 
+import net.minecraft.entity.passive.EntityAnimal;
 import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.entity.Animals;
-
-import net.minecraft.entity.passive.EntityAnimal;
 
 public class CraftAnimals extends CraftAgeable implements Animals {
 

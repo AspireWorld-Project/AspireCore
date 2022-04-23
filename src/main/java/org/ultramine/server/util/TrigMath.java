@@ -1,5 +1,7 @@
 package org.ultramine.server.util;
 
+import net.jafama.FastMath;
+
 public class TrigMath {
 	static final double sq2p1 = 2.414213562373095048802e0;
 	static final double sq2m1 = .414213562373095048802e0;
@@ -17,7 +19,6 @@ public class TrigMath {
 
 	private static double mxatan(double arg) {
 		double argsq = arg * arg;
-
 		return ((((p4 * argsq + p3) * argsq + p2) * argsq + p1) * argsq + p0)
 				/ (((((argsq + q4) * argsq + q3) * argsq + q2) * argsq + q1) * argsq + q0) * arg;
 	}
@@ -28,13 +29,10 @@ public class TrigMath {
 	}
 
 	public static double atan(double arg) {
-		return arg > 0 ? msatan(arg) : -msatan(-arg);
+		return FastMath.atan(arg);
 	}
 
 	public static double atan2(double arg1, double arg2) {
-		if (arg1 + arg2 == arg1)
-			return arg1 >= 0 ? PIO2 : -PIO2;
-		arg1 = atan(arg1 / arg2);
-		return arg2 < 0 ? arg1 <= 0 ? arg1 + Math.PI : arg1 - Math.PI : arg1;
+		return FastMath.atan2(arg1, arg2);
 	}
 }

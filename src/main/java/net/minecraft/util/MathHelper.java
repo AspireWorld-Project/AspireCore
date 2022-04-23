@@ -2,25 +2,27 @@ package net.minecraft.util;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.jafama.FastMath;
 
 import java.util.Random;
 
 public class MathHelper {
 	private static final float[] SIN_TABLE = new float[65536];
 	private static final int[] multiplyDeBruijnBitPosition;
-	public static final float sin(float p_76126_0_) {
-		return SIN_TABLE[(int) (p_76126_0_ * 10430.378F) & 65535];
+
+	public static float sin(float p_76126_0_) {
+		return (float) FastMath.sin(p_76126_0_);
 	}
 
-	public static final float cos(float p_76134_0_) {
+	public static float cos(float p_76134_0_) {
 		return SIN_TABLE[(int) (p_76134_0_ * 10430.378F + 16384.0F) & 65535];
 	}
 
-	public static final float sqrt_float(float p_76129_0_) {
+	public static float sqrt_float(float p_76129_0_) {
 		return (float) Math.sqrt(p_76129_0_);
 	}
 
-	public static final float sqrt_double(double p_76133_0_) {
+	public static float sqrt_double(double p_76133_0_) {
 		return (float) Math.sqrt(p_76133_0_);
 	}
 

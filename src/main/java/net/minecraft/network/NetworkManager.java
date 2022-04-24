@@ -47,7 +47,7 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	private final boolean isClientSide;
 	private final Queue receivedPacketsQueue = Queues.newConcurrentLinkedQueue();
 	private final Queue outboundPacketsQueue = Queues.newConcurrentLinkedQueue();
-	private Channel channel;
+	private ChannelFuture channelFuture;
 	private SocketAddress socketAddress;
 	private INetHandler netHandler;
 	private EnumConnectionState connectionState;
@@ -65,16 +65,16 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	@Override
 	public void channelActive(ChannelHandlerContext p_channelActive_1_) throws Exception {
 		super.channelActive(p_channelActive_1_);
-		channel = p_channelActive_1_.channel();
-		socketAddress = channel.remoteAddress();
+		channelFuture = p_channelActive_1_.newSucceededFuture();
+		socketAddress = channelFuture.channel().remoteAddress();
 		setConnectionState(EnumConnectionState.HANDSHAKING);
 	}
 
 	public void setConnectionState(EnumConnectionState p_150723_1_) {
-		connectionState = (EnumConnectionState) channel.attr(attrKeyConnectionState).getAndSet(p_150723_1_);
-		channel.attr(attrKeyReceivable).set(p_150723_1_.func_150757_a(isClientSide));
-		channel.attr(attrKeySendable).set(p_150723_1_.func_150754_b(isClientSide));
-		channel.config().setAutoRead(true);
+		connectionState = (EnumConnectionState) channelFuture.channel().attr(attrKeyConnectionState).getAndSet(p_150723_1_);
+		channelFuture.channel().attr(attrKeyReceivable).set(p_150723_1_.func_150757_a(isClientSide));
+		channelFuture.channel().attr(attrKeySendable).set(p_150723_1_.func_150754_b(isClientSide));
+		channelFuture.channel().config().setAutoRead(true);
 		logger.debug("Enabled auto read");
 	}
 
@@ -98,7 +98,7 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	}
 
 	protected void channelRead0(ChannelHandlerContext p_channelRead0_1_, Packet p_channelRead0_2_) {
-		if (channel.isOpen()) {
+		if (channelFuture.channel().isOpen()) {
 			if (p_channelRead0_2_.hasPriority()) {
 				p_channelRead0_2_.processPacket(netHandler);
 			} else {
@@ -114,7 +114,7 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	}
 
 	public void scheduleOutboundPacket(Packet p_150725_1_, GenericFutureListener... p_150725_2_) {
-		if (channel != null && channel.isOpen()) {
+		if (channelFuture.channel() != null && channelFuture.channel().isOpen()) {
 			flushOutboundQueue();
 			dispatchPacket(p_150725_1_, p_150725_2_);
 		} else {
@@ -124,35 +124,37 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 
 	private void dispatchPacket(final Packet p_150732_1_, final GenericFutureListener[] p_150732_2_) {
 		final EnumConnectionState enumconnectionstate = EnumConnectionState.func_150752_a(p_150732_1_);
-		final EnumConnectionState enumconnectionstate1 = (EnumConnectionState) channel.attr(attrKeyConnectionState)
+		final EnumConnectionState enumconnectionstate1 = (EnumConnectionState) channelFuture.channel()
+				.attr(attrKeyConnectionState)
 				.get();
 
 		if (enumconnectionstate1 != enumconnectionstate && !(p_150732_1_ instanceof FMLProxyPacket)) {
 			logger.debug("Disabled auto read");
-			channel.config().setAutoRead(false);
+			channelFuture.channel().config().setAutoRead(false);
 		}
 
-		if (channel.eventLoop().inEventLoop()) {
+		if (channelFuture.channel().eventLoop().inEventLoop()) {
 			if (enumconnectionstate != enumconnectionstate1 && !(p_150732_1_ instanceof FMLProxyPacket)) {
 				setConnectionState(enumconnectionstate);
 			}
 
-			channel.writeAndFlush(p_150732_1_).addListeners(p_150732_2_)
+			channelFuture.channel().writeAndFlush(p_150732_1_).addListeners(p_150732_2_)
 					.addListener(ChannelFutureListener.FIRE_EXCEPTION_ON_FAILURE);
 		} else {
-			channel.eventLoop().execute(() -> {
+			channelFuture.channel().eventLoop().execute(() -> {
 				if (enumconnectionstate != enumconnectionstate1 && !(p_150732_1_ instanceof FMLProxyPacket)) {
 					NetworkManager.this.setConnectionState(enumconnectionstate);
 				}
 
-				channel.writeAndFlush(p_150732_1_).addListeners(p_150732_2_)
+				channelFuture.channel().writeAndFlush(p_150732_1_).addListeners(p_150732_2_)
 						.addListener(ChannelFutureListener.FIRE_EXCEPTION_ON_FAILURE);
 			});
+
 		}
 	}
 
 	private void flushOutboundQueue() {
-		if (channel != null && channel.isOpen()) {
+		if (channelFuture.channel() != null && channelFuture.channel().isOpen()) {
 			while (!outboundPacketsQueue.isEmpty()) {
 				NetworkManager.InboundHandlerTuplePacketListener inboundhandlertuplepacketlistener = (NetworkManager.InboundHandlerTuplePacketListener) outboundPacketsQueue
 						.poll();
@@ -164,7 +166,7 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 
 	public void processReceivedPackets() {
 		flushOutboundQueue();
-		EnumConnectionState enumconnectionstate = (EnumConnectionState) channel.attr(attrKeyConnectionState).get();
+		EnumConnectionState enumconnectionstate = (EnumConnectionState) channelFuture.channel().attr(attrKeyConnectionState).get();
 
 		if (connectionState != enumconnectionstate) {
 			if (connectionState != null) {
@@ -215,7 +217,7 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 			netHandler.onNetworkTick();
 		}
 
-		channel.flush();
+		channelFuture.channel().flush();
 	}
 
 	public SocketAddress getSocketAddress() {
@@ -223,8 +225,8 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	}
 
 	public void closeChannel(IChatComponent p_150718_1_) {
-		if (channel.isOpen()) {
-			channel.close();
+		if (channelFuture.channel().isOpen()) {
+			channelFuture.channel().close();
 			terminationReason = p_150718_1_;
 		}
 	}
@@ -232,12 +234,12 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	// Spigot Start
 	public SocketAddress getRawAddress()
 	{
-		return this.channel.remoteAddress();
+		return this.channelFuture.channel().remoteAddress();
 	}
 	// Spigot End
 
 	public boolean isLocalChannel() {
-		return channel instanceof LocalChannel || channel instanceof LocalServerChannel;
+		return channelFuture instanceof LocalChannel || channelFuture instanceof LocalServerChannel;
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -282,15 +284,15 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	}
 
 	public void enableEncryption(SecretKey p_150727_1_) {
-		channel.pipeline().addBefore("splitter", "decrypt",
+		channelFuture.channel().pipeline().addBefore("splitter", "decrypt",
 				new NettyEncryptingDecoder(CryptManager.func_151229_a(2, p_150727_1_)));
-		channel.pipeline().addBefore("prepender", "encrypt",
+		channelFuture.channel().pipeline().addBefore("prepender", "encrypt",
 				new NettyEncryptingEncoder(CryptManager.func_151229_a(1, p_150727_1_)));
 		field_152463_r = true;
 	}
 
 	public boolean isChannelOpen() {
-		return channel != null && channel.isOpen();
+		return channelFuture.channel() != null && channelFuture.channel().isOpen();
 	}
 
 	public INetHandler getNetHandler() {
@@ -302,7 +304,7 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	}
 
 	public void disableAutoRead() {
-		channel.config().setAutoRead(false);
+		channelFuture.channel().config().setAutoRead(false);
 	}
 
 	@Override
@@ -311,7 +313,7 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	}
 
 	public Channel channel() {
-		return channel;
+		return channelFuture.channel();
 	}
 
 	static class InboundHandlerTuplePacketListener {

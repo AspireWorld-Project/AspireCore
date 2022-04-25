@@ -43,27 +43,6 @@ public class AnvilChunkLoader implements IChunkLoader, IThreadedFileIO {
 	private static final Logger logger = LogManager.getLogger();
 	protected final IntObjMap<PendingChunk> pendingSaves = HashIntObjMaps.newMutableMap();
 	private final List<PendingChunk> chunksToRemoveUm = new ArrayList<>();
-	@SuppressWarnings("unused")
-	private final List<PendingChunk> chunksToRemove = Lists.transform(chunksToRemoveUm,
-			new Function<PendingChunk, PendingChunk>() {
-				@Nullable
-				@Override
-				public PendingChunk apply(@Nullable PendingChunk input) {
-					if (input == null)
-						return null;
-					NBTTagList sections = input.nbtTags.getCompoundTag("Level").getTagList("Sections", 10);
-					for (int i = 0; i < sections.tagCount(); i++) {
-						NBTTagCompound nbt = sections.getCompoundTagAt(i);
-						if (nbt instanceof EbsSaveFakeNbt) {
-							((EbsSaveFakeNbt) nbt).convertToNbt();
-						}
-					}
-					return input;
-				}
-			}); // mods compatibility
-	@SuppressWarnings("unused")
-	private final Set<ChunkCoordIntPair> pendingAnvilChunksCoordinates = new VanillaChunkCoordIntPairSet(
-			pendingSaves.keySet()); // mods compatibility
 	protected final Object syncLockObject = new Object();
 	public File chunkSaveLocation;
 	public AnvilChunkLoader(File par1File) {

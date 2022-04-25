@@ -689,8 +689,23 @@ public abstract class ServerConfigurationManager {
 				|| commandsAllowedForAll;
 	}
 
-	public EntityPlayerMP func_152612_a(String p_152612_1_) {
-		return usernameToPlayerMap.get(p_152612_1_.toLowerCase());
+	public EntityPlayerMP func_152612_a(String p_152612_1_)
+	{
+		Iterator iterator = this.playerEntityList.iterator();
+		EntityPlayerMP entityplayermp;
+
+		do
+		{
+			if (!iterator.hasNext())
+			{
+				return null;
+			}
+
+			entityplayermp = (EntityPlayerMP)iterator.next();
+		}
+		while (!entityplayermp.getCommandSenderName().equalsIgnoreCase(p_152612_1_));
+
+		return entityplayermp;
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })

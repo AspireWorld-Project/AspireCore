@@ -3,6 +3,7 @@ package net.minecraft.command;
 import net.minecraft.command.server.CommandBlockLogic;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.rcon.RConConsoleSource;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.MinecraftForge;
@@ -158,7 +159,7 @@ public class CommandHandler implements ICommandManager {
 			sender.addChatMessage(chatcomponenttranslation);
 			logger.error("Couldn't process command", throwable);
 		}
-
+		MinecraftServer.getServer().logInfo(sender.getCommandSenderName() + " tried to usage: " + line);
 		return j;
 	}
 

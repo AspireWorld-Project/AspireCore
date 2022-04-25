@@ -10,9 +10,8 @@ import io.netty.channel.local.LocalAddress;
 import io.netty.channel.local.LocalServerChannel;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.timeout.ReadTimeoutHandler;
-import io.netty.util.concurrent.Future;
-import io.netty.util.concurrent.GenericFutureListener;
 import net.minecraft.client.network.NetHandlerHandshakeMemory;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.crash.CrashReportCategory;
@@ -30,17 +29,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.Callable;
 
 public class NetworkSystem {
 	private static final Logger logger = LogManager.getLogger();
-	private static final NioEventLoopGroup eventLoops = new NioEventLoopGroup(0,
+	private static final NioEventLoopGroup eventLoops = new NioEventLoopGroup(4,
 			new ThreadFactoryBuilder().setNameFormat("Netty IO #%d").setDaemon(true).build());
 	private final MinecraftServer mcServer;
 	public volatile boolean isAlive;
 	private final List endpoints = Collections.synchronizedList(new ArrayList());
 	private final List networkManagers = Collections.synchronizedList(new ArrayList());
-	private static final String __OBFID = "CL_00001447";
 
 	public NetworkSystem(MinecraftServer p_i45292_1_) {
 		mcServer = p_i45292_1_;
@@ -50,11 +47,10 @@ public class NetworkSystem {
 	public void addLanEndpoint(InetAddress p_151265_1_, int p_151265_2_) throws IOException {
 		synchronized (endpoints) {
 			endpoints.add(
-					new ServerBootstrap().channel(NioServerSocketChannel.class).childHandler(new ChannelInitializer() {
-						private static final String __OBFID = "CL_00001448";
+					new ServerBootstrap().channel(NioServerSocketChannel.class).childHandler(new ChannelInitializer<NioSocketChannel>() {
 
 						@Override
-						protected void initChannel(Channel p_initChannel_1_) {
+						protected void initChannel(NioSocketChannel p_initChannel_1_) {
 							try {
 								p_initChannel_1_.config().setOption(ChannelOption.IP_TOS, Integer.valueOf(24));
 							} catch (ChannelException channelexception1) {
@@ -88,7 +84,6 @@ public class NetworkSystem {
 		synchronized (endpoints) {
 			channelfuture = new ServerBootstrap().channel(LocalServerChannel.class)
 					.childHandler(new ChannelInitializer() {
-						private static final String __OBFID = "CL_00001449";
 
 						@Override
 						protected void initChannel(Channel p_initChannel_1_) {
@@ -137,28 +132,14 @@ public class NetworkSystem {
 							CrashReport crashreport = CrashReport.makeCrashReport(exception,
 									"Ticking memory connection");
 							CrashReportCategory crashreportcategory = crashreport.makeCategory("Ticking connection");
-							crashreportcategory.addCrashSectionCallable("Connection", new Callable() {
-								private static final String __OBFID = "CL_00001450";
-
-								@Override
-								public String call() {
-									return networkmanager.toString();
-								}
-							});
+							crashreportcategory.addCrashSectionCallable("Connection", networkmanager::toString);
 							throw new ReportedException(crashreport);
 						}
 
 						logger.warn("Failed to handle packet for " + networkmanager.getSocketAddress(), exception);
 						final ChatComponentText chatcomponenttext = new ChatComponentText("Internal server error");
 						networkmanager.scheduleOutboundPacket(new S40PacketDisconnect(chatcomponenttext),
-								new GenericFutureListener() {
-									private static final String __OBFID = "CL_00001451";
-
-									@Override
-									public void operationComplete(Future p_operationComplete_1_) {
-										networkmanager.closeChannel(chatcomponenttext);
-									}
-								});
+								p_operationComplete_1_ -> networkmanager.closeChannel(chatcomponenttext));
 						networkmanager.disableAutoRead();
 					}
 				}

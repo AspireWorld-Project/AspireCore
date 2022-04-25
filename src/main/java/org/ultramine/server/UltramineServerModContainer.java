@@ -15,6 +15,8 @@ import net.minecraft.command.CommandHandler;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.StringTranslate;
 import net.minecraftforge.common.MinecraftForge;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.ultramine.commands.CommandRegistry;
 import org.ultramine.commands.basic.*;
 import org.ultramine.commands.syntax.DefaultCompleters;
@@ -49,7 +51,8 @@ import java.util.List;
 import java.util.Map;
 
 public class UltramineServerModContainer extends DummyModContainer {
-	private static UltramineServerModContainer instance;
+    public static Logger logger =  LogManager.getLogger("UltraMine");
+    private static UltramineServerModContainer instance;
 	@InjectService
 	private static ServiceManager services;
 	@InjectService

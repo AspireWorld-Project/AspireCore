@@ -14,6 +14,7 @@ public class UltramineServerConfig {
 	public ToolsConf tools = new ToolsConf();
 	public Map<String, DatabaseConf> databases = new HashMap<>();
 	public VanillaConf vanilla = new VanillaConf();
+	public ChunkConfig chunkConfig = new ChunkConfig();
 	
 	// s5a4ed1sa7 code start
 	public static class s5a4ed1sa7 {
@@ -169,6 +170,11 @@ public class UltramineServerConfig {
 		public Map<String, Object> unresolved = new LinkedHashMap<>();
 		public int SpawnProtectionRange = 16;
 		public boolean EnableLoggingPackets = false;
+		public String MOTD = "";
+	}
+
+	public static class ChunkConfig {
+		public boolean enableOversizedChunk = true;
 	}
 
 }

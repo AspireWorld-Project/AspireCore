@@ -360,8 +360,10 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
 				FMLCommonHandler.instance().handleServerStarted();
 				logger.info("\u00a7eServer loading totally finished");
 				getSystemTimeMillis();
-				field_147147_p.func_151315_a(new ChatComponentText(motd));
-				field_147147_p.func_151321_a(new ServerStatusResponse.MinecraftProtocolVersionIdentifier("1.7.10", 5));
+				String MOTDCrSvr = UMBukkitImplMod.getServer().getMotd();
+				boolean MOTD = motd == "A Minecraft Server" && MOTDCrSvr != null;
+				field_147147_p.func_151315_a(new ChatComponentText(MOTD ? MOTDCrSvr : motd));
+				field_147147_p.func_151321_a(new ServerStatusResponse.MinecraftProtocolVersionIdentifier("1.16.5", 5));
 				func_147138_a(field_147147_p);
 
 				if (!isSinglePlayer()) {
@@ -643,7 +645,6 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
 	public void startServerThread() {
 		StartupQuery.reset();
 		(serverThread = new Thread("Server thread") {
-			private static final String __OBFID = "CL_00001418";
 
 			@Override
 			public void run() {
@@ -695,7 +696,6 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
 
 	public CrashReport addServerInfoToCrashReport(CrashReport p_71230_1_) {
 		p_71230_1_.getCategory().addCrashSectionCallable("Profiler Position", new Callable() {
-			private static final String __OBFID = "CL_00001419";
 
 			@Override
 			public String call() {
@@ -705,7 +705,6 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
 
 		if (worldServers != null && worldServers.length > 0 && worldServers[0] != null) {
 			p_71230_1_.getCategory().addCrashSectionCallable("Vec3 Pool Size", new Callable() {
-				private static final String __OBFID = "CL_00001420";
 
 				@Override
 				public String call() {
@@ -723,7 +722,6 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
 
 		if (serverConfigManager != null) {
 			p_71230_1_.getCategory().addCrashSectionCallable("Player Count", new Callable() {
-				private static final String __OBFID = "CL_00001780";
 
 				@Override
 				public String call() {

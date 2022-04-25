@@ -20,18 +20,15 @@ import net.minecraft.network.status.server.S00PacketServerInfo;
 import net.minecraft.network.status.server.S01PacketPong;
 import org.apache.logging.log4j.LogManager;
 
-import java.util.Iterator;
 import java.util.Map;
 
 public enum EnumConnectionState {
 	HANDSHAKING(-1) {
-		private static final String __OBFID = "CL_00001247";
 		{
 			func_150751_a(0, C00Handshake.class);
 		}
 	},
 	PLAY(0) {
-		private static final String __OBFID = "CL_00001250";
 		{
 			func_150756_b(0, S00PacketKeepAlive.class);
 			func_150756_b(1, S01PacketJoinGame.class);
@@ -125,7 +122,6 @@ public enum EnumConnectionState {
 		}
 	},
 	STATUS(1) {
-		private static final String __OBFID = "CL_00001246";
 		{
 			func_150751_a(0, C00PacketServerQuery.class);
 			func_150756_b(0, S00PacketServerInfo.class);
@@ -134,7 +130,6 @@ public enum EnumConnectionState {
 		}
 	},
 	LOGIN(2) {
-		private static final String __OBFID = "CL_00001249";
 		{
 			func_150756_b(0, S00PacketDisconnect.class);
 			func_150756_b(1, S01PacketEncryptionRequest.class);
@@ -143,13 +138,11 @@ public enum EnumConnectionState {
 			func_150751_a(1, C01PacketEncryptionResponse.class);
 		}
 	};
-	private static final TIntObjectMap field_150764_e = new TIntObjectHashMap();
-	private static final Map field_150761_f = Maps.newHashMap();
+	private static final TIntObjectMap<EnumConnectionState> field_150764_e = new TIntObjectHashMap();
+	private static final Map<Class<? extends Packet>, EnumConnectionState> field_150761_f = Maps.newHashMap();
 	private final int field_150762_g;
-	private final BiMap field_150769_h;
-	private final BiMap field_150770_i;
-
-	private static final String __OBFID = "CL_00001245";
+	private final BiMap<Integer, Class<Packet>> field_150769_h;
+	private final BiMap<Integer, Class<Packet>> field_150770_i;
 
 	EnumConnectionState(int p_i45152_3_) {
 		field_150769_h = HashBiMap.create();
@@ -157,12 +150,12 @@ public enum EnumConnectionState {
 		field_150762_g = p_i45152_3_;
 	}
 
-	protected EnumConnectionState func_150751_a(int p_150751_1_, Class p_150751_2_) {
+	protected EnumConnectionState func_150751_a(int p_150751_1_, Class<? extends Packet> p_150751_2_) {
 		String s;
 
-		if (field_150769_h.containsKey(Integer.valueOf(p_150751_1_))) {
+		if (field_150769_h.containsKey(p_150751_1_)) {
 			s = "Serverbound packet ID " + p_150751_1_ + " is already assigned to "
-					+ field_150769_h.get(Integer.valueOf(p_150751_1_)) + "; cannot re-assign to " + p_150751_2_;
+					+ field_150769_h.get(p_150751_1_) + "; cannot re-assign to " + p_150751_2_;
 			LogManager.getLogger().fatal(s);
 			throw new IllegalArgumentException(s);
 		} else if (field_150769_h.containsValue(p_150751_2_)) {
@@ -171,17 +164,17 @@ public enum EnumConnectionState {
 			LogManager.getLogger().fatal(s);
 			throw new IllegalArgumentException(s);
 		} else {
-			field_150769_h.put(Integer.valueOf(p_150751_1_), p_150751_2_);
+			field_150769_h.put(p_150751_1_, (Class<Packet>) p_150751_2_);
 			return this;
 		}
 	}
 
-	protected EnumConnectionState func_150756_b(int p_150756_1_, Class p_150756_2_) {
+	protected EnumConnectionState func_150756_b(int p_150756_1_, Class<? extends Packet> p_150756_2_) {
 		String s;
 
-		if (field_150770_i.containsKey(Integer.valueOf(p_150756_1_))) {
+		if (field_150770_i.containsKey(p_150756_1_)) {
 			s = "Clientbound packet ID " + p_150756_1_ + " is already assigned to "
-					+ field_150770_i.get(Integer.valueOf(p_150756_1_)) + "; cannot re-assign to " + p_150756_2_;
+					+ field_150770_i.get(p_150756_1_) + "; cannot re-assign to " + p_150756_2_;
 			LogManager.getLogger().fatal(s);
 			throw new IllegalArgumentException(s);
 		} else if (field_150770_i.containsValue(p_150756_2_)) {
@@ -190,24 +183,24 @@ public enum EnumConnectionState {
 			LogManager.getLogger().fatal(s);
 			throw new IllegalArgumentException(s);
 		} else {
-			field_150770_i.put(Integer.valueOf(p_150756_1_), p_150756_2_);
+			field_150770_i.put(p_150756_1_, (Class<Packet>) p_150756_2_);
 			return this;
 		}
 	}
 
-	public BiMap func_150753_a() {
+	public BiMap<Integer, Class<Packet>> func_150753_a() {
 		return field_150769_h;
 	}
 
-	public BiMap func_150755_b() {
+	public BiMap<Integer, Class<Packet>> func_150755_b() {
 		return field_150770_i;
 	}
 
-	public BiMap func_150757_a(boolean p_150757_1_) {
+	public BiMap<Integer, Class<Packet>> func_150757_a(boolean p_150757_1_) {
 		return p_150757_1_ ? func_150755_b() : func_150753_a();
 	}
 
-	public BiMap func_150754_b(boolean p_150754_1_) {
+	public BiMap<Integer, Class<Packet>> func_150754_b(boolean p_150754_1_) {
 		return p_150754_1_ ? func_150753_a() : func_150755_b();
 	}
 
@@ -216,11 +209,11 @@ public enum EnumConnectionState {
 	}
 
 	public static EnumConnectionState func_150760_a(int p_150760_0_) {
-		return (EnumConnectionState) field_150764_e.get(p_150760_0_);
+		return field_150764_e.get(p_150760_0_);
 	}
 
 	public static EnumConnectionState func_150752_a(Packet p_150752_0_) {
-		return (EnumConnectionState) field_150761_f.get(p_150752_0_.getClass());
+		return field_150761_f.get(p_150752_0_.getClass());
 	}
 
 	EnumConnectionState(int p_i1197_3_, Object p_i1197_4_) {
@@ -231,19 +224,16 @@ public enum EnumConnectionState {
 		EnumConnectionState[] var0 = values();
 		int var1 = var0.length;
 
-		for (int var2 = 0; var2 < var1; ++var2) {
-			EnumConnectionState var3 = var0[var2];
+		for (EnumConnectionState var3 : var0) {
 			field_150764_e.put(var3.func_150759_c(), var3);
-			Iterator var4 = Iterables.concat(var3.func_150755_b().values(), var3.func_150753_a().values()).iterator();
 
-			while (var4.hasNext()) {
-				Class var5 = (Class) var4.next();
+			for (Class<Packet> packetClass : Iterables.concat(var3.func_150755_b().values(), var3.func_150753_a().values())) {
 
-				if (field_150761_f.containsKey(var5) && field_150761_f.get(var5) != var3)
-					throw new Error("Packet " + var5 + " is already assigned to protocol " + field_150761_f.get(var5)
+				if (field_150761_f.containsKey(packetClass) && field_150761_f.get(packetClass) != var3)
+					throw new Error("Packet " + packetClass + " is already assigned to protocol " + field_150761_f.get(packetClass)
 							+ " - can't reassign to " + var3);
 
-				field_150761_f.put(var5, var3);
+				field_150761_f.put(packetClass, var3);
 			}
 		}
 	}

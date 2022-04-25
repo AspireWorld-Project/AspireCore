@@ -15,7 +15,6 @@ import java.net.InetSocketAddress;
 public class PingResponseHandler extends ChannelInboundHandlerAdapter {
 	private static final Logger logger = LogManager.getLogger();
 	private final NetworkSystem field_151257_b;
-	private static final String __OBFID = "CL_00001444";
 
 	public PingResponseHandler(NetworkSystem p_i45286_1_) {
 		field_151257_b = p_i45286_1_;
@@ -37,11 +36,11 @@ public class PingResponseHandler extends ChannelInboundHandlerAdapter {
 				switch (i) {
 				case 0:
 					logger.debug("Ping: (<1.3.x) from {}:{}", inetsocketaddress.getAddress(),
-							Integer.valueOf(inetsocketaddress.getPort()));
+							inetsocketaddress.getPort());
 					s = String.format("%s\u00a7%d\u00a7%d",
 							minecraftserver.getMOTD(),
-							Integer.valueOf(minecraftserver.getCurrentPlayerCount()),
-							Integer.valueOf(minecraftserver.getMaxPlayers()));
+							minecraftserver.getCurrentPlayerCount(),
+							minecraftserver.getMaxPlayers());
 					func_151256_a(p_channelRead_1_, func_151255_a(s));
 					break;
 				case 1:

@@ -1633,8 +1633,9 @@ public final class CraftServer implements Server {
 	}
 
 	@Override
-	public String getMotd() {
-		return console.getMOTD();
+	public String getMotd()
+	{
+		return new UltramineServerConfig().vanilla.MOTD;
 	}
 
 	@Override

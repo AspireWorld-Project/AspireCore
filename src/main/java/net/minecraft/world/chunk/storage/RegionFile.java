@@ -1,74 +1,102 @@
 package net.minecraft.world.chunk.storage;
 
+import cpw.mods.fml.common.FMLLog;
 import net.minecraft.server.MinecraftServer;
+import org.ultramine.server.UltramineServerConfig;
+import org.ultramine.server.UltramineServerModContainer;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.zip.DeflaterOutputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.InflaterInputStream;
 
 public class RegionFile {
-	private static final byte[] emptySector = new byte[4096];
-	private RandomAccessFile dataFile;
+	// Minecraft is limited to 256 sections per chunk. So 1MB. This can easily be override.
+	// So we extend this to use the REAL size when the count is maxed by seeking to that section and reading the length.
+	private static final UltramineServerConfig config = new UltramineServerConfig();
+	private static final boolean FORGE_ENABLE_EXTENDED_SAVE = config.chunkConfig.enableOversizedChunk;
+	private static final long SECTOR_LENGTH = 4096L;
+	private static final byte[] EMPTY_SECTOR = new byte[(int) SECTOR_LENGTH];
+	private final File fileName;
 	private final int[] offsets = new int[1024];
 	private final int[] chunkTimestamps = new int[1024];
-	@SuppressWarnings("rawtypes")
-	private ArrayList sectorFree;
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public RegionFile(File p_i2001_1_) {
+	private List<Boolean> sectorFree;
+	private int sizeDelta;
+	private long lastModified;
+
+	private RandomAccessFile dataFile = null;
+
+	public RegionFile(File fileNameIn) {
+		this.fileName = fileNameIn;
+		this.sizeDelta = 0;
+
 		try {
-			if (p_i2001_1_.exists()) {
-				p_i2001_1_.lastModified();
+			if (fileNameIn.exists()) {
+				this.lastModified = fileNameIn.lastModified();
 			}
 
-			dataFile = new RandomAccessFile(p_i2001_1_, "rw");
-			int i;
+			RandomAccessFile dataFile = new RandomAccessFile(fileNameIn, "rw");
 
-			if (dataFile.length() < 4096L) {
-				for (i = 0; i < 1024; ++i) {
-					dataFile.writeInt(0);
+			this.dataFile = dataFile;
+			//int i;
+			if (this.dataFile.length() < SECTOR_LENGTH) {
+				// Spigot - more efficient chunk zero'ing
+				this.dataFile.write(RegionFile.EMPTY_SECTOR); // Spigot // Crucible - info:this sector is the chunk offset table
+				this.dataFile.write(RegionFile.EMPTY_SECTOR); // Spigot // Crucible - info:this sector is the timestamp info
+
+				this.sizeDelta += SECTOR_LENGTH * 2;
+			}
+
+			if ((this.dataFile.length() & 4095L) != 0L) {
+				for (int i = 0; (long) i < (this.dataFile.length() & 4095L); ++i) {
+					this.dataFile.write(0);
 				}
-
-				for (i = 0; i < 1024; ++i) {
-					dataFile.writeInt(0);
-				}
 			}
 
-			if ((dataFile.length() & 4095L) != 0L) {
-				for (i = 0; i < (dataFile.length() & 4095L); ++i) {
-					dataFile.write(0);
-				}
+			int freeSectors = (int) this.dataFile.length() / 4096;
+			this.sectorFree = new ArrayList<>(freeSectors);
+			//int j;
+
+			for (int i = 0; i < freeSectors; ++i) {
+				this.sectorFree.add(true);
 			}
 
-			i = (int) dataFile.length() / 4096;
-			sectorFree = new ArrayList(i);
-			int j;
+			//Sections already used by the offset table and timestamp
+			this.sectorFree.set(0, false);
+			this.sectorFree.set(1, false);
 
-			for (j = 0; j < i; ++j) {
-				sectorFree.add(Boolean.valueOf(true));
-			}
+			this.dataFile.seek(0L);
+			for (int i = 0; i < 1024; ++i) {
 
-			sectorFree.set(0, Boolean.valueOf(false));
-			sectorFree.set(1, Boolean.valueOf(false));
-			dataFile.seek(0L);
-			int k;
+				int offset = this.dataFile.readInt();
+				this.offsets[i] = offset;
+				// Spigot start
+				int length = offset & 255;
+				if (length == 255) {
 
-			for (j = 0; j < 1024; ++j) {
-				k = dataFile.readInt();
-				offsets[j] = k;
-
-				if (k != 0 && (k >> 8) + (k & 255) <= sectorFree.size()) {
-					for (int l = 0; l < (k & 255); ++l) {
-						sectorFree.set((k >> 8) + l, Boolean.valueOf(false));
+					// We're maxed out, so we need to read the proper length from the section
+					if ((offset >> 8) <= this.sectorFree.size()) {
+						this.dataFile.seek((offset >> 8) * 4096L);
+						length = (this.dataFile.readInt() + 4) / 4096 + 1;
+						this.dataFile.seek(i * 4 + 4); //Go back to where we were
 					}
 				}
+				if (offset != 0 && (offset >> 8) + length <= this.sectorFree.size()) {
+					for (int l = 0; l < length; ++l) {
+						// Spigot end
+						this.sectorFree.set((offset >> 8) + l, false);
+					}
+				} else if (length > 0)
+					FMLLog.warning("Invalid chunk: (%s, %s) Offset: %s Length: %s runs off end file. %s", i % 32, i / 32, offset >> 8, length, fileNameIn);
+			}
+			for (int i = 0; i < 1024; ++i) {
+				int timestamp = this.dataFile.readInt();
+				this.chunkTimestamps[i] = timestamp;
 			}
 
-			for (j = 0; j < 1024; ++j) {
-				k = dataFile.readInt();
-				chunkTimestamps[j] = k;
-			}
+
 		} catch (IOException ioexception) {
 			ioexception.printStackTrace();
 		}
@@ -76,214 +104,201 @@ public class RegionFile {
 
 	// This is a copy (sort of) of the method below it, make sure they stay in sync
 	public synchronized boolean chunkExists(int x, int z) {
-		if (outOfBounds(x, z))
-			return false;
-
-		// try
-		// {
-		int offset = getOffset(x, z);
-
-		if (offset == 0)
-			return false;
-
-		int sectorNumber = offset >> 8;
-		int numSectors = offset & 255;
-
-		return sectorNumber + numSectors <= sectorFree.size();
-
-		// No IO operations in main thread
-		// this.dataFile.seek((long)(sectorNumber * 4096));
-		// int length = this.dataFile.readInt();
-		//
-		// if (length > 4096 * numSectors || length <= 0) return false;
-		//
-		// byte version = this.dataFile.readByte();
-		//
-		// if (version == 1 || version == 2) return true;
-		// }
-		// catch (IOException ioexception)
-		// {
-		// return false;
-		// }
-		//
-		// return false;
+		return isChunkSaved(x, z);
 	}
 
-	public synchronized DataInputStream getChunkDataInputStream(int p_76704_1_, int p_76704_2_) {
-		if (outOfBounds(p_76704_1_, p_76704_2_))
+	public synchronized DataInputStream getChunkDataInputStream(int x, int z) {
+		if (this.outOfBounds(x, z)) {
 			return null;
-		else {
+		} else {
 			try {
-				int k = getOffset(p_76704_1_, p_76704_2_);
+				int offset = this.getOffset(x, z);
 
-				if (k == 0)
+				if (offset == 0) {
 					return null;
-				else {
-					int l = k >> 8;
-					int i1 = k & 255;
-
-					if (l + i1 > sectorFree.size())
+				} else {
+					int sector = offset >> 8;
+					int sectorCount = offset & 255;
+					// Spigot start
+					if (sectorCount == 255) {
+						this.dataFile.seek(sector * SECTOR_LENGTH);
+						sectorCount = (this.dataFile.readInt() + 4) / 4096 + 1;
+					} else {
+					}
+					// Spigot end
+					if (sector + sectorCount > this.sectorFree.size()) {
 						return null;
-					else {
-						dataFile.seek(l * 4096);
-						int j1 = dataFile.readInt();
+					} else {
+						this.dataFile.seek(sector * 4096L);
+						int length = this.dataFile.readInt();
 
-						if (j1 > 4096 * i1)
+						if (length > 4096 * sectorCount) {
 							return null;
-						else if (j1 <= 0)
+						} else if (length <= 0) {
 							return null;
-						else {
-							byte b0 = dataFile.readByte();
-							byte[] abyte;
+						} else {
+							byte compressionType = this.dataFile.readByte();
+							byte[] compressedData;
 
-							if (b0 == 1) {
-								abyte = new byte[j1 - 1];
-								dataFile.read(abyte);
-								return new DataInputStream(
-										new BufferedInputStream(new GZIPInputStream(new ByteArrayInputStream(abyte))));
-							} else if (b0 == 2) {
-								abyte = new byte[j1 - 1];
-								dataFile.read(abyte);
-								return new DataInputStream(new BufferedInputStream(
-										new InflaterInputStream(new ByteArrayInputStream(abyte))));
-							} else
+							if (compressionType == 1) {
+								compressedData = new byte[length - 1];
+								this.dataFile.read(compressedData);
+								return new DataInputStream(new BufferedInputStream(new GZIPInputStream(new ByteArrayInputStream(compressedData))));
+							} else if (compressionType == 2) {
+								compressedData = new byte[length - 1];
+								this.dataFile.read(compressedData);
+								return new DataInputStream(new BufferedInputStream(new InflaterInputStream(new ByteArrayInputStream(compressedData))));
+							} else {
 								return null;
+							}
 						}
 					}
 				}
 			} catch (IOException ioexception) {
+				ioexception.printStackTrace();
 				return null;
 			}
 		}
 	}
 
-	public DataOutputStream getChunkDataOutputStream(int p_76710_1_, int p_76710_2_) {
-		return outOfBounds(p_76710_1_, p_76710_2_) ? null
-				: new DataOutputStream(new DeflaterOutputStream(new RegionFile.ChunkBuffer(p_76710_1_, p_76710_2_)));
+	public DataOutputStream getChunkDataOutputStream(int x, int z) {
+		return this.outOfBounds(x, z) ? null : new DataOutputStream(new java.io.BufferedOutputStream(new DeflaterOutputStream(new RegionFile.ChunkBuffer(x, z)))); // Spigot - use a BufferedOutputStream to greatly improve file write performance
 	}
 
-	@SuppressWarnings("unchecked")
-	protected synchronized void write(int p_76706_1_, int p_76706_2_, byte[] p_76706_3_, int p_76706_4_) {
+	protected synchronized void write(int x, int z, byte[] data, int length) {
 		try {
-			int l = getOffset(p_76706_1_, p_76706_2_);
-			int i1 = l >> 8;
-			int j1 = l & 255;
-			int k1 = (p_76706_4_ + 5) / 4096 + 1;
+			int offset = this.getOffset(x, z);
+			int sector = offset >> 8;
+			int sectorCount = offset & 255;
+			// Spigot start
+			if (sectorCount == 255) {
+				this.dataFile.seek(sector * SECTOR_LENGTH);
+				sectorCount = (this.dataFile.readInt() + 4) / 4096 + 1;
+			}
+			// Spigot end
+			int sectorsNeeded = (length + 5) / 4096 + 1;
 
-			if (k1 >= 256)
-				return;
+			if (sectorsNeeded >= 256) { //crucible - info: chunk has a limit of 255 sectors
+				UltramineServerModContainer.logger.warn("[Crucible] Oversized Chunk at ({}, {})", x, z);
+				if (!FORGE_ENABLE_EXTENDED_SAVE) {
+					return;
+				}
+			}
 
-			if (i1 != 0 && j1 == k1) {
-				this.write(i1, p_76706_3_, p_76706_4_);
+			if (sector != 0 && sectorCount == sectorsNeeded) {
+				//crucible - info: this part just overwrite the current old sectors.
+				this.write(sector, data, length);
 			} else {
-				int l1;
 
-				for (l1 = 0; l1 < j1; ++l1) {
-					sectorFree.set(i1 + l1, Boolean.valueOf(true));
+				for (int i = 0; i < sectorCount; ++i) {
+					this.sectorFree.set(sector + i, true);
 				}
 
-				l1 = sectorFree.indexOf(Boolean.valueOf(true));
-				int i2 = 0;
-				int j2;
+				int sectorStart = this.sectorFree.indexOf(true);
+				int sectorLength = 0;
 
-				if (l1 != -1) {
-					for (j2 = l1; j2 < sectorFree.size(); ++j2) {
-						if (i2 != 0) {
-							if (((Boolean) sectorFree.get(j2)).booleanValue()) {
-								++i2;
+				//crucible - info: search for an area with enough free space
+				if (sectorStart != -1) {
+					for (int i = sectorStart; i < this.sectorFree.size(); ++i) {
+						if (sectorLength != 0) {
+							if (this.sectorFree.get(i)) {
+								++sectorLength;
 							} else {
-								i2 = 0;
+								sectorLength = 0;
 							}
-						} else if (((Boolean) sectorFree.get(j2)).booleanValue()) {
-							l1 = j2;
-							i2 = 1;
+						} else if (this.sectorFree.get(i)) {
+							sectorStart = i;
+							sectorLength = 1;
 						}
 
-						if (i2 >= k1) {
+						if (sectorLength >= sectorsNeeded) {
 							break;
 						}
 					}
 				}
 
-				if (i2 >= k1) {
-					i1 = l1;
-					setOffset(p_76706_1_, p_76706_2_, l1 << 8 | k1);
+				if (sectorLength >= sectorsNeeded) {
+					//crucible - info: space found.
+					sector = sectorStart;
+					this.setOffset(x, z, sector << 8 | (sectorsNeeded > 255 ? 255 : sectorsNeeded)); // Spigot
 
-					for (j2 = 0; j2 < k1; ++j2) {
-						sectorFree.set(i1 + j2, Boolean.valueOf(false));
+					for (int i = 0; i < sectorsNeeded; ++i) {
+						this.sectorFree.set(sector + i, false);
 					}
 
-					this.write(i1, p_76706_3_, p_76706_4_);
+					this.write(sector, data, length);
 				} else {
-					dataFile.seek(dataFile.length());
-					i1 = sectorFree.size();
+					//crucible - info: space nof found, grow the file.
+					this.dataFile.seek(this.dataFile.length());
+					sector = this.sectorFree.size();
 
-					for (j2 = 0; j2 < k1; ++j2) {
-						dataFile.write(emptySector);
-						sectorFree.add(Boolean.valueOf(false));
+					for (int i = 0; i < sectorsNeeded; ++i) {
+						this.dataFile.write(EMPTY_SECTOR);
+						this.sectorFree.add(false);
 					}
 
-					this.write(i1, p_76706_3_, p_76706_4_);
-					setOffset(p_76706_1_, p_76706_2_, i1 << 8 | k1);
+					this.sizeDelta += 4096 * sectorsNeeded;
+					this.write(sector, data, length);
+					this.setOffset(x, z, sector << 8 | (sectorsNeeded > 255 ? 255 : sectorsNeeded)); // Spigot
 				}
 			}
 
-			setChunkTimestamp(p_76706_1_, p_76706_2_, (int) (MinecraftServer.getSystemTimeMillis() / 1000L));
+			this.setChunkTimestamp(x, z, (int) (MinecraftServer.getSystemTimeMillis() / 1000L));
 		} catch (IOException ioexception) {
 			ioexception.printStackTrace();
 		}
 	}
 
-	private void write(int p_76712_1_, byte[] p_76712_2_, int p_76712_3_) throws IOException {
-		dataFile.seek(p_76712_1_ * 4096);
-		dataFile.writeInt(p_76712_3_ + 1);
-		dataFile.writeByte(2);
-		dataFile.write(p_76712_2_, 0, p_76712_3_);
+	private void write(int sectorNumber, byte[] data, int length) throws IOException {
+		this.dataFile.seek(sectorNumber * SECTOR_LENGTH);
+		this.dataFile.writeInt(length + 1);
+		this.dataFile.writeByte(2);
+		this.dataFile.write(data, 0, length);
 	}
 
-	private boolean outOfBounds(int p_76705_1_, int p_76705_2_) {
-		return p_76705_1_ < 0 || p_76705_1_ >= 32 || p_76705_2_ < 0 || p_76705_2_ >= 32;
+	public boolean outOfBounds(int x, int z) {
+		return x < 0 || x >= 32 || z < 0 || z >= 32;
 	}
 
-	private int getOffset(int p_76707_1_, int p_76707_2_) {
-		return offsets[p_76707_1_ + p_76707_2_ * 32];
+	public int getOffset(int x, int z) {
+		return this.offsets[x + z * 32];
 	}
 
-	public boolean isChunkSaved(int p_76709_1_, int p_76709_2_) {
-		return getOffset(p_76709_1_, p_76709_2_) != 0;
+	public boolean isChunkSaved(int x, int z) {
+		return this.getOffset(x, z) != 0;
 	}
 
-	private void setOffset(int p_76711_1_, int p_76711_2_, int p_76711_3_) throws IOException {
-		offsets[p_76711_1_ + p_76711_2_ * 32] = p_76711_3_;
-		dataFile.seek((p_76711_1_ + p_76711_2_ * 32) * 4);
-		dataFile.writeInt(p_76711_3_);
+	private void setOffset(int x, int z, int offset) throws IOException {
+		this.offsets[x + z * 32] = offset;
+		this.dataFile.seek((x + z * 32) * 4);
+		this.dataFile.writeInt(offset);
 	}
 
-	private void setChunkTimestamp(int p_76713_1_, int p_76713_2_, int p_76713_3_) throws IOException {
-		chunkTimestamps[p_76713_1_ + p_76713_2_ * 32] = p_76713_3_;
-		dataFile.seek(4096 + (p_76713_1_ + p_76713_2_ * 32) * 4);
-		dataFile.writeInt(p_76713_3_);
+	private void setChunkTimestamp(int x, int z, int timestamp) throws IOException {
+		this.chunkTimestamps[x + z * 32] = timestamp;
+		this.dataFile.seek(4096 + (x + z * 32) * 4);
+		this.dataFile.writeInt(timestamp);
 	}
 
-	public synchronized void close() throws IOException {
-		if (dataFile != null) {
-			dataFile.close();
-			dataFile = null;
+	public void close() throws IOException {
+		if (this.dataFile != null) {
+			this.dataFile.close();
 		}
 	}
 
 	class ChunkBuffer extends ByteArrayOutputStream {
 		private final int chunkX;
 		private final int chunkZ;
-		public ChunkBuffer(int p_i2000_2_, int p_i2000_3_) {
+		private static final String __OBFID = "CL_00000382";
+
+		public ChunkBuffer(int x, int z) {
 			super(8096);
-			chunkX = p_i2000_2_;
-			chunkZ = p_i2000_3_;
+			this.chunkX = x;
+			this.chunkZ = z;
 		}
 
-		@Override
 		public void close() throws IOException {
-			RegionFile.this.write(chunkX, chunkZ, buf, count);
+			RegionFile.this.write(this.chunkX, this.chunkZ, this.buf, this.count);
 		}
 	}
 }

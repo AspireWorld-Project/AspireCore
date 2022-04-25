@@ -1,5 +1,6 @@
 package net.minecraft.network;
 
+import com.google.common.collect.BiMap;
 import com.google.common.collect.Queues;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.mojang.authlib.properties.Property;
@@ -15,6 +16,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.timeout.ReadTimeoutHandler;
 import io.netty.handler.timeout.TimeoutException;
 import io.netty.util.AttributeKey;
+import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.play.client.C0EPacketClickWindow;
@@ -32,21 +34,22 @@ import java.net.InetAddress;
 import java.net.SocketAddress;
 import java.util.Queue;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
 public class NetworkManager extends SimpleChannelInboundHandler {
 	private static final Logger logger = LogManager.getLogger();
 	public static final Marker logMarkerNetwork = MarkerManager.getMarker("NETWORK");
 	public static final Marker logMarkerPackets = MarkerManager.getMarker("NETWORK_PACKETS", logMarkerNetwork);
 	public static final Marker field_152461_c = MarkerManager.getMarker("NETWORK_STAT", logMarkerNetwork);
-	public static final AttributeKey attrKeyConnectionState = new AttributeKey("protocol");
-	public static final AttributeKey attrKeyReceivable = new AttributeKey("receivable_packets");
-	public static final AttributeKey attrKeySendable = new AttributeKey("sendable_packets");
-	public static final NioEventLoopGroup eventLoops = new NioEventLoopGroup(0,
+	public static final AttributeKey<EnumConnectionState> attrKeyConnectionState = new AttributeKey<>("protocol");
+	public static final AttributeKey<BiMap<Integer, Class<Packet>>> attrKeyReceivable = new AttributeKey<>("receivable_packets");
+	public static final AttributeKey<BiMap<Integer, Class<Packet>>> attrKeySendable = new AttributeKey<>("sendable_packets");
+	public static final NioEventLoopGroup eventLoops = new NioEventLoopGroup(4,
 			new ThreadFactoryBuilder().setNameFormat("Netty Client IO #%d").setDaemon(true).build());
 	public static final NetworkStatistics field_152462_h = new NetworkStatistics();
 	private final boolean isClientSide;
-	private final Queue receivedPacketsQueue = Queues.newConcurrentLinkedQueue();
-	private final Queue outboundPacketsQueue = Queues.newConcurrentLinkedQueue();
+	private final Queue<Packet> receivedPacketsQueue = Queues.newConcurrentLinkedQueue();
+	private final Queue<InboundHandlerTuplePacketListener> outboundPacketsQueue = Queues.newConcurrentLinkedQueue();
 	private ChannelFuture channelFuture;
 	private SocketAddress socketAddress;
 	private INetHandler netHandler;
@@ -71,7 +74,7 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	}
 
 	public void setConnectionState(EnumConnectionState p_150723_1_) {
-		connectionState = (EnumConnectionState) channelFuture.channel().attr(attrKeyConnectionState).getAndSet(p_150723_1_);
+		connectionState = channelFuture.channel().attr(attrKeyConnectionState).getAndSet(p_150723_1_);
 		channelFuture.channel().attr(attrKeyReceivable).set(p_150723_1_.func_150757_a(isClientSide));
 		channelFuture.channel().attr(attrKeySendable).set(p_150723_1_.func_150754_b(isClientSide));
 		channelFuture.channel().config().setAutoRead(true);
@@ -101,6 +104,7 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 		if (channelFuture.channel().isOpen()) {
 			if (p_channelRead0_2_.hasPriority()) {
 				p_channelRead0_2_.processPacket(netHandler);
+				p_channelRead0_1_.fireChannelRead(p_channelRead0_2_);
 			} else {
 				receivedPacketsQueue.add(p_channelRead0_2_);
 			}
@@ -122,9 +126,9 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 		}
 	}
 
-	private void dispatchPacket(final Packet p_150732_1_, final GenericFutureListener[] p_150732_2_) {
+	private void dispatchPacket(final Packet p_150732_1_, final GenericFutureListener<Future<Void>>[] p_150732_2_) {
 		final EnumConnectionState enumconnectionstate = EnumConnectionState.func_150752_a(p_150732_1_);
-		final EnumConnectionState enumconnectionstate1 = (EnumConnectionState) channelFuture.channel()
+		final EnumConnectionState enumconnectionstate1 = channelFuture.channel()
 				.attr(attrKeyConnectionState)
 				.get();
 
@@ -156,8 +160,8 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	private void flushOutboundQueue() {
 		if (channelFuture.channel() != null && channelFuture.channel().isOpen()) {
 			while (!outboundPacketsQueue.isEmpty()) {
-				NetworkManager.InboundHandlerTuplePacketListener inboundhandlertuplepacketlistener = (NetworkManager.InboundHandlerTuplePacketListener) outboundPacketsQueue
-						.poll();
+				NetworkManager.InboundHandlerTuplePacketListener inboundhandlertuplepacketlistener =
+						outboundPacketsQueue.poll();
 				dispatchPacket(inboundhandlertuplepacketlistener.field_150774_a,
 						inboundhandlertuplepacketlistener.field_150773_b);
 			}
@@ -166,7 +170,7 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 
 	public void processReceivedPackets() {
 		flushOutboundQueue();
-		EnumConnectionState enumconnectionstate = (EnumConnectionState) channelFuture.channel().attr(attrKeyConnectionState).get();
+		EnumConnectionState enumconnectionstate = channelFuture.channel().attr(attrKeyConnectionState).get();
 
 		if (connectionState != enumconnectionstate) {
 			if (connectionState != null) {
@@ -188,7 +192,7 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 			}
 
 			for (int i = 1000; !receivedPacketsQueue.isEmpty() && i >= 0; --i) {
-				Packet packet = (Packet) receivedPacketsQueue.poll();
+				Packet packet = receivedPacketsQueue.poll();
 				if (profiler != null) {
 					profiler.startSection(packet.getClass().getSimpleName());
 				}
@@ -245,17 +249,17 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	@SideOnly(Side.CLIENT)
 	public static NetworkManager provideLanClient(InetAddress p_150726_0_, int p_150726_1_) {
 		final NetworkManager networkmanager = new NetworkManager(true);
-		new Bootstrap().group(eventLoops).handler(new ChannelInitializer() {
+		new Bootstrap().group(eventLoops).handler(new ChannelInitializer<NioSocketChannel>() {
 
 			@Override
-			protected void initChannel(Channel p_initChannel_1_) {
+			protected void initChannel(NioSocketChannel p_initChannel_1_) {
 				try {
-					p_initChannel_1_.config().setOption(ChannelOption.IP_TOS, Integer.valueOf(24));
+					p_initChannel_1_.config().setOption(ChannelOption.IP_TOS, 24);
 				} catch (ChannelException ignored) {
 				}
 
 				try {
-					p_initChannel_1_.config().setOption(ChannelOption.TCP_NODELAY, Boolean.valueOf(false));
+					p_initChannel_1_.config().setOption(ChannelOption.TCP_NODELAY, Boolean.FALSE);
 				} catch (ChannelException ignored) {
 				}
 
@@ -273,10 +277,10 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	@SideOnly(Side.CLIENT)
 	public static NetworkManager provideLocalClient(SocketAddress p_150722_0_) {
 		final NetworkManager networkmanager = new NetworkManager(true);
-		new Bootstrap().group(eventLoops).handler(new ChannelInitializer() {
+		new Bootstrap().group(eventLoops).handler(new ChannelInitializer<NioSocketChannel>() {
 
 			@Override
-			protected void initChannel(Channel p_initChannel_1_) {
+			protected void initChannel(NioSocketChannel p_initChannel_1_) {
 				p_initChannel_1_.pipeline().addLast("packet_handler", networkmanager);
 			}
 		}).channel(LocalChannel.class).connect(p_150722_0_).syncUninterruptibly();

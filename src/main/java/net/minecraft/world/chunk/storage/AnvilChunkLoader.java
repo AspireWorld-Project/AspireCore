@@ -38,6 +38,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 public class AnvilChunkLoader implements IChunkLoader, IThreadedFileIO {
 	private static final Logger logger = LogManager.getLogger();
@@ -45,6 +47,8 @@ public class AnvilChunkLoader implements IChunkLoader, IThreadedFileIO {
 	private final List<PendingChunk> chunksToRemoveUm = new ArrayList<>();
 	protected final Object syncLockObject = new Object();
 	public File chunkSaveLocation;
+	private final ConcurrentMap<ChunkCoordIntPair, PendingChunk> savingChunks = new ConcurrentHashMap<>();
+
 	public AnvilChunkLoader(File par1File) {
 		chunkSaveLocation = par1File;
 	}
@@ -54,7 +58,9 @@ public class AnvilChunkLoader implements IChunkLoader, IThreadedFileIO {
 			if (pendingSaves.containsKey(ChunkHash.chunkToKey(i, j)))
 				return true;
 		}
-
+		if (this.getSavingChunk(new ChunkCoordIntPair(i, j)) != null) {
+			return true;
+		}
 		return isChunkExistsInFile(i, j);
 	}
 
@@ -103,6 +109,13 @@ public class AnvilChunkLoader implements IChunkLoader, IThreadedFileIO {
 			} catch (IOException e) {
 				e.printStackTrace();
 				return null;
+			}
+		}
+
+		if (nbttagcompound == null) {
+			final AnvilChunkLoader.PendingChunk savingChunk = this.getSavingChunk(new ChunkCoordIntPair(par2, par3));
+			if (savingChunk != null) {
+				nbttagcompound = savingChunk.nbtTags;
 			}
 		}
 
@@ -178,20 +191,6 @@ public class AnvilChunkLoader implements IChunkLoader, IThreadedFileIO {
 
 	protected void addChunkToPending(ChunkCoordIntPair par1ChunkCoordIntPair, NBTTagCompound par2NBTTagCompound) {
 		synchronized (syncLockObject) {
-			// if (this.pendingAnvilChunksCoordinates.contains(par1ChunkCoordIntPair))
-			// {
-			// for (int i = 0; i < this.chunksToRemoveUm.size(); ++i)
-			// {
-			// if
-			// (((AnvilChunkLoader.PendingChunk)this.chunksToRemoveUm.get(i)).chunkCoordinate.equals(par1ChunkCoordIntPair))
-			// {
-			// this.chunksToRemoveUm.set(i, new
-			// AnvilChunkLoader.PendingChunk(par1ChunkCoordIntPair, par2NBTTagCompound));
-			// return;
-			// }
-			// }
-			// }
-
 			int hash = ChunkHash.chunkToKey(par1ChunkCoordIntPair.chunkXPos, par1ChunkCoordIntPair.chunkZPos);
 
 			PendingChunk pendingChunk = new PendingChunk(par1ChunkCoordIntPair, par2NBTTagCompound);
@@ -220,6 +219,7 @@ public class AnvilChunkLoader implements IChunkLoader, IThreadedFileIO {
 			IntObjCursor<PendingChunk> it = pendingSaves.cursor();
 			it.moveNext();
 			pendingchunk = it.value();
+			this.savingChunks.put(pendingchunk.chunkCoordinate, pendingchunk);
 			key = it.key();
 		}
 
@@ -236,6 +236,7 @@ public class AnvilChunkLoader implements IChunkLoader, IThreadedFileIO {
 			}
 
 			// release only after remove from lists (may be reread by other threads)
+			this.savingChunks.remove(pendingchunk.chunkCoordinate);
 			releaseNbt(pendingchunk.nbtTags);
 		}
 
@@ -520,5 +521,10 @@ public class AnvilChunkLoader implements IChunkLoader, IThreadedFileIO {
 			chunkCoordinate = par1ChunkCoordIntPair;
 			nbtTags = par2NBTTagCompound;
 		}
+	}
+
+	private AnvilChunkLoader.PendingChunk getSavingChunk(final ChunkCoordIntPair chunkCoordIntPair) {
+		final AnvilChunkLoader.PendingChunk pendingChunk = this.savingChunks.get(chunkCoordIntPair);
+		return (pendingChunk != null && pendingChunk.chunkCoordinate.equals(chunkCoordIntPair)) ? pendingChunk : null;
 	}
 }

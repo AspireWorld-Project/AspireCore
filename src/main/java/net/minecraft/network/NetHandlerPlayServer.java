@@ -132,10 +132,12 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 	}
 
 	// CraftBukkit end
-
+	private final static HashSet<Integer> invalidItems = new HashSet<>(java.util.Arrays.asList(8, 9, 10, 11, 26, 34, 36, 43, 51, 52, 55, 59, 60, 62, 63,
+			64, 68, 71, 74, 75, 83, 90, 92, 93, 94, 104, 105, 115, 117, 118, 119, 125, 127, 132, 140, 141, 142, 144)); // TODO: Check after every update.
+	// CraftBukkit end
 	// Cauldron start
 	public CraftServer getCraftServer() {
-		return (CraftServer) Bukkit.getServer();
+		return server;
 	}
 	// Cauldron end
 
@@ -192,10 +194,6 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 		}
 	}
 
-	private final static HashSet<Integer> invalidItems = new HashSet<>(
-			java.util.Arrays.asList(8, 9, 10, 11, 26, 34, 36, 43, 51, 52, 55, 59, 60, 62, 63, 64, 68, 71, 74, 75, 83,
-					90, 92, 93, 94, 104, 105, 115, 117, 118, 119, 125, 127, 132, 140, 141, 142, 144));
-
 	public NetworkManager func_147362_b() {
 		return netManager;
 	}
@@ -227,284 +225,306 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 				p_147358_1_.func_149618_e(), p_147358_1_.func_149617_f());
 	}
 
-	@Override
-	public void processPlayer(C03PacketPlayer packetPlayer) {
-		WorldServer worldserver = serverController.worldServerForDimension(playerEntity.dimension);
-		field_147366_g = true;
+	public void processPlayer(C03PacketPlayer p_147347_1_)
+	{
+		// CraftBukkit start - Check for NaN
+		if (Double.isNaN(p_147347_1_.field_149479_a) || Double.isNaN(p_147347_1_.field_149477_b) || Double.isNaN(p_147347_1_.field_149478_c)
+				|| Double.isNaN(p_147347_1_.field_149475_d))
+		{
+			logger.warn(playerEntity.getCommandSenderName() + " was caught trying to crash the server with an invalid position.");
+			getPlayerB().kickPlayer("Nope!");
+			return;
+		}
+		// CraftBukkit end
+		WorldServer worldserver = this.serverController.worldServerForDimension(this.playerEntity.dimension);
+		this.field_147366_g = true;
 
-		if (!playerEntity.playerConqueredTheEnd) {
+		if (!this.playerEntity.playerConqueredTheEnd)
+		{
 			double d0;
 
-			Player player = getPlayerB();
-			Location from = new Location(player.getWorld(), lastPosX, lastPosY, lastPosZ, lastYaw, lastPitch); // Get
-																												// the
-																												// Players
-																												// previous
-																												// Event
-																												// location.
+			if (!this.hasMoved)
+			{
+				d0 = p_147347_1_.func_149467_d() - this.lastPosY;
+
+				if (p_147347_1_.func_149464_c() == this.lastPosX && d0 * d0 < 0.01D && p_147347_1_.func_149472_e() == this.lastPosZ)
+				{
+					this.hasMoved = true;
+				}
+			}
+
+			// CraftBukkit start
+			Player player = this.getPlayerB();
+			Location from = new Location(player.getWorld(), lastPosX, lastPosY, lastPosZ, lastYaw, lastPitch); // Get the Players previous Event location.
 			Location to = player.getLocation().clone(); // Start off the To location as the Players current location.
-			// If the packetPlayer contains movement information then we update the To
-			// location with the correct XYZ.
-			if (packetPlayer.func_149466_j() && !(packetPlayer.func_149466_j()
-					&& packetPlayer.func_149467_d() == -999.0D && packetPlayer.func_149471_f() == -999.0D)) {
-				to.setX(packetPlayer.func_149464_c());
-				to.setY(packetPlayer.func_149467_d());
-				to.setZ(packetPlayer.func_149472_e());
+
+			// If the packet contains movement information then we update the To location with the correct XYZ.
+			if (p_147347_1_.field_149480_h && !(p_147347_1_.field_149480_h && p_147347_1_.field_149477_b == -999.0D && p_147347_1_.field_149475_d == -999.0D))
+			{
+				to.setX(p_147347_1_.field_149479_a);
+				to.setY(p_147347_1_.field_149477_b);
+				to.setZ(p_147347_1_.field_149478_c);
 			}
-			// If the packetPlayer contains look information then we update the To location
-			// with the correct Yaw & Pitch.
-			if (packetPlayer.func_149463_k()) {
-				to.setYaw(packetPlayer.func_149462_g());
-				to.setPitch(packetPlayer.func_149470_h());
+
+			// If the packet contains look information then we update the To location with the correct Yaw & Pitch.
+			if (p_147347_1_.field_149481_i)
+			{
+				to.setYaw(p_147347_1_.field_149476_e);
+				to.setPitch(p_147347_1_.field_149473_f);
 			}
+
 			// Prevent 40 event-calls for less than a single pixel of movement >.>
-			double delta = Math.pow(lastPosX - to.getX(), 2) + Math.pow(lastPosY - to.getY(), 2)
-					+ Math.pow(lastPosZ - to.getZ(), 2);
-			float deltaAngle = Math.abs(lastYaw - to.getYaw()) + Math.abs(lastPitch - to.getPitch());
-			if ((delta > 2f / 256 || deltaAngle > 10f) && hasMoved && !playerEntity.isDead) {
-				if (lastPosX == to.getX() && lastPosY == to.getY() && lastPosZ == to.getZ() && lastYaw == to.getYaw()
-						&& lastPitch == to.getPitch())
-					return;
-				lastPosX = to.getX();
-				lastPosY = to.getY();
-				lastPosZ = to.getZ();
-				lastYaw = to.getYaw();
-				lastPitch = to.getPitch();
+			double delta = Math.pow(this.lastPosX - to.getX(), 2) + Math.pow(this.lastPosY - to.getY(), 2) + Math.pow(this.lastPosZ - to.getZ(), 2);
+			float deltaAngle = Math.abs(this.lastYaw - to.getYaw()) + Math.abs(this.lastPitch - to.getPitch());
+
+			if ((delta > 2f / 256 || deltaAngle > 10f) && (this.hasMoved && !this.playerEntity.isDead))
+			{
+				if(this.lastPosX == to.getX() && this.lastPosY == to.getY() && this.lastPosZ == to.getZ() && this.lastYaw == to.getYaw() && this.lastPitch == to.getPitch()) return;
+				this.lastPosX = to.getX();
+				this.lastPosY = to.getY();
+				this.lastPosZ = to.getZ();
+				this.lastYaw = to.getYaw();
+				this.lastPitch = to.getPitch();
+
 				Location oldTo = to.clone();
 				PlayerMoveEvent event = new PlayerMoveEvent(player, from, to);
+
 				trigger = !trigger;
-				if (trigger) {
-					Bukkit.getPluginManager().callEvent(event);
-				}
+				if(trigger)
+					this.server.getPluginManager().callEvent(event);
+
 				// If the event is cancelled we move the player back to their old location.
-				if (event.isCancelled()) {
-					playerEntity.playerNetServerHandler.sendPacket(new S08PacketPlayerPosLook(from.getX(),
-							from.getY() + 1.6200000047683716D, from.getZ(), from.getYaw(), from.getPitch(), false));
+				if (event.isCancelled())
+				{
+					this.playerEntity.playerNetServerHandler.sendPacket(new S08PacketPlayerPosLook(from.getX(), from.getY() + 1.6200000047683716D, from
+							.getZ(), from.getYaw(), from.getPitch(), false));
 					return;
 				}
-				/*
-				 * If a Plugin has changed the To destination then we teleport the Player there
-				 * to avoid any 'Moved wrongly' or 'Moved too quickly' errors. We only do this
-				 * if the Event was not cancelled.
-				 */
-				if (!oldTo.equals(event.getTo()) && !event.isCancelled()) {
-					playerEntity.getBukkitEntity().teleport(event.getTo(), PlayerTeleportEvent.TeleportCause.UNKNOWN);
+
+                /* If a Plugin has changed the To destination then we teleport the Player
+                there to avoid any 'Moved wrongly' or 'Moved too quickly' errors.
+                We only do this if the Event was not cancelled. */
+				if (!oldTo.equals(event.getTo()) && !event.isCancelled())
+				{
+					this.playerEntity.getBukkitEntity().teleport(event.getTo(), PlayerTeleportEvent.TeleportCause.UNKNOWN);
 					return;
 				}
-				/*
-				 * Check to see if the Players Location has some how changed during the call of
-				 * the event. This can happen due to a plugin teleporting the player instead of
-				 * using .setTo()
-				 */
-				if (!from.equals(getPlayerB().getLocation()) && justTeleported) {
-					justTeleported = false;
+
+                /* Check to see if the Players Location has some how changed during the call of the event.
+                This can happen due to a plugin teleporting the player instead of using .setTo() */
+				if (!from.equals(this.getPlayerB().getLocation()) && this.justTeleported)
+				{
+					this.justTeleported = false;
 					return;
 				}
 			}
 
-			if (!hasMoved) {
-				d0 = packetPlayer.func_149467_d() - lastPosY;
-
-				if (packetPlayer.func_149464_c() == lastPosX && d0 * d0 < 0.01D
-						&& packetPlayer.func_149472_e() == lastPosZ) {
-					hasMoved = true;
-				}
-			}
-
-			if (hasMoved) {
-				int xPosForCheck = MathHelper.floor_double(playerEntity.posX);
-				int zPosForCheck = MathHelper.floor_double(playerEntity.posZ);
-				if (!playerEntity.worldObj.checkChunksExist(xPosForCheck - 2, 0, zPosForCheck - 2, xPosForCheck + 2, 64,
-						zPosForCheck + 2))
-					return;
-
+			if (this.hasMoved && !this.playerEntity.isDead)
+			{
+				// CraftBukkit end
 				double d1;
 				double d2;
 				double d3;
 
-				if (playerEntity.ridingEntity != null) {
-					float f4 = playerEntity.rotationYaw;
-					float f = playerEntity.rotationPitch;
-					playerEntity.ridingEntity.updateRiderPosition();
-					d1 = playerEntity.posX;
-					d2 = playerEntity.posY;
-					d3 = playerEntity.posZ;
+				if (this.playerEntity.ridingEntity != null)
+				{
+					float f4 = this.playerEntity.rotationYaw;
+					float f = this.playerEntity.rotationPitch;
+					this.playerEntity.ridingEntity.updateRiderPosition();
+					d1 = this.playerEntity.posX;
+					d2 = this.playerEntity.posY;
+					d3 = this.playerEntity.posZ;
 
-					if (packetPlayer.func_149463_k()) {
-						f4 = packetPlayer.func_149462_g();
-						f = packetPlayer.func_149470_h();
+					if (p_147347_1_.func_149463_k())
+					{
+						f4 = p_147347_1_.func_149462_g();
+						f = p_147347_1_.func_149470_h();
 					}
 
-					playerEntity.onGround = packetPlayer.func_149465_i();
-					playerEntity.onUpdateEntity();
-					playerEntity.ySize = 0.0F;
-					playerEntity.setPositionAndRotation(d1, d2, d3, f4, f);
+					this.playerEntity.onGround = p_147347_1_.func_149465_i();
+					this.playerEntity.onUpdateEntity();
+					this.playerEntity.ySize = 0.0F;
+					this.playerEntity.setPositionAndRotation(d1, d2, d3, f4, f);
 
-					if (playerEntity.ridingEntity != null) {
-						playerEntity.ridingEntity.updateRiderPosition();
+					if (this.playerEntity.ridingEntity != null)
+					{
+						this.playerEntity.ridingEntity.updateRiderPosition();
 					}
 
-					if (!hasMoved)
+					if (!this.hasMoved) //Fixes teleportation kick while riding entities
+					{
 						return;
-
-					serverController.getConfigurationManager().updatePlayerPertinentChunks(playerEntity);
-
-					if (hasMoved) {
-						lastPosX = playerEntity.posX;
-						lastPosY = playerEntity.posY;
-						lastPosZ = playerEntity.posZ;
 					}
 
-					worldserver.updateEntity(playerEntity);
+					this.serverController.getConfigurationManager().updatePlayerPertinentChunks(this.playerEntity);
+
+					if (this.hasMoved)
+					{
+						this.lastPosX = this.playerEntity.posX;
+						this.lastPosY = this.playerEntity.posY;
+						this.lastPosZ = this.playerEntity.posZ;
+					}
+
+					worldserver.updateEntity(this.playerEntity);
 					return;
 				}
 
-				if (playerEntity.isPlayerSleeping()) {
-					playerEntity.onUpdateEntity();
-					playerEntity.setPositionAndRotation(lastPosX, lastPosY, lastPosZ, playerEntity.rotationYaw,
-							playerEntity.rotationPitch);
-					worldserver.updateEntity(playerEntity);
+				if (this.playerEntity.isPlayerSleeping())
+				{
+					this.playerEntity.onUpdateEntity();
+					this.playerEntity.setPositionAndRotation(this.lastPosX, this.lastPosY, this.lastPosZ, this.playerEntity.rotationYaw, this.playerEntity.rotationPitch);
+					worldserver.updateEntity(this.playerEntity);
 					return;
 				}
 
-				d0 = playerEntity.posY;
-				lastPosX = playerEntity.posX;
-				lastPosY = playerEntity.posY;
-				lastPosZ = playerEntity.posZ;
-				d1 = playerEntity.posX;
-				d2 = playerEntity.posY;
-				d3 = playerEntity.posZ;
-				float f1 = playerEntity.rotationYaw;
-				float f2 = playerEntity.rotationPitch;
+				d0 = this.playerEntity.posY;
+				this.lastPosX = this.playerEntity.posX;
+				this.lastPosY = this.playerEntity.posY;
+				this.lastPosZ = this.playerEntity.posZ;
+				d1 = this.playerEntity.posX;
+				d2 = this.playerEntity.posY;
+				d3 = this.playerEntity.posZ;
+				float f1 = this.playerEntity.rotationYaw;
+				float f2 = this.playerEntity.rotationPitch;
 
-				if (packetPlayer.func_149466_j() && packetPlayer.func_149467_d() == -999.0D
-						&& packetPlayer.func_149471_f() == -999.0D) {
-					packetPlayer.func_149469_a(false);
+				if (p_147347_1_.func_149466_j() && p_147347_1_.func_149467_d() == -999.0D && p_147347_1_.func_149471_f() == -999.0D)
+				{
+					p_147347_1_.func_149469_a(false);
 				}
 
 				double d4;
 
-				if (packetPlayer.func_149466_j()) {
-					d1 = packetPlayer.func_149464_c();
-					d2 = packetPlayer.func_149467_d();
-					d3 = packetPlayer.func_149472_e();
-					d4 = packetPlayer.func_149471_f() - packetPlayer.func_149467_d();
+				if (p_147347_1_.func_149466_j())
+				{
+					d1 = p_147347_1_.func_149464_c();
+					d2 = p_147347_1_.func_149467_d();
+					d3 = p_147347_1_.func_149472_e();
+					d4 = p_147347_1_.func_149471_f() - p_147347_1_.func_149467_d();
 
-					if (!playerEntity.isPlayerSleeping() && (d4 > 1.65D || d4 < 0.1D)) {
-						kickPlayerFromServer("Illegal stance");
-						logger.warn(playerEntity.getCommandSenderName() + " had an illegal stance: " + d4);
-						return;
-					}
-
-					if (Math.abs(packetPlayer.func_149464_c()) > 3.2E7D
-							|| Math.abs(packetPlayer.func_149472_e()) > 3.2E7D) {
-						kickPlayerFromServer("Illegal position");
+					if (Math.abs(p_147347_1_.func_149464_c()) > 3.2E7D || Math.abs(p_147347_1_.func_149472_e()) > 3.2E7D)
+					{
+						this.kickPlayerFromServer("Illegal position");
 						return;
 					}
 				}
 
-				if (packetPlayer.func_149463_k()) {
-					f1 = packetPlayer.func_149462_g();
-					f2 = packetPlayer.func_149470_h();
+				if (p_147347_1_.func_149463_k())
+				{
+					f1 = p_147347_1_.func_149462_g();
+					f2 = p_147347_1_.func_149470_h();
 				}
 
-				playerEntity.onUpdateEntity();
-				playerEntity.ySize = 0.0F;
-				playerEntity.setPositionAndRotation(lastPosX, lastPosY, lastPosZ, f1, f2);
+				this.playerEntity.onUpdateEntity();
+				this.playerEntity.ySize = 0.0F;
+				this.playerEntity.setPositionAndRotation(this.lastPosX, this.lastPosY, this.lastPosZ, f1, f2);
 
-				if (!hasMoved)
+				if (!this.hasMoved)
+				{
 					return;
+				}
 
-				d4 = d1 - playerEntity.posX;
-				double d5 = d2 - playerEntity.posY;
-				double d6 = d3 - playerEntity.posZ;
-				// BUGFIX: min -> max, grabs the highest distance
-				double d7 = Math.max(Math.abs(d4), Math.abs(playerEntity.motionX));
-				double d8 = Math.max(Math.abs(d5), Math.abs(playerEntity.motionY));
-				double d9 = Math.max(Math.abs(d6), Math.abs(playerEntity.motionZ));
+				d4 = d1 - this.playerEntity.posX;
+				double d5 = d2 - this.playerEntity.posY;
+				double d6 = d3 - this.playerEntity.posZ;
+				//BUGFIX: min -> max, grabs the highest distance
+				double d7 = Math.max(Math.abs(d4), Math.abs(this.playerEntity.motionX));
+				double d8 = Math.max(Math.abs(d5), Math.abs(this.playerEntity.motionY));
+				boolean downMovement = d5 < 0 || this.playerEntity.motionY < 0;
+				double d9 = Math.max(Math.abs(d6), Math.abs(this.playerEntity.motionZ));
 				double d10 = d7 * d7 + d8 * d8 + d9 * d9;
+				// 3D distance traversed, squared
+				//if (!this.serverController.isFlightAllowed() && !this.playerEntity.theItemInWorldManager.isCreative() && !worldserver.checkBlockCollision(axisalignedbb) && !this.playerEntity.capabilities.allowFlying)
 
-				if (d10 > 100.0D && (!serverController.isSinglePlayer()
-						|| !serverController.getServerOwner().equals(playerEntity.getCommandSenderName()))) {
-					logger.warn(playerEntity.getCommandSenderName() + " moved too quickly! " + d4 + "," + d5 + "," + d6
-							+ " (" + d7 + ", " + d8 + ", " + d9 + ")");
-					setPlayerLocation(lastPosX, lastPosY, lastPosZ, playerEntity.rotationYaw,
-							playerEntity.rotationPitch);
+				// Thermos, allow bypass of moved too quickly if accelerating straight down
+				if (d10 > 100.0D && this.hasMoved && (!this.serverController.isSinglePlayer()) && !(downMovement && d8 * d8 / 100.0D > .96))   // CraftBukkit - Added this.checkMovement condition to solve this check being triggered by teleports
+				{
+					logger.warn(this.playerEntity.getCommandSenderName() + " moved too quickly! " + d4 + "," + d5 + "," + d6 + " (" + d7 + ", " + d8 + ", " + d9 + ")");
+					this.setPlayerLocation(this.lastPosX, this.lastPosY, this.lastPosZ, this.playerEntity.rotationYaw, this.playerEntity.rotationPitch);
 					return;
 				}
 
 				float f3 = 0.0625F;
-				boolean flag = worldserver
-						.getCollidingBoundingBoxes(playerEntity, playerEntity.boundingBox.copy().contract(f3, f3, f3))
-						.isEmpty();
+				boolean flag = worldserver.getCollidingBoundingBoxes(this.playerEntity, this.playerEntity.boundingBox.copy().contract((double)f3, (double)f3, (double)f3)).isEmpty();
 
-				if (playerEntity.onGround && !packetPlayer.func_149465_i() && d5 > 0.0D) {
-					playerEntity.jump();
+				if (this.playerEntity.onGround && !p_147347_1_.func_149465_i() && d5 > 0.0D)
+				{
+					this.playerEntity.jump();
 				}
 
-				if (!hasMoved)
+				if (!this.hasMoved) //Fixes "Moved Too Fast" kick when being teleported while moving
+				{
 					return;
+				}
 
-				playerEntity.moveEntity(d4, d5, d6);
-				playerEntity.onGround = packetPlayer.func_149465_i();
-				playerEntity.addMovementStat(d4, d5, d6);
+				this.playerEntity.moveEntity(d4, d5, d6);
+				this.playerEntity.onGround = p_147347_1_.func_149465_i();
+				this.playerEntity.addMovementStat(d4, d5, d6);
 				double d11 = d5;
-				d4 = d1 - playerEntity.posX;
-				d5 = d2 - playerEntity.posY;
+				d4 = d1 - this.playerEntity.posX;
+				d5 = d2 - this.playerEntity.posY;
 
-				if (d5 > -0.5D || d5 < 0.5D) {
+				if (d5 > -0.5D || d5 < 0.5D)
+				{
 					d5 = 0.0D;
 				}
 
-				d6 = d3 - playerEntity.posZ;
+				d6 = d3 - this.playerEntity.posZ;
 				d10 = d4 * d4 + d5 * d5 + d6 * d6;
 				boolean flag1 = false;
 
-				if (d10 > 0.0625D && !playerEntity.isPlayerSleeping()
-						&& !playerEntity.theItemInWorldManager.isCreative()) {
+				if (d10 > 0.0625D && !this.playerEntity.isPlayerSleeping() && !this.playerEntity.theItemInWorldManager.isCreative())
+				{
 					flag1 = true;
-					logger.warn(playerEntity.getCommandSenderName() + " moved wrongly!");
+					logger.warn(this.playerEntity.getCommandSenderName() + " moved wrongly!");
 				}
 
-				if (!hasMoved)
-					return;
-
-				playerEntity.setPositionAndRotation(d1, d2, d3, f1, f2);
-				boolean flag2 = worldserver
-						.getCollidingBoundingBoxes(playerEntity, playerEntity.boundingBox.copy().contract(f3, f3, f3))
-						.isEmpty();
-
-				if (flag && (flag1 || !flag2) && !playerEntity.isPlayerSleeping() && !playerEntity.noClip) {
-					setPlayerLocation(lastPosX, lastPosY, lastPosZ, f1, f2);
+				if (!this.hasMoved) //Fixes "Moved Too Fast" kick when being teleported while moving
+				{
 					return;
 				}
 
-				AxisAlignedBB axisalignedbb = playerEntity.boundingBox.copy().expand(f3, f3, f3).addCoord(0.0D, -0.55D,
-						0.0D);
+				this.playerEntity.setPositionAndRotation(d1, d2, d3, f1, f2);
+				boolean flag2 = worldserver.getCollidingBoundingBoxes(this.playerEntity, this.playerEntity.boundingBox.copy().contract((double)f3, (double)f3, (double)f3)).isEmpty();
 
-				if (!serverController.isFlightAllowed() && !playerEntity.theItemInWorldManager.isCreative()
-						&& !worldserver.checkBlockCollision(axisalignedbb) && !playerEntity.capabilities.allowFlying) {
-					if (d11 >= -0.03125D) {
-						++floatingTickCount;
+				if (flag && (flag1 || !flag2) && !this.playerEntity.isPlayerSleeping() && !this.playerEntity.noClip)
+				{
+					this.setPlayerLocation(this.lastPosX, this.lastPosY, this.lastPosZ, f1, f2);
+					return;
+				}
 
-						if (floatingTickCount > 80) {
-							logger.warn(playerEntity.getCommandSenderName() + " was kicked for floating too long!");
-							kickPlayerFromServer("Flying is not enabled on this server");
+				AxisAlignedBB axisalignedbb = this.playerEntity.boundingBox.copy().expand((double)f3, (double)f3, (double)f3).addCoord(0.0D, -0.55D, 0.0D);
+
+				if (!this.serverController.isFlightAllowed() && !this.playerEntity.theItemInWorldManager.isCreative() && !worldserver.checkBlockCollision(axisalignedbb) && !this.playerEntity.capabilities.allowFlying)
+				{
+					if (d11 >= -0.03125D)
+					{
+						++this.floatingTickCount;
+
+						if (this.floatingTickCount > 80)
+						{
+							logger.warn(this.playerEntity.getCommandSenderName() + " was kicked for floating too long!");
+							this.kickPlayerFromServer("Flying is not enabled on this server");
 							return;
 						}
 					}
-				} else {
-					floatingTickCount = 0;
+				}
+				else
+				{
+					this.floatingTickCount = 0;
 				}
 
-				if (!hasMoved)
+				if (!this.hasMoved) //Fixes "Moved Too Fast" kick when being teleported while moving
+				{
 					return;
+				}
 
-				playerEntity.onGround = packetPlayer.func_149465_i();
-				serverController.getConfigurationManager().updatePlayerPertinentChunks(playerEntity);
-				playerEntity.handleFalling(playerEntity.posY - d0, packetPlayer.func_149465_i());
-			} else if (networkTickCount % 20 == 0) {
-				setPlayerLocation(lastPosX, lastPosY, lastPosZ, playerEntity.rotationYaw, playerEntity.rotationPitch);
+				this.playerEntity.onGround = p_147347_1_.func_149465_i();
+				this.serverController.getConfigurationManager().updatePlayerPertinentChunks(this.playerEntity);
+				this.playerEntity.handleFalling(this.playerEntity.posY - d0, p_147347_1_.func_149465_i());
+			}
+			else if (this.networkTickCount % 20 == 0)
+			{
+				this.setPlayerLocation(this.lastPosX, this.lastPosY, this.lastPosZ, this.playerEntity.rotationYaw, this.playerEntity.rotationPitch);
 			}
 		}
 	}

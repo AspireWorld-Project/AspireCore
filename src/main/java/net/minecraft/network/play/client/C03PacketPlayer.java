@@ -10,15 +10,15 @@ import net.minecraft.network.play.INetHandlerPlayServer;
 import java.io.IOException;
 
 public class C03PacketPlayer extends Packet {
-	protected double field_149479_a;
-	protected double field_149477_b;
-	protected double field_149478_c;
-	protected double field_149475_d;
-	protected float field_149476_e;
-	protected float field_149473_f;
+	public double field_149479_a;
+	public double field_149477_b;
+	public double field_149478_c;
+	public double field_149475_d;
+	public float field_149476_e;
+	public float field_149473_f;
 	protected boolean field_149474_g;
-	protected boolean field_149480_h;
-	protected boolean field_149481_i;
+	public boolean field_149480_h;
+	public boolean field_149481_i;
 	private static final String __OBFID = "CL_00001360";
 
 	public C03PacketPlayer() {

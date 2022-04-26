@@ -993,13 +993,17 @@ public abstract class ServerConfigurationManager {
 			File file1 = new File(mcServer.worldServerForDimension(0).getSaveHandler().getWorldDirectory(), "stats");
 			File file2 = new File(file1, uuid.toString() + ".json");
 
-			if (!file2.exists()) {
-				File file3 = new File(file1, profile.getName() + ".json");
-
-				if (file3.exists() && file3.isFile()) {
-					file3.renameTo(file2);
-				}
-			}
+			// s5a4ed1sa7 - fix CVE-2021-35054: Minecraft before 1.17.1, when online-mode=false is configured, allows path traversal for deletion of arbitrary JSON files.
+			// https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-35054
+//            if (!file2.exists())
+//            {
+//                File file3 = new File(file1, p_152602_1_.getCommandSenderName() + ".json");
+//
+//                if (file3.exists() && file3.isFile())
+//                {
+//                    file3.renameTo(file2);
+//                }
+//            }
 
 			statisticsfile = new StatisticsFile(mcServer, file2);
 			statisticsfile.func_150882_a();

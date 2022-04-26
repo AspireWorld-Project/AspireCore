@@ -20,8 +20,8 @@ import org.bukkit.plugin.Plugin;
 import java.util.Set;
 
 public class CraftHumanEntity extends CraftLivingEntity implements HumanEntity {
-	private CraftInventoryPlayer inventory;
-	private CraftInventory enderChest;
+	public CraftInventoryPlayer inventory;
+	public CraftInventory enderChest;
 	protected PermissibleBase perm = new PermissibleBase(this);
 	private boolean op;
 	private GameMode mode;

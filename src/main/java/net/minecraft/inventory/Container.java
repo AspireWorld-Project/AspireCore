@@ -617,7 +617,7 @@ public abstract class Container {
 	private boolean isOpened = false;
 	private boolean isClosedByEventCancelling = false;
 
-	private InventoryView bukkitView;
+	public InventoryView bukkitView;
 	private boolean isBukkitViewCreated;
 
 	public InventoryView getBukkitView() {

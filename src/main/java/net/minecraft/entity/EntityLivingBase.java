@@ -42,8 +42,8 @@ public abstract class EntityLivingBase extends Entity {
 	private static final AttributeModifier sprintingSpeedBoostModifier = new AttributeModifier(
 			sprintingSpeedBoostModifierUUID, "Sprinting speed boost", 0.30000001192092896D, 2).setSaved(false);
 	private BaseAttributeMap attributeMap;
-	private final CombatTracker _combatTracker = new CombatTracker(this);
-	private final HashMap activePotionsMap = new HashMap();
+	public final CombatTracker _combatTracker = new CombatTracker(this);
+	public final HashMap activePotionsMap = new HashMap();
 	private final ItemStack[] previousEquipment = new ItemStack[5];
 	public boolean isSwingInProgress;
 	public int swingProgressInt;

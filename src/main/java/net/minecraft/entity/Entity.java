@@ -108,7 +108,7 @@ public abstract class Entity {
 	public int hurtResistantTime;
 	private boolean firstUpdate;
 	protected boolean isImmuneToFire;
-	protected DataWatcher dataWatcher;
+	public DataWatcher dataWatcher;
 	private double entityRiderPitchDelta;
 	private double entityRiderYawDelta;
 	public boolean addedToChunk;
@@ -138,7 +138,7 @@ public abstract class Entity {
 	public ArrayList<EntityItem> capturedDrops = new ArrayList<>();
 	private UUID persistentID;
 
-	protected CraftEntity bukkitEntity;
+	public CraftEntity bukkitEntity;
 	public ProjectileSource projectileSource;
 	public String spawnReason;
 

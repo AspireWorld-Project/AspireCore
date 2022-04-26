@@ -114,47 +114,6 @@ public class CoreEventHandler {
 	}
 
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
-	public void onEntityInteract(EntityInteractEvent e) {
-		EntityPlayerMP playerEntity = (EntityPlayerMP) e.entityPlayer;
-		NetHandlerPlayServer net = playerEntity.playerNetServerHandler;
-		if (net == null)
-			return;
-		Entity entity = e.target;
-		ItemStack itemInHand = playerEntity.inventory.getCurrentItem();
-
-		boolean triggerTagUpdate = itemInHand != null && itemInHand.getItem() == Items.name_tag
-				&& entity instanceof EntityLiving;
-		boolean triggerChestUpdate = itemInHand != null && itemInHand.getItem() == Item.getItemFromBlock(Blocks.chest)
-				&& entity instanceof EntityHorse;
-		boolean triggerLeashUpdate = itemInHand != null && itemInHand.getItem() == Items.lead
-				&& entity instanceof EntityLiving;
-		PlayerInteractEntityEvent event = new PlayerInteractEntityEvent(playerEntity.getBukkitEntity(),
-				entity.getBukkitEntity());
-		server.getPluginManager().callEvent(event);
-
-		if (triggerLeashUpdate && (event.isCancelled() || playerEntity.inventory.getCurrentItem() == null
-				|| playerEntity.inventory.getCurrentItem().getItem() != Items.lead)) {
-			// Refresh the current leash state
-			net.sendPacket(new S1BPacketEntityAttach(1, entity, ((EntityLiving) entity).getLeashedToEntity()));
-		}
-
-		if (triggerTagUpdate && (event.isCancelled() || playerEntity.inventory.getCurrentItem() == null
-				|| playerEntity.inventory.getCurrentItem().getItem() != Items.name_tag)) {
-			// Refresh the current entity metadata
-			net.sendPacket(new S1CPacketEntityMetadata(entity.getEntityId(), entity.getDataWatcher(), true));
-		}
-
-		if (triggerChestUpdate && (event.isCancelled() || playerEntity.inventory.getCurrentItem() == null
-				|| playerEntity.inventory.getCurrentItem().getItem() != Item.getItemFromBlock(Blocks.chest))) {
-			net.sendPacket(new S1CPacketEntityMetadata(entity.getEntityId(), entity.getDataWatcher(), true));
-		}
-
-		if (event.isCancelled()) {
-			e.setCanceled(true);
-		}
-	}
-
-	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public void onCheckSpawn(LivingSpawnEvent.CheckSpawn e) {
 		e.entity.setSpawnReason("natural");
 	}

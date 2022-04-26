@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 public class CraftInventory implements Inventory {
-	protected net.minecraft.inventory.IInventory inventory;
+	public net.minecraft.inventory.IInventory inventory;
 
 	public CraftInventory(net.minecraft.inventory.IInventory inventory) {
 		this.inventory = inventory;

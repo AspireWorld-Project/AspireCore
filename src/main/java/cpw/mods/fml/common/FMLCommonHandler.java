@@ -40,6 +40,10 @@ import net.minecraft.world.storage.SaveHandler;
 import net.minecraft.world.storage.WorldInfo;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
+import org.bukkit.Bukkit;
+import org.bukkit.craftbukkit.CraftWorld;
+import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.ultramine.server.Restarter;
 
 import java.io.File;
@@ -473,6 +477,14 @@ public class FMLCommonHandler {
 	}
 
 	public void firePlayerChangedDimensionEvent(EntityPlayer player, int fromDim, int toDim) {
+		bus().post(new PlayerEvent.PlayerChangedDimensionEvent(player, fromDim, toDim));
+	}
+
+	public void firePlayerChangedDimensionEvent(EntityPlayer player, int fromDim, int toDim, CraftWorld fromWorld)
+	{
+		PlayerChangedWorldEvent event = new PlayerChangedWorldEvent((Player) player.getBukkitEntity(), fromWorld);
+		Bukkit.getServer().getPluginManager().callEvent(event);
+		// Cauldron end
 		bus().post(new PlayerEvent.PlayerChangedDimensionEvent(player, fromDim, toDim));
 	}
 

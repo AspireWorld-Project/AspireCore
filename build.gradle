@@ -120,6 +120,8 @@ dependencies {
 		exclude module: 'junit'
 	}
 	runtimeServer 'org.xerial:sqlite-jdbc:3.18.0'
+	compile 'com.sk89q:jchronic:0.2.4a'
+	compile 'com.sk89q.lib:jlibnoise:1.0.0'
 	compileOnly ('net.milkbowl.vault:VaultAPI:1.6') { transitive = false  }
 }
 

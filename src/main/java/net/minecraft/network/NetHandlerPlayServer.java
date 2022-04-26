@@ -190,7 +190,7 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 
 		if (playerEntity.func_154331_x() > 0L && serverController.func_143007_ar() > 0
 				&& MinecraftServer.getSystemTimeMillis()
-						- playerEntity.func_154331_x() > serverController.func_143007_ar() * 1000 * 60) {
+				- playerEntity.func_154331_x() > serverController.func_143007_ar() * 1000 * 60) {
 			kickPlayerFromServer("You have been idle for too long!");
 		}
 	}
@@ -1072,36 +1072,36 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 		C16PacketClientStatus.EnumState enumstate = p_147342_1_.func_149435_c();
 
 		switch (NetHandlerPlayServer.SwitchEnumState.field_151290_a[enumstate.ordinal()]) {
-		case 1:
-			if (playerEntity.playerConqueredTheEnd) {
-				playerEntity = serverController.getConfigurationManager().respawnPlayer(playerEntity, 0, true);
-			} else if (playerEntity.getServerForPlayer().getWorldInfo().isHardcoreModeEnabled()) {
-				if (serverController.isSinglePlayer()
-						&& playerEntity.getCommandSenderName().equals(serverController.getServerOwner())) {
-					playerEntity.playerNetServerHandler
-							.kickPlayerFromServer("You have died. Game over, man, it's game over!");
-					serverController.deleteWorldAndStopServer();
+			case 1:
+				if (playerEntity.playerConqueredTheEnd) {
+					playerEntity = serverController.getConfigurationManager().respawnPlayer(playerEntity, 0, true);
+				} else if (playerEntity.getServerForPlayer().getWorldInfo().isHardcoreModeEnabled()) {
+					if (serverController.isSinglePlayer()
+							&& playerEntity.getCommandSenderName().equals(serverController.getServerOwner())) {
+						playerEntity.playerNetServerHandler
+								.kickPlayerFromServer("You have died. Game over, man, it's game over!");
+						serverController.deleteWorldAndStopServer();
+					} else {
+						UserListBansEntry userlistbansentry = new UserListBansEntry(playerEntity.getGameProfile(),
+								null, "(You just lost the game)", null, "Death in Hardcore");
+						serverController.getConfigurationManager().func_152608_h().func_152687_a(userlistbansentry);
+						playerEntity.playerNetServerHandler
+								.kickPlayerFromServer("You have died. Game over, man, it's game over!");
+					}
 				} else {
-					UserListBansEntry userlistbansentry = new UserListBansEntry(playerEntity.getGameProfile(),
-							null, "(You just lost the game)", null, "Death in Hardcore");
-					serverController.getConfigurationManager().func_152608_h().func_152687_a(userlistbansentry);
-					playerEntity.playerNetServerHandler
-							.kickPlayerFromServer("You have died. Game over, man, it's game over!");
+					if (playerEntity.getHealth() > 0.0F)
+						return;
+
+					playerEntity = serverController.getConfigurationManager().respawnPlayer(playerEntity,
+							playerEntity.dimension, false);
 				}
-			} else {
-				if (playerEntity.getHealth() > 0.0F)
-					return;
 
-				playerEntity = serverController.getConfigurationManager().respawnPlayer(playerEntity,
-						playerEntity.dimension, false);
-			}
-
-			break;
-		case 2:
-			playerEntity.func_147099_x().func_150876_a(playerEntity);
-			break;
-		case 3:
-			playerEntity.triggerAchievement(AchievementList.openInventory);
+				break;
+			case 2:
+				playerEntity.func_147099_x().func_150876_a(playerEntity);
+				break;
+			case 3:
+				playerEntity.triggerAchievement(AchievementList.openInventory);
 		}
 	}
 
@@ -1134,7 +1134,7 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 			if (inventory == null) {
 				inventory = new CraftInventoryView(
 						playerEntity.getBukkitEntity(), Bukkit.getServer()
-								.createInventory(playerEntity.getBukkitEntity(), InventoryType.CHEST),
+						.createInventory(playerEntity.getBukkitEntity(), InventoryType.CHEST),
 						playerEntity.openContainer);
 				// this.playerEntity.openContainer.bukkitView = inventory;
 			}
@@ -1187,13 +1187,13 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 											action = InventoryAction.PLACE_SOME;
 										}
 									} else if (cursor.stackSize <= slot.getSlotStackLimit()) // Should be
-																								// Slot.getMaxStackSize()
+									// Slot.getMaxStackSize()
 									{
 										action = InventoryAction.SWAP_WITH_CURSOR;
 									}
 								} else if (cursor.getItem() == clickedItem.getItem()
 										&& (!cursor.getHasSubtypes()
-												|| cursor.getItemDamage() == clickedItem.getItemDamage())
+										|| cursor.getItemDamage() == clickedItem.getItemDamage())
 										&& ItemStack.areItemStackTagsEqual(cursor, clickedItem)) {
 									if (clickedItem.stackSize >= 0)
 										if (clickedItem.stackSize + cursor.stackSize <= cursor.getMaxStackSize()) {
@@ -1232,23 +1232,23 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 						ItemStack hotbar = playerEntity.inventory.getStackInSlot(p_147351_1_.func_149543_e());
 						boolean canCleanSwap = hotbar == null
 								|| clickedSlot.inventory == playerEntity.inventory && clickedSlot.isItemValid(hotbar); // the
-																														// slot
-																														// will
-																														// accept
-																														// the
-																														// hotbar
-																														// item
+						// slot
+						// will
+						// accept
+						// the
+						// hotbar
+						// item
 						if (clickedSlot.getHasStack()) {
 							if (canCleanSwap) {
 								action = InventoryAction.HOTBAR_SWAP;
 							} else {
 								int firstEmptySlot = playerEntity.inventory.getFirstEmptyStack(); // Should be
-																									// Inventory.firstEmpty()
+								// Inventory.firstEmpty()
 								if (firstEmptySlot > -1) {
 									action = InventoryAction.HOTBAR_MOVE_AND_READD;
 								} else {
 									action = InventoryAction.NOTHING; // This is not sane! Mojang: You should test for
-																		// other slots of same type
+									// other slots of same type
 								}
 							}
 						} else if (!clickedSlot.getHasStack() && hotbar != null && clickedSlot.isItemValid(hotbar)) {
@@ -1328,7 +1328,7 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 					if (inventory.getTopInventory()
 							.contains(org.bukkit.Material.getMaterial(Item.getIdFromItem(cursor.getItem())))
 							|| inventory.getBottomInventory()
-									.contains(org.bukkit.Material.getMaterial(Item.getIdFromItem(cursor.getItem())))) {
+							.contains(org.bukkit.Material.getMaterial(Item.getIdFromItem(cursor.getItem())))) {
 						action = InventoryAction.COLLECT_TO_CURSOR;
 					}
 					// Cauldron end
@@ -1360,55 +1360,55 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 				}
 				Bukkit.getServer().getPluginManager().callEvent(event);
 				switch (event.getResult()) {
-				case ALLOW:
-				case DEFAULT:
-					itemstack = playerEntity.openContainer.slotClick(p_147351_1_.func_149544_d(),
-							p_147351_1_.func_149543_e(), p_147351_1_.func_149542_h(), playerEntity);
-					break;
-				case DENY:
-					switch (action) {
-					// Modified other slots
-					case PICKUP_ALL:
-					case MOVE_TO_OTHER_INVENTORY:
-					case HOTBAR_MOVE_AND_READD:
-					case HOTBAR_SWAP:
-					case COLLECT_TO_CURSOR:
-					case UNKNOWN:
-						playerEntity.sendContainerToPlayer(playerEntity.openContainer);
+					case ALLOW:
+					case DEFAULT:
+						itemstack = playerEntity.openContainer.slotClick(p_147351_1_.func_149544_d(),
+								p_147351_1_.func_149543_e(), p_147351_1_.func_149542_h(), playerEntity);
 						break;
-					// Modified cursor and clicked
-					case PICKUP_SOME:
-					case PICKUP_HALF:
-					case PICKUP_ONE:
-					case PLACE_ALL:
-					case PLACE_SOME:
-					case PLACE_ONE:
-					case SWAP_WITH_CURSOR:
-						playerEntity.playerNetServerHandler
-								.sendPacket(new S2FPacketSetSlot(-1, -1, playerEntity.inventory.getItemStack()));
-						playerEntity.playerNetServerHandler.sendPacket(
-								new S2FPacketSetSlot(playerEntity.openContainer.windowId, p_147351_1_.func_149544_d(),
-										playerEntity.openContainer.getSlot(p_147351_1_.func_149544_d()).getStack()));
-						break;
-					// Modified clicked only
-					case DROP_ALL_SLOT:
-					case DROP_ONE_SLOT:
-						playerEntity.playerNetServerHandler.sendPacket(
-								new S2FPacketSetSlot(playerEntity.openContainer.windowId, p_147351_1_.func_149544_d(),
-										playerEntity.openContainer.getSlot(p_147351_1_.func_149544_d()).getStack()));
-						break;
-					// Modified cursor only
-					case DROP_ALL_CURSOR:
-					case DROP_ONE_CURSOR:
-					case CLONE_STACK:
-						playerEntity.playerNetServerHandler
-								.sendPacket(new S2FPacketSetSlot(-1, -1, playerEntity.inventory.getItemStack()));
-						break;
-					// Nothing
-					case NOTHING:
-						break;
-					}
-					return;
+					case DENY:
+						switch (action) {
+							// Modified other slots
+							case PICKUP_ALL:
+							case MOVE_TO_OTHER_INVENTORY:
+							case HOTBAR_MOVE_AND_READD:
+							case HOTBAR_SWAP:
+							case COLLECT_TO_CURSOR:
+							case UNKNOWN:
+								playerEntity.sendContainerToPlayer(playerEntity.openContainer);
+								break;
+							// Modified cursor and clicked
+							case PICKUP_SOME:
+							case PICKUP_HALF:
+							case PICKUP_ONE:
+							case PLACE_ALL:
+							case PLACE_SOME:
+							case PLACE_ONE:
+							case SWAP_WITH_CURSOR:
+								playerEntity.playerNetServerHandler
+										.sendPacket(new S2FPacketSetSlot(-1, -1, playerEntity.inventory.getItemStack()));
+								playerEntity.playerNetServerHandler.sendPacket(
+										new S2FPacketSetSlot(playerEntity.openContainer.windowId, p_147351_1_.func_149544_d(),
+												playerEntity.openContainer.getSlot(p_147351_1_.func_149544_d()).getStack()));
+								break;
+							// Modified clicked only
+							case DROP_ALL_SLOT:
+							case DROP_ONE_SLOT:
+								playerEntity.playerNetServerHandler.sendPacket(
+										new S2FPacketSetSlot(playerEntity.openContainer.windowId, p_147351_1_.func_149544_d(),
+												playerEntity.openContainer.getSlot(p_147351_1_.func_149544_d()).getStack()));
+								break;
+							// Modified cursor only
+							case DROP_ALL_CURSOR:
+							case DROP_ONE_CURSOR:
+							case CLONE_STACK:
+								playerEntity.playerNetServerHandler
+										.sendPacket(new S2FPacketSetSlot(-1, -1, playerEntity.inventory.getItemStack()));
+								break;
+							// Nothing
+							case NOTHING:
+								break;
+						}
+						return;
 				}
 			}
 			if (ItemStack.areItemStacksEqual(p_147351_1_.func_149546_g(), itemstack)) {
@@ -1480,7 +1480,7 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 						{
 							return null;
 						}
-                        System.out.println("AAAA");
+						System.out.println("AAAA");
 						String message = String.format(queueEvent.getFormat(), queueEvent.getPlayer().getDisplayName(), queueEvent.getMessage());
 						NetHandlerPlayServer.this.serverController.console.sendMessage(message);
 						if (((LazyPlayerSet) queueEvent.getRecipients()).isLazy())
@@ -1589,8 +1589,8 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 				InventoryView inventory = new CraftInventoryView(player, player.getInventory(),
 						playerEntity.inventoryContainer);
 				org.bukkit.inventory.ItemStack item = CraftItemStack.asBukkitCopy(creativeActionPacket.func_149625_d()); // Should
-																															// be
-																															// packet107setcreativeslot.newitem
+				// be
+				// packet107setcreativeslot.newitem
 				InventoryType.SlotType type = InventoryType.SlotType.QUICKBAR;
 				if (flag) {
 					type = InventoryType.SlotType.OUTSIDE;
@@ -1605,22 +1605,22 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 				Bukkit.getServer().getPluginManager().callEvent(event);
 				itemstack = CraftItemStack.asNMSCopy(event.getCursor());
 				switch (event.getResult()) {
-				case ALLOW:
-					// Plugin cleared the id / stacksize checks
-					flag2 = flag3 = true;
-					break;
-				case DEFAULT:
-					break;
-				case DENY:
-					// Reset the slot
-					if (creativeActionPacket.func_149627_c() >= 0) {
-						playerEntity.playerNetServerHandler
-								.sendPacket(new S2FPacketSetSlot(playerEntity.inventoryContainer.windowId,
-										creativeActionPacket.func_149627_c(), playerEntity.inventoryContainer
-												.getSlot(creativeActionPacket.func_149627_c()).getStack()));
-						playerEntity.playerNetServerHandler.sendPacket(new S2FPacketSetSlot(-1, -1, null));
-					}
-					return;
+					case ALLOW:
+						// Plugin cleared the id / stacksize checks
+						flag2 = flag3 = true;
+						break;
+					case DEFAULT:
+						break;
+					case DENY:
+						// Reset the slot
+						if (creativeActionPacket.func_149627_c() >= 0) {
+							playerEntity.playerNetServerHandler
+									.sendPacket(new S2FPacketSetSlot(playerEntity.inventoryContainer.windowId,
+											creativeActionPacket.func_149627_c(), playerEntity.inventoryContainer
+											.getSlot(creativeActionPacket.func_149627_c()).getStack()));
+							playerEntity.playerNetServerHandler.sendPacket(new S2FPacketSetSlot(-1, -1, null));
+						}
+						return;
 				}
 			}
 			if (flag1 && flag2 && flag3) {

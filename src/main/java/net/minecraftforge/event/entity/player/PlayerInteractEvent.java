@@ -48,7 +48,7 @@ public class PlayerInteractEvent extends PlayerEvent {
 	public final int z;
 	public final int face;
 	public final World world;
-
+	public org.bukkit.event.player.PlayerInteractEvent cb;
 	public Result useBlock = DEFAULT;
 	public Result useItem = DEFAULT;
 

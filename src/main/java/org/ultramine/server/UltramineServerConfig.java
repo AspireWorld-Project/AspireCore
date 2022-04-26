@@ -1,9 +1,6 @@
 package org.ultramine.server;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class UltramineServerConfig {
 	// s5a4ed1sa7 code start
@@ -16,6 +13,7 @@ public class UltramineServerConfig {
 	public VanillaConf vanilla = new VanillaConf();
 	public ChunkConfig chunkConfig = new ChunkConfig();
 	public SpigotConfig spigotConfig = new SpigotConfig();
+	public Crucible crucible = new Crucible();
 	
 	// s5a4ed1sa7 code start
 	public static class s5a4ed1sa7 {
@@ -181,5 +179,10 @@ public class UltramineServerConfig {
 	public static class SpigotConfig {
 		public double expMerge = 3.0;
 	}
-
+    public static class Crucible {
+     public ArrayList<String> protectedWorld = new ArrayList<>();
+	 public ArrayList<Integer> protectedWorldWhiteList = new ArrayList<>();
+	 public boolean InvertWorldWhiteList = false;
+	 public boolean EnableLoggingEvents = true;
+	}
 }

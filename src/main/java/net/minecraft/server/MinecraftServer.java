@@ -72,7 +72,8 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
 	private static final Logger logger = LogManager.getLogger();
 	public static File field_152367_a = new File("usercache.json");
 	public static MinecraftServer mcServer;
-	private final ISaveFormat anvilConverterForAnvilFile;
+    public static int currentTick = (int)(System.currentTimeMillis() / 50);
+    private final ISaveFormat anvilConverterForAnvilFile;
 	private final PlayerUsageSnooper usageSnooper = new PlayerUsageSnooper("server", this, getSystemTimeMillis());
 	private final File anvilFile;
 	private final List tickables = new ArrayList();

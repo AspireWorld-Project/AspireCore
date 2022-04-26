@@ -65,7 +65,7 @@ import java.util.*;
 
 public class EntityPlayerMP extends EntityPlayer implements ICrafting {
 	private static final Logger logger = LogManager.getLogger();
-	private String translator = "en_US";
+    private String translator = "en_US";
 	public NetHandlerPlayServer playerNetServerHandler;
 	public final MinecraftServer mcServer;
 	public final ItemInWorldManager theItemInWorldManager;

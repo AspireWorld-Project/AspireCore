@@ -10,7 +10,11 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
@@ -20,6 +24,7 @@ import net.minecraft.world.storage.IPlayerFileData;
 import net.minecraft.world.storage.SaveHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.BlockSnapshot;
+import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.event.brewing.PotionBrewEvent;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
@@ -35,13 +40,14 @@ import net.minecraftforge.event.world.BlockEvent.MultiPlaceEvent;
 import net.minecraftforge.event.world.BlockEvent.PlaceEvent;
 import net.minecraftforge.event.world.ExplosionEvent;
 import net.minecraftforge.event.world.WorldEvent;
+import org.ultramine.server.UltramineServerConfig;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ForgeEventFactory {
-
+    private static UltramineServerConfig config = new UltramineServerConfig();
 	public static MultiPlaceEvent onPlayerMultiBlockPlace(EntityPlayer player, List<BlockSnapshot> blockSnapshots,
 			ForgeDirection direction) {
 		Block placedAgainst = blockSnapshots.get(0).world.getBlock(
@@ -81,18 +87,211 @@ public class ForgeEventFactory {
 		return MinecraftForge.EVENT_BUS.post(event) ? -1 : event.newSpeed;
 	}
 
-	@Deprecated
-	public static PlayerInteractEvent onPlayerInteract(EntityPlayer player, Action action, int x, int y, int z,
-			int face) {
-		return onPlayerInteract(player, action, x, y, z, face, null);
+	public static boolean isSpawn(EntityPlayer ep)
+	{
+		//return MinecraftServer.getServer().cauldronConfig.protectSP.getValue() && ep.worldObj.worldInfo.getWorldName().toLowerCase().contains("spawn");
+		String playerWorld = ep.worldObj.worldInfo.getWorldName();
+		for (String world : config.crucible.protectedWorld) {
+			if (world.equalsIgnoreCase(playerWorld))
+				return true;
+		}
+		return false;
 	}
 
-	public static PlayerInteractEvent onPlayerInteract(EntityPlayer player, Action action, int x, int y, int z,
-			int face, World world) {
-		PlayerInteractEvent event = new PlayerInteractEvent(player, action, x, y, z, face, world);
-		MinecraftForge.EVENT_BUS.post(event);
-		return event;
+	private static boolean isCoFHFakePlayer(EntityPlayer player, int x, int y, int z, int face)
+	{
+		if(config.crucible.EnableLoggingEvents)
+		{
+			System.out.println("[Thermos] Checking if it is a CoFH Fake Player...");
+		}
+		return player instanceof FakePlayer && player.getGameProfile().getName().equals("[CoFH]");
 	}
+
+	public static boolean nonVanilla(EntityPlayer ep)
+	{
+		if (ep == null)
+		{
+			if (config.crucible.EnableLoggingEvents) System.out.println("EntityPlayer is null");
+			return false;
+		}
+		if (isOp(ep)) return false;
+		if (ep.getHeldItem() == null)
+		{
+			if (config.crucible.EnableLoggingEvents)
+				System.out.println("Held item is null");
+			return false;
+		}
+		if (ep.getHeldItem().getItem() == null)
+		{
+			if (config.crucible.EnableLoggingEvents) System.out.println("Item getItem() is null");
+			return false;
+		}
+		int itemId = Item.getIdFromItem(ep.getHeldItem().getItem());
+		if (outsideOfVanillaRange(itemId) && !isItemIdAllowed(itemId)) {
+			if(ep instanceof EntityPlayerMP) {
+				EntityPlayerMP mp = (EntityPlayerMP)ep;
+				mp.addChatComponentMessage(new ChatComponentText("You cannot use that item here."));
+			}
+			return true;
+		}
+		return false;
+	}
+
+	public static boolean isOp(EntityPlayer ep)
+	{
+		return MinecraftServer.getServer().getConfigurationManager().func_152596_g(ep.getGameProfile());
+	}
+
+	private static boolean outsideOfVanillaRange(int id)
+	{
+		if (config.crucible.EnableLoggingEvents)
+		{
+			System.out.println("Testing item ID " + id);
+		}
+		return (id > 197 && !(id >= 256 && id <= 431) && !(id >= 2256 && id <= 2267))
+				&& !( id == 628 || id == 5374 || id == 4568 || id == 4354 || id == 4355 || id == 4356
+				|| (id >= 4324 && id <= 4329) || id == 4338 || id == 4688 || id == 4916 || (id <= 4987 && id>= 4980)
+				|| id == 5386 || id == 753 || id == 5497 || id == 4096 || id == 550 || id == 4791 || id == 4790
+				|| id == 564 || id == 562 || id == 555 || id == 4787 || id == 569 || id == 572 || id == 4749 || id == 4984
+				|| id == 4568 || id == 220 || (id >= 4548 && id <= 4561) || (id >= 5360 && id <= 5365));
+	}
+
+	public static boolean isItemIdAllowed(int itemId) {
+		return config.crucible.InvertWorldWhiteList ^ config.crucible.protectedWorldWhiteList.contains(itemId);
+	}
+
+	@Deprecated
+	public static PlayerInteractEvent onPlayerInteract(EntityPlayer player, Action action, int x, int y, int z, int face)
+	{
+		if(player == null)
+		{
+			return onPlayerBukkitInteract( player, action, x, y, z, face, null);
+		}
+		org.bukkit.event.block.Action aktor = null;
+		switch (action)
+		{
+			case RIGHT_CLICK_AIR:
+				aktor = org.bukkit.event.block.Action.RIGHT_CLICK_AIR;
+				break;
+			case RIGHT_CLICK_BLOCK:
+				aktor = org.bukkit.event.block.Action.RIGHT_CLICK_BLOCK;
+				break;
+			case LEFT_CLICK_BLOCK:
+				aktor = org.bukkit.event.block.Action.LEFT_CLICK_BLOCK;
+			default:
+				aktor = org.bukkit.event.block.Action.LEFT_CLICK_AIR;
+				break;
+		}
+		return onPlayerBukkitInteract( player, action, x, y, z, face, org.bukkit.craftbukkit.event.CraftEventFactory.callPlayerInteractEvent(player, aktor, x, y, z, face, player.inventory.getCurrentItem()));
+	}
+
+	@Deprecated
+	public static PlayerInteractEvent onPlayerBukkitInteract(EntityPlayer player, Action action, int x, int y, int z, int face, org.bukkit.event.player.PlayerInteractEvent eve)
+	{
+		PlayerInteractEvent event = new PlayerInteractEvent(player, action, x, y, z, face, null);
+
+		//if(eve != null && !(player == null || isOp(player) || isCoFHFakePlayer(player,x,y,z,face)))
+		if(eve != null && !(player == null || isCoFHFakePlayer(player,x,y,z,face))) //Crucible fix op skip.
+		{
+			event.cb = eve;
+			if(eve.isCancelled())
+			{
+				event.setCanceled(true);
+				return event;
+			}
+		}
+
+		if (isSpawn(player) && nonVanilla(player))
+		{
+			event.setCanceled(true);
+			if (config.crucible.EnableLoggingEvents)
+				System.out.println("Canceled onPlayerInteract()");
+		} else
+			MinecraftForge.EVENT_BUS.post(event);
+		return event;
+
+	}
+
+	public static PlayerInteractEvent onPlayerInteract(EntityPlayer player, Action action, int x, int y, int z, int face, World world)
+	{
+		//if(player == null || isOp(player) || isCoFHFakePlayer(player,x,y,z,face)) //Crucible fix op skip
+		if(player == null || isCoFHFakePlayer(player,x,y,z,face)) //Crucible fix op skip
+		{
+			if(config.crucible.EnableLoggingEvents)
+			{
+				System.out.println("[Thermos] CoFH Fake Player / Null player detected...refusing to create Bukkit event");
+			}
+			onPlayerBukkitInteract( player, action, x, y, z, face, world, null);
+		}
+		else
+		{
+			if(config.crucible.EnableLoggingEvents)
+			{
+				System.out.println("[Thermos] Creating & calling bukkit event!");
+			}
+		}
+		org.bukkit.event.block.Action aktor = null;
+		switch (action)
+		{
+			case RIGHT_CLICK_AIR:
+				aktor = org.bukkit.event.block.Action.RIGHT_CLICK_AIR;
+				break;
+			case RIGHT_CLICK_BLOCK:
+				aktor = org.bukkit.event.block.Action.RIGHT_CLICK_BLOCK;
+				break;
+			case LEFT_CLICK_BLOCK:
+				aktor = org.bukkit.event.block.Action.LEFT_CLICK_BLOCK;
+			default:
+				aktor = org.bukkit.event.block.Action.LEFT_CLICK_AIR;
+				break;
+		}
+		return onPlayerBukkitInteract( player, action, x, y, z, face, world, org.bukkit.craftbukkit.event.CraftEventFactory.callPlayerInteractEvent(player, aktor, x, y, z, face, player.inventory.getCurrentItem()));
+	}
+
+	public static PlayerInteractEvent onPlayerBukkitInteract(EntityPlayer player, Action action, int x, int y, int z, int face, World world, org.bukkit.event.player.PlayerInteractEvent eve)
+	{
+		PlayerInteractEvent event = new PlayerInteractEvent(player, action, x, y, z, face, world);
+
+		//if(eve != null && !(player == null || isOp(player) || isCoFHFakePlayer(player,x,y,z,face)))
+		if(eve != null && !(player == null || isCoFHFakePlayer(player,x,y,z,face))) //Crucible fix op skip
+		{
+			if(config.crucible.EnableLoggingEvents)
+			{
+				System.out.println("[Thermos] Using Bukkit Event for this action...");
+			}
+			event.cb = eve;
+			if(eve.isCancelled())
+			{
+				event.setCanceled(true);
+				return event;
+			}
+		}
+		else if(eve == null)
+		{
+			if(config.crucible.EnableLoggingEvents)
+			{
+				System.out.println("[Thermos] Refusing to call Bukkit event for that interaction");
+			}
+		}
+		else
+		{
+			if(config.crucible.EnableLoggingEvents)
+			{
+				System.out.println("[Thermos] Bukkit event was never considered...single tear");
+			}
+		}
+
+		if (isSpawn(player) && nonVanilla(player))
+		{
+			event.setCanceled(true);
+			if (config.crucible.EnableLoggingEvents)
+				System.out.println("Canceled onPlayerInteract()");
+		} else
+			MinecraftForge.EVENT_BUS.post(event);
+		return event;
+
+	}
+
 
 	public static void onPlayerDestroyItem(EntityPlayer player, ItemStack stack) {
 		MinecraftForge.EVENT_BUS.post(new PlayerDestroyItemEvent(player, stack));

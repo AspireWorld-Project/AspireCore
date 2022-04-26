@@ -196,27 +196,25 @@ public class CraftEventFactory {
 		return callPlayerInteractEvent(who, action, 0, 256, 0, 0, itemstack);
 	}
 
-	@SuppressWarnings("incomplete-switch")
-	public static PlayerInteractEvent callPlayerInteractEvent(net.minecraft.entity.player.EntityPlayer who,
-			Action action, int clickedX, int clickedY, int clickedZ, int clickedFace,
-			net.minecraft.item.ItemStack itemstack) {
-		Player player = who == null ? null : (Player) who.getBukkitEntity();
+	public static PlayerInteractEvent callPlayerInteractEvent(net.minecraft.entity.player.EntityPlayer who, Action action, int clickedX, int clickedY, int clickedZ, int clickedFace, net.minecraft.item.ItemStack itemstack) {
+		Player player = (who == null) ? null : (Player) who.getBukkitEntity();
 		CraftItemStack itemInHand = CraftItemStack.asCraftMirror(itemstack);
 
 		CraftWorld craftWorld = (CraftWorld) player.getWorld();
 		CraftServer craftServer = (CraftServer) player.getServer();
 
-		Block blockClicked = clickedY > 255 ? null : craftWorld.getBlockAt(clickedX, clickedY, clickedZ);
+		Block blockClicked = craftWorld.getBlockAt(clickedX, clickedY, clickedZ);
 		BlockFace blockFace = CraftBlock.notchToBlockFace(clickedFace);
 
 		if (clickedY > 255) {
+			blockClicked = null;
 			switch (action) {
-			case LEFT_CLICK_BLOCK:
-				action = Action.LEFT_CLICK_AIR;
-				break;
-			case RIGHT_CLICK_BLOCK:
-				action = Action.RIGHT_CLICK_AIR;
-				break;
+				case LEFT_CLICK_BLOCK:
+					action = Action.LEFT_CLICK_AIR;
+					break;
+				case RIGHT_CLICK_BLOCK:
+					action = Action.RIGHT_CLICK_AIR;
+					break;
 			}
 		}
 
@@ -226,7 +224,7 @@ public class CraftEventFactory {
 
 		PlayerInteractEvent event = new PlayerInteractEvent(player, action, itemInHand, blockClicked, blockFace);
 		craftServer.getPluginManager().callEvent(event);
-
+        System.out.println(event.getPlayer());
 		return event;
 	}
 

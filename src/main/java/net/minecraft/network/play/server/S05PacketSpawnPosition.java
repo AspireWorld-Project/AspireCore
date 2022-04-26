@@ -10,9 +10,9 @@ import net.minecraft.network.play.INetHandlerPlayClient;
 import java.io.IOException;
 
 public class S05PacketSpawnPosition extends Packet {
-	private int field_149364_a;
-	private int field_149362_b;
-	private int field_149363_c;
+	public int field_149364_a;
+	public int field_149362_b;
+	public int field_149363_c;
 	private static final String __OBFID = "CL_00001336";
 
 	public S05PacketSpawnPosition() {

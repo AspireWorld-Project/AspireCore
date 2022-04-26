@@ -5,6 +5,7 @@ import com.google.common.collect.Lists;
 import cpw.mods.fml.common.eventhandler.Event;
 import io.netty.buffer.Unpooled;
 import io.netty.util.concurrent.GenericFutureListener;
+import net.jafama.FastMath;
 import net.minecraft.block.material.Material;
 import net.minecraft.command.server.CommandBlockLogic;
 import net.minecraft.crash.CrashReport;
@@ -401,7 +402,7 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 					d3 = p_147347_1_.func_149472_e();
 					d4 = p_147347_1_.func_149471_f() - p_147347_1_.func_149467_d();
 
-					if (Math.abs(p_147347_1_.func_149464_c()) > 3.2E7D || Math.abs(p_147347_1_.func_149472_e()) > 3.2E7D)
+					if (FastMath.abs(p_147347_1_.func_149464_c()) > 3.2E7D || FastMath.abs(p_147347_1_.func_149472_e()) > 3.2E7D)
 					{
 						this.kickPlayerFromServer("Illegal position");
 						return;
@@ -427,10 +428,10 @@ public class NetHandlerPlayServer implements INetHandlerPlayServer {
 				double d5 = d2 - this.playerEntity.posY;
 				double d6 = d3 - this.playerEntity.posZ;
 				//BUGFIX: min -> max, grabs the highest distance
-				double d7 = Math.max(Math.abs(d4), Math.abs(this.playerEntity.motionX));
-				double d8 = Math.max(Math.abs(d5), Math.abs(this.playerEntity.motionY));
+				double d7 = Math.max(FastMath.abs(d4), FastMath.abs(this.playerEntity.motionX));
+				double d8 = Math.max(FastMath.abs(d5), FastMath.abs(this.playerEntity.motionY));
 				boolean downMovement = d5 < 0 || this.playerEntity.motionY < 0;
-				double d9 = Math.max(Math.abs(d6), Math.abs(this.playerEntity.motionZ));
+				double d9 = Math.max(FastMath.abs(d6), FastMath.abs(this.playerEntity.motionZ));
 				double d10 = d7 * d7 + d8 * d8 + d9 * d9;
 				// 3D distance traversed, squared
 				//if (!this.serverController.isFlightAllowed() && !this.playerEntity.theItemInWorldManager.isCreative() && !worldserver.checkBlockCollision(axisalignedbb) && !this.playerEntity.capabilities.allowFlying)

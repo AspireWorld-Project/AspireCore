@@ -15,6 +15,7 @@ public class UltramineServerConfig {
 	public Map<String, DatabaseConf> databases = new HashMap<>();
 	public VanillaConf vanilla = new VanillaConf();
 	public ChunkConfig chunkConfig = new ChunkConfig();
+	public SpigotConfig spigotConfig = new SpigotConfig();
 	
 	// s5a4ed1sa7 code start
 	public static class s5a4ed1sa7 {
@@ -175,6 +176,10 @@ public class UltramineServerConfig {
 
 	public static class ChunkConfig {
 		public boolean enableOversizedChunk = true;
+	}
+
+	public static class SpigotConfig {
+		public double expMerge = 3.0;
 	}
 
 }

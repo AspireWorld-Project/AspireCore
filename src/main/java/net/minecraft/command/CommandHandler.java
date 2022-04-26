@@ -159,7 +159,7 @@ public class CommandHandler implements ICommandManager {
 			sender.addChatMessage(chatcomponenttranslation);
 			logger.error("Couldn't process command", throwable);
 		}
-		MinecraftServer.getServer().logInfo(sender.getCommandSenderName() + " tried to usage: " + line);
+		MinecraftServer.getServer().logInfo(sender.getCommandSenderName() + " tried to usage: /" + line);
 		return j;
 	}
 

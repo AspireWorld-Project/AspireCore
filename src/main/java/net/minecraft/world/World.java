@@ -15,6 +15,13 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.item.EntityXPOrb;
+import net.minecraft.entity.monster.EntityGhast;
+import net.minecraft.entity.monster.EntityGolem;
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntitySlime;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.passive.EntityWaterMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
@@ -59,6 +66,7 @@ import org.bukkit.event.weather.ThunderChangeEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.generator.ChunkGenerator;
 import org.ultramine.server.ServerLoadBalancer;
+import org.ultramine.server.UltramineServerConfig;
 import org.ultramine.server.WorldConstants;
 import org.ultramine.server.chunk.CallbackAddDependency;
 import org.ultramine.server.chunk.ChunkHash;
@@ -85,7 +93,7 @@ public abstract class World implements IBlockAccess {
 	public static double MAX_ENTITY_RADIUS = 2.0D;
 
 	public final MapStorage perWorldStorage;
-
+    public static final UltramineServerConfig serverConf = new UltramineServerConfig();
 	public boolean scheduledUpdatesAreImmediate;
 	@SuppressWarnings("rawtypes")
 	public List loadedEntityList = new ArrayList();
@@ -3889,13 +3897,20 @@ public abstract class World implements IBlockAccess {
 
 		if (entity instanceof EntityLivingBase && !(entity instanceof EntityPlayerMP)) {
 			// Cauldron start - add custom entity support
-			// boolean isAnimal = p_72838_1_ instanceof EntityAnimal || p_72838_1_
-			// instanceof EntityWaterMob || p_72838_1_ instanceof EntityGolem
-			// || p_72838_1_.isCreatureType(EnumCreatureType.creature, false);
-			// boolean isMonster = p_72838_1_ instanceof EntityMob || p_72838_1_ instanceof
-			// EntityGhast || p_72838_1_ instanceof EntitySlime
-			// || p_72838_1_.isCreatureType(EnumCreatureType.monster, false);
+			boolean isAnimal = entity instanceof EntityAnimal || entity instanceof EntityWaterMob || entity instanceof EntityGolem
+					|| entity.isCreatureType(EnumCreatureType.creature, false);
+			boolean isMonster = entity instanceof EntityMob || entity instanceof EntityGhast || entity instanceof EntitySlime
+					|| entity.isCreatureType(EnumCreatureType.monster, false);
 			// Cauldron end
+
+			if (spawnReason != CreatureSpawnEvent.SpawnReason.CUSTOM)
+			{
+				if (isAnimal && !spawnPeacefulMobs || isMonster && !spawnHostileMobs)
+				{
+					entity.isDead = true;
+					return false;
+				}
+			}
 
 			event = CraftEventFactory.callCreatureSpawnEvent((EntityLivingBase) entity, spawnReason);
 		} else if (entity instanceof EntityItem) {
@@ -3905,6 +3920,31 @@ public abstract class World implements IBlockAccess {
 			// instead
 			event = CraftEventFactory.callProjectileLaunchEvent(entity);
 		}
+		// Spigot start
+		else if (entity instanceof EntityXPOrb)
+		{
+			EntityXPOrb xp = (EntityXPOrb) entity;
+			double radius = serverConf.spigotConfig.expMerge; // Cauldron
+
+			if (radius > 0)
+			{
+				List<Entity> entities = this.getEntitiesWithinAABBExcludingEntity(entity, entity.boundingBox.expand(radius, radius, radius));
+
+				for (Entity e : entities)
+				{
+					if (e instanceof EntityXPOrb)
+					{
+						EntityXPOrb loopItem = (EntityXPOrb) e;
+
+						if (!loopItem.isDead)
+						{
+							xp.xpValue += loopItem.xpValue;
+							loopItem.setDead();
+						}
+					}
+				}
+			}
+		} // Spigot end
 
 		if (event != null && (event.isCancelled() || entity.isDead)) {
 			entity.isDead = true;
